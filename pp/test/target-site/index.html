@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Pebble · async task flow</title>
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<style>
+  :root { --bg:#0f0f0d; --fg:#f0ede3; --muted:#8a877d; --line:#2a2a26; --accent:#bce26c; }
+  *{box-sizing:border-box;font-family:-apple-system,system-ui,sans-serif}
+  body{margin:0;background:var(--bg);color:var(--fg);min-height:100vh}
+  header{display:flex;align-items:center;padding:14px 24px;border-bottom:1px solid var(--line)}
+  header b{font-weight:600}
+  header nav{margin-left:auto;display:flex;gap:18px;font-size:14px;color:var(--muted)}
+  header nav a{color:var(--muted);text-decoration:none}
+  header nav a:hover{color:var(--fg)}
+  main{display:grid;grid-template-columns:180px 1fr;min-height:calc(100vh - 51px)}
+  aside{border-right:1px solid var(--line);padding:12px;font-size:13px}
+  aside .item{padding:6px 10px;color:var(--muted);cursor:pointer;border-radius:4px}
+  aside .item.active{background:#1a1a17;color:var(--fg)}
+  section{padding:30px}
+  h1{font-size:26px;margin:0 0 14px;font-weight:500}
+  .tasks{display:flex;flex-direction:column;gap:6px;max-width:560px}
+  .task{display:flex;align-items:center;gap:10px;padding:10px 12px;background:#161613;border:1px solid var(--line);font-size:13px}
+  .task .check{width:14px;height:14px;border:1px solid var(--muted);flex-shrink:0}
+  .task.done .check{background:var(--muted)}
+  .task.done span{text-decoration:line-through;color:var(--muted)}
+  .add{margin-top:14px;display:flex;gap:8px;max-width:560px}
+  .add input{flex:1;padding:10px 12px;background:#161613;border:1px solid var(--line);color:var(--fg)}
+  .add button{padding:10px 18px;background:var(--accent);color:#0f0f0d;border:0;font-weight:600;cursor:pointer}
+  .empty{padding:60px 0;text-align:center;color:var(--muted)}
+</style>
+</head>
+<body>
+<header>
+  <b>Pebble</b>
+  <nav>
+    <a href="#today">Today</a>
+    <a href="#inbox">Inbox</a>
+    <a href="#projects">Projects</a>
+    <a href="#settings">Settings</a>
+  </nav>
+</header>
+<main>
+  <aside>
+    <div class="item active" id="nav-today">Today</div>
+    <div class="item" id="nav-inbox">Inbox</div>
+    <div class="item" id="nav-upcoming">Upcoming</div>
+    <div class="item" id="nav-projects">Projects</div>
+    <div class="item" id="nav-settings">Settings</div>
+  </aside>
+  <section>
+    <h1 id="page-title">Today</h1>
+    <div class="tasks" id="tasks">
+      <div class="task" data-id="1"><span class="check"></span><span>Review PR #421</span></div>
+      <div class="task done" data-id="2"><span class="check"></span><span>Align Monday standup agenda</span></div>
+      <div class="task" data-id="3"><span class="check"></span><span>Reply to Lars on the contract email</span></div>
+    </div>
+    <form class="add" id="addForm" onsubmit="return addTask(event)">
+      <input id="newTask" placeholder="Add a task…" />
+      <button type="submit">Add</button>
+    </form>
+  </section>
+</main>
+<script>
+  document.querySelectorAll('aside .item').forEach((el) => {
+    el.addEventListener('click', () => {
+      document.querySelectorAll('aside .item').forEach((x) => x.classList.remove('active'));
+      el.classList.add('active');
+      const t = el.textContent.trim();
+      document.getElementById('page-title').textContent = t;
+      if (t !== 'Today') {
+        document.getElementById('tasks').innerHTML = '<div class="empty">No tasks here yet.</div>';
+        document.getElementById('addForm').style.display = 'none';
+      } else {
+        location.reload();
+      }
+    });
+  });
+  document.querySelectorAll('.task').forEach((t) => {
+    t.querySelector('.check').addEventListener('click', () => t.classList.toggle('done'));
+  });
+  function addTask(e) {
+    e.preventDefault();
+    const v = document.getElementById('newTask').value.trim();
+    if (!v) return false;
+    const el = document.createElement('div');
+    el.className = 'task';
+    el.innerHTML = '<span class="check"></span><span>' + v.replace(/[<>]/g, '') + '</span>';
+    el.querySelector('.check').addEventListener('click', () => el.classList.toggle('done'));
+    document.getElementById('tasks').appendChild(el);
+    document.getElementById('newTask').value = '';
+    return false;
+  }
+</script>
+</body>
+</html>

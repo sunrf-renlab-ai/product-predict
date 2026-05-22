@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<title>Product Predict</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #0d0d0c;
+    --bg-1: #131311;
+    --bg-2: #1a1a17;
+    --bg-3: #232320;
+    --line: #2a2a26;
+    --line-2: #353530;
+    --fg: #f0ede3;
+    --fg-1: #d4d0c4;
+    --fg-2: #8a877d;
+    --fg-3: #56544c;
+    --accent: oklch(0.88 0.18 118);
+    --accent-dim: oklch(0.88 0.18 118 / 0.15);
+    --accent-fg: #0d0d0c;
+    --danger: oklch(0.72 0.18 28);
+    --warn: oklch(0.82 0.14 75);
+    --good: oklch(0.82 0.14 155);
+    --neutral: oklch(0.75 0.04 240);
+  }
+  html.light {
+    --bg: #f3f1ea;
+    --bg-1: #ece9df;
+    --bg-2: #e3dfd2;
+    --bg-3: #d6d2c4;
+    --line: #c8c3b3;
+    --line-2: #b2ad9c;
+    --fg: #1a1a17;
+    --fg-1: #2c2c27;
+    --fg-2: #56544c;
+    --fg-3: #8a877d;
+    --accent-fg: #0d0d0c;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); font-family: 'Geist', system-ui, sans-serif; font-feature-settings: "ss01", "ss02", "cv11"; }
+  body { min-height: 100vh; overflow: hidden; }
+  ::selection { background: var(--accent); color: var(--accent-fg); }
+  ::-webkit-scrollbar { width: 8px; height: 8px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--line); border-radius: 4px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--line-2); }
+
+  .mono { font-family: 'JetBrains Mono', ui-monospace, monospace; font-feature-settings: "ss02", "ss03", "zero"; }
+  .serif { font-family: 'Instrument Serif', serif; }
+
+  button { font-family: inherit; cursor: pointer; border: 0; background: transparent; color: inherit; padding: 0; }
+  input, textarea { font-family: inherit; color: inherit; background: transparent; border: 0; outline: 0; }
+
+  #root { height: 100vh; }
+
+  /* Subtle grain */
+  body::before {
+    content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 100;
+    background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.012) 1px, transparent 0);
+    background-size: 3px 3px;
+    mix-blend-mode: overlay;
+  }
+
+  @keyframes blink { 0%, 50% { opacity: 1; } 50.01%, 100% { opacity: 0; } }
+  .cursor-blink { animation: blink 1s steps(2) infinite; }
+
+  @keyframes pulse-ring {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(2.4); opacity: 0; }
+  }
+  .pulse-ring { animation: pulse-ring 1.8s ease-out infinite; }
+
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+  .shimmer {
+    background: linear-gradient(90deg, transparent 0%, var(--accent-dim) 50%, transparent 100%);
+    background-size: 200% 100%;
+    animation: shimmer 2s linear infinite;
+  }
+
+  @keyframes fade-in-up {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .fade-in-up { animation: fade-in-up 0.4s ease-out backwards; }
+
+  @keyframes slide-in {
+    from { opacity: 0; transform: translateX(-8px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  .slide-in { animation: slide-in 0.3s ease-out backwards; }
+</style>
+</head>
+<body>
+<div id="root">
+  <div id="__loading" style="position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#0d0d0c;color:#8a877d;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:1.4px;gap:14px;">
+    <div style="width:24px;height:24px;background:#f0ede3;position:relative;display:flex;align-items:center;justify-content:center;">
+      <div style="width:10px;height:10px;background:#0d0d0c;"></div>
+      <div style="position:absolute;top:-3px;right:-3px;width:7px;height:7px;background:oklch(0.88 0.18 118);"></div>
+    </div>
+    <div>PRODUCT PREDICT · COMPILING…</div>
+  </div>
+</div>
+<script>
+  // Strip loading screen once React mounts
+  const __stripLoader = new MutationObserver(() => {
+    const root = document.getElementById('root');
+    if (root && root.children.length > 1) {
+      const ld = document.getElementById('__loading');
+      if (ld) ld.remove();
+      __stripLoader.disconnect();
+    }
+  });
+  __stripLoader.observe(document.getElementById('root'), { childList: true, subtree: true });
+</script>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
+
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script src="data.js"></script>
+<script type="text/babel" src="shared.jsx"></script>
+<script type="text/babel" src="setup.jsx"></script>
+<script type="text/babel" src="agents.jsx"></script>
+<script type="text/babel" src="simulation.jsx"></script>
+<script type="text/babel" src="report.jsx"></script>
+<script type="text/babel" src="app.jsx"></script>
+</body>
+</html>

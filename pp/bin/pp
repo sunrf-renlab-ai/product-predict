@@ -1,0 +1,12 @@
+#!/usr/bin/env node
+import { fileURLToPath } from "node:url";
+import { dirname, resolve } from "node:path";
+import { spawnSync } from "node:child_process";
+
+const here = dirname(fileURLToPath(import.meta.url));
+const cli = resolve(here, "../src/cli.ts");
+
+// Run via tsx so users don't need a build step for v0.
+const tsx = resolve(here, "../node_modules/.bin/tsx");
+const r = spawnSync(tsx, [cli, ...process.argv.slice(2)], { stdio: "inherit" });
+process.exit(r.status ?? 1);

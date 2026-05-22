@@ -1,0 +1,30 @@
+# dependencies
+node_modules/
+package-lock.json.bak
+
+# build artifacts
+dist/
+*.tsbuildinfo
+
+# pp-specific: per-run artifacts (screenshots, large)
+pp/runs/
+pp/test/target-site/__pycache__/
+
+# original Anthropic Design bundle (binary input, available upstream)
+design.tar.gz
+
+# local config / secrets (defensive — pp reads from Keychain, not disk)
+.env
+.env.*
+*.key
+*.pem
+
+# OS / editor
+.DS_Store
+*.swp
+.vscode/
+.idea/
+
+# logs
+*.log
+/tmp/pp-*.log
