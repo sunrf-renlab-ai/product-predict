@@ -9,6 +9,7 @@ import { spawn } from "node:child_process";
 import { executeRun } from "./runner.js";
 import { writeReports } from "./report.js";
 import { providerInfo, simKeyCount, MOCK_MODE } from "./llm.js";
+import { ensurePlaywrightBrowser } from "./preflight.js";
 import { generatePresetPersonas } from "./persona-gen.js";
 import {
   derivePersonasFromBeta,
@@ -54,6 +55,7 @@ program
 
     console.log(`pp run ${url}`);
     printProvider();
+    if (!ensurePlaywrightBrowser()) process.exit(1);
 
     // 1. Resolve persona set.
     let set: PersonaSet;
@@ -280,7 +282,11 @@ function printProvider(): void {
   }
   try {
     const p = providerInfo();
-    console.log(`  provider=${p.name} · model=${p.model} · main=${p.mainKeyPrefix} · ${p.simKeyCount} sim key${p.simKeyCount === 1 ? "" : "s"}`);
+    if (p.name === "proxy") {
+      console.log(`  provider=cloud-proxy · ${p.baseURL} · ${p.simKeyCount} sim slots (hosted by sunrf-renlab-ai)`);
+    } else {
+      console.log(`  provider=${p.name} · model=${p.model} · main=${p.mainKeyPrefix} · ${p.simKeyCount} sim key${p.simKeyCount === 1 ? "" : "s"}`);
+    }
   } catch (e) {
     console.error(`✗ ${(e as Error).message}`);
     process.exit(1);

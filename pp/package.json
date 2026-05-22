@@ -1,7 +1,7 @@
 {
   "name": "product-predict",
-  "version": "0.1.0",
-  "description": "Predict product feedback by running synthetic users in a real browser.",
+  "version": "0.5.0",
+  "description": "User experience simulation: synthetic users in a real browser, persona-driven feedback.",
   "type": "module",
   "bin": {
     "pp": "./bin/pp"
@@ -9,7 +9,8 @@
   "scripts": {
     "dev": "tsx src/cli.ts",
     "build": "tsc -p .",
-    "start": "node dist/cli.js"
+    "start": "node dist/cli.js",
+    "postinstall": "playwright install chromium --with-deps 2>/dev/null || playwright install chromium || echo 'Chromium download skipped — pp will retry on first run'"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.32.1",

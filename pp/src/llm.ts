@@ -31,14 +31,20 @@ import { execSync } from "node:child_process";
 //   ANTHROPIC_API_KEY=sk-ant-... (real Anthropic, single key for both roles)
 
 type Provider = {
-  name: "anthropic" | "minimax";
+  name: "anthropic" | "minimax" | "proxy";
   baseURL?: string;
   model: string;
   pricePerMTokIn: number;
   pricePerMTokOut: number;
-  mainKey: string;
-  simKeys: string[];             // includes mainKey if no separate pool
+  mainKey: string;               // empty string if proxy mode
+  simKeys: string[];             // includes mainKey if no separate pool; empty if proxy
+  proxyURL?: string;              // set only in proxy mode
 };
+
+// Hosted cloud proxy URL — pp falls back to this when the user hasn't
+// configured any local MiniMax/Anthropic credentials. Overridable via
+// $PP_SIM_PROXY for self-hosting or pointing at a staging deployment.
+const DEFAULT_PROXY_URL = "https://product-predict.vercel.app/api/sim";
 
 let _provider: Provider | null = null;
 let _simIdx = 0;
@@ -104,19 +110,28 @@ function detectProvider(): Provider {
     return _provider;
   }
 
-  throw new Error(
-    "No LLM credentials found. Set one of:\n" +
-    "  export ANTHROPIC_API_KEY=sk-ant-...                   (real Anthropic)\n" +
-    "  export PP_MAIN_KEY=sk-cp-... PP_SIM_KEYS=sk-cp-...    (MiniMax inline)\n" +
-    `  security add-generic-password -s minimax-coding-plan -a $(whoami) \\\n` +
-    `    -w '{"main":"sk-cp-...","simulation":["sk-cp-...","sk-cp-..."]}'\n` +
-    "Or set PP_MOCK_LLM=1 to use the offline stub."
-  );
+  // No local credentials — fall through to the hosted proxy. This is the
+  // intended path for users who just `git clone` and run pp without setting
+  // up any keys: the cloud proxy attaches one of our sim keys per request.
+  _provider = {
+    name: "proxy",
+    baseURL: process.env.PP_SIM_PROXY || DEFAULT_PROXY_URL,
+    model: process.env.PP_MODEL || "MiniMax-M2.7",
+    pricePerMTokIn: 0,
+    pricePerMTokOut: 0,
+    mainKey: "",
+    simKeys: [],
+    proxyURL: process.env.PP_SIM_PROXY || DEFAULT_PROXY_URL,
+  };
+  return _provider;
 }
 
 type KeychainEntry = { main: string; simulation: string[] };
 
 function keychainMinimax(): KeychainEntry {
+  // Escape hatch — set PP_NO_KEYCHAIN=1 to skip the keychain probe entirely.
+  // Useful for testing the cloud-proxy fallback path and for non-macOS hosts.
+  if (process.env.PP_NO_KEYCHAIN === "1") return { main: "", simulation: [] };
   try {
     const out = execSync(
       `security find-generic-password -s minimax-coding-plan -w 2>/dev/null`,
@@ -158,13 +173,18 @@ export function providerInfo(): {
     name: p.name,
     model: p.model,
     baseURL: p.baseURL || "https://api.anthropic.com",
-    mainKeyPrefix: p.mainKey.slice(0, 14) + "…",
-    simKeyCount: p.simKeys.length,
+    mainKeyPrefix: p.mainKey ? p.mainKey.slice(0, 14) + "…" : "(proxy)",
+    simKeyCount: p.name === "proxy" ? 7 : p.simKeys.length,  // proxy advertises pool size
   };
 }
 
 export function simKeyCount(): number {
-  return detectProvider().simKeys.length;
+  const p = detectProvider();
+  // In proxy mode we don't know the upstream pool size (the server holds it).
+  // Advertise 7 — enough headroom for default persona counts without leaking.
+  // Override with PP_PROXY_POOL_SIZE if needed.
+  if (p.name === "proxy") return parseInt(process.env.PP_PROXY_POOL_SIZE || "7", 10);
+  return p.simKeys.length;
 }
 
 function clientForKey(key: string, baseURL?: string): Anthropic {
@@ -176,15 +196,22 @@ function clientForKey(key: string, baseURL?: string): Anthropic {
   return c;
 }
 
+// In proxy mode the upstream doesn't require an API key (the proxy attaches
+// one server-side). The Anthropic SDK still demands a non-empty apiKey, so we
+// pass a sentinel; the proxy ignores it.
+const PROXY_SENTINEL_KEY = "pp-proxy-no-key";
+
 // Main client — analysis work (persona gen, derive, wrap-up, aggregation).
 function mainClient(): Anthropic {
   const p = detectProvider();
+  if (p.name === "proxy") return clientForKey(PROXY_SENTINEL_KEY, p.proxyURL);
   return clientForKey(p.mainKey, p.baseURL);
 }
 
 // Sim client — round-robin across the simulation pool, one client per key.
 function simClient(): Anthropic {
   const p = detectProvider();
+  if (p.name === "proxy") return clientForKey(PROXY_SENTINEL_KEY, p.proxyURL);
   const key = p.simKeys[_simIdx % p.simKeys.length];
   _simIdx++;
   return clientForKey(key, p.baseURL);

@@ -10,6 +10,10 @@ dist/
 pp/runs/
 pp/test/target-site/__pycache__/
 
+# Next.js build cache
+web/.next/
+web/out/
+
 # original Anthropic Design bundle (binary input, available upstream)
 design.tar.gz
 

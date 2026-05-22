@@ -1,0 +1,1819 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<title>Product Predict · Report</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #0d0d0c;
+    --bg-1: #131311;
+    --bg-2: #1a1a17;
+    --bg-3: #232320;
+    --line: #2a2a26;
+    --line-2: #353530;
+    --fg: #f0ede3;
+    --fg-1: #d4d0c4;
+    --fg-2: #8a877d;
+    --fg-3: #56544c;
+    --accent: oklch(0.88 0.18 118);
+    --accent-dim: oklch(0.88 0.18 118 / 0.15);
+    --accent-fg: #0d0d0c;
+    --danger: oklch(0.72 0.18 28);
+    --warn: oklch(0.82 0.14 75);
+    --good: oklch(0.82 0.14 155);
+    --neutral: oklch(0.75 0.04 240);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); font-family: 'Geist', system-ui, sans-serif; font-feature-settings: "ss01", "ss02", "cv11"; }
+  body { min-height: 100vh; overflow: hidden; }
+  ::selection { background: var(--accent); color: var(--accent-fg); }
+  ::-webkit-scrollbar { width: 8px; height: 8px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--line); border-radius: 4px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--line-2); }
+
+  .mono { font-family: 'JetBrains Mono', ui-monospace, monospace; font-feature-settings: "ss02", "ss03", "zero"; }
+  .serif { font-family: 'Instrument Serif', serif; }
+
+  button { font-family: inherit; cursor: pointer; border: 0; background: transparent; color: inherit; padding: 0; }
+  input, textarea { font-family: inherit; color: inherit; background: transparent; border: 0; outline: 0; }
+
+  #root { height: 100vh; }
+
+  body::before {
+    content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 100;
+    background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.012) 1px, transparent 0);
+    background-size: 3px 3px;
+    mix-blend-mode: overlay;
+  }
+
+  @keyframes blink { 0%, 50% { opacity: 1; } 50.01%, 100% { opacity: 0; } }
+  .cursor-blink { animation: blink 1s steps(2) infinite; }
+  @keyframes pulse-ring { 0% { transform: scale(1); opacity: 1; } 100% { transform: scale(2.4); opacity: 0; } }
+  .pulse-ring { animation: pulse-ring 1.8s ease-out infinite; }
+  @keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+  .shimmer { background: linear-gradient(90deg, transparent 0%, var(--accent-dim) 50%, transparent 100%); background-size: 200% 100%; animation: shimmer 2s linear infinite; }
+  @keyframes fade-in-up { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+  .fade-in-up { animation: fade-in-up 0.4s ease-out backwards; }
+  @keyframes slide-in { from { opacity: 0; transform: translateX(-8px); } to { opacity: 1; transform: translateX(0); } }
+  .slide-in { animation: slide-in 0.3s ease-out backwards; }
+</style>
+</head>
+<body>
+<div id="root">
+  <div id="__loading" style="position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#0d0d0c;color:#8a877d;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:1.4px;gap:14px;">
+    <div style="width:24px;height:24px;background:#f0ede3;position:relative;display:flex;align-items:center;justify-content:center;">
+      <div style="width:10px;height:10px;background:#0d0d0c;"></div>
+      <div style="position:absolute;top:-3px;right:-3px;width:7px;height:7px;background:oklch(0.88 0.18 118);"></div>
+    </div>
+    <div>PRODUCT PREDICT · LOADING REPORT&hellip;</div>
+  </div>
+</div>
+
+<!-- Injected run.json (one large literal, replaced by report.ts when writing report.html) -->
+<script>window.__PP_RUN__ = {"id":"run-006","startedAt":"2026-05-22T03:41:31.024Z","finishedAt":"2026-05-22T03:49:37.123Z","target":{"url":"http://localhost:8908","title":"Pebble · async task flow","viewport":{"w":1280,"h":800}},"personaSetId":"pebble-todo","agents":[{"id":"a01-2","name":"Maya Chen","age":28,"role":"产品经理","tech":4,"tone":"挑剔","preferences":["重视协作","关注跨部门沟通","喜欢简洁 UI"],"knownContext":["每天用 Notion","试过 Linear，觉得 UI 过于开发向","团队 8 人"],"weight":0.3,"color":"#e6c976","glyph":"M","traits":["效率控","协作型"],"origin":"preset","crashed":false,"truncated":false,"exitReason":"frustrated","durationSec":100.657},{"id":"a01-1","name":"Maya Chen","age":28,"role":"产品经理","tech":4,"tone":"挑剔","preferences":["重视协作","关注跨部门沟通","喜欢简洁 UI"],"knownContext":["每天用 Notion","试过 Linear，觉得 UI 过于开发向","团队 8 人"],"weight":0.3,"color":"#e6c976","glyph":"M","traits":["效率控","协作型"],"origin":"preset","crashed":false,"truncated":false,"exitReason":"frustrated","durationSec":116.339},{"id":"a02-2","name":"Kenji Okada","age":34,"role":"软件工程师","tech":5,"tone":"好奇","preferences":["追求自动化","喜欢插件生态","关注可扩展性"],"knownContext":["使用 Trello 两年","最近尝试 Asana","团队 5 人"],"weight":0.2,"color":"#7fa1c4","glyph":"K","traits":["技术派","自动化爱好者"],"origin":"preset","crashed":false,"truncated":false,"exitReason":"explored","durationSec":114.14},{"id":"a02-1","name":"Kenji Okada","age":34,"role":"软件工程师","tech":5,"tone":"好奇","preferences":["追求自动化","喜欢插件生态","关注可扩展性"],"knownContext":["使用 Trello 两年","最近尝试 Asana","团队 5 人"],"weight":0.2,"color":"#7fa1c4","glyph":"K","traits":["技术派","自动化爱好者"],"origin":"preset","crashed":false,"truncated":false,"exitReason":"frustrated","durationSec":147.317},{"id":"a03","name":"李心怡","age":26,"role":"市场运营","tech":3,"tone":"怀疑","preferences":["关注易上手","担心学习成本","重视任务提醒"],"knownContext":["团队使用飞书","试过 Basecamp","团队 6 人"],"weight":0.15,"color":"#b5d8a8","glyph":"L","traits":["保守型","关注提醒"],"origin":"preset","crashed":false,"truncated":false,"exitReason":"explored","durationSec":106.733},{"id":"a04","name":"王磊","age":41,"role":"项目经理","tech":2,"tone":"急躁","preferences":["快速部署","需要批量导入","关注进度可视化"],"knownContext":["用 Asana 3 年","尝试 Monday.com","团队 12 人"],"weight":0.15,"color":"#e0a8c3","glyph":"W","traits":["进度导向","急迫感"],"origin":"preset","crashed":false,"truncated":false,"exitReason":"frustrated","durationSec":104.849},{"id":"a05","name":"Emma Liu","age":31,"role":"设计师","tech":3,"tone":"温和","preferences":["简洁界面","喜欢暗色模式","关注视觉一致性"],"knownContext":["使用 Notion 管理设计稿","偶尔用 Asana","团队 4 人"],"weight":0.2,"color":"#f5c16c","glyph":"E","traits":["设计敏感","简洁控"],"origin":"preset","crashed":false,"truncated":false,"exitReason":"frustrated","durationSec":148.328}],"activity":[{"t":"00:00:00","agent":"a01-2","kind":"enter","text":"进入 localhost:8908/","sentiment":0,"url":"http://localhost:8908/"},{"t":"00:00:00","agent":"a01-2","kind":"click","text":"看看首页长什么样","sentiment":0,"url":"http://localhost:8908/","shot":"shots/a01-2-00.jpg"},{"t":"00:00:00","agent":"a01-1","kind":"enter","text":"进入 localhost:8908/","sentiment":0,"url":"http://localhost:8908/"},{"t":"00:00:00","agent":"a01-1","kind":"observation","text":"看起来是个任务管理工具。顶部导航是 Today/Inbox/Projects/Settings，中间有个添加任务输入框，下方是任务列表。布局看起来比较干净。","sentiment":0,"shot":"shots/a01-1-00.jpg"},{"t":"00:00:00","agent":"a02-2","kind":"enter","text":"进入 localhost:8908/","sentiment":0,"url":"http://localhost:8908/"},{"t":"00:00:00","agent":"a02-2","kind":"click","text":"看看这个任务管理界面长什么样","sentiment":0,"url":"http://localhost:8908/","shot":"shots/a02-2-00.jpg"},{"t":"00:00:00","agent":"a02-1","kind":"enter","text":"进入 localhost:8908/","sentiment":0,"url":"http://localhost:8908/"},{"t":"00:00:00","agent":"a02-1","kind":"observation","text":"打开了一个任务管理页面，界面很简洁。有 Today、Inbox、Projects、Settings 导航，底部有个输入框可以添加任务。风格很干净，没有多余的东西。","sentiment":0,"shot":"shots/a02-1-00.jpg"},{"t":"00:00:00","agent":"a03","kind":"enter","text":"进入 localhost:8908/","sentiment":0,"url":"http://localhost:8908/"},{"t":"00:00:00","agent":"a04","kind":"enter","text":"进入 localhost:8908/","sentiment":0,"url":"http://localhost:8908/"},{"t":"00:00:00","agent":"a04","kind":"observation","text":"打开了一个看起来像任务管理的工具。顶部导航有 Today、Inbox、Projects、Settings，标准的待办/项目管理结构。主区域有个 \"Add a task...\" 输入框，够简洁。有点好奇这和 Asana/Monday 有什么不一样。","sentiment":0,"shot":"shots/a04-00.jpg"},{"t":"00:00:00","agent":"a05","kind":"enter","text":"进入 localhost:8908/","sentiment":0,"url":"http://localhost:8908/"},{"t":"00:00:00","agent":"a05","kind":"click","text":"Initial page load - looking around","sentiment":0,"url":"http://localhost:8908/","shot":"shots/a05-00.jpg"},{"t":"00:00:03","agent":"a03","kind":"observation","text":"看起来是个任务管理工具，界面挺简洁的。顶部有导航，Today/Inbox/Projects/Settings，下面是任务列表。有点 Basecamp 的感觉，但界面更干净。","sentiment":1,"shot":"shots/a03-00.jpg"},{"t":"00:03:52","agent":"a02-2","kind":"click","text":"测试添加任务功能 (typed: 测试任务 1)","sentiment":0,"shot":"shots/a02-2-01.jpg"},{"t":"00:07:31","agent":"a02-2","kind":"click","text":"添加刚输入的任务","sentiment":0,"url":"http://localhost:8908/","shot":"shots/a02-2-02.jpg"},{"t":"00:07:68","agent":"a04","kind":"click","text":"看看 Inbox 里有什么内容","sentiment":0,"url":"http://localhost:8908/","shot":"shots/a04-01.jpg"},{"t":"00:09:00","agent":"a03","kind":"observation","text":"9秒过去了，页面没变。我需要滚动或者做点什么，不能光盯着看。任务输入框在中间位置，这是个添加任务的入口。","sentiment":0,"shot":"shots/a03-01.jpg"},{"t":"00:10:77","agent":"a02-2","kind":"delight","text":"添加任务成功了，输入框清空了，交互很顺畅。基础功能看起来正常。","sentiment":2,"shot":"shots/a02-2-03.jpg"},{"t":"00:11:10","agent":"a04","kind":"confused","text":"操作失败 (note): expected number, got undefined","sentiment":-1},{"t":"00:11:51","agent":"a05","kind":"observation","text":"看到顶栏有 Today, Inbox, Projects, Settings，左侧有添加任务的输入框。背景是深色的，这点我挺喜欢。试试看能不能正常添加任务。","sentiment":1,"shot":"shots/a05-02.jpg"},{"t":"00:14:06","agent":"a01-1","kind":"confused","text":"滚动了一下但看起来页面内容没变，下面是空的？还是加载有问题？","sentiment":-1,"shot":"shots/a01-1-02.jpg"},{"t":"00:14:20","agent":"a04","kind":"click","text":"想快速添加一个任务测试功能","sentiment":0,"url":"http://localhost:8908/#inbox","shot":"shots/a04-03.jpg"},{"t":"00:15:04","agent":"a03","kind":"click","text":"想测试添加任务的功能","sentiment":0,"url":"http://localhost:8908/","shot":"shots/a03-02.jpg"},{"t":"00:15:46","agent":"a01-2","kind":"observation","text":"首页很干净，顶部导航 Today/Inbox/Projects/Settings，下面一个大输入框。风格简洁，有点 Notion 的影子但更轻量。","sentiment":1,"shot":"shots/a01-2-02.jpg"},{"t":"00:15:67","agent":"a01-1","kind":"click","text":"想看看Projects里有什么内容","sentiment":0,"url":"http://localhost:8908/","shot":"shots/a01-1-03.jpg"},{"t":"00:17:75","agent":"a02-1","kind":"click","text":"想测试添加任务功能是否正常工作","sentiment":0,"url":"http://localhost:8908/","shot":"shots/a02-1-01.jpg"},{"t":"00:17:80","agent":"a05","kind":"click","text":"Focus on the task input field to type a task","sentiment":0,"url":"http://localhost:8908/","shot":"shots/a05-03.jpg"},{"t":"00:18:50","agent":"a04","kind":"click","text":"作为项目经理，脑子里第一时间想到的是手头最急的任务 (typed: 完成项目进度报告)","sentiment":0,"shot":"shots/a04-04.jpg"},{"t":"00:18:87","agent":"a03","kind":"click","text":"添加一个任务测试功能 (typed: 完成市场报告)","sentiment":0,"shot":"shots/a03-03.jpg"},{"t":"00:19:32","agent":"a05","kind":"click","text":"Adding a test task to see how it works (typed: Design new landing page)","sentiment":0,"shot":"shots/a05-04.jpg"},{"t":"00:19:59","agent":"a01-1","kind":"confused","text":"点了Projects，URL变了(#projects)但页面内容完全没变，还是只有一个输入框。这是什么问题？内容没加载出来？","sentiment":-1,"shot":"shots/a01-1-04.jpg"},{"t":"00:20:33","agent":"a02-2","kind":"click","text":"看看 Inbox 里有没有刚添加的任务","sentiment":0,"url":"http://localhost:8908/","shot":"shots/a02-2-05.jpg"},{"t":"00:21:26","agent":"a01-2","kind":"click","text":"点输入框准备添加任务","sentiment":0,"url":"http://localhost:8908/","shot":"shots/a01-2-03.jpg"},{"t":"00:21:83","agent":"a04","kind":"click","text":"把任务添加到收件箱","sentiment":0,"url":"http://localhost:8908/#inbox","shot":"shots/a04-05.jpg"},{"t":"00:22:01","agent":"a02-1","kind":"click","text":"在输入框中输入一个测试任务 (typed: 测试任务：写代码)","sentiment":0,"shot":"shots/a02-1-02.jpg"},{"t":"00:22:76","agent":"a03","kind":"click","text":"提交添加的任务","sentiment":0,"url":"http://localhost:8908/","shot":"shots/a03-04.jpg"},{"t":"00:23:17","agent":"a05","kind":"click","text":"Submit the task by clicking Add button","sentiment":0,"url":"http://localhost:8908/","shot":"shots/a05-05.jpg"},{"t":"00:24:06","agent":"a01-2","kind":"click","text":"添加一个任务试试看 (typed: Review Q3 roadmap)","sentiment":0,"shot":"shots/a01-2-04.jpg"},{"t":"00:24:55","agent":"a04","kind":"confused","text":"操作失败 (note): expected number, got undefined","sentiment":-1},{"t":"00:25:11","agent":"a03","kind":"observation","text":"任务添加成功了，输入框清空了。任务应该保存到某个地方了。让我去 Inbox 看看任务是不是在那里。","sentiment":1,"shot":"shots/a03-05.jpg"},{"t":"00:26:82","agent":"a01-1","kind":"click","text":"想试试Inbox页面会不会不同","sentiment":0,"url":"http://localhost:8908/#projects","shot":"shots/a01-1-05.jpg"},{"t":"00:30:33","agent":"a01-2","kind":"click","text":"提交任务","sentiment":0,"url":"http://localhost:8908/","shot":"shots/a01-2-05.jpg"},{"t":"00:31:16","agent":"a03","kind":"click","text":"查看 Inbox 中的任务","sentiment":0,"url":"http://localhost:8908/","shot":"shots/a03-06.jpg"},{"t":"00:31:43","agent":"a02-2","kind":"click","text":"切换到 Today 视图","sentiment":0,"url":"http://localhost:8908/#inbox","shot":"shots/a02-2-07.jpg"},{"t":"00:31:83","agent":"a05","kind":"delight","text":"任务添加成功，输入框已经清空。看看 Today 页面是否有我刚加的任务。","sentiment":2,"shot":"shots/a05-06.jpg"},{"t":"00:32:21","agent":"a02-1","kind":"click","text":"提交刚输入的任务","sentiment":0,"url":"http://localhost:8908/","shot":"shots/a02-1-03.jpg"},{"t":"00:38:00","agent":"a01-1","kind":"rage","text":"三个导航都点过了，URL一直在变，但页面内容完全一样。这是个半成品吧？作为用户我不可能继续等，根本不知道这东西能干嘛。","sentiment":-2,"shot":"shots/a01-1-06.jpg"},{"t":"00:38:11","agent":"a01-2","kind":"confused","text":"添加任务后页面没有变化，任务去哪儿了？ 首页没有看到任务列表。","sentiment":0,"shot":"shots/a01-2-08.jpg"},{"t":"00:40:46","agent":"a03","kind":"click","text":"看看 Projects 里有什么","sentiment":0,"url":"http://localhost:8908/#inbox","shot":"shots/a03-08.jpg"},{"t":"00:40:86","agent":"a05","kind":"click","text":"Check if the task appeared in Today view","sentiment":0,"url":"http://localhost:8908/","shot":"shots/a05-07.jpg"},{"t":"00:41:31","agent":"a04","kind":"confused","text":"滚动了好几次页面内容完全没变化。我看不到任务列表在哪里。这个工具的任务展示逻辑是什么？加完任务后任务去哪了？","sentiment":-1,"shot":"shots/a04-09.jpg"},{"t":"00:42:44","agent":"a02-1","kind":"observation","text":"任务添加成功了，输入框已清空，说明任务被保存了。界面反应流畅，没有明显的加载延迟。","sentiment":1,"shot":"shots/a02-1-04.jpg"},{"t":"00:43:73","agent":"a02-2","kind":"click","text":"看看 Projects 里有什么","sentiment":0,"url":"http://localhost:8908/#today","shot":"shots/a02-2-09.jpg"},{"t":"00:46:10","agent":"a01-2","kind":"click","text":"想去 Inbox 查看刚添加的任务","sentiment":0,"url":"http://localhost:8908/","shot":"shots/a01-2-09.jpg"},{"t":"00:46:36","agent":"a04","kind":"click","text":"想看看 Projects 里有没有任务列表","sentiment":0,"url":"http://localhost:8908/#inbox","shot":"shots/a04-10.jpg"},{"t":"00:46:53","agent":"a01-1","kind":"click","text":"测试一下添加任务功能是否能正常工作","sentiment":0,"url":"http://localhost:8908/#inbox","shot":"shots/a01-1-07.jpg"},{"t":"00:47:85","agent":"a02-1","kind":"click","text":"想查看添加的任务在哪里显示","sentiment":0,"url":"http://localhost:8908/","shot":"shots/a02-1-05.jpg"},{"t":"00:47:90","agent":"a05","kind":"confused","text":"Today 页面是空的，我刚加的任务没出现。可能需要刷新或者在别的地方？去 Inbox 看看。","sentiment":-1,"shot":"shots/a05-09.jpg"},{"t":"00:50:89","agent":"a01-2","kind":"confused","text":"进入 Inbox 了，但页面和首页几乎一样，没看到我的任务\"Review Q3 roadmap\"。","sentiment":0,"shot":"shots/a01-2-10.jpg"},{"t":"00:51:13","agent":"a03","kind":"click","text":"想看看设置里有什么选项","sentiment":0,"url":"http://localhost:8908/#projects","shot":"shots/a03-10.jpg"},{"t":"00:51:74","agent":"a04","kind":"click","text":"试试 Today 视图","sentiment":0,"url":"http://localhost:8908/#projects","shot":"shots/a04-11.jpg"},{"t":"00:51:86","agent":"a05","kind":"click","text":"Check Inbox for the added task","sentiment":0,"url":"http://localhost:8908/#today","shot":"shots/a05-10.jpg"},{"t":"00:53:28","agent":"a01-2","kind":"click","text":"试试 Projects 页面","sentiment":0,"url":"http://localhost:8908/#inbox","shot":"shots/a01-2-11.jpg"},{"t":"00:55:78","agent":"a01-2","kind":"click","text":"看看 Settings 里有什么","sentiment":0,"url":"http://localhost:8908/#projects","shot":"shots/a01-2-12.jpg"},{"t":"00:58:27","agent":"a02-1","kind":"observation","text":"切换到 Inbox 视图了。页面还是只显示输入框，没有看到已添加的任务列表。可能需要滚动或者任务在别的地方显示。","sentiment":0,"shot":"shots/a02-1-06.jpg"},{"t":"00:59:59","agent":"a01-1","kind":"click","text":"输入一个任务试试看能不能添加 (typed: 测试任务)","sentiment":0,"shot":"shots/a01-1-08.jpg"},{"t":"00:59:78","agent":"a05","kind":"confused","text":"Inbox 也是空的，刚加的任务不见了。感觉有点奇怪，可能这个 demo 是预设数据，没有真正保存我加的内容。","sentiment":-1,"shot":"shots/a05-12.jpg"},{"t":"01:01:20","agent":"a01-2","kind":"click","text":"回到首页看看完整布局","sentiment":0,"url":"http://localhost:8908/#settings","shot":"shots/a01-2-13.jpg"},{"t":"01:02:45","agent":"a02-2","kind":"click","text":"看看设置里有什么","sentiment":0,"url":"http://localhost:8908/#projects","shot":"shots/a02-2-11.jpg"},{"t":"01:02:51","agent":"a01-1","kind":"click","text":"点击Add按钮提交任务","sentiment":0,"url":"http://localhost:8908/#inbox","shot":"shots/a01-1-09.jpg"},{"t":"01:03:44","agent":"a04","kind":"click","text":"看看设置里有什么功能","sentiment":0,"url":"http://localhost:8908/#today","shot":"shots/a04-12.jpg"},{"t":"01:04:81","agent":"a03","kind":"observation","text":"浏览了一圈后感觉这个工具比较基础。添加任务功能OK，但我在 Inbox 里没看到我刚添加的任务在哪里。Settings 页面也看不出有什么特别的配置项。可能需要更深入探索，但对于我们6人团队来说，这种简单工具可能功能不够。我们用飞书已经能满足基本需求了。","sentiment":0,"shot":"shots/a03-12.jpg"},{"t":"01:05:17","agent":"a02-1","kind":"click","text":"回 Today 页面查看任务列表","sentiment":0,"url":"http://localhost:8908/#inbox","shot":"shots/a02-1-08.jpg"},{"t":"01:05:53","agent":"a01-1","kind":"observation","text":"输入框清空了，说明添加任务成功了？不过我看不到任务列表在哪，有点奇怪。","sentiment":1,"shot":"shots/a01-1-10.jpg"},{"t":"01:12:69","agent":"a02-2","kind":"confused","text":"四个标签页切换了一遍，但看起来内容都是一样的 - 只有输入框和添加按钮。没有看到任何任务列表或者内容。这个任务管理器的 UI 非常 minimal，但我不确定是不是因为没有数据还是没有渲染出来。","sentiment":-1,"shot":"shots/a02-2-13.jpg"},{"t":"01:12:99","agent":"a01-2","kind":"rage","text":"四个页面来回点，视觉上一模一样——导航栏 + 输入框。任务存了没？存在哪儿了？完全没有反馈。我都不知道自己在用一个产品还是一块白板。","sentiment":-2,"shot":"shots/a01-2-14.jpg"},{"t":"01:16:00","agent":"a02-1","kind":"click","text":"想看看 Projects 页面有什么内容","sentiment":0,"url":"http://localhost:8908/#today","shot":"shots/a02-1-10.jpg"},{"t":"01:16:01","agent":"a01-2","kind":"exit","text":"首页只有导航栏和输入框，四个页面（Today/Inbox/Projects/Settings）视觉完全相同，看不到任何任务列表或数据。我添加了\"Review Q3 roadmap\"任务后，提交后页面毫无变化，不知道任务去了哪里。这个产品缺少最基本的可见状态反馈——我不知道它是正常工作还是根本就是空的。","sentiment":0,"shot":"shots/a01-2-15.jpg"},{"t":"01:16:97","agent":"a05","kind":"click","text":"Check Projects page to understand structure","sentiment":0,"url":"http://localhost:8908/#inbox","shot":"shots/a05-13.jpg"},{"t":"01:17:60","agent":"a03","kind":"exit","text":"简单浏览了一下这个任务管理工具。添加任务功能正常，但整体感觉比较基础，内容区域似乎没有太多实质内容。浏览了 Today、Inbox、Projects、Settings 四个页面，结构和 Basecamp 类似但更简洁。作为一个6人市场运营团队，我们已经在用飞书能满足大部分需求，这个工具感觉功能偏少，没有太多让人想切换过来的亮点。","sentiment":0,"shot":"shots/a03-13.jpg"},{"t":"01:22:61","agent":"a01-1","kind":"exit","text":"试用了这个任务管理工具，导航到不同页面（Today/Inbox/Projects）后内容完全没变化，看不到任务列表。尝试添加了一个任务\"测试任务\"后输入框被清空，但依然看不到任务显示在哪里。整体感觉是个半成品，核心功能完全不可用。","sentiment":0,"shot":"shots/a01-1-11.jpg"},{"t":"01:23:06","agent":"a02-2","kind":"exit","text":"浏览了这个任务管理器的四个页面（Today、Inbox、Projects、Settings）。添加任务功能可以工作，输入框会清空。但除了顶部的导航标签外，各页面看起来都是一样的 - 只有添加任务的输入框，没有看到任何任务列表或内容。这跟我用过的 Trello、Asana 差别很大，没有侧边栏、没有看板视图、没有任何视觉内容。可能是极度早期的 MVP，或者内容加载有问题。作为一个技术派用户，我对这种\"只有输入框\"的极简设计不感兴趣，除非它有很强的自动化或插件生态支撑，否则不会切换过来。","sentiment":0,"shot":"shots/a02-2-14.jpg"},{"t":"01:24:65","agent":"a02-1","kind":"click","text":"想看看 Settings 里有什么配置选项","sentiment":0,"url":"http://localhost:8908/#projects","shot":"shots/a02-1-11.jpg"},{"t":"01:24:67","agent":"a04","kind":"rage","text":"Settings 页面还是一样！导航栏点了完全没反应，内容区始终不变。我添加的任务去哪了？任务列表在哪里？这个工具的核心功能完全没有展示出来。跟 Asana 差太远了，连基本的任务列表都找不到。","sentiment":-3,"shot":"shots/a04-13.jpg"},{"t":"01:28:71","agent":"a05","kind":"click","text":"Check Settings for any configuration options","sentiment":0,"url":"http://localhost:8908/#projects","shot":"shots/a05-16.jpg"},{"t":"01:32:12","agent":"a04","kind":"exit","text":"尝试了添加任务和切换各个导航页面（Inbox、Projects、Today、Settings），但所有页面内容完全一样，看不到任何任务列表。添加的任务也不知道去哪了。这完全不符合一个任务管理工具的基本预期——用户看不到自己添加的任务在哪里。和用了3年的 Asana 比起来差距太大，完全无法上手。","sentiment":0,"shot":"shots/a04-14.jpg"},{"t":"01:37:98","agent":"a05","kind":"rage","text":"来回看了几个页面，内容都看不清或者空的。添加任务也没有任何反馈，感觉这 demo 可能有问题。作为设计师第一反应是觉得这界面太粗糙了，看不清实际内容。","sentiment":-2,"shot":"shots/a05-18.jpg"},{"t":"01:40:64","agent":"a01-2","kind":"note","text":"wrap-up 失败：Expected ',' or '}' after property value in JSON at position 155 (line 2 column 154)","sentiment":0},{"t":"01:46:44","agent":"a02-1","kind":"confused","text":"逛完了所有页面，但每个页面都只显示同样的输入框。没有看到任务列表、没有看板、没有项目分类。作为用过 Trello 和 Asana 的人，这个产品让我很困惑——我添加的任务去哪了？它真的保存了吗？感觉只是一个有四个空链接的单页应用。","sentiment":-1,"shot":"shots/a02-1-14.jpg"},{"t":"01:52:47","agent":"a05","kind":"exit","text":"尝试了这个任务管理应用，添加任务时输入框确实能清空，但添加的内容没有在任何页面显示（Today、Inbox、Projects 都是空的或看不清楚）。来回翻了几个页面，内容都模糊不清，作为设计师感觉这个 demo 可能有技术问题或者缺少数据，导致无法正常使用。黑暗模式的外观我挺喜欢，但功能没有体现出来，已放弃继续探索。","sentiment":0,"shot":"shots/a05-19.jpg"},{"t":"01:56:33","agent":"a01-1","kind":"note","text":"wrap-up 失败：Expected ',' or '}' after property value in JSON at position 588 (line 18 column 26)","sentiment":0},{"t":"01:57:56","agent":"a02-1","kind":"exit","text":"尝试了这个任务管理应用，添加了一个测试任务并浏览了所有页面（Today、Inbox、Projects、Settings）。问题是：每个页面看起来都一样，只有一个输入框，没有显示任务列表或任何看板。作为用过 Trello 和 Asana 的用户，这个产品让我很困惑——添加的任务去哪了？它甚至可能是个半成品。没有找到任何有价值的功能或内容。","sentiment":0,"shot":"shots/a02-1-15.jpg"}],"issues":[{"id":"i01","title":"四个页面内容完全一样，看不到任务列表","severity":"high","agents":1,"category":"与竞品对比","quote":"这跟我用过的 Trello、Asana 差别很大，没有侧边栏、没有看板视图、没有任何视觉内容","agentRef":"a02-2","evidence":4,"journey":"在 Today、Inbox、Projects、Settings 页面之间切换时"},{"id":"i03","title":"任务添加后消失了，没有地方能看到它","severity":"high","agents":1,"category":"信息架构","quote":"我刚才明明加了一个任务，它去哪了？Inbox 里什么都没有。","agentRef":"a02-1","evidence":3,"journey":"提交任务后 → 切换 Inbox 查看 → 还是只有输入框"},{"id":"i04","title":"四个导航项指向同一个空白页面，信息架构混乱","severity":"high","agents":1,"category":"信息架构","quote":"Today、Inbox、Projects、Settings 点开都是同一个界面？我是不是在用一个只有外壳的半成品？","agentRef":"a02-1","evidence":4,"journey":"依次点击 Today → Inbox → Projects → Settings，每个都只看到输入框"},{"id":"i05","title":"相比 Trello 的看板和 Asana 的任务列表，这个产品什么都没展示","severity":"high","agents":1,"category":"与竞品对比","quote":"Trello 至少让我看到卡片在哪里，Asana 有清晰的任务列表。这东西加完任务就石沉大海了。","agentRef":"a02-1","evidence":3,"journey":"在 Today/Inbox/Projects 中寻找已添加任务的痕迹"},{"id":"i06","title":"刚添加的任务在 Inbox 里找不到","severity":"high","agents":1,"category":"流程顺畅","quote":"我明明添加了任务，怎么在 Inbox 里看不到？是我操作有问题还是这功能有 bug？","agentRef":"a03","evidence":2,"journey":"在 Inbox 页面查找刚才添加的「完成市场报告」任务"},{"id":"i09","title":"导航栏点什么都没反应，页面内容纹丝不动","severity":"high","agents":1,"category":"可访问性","quote":"导航栏点了完全没反应，内容区始终不变。我点了 Today、Projects、Settings，跟没点一样。","agentRef":"a04","evidence":5,"journey":"在顶栏点击 Today / Inbox / Projects / Settings 导航项"},{"id":"i10","title":"任务加完就消失了，任务列表在哪完全找不到","severity":"high","agents":1,"category":"功能契合","quote":"加完任务后任务去哪了？任务列表在哪里？我翻来翻去找不到我刚加的那个任务。","agentRef":"a04","evidence":2,"journey":"输入'完成项目进度报告'并提交后，滚动页面寻找任务"},{"id":"i11","title":"操作直接报错，完全没有用户友好的错误提示","severity":"high","agents":1,"category":"可访问性","quote":"expected number, got undefined——这是给用户看的错误吗？我又不是程序员。","agentRef":"a04","evidence":2,"journey":"点击添加任务按钮时"},{"id":"i12","title":"刚加的任务凭空消失了，不知道去哪了","severity":"high","agents":1,"category":"功能契合","quote":"刚加的任务没出现。可能需要刷新或者在别的地方？去 Inbox 看看。","agentRef":"a05","evidence":2,"journey":"在 Today 页面添加任务后，刷新页面查看结果"},{"id":"i13","title":"页面内容模糊，看不清实际有什么","severity":"high","agents":1,"category":"视觉节奏","quote":"来回看了几个页面，内容都模糊不清，作为设计师感觉这个 demo 可能有技术问题或者缺少数据。","agentRef":"a05","evidence":4,"journey":"在 Today、Inbox、Projects、Settings 页面间切换"},{"id":"i02","title":"极简设计没有传递价值，不知道能做什么","severity":"med","agents":1,"category":"信息架构","quote":"可能是极度早期的 MVP，或者内容加载有问题。我不太确定是不是因为没有数据还是没有渲染出来","agentRef":"a02-2","evidence":1,"journey":"浏览完所有页面后产生的困惑"},{"id":"i07","title":"内容区域太空，没什么实质内容","severity":"med","agents":1,"category":"信息架构","quote":"导航看起来有四个入口，但点进去都差不多空，没有那种'这里有很多东西可以探索'的感觉。","agentRef":"a03","evidence":4,"journey":"浏览 Today、Inbox、Projects、Settings 页面后"},{"id":"i14","title":"缺少成功反馈，不知道自己操作对了没有","severity":"med","agents":1,"category":"情感氛围","quote":"添加任务也没有任何反馈，感觉这 demo 可能有问题。","agentRef":"a05","evidence":1,"journey":"点击 Add 按钮添加任务后"},{"id":"i08","title":"Settings 页面没有任何配置项","severity":"low","agents":1,"category":"功能契合","quote":"Settings 点进去就是空的 or 很少？连个账号设置都没有吗，感觉不太完整。","agentRef":"a03","evidence":1,"journey":"在 Settings 页面"}],"delights":[{"title":"添加任务功能流畅，输入框会清空","count":1,"quote":"添加任务成功了，输入框清空了，交互很顺畅","agent":"a02-2"},{"title":"界面风格简洁干净，视觉上没有噪音","count":1,"quote":"至少看起来不乱，没有乱七八糟的广告弹窗。","agent":"a02-1"},{"title":"输入框响应流畅，没有明显延迟","count":1,"quote":"打字和提交的时候挺顺的，没有卡顿。","agent":"a02-1"},{"title":"界面简洁，有点 Basecamp 影子但更干净","count":1,"quote":"第一印象不错，视觉上挺舒服的，没有花里胡哨的东西。","agent":"a03"},{"title":"添加任务操作流畅","count":1,"quote":"输入框打字提交，一秒就清空了，交互很顺。","agent":"a03"},{"title":"界面第一印象还行，够简洁","count":1,"quote":"界面看起来挺干净的，没有乱七八糟的东西，主区域有个 Add a task 输入框，够直接。","agent":"a04"},{"title":"暗色模式的外观挺喜欢的","count":1,"quote":"背景是深色的，这点我挺喜欢。","agent":"a05"},{"title":"输入框能正常清空，交互有响应","count":1,"quote":"任务添加成功，输入框已经清空。","agent":"a05"}],"features":[{"name":"添加任务","hitCount":5,"hitRate":0.7142857142857143,"completionRate":0.6,"avgSentiment":-0.2,"totalAttempts":6},{"name":"切换视图","hitCount":4,"hitRate":0.5714285714285714,"completionRate":0.5,"avgSentiment":-1.25,"totalAttempts":16},{"name":"查看任务列表","hitCount":3,"hitRate":0.42857142857142855,"completionRate":0.3333333333333333,"avgSentiment":-2,"totalAttempts":10},{"name":"切换导航","hitCount":1,"hitRate":0.14285714285714285,"completionRate":0,"avgSentiment":-3,"totalAttempts":5},{"name":"查看设置","hitCount":1,"hitRate":0.14285714285714285,"completionRate":1,"avgSentiment":-2,"totalAttempts":1},{"name":"浏览任务列表","hitCount":1,"hitRate":0.14285714285714285,"completionRate":0,"avgSentiment":-3,"totalAttempts":1}],"routesHeat":[{"path":"/","visits":48,"dwell":11,"drop":0.125}],"sentimentCurve":[{"t":0,"v":0.5111111111111112},{"t":5,"v":0.5555555555555556},{"t":10,"v":0.5},{"t":15,"v":0.4861111111111111},{"t":20,"v":0.5},{"t":25,"v":0.5666666666666667},{"t":30,"v":0.4166666666666667},{"t":35,"v":0.5},{"t":40,"v":0.47222222222222227},{"t":45,"v":0.5},{"t":50,"v":0.47222222222222227},{"t":55,"v":0.5555555555555556},{"t":60,"v":0.375},{"t":65,"v":0.5},{"t":70,"v":0.375},{"t":75,"v":0.5},{"t":80,"v":0.16666666666666666},{"t":85,"v":0.5},{"t":90,"v":0.3333333333333333},{"t":95,"v":0.5},{"t":100,"v":0.5}],"metrics":{"predictedNps":-3,"achievableNps":100,"taskSuccess":0.14285714285714285,"timeToValueSec":10.77,"rageClicks":4,"delightCount":2},"cost":{"tokensIn":367160,"tokensOut":13470,"usd":0}};</script>
+
+<!-- Data shim — fans out __PP_RUN__ into the globals the JSX expects. -->
+<script>
+// Data shim — exposes the globals the prototype JSX expects (PROJECT, AGENTS,
+// ACTIVITY, ISSUES, DELIGHTS, SENTIMENT_CURVE, ROUTES_HEAT, PAST_RUNS, RUN_META)
+// sourced from window.__PP_RUN__ (a real run.json injected by report.ts).
+//
+// When __PP_RUN__ is null we fall back to a minimal placeholder so the viewer
+// still renders an empty state instead of crashing.
+(function () {
+  var R = window.__PP_RUN__;
+  if (!R) {
+    window.PROJECT = { name: "(no run)", description: "Load a run.json to populate this view." };
+    window.AGENTS = [];
+    window.ACTIVITY = [];
+    window.ISSUES = [];
+    window.DELIGHTS = [];
+    window.SENTIMENT_CURVE = [];
+    window.ROUTES_HEAT = [];
+    window.PAST_RUNS = [];
+    window.RUN_META = null;
+    return;
+  }
+
+  window.PROJECT = {
+    name: R.target.title || R.target.url,
+    org: hostOf(R.target.url),
+    branch: "—",
+    commit: shortId(R.id),
+    stack: ["Web"],
+    description: R.target.url,
+    pages: countPages(R),
+    components: 0,
+    routes: (R.routesHeat || []).map(function (r) { return r.path; }),
+  };
+
+  window.AGENTS = R.agents || [];
+  window.ACTIVITY = R.activity || [];
+  window.ISSUES = R.issues || [];
+  window.DELIGHTS = R.delights || [];
+  window.FEATURES = R.features || [];
+  window.SENTIMENT_CURVE = R.sentimentCurve || [];
+  window.ROUTES_HEAT = R.routesHeat || [];
+  // Single-run viewer — recent runs is just this one for now.
+  window.PAST_RUNS = [{
+    id: "r-" + shortId(R.id),
+    name: R.target.title || R.target.url,
+    branch: "—",
+    commit: shortId(R.id),
+    agents: (R.agents || []).length,
+    status: "done",
+    time: fmtRelative(R.finishedAt),
+    score: R.metrics ? R.metrics.predictedNps : null,
+  }];
+
+  window.RUN_META = R;
+
+  function hostOf(url) {
+    try { return new URL(url).host; } catch { return "—"; }
+  }
+  function countPages(r) {
+    var paths = new Set();
+    (r.activity || []).forEach(function (e) {
+      if (e.url) { try { paths.add(new URL(e.url).pathname); } catch {} }
+    });
+    return paths.size || (r.routesHeat || []).length;
+  }
+  function shortId(id) { return String(id || "").replace(/^run-/, ""); }
+  function fmtRelative(iso) {
+    if (!iso) return "—";
+    var d = new Date(iso);
+    var min = Math.round((Date.now() - d.getTime()) / 60000);
+    if (min < 1) return "刚刚";
+    if (min < 60) return min + " 分钟前";
+    var hr = Math.round(min / 60);
+    if (hr < 24) return hr + " 小时前";
+    return Math.round(hr / 24) + " 天前";
+  }
+})();
+</script>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin="anonymous"></script>
+
+<script>
+const sevColor = (sev) => sev === "high" ? "var(--danger)" : sev === "med" ? "var(--warn)" : "var(--neutral)";
+const sentColor = (s) => s >= 2 ? "var(--good)" : s >= 1 ? "var(--good)" : s === 0 ? "var(--neutral)" : s >= -1 ? "var(--warn)" : "var(--danger)";
+function Pill({ children, color, style }) {
+  return /* @__PURE__ */ React.createElement("span", { className: "mono", style: {
+    display: "inline-flex",
+    alignItems: "center",
+    gap: 4,
+    padding: "2px 7px",
+    border: `1px solid ${color || "var(--line-2)"}`,
+    color: color || "var(--fg-2)",
+    borderRadius: 2,
+    fontSize: 10,
+    letterSpacing: 0.4,
+    textTransform: "uppercase",
+    ...style
+  } }, children);
+}
+function Dot({ color, size = 6, pulse = false }) {
+  return /* @__PURE__ */ React.createElement("span", { style: {
+    position: "relative",
+    display: "inline-block",
+    width: size,
+    height: size,
+    borderRadius: "50%",
+    background: color,
+    flexShrink: 0
+  } }, pulse && /* @__PURE__ */ React.createElement("span", { className: "pulse-ring", style: {
+    position: "absolute",
+    inset: 0,
+    borderRadius: "50%",
+    border: `1px solid ${color}`
+  } }));
+}
+function AgentAvatar({ agent, size = 28, ring = false }) {
+  if (!agent) return null;
+  return /* @__PURE__ */ React.createElement("div", { style: {
+    width: size,
+    height: size,
+    borderRadius: 2,
+    flexShrink: 0,
+    background: agent.color,
+    color: "#0d0d0c",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    fontFamily: "JetBrains Mono, monospace",
+    fontWeight: 600,
+    fontSize: size * 0.42,
+    letterSpacing: -0.3,
+    boxShadow: ring ? `0 0 0 2px var(--bg), 0 0 0 3px ${agent.color}` : "none"
+  } }, agent.glyph);
+}
+function MiniBar({ value, max = 5, width = 60 }) {
+  return /* @__PURE__ */ React.createElement("div", { style: { display: "flex", gap: 2, width } }, Array.from({ length: max }).map((_, i) => /* @__PURE__ */ React.createElement("div", { key: i, style: {
+    flex: 1,
+    height: 6,
+    background: i < value ? "var(--accent)" : "var(--line)"
+  } })));
+}
+function Section({ label, right, children, style }) {
+  return /* @__PURE__ */ React.createElement("section", { style: { ...style } }, /* @__PURE__ */ React.createElement("header", { style: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    padding: "12px 20px",
+    borderBottom: "1px solid var(--line)"
+  } }, /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 10, letterSpacing: 1.4, color: "var(--fg-2)", textTransform: "uppercase" } }, label), right), children);
+}
+function Btn({ children, variant = "ghost", onClick, style, icon, disabled }) {
+  const styles = {
+    primary: { background: "var(--accent)", color: "var(--accent-fg)", border: "1px solid var(--accent)" },
+    ghost: { background: "transparent", color: "var(--fg)", border: "1px solid var(--line-2)" },
+    solid: { background: "var(--bg-3)", color: "var(--fg)", border: "1px solid var(--line-2)" },
+    bare: { background: "transparent", color: "var(--fg-2)", border: "1px solid transparent" }
+  }[variant];
+  return /* @__PURE__ */ React.createElement("button", { onClick, disabled, style: {
+    ...styles,
+    padding: "8px 14px",
+    fontSize: 12,
+    fontWeight: 500,
+    letterSpacing: 0.2,
+    display: "inline-flex",
+    alignItems: "center",
+    gap: 8,
+    borderRadius: 2,
+    opacity: disabled ? 0.4 : 1,
+    transition: "all .15s ease",
+    ...style
+  } }, icon, children);
+}
+const Icon = {
+  arrow: /* @__PURE__ */ React.createElement("svg", { width: "12", height: "12", viewBox: "0 0 12 12" }, /* @__PURE__ */ React.createElement("path", { d: "M2 6h8M7 3l3 3-3 3", stroke: "currentColor", strokeWidth: "1.2", fill: "none", strokeLinecap: "round" })),
+  git: /* @__PURE__ */ React.createElement("svg", { width: "12", height: "12", viewBox: "0 0 12 12" }, /* @__PURE__ */ React.createElement("circle", { cx: "3", cy: "3", r: "1.5", stroke: "currentColor", fill: "none" }), /* @__PURE__ */ React.createElement("circle", { cx: "9", cy: "9", r: "1.5", stroke: "currentColor", fill: "none" }), /* @__PURE__ */ React.createElement("circle", { cx: "3", cy: "9", r: "1.5", stroke: "currentColor", fill: "none" }), /* @__PURE__ */ React.createElement("path", { d: "M3 4.5v3M4.5 9h3M4 4l5 5", stroke: "currentColor", strokeWidth: "1", fill: "none" })),
+  play: /* @__PURE__ */ React.createElement("svg", { width: "10", height: "10", viewBox: "0 0 10 10" }, /* @__PURE__ */ React.createElement("path", { d: "M2 1.5v7L8.5 5z", fill: "currentColor" })),
+  pause: /* @__PURE__ */ React.createElement("svg", { width: "10", height: "10", viewBox: "0 0 10 10" }, /* @__PURE__ */ React.createElement("path", { d: "M2.5 1.5h2v7h-2zM5.5 1.5h2v7h-2z", fill: "currentColor" })),
+  plus: /* @__PURE__ */ React.createElement("svg", { width: "10", height: "10", viewBox: "0 0 10 10" }, /* @__PURE__ */ React.createElement("path", { d: "M5 1v8M1 5h8", stroke: "currentColor", strokeWidth: "1.2" })),
+  check: /* @__PURE__ */ React.createElement("svg", { width: "10", height: "10", viewBox: "0 0 10 10" }, /* @__PURE__ */ React.createElement("path", { d: "M1.5 5.5l2.5 2.5L9 2", stroke: "currentColor", strokeWidth: "1.4", fill: "none" })),
+  close: /* @__PURE__ */ React.createElement("svg", { width: "10", height: "10", viewBox: "0 0 10 10" }, /* @__PURE__ */ React.createElement("path", { d: "M2 2l6 6M8 2l-6 6", stroke: "currentColor", strokeWidth: "1.2" })),
+  search: /* @__PURE__ */ React.createElement("svg", { width: "12", height: "12", viewBox: "0 0 12 12" }, /* @__PURE__ */ React.createElement("circle", { cx: "5", cy: "5", r: "3.5", stroke: "currentColor", fill: "none" }), /* @__PURE__ */ React.createElement("path", { d: "M7.5 7.5L10 10", stroke: "currentColor", strokeWidth: "1.2" }))
+};
+Object.assign(window, { Pill, Dot, AgentAvatar, MiniBar, Section, Btn, Icon, sevColor, sentColor });
+const { useState, useEffect } = React;
+function SetupView({ onStart }) {
+  const [url, setUrl] = useState("git@github.com:lumen-labs/pebble-app.git");
+  const [phase, setPhase] = useState("idle");
+  const [scanLog, setScanLog] = useState([]);
+  const [sourceTab, setSourceTab] = useState("git");
+  const [copiedKey, setCopiedKey] = useState(null);
+  const copy = (key, text) => {
+    navigator.clipboard?.writeText(text);
+    setCopiedKey(key);
+    setTimeout(() => setCopiedKey(null), 1400);
+  };
+  const handleScan = () => {
+    setPhase("scanning");
+    setScanLog([]);
+    const lines = [
+      "$ git clone --depth 50 " + url.split(":")[1],
+      "  Cloning into pebble-app/...",
+      "  Receiving objects: 100% (1,247/1,247), 4.2 MiB",
+      "$ pp scan ./pebble-app",
+      "  \u2192 detected: React 18 \xB7 Tailwind \xB7 Vite",
+      "  \u2192 routes: 14 \xB7 components: 87 \xB7 pages: 14",
+      "  \u2192 entry: src/main.tsx",
+      "  \u2192 building product graph...",
+      "  \u2192 graph: 87 nodes, 213 edges",
+      "  \u2713 ready for simulation"
+    ];
+    lines.forEach((line, i) => {
+      setTimeout(() => {
+        setScanLog((prev) => [...prev, line]);
+        if (i === lines.length - 1) setPhase("detected");
+      }, 280 + i * 240);
+    });
+  };
+  return /* @__PURE__ */ React.createElement("div", { style: { height: "100%", overflow: "auto", padding: "48px 56px 80px" } }, /* @__PURE__ */ React.createElement("div", { style: { maxWidth: 920, margin: "0 auto" } }, /* @__PURE__ */ React.createElement("div", { className: "mono fade-in-up", style: { fontSize: 10, letterSpacing: 1.6, color: "var(--fg-3)", textTransform: "uppercase", marginBottom: 24 } }, "New Predict Run \xB7 #043"), /* @__PURE__ */ React.createElement("h1", { className: "fade-in-up", style: {
+    fontSize: 56,
+    lineHeight: 1.05,
+    letterSpacing: -1.4,
+    margin: "0 0 8px",
+    fontWeight: 400,
+    textWrap: "balance"
+  } }, "\u628A ", /* @__PURE__ */ React.createElement("span", { className: "serif", style: { fontStyle: "italic", fontWeight: 400 } }, "\u5185\u6D4B"), " \u8FD9\u4EF6\u4E8B", /* @__PURE__ */ React.createElement("br", null), "\u538B\u7F29\u5230 ", /* @__PURE__ */ React.createElement("span", { style: { color: "var(--accent)" } }, "\u4E09\u5206\u949F"), "\u3002"), /* @__PURE__ */ React.createElement("p", { className: "fade-in-up", style: { animationDelay: "0.1s", fontSize: 15, color: "var(--fg-2)", maxWidth: 560, lineHeight: 1.6, marginBottom: 48 } }, "\u6254\u4E00\u4E2A git \u4ED3\u5E93\u8FDB\u6765\u3002\u6211\u4EEC\u7528\u4E00\u7EC4\u5408\u6210\u7528\u6237\u5728\u6C99\u76D2\u91CC\u8FD0\u884C\u5B83\uFF0C \u6536\u96C6\u72B9\u8C6B\u3001\u8BEF\u70B9\u3001\u62B1\u6028\u3001\u60CA\u559C\u3002", /* @__PURE__ */ React.createElement("span", { className: "mono", style: { fontSize: 12 } }, "~3 min"), " \u540E\u7ED9\u4F60\u4E00\u4EFD\u5E26\u8BC1\u636E\u94FE\u7684\u53CD\u9988\u62A5\u544A\u3002"), /* @__PURE__ */ React.createElement("div", { className: "fade-in-up", style: { animationDelay: "0.15s", marginBottom: 8 } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "flex-end", justifyContent: "space-between", marginBottom: 12 } }, /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 10, letterSpacing: 1.4, color: "var(--fg-3)", textTransform: "uppercase" } }, "Source \xB7 \u628A\u4EE3\u7801\u5582\u7ED9\u6211\u4EEC"), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", gap: 0, border: "1px solid var(--line-2)" } }, [
+    { id: "git", label: "Git URL", sub: "\u4E91\u7AEF\u62C9\u53D6" },
+    { id: "cli", label: "CLI \xB7 \u672C\u5730", sub: "pp run ." },
+    { id: "upload", label: "\u4E0A\u4F20 zip", sub: "\u2264 50 MB" }
+  ].map((tab, i) => /* @__PURE__ */ React.createElement("button", { key: tab.id, onClick: () => setSourceTab(tab.id), style: {
+    padding: "8px 14px",
+    borderRight: i < 2 ? "1px solid var(--line-2)" : 0,
+    background: sourceTab === tab.id ? "var(--bg-2)" : "transparent",
+    color: sourceTab === tab.id ? "var(--fg)" : "var(--fg-2)",
+    textAlign: "left"
+  } }, /* @__PURE__ */ React.createElement("div", { style: { fontSize: 12, fontWeight: 500 } }, tab.label), /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 9, color: "var(--fg-3)", marginTop: 2, letterSpacing: 0.4 } }, tab.sub))))), sourceTab === "git" && /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { style: {
+    display: "flex",
+    alignItems: "stretch",
+    border: "1px solid var(--line-2)",
+    background: "var(--bg-1)"
+  } }, /* @__PURE__ */ React.createElement("div", { style: { padding: "0 14px", display: "flex", alignItems: "center", color: "var(--fg-3)", borderRight: "1px solid var(--line)" } }, Icon.git), /* @__PURE__ */ React.createElement(
+    "input",
+    {
+      className: "mono",
+      value: url,
+      onChange: (e) => setUrl(e.target.value),
+      placeholder: "git@github.com:org/repo.git",
+      style: { flex: 1, padding: "16px 14px", fontSize: 13, color: "var(--fg)", letterSpacing: -0.2 }
+    }
+  ), /* @__PURE__ */ React.createElement(Btn, { variant: "primary", onClick: handleScan, disabled: phase === "scanning", style: { padding: "0 22px", borderRadius: 0, borderColor: "var(--accent)" }, icon: phase !== "scanning" && Icon.arrow }, phase === "scanning" ? "\u626B\u63CF\u4E2D\u2026" : phase === "detected" ? "\u91CD\u65B0\u626B\u63CF" : "\u626B\u63CF\u4ED3\u5E93")), /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 10, color: "var(--fg-3)", marginTop: 8, display: "flex", gap: 16 } }, /* @__PURE__ */ React.createElement("span", null, "\u2713 \u5DF2\u6388\u6743 GitHub \xB7 @ari"), /* @__PURE__ */ React.createElement("span", null, "\xB7 \u4ED3\u5E93\u987B\u5305\u542B package.json \u6216 Dockerfile"))), sourceTab === "cli" && /* @__PURE__ */ React.createElement(CLIPanel, { copiedKey, copy, onAttach: handleScan }), sourceTab === "upload" && /* @__PURE__ */ React.createElement("div", { style: {
+    border: "1px dashed var(--line-2)",
+    background: "var(--bg-1)",
+    padding: "40px 24px",
+    textAlign: "center",
+    color: "var(--fg-2)",
+    fontSize: 13
+  } }, /* @__PURE__ */ React.createElement("div", { style: { marginBottom: 8 } }, "\u62D6\u5165 .zip \u6216\u70B9\u51FB\u9009\u62E9"), /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 10, color: "var(--fg-3)" } }, "\u4E0D\u4E0A\u4F20 node_modules / .git / dist"))), scanLog.length > 0 && /* @__PURE__ */ React.createElement("div", { className: "mono fade-in-up", style: {
+    marginTop: 24,
+    background: "var(--bg-1)",
+    border: "1px solid var(--line)",
+    padding: "16px 18px",
+    fontSize: 12,
+    lineHeight: 1.8,
+    color: "var(--fg-1)",
+    minHeight: 200,
+    maxHeight: 280,
+    overflow: "auto"
+  } }, scanLog.map((line, i) => /* @__PURE__ */ React.createElement("div", { key: i, className: "slide-in", style: { color: line.startsWith("$") ? "var(--accent)" : line.startsWith("  \u2713") ? "var(--good)" : "var(--fg-1)" } }, line)), phase === "scanning" && /* @__PURE__ */ React.createElement("span", { className: "cursor-blink", style: { display: "inline-block", width: 7, height: 14, background: "var(--accent)", verticalAlign: "middle", marginLeft: 2 } })), phase === "detected" && /* @__PURE__ */ React.createElement("div", { className: "fade-in-up", style: { marginTop: 32 } }, /* @__PURE__ */ React.createElement("div", { style: {
+    border: "1px solid var(--line-2)",
+    background: "var(--bg-1)",
+    display: "grid",
+    gridTemplateColumns: "1fr 1fr 1fr 1fr",
+    borderBottom: 0
+  } }, /* @__PURE__ */ React.createElement(KV, { label: "Repo", value: "lumen-labs/pebble-app" }), /* @__PURE__ */ React.createElement(KV, { label: "Branch", value: "main" }), /* @__PURE__ */ React.createElement(KV, { label: "Commit", value: "f9c2a1e", mono: true }), /* @__PURE__ */ React.createElement(KV, { label: "Stack", value: "React \xB7 Tailwind \xB7 Vite" })), /* @__PURE__ */ React.createElement("div", { style: {
+    border: "1px solid var(--line-2)",
+    padding: "20px 24px",
+    display: "grid",
+    gridTemplateColumns: "auto 1fr auto",
+    gap: 24,
+    alignItems: "center",
+    background: "var(--bg-2)"
+  } }, /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { style: { fontSize: 18, fontWeight: 500, marginBottom: 4 } }, "Pebble"), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 13, color: "var(--fg-2)" } }, "\u56E2\u961F\u5F85\u529E \xB7 \u5F02\u6B65\u4EFB\u52A1\u6D41")), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", gap: 20, justifyContent: "center" } }, /* @__PURE__ */ React.createElement(Stat, { n: "14", l: "ROUTES" }), /* @__PURE__ */ React.createElement(Stat, { n: "87", l: "COMPONENTS" }), /* @__PURE__ */ React.createElement(Stat, { n: "213", l: "EDGES" })), /* @__PURE__ */ React.createElement(Btn, { variant: "primary", onClick: onStart, icon: Icon.arrow }, "\u914D\u7F6E Agent \u9762\u677F"))), /* @__PURE__ */ React.createElement("div", { style: { marginTop: 56, display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 1, background: "var(--line)", border: "1px solid var(--line)" } }, [
+    { n: "01", t: "\u6784\u9020\u5408\u6210\u7528\u6237", d: "\u4ECE\u4F60\u63D0\u4F9B\u7684\u771F\u5B9E\u5185\u6D4B\u6570\u636E\u4E2D\u84B8\u998F\u753B\u50CF\uFF1B\u6216\u4F7F\u7528\u6211\u4EEC\u7684\u4EBA\u7FA4\u9884\u8BBE\u3002\u6BCF\u4E2A agent \u6709\u5B8C\u6574\u7684\u8BA4\u77E5\u6A21\u578B\u4E0E\u76EE\u6807\u3002" },
+    { n: "02", t: "\u6C99\u76D2\u4E2D\u8FD0\u884C\u4EA7\u54C1", d: "\u5728\u9694\u79BB\u7684\u6D4F\u89C8\u5668\u5B9E\u4F8B\u91CC\u90E8\u7F72\u4F60\u7684 build\u3002Agent \u5B9E\u9645\u70B9\u51FB\u3001\u8F93\u5165\u3001\u72B9\u8C6B\u3001\u62B1\u6028\uFF0C\u8FC7\u7A0B\u53EF\u56DE\u653E\u3002" },
+    { n: "03", t: "\u8BC1\u636E\u94FE\u53CD\u9988", d: "\u4E0D\u53EA\u662F\u300C\u7528\u6237\u89C9\u5F97\u4E0D\u597D\u300D\uFF0C\u6BCF\u6761\u5EFA\u8BAE\u90FD\u9644\u5E26\u89E6\u53D1\u4E8B\u4EF6\u3001agent \u5F15\u8BED\u3001\u5C4F\u5E55\u5750\u6807\u4E0E\u56DE\u653E\u7247\u6BB5\u3002" }
+  ].map((step) => /* @__PURE__ */ React.createElement("div", { key: step.n, style: { background: "var(--bg-1)", padding: "20px 22px" } }, /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 10, color: "var(--accent)", letterSpacing: 1.4, marginBottom: 10 } }, step.n), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 14, fontWeight: 500, marginBottom: 6 } }, step.t), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 12, color: "var(--fg-2)", lineHeight: 1.55 } }, step.d))))));
+}
+function KV({ label, value, mono }) {
+  return /* @__PURE__ */ React.createElement("div", { style: { padding: "14px 20px", borderRight: "1px solid var(--line)", borderTop: "1px solid var(--line-2)" } }, /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 9, letterSpacing: 1.4, color: "var(--fg-3)", textTransform: "uppercase", marginBottom: 4 } }, label), /* @__PURE__ */ React.createElement("div", { className: mono ? "mono" : "", style: { fontSize: 13, color: "var(--fg)" } }, value));
+}
+function Stat({ n, l }) {
+  return /* @__PURE__ */ React.createElement("div", { style: { textAlign: "center" } }, /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 22, color: "var(--fg)", fontWeight: 500, lineHeight: 1 } }, n), /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 9, color: "var(--fg-3)", letterSpacing: 1.4, marginTop: 4 } }, l));
+}
+Object.assign(window, { SetupView });
+function CLIPanel({ copiedKey, copy, onAttach }) {
+  const [shell, setShell] = useState("brew");
+  const installCmds = {
+    brew: "brew install lumen-labs/tap/pp",
+    npm: "npm i -g @lumen-labs/product-predict",
+    curl: "curl -fsSL https://pp.dev/install | sh"
+  };
+  return /* @__PURE__ */ React.createElement("div", { style: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 } }, /* @__PURE__ */ React.createElement("div", { style: { border: "1px solid var(--line-2)", background: "var(--bg-1)" } }, /* @__PURE__ */ React.createElement("div", { style: { padding: "10px 16px", borderBottom: "1px solid var(--line)", display: "flex", justifyContent: "space-between", alignItems: "center" } }, /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 10, letterSpacing: 1.4, color: "var(--fg-2)" } }, "01 \xB7 INSTALL"), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", gap: 0 } }, Object.keys(installCmds).map((s) => /* @__PURE__ */ React.createElement("button", { key: s, onClick: () => setShell(s), className: "mono", style: {
+    fontSize: 10,
+    padding: "3px 10px",
+    letterSpacing: 0.4,
+    background: shell === s ? "var(--bg-3)" : "transparent",
+    color: shell === s ? "var(--fg)" : "var(--fg-3)",
+    borderLeft: "1px solid var(--line-2)"
+  } }, s)))), /* @__PURE__ */ React.createElement("div", { style: { padding: "14px 16px", display: "flex", alignItems: "center", gap: 10 } }, /* @__PURE__ */ React.createElement("span", { style: { color: "var(--accent)", fontFamily: "JetBrains Mono", fontSize: 12 } }, "$"), /* @__PURE__ */ React.createElement("code", { className: "mono", style: { flex: 1, fontSize: 12.5, color: "var(--fg)", letterSpacing: -0.2 } }, installCmds[shell]), /* @__PURE__ */ React.createElement("button", { onClick: () => copy("install", installCmds[shell]), className: "mono", style: {
+    fontSize: 10,
+    color: copiedKey === "install" ? "var(--accent)" : "var(--fg-3)",
+    padding: "3px 8px",
+    border: "1px solid var(--line-2)",
+    letterSpacing: 0.4
+  } }, copiedKey === "install" ? "\u2713 COPIED" : "COPY")), /* @__PURE__ */ React.createElement("div", { className: "mono", style: { padding: "0 16px 14px", fontSize: 10, color: "var(--fg-3)", lineHeight: 1.6 } }, "\u5B89\u88C5\u540E ", /* @__PURE__ */ React.createElement("span", { style: { color: "var(--fg-1)" } }, "pp"), " \u547D\u4EE4\u5C06\u5728\u4F60\u7684 PATH \u4E2D\u53EF\u7528\u3002", /* @__PURE__ */ React.createElement("br", null), "\u9996\u6B21\u8FD0\u884C\u4F1A\u8BA9\u4F60\u5728\u6D4F\u89C8\u5668\u91CC\u6388\u6743\u8D26\u53F7\u3002")), /* @__PURE__ */ React.createElement("div", { style: { border: "1px solid var(--line-2)", background: "var(--bg-1)" } }, /* @__PURE__ */ React.createElement("div", { style: { padding: "10px 16px", borderBottom: "1px solid var(--line)", display: "flex", justifyContent: "space-between", alignItems: "center" } }, /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 10, letterSpacing: 1.4, color: "var(--fg-2)" } }, "02 \xB7 \u5728\u9879\u76EE\u76EE\u5F55\u91CC\u8FD0\u884C"), /* @__PURE__ */ React.createElement("span", { className: "mono", style: { fontSize: 9, color: "var(--fg-3)" } }, "~/code/pebble-app")), /* @__PURE__ */ React.createElement("div", { className: "mono", style: { padding: "12px 16px", fontSize: 12, lineHeight: 1.8, color: "var(--fg-1)" } }, /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("span", { style: { color: "var(--accent)" } }, "$"), " cd ~/code/pebble-app"), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("span", { style: { color: "var(--accent)" } }, "$"), " pp run . ", /* @__PURE__ */ React.createElement("span", { style: { color: "var(--fg-3)" } }, "--agents 24 --scenario first_session")), /* @__PURE__ */ React.createElement("div", { style: { color: "var(--fg-3)" } }, "  \u21B3 \u6C99\u76D2\u4E2D\u90E8\u7F72\u672C\u5730 build \xB7 24 agents \u6392\u961F"), /* @__PURE__ */ React.createElement("div", { style: { color: "var(--fg-3)" } }, "  \u21B3 \u5B9E\u65F6\u9762\u677F: ", /* @__PURE__ */ React.createElement("span", { style: { color: "var(--accent)" } }, "https://pp.dev/r/043"))), /* @__PURE__ */ React.createElement("div", { style: { padding: "0 16px 14px", display: "flex", alignItems: "center", justifyContent: "space-between" } }, /* @__PURE__ */ React.createElement("span", { className: "mono", style: { fontSize: 10, color: "var(--fg-3)" } }, "\u5DF2\u68C0\u6D4B\u5230\u672C\u673A pp \xB7 v0.4.2"), /* @__PURE__ */ React.createElement("button", { onClick: onAttach, className: "mono", style: {
+    fontSize: 10,
+    color: "var(--accent)",
+    letterSpacing: 0.6,
+    padding: "3px 8px",
+    border: "1px solid var(--accent)"
+  } }, "\u6302\u8F7D\u672C\u5730\u8FD0\u884C \u2192"))), /* @__PURE__ */ React.createElement("div", { style: { gridColumn: "1 / -1", border: "1px solid var(--line-2)", background: "var(--bg-1)" } }, /* @__PURE__ */ React.createElement("div", { style: { padding: "10px 16px", borderBottom: "1px solid var(--line)", display: "flex", alignItems: "center", justifyContent: "space-between" } }, /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 10, letterSpacing: 1.4, color: "var(--fg-2)" } }, "03 \xB7 \u5728 Claude Code / Cursor / Codex \u91CC\u76F4\u63A5\u8C03\u7528"), /* @__PURE__ */ React.createElement(Pill, { color: "var(--accent)", style: { background: "var(--accent-dim)" } }, "MCP READY")), /* @__PURE__ */ React.createElement("div", { style: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: 0 } }, /* @__PURE__ */ React.createElement("div", { style: { padding: "12px 16px", borderRight: "1px solid var(--line)" } }, /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 9, color: "var(--fg-3)", letterSpacing: 1.2, marginBottom: 6 } }, "~/.claude/mcp.json"), /* @__PURE__ */ React.createElement("pre", { className: "mono", style: { margin: 0, fontSize: 11.5, color: "var(--fg-1)", lineHeight: 1.6, whiteSpace: "pre-wrap" } }, `{
+  "product-predict": {
+    "command": "pp",
+    "args": ["mcp"]
+  }
+}`)), /* @__PURE__ */ React.createElement("div", { style: { padding: "12px 16px" } }, /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 9, color: "var(--fg-3)", letterSpacing: 1.2, marginBottom: 6 } }, "\u5728\u5BF9\u8BDD\u91CC\u8FD9\u6837\u8BF4"), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 12.5, color: "var(--fg)", lineHeight: 1.6, fontStyle: "italic" } }, "\u201C\u5E2E\u6211\u7528 product-predict \u8DD1\u4E00\u904D\u5F53\u524D\u5206\u652F\uFF0C", /* @__PURE__ */ React.createElement("br", null), "\u7528 24 \u4E2A agent \u91CD\u70B9\u6D4B onboarding \u6D41\u7A0B\uFF0C", /* @__PURE__ */ React.createElement("br", null), "\u62FF\u5230\u62A5\u544A\u540E\u76F4\u63A5\u4FEE high severity \u7684\u95EE\u9898\u3002\u201D"), /* @__PURE__ */ React.createElement("div", { className: "mono", style: { marginTop: 10, fontSize: 10, color: "var(--accent)" } }, "\u2192 Claude \u8C03\u7528 pp.run() \u2192 \u7B49 ~3 \u5206\u949F \u2192 \u62FF\u5230 AI \u4FEE\u590D\u5305 \u2192 \u76F4\u63A5 apply")))));
+}
+const { useState: useStateA } = React;
+function AgentsView({ onStart, onBack, agentCount }) {
+  const visibleAgents = AGENTS.slice(0, Math.min(agentCount, AGENTS.length));
+  const [selected, setSelected] = useStateA(visibleAgents.map((a) => a.id));
+  const [sourceMode, setSourceMode] = useStateA("preset");
+  const [scenario, setScenario] = useStateA("first_session");
+  const allIds = visibleAgents.map((a) => a.id);
+  const allOn = selected.length === allIds.length;
+  return /* @__PURE__ */ React.createElement("div", { style: { height: "100%", display: "grid", gridTemplateColumns: "1fr 360px", overflow: "hidden" } }, /* @__PURE__ */ React.createElement("div", { style: { overflow: "auto", padding: "32px 40px 80px" } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 4 } }, /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 10, letterSpacing: 1.6, color: "var(--fg-3)", textTransform: "uppercase", marginBottom: 8 } }, "Step 02 \xB7 Agent Panel"), /* @__PURE__ */ React.createElement("h2", { style: { fontSize: 32, letterSpacing: -0.6, margin: 0, fontWeight: 400 } }, "\u6311\u9009\u8981\u6254\u8FDB\u6C99\u76D2\u7684 ", /* @__PURE__ */ React.createElement("span", { style: { color: "var(--accent)" } }, selected.length), " \u4F4D\u5408\u6210\u7528\u6237")), /* @__PURE__ */ React.createElement("button", { onClick: () => setSelected(allOn ? [] : allIds), className: "mono", style: {
+    fontSize: 11,
+    color: "var(--fg-2)",
+    border: "1px solid var(--line-2)",
+    padding: "6px 12px",
+    letterSpacing: 0.4
+  } }, allOn ? "\u6E05\u7A7A\u9009\u62E9" : "\u5168\u9009")), /* @__PURE__ */ React.createElement("p", { style: { color: "var(--fg-2)", fontSize: 13, marginTop: 12, marginBottom: 28, maxWidth: 560 } }, "\u6BCF\u4E2A agent \u6709\u72EC\u7ACB\u7684\u76EE\u6807\u3001\u6280\u672F\u719F\u7EC3\u5EA6\u3001\u6CE8\u610F\u529B\u6A21\u578B\u4E0E\u60C5\u7EEA\u57FA\u7EBF\u3002 \u70B9\u51FB\u5361\u7247\u5207\u6362\u662F\u5426\u53C2\u4E0E\uFF1B\u70B9\u5934\u50CF\u53EF\u4EE5\u9884\u89C8\u753B\u50CF\u3002"), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", gap: 0, marginBottom: 20, border: "1px solid var(--line-2)", width: "fit-content" } }, [
+    { id: "preset", label: "\u4EBA\u7FA4\u9884\u8BBE", sub: "12 \u4E2A\u753B\u50CF" },
+    { id: "data", label: "\u4ECE\u5185\u6D4B\u6570\u636E\u751F\u6210", sub: "\u9700 \u226550 \u771F\u5B9E\u7528\u6237" },
+    { id: "mix", label: "\u6DF7\u5408", sub: "\u9884\u8BBE + \u6570\u636E" }
+  ].map((m) => /* @__PURE__ */ React.createElement("button", { key: m.id, onClick: () => setSourceMode(m.id), style: {
+    padding: "10px 16px",
+    borderRight: "1px solid var(--line-2)",
+    background: sourceMode === m.id ? "var(--bg-2)" : "transparent",
+    color: sourceMode === m.id ? "var(--fg)" : "var(--fg-2)",
+    textAlign: "left"
+  } }, /* @__PURE__ */ React.createElement("div", { style: { fontSize: 12, fontWeight: 500 } }, m.label), /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 10, color: "var(--fg-3)", marginTop: 2 } }, m.sub)))), /* @__PURE__ */ React.createElement("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(240px, 1fr))", gap: 1, background: "var(--line)", border: "1px solid var(--line)" } }, visibleAgents.map((a, i) => {
+    const isOn = selected.includes(a.id);
+    return /* @__PURE__ */ React.createElement(
+      "div",
+      {
+        key: a.id,
+        onClick: () => setSelected((s) => isOn ? s.filter((x) => x !== a.id) : [...s, a.id]),
+        className: "fade-in-up",
+        style: {
+          background: "var(--bg-1)",
+          padding: "16px 16px 14px",
+          cursor: "pointer",
+          position: "relative",
+          opacity: isOn ? 1 : 0.35,
+          animationDelay: `${i * 0.025}s`,
+          transition: "opacity .15s ease, background .15s ease"
+        }
+      },
+      /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "flex-start", gap: 10, marginBottom: 12 } }, /* @__PURE__ */ React.createElement(AgentAvatar, { agent: a, size: 32 }), /* @__PURE__ */ React.createElement("div", { style: { flex: 1, minWidth: 0 } }, /* @__PURE__ */ React.createElement("div", { style: { fontSize: 13, fontWeight: 500, lineHeight: 1.2 } }, a.name), /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 10, color: "var(--fg-3)", marginTop: 2 } }, a.age, " \xB7 ", a.role)), /* @__PURE__ */ React.createElement("div", { style: {
+        width: 14,
+        height: 14,
+        border: "1px solid " + (isOn ? "var(--accent)" : "var(--line-2)"),
+        background: isOn ? "var(--accent)" : "transparent",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        color: "var(--accent-fg)"
+      } }, isOn && Icon.check)),
+      /* @__PURE__ */ React.createElement("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 } }, /* @__PURE__ */ React.createElement("span", { className: "mono", style: { fontSize: 9, color: "var(--fg-3)", letterSpacing: 1.2 } }, "TECH"), /* @__PURE__ */ React.createElement(MiniBar, { value: a.tech, width: 70 })),
+      /* @__PURE__ */ React.createElement("div", { style: { fontSize: 11, color: "var(--fg-2)", lineHeight: 1.5, marginBottom: 10, minHeight: 32 } }, "\u76EE\u6807\uFF1A", a.goal),
+      /* @__PURE__ */ React.createElement("div", { style: { display: "flex", gap: 6, flexWrap: "wrap" } }, a.traits.map((tr) => /* @__PURE__ */ React.createElement("span", { key: tr, className: "mono", style: {
+        fontSize: 9,
+        color: "var(--fg-2)",
+        letterSpacing: 0.3,
+        padding: "2px 6px",
+        background: "var(--bg-3)"
+      } }, tr)), /* @__PURE__ */ React.createElement("span", { className: "mono", style: {
+        fontSize: 9,
+        color: a.tone === "\u6025\u8E81" || a.tone === "\u6311\u5254" ? "var(--warn)" : "var(--fg-2)",
+        padding: "2px 6px",
+        background: "var(--bg-3)"
+      } }, a.tone))
+    );
+  }), /* @__PURE__ */ React.createElement("div", { style: {
+    background: "var(--bg-1)",
+    padding: "16px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    color: "var(--fg-3)",
+    cursor: "pointer",
+    minHeight: 142,
+    border: "1px dashed var(--line-2)",
+    margin: -1
+  } }, /* @__PURE__ */ React.createElement("div", { style: { textAlign: "center" } }, /* @__PURE__ */ React.createElement("div", { style: { fontSize: 18, marginBottom: 4 } }, "+"), /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 10, letterSpacing: 1.2 } }, "\u5B9A\u5236 AGENT"))))), /* @__PURE__ */ React.createElement("aside", { style: { borderLeft: "1px solid var(--line)", background: "var(--bg-1)", display: "flex", flexDirection: "column" } }, /* @__PURE__ */ React.createElement(Section, { label: "Scenario \xB7 \u6D4B\u8BD5\u573A\u666F" }, /* @__PURE__ */ React.createElement("div", { style: { padding: "12px 20px" } }, [
+    { id: "first_session", label: "\u9996\u6B21\u4F1A\u8BDD", sub: "\u767B\u5F55\u2192\u7A7A\u72B6\u6001\u2192\u521B\u5EFA\u7B2C\u4E00\u4E2A\u4EFB\u52A1" },
+    { id: "daily_use", label: "\u65E5\u5E38\u4F7F\u7528", sub: "\u591A\u6B21\u8FDB\u51FA\uFF0C\u56E2\u961F\u534F\u4F5C" },
+    { id: "power_user", label: "\u9AD8\u9891\u4EFB\u52A1", sub: "100+ \u4EFB\u52A1\u7684\u6781\u7AEF\u573A\u666F" },
+    { id: "mobile", label: "\u79FB\u52A8\u7AEF", sub: "375\xD7667 viewport" }
+  ].map((s) => /* @__PURE__ */ React.createElement("label", { key: s.id, style: {
+    display: "flex",
+    alignItems: "center",
+    gap: 10,
+    padding: "10px 0",
+    borderBottom: "1px solid var(--line)",
+    cursor: "pointer"
+  } }, /* @__PURE__ */ React.createElement("input", { type: "radio", checked: scenario === s.id, onChange: () => setScenario(s.id), style: { accentColor: "oklch(0.88 0.18 118)" } }), /* @__PURE__ */ React.createElement("div", { style: { flex: 1 } }, /* @__PURE__ */ React.createElement("div", { style: { fontSize: 12, fontWeight: 500 } }, s.label), /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 10, color: "var(--fg-3)", marginTop: 2 } }, s.sub)))))), /* @__PURE__ */ React.createElement(Section, { label: "Run Parameters" }, /* @__PURE__ */ React.createElement("div", { style: { padding: "12px 20px", display: "flex", flexDirection: "column", gap: 14 } }, /* @__PURE__ */ React.createElement(ParamRow, { label: "\u6A21\u62DF\u65F6\u957F", value: "\u6BCF agent 10 \u5206\u949F" }), /* @__PURE__ */ React.createElement(ParamRow, { label: "\u5E76\u884C\u5B9E\u4F8B", value: `${Math.min(8, selected.length)} \u4E2A\u6D4F\u89C8\u5668` }), /* @__PURE__ */ React.createElement(ParamRow, { label: "\u60C5\u7EEA\u57FA\u7EBF", value: "\u591A\u6837\u5316" }), /* @__PURE__ */ React.createElement(ParamRow, { label: "\u9884\u4F30\u7528\u65F6", value: `~${Math.ceil(selected.length * 12 / 8)} \u79D2`, accent: true }), /* @__PURE__ */ React.createElement(ParamRow, { label: "\u9884\u4F30\u6210\u672C", value: `$${(selected.length * 0.18).toFixed(2)}` }))), /* @__PURE__ */ React.createElement("div", { style: { flex: 1 } }), /* @__PURE__ */ React.createElement("div", { style: { padding: 16, borderTop: "1px solid var(--line)", display: "flex", gap: 8 } }, /* @__PURE__ */ React.createElement(Btn, { variant: "ghost", onClick: onBack }, "\u2190 \u8FD4\u56DE"), /* @__PURE__ */ React.createElement(Btn, { variant: "primary", onClick: onStart, icon: Icon.play, style: { flex: 1, justifyContent: "center" }, disabled: selected.length === 0 }, "\u542F\u52A8\u6A21\u62DF"))));
+}
+function ParamRow({ label, value, accent }) {
+  return /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", justifyContent: "space-between" } }, /* @__PURE__ */ React.createElement("span", { className: "mono", style: { fontSize: 10, color: "var(--fg-3)", letterSpacing: 1.2, textTransform: "uppercase" } }, label), /* @__PURE__ */ React.createElement("span", { className: "mono", style: { fontSize: 12, color: accent ? "var(--accent)" : "var(--fg)" } }, value));
+}
+Object.assign(window, { AgentsView });
+function AgentsView({ onStart, onBack, agentCount }) {
+  const agents = window.AGENTS || [];
+  const meta = window.RUN_META;
+  const personaSetName = meta?.personaSetId || "(unsaved)";
+  const archetypes = [];
+  const seen = /* @__PURE__ */ new Set();
+  for (const a of agents) {
+    const baseId = String(a.id).split("-").slice(0, 1)[0];
+    const key = `${baseId}-${a.name}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    archetypes.push({ ...a, instanceCount: agents.filter((x) => String(x.id).startsWith(baseId)).length });
+  }
+  return /* @__PURE__ */ React.createElement("div", { style: { height: "100%", display: "grid", gridTemplateColumns: "1fr 360px", overflow: "hidden" } }, /* @__PURE__ */ React.createElement("div", { style: { overflow: "auto", padding: "32px 40px 80px" } }, /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 10, letterSpacing: 1.6, color: "var(--fg-3)", textTransform: "uppercase", marginBottom: 8 } }, "Agent Panel \xB7 \u8FD9\u6B21 run \u7528\u7684\u5408\u6210\u7528\u6237"), /* @__PURE__ */ React.createElement("h2", { style: { fontSize: 28, letterSpacing: -0.6, margin: 0, fontWeight: 400 } }, /* @__PURE__ */ React.createElement("span", { style: { color: "var(--accent)" } }, archetypes.length), " \u4E2A\u753B\u50CF \xB7 \u603B\u5171 ", /* @__PURE__ */ React.createElement("span", { style: { color: "var(--accent)" } }, agents.length), " \u4E2A agent \u8DD1\u4E86\u4E00\u904D"), /* @__PURE__ */ React.createElement("p", { style: { color: "var(--fg-2)", fontSize: 13, marginTop: 10, marginBottom: 24, maxWidth: 620 } }, "\u6BCF\u4E2A\u753B\u50CF\u6709\u81EA\u5DF1\u7684\u504F\u597D\u548C\u5DF2\u77E5\u80CC\u666F\u3002\u591A\u4E2A agent \u5171\u4EAB\u540C\u4E00\u753B\u50CF\u65F6\uFF0C\u4ED6\u4EEC\u90FD\u6309\u8FD9\u4E2A\u504F\u597D\u63A2\u7D22 \u2014\u2014 \u590D\u5236\u6570\u7531\u6743\u91CD\u51B3\u5B9A\u3002 \u7F16\u8F91 persona set: ", /* @__PURE__ */ React.createElement("span", { className: "mono", style: { color: "var(--fg-1)" } }, "pp personas edit ", personaSetName)), /* @__PURE__ */ React.createElement("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: 1, background: "var(--line)", border: "1px solid var(--line)" } }, archetypes.map((a, idx) => /* @__PURE__ */ React.createElement("div", { key: a.id, className: "fade-in-up", style: {
+    background: "var(--bg-1)",
+    padding: "16px 18px 14px",
+    animationDelay: `${idx * 0.03}s`
+  } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "flex-start", gap: 10, marginBottom: 12 } }, /* @__PURE__ */ React.createElement(AgentAvatar, { agent: a, size: 32 }), /* @__PURE__ */ React.createElement("div", { style: { flex: 1, minWidth: 0 } }, /* @__PURE__ */ React.createElement("div", { style: { fontSize: 13, fontWeight: 500, lineHeight: 1.2 } }, a.name), /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 10, color: "var(--fg-3)", marginTop: 2 } }, a.age, " \xB7 ", a.role)), /* @__PURE__ */ React.createElement("div", { style: { textAlign: "right" } }, /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 11, color: "var(--accent)", letterSpacing: 0.4 } }, Math.round((a.weight || 0) * 100), "%"), /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 9, color: "var(--fg-3)", marginTop: 2 } }, a.instanceCount, " \u4E2A\u5B9E\u4F8B"))), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 10 } }, /* @__PURE__ */ React.createElement("span", { className: "mono", style: { fontSize: 9, color: "var(--fg-3)", letterSpacing: 1.2 } }, "TECH"), /* @__PURE__ */ React.createElement(MiniBar, { value: a.tech, width: 80 })), a.preferences && a.preferences.length > 0 && /* @__PURE__ */ React.createElement("div", { style: { marginBottom: 10 } }, /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 9, color: "var(--fg-3)", letterSpacing: 1.2, marginBottom: 4 } }, "PREFERENCES"), a.preferences.map((p, i) => /* @__PURE__ */ React.createElement("div", { key: i, style: { fontSize: 11.5, color: "var(--fg-1)", lineHeight: 1.45, marginBottom: 2 } }, /* @__PURE__ */ React.createElement("span", { style: { color: "var(--accent)" } }, "\xB7"), " ", p))), a.knownContext && a.knownContext.length > 0 && /* @__PURE__ */ React.createElement("div", { style: { marginBottom: 10 } }, /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 9, color: "var(--fg-3)", letterSpacing: 1.2, marginBottom: 4 } }, "\u5DF2\u77E5\u80CC\u666F"), a.knownContext.map((c, i) => /* @__PURE__ */ React.createElement("div", { key: i, style: { fontSize: 11, color: "var(--fg-2)", lineHeight: 1.45, marginBottom: 2 } }, /* @__PURE__ */ React.createElement("span", { style: { color: "var(--fg-3)" } }, "\xB7"), " ", c))), a.traits && a.traits.length > 0 && /* @__PURE__ */ React.createElement("div", { style: { display: "flex", gap: 6, flexWrap: "wrap" } }, a.traits.map((t) => /* @__PURE__ */ React.createElement("span", { key: t, className: "mono", style: {
+    fontSize: 9,
+    color: "var(--fg-2)",
+    letterSpacing: 0.3,
+    padding: "2px 6px",
+    background: "var(--bg-3)"
+  } }, t)), /* @__PURE__ */ React.createElement("span", { className: "mono", style: {
+    fontSize: 9,
+    color: a.tone === "\u6025\u8E81" || a.tone === "\u6311\u5254" ? "var(--warn)" : "var(--fg-2)",
+    padding: "2px 6px",
+    background: "var(--bg-3)"
+  } }, a.tone)))))), /* @__PURE__ */ React.createElement("aside", { style: { borderLeft: "1px solid var(--line)", background: "var(--bg-1)", display: "flex", flexDirection: "column" } }, /* @__PURE__ */ React.createElement(Section, { label: "Persona Set" }, /* @__PURE__ */ React.createElement("div", { style: { padding: "14px 20px" } }, /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 10, color: "var(--fg-3)", marginBottom: 4 } }, "ID"), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 13, color: "var(--fg-1)", marginBottom: 12 } }, personaSetName), meta && /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 10, color: "var(--fg-3)", marginBottom: 4 } }, "RAN AGAINST"), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 12, color: "var(--fg-1)", marginBottom: 12, wordBreak: "break-all" } }, meta.target?.url)))), /* @__PURE__ */ React.createElement(Section, { label: "Distribution" }, /* @__PURE__ */ React.createElement("div", { style: { padding: "14px 20px" } }, archetypes.map((a) => /* @__PURE__ */ React.createElement("div", { key: a.id, style: { marginBottom: 8, display: "grid", gridTemplateColumns: "100px 1fr 30px", gap: 8, alignItems: "center" } }, /* @__PURE__ */ React.createElement("span", { style: { fontSize: 11, color: "var(--fg-1)" } }, a.name), /* @__PURE__ */ React.createElement("div", { style: { height: 6, background: "var(--bg-3)" } }, /* @__PURE__ */ React.createElement("div", { style: { width: `${(a.weight || 0) * 100}%`, height: "100%", background: a.color } })), /* @__PURE__ */ React.createElement("span", { className: "mono", style: { fontSize: 10, color: "var(--fg-2)", textAlign: "right" } }, Math.round((a.weight || 0) * 100), "%"))))), meta?.cost && /* @__PURE__ */ React.createElement(Section, { label: "Run Cost" }, /* @__PURE__ */ React.createElement("div", { style: { padding: "14px 20px" } }, /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 14, color: "var(--accent)" } }, "$", meta.cost.usd?.toFixed(2) ?? "0.00"), /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 10, color: "var(--fg-3)", marginTop: 4 } }, Math.round((meta.cost.tokensIn || 0) / 1e3), "k in \xB7 ", Math.round((meta.cost.tokensOut || 0) / 1e3), "k out")))));
+}
+Object.assign(window, { AgentsView });
+const { useState: useStateS, useEffect: useEffectS, useRef: useRefS } = React;
+function SimulationView({ onComplete, simMode, agentCount }) {
+  const [elapsed, setElapsed] = useStateS(0);
+  const [playing, setPlaying] = useStateS(simMode !== "complete");
+  const [feedFilter, setFeedFilter] = useStateS("all");
+  const [focusedAgent, setFocusedAgent] = useStateS("a04");
+  const feedRef = useRefS(null);
+  const totalDuration = 180;
+  const progress = simMode === "complete" ? 1 : Math.min(elapsed / totalDuration, 1);
+  useEffectS(() => {
+    if (!playing || simMode === "complete") return;
+    const id = setInterval(() => {
+      setElapsed((e) => {
+        if (e >= totalDuration) {
+          setPlaying(false);
+          return totalDuration;
+        }
+        return e + 1;
+      });
+    }, 280);
+    return () => clearInterval(id);
+  }, [playing, simMode]);
+  const simCutoff = simMode === "complete" ? Infinity : elapsed;
+  const visible = ACTIVITY.filter((a) => {
+    const [h, m, s] = a.t.split(":").map(Number);
+    const total = h * 3600 + m * 60 + s;
+    if (total > simCutoff) return false;
+    if (feedFilter === "issues") return a.sentiment < 0;
+    if (feedFilter === "delights") return a.sentiment > 0;
+    return true;
+  }).slice().reverse();
+  useEffectS(() => {
+    if (feedRef.current) feedRef.current.scrollTop = 0;
+  }, [visible.length]);
+  const stats = {
+    active: simMode === "complete" ? 0 : Math.min(8, Math.max(1, Math.floor(progress * 12) + 1)),
+    done: simMode === "complete" ? agentCount : Math.floor(progress * agentCount),
+    queued: simMode === "complete" ? 0 : agentCount - Math.floor(progress * agentCount) - Math.min(8, Math.floor(progress * 12) + 1),
+    events: visible.length === 0 ? 0 : ACTIVITY.length - ACTIVITY.indexOf(ACTIVITY.find((a) => visible.find((v) => v.t === a.t)))
+  };
+  const fmtTime = (s) => `${String(Math.floor(s / 60)).padStart(2, "0")}:${String(s % 60).padStart(2, "0")}`;
+  return /* @__PURE__ */ React.createElement("div", { style: { height: "100%", display: "grid", gridTemplateRows: "auto 1fr", overflow: "hidden" } }, /* @__PURE__ */ React.createElement("div", { style: {
+    borderBottom: "1px solid var(--line)",
+    background: "var(--bg-1)",
+    padding: "14px 24px",
+    display: "grid",
+    gridTemplateColumns: "auto 1fr auto auto",
+    gap: 32,
+    alignItems: "center"
+  } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 10 } }, simMode !== "complete" && playing && /* @__PURE__ */ React.createElement(Dot, { color: "var(--accent)", pulse: true, size: 8 }), simMode === "complete" && /* @__PURE__ */ React.createElement(Dot, { color: "var(--good)", size: 8 }), !playing && simMode !== "complete" && /* @__PURE__ */ React.createElement(Dot, { color: "var(--warn)", size: 8 }), /* @__PURE__ */ React.createElement("span", { className: "mono", style: { fontSize: 11, letterSpacing: 1.2, textTransform: "uppercase", color: "var(--fg-1)" } }, simMode === "complete" ? "Run #043 \xB7 \u5B8C\u6210" : playing ? "Run #043 \xB7 \u6A21\u62DF\u4E2D" : "Run #043 \xB7 \u5DF2\u6682\u505C")), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", gap: 28 } }, /* @__PURE__ */ React.createElement(Metric, { label: "TIME", value: fmtTime(simMode === "complete" ? totalDuration : elapsed), mono: true }), /* @__PURE__ */ React.createElement(Metric, { label: "ACTIVE", value: stats.active, accent: stats.active > 0 }), /* @__PURE__ */ React.createElement(Metric, { label: "QUEUED", value: stats.queued }), /* @__PURE__ */ React.createElement(Metric, { label: "DONE", value: `${stats.done}/${agentCount}` }), /* @__PURE__ */ React.createElement(Metric, { label: "EVENTS", value: visible.length === 0 ? 0 : Math.min(ACTIVITY.length, Math.floor(progress * 184)) }), /* @__PURE__ */ React.createElement(Metric, { label: "ISSUES", value: visible.filter((v) => v.sentiment < 0).length, accent: true })), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", gap: 8 } }, /* @__PURE__ */ React.createElement(Btn, { variant: "ghost", onClick: () => setPlaying((p) => !p), icon: playing ? Icon.pause : Icon.play, disabled: simMode === "complete" }, playing ? "\u6682\u505C" : "\u7EE7\u7EED"), /* @__PURE__ */ React.createElement(Btn, { variant: simMode === "complete" ? "primary" : "ghost", onClick: onComplete, icon: Icon.arrow }, "\u67E5\u770B\u62A5\u544A"))), /* @__PURE__ */ React.createElement("div", { style: { position: "absolute", top: 64, left: 0, right: 0, height: 2, background: "var(--line)", zIndex: 2 } }, /* @__PURE__ */ React.createElement("div", { style: {
+    height: "100%",
+    width: `${progress * 100}%`,
+    background: "var(--accent)",
+    transition: "width 0.3s linear"
+  } })), /* @__PURE__ */ React.createElement("div", { style: { display: "grid", gridTemplateColumns: "1fr 1.1fr 320px", overflow: "hidden" } }, /* @__PURE__ */ React.createElement("div", { style: { borderRight: "1px solid var(--line)", display: "flex", flexDirection: "column", overflow: "hidden" } }, /* @__PURE__ */ React.createElement("div", { style: {
+    padding: "12px 20px",
+    borderBottom: "1px solid var(--line)",
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    gap: 8
+  } }, /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 10, letterSpacing: 1.4, color: "var(--fg-2)", textTransform: "uppercase" } }, "Activity Stream"), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", gap: 0, border: "1px solid var(--line-2)" } }, ["all", "issues", "delights"].map((f) => /* @__PURE__ */ React.createElement("button", { key: f, onClick: () => setFeedFilter(f), className: "mono", style: {
+    fontSize: 10,
+    padding: "3px 8px",
+    letterSpacing: 0.6,
+    textTransform: "uppercase",
+    background: feedFilter === f ? "var(--bg-3)" : "transparent",
+    color: feedFilter === f ? "var(--fg)" : "var(--fg-3)",
+    borderRight: f !== "delights" ? "1px solid var(--line-2)" : "0"
+  } }, f)))), /* @__PURE__ */ React.createElement("div", { ref: feedRef, style: { flex: 1, overflow: "auto" } }, visible.length === 0 && /* @__PURE__ */ React.createElement("div", { style: { padding: "40px 20px", textAlign: "center", color: "var(--fg-3)", fontSize: 12 } }, /* @__PURE__ */ React.createElement("div", { className: "shimmer", style: { height: 1, marginBottom: 16 } }), "\u7B49\u5F85 agent \u542F\u52A8\u2026"), visible.map((a, i) => {
+    const agent = AGENTS.find((x) => x.id === a.agent);
+    const isFocused = focusedAgent === a.agent;
+    return /* @__PURE__ */ React.createElement(
+      "div",
+      {
+        key: `${a.t}-${i}`,
+        onClick: () => setFocusedAgent(a.agent),
+        className: "slide-in",
+        style: {
+          padding: "11px 20px",
+          borderBottom: "1px solid var(--line)",
+          display: "grid",
+          gridTemplateColumns: "auto auto 1fr auto",
+          gap: 12,
+          alignItems: "flex-start",
+          cursor: "pointer",
+          background: isFocused ? "var(--bg-2)" : "transparent",
+          animationDelay: `${Math.min(i * 0.04, 0.4)}s`
+        }
+      },
+      /* @__PURE__ */ React.createElement("span", { className: "mono", style: { fontSize: 10, color: "var(--fg-3)", paddingTop: 4 } }, a.t),
+      /* @__PURE__ */ React.createElement(AgentAvatar, { agent, size: 20 }),
+      /* @__PURE__ */ React.createElement("div", { style: { minWidth: 0 } }, /* @__PURE__ */ React.createElement("div", { style: { fontSize: 12.5, lineHeight: 1.45, color: "var(--fg-1)" } }, /* @__PURE__ */ React.createElement("span", { style: { fontWeight: 500 } }, agent.name.split(" ")[0]), /* @__PURE__ */ React.createElement("span", { style: { color: "var(--fg-2)" } }, " \xB7 "), /* @__PURE__ */ React.createElement("span", null, a.text)), /* @__PURE__ */ React.createElement("div", { className: "mono", style: { marginTop: 4, fontSize: 9, color: sentColor(a.sentiment), letterSpacing: 0.4, textTransform: "uppercase" } }, kindLabel(a.kind), " \xB7 sentiment ", a.sentiment > 0 ? "+" : "", a.sentiment)),
+      /* @__PURE__ */ React.createElement(Dot, { color: sentColor(a.sentiment), size: 5 })
+    );
+  }))), /* @__PURE__ */ React.createElement("div", { style: { borderRight: "1px solid var(--line)", display: "flex", flexDirection: "column", overflow: "hidden", background: "var(--bg-1)" } }, /* @__PURE__ */ React.createElement("div", { style: { padding: "12px 20px", borderBottom: "1px solid var(--line)", display: "flex", justifyContent: "space-between", alignItems: "center" } }, /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 10, letterSpacing: 1.4, color: "var(--fg-2)", textTransform: "uppercase" } }, "POV \xB7 ", AGENTS.find((a) => a.id === focusedAgent)?.name), /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 10, color: "var(--fg-3)" } }, "chrome 124 \xB7 1440\xD7900")), /* @__PURE__ */ React.createElement("div", { style: { flex: 1, padding: 24, display: "flex", alignItems: "center", justifyContent: "center", overflow: "auto" } }, /* @__PURE__ */ React.createElement(PebblePreview, { agent: AGENTS.find((a) => a.id === focusedAgent), progress }))), /* @__PURE__ */ React.createElement("aside", { style: { display: "flex", flexDirection: "column", overflow: "hidden", background: "var(--bg)" } }, /* @__PURE__ */ React.createElement(Section, { label: "Agents \xB7 \u5B9E\u65F6\u72B6\u6001" }, /* @__PURE__ */ React.createElement("div", { style: { maxHeight: 320, overflow: "auto" } }, AGENTS.slice(0, Math.min(agentCount, 12)).map((a, i) => {
+    const phase = agentPhase(a.id, progress, simMode);
+    return /* @__PURE__ */ React.createElement(
+      "div",
+      {
+        key: a.id,
+        onClick: () => setFocusedAgent(a.id),
+        style: {
+          padding: "10px 20px",
+          borderBottom: "1px solid var(--line)",
+          display: "grid",
+          gridTemplateColumns: "auto 1fr auto",
+          gap: 10,
+          alignItems: "center",
+          cursor: "pointer",
+          background: focusedAgent === a.id ? "var(--bg-2)" : "transparent"
+        }
+      },
+      /* @__PURE__ */ React.createElement(AgentAvatar, { agent: a, size: 22 }),
+      /* @__PURE__ */ React.createElement("div", { style: { minWidth: 0 } }, /* @__PURE__ */ React.createElement("div", { style: { fontSize: 12, lineHeight: 1.2 } }, a.name), /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 9, color: "var(--fg-3)", marginTop: 2, textTransform: "uppercase", letterSpacing: 0.6 } }, phase.label)),
+      /* @__PURE__ */ React.createElement(Dot, { color: phase.color, size: 6, pulse: phase.status === "active" })
+    );
+  }))), /* @__PURE__ */ React.createElement(Section, { label: "Sentiment \xB7 0\u20133 min" }, /* @__PURE__ */ React.createElement("div", { style: { padding: "16px 20px" } }, /* @__PURE__ */ React.createElement(SentimentChart, { progress, simMode }))), agentCount > 12 && /* @__PURE__ */ React.createElement("div", { style: { padding: "12px 20px", color: "var(--fg-3)", fontSize: 11, borderTop: "1px solid var(--line)" } }, /* @__PURE__ */ React.createElement("span", { className: "mono" }, "+ ", agentCount - 12, " \u4F4D agent \u5728\u540E\u53F0\u8FD0\u884C")))));
+}
+function Metric({ label, value, accent, mono }) {
+  return /* @__PURE__ */ React.createElement("div", { style: { display: "flex", flexDirection: "column", gap: 2 } }, /* @__PURE__ */ React.createElement("span", { className: "mono", style: { fontSize: 9, color: "var(--fg-3)", letterSpacing: 1.4 } }, label), /* @__PURE__ */ React.createElement("span", { className: mono ? "mono" : "mono", style: {
+    fontSize: 13,
+    color: accent ? "var(--accent)" : "var(--fg)",
+    letterSpacing: -0.3,
+    fontWeight: 500
+  } }, value));
+}
+function kindLabel(k) {
+  return {
+    enter: "ENTER",
+    click: "CLICK",
+    shortcut: "SHORTCUT",
+    confused: "CONFUSED",
+    delight: "DELIGHT",
+    note: "OBSERVATION",
+    search: "SEARCH",
+    rage: "RAGE",
+    exit: "EXIT"
+  }[k] || k.toUpperCase();
+}
+function agentPhase(id, progress, simMode) {
+  const idx = AGENTS.findIndex((a) => a.id === id);
+  if (simMode === "complete") return { label: "\u5DF2\u5B8C\u6210", status: "done", color: "var(--good)" };
+  const start = idx * 0.05 % 1;
+  const end = Math.min(start + 0.5, 1);
+  if (progress < start) return { label: "\u6392\u961F\u4E2D", status: "queued", color: "var(--fg-3)" };
+  if (progress > end) return { label: "\u5DF2\u5B8C\u6210", status: "done", color: "var(--good)" };
+  const phases = ["\u767B\u5F55", "\u63A2\u7D22", "\u521B\u5EFA\u4EFB\u52A1", "\u901A\u77E5\u8BBE\u7F6E", "\u9080\u8BF7\u534F\u4F5C", "\u5BFC\u51FA\u6570\u636E", "\u9000\u51FA"];
+  return {
+    label: phases[Math.floor((progress - start) / (end - start) * phases.length)] || "\u8FD0\u884C\u4E2D",
+    status: "active",
+    color: "var(--accent)"
+  };
+}
+function PebblePreview({ agent, progress }) {
+  const thoughts = {
+    a04: "\u300C\u521B\u5EFA\u7B2C\u4E00\u4E2A\u4EFB\u52A1\u300D\u6309\u94AE\u5728\u54EA\uFF1F",
+    a02: "Cmd+K\u2026 \u8FD8\u662F\u4E0D\u884C\u3002",
+    a03: "\u8FD9\u4E2A\u5706\u89D2\u4E0D\u5BF9\u52B2\u3002",
+    a09: "\u597D\u987A\u7684\u62D6\u62FD\u3002",
+    a05: "\u952E\u76D8\u628A\u8F93\u5165\u6846\u906E\u4F4F\u4E86\u3002",
+    a11: "\u5BFC\u51FA CSV \u5728\u54EA\uFF1F",
+    a01: "\u6574\u4F53\u8282\u594F\u4E0D\u9519\u3002",
+    a06: "Tab \u2192 Enter\uFF0C\u884C\u4E91\u6D41\u6C34\u3002",
+    a07: "\u90AE\u4EF6\u6458\u8981\u5F00\u5173\u600E\u4E48\u8FD9\u4E48\u6DF1\uFF1F",
+    a08: "\u6743\u9650\u5C31\u4E24\u6863\uFF1F",
+    a10: "\u6279\u91CF\u7C98\u8D34\u90AE\u7BB1\u5F88\u723D\u3002",
+    a12: "\u6A21\u677F\u592A\u5C11\u4E86\u3002"
+  };
+  return /* @__PURE__ */ React.createElement("div", { style: {
+    width: 620,
+    maxWidth: "100%",
+    aspectRatio: "16/10",
+    background: "#1a1a17",
+    border: "1px solid var(--line-2)",
+    position: "relative",
+    overflow: "hidden",
+    boxShadow: "0 30px 60px -20px rgba(0,0,0,0.5)"
+  } }, /* @__PURE__ */ React.createElement("div", { style: { height: 22, background: "#0f0f0d", display: "flex", alignItems: "center", padding: "0 8px", gap: 4, borderBottom: "1px solid #2a2a26" } }, [0, 1, 2].map((i) => /* @__PURE__ */ React.createElement("div", { key: i, style: { width: 8, height: 8, borderRadius: "50%", background: "#2a2a26" } })), /* @__PURE__ */ React.createElement("div", { className: "mono", style: { marginLeft: 12, fontSize: 9, color: "#56544c" } }, "pebble.app/today")), /* @__PURE__ */ React.createElement("div", { style: { display: "grid", gridTemplateColumns: "120px 1fr", height: "calc(100% - 22px)" } }, /* @__PURE__ */ React.createElement("div", { style: { background: "#13130f", borderRight: "1px solid #2a2a26", padding: "12px 10px", display: "flex", flexDirection: "column", gap: 4 } }, /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 9, color: "#56544c", letterSpacing: 0.6, marginBottom: 6 } }, "PEBBLE"), ["Inbox", "Today", "Upcoming", "Projects", "Tags"].map((item, i) => /* @__PURE__ */ React.createElement("div", { key: item, style: {
+    padding: "5px 8px",
+    fontSize: 11,
+    background: i === 1 ? "#252521" : "transparent",
+    color: i === 1 ? "#f0ede3" : "#8a877d"
+  } }, item))), /* @__PURE__ */ React.createElement("div", { style: { padding: "14px 18px", position: "relative" } }, /* @__PURE__ */ React.createElement("div", { style: { fontSize: 16, color: "#f0ede3", marginBottom: 12 } }, "Today"), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", flexDirection: "column", gap: 6 } }, [
+    { t: "\u5BA1\u6838 PR #421", done: false },
+    { t: "\u5BF9\u9F50\u5468\u4E00 standup \u8BAE\u7A0B", done: true },
+    { t: "\u56DE Lars \u7684\u5408\u540C\u90AE\u4EF6", done: false },
+    { t: "Pebble onboarding \u7B2C\u4E8C\u8F6E\u8FED\u4EE3", done: false, focus: true }
+  ].map((task, i) => /* @__PURE__ */ React.createElement("div", { key: i, style: {
+    display: "flex",
+    alignItems: "center",
+    gap: 8,
+    padding: "6px 8px",
+    background: "#1f1f1c",
+    border: task.focus ? "1px solid oklch(0.88 0.18 118)" : "1px solid transparent"
+  } }, /* @__PURE__ */ React.createElement("div", { style: { width: 11, height: 11, border: "1px solid #56544c", background: task.done ? "#56544c" : "transparent" } }), /* @__PURE__ */ React.createElement("span", { style: { fontSize: 11, color: task.done ? "#56544c" : "#d4d0c4", textDecoration: task.done ? "line-through" : "none" } }, task.t)))), /* @__PURE__ */ React.createElement("div", { style: {
+    position: "absolute",
+    left: `${20 + progress * 80 % 70}%`,
+    top: `${30 + progress * 100 % 50}%`,
+    transition: "all 0.6s ease",
+    pointerEvents: "none"
+  } }, /* @__PURE__ */ React.createElement("svg", { width: "14", height: "14", viewBox: "0 0 14 14", style: { filter: "drop-shadow(0 1px 2px rgba(0,0,0,0.4))" } }, /* @__PURE__ */ React.createElement("path", { d: "M1 1 L1 11 L4 8 L6 12 L8 11 L6 7 L11 7 Z", fill: agent.color, stroke: "#0d0d0c", strokeWidth: "0.8" })), /* @__PURE__ */ React.createElement("div", { style: {
+    marginTop: 4,
+    marginLeft: 12,
+    background: agent.color,
+    color: "#0d0d0c",
+    fontSize: 10,
+    padding: "3px 7px",
+    fontWeight: 500,
+    whiteSpace: "nowrap",
+    fontFamily: "Geist, sans-serif"
+  } }, thoughts[agent.id] || agent.name + " \u6B63\u5728\u63A2\u7D22\u2026")))));
+}
+function SentimentChart({ progress, simMode }) {
+  const W = 280, H = 100;
+  const cutoff = simMode === "complete" ? 100 : progress * 100;
+  const path = SENTIMENT_CURVE.filter((p) => p.t <= cutoff).map((p, i) => {
+    const x = p.t / 100 * W;
+    const y = H - p.v * H;
+    return `${i === 0 ? "M" : "L"}${x.toFixed(1)},${y.toFixed(1)}`;
+  }).join(" ");
+  const fillPath = path ? `${path} L${(cutoff / 100 * W).toFixed(1)},${H} L0,${H} Z` : "";
+  return /* @__PURE__ */ React.createElement("svg", { width: W, height: H + 14, style: { display: "block" } }, [0, 0.5, 1].map((g) => /* @__PURE__ */ React.createElement("line", { key: g, x1: "0", x2: W, y1: H - g * H, y2: H - g * H, stroke: "var(--line)", strokeWidth: "0.5" })), /* @__PURE__ */ React.createElement("line", { x1: "0", x2: W, y1: H * 0.5, y2: H * 0.5, stroke: "var(--line-2)", strokeDasharray: "2,3", strokeWidth: "0.5" }), fillPath && /* @__PURE__ */ React.createElement("path", { d: fillPath, fill: "var(--accent-dim)" }), path && /* @__PURE__ */ React.createElement("path", { d: path, stroke: "var(--accent)", fill: "none", strokeWidth: "1.5" }), [{ x: 15, label: "\u7A7A\u767D\u9875" }, { x: 47, label: "\u627E\u901A\u77E5" }, { x: 85, label: "\u9080\u8BF7\u534F\u4F5C" }].map((a) => /* @__PURE__ */ React.createElement("g", { key: a.x }, /* @__PURE__ */ React.createElement("line", { x1: a.x / 100 * W, x2: a.x / 100 * W, y1: H, y2: H + 4, stroke: "var(--fg-3)", strokeWidth: "0.5" }), /* @__PURE__ */ React.createElement("text", { x: a.x / 100 * W, y: H + 12, fontSize: "8", fill: "var(--fg-3)", fontFamily: "JetBrains Mono", textAnchor: "middle" }, a.label))));
+}
+Object.assign(window, { SimulationView });
+function SimulationView({ onComplete }) {
+  const meta = window.RUN_META;
+  const agents = window.AGENTS || [];
+  const activity = window.ACTIVITY || [];
+  const firstAgent = agents[0]?.id || null;
+  const [focusedAgent, setFocusedAgent] = useStateS(firstAgent);
+  const [feedFilter, setFeedFilter] = useStateS("all");
+  const [stepIdx, setStepIdx] = useStateS(0);
+  const filtered = activity.filter((a) => {
+    if (feedFilter === "issues") return a.sentiment < 0;
+    if (feedFilter === "delights") return a.sentiment > 0;
+    return true;
+  });
+  const focused = agents.find((a) => a.id === focusedAgent);
+  const shots = activity.filter((e) => e.agent === focusedAgent && e.shot).map((e) => ({ src: e.shot, text: e.text, t: e.t, sentiment: e.sentiment }));
+  const totalShots = shots.length;
+  const safeIdx = Math.min(stepIdx, Math.max(0, totalShots - 1));
+  const curShot = shots[safeIdx];
+  React.useEffect(() => {
+    setStepIdx(0);
+  }, [focusedAgent]);
+  return /* @__PURE__ */ React.createElement("div", { style: { height: "100%", display: "grid", gridTemplateRows: "auto 1fr", overflow: "hidden" } }, /* @__PURE__ */ React.createElement("div", { style: {
+    borderBottom: "1px solid var(--line)",
+    background: "var(--bg-1)",
+    padding: "14px 24px",
+    display: "grid",
+    gridTemplateColumns: "auto 1fr auto",
+    gap: 32,
+    alignItems: "center"
+  } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 10 } }, /* @__PURE__ */ React.createElement(Dot, { color: "var(--good)", size: 8 }), /* @__PURE__ */ React.createElement("span", { className: "mono", style: { fontSize: 11, letterSpacing: 1.2, textTransform: "uppercase", color: "var(--fg-1)" } }, meta?.id || "\u2014", " \xB7 \u5DF2\u5B8C\u6210 \xB7 \u56DE\u653E")), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", gap: 28 } }, /* @__PURE__ */ React.createElement(SimMetric, { label: "AGENTS", value: agents.length }), /* @__PURE__ */ React.createElement(SimMetric, { label: "EVENTS", value: activity.length }), /* @__PURE__ */ React.createElement(SimMetric, { label: "ISSUES", value: activity.filter((e) => e.sentiment < 0).length, accent: true }), /* @__PURE__ */ React.createElement(SimMetric, { label: "DELIGHTS", value: activity.filter((e) => e.sentiment > 0).length }), /* @__PURE__ */ React.createElement(SimMetric, { label: "COST", value: `$${meta?.cost?.usd?.toFixed(2) ?? "0.00"}` })), /* @__PURE__ */ React.createElement(Btn, { variant: "primary", onClick: onComplete, icon: Icon.arrow }, "\u67E5\u770B\u62A5\u544A")), /* @__PURE__ */ React.createElement("div", { style: { display: "grid", gridTemplateColumns: "1fr 1.1fr 320px", overflow: "hidden" } }, /* @__PURE__ */ React.createElement("div", { style: { borderRight: "1px solid var(--line)", display: "flex", flexDirection: "column", overflow: "hidden" } }, /* @__PURE__ */ React.createElement("div", { style: {
+    padding: "12px 20px",
+    borderBottom: "1px solid var(--line)",
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    gap: 8
+  } }, /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 10, letterSpacing: 1.4, color: "var(--fg-2)", textTransform: "uppercase" } }, "Activity Stream"), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", gap: 0, border: "1px solid var(--line-2)" } }, ["all", "issues", "delights"].map((f) => /* @__PURE__ */ React.createElement("button", { key: f, onClick: () => setFeedFilter(f), className: "mono", style: {
+    fontSize: 10,
+    padding: "3px 8px",
+    letterSpacing: 0.6,
+    textTransform: "uppercase",
+    background: feedFilter === f ? "var(--bg-3)" : "transparent",
+    color: feedFilter === f ? "var(--fg)" : "var(--fg-3)",
+    borderRight: f !== "delights" ? "1px solid var(--line-2)" : "0"
+  } }, f)))), /* @__PURE__ */ React.createElement("div", { style: { flex: 1, overflow: "auto" } }, filtered.length === 0 && /* @__PURE__ */ React.createElement("div", { style: { padding: "40px 20px", textAlign: "center", color: "var(--fg-3)", fontSize: 12 } }, "\u6CA1\u6709\u4E8B\u4EF6\u3002"), filtered.map((a, i) => {
+    const ag = agents.find((x) => x.id === a.agent);
+    const isFocused = focusedAgent === a.agent;
+    return /* @__PURE__ */ React.createElement(
+      "div",
+      {
+        key: `${a.t}-${i}`,
+        onClick: () => setFocusedAgent(a.agent),
+        style: {
+          padding: "11px 20px",
+          borderBottom: "1px solid var(--line)",
+          display: "grid",
+          gridTemplateColumns: "auto auto 1fr auto",
+          gap: 12,
+          alignItems: "flex-start",
+          cursor: "pointer",
+          background: isFocused ? "var(--bg-2)" : "transparent"
+        }
+      },
+      /* @__PURE__ */ React.createElement("span", { className: "mono", style: { fontSize: 10, color: "var(--fg-3)", paddingTop: 4 } }, a.t),
+      /* @__PURE__ */ React.createElement(AgentAvatar, { agent: ag, size: 20 }),
+      /* @__PURE__ */ React.createElement("div", { style: { minWidth: 0 } }, /* @__PURE__ */ React.createElement("div", { style: { fontSize: 12.5, lineHeight: 1.45, color: "var(--fg-1)" } }, /* @__PURE__ */ React.createElement("span", { style: { fontWeight: 500 } }, ag ? ag.name.split(" ")[0] : a.agent), /* @__PURE__ */ React.createElement("span", { style: { color: "var(--fg-2)" } }, " \xB7 "), /* @__PURE__ */ React.createElement("span", null, a.text)), /* @__PURE__ */ React.createElement("div", { className: "mono", style: { marginTop: 4, fontSize: 9, color: sentColor(a.sentiment), letterSpacing: 0.4, textTransform: "uppercase" } }, a.kind, " \xB7 sentiment ", a.sentiment > 0 ? "+" : "", a.sentiment)),
+      /* @__PURE__ */ React.createElement(Dot, { color: sentColor(a.sentiment), size: 5 })
+    );
+  }))), /* @__PURE__ */ React.createElement("div", { style: { borderRight: "1px solid var(--line)", display: "flex", flexDirection: "column", overflow: "hidden", background: "var(--bg-1)" } }, /* @__PURE__ */ React.createElement("div", { style: { padding: "12px 20px", borderBottom: "1px solid var(--line)", display: "flex", justifyContent: "space-between", alignItems: "center" } }, /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 10, letterSpacing: 1.4, color: "var(--fg-2)", textTransform: "uppercase" } }, "POV \xB7 ", focused?.name || "\u2014"), /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 10, color: "var(--fg-3)" } }, totalShots > 0 ? `step ${safeIdx + 1} / ${totalShots}` : "no shots")), /* @__PURE__ */ React.createElement("div", { style: { flex: 1, padding: 20, display: "flex", alignItems: "center", justifyContent: "center", overflow: "auto" } }, curShot ? /* @__PURE__ */ React.createElement(
+    "img",
+    {
+      src: curShot.src,
+      alt: curShot.text,
+      style: { maxWidth: "100%", maxHeight: "100%", border: "1px solid var(--line-2)", boxShadow: "0 30px 60px -20px rgba(0,0,0,0.5)" }
+    }
+  ) : /* @__PURE__ */ React.createElement("div", { style: { color: "var(--fg-3)", fontSize: 13 } }, "\u8FD9\u4F4D agent \u6CA1\u6709\u622A\u56FE\u8BB0\u5F55\u3002")), totalShots > 0 && /* @__PURE__ */ React.createElement("div", { style: { padding: "10px 20px 14px", borderTop: "1px solid var(--line)" } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", gap: 8, alignItems: "center", marginBottom: 8 } }, /* @__PURE__ */ React.createElement("button", { onClick: () => setStepIdx(Math.max(0, safeIdx - 1)), className: "mono", style: {
+    fontSize: 11,
+    color: "var(--fg-2)",
+    padding: "4px 10px",
+    border: "1px solid var(--line-2)"
+  } }, "\u2190 \u4E0A\u4E00\u6B65"), /* @__PURE__ */ React.createElement("button", { onClick: () => setStepIdx(Math.min(totalShots - 1, safeIdx + 1)), className: "mono", style: {
+    fontSize: 11,
+    color: "var(--fg-2)",
+    padding: "4px 10px",
+    border: "1px solid var(--line-2)"
+  } }, "\u4E0B\u4E00\u6B65 \u2192"), /* @__PURE__ */ React.createElement(
+    "input",
+    {
+      type: "range",
+      min: 0,
+      max: totalShots - 1,
+      value: safeIdx,
+      onChange: (e) => setStepIdx(Number(e.target.value)),
+      style: { flex: 1, accentColor: "oklch(0.88 0.18 118)" }
+    }
+  )), curShot && /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 11, color: "var(--fg-1)", lineHeight: 1.5 } }, /* @__PURE__ */ React.createElement("span", { style: { color: "var(--fg-3)" } }, curShot.t), " \xB7 ", curShot.text))), /* @__PURE__ */ React.createElement("aside", { style: { display: "flex", flexDirection: "column", overflow: "hidden", background: "var(--bg)" } }, /* @__PURE__ */ React.createElement(Section, { label: "Agents \xB7 \u72B6\u6001" }, /* @__PURE__ */ React.createElement("div", { style: { maxHeight: 320, overflow: "auto" } }, agents.map((a) => {
+    const aCrashed = a.crashed;
+    const aTrunc = a.truncated;
+    const label = aCrashed ? "\u5D29\u6E83" : aTrunc ? "\u8D85\u6B65" : "\u5DF2\u5B8C\u6210";
+    const color = aCrashed ? "var(--danger)" : aTrunc ? "var(--warn)" : "var(--good)";
+    return /* @__PURE__ */ React.createElement(
+      "div",
+      {
+        key: a.id,
+        onClick: () => setFocusedAgent(a.id),
+        style: {
+          padding: "10px 20px",
+          borderBottom: "1px solid var(--line)",
+          display: "grid",
+          gridTemplateColumns: "auto 1fr auto",
+          gap: 10,
+          alignItems: "center",
+          cursor: "pointer",
+          background: focusedAgent === a.id ? "var(--bg-2)" : "transparent"
+        }
+      },
+      /* @__PURE__ */ React.createElement(AgentAvatar, { agent: a, size: 22 }),
+      /* @__PURE__ */ React.createElement("div", { style: { minWidth: 0 } }, /* @__PURE__ */ React.createElement("div", { style: { fontSize: 12, lineHeight: 1.2 } }, a.name), /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 9, color: "var(--fg-3)", marginTop: 2, textTransform: "uppercase", letterSpacing: 0.6 } }, label)),
+      /* @__PURE__ */ React.createElement(Dot, { color, size: 6 })
+    );
+  }))), /* @__PURE__ */ React.createElement(Section, { label: "Sentiment Curve" }, /* @__PURE__ */ React.createElement("div", { style: { padding: "16px 20px" } }, /* @__PURE__ */ React.createElement(SentimentCurve, { points: window.SENTIMENT_CURVE || [] }))))));
+}
+function SimMetric({ label, value, accent }) {
+  return /* @__PURE__ */ React.createElement("div", { style: { display: "flex", flexDirection: "column", gap: 2 } }, /* @__PURE__ */ React.createElement("span", { className: "mono", style: { fontSize: 9, color: "var(--fg-3)", letterSpacing: 1.4 } }, label), /* @__PURE__ */ React.createElement("span", { className: "mono", style: { fontSize: 13, color: accent ? "var(--accent)" : "var(--fg)", letterSpacing: -0.3, fontWeight: 500 } }, value));
+}
+function SentimentCurve({ points }) {
+  const W = 280, H = 100;
+  if (!points.length) {
+    return /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 11, color: "var(--fg-3)" } }, "\u6682\u65E0\u6570\u636E");
+  }
+  const tMax = points[points.length - 1].t || 100;
+  const path = points.map((p, i) => {
+    const x = p.t / tMax * W;
+    const y = H - p.v * H;
+    return `${i === 0 ? "M" : "L"}${x.toFixed(1)},${y.toFixed(1)}`;
+  }).join(" ");
+  const fillPath = `${path} L${W},${H} L0,${H} Z`;
+  return /* @__PURE__ */ React.createElement("svg", { width: W, height: H + 14, style: { display: "block" } }, [0, 0.5, 1].map((g) => /* @__PURE__ */ React.createElement("line", { key: g, x1: "0", x2: W, y1: H - g * H, y2: H - g * H, stroke: "var(--line)", strokeWidth: "0.5" })), /* @__PURE__ */ React.createElement("line", { x1: "0", x2: W, y1: H * 0.5, y2: H * 0.5, stroke: "var(--line-2)", strokeDasharray: "2,3", strokeWidth: "0.5" }), /* @__PURE__ */ React.createElement("path", { d: fillPath, fill: "var(--accent-dim)" }), /* @__PURE__ */ React.createElement("path", { d: path, stroke: "var(--accent)", fill: "none", strokeWidth: "1.5" }));
+}
+Object.assign(window, { SimulationView });
+const { useState: useStateR } = React;
+function ReportView({ onRerun }) {
+  const [activeIssue, setActiveIssue] = useStateR("i01");
+  const [mode, setMode] = useStateR("human");
+  const issue = ISSUES.find((i) => i.id === activeIssue);
+  const agent = AGENTS.find((a) => a.id === issue.agentRef);
+  if (mode === "ai") return /* @__PURE__ */ React.createElement(AIReport, { onSwitch: () => setMode("human") });
+  return /* @__PURE__ */ React.createElement("div", { style: { height: "100%", overflow: "auto" } }, /* @__PURE__ */ React.createElement("div", { style: {
+    borderBottom: "1px solid var(--line)",
+    background: "var(--bg-1)",
+    padding: "10px 40px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between"
+  } }, /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 10, letterSpacing: 1.4, color: "var(--fg-3)", textTransform: "uppercase" } }, "Report #043 \xB7 \u4E24\u79CD\u89C6\u56FE"), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", border: "1px solid var(--line-2)" } }, /* @__PURE__ */ React.createElement("button", { onClick: () => setMode("human"), style: {
+    padding: "6px 16px",
+    fontSize: 11,
+    background: mode === "human" ? "var(--bg-3)" : "transparent",
+    color: mode === "human" ? "var(--fg)" : "var(--fg-2)",
+    display: "flex",
+    alignItems: "center",
+    gap: 6,
+    borderRight: "1px solid var(--line-2)"
+  } }, /* @__PURE__ */ React.createElement("span", { style: { fontSize: 13 } }, "\u25D0"), /* @__PURE__ */ React.createElement("div", { style: { textAlign: "left" } }, /* @__PURE__ */ React.createElement("div", { style: { fontWeight: 500 } }, "\u7ED9\u4EBA\u770B"), /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 9, color: "var(--fg-3)" } }, "\u53D9\u4E8B \xB7 \u5F15\u8BED \xB7 \u8BC1\u636E"))), /* @__PURE__ */ React.createElement("button", { onClick: () => setMode("ai"), style: {
+    padding: "6px 16px",
+    fontSize: 11,
+    background: mode === "ai" ? "var(--bg-3)" : "transparent",
+    color: mode === "ai" ? "var(--fg)" : "var(--fg-2)",
+    display: "flex",
+    alignItems: "center",
+    gap: 6
+  } }, /* @__PURE__ */ React.createElement("span", { style: { fontSize: 13 } }, "\u25D1"), /* @__PURE__ */ React.createElement("div", { style: { textAlign: "left" } }, /* @__PURE__ */ React.createElement("div", { style: { fontWeight: 500 } }, "\u7ED9 AI \u770B"), /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 9, color: "var(--fg-3)" } }, "\u7ED3\u6784\u5316 \xB7 \u53EF\u76F4\u63A5\u4FEE\u590D"))))), /* @__PURE__ */ React.createElement("div", { style: { borderBottom: "1px solid var(--line)", padding: "36px 40px 32px" } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "flex-end", justifyContent: "space-between", gap: 40, marginBottom: 28 } }, /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 10, letterSpacing: 1.6, color: "var(--fg-3)", textTransform: "uppercase", marginBottom: 8 } }, "Report \xB7 Run #043 \xB7 pebble-app @ f9c2a1e"), /* @__PURE__ */ React.createElement("h1", { style: { fontSize: 36, letterSpacing: -0.8, margin: 0, fontWeight: 400, lineHeight: 1.15 } }, /* @__PURE__ */ React.createElement("span", { className: "serif", style: { fontStyle: "italic" } }, "24 \u4F4D"), " \u5408\u6210\u7528\u6237\u82B1\u4E86 4 \u5C0F\u65F6 17 \u5206\u7528\u4F60\u7684\u4EA7\u54C1\u3002", /* @__PURE__ */ React.createElement("br", null), "\u8FD9\u662F\u4ED6\u4EEC\u7684", /* @__PURE__ */ React.createElement("span", { style: { color: "var(--accent)" } }, "\u672A\u7ECF\u7C89\u9970"), "\u7684\u53CD\u9988\u3002")), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", gap: 8, flexShrink: 0 } }, /* @__PURE__ */ React.createElement(Btn, { variant: "ghost" }, "\u5BFC\u51FA PDF"), /* @__PURE__ */ React.createElement(Btn, { variant: "ghost" }, "\u540C\u6B65\u5230 Linear"), /* @__PURE__ */ React.createElement(Btn, { variant: "primary", onClick: onRerun, icon: Icon.arrow }, "\u4FEE\u590D\u540E\u91CD\u8DD1"))), /* @__PURE__ */ React.createElement("div", { style: { display: "grid", gridTemplateColumns: "1.2fr 1fr 1fr 1fr 1fr", gap: 1, background: "var(--line)", border: "1px solid var(--line)" } }, /* @__PURE__ */ React.createElement(BigScore, { label: "Predicted NPS", value: "\u221214", delta: "\u53EF\u6539\u8FDB\u81F3 +28", tone: "warn", big: true }), /* @__PURE__ */ React.createElement(BigScore, { label: "Task Success", value: "67%", delta: "9 / 24 \u5361\u5728\u65B0\u5EFA\u4EFB\u52A1", tone: "warn" }), /* @__PURE__ */ React.createElement(BigScore, { label: "Time-to-Value", value: "3:42", delta: "\u884C\u4E1A\u57FA\u51C6 1:20", tone: "bad" }), /* @__PURE__ */ React.createElement(BigScore, { label: "Rage Clicks", value: "11", delta: "\u96C6\u4E2D\u5728\u300C\u540C\u6B65\u300D\u6309\u94AE", tone: "bad" }), /* @__PURE__ */ React.createElement(BigScore, { label: "Delight Moments", value: "14", delta: "\u62D6\u62FD + \u952E\u76D8\u6D41", tone: "good" }))), /* @__PURE__ */ React.createElement("div", { style: { display: "grid", gridTemplateColumns: "440px 1fr", minHeight: 600 } }, /* @__PURE__ */ React.createElement("div", { style: { borderRight: "1px solid var(--line)", display: "flex", flexDirection: "column" } }, /* @__PURE__ */ React.createElement("div", { style: { padding: "16px 24px", borderBottom: "1px solid var(--line)", display: "flex", justifyContent: "space-between", alignItems: "center" } }, /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 10, letterSpacing: 1.4, color: "var(--fg-2)", textTransform: "uppercase" } }, "8 \u4E2A\u95EE\u9898 \xB7 \u6309\u4E25\u91CD\u5EA6\u6392\u5E8F"), /* @__PURE__ */ React.createElement("span", { className: "mono", style: { fontSize: 10, color: "var(--fg-3)" } }, "HIGH \xB7 MED \xB7 LOW")), ISSUES.map((iss, idx) => /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      key: iss.id,
+      onClick: () => setActiveIssue(iss.id),
+      className: "fade-in-up",
+      style: {
+        padding: "16px 24px",
+        borderBottom: "1px solid var(--line)",
+        cursor: "pointer",
+        background: activeIssue === iss.id ? "var(--bg-2)" : "transparent",
+        borderLeft: activeIssue === iss.id ? "2px solid var(--accent)" : "2px solid transparent",
+        animationDelay: `${idx * 0.04}s`
+      }
+    },
+    /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "flex-start", gap: 12, marginBottom: 8 } }, /* @__PURE__ */ React.createElement("div", { style: {
+      width: 22,
+      height: 22,
+      background: "var(--bg-3)",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      fontFamily: "JetBrains Mono",
+      fontSize: 10,
+      color: "var(--fg-2)",
+      flexShrink: 0,
+      marginTop: 1
+    } }, String(idx + 1).padStart(2, "0")), /* @__PURE__ */ React.createElement("div", { style: { flex: 1, fontSize: 13.5, lineHeight: 1.45, fontWeight: 500 } }, iss.title)),
+    /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 8, marginLeft: 34 } }, /* @__PURE__ */ React.createElement(Pill, { color: sevColor(iss.severity), style: { background: `color-mix(in oklch, ${sevColor(iss.severity)} 12%, transparent)` } }, iss.severity), /* @__PURE__ */ React.createElement("span", { className: "mono", style: { fontSize: 10, color: "var(--fg-3)" } }, iss.category), /* @__PURE__ */ React.createElement("span", { className: "mono", style: { fontSize: 10, color: "var(--fg-3)" } }, "\xB7 ", iss.agents, "/", 24, " agents"), /* @__PURE__ */ React.createElement("span", { className: "mono", style: { fontSize: 10, color: "var(--fg-3)" } }, "\xB7 ", iss.evidence, " evidence"))
+  ))), /* @__PURE__ */ React.createElement("div", { style: { padding: "28px 36px", overflow: "auto" } }, /* @__PURE__ */ React.createElement("div", { className: "fade-in-up", key: activeIssue }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 10, marginBottom: 14 } }, /* @__PURE__ */ React.createElement(Pill, { color: sevColor(issue.severity), style: { background: `color-mix(in oklch, ${sevColor(issue.severity)} 12%, transparent)` } }, issue.severity, " severity"), /* @__PURE__ */ React.createElement(Pill, null, issue.category), /* @__PURE__ */ React.createElement("span", { className: "mono", style: { fontSize: 10, color: "var(--fg-3)" } }, "impact \xB7 ", issue.agents, "/", 24, " agents")), /* @__PURE__ */ React.createElement("h2", { style: { fontSize: 26, fontWeight: 400, letterSpacing: -0.4, lineHeight: 1.25, margin: "0 0 24px" } }, issue.title), /* @__PURE__ */ React.createElement("div", { style: {
+    padding: "20px 24px",
+    background: "var(--bg-1)",
+    borderLeft: `2px solid ${agent.color}`,
+    marginBottom: 28
+  } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 10, marginBottom: 10 } }, /* @__PURE__ */ React.createElement(AgentAvatar, { agent, size: 26 }), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { style: { fontSize: 13, fontWeight: 500 } }, agent.name), /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 10, color: "var(--fg-3)", marginTop: 1 } }, agent.age, " \xB7 ", agent.role, " \xB7 tech ", agent.tech, "/5"))), /* @__PURE__ */ React.createElement("div", { className: "serif", style: { fontSize: 20, lineHeight: 1.45, color: "var(--fg)", letterSpacing: -0.1 } }, /* @__PURE__ */ React.createElement("span", { style: { color: "var(--fg-3)" } }, "\u201C"), issue.quote, /* @__PURE__ */ React.createElement("span", { style: { color: "var(--fg-3)" } }, "\u201D")), /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 10, color: "var(--fg-3)", marginTop: 12, letterSpacing: 0.4 } }, issue.journey, " \xB7 \u56DE\u653E 14s \u7247\u6BB5 \u2192")), /* @__PURE__ */ React.createElement("div", { style: { marginBottom: 28 } }, /* @__PURE__ */ React.createElement("h3", { className: "mono", style: { fontSize: 10, letterSpacing: 1.4, color: "var(--fg-2)", textTransform: "uppercase", marginBottom: 12 } }, "Evidence \xB7 \u89E6\u53D1\u8BE5\u95EE\u9898\u7684\u4E8B\u4EF6\u94FE"), /* @__PURE__ */ React.createElement("div", { style: { border: "1px solid var(--line)", background: "var(--bg-1)" } }, ACTIVITY.filter((a) => a.sentiment < 0).slice(0, 4).map((a, i) => {
+    const ag = AGENTS.find((x) => x.id === a.agent);
+    return /* @__PURE__ */ React.createElement("div", { key: i, style: {
+      padding: "10px 14px",
+      borderBottom: i < 3 ? "1px solid var(--line)" : 0,
+      display: "grid",
+      gridTemplateColumns: "auto auto 1fr auto",
+      gap: 10,
+      alignItems: "center"
+    } }, /* @__PURE__ */ React.createElement("span", { className: "mono", style: { fontSize: 10, color: "var(--fg-3)" } }, a.t), /* @__PURE__ */ React.createElement(AgentAvatar, { agent: ag, size: 18 }), /* @__PURE__ */ React.createElement("span", { style: { fontSize: 12, color: "var(--fg-1)" } }, a.text), /* @__PURE__ */ React.createElement("span", { className: "mono", style: { fontSize: 10, color: "var(--fg-3)" } }, "\u2192 \u56DE\u653E"));
+  }))), /* @__PURE__ */ React.createElement("div", { style: { marginBottom: 28 } }, /* @__PURE__ */ React.createElement("h3", { className: "mono", style: { fontSize: 10, letterSpacing: 1.4, color: "var(--fg-2)", textTransform: "uppercase", marginBottom: 12 } }, "AI Suggestions \xB7 \u6539\u52A8\u5EFA\u8BAE"), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", flexDirection: "column", gap: 8 } }, [
+    { effort: "S", text: "\u5728\u7A7A\u72B6\u6001\u753B\u9762\u6DFB\u52A0\u4E00\u4E2A 100\xD7100 \u7684\u300C+ \u65B0\u4EFB\u52A1\u300DCTA\uFF0C\u5C45\u4E2D\u3002", file: "src/pages/Today.tsx" },
+    { effort: "M", text: "\u9996\u6B21\u8BBF\u95EE\u65F6\u5F39\u51FA 3 \u6B65\u5F15\u5BFC\uFF0C\u5F15\u5BFC\u7528\u6237\u521B\u5EFA\u7B2C\u4E00\u4E2A\u4EFB\u52A1\u3002", file: "src/components/Onboarding.tsx \xB7 \u65B0\u5EFA" },
+    { effort: "L", text: "\u91CD\u65B0\u8BBE\u8BA1 onboarding \u6D41\u7A0B\uFF0C\u53C2\u8003 Linear \u7684\u300C\u793A\u4F8B\u9879\u76EE\u300D\u6A21\u5F0F\u3002", file: "\u591A\u6587\u4EF6\u6539\u52A8" }
+  ].map((s, i) => /* @__PURE__ */ React.createElement("div", { key: i, style: {
+    padding: "12px 16px",
+    border: "1px solid var(--line)",
+    background: "var(--bg-1)",
+    display: "grid",
+    gridTemplateColumns: "auto 1fr auto",
+    gap: 14,
+    alignItems: "center"
+  } }, /* @__PURE__ */ React.createElement("div", { style: {
+    width: 26,
+    height: 26,
+    background: "var(--bg-3)",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    fontFamily: "JetBrains Mono",
+    fontSize: 11,
+    color: "var(--accent)",
+    fontWeight: 600
+  } }, s.effort), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { style: { fontSize: 12.5 } }, s.text), /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 10, color: "var(--fg-3)", marginTop: 4 } }, s.file)), /* @__PURE__ */ React.createElement(Btn, { variant: "ghost", style: { fontSize: 11, padding: "4px 10px" } }, "\u5F00 PR \u2192")))))))), /* @__PURE__ */ React.createElement("div", { style: { borderTop: "1px solid var(--line)", display: "grid", gridTemplateColumns: "1fr 1fr" } }, /* @__PURE__ */ React.createElement(Section, { label: "Delights \xB7 \u7528\u6237\u559C\u6B22\u7684" }, /* @__PURE__ */ React.createElement("div", { style: { padding: "16px 24px", display: "flex", flexDirection: "column", gap: 14 } }, DELIGHTS.map((d) => {
+    const ag = AGENTS.find((x) => x.id === d.agent);
+    return /* @__PURE__ */ React.createElement("div", { key: d.title, style: { display: "grid", gridTemplateColumns: "auto 1fr auto", gap: 12, alignItems: "center" } }, /* @__PURE__ */ React.createElement(AgentAvatar, { agent: ag, size: 24 }), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { style: { fontSize: 13, fontWeight: 500 } }, d.title), /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 10, color: "var(--fg-3)", marginTop: 2 } }, "\u201C", d.quote, "\u201D")), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 6 } }, /* @__PURE__ */ React.createElement(Dot, { color: "var(--good)", size: 6 }), /* @__PURE__ */ React.createElement("span", { className: "mono", style: { fontSize: 11, color: "var(--good)" } }, d.count)));
+  }))), /* @__PURE__ */ React.createElement(Section, { label: "Route Heatmap \xB7 \u8DEF\u5F84\u70ED\u5EA6", style: { borderLeft: "1px solid var(--line)" } }, /* @__PURE__ */ React.createElement("div", { style: { padding: "16px 24px" } }, ROUTES_HEAT.map((r) => /* @__PURE__ */ React.createElement("div", { key: r.path, style: { marginBottom: 14, display: "grid", gridTemplateColumns: "180px 1fr 60px 60px", gap: 12, alignItems: "center" } }, /* @__PURE__ */ React.createElement("span", { className: "mono", style: { fontSize: 11, color: "var(--fg-1)" } }, r.path), /* @__PURE__ */ React.createElement("div", { style: { height: 10, background: "var(--bg-2)", position: "relative" } }, /* @__PURE__ */ React.createElement("div", { style: { width: `${r.visits / 24 * 100}%`, height: "100%", background: "var(--accent)" } })), /* @__PURE__ */ React.createElement("span", { className: "mono", style: { fontSize: 10, color: "var(--fg-2)" } }, r.dwell, "s"), /* @__PURE__ */ React.createElement("span", { className: "mono", style: { fontSize: 10, color: r.drop > 0.3 ? "var(--danger)" : "var(--fg-3)" } }, "\u2193", (r.drop * 100).toFixed(0), "%")))))));
+}
+function BigScore({ label, value, delta, tone, big }) {
+  const toneColor = tone === "good" ? "var(--good)" : tone === "warn" ? "var(--warn)" : tone === "bad" ? "var(--danger)" : "var(--fg)";
+  return /* @__PURE__ */ React.createElement("div", { style: { background: "var(--bg-1)", padding: "18px 22px" } }, /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 9, letterSpacing: 1.4, color: "var(--fg-3)", textTransform: "uppercase", marginBottom: 8 } }, label), /* @__PURE__ */ React.createElement("div", { style: { fontSize: big ? 42 : 32, fontWeight: 400, letterSpacing: -1, lineHeight: 1, color: toneColor, fontFamily: "Geist", fontVariantNumeric: "tabular-nums" } }, value), /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 10, color: "var(--fg-3)", marginTop: 8 } }, delta));
+}
+Object.assign(window, { ReportView });
+function AIReport({ onSwitch }) {
+  const [tab, setTab] = useStateR("patch");
+  const [copied, setCopied] = useStateR(null);
+  const copy = (key, text) => {
+    navigator.clipboard?.writeText(text);
+    setCopied(key);
+    setTimeout(() => setCopied(null), 1600);
+  };
+  const patchDoc = buildPatchDoc();
+  const jsonDoc = buildJsonDoc();
+  const promptDoc = buildPromptDoc();
+  const cur = { patch: patchDoc, json: jsonDoc, prompt: promptDoc }[tab];
+  return /* @__PURE__ */ React.createElement("div", { style: { height: "100%", overflow: "auto", display: "flex", flexDirection: "column" } }, /* @__PURE__ */ React.createElement("div", { style: {
+    borderBottom: "1px solid var(--line)",
+    background: "var(--bg-1)",
+    padding: "10px 40px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between"
+  } }, /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 10, letterSpacing: 1.4, color: "var(--fg-3)", textTransform: "uppercase" } }, "Report #043 \xB7 \u4E24\u79CD\u89C6\u56FE"), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", border: "1px solid var(--line-2)" } }, /* @__PURE__ */ React.createElement("button", { onClick: onSwitch, style: {
+    padding: "6px 16px",
+    fontSize: 11,
+    background: "transparent",
+    color: "var(--fg-2)",
+    display: "flex",
+    alignItems: "center",
+    gap: 6,
+    borderRight: "1px solid var(--line-2)"
+  } }, /* @__PURE__ */ React.createElement("span", { style: { fontSize: 13 } }, "\u25D0"), /* @__PURE__ */ React.createElement("div", { style: { textAlign: "left" } }, /* @__PURE__ */ React.createElement("div", { style: { fontWeight: 500 } }, "\u7ED9\u4EBA\u770B"), /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 9, color: "var(--fg-3)" } }, "\u53D9\u4E8B \xB7 \u5F15\u8BED \xB7 \u8BC1\u636E"))), /* @__PURE__ */ React.createElement("button", { style: {
+    padding: "6px 16px",
+    fontSize: 11,
+    background: "var(--bg-3)",
+    color: "var(--fg)",
+    display: "flex",
+    alignItems: "center",
+    gap: 6
+  } }, /* @__PURE__ */ React.createElement("span", { style: { fontSize: 13 } }, "\u25D1"), /* @__PURE__ */ React.createElement("div", { style: { textAlign: "left" } }, /* @__PURE__ */ React.createElement("div", { style: { fontWeight: 500 } }, "\u7ED9 AI \u770B"), /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 9, color: "var(--fg-3)" } }, "\u7ED3\u6784\u5316 \xB7 \u53EF\u76F4\u63A5\u4FEE\u590D"))))), /* @__PURE__ */ React.createElement("div", { style: { padding: "32px 40px 28px", borderBottom: "1px solid var(--line)" } }, /* @__PURE__ */ React.createElement("h1", { style: { fontSize: 32, letterSpacing: -0.6, margin: "0 0 8px", fontWeight: 400, lineHeight: 1.2 } }, "\u4E00\u4EFD ", /* @__PURE__ */ React.createElement("span", { style: { color: "var(--accent)" } }, "\u53EF\u6267\u884C"), " \u7684\u4FEE\u590D\u5305\u3002"), /* @__PURE__ */ React.createElement("p", { style: { color: "var(--fg-2)", fontSize: 14, maxWidth: 680, lineHeight: 1.55, marginBottom: 20 } }, "\u8FD9\u4E00\u4EFD\u662F\u7ED9 Claude Code / Cursor / Codex \u8BFB\u7684\u3002\u628A\u4E0B\u9762\u4EFB\u4E00\u683C\u5F0F\u5582\u7ED9\u5B83\uFF0C\u5B83\u5C31\u80FD\u627E\u5230\u5BF9\u5E94\u6587\u4EF6\u3001\u6309\u4F18\u5148\u7EA7\u843D\u5730\u4FEE\u590D\uFF0C\u5E76\u5728\u5B8C\u6210\u540E\u8C03\u7528 ", /* @__PURE__ */ React.createElement("span", { className: "mono", style: { color: "var(--fg-1)" } }, "pp run ."), " \u9A8C\u8BC1\u3002"), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", gap: 12, alignItems: "center" } }, /* @__PURE__ */ React.createElement(Pill, { color: "var(--accent)", style: { background: "var(--accent-dim)" } }, "8 issues"), /* @__PURE__ */ React.createElement(Pill, null, "3 high \xB7 3 med \xB7 2 low"), /* @__PURE__ */ React.createElement(Pill, null, "12 files affected"), /* @__PURE__ */ React.createElement(Pill, null, "est. 4.2 hours dev time"))), /* @__PURE__ */ React.createElement("div", { style: { padding: "0 40px", borderBottom: "1px solid var(--line)", display: "flex", justifyContent: "space-between", alignItems: "center" } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", gap: 0 } }, [
+    { id: "patch", label: "Patch Plan", sub: "markdown \xB7 \u63A8\u8350" },
+    { id: "json", label: "JSON Schema", sub: "machine-strict" },
+    { id: "prompt", label: "Drop-in Prompt", sub: "\u7C98\u5230 chat \u91CC" }
+  ].map((tx) => /* @__PURE__ */ React.createElement("button", { key: tx.id, onClick: () => setTab(tx.id), style: {
+    padding: "12px 18px",
+    textAlign: "left",
+    borderBottom: tab === tx.id ? "2px solid var(--accent)" : "2px solid transparent",
+    color: tab === tx.id ? "var(--fg)" : "var(--fg-2)"
+  } }, /* @__PURE__ */ React.createElement("div", { style: { fontSize: 12, fontWeight: 500 } }, tx.label), /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 9, color: "var(--fg-3)", marginTop: 2, letterSpacing: 0.4 } }, tx.sub)))), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", gap: 6 } }, /* @__PURE__ */ React.createElement("button", { onClick: () => copy(tab, cur), className: "mono", style: {
+    fontSize: 10,
+    padding: "5px 12px",
+    border: "1px solid var(--line-2)",
+    color: copied === tab ? "var(--accent)" : "var(--fg-2)",
+    letterSpacing: 0.6
+  } }, copied === tab ? "\u2713 COPIED" : "COPY"), /* @__PURE__ */ React.createElement("button", { className: "mono", style: {
+    fontSize: 10,
+    padding: "5px 12px",
+    border: "1px solid var(--line-2)",
+    color: "var(--fg-2)",
+    letterSpacing: 0.6
+  } }, "DOWNLOAD"), /* @__PURE__ */ React.createElement("button", { className: "mono", style: {
+    fontSize: 10,
+    padding: "5px 12px",
+    background: "var(--accent)",
+    color: "var(--accent-fg)",
+    letterSpacing: 0.6,
+    fontWeight: 600
+  } }, "SEND TO CLAUDE \u2192"))), /* @__PURE__ */ React.createElement("div", { style: { display: "grid", gridTemplateColumns: "60px 1fr 280px", flex: 1, minHeight: 600 } }, /* @__PURE__ */ React.createElement("div", { className: "mono", style: {
+    background: "var(--bg-1)",
+    borderRight: "1px solid var(--line)",
+    padding: "16px 0",
+    textAlign: "right",
+    color: "var(--fg-3)",
+    fontSize: 10.5,
+    lineHeight: 1.65,
+    userSelect: "none"
+  } }, cur.split("\n").map((_, i) => /* @__PURE__ */ React.createElement("div", { key: i, style: { padding: "0 12px" } }, i + 1))), /* @__PURE__ */ React.createElement("pre", { className: "mono", style: {
+    margin: 0,
+    padding: "16px 20px",
+    overflow: "auto",
+    background: "var(--bg)",
+    fontSize: 11.5,
+    lineHeight: 1.65,
+    color: "var(--fg-1)",
+    letterSpacing: -0.1
+  } }, highlight(cur, tab)), /* @__PURE__ */ React.createElement("aside", { style: { borderLeft: "1px solid var(--line)", background: "var(--bg-1)" } }, /* @__PURE__ */ React.createElement("div", { style: { padding: "12px 18px", borderBottom: "1px solid var(--line)" } }, /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 10, letterSpacing: 1.4, color: "var(--fg-2)", textTransform: "uppercase" } }, "Affected Files")), [
+    { path: "src/pages/Today.tsx", issues: ["i01"], lines: "+24 \u22122" },
+    { path: "src/components/Onboarding.tsx", issues: ["i01"], lines: "\u65B0\u5EFA" },
+    { path: "src/lib/shortcuts.ts", issues: ["i02"], lines: "+1 \u22121" },
+    { path: "src/components/CommandPalette.tsx", issues: ["i02"], lines: "+3 \u22120" },
+    { path: "src/lib/export.ts", issues: ["i03"], lines: "\u65B0\u5EFA +89" },
+    { path: "src/pages/api/export.ts", issues: ["i03"], lines: "\u65B0\u5EFA +42" },
+    { path: "src/lib/roles.ts", issues: ["i04"], lines: "+14 \u22123" },
+    { path: "src/styles/theme.css", issues: ["i05"], lines: "+2 \u22122" },
+    { path: "src/components/TaskInput.tsx", issues: ["i06"], lines: "+8 \u22121" },
+    { path: "src/components/SyncBtn.tsx", issues: ["i07"], lines: "+12 \u22124" },
+    { path: "src/data/templates.json", issues: ["i08"], lines: "+86" },
+    { path: "src/pages/Templates.tsx", issues: ["i08"], lines: "+6 \u22122" }
+  ].map((f) => /* @__PURE__ */ React.createElement("div", { key: f.path, style: { padding: "8px 18px", borderBottom: "1px solid var(--line)" } }, /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 11, color: "var(--fg-1)", marginBottom: 3 } }, f.path), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "center" } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", gap: 4 } }, f.issues.map((id) => /* @__PURE__ */ React.createElement("span", { key: id, className: "mono", style: {
+    fontSize: 9,
+    color: "var(--accent)",
+    padding: "1px 5px",
+    background: "var(--accent-dim)",
+    letterSpacing: 0.4
+  } }, id))), /* @__PURE__ */ React.createElement("span", { className: "mono", style: { fontSize: 9, color: "var(--fg-3)" } }, f.lines)))))));
+}
+function highlight(text, kind) {
+  if (kind === "json") {
+    return text.split("\n").map((line, idx) => {
+      const parts = [];
+      let rest = line;
+      let key = 0;
+      while (rest.length) {
+        const strM = rest.match(/^("(?:\\.|[^"\\])*")(\s*:)?/);
+        if (strM) {
+          const isKey = !!strM[2];
+          parts.push(/* @__PURE__ */ React.createElement("span", { key: key++, style: { color: isKey ? "var(--accent)" : "oklch(0.82 0.14 75)" } }, strM[1]));
+          if (isKey) parts.push(/* @__PURE__ */ React.createElement("span", { key: key++ }, strM[2]));
+          rest = rest.slice(strM[0].length);
+          continue;
+        }
+        const numM = rest.match(/^-?\d+(?:\.\d+)?/);
+        if (numM) {
+          parts.push(/* @__PURE__ */ React.createElement("span", { key: key++, style: { color: "oklch(0.82 0.14 155)" } }, numM[0]));
+          rest = rest.slice(numM[0].length);
+          continue;
+        }
+        const litM = rest.match(/^(true|false|null)/);
+        if (litM) {
+          parts.push(/* @__PURE__ */ React.createElement("span", { key: key++, style: { color: "oklch(0.75 0.04 240)" } }, litM[0]));
+          rest = rest.slice(litM[0].length);
+          continue;
+        }
+        const charM = rest.match(/^[^"0-9tfn-]+/);
+        if (charM) {
+          parts.push(/* @__PURE__ */ React.createElement("span", { key: key++ }, charM[0]));
+          rest = rest.slice(charM[0].length);
+        } else {
+          parts.push(/* @__PURE__ */ React.createElement("span", { key: key++ }, rest[0]));
+          rest = rest.slice(1);
+        }
+      }
+      return /* @__PURE__ */ React.createElement("div", { key: idx }, parts.length ? parts : "\u200B");
+    });
+  }
+  if (kind === "patch") {
+    return text.split("\n").map((line, idx) => {
+      let color = "var(--fg-1)";
+      let weight = 400;
+      if (/^#{1,3} /.test(line)) {
+        color = "var(--fg)";
+        weight = 600;
+      } else if (/^\s*- /.test(line) || /^\s*\d+\. /.test(line)) color = "var(--fg-1)";
+      else if (/^```/.test(line)) color = "var(--fg-3)";
+      else if (/^\s*FILE:/.test(line)) color = "var(--accent)";
+      else if (/^\s*(HIGH|MED|LOW)/.test(line)) color = "oklch(0.82 0.14 75)";
+      else if (line.startsWith("+ ")) color = "var(--good)";
+      else if (line.startsWith("- ")) color = "var(--danger)";
+      return /* @__PURE__ */ React.createElement("div", { key: idx, style: { color, fontWeight: weight } }, line || "\u200B");
+    });
+  }
+  return text.split("\n").map((line, idx) => {
+    let color = "var(--fg-1)";
+    if (/^#{1,3} /.test(line)) color = "var(--accent)";
+    else if (/^```/.test(line)) color = "var(--fg-3)";
+    else if (/^>/.test(line)) color = "var(--fg-2)";
+    return /* @__PURE__ */ React.createElement("div", { key: idx, style: { color } }, line || "\u200B");
+  });
+}
+function buildPatchDoc() {
+  return `# product-predict / run-043 / patch plan
+# repo: lumen-labs/pebble-app @ f9c2a1e
+# generated: 2026-05-21T14:08:21Z \xB7 schema: pp.patch.v1
+
+## SUMMARY
+- 8 issues found across 24 agents \xB7 184 evidence events
+- Predicted NPS: -14 (achievable: +28 after high-sev fixes)
+- Apply in order. Run \`pp run . --verify\` after each high-sev fix.
+
+## ISSUES
+
+### [i01] HIGH \xB7 Onboarding \u2014 \u65B0\u7528\u6237\u627E\u4E0D\u5230\u300C\u521B\u5EFA\u4EFB\u52A1\u300D\u5165\u53E3
+EVIDENCE: 14 events \xB7 9/24 agents \xB7 drop-off at /projects/new = 42%
+EXPECTED-IMPACT: NPS +18, Task Success 67% \u2192 88%
+
+FILE: src/pages/Today.tsx (modify, lines 34-58)
+INTENT: \u5F53 tasks.length === 0 \u65F6\uFF0C\u6E32\u67D3\u5C45\u4E2D\u7684 EmptyState CTA\u3002
++ import { EmptyState } from '@/components/EmptyState';
++ if (tasks.length === 0) return <EmptyState onCreate={openNewTask} />;
+
+FILE: src/components/Onboarding.tsx (CREATE)
+INTENT: 3-step coach-mark overlay for first session.
+- props: { onDismiss: () => void }
+- steps: ["\u521B\u5EFA\u7B2C\u4E00\u4E2A\u4EFB\u52A1", "\u62D6\u5230 Today \u5217", "\u9080\u8BF7\u534F\u4F5C\u8005"]
+- persist dismissal to localStorage key 'pebble:onb:v1'
+
+### [i02] HIGH \xB7 Keyboard \u2014 Cmd+/ \u5E94\u4E3A Cmd+K
+EVIDENCE: 23 events \xB7 11/24 agents \xB7 rage-clicks=11
+
+FILE: src/lib/shortcuts.ts
+- export const PALETTE_KEY = '/';
++ export const PALETTE_KEY = 'k';
+
+FILE: src/components/CommandPalette.tsx
++ // also bind legacy '/' for 90 days
++ useHotkey('mod+/', open, { deprecated: true });
+
+### [i03] HIGH \xB7 Data \u2014 \u7F3A\u5C11 CSV / API \u5BFC\u51FA
+EVIDENCE: 9 events \xB7 7/24 agents \xB7 \u641C\u7D22\u5173\u952E\u8BCD 'export' \u547D\u4E2D 0 \u6B21
+
+FILE: src/lib/export.ts (CREATE)
+INTENT: tasksToCsv(tasks: Task[]): string + downloadBlob helper.
+
+FILE: src/pages/api/export.ts (CREATE)
+INTENT: GET /api/export?fmt=csv|json \xB7 auth via session \xB7 streams.
+
+### [i04] MED \xB7 Admin \u2014 \u6743\u9650\u7C92\u5EA6\u592A\u7C97
+FILE: src/lib/roles.ts
++ export type Role = 'owner' | 'admin' | 'member' | 'viewer';
+
+### [i05] MED \xB7 A11y \u2014 \u6DF1\u8272\u6A21\u5F0F\u6B21\u8981\u6309\u94AE\u5BF9\u6BD4\u5EA6 2.1:1
+FILE: src/styles/theme.css
+- --btn-secondary-fg: #6b6b66;
++ --btn-secondary-fg: #a8a89e;  /* contrast 4.6:1, meets WCAG AA */
+
+### [i06] MED \xB7 Mobile \u2014 \u952E\u76D8\u906E\u6321\u8F93\u5165\u533A\u57DF
+FILE: src/components/TaskInput.tsx
++ useVisualViewport(({ height }) => scrollIntoView(inputRef, { bottom: 0 }));
+
+### [i07] LOW \xB7 Feedback \u2014 Sync \u6309\u94AE\u65E0\u52A0\u8F7D\u6001
+FILE: src/components/SyncBtn.tsx
++ const [pending, start] = useTransition();
++ {pending && <Spinner size={12} />}
+
+### [i08] LOW \xB7 Templates \u2014 \u6A21\u677F\u592A\u5C11\u4E14\u504F\u5F00\u53D1
+FILE: src/data/templates.json
++ marketing-launch \xB7 sales-pipeline \xB7 ops-runbook \xB7 hr-onboarding \xB7 finance-close \xB7 pm-roadmap
+
+## VERIFICATION
+After applying, run:
+\`\`\`
+pp run . --agents 24 --compare run-043
+\`\`\`
+Pass criteria: NPS \u2265 +12, Task Success \u2265 85%, Rage Clicks \u2264 3.
+`;
+}
+function buildJsonDoc() {
+  return `{
+  "schema": "pp.patch.v1",
+  "run_id": "run-043",
+  "repo": "lumen-labs/pebble-app",
+  "commit": "f9c2a1e",
+  "generated_at": "2026-05-21T14:08:21Z",
+  "summary": {
+    "issues": 8,
+    "agents": 24,
+    "evidence_events": 184,
+    "predicted_nps": -14,
+    "achievable_nps": 28,
+    "est_dev_hours": 4.2
+  },
+  "issues": [
+    {
+      "id": "i01",
+      "severity": "high",
+      "category": "onboarding",
+      "title": "\u65B0\u7528\u6237\u627E\u4E0D\u5230\u300C\u521B\u5EFA\u4EFB\u52A1\u300D\u5165\u53E3",
+      "agents_affected": 9,
+      "evidence_count": 14,
+      "expected_impact": { "nps_delta": 18, "task_success_delta": 0.21 },
+      "patches": [
+        {
+          "file": "src/pages/Today.tsx",
+          "op": "modify",
+          "lines": [34, 58],
+          "intent": "\u5F53 tasks.length === 0 \u65F6\u6E32\u67D3 EmptyState CTA"
+        },
+        {
+          "file": "src/components/Onboarding.tsx",
+          "op": "create",
+          "intent": "3-step coach-mark overlay for first session"
+        }
+      ]
+    },
+    {
+      "id": "i02",
+      "severity": "high",
+      "category": "keyboard",
+      "title": "Cmd+/ \u5E94\u4E3A Cmd+K",
+      "agents_affected": 11,
+      "evidence_count": 23,
+      "patches": [
+        { "file": "src/lib/shortcuts.ts", "op": "modify", "diff": "PALETTE_KEY = 'k'" }
+      ]
+    },
+    {
+      "id": "i03",
+      "severity": "high",
+      "category": "data",
+      "title": "\u7F3A\u5C11 CSV / API \u5BFC\u51FA",
+      "agents_affected": 7,
+      "evidence_count": 9,
+      "patches": [
+        { "file": "src/lib/export.ts", "op": "create" },
+        { "file": "src/pages/api/export.ts", "op": "create" }
+      ]
+    }
+  ],
+  "verify": {
+    "command": "pp run . --agents 24 --compare run-043",
+    "pass": { "nps_min": 12, "task_success_min": 0.85, "rage_clicks_max": 3 }
+  }
+}`;
+}
+function buildPromptDoc() {
+  return `# Drop-in prompt for Claude Code / Cursor / Codex
+# Paste this whole block into your AI coding assistant.
+
+I just ran product-predict on this repo (run #043) and got
+8 issues across 24 synthetic users. I want you to apply
+the high-severity fixes in order, then re-run to verify.
+
+> Constraints:
+> - Touch only the files listed under each issue.
+> - Keep existing test suite green; add tests for new logic.
+> - After each high-sev issue, run \`pp run . --verify\` and stop if it regresses.
+
+## Issue 1 (HIGH) \u2014 Onboarding empty state
+File: src/pages/Today.tsx
+Add an EmptyState component that renders centered when tasks
+is empty, with a primary "+ \u65B0\u4EFB\u52A1" button bound to openNewTask().
+Also create src/components/Onboarding.tsx \u2014 a 3-step coach-mark
+overlay shown on first visit, persisted to localStorage key
+'pebble:onb:v1'.
+
+## Issue 2 (HIGH) \u2014 Command palette shortcut
+File: src/lib/shortcuts.ts
+Change PALETTE_KEY from '/' to 'k'. Keep '/' as a deprecated
+binding for 90 days.
+
+## Issue 3 (HIGH) \u2014 Export
+Create src/lib/export.ts with tasksToCsv(tasks) and
+downloadBlob helpers. Create src/pages/api/export.ts route
+that streams CSV or JSON depending on ?fmt= param.
+
+## Verify
+\`\`\`
+pp run . --agents 24 --compare run-043
+\`\`\`
+Pass: NPS \u2265 +12, Task Success \u2265 85%, Rage Clicks \u2264 3.
+
+When done, summarize: what was changed, why, and the new
+predicted scores.`;
+}
+function ReportView({ onRerun }) {
+  const meta = window.RUN_META;
+  const issues = window.ISSUES || [];
+  const delights = window.DELIGHTS || [];
+  const agents = window.AGENTS || [];
+  const [activeIssue, setActiveIssue] = useStateR(issues[0]?.id || null);
+  const [mode, setMode] = useStateR("human");
+  if (mode === "ai") return /* @__PURE__ */ React.createElement(AIReport, { onSwitch: () => setMode("human") });
+  const issue = issues.find((i) => i.id === activeIssue) || issues[0];
+  const issueAgent = issue ? agents.find((a) => a.id === issue.agentRef) : null;
+  const totalAgents = agents.length || 1;
+  const duration = meta ? humanDuration(new Date(meta.startedAt), new Date(meta.finishedAt)) : "\u2014";
+  const m = meta?.metrics || {};
+  return /* @__PURE__ */ React.createElement("div", { style: { height: "100%", overflow: "auto" } }, /* @__PURE__ */ React.createElement(ModeToggleBar, { mode, setMode, runId: meta?.id }), /* @__PURE__ */ React.createElement("div", { style: { borderBottom: "1px solid var(--line)", padding: "36px 40px 32px" } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "flex-end", justifyContent: "space-between", gap: 40, marginBottom: 28 } }, /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 10, letterSpacing: 1.6, color: "var(--fg-3)", textTransform: "uppercase", marginBottom: 8 } }, "Report \xB7 ", meta?.id || "\u2014", " \xB7 ", meta?.target?.title || meta?.target?.url || "\u2014"), /* @__PURE__ */ React.createElement("h1", { style: { fontSize: 36, letterSpacing: -0.8, margin: 0, fontWeight: 400, lineHeight: 1.15 } }, /* @__PURE__ */ React.createElement("span", { className: "serif", style: { fontStyle: "italic" } }, totalAgents, " \u4F4D"), " \u5408\u6210\u7528\u6237\u82B1\u4E86 ", duration, " \u7528\u4F60\u7684\u4EA7\u54C1\u3002", /* @__PURE__ */ React.createElement("br", null), "\u8FD9\u662F\u4ED6\u4EEC\u7684", /* @__PURE__ */ React.createElement("span", { style: { color: "var(--accent)" } }, "\u672A\u7ECF\u7C89\u9970"), "\u7684\u53CD\u9988\u3002")), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", gap: 8, flexShrink: 0 } }, /* @__PURE__ */ React.createElement(Btn, { variant: "ghost", onClick: () => window.open(window.location.pathname.replace(/report\.html$/, "report.md"), "_blank") }, "\u4E0B\u8F7D report.md"), /* @__PURE__ */ React.createElement(Btn, { variant: "ghost", onClick: () => window.open(window.location.pathname.replace(/report\.html$/, "run.json"), "_blank") }, "\u67E5\u770B run.json"), /* @__PURE__ */ React.createElement(Btn, { variant: "primary", onClick: onRerun, icon: Icon.arrow }, "\u4FEE\u590D\u540E\u91CD\u8DD1"))), /* @__PURE__ */ React.createElement("div", { style: { display: "grid", gridTemplateColumns: "1.2fr 1fr 1fr 1fr 1fr", gap: 1, background: "var(--line)", border: "1px solid var(--line)" } }, /* @__PURE__ */ React.createElement(
+    BigScore,
+    {
+      label: "Predicted NPS",
+      value: fmtSigned(m.predictedNps),
+      delta: m.predictedNps != null ? `\u53EF\u6539\u8FDB\u81F3 ${fmtSigned(m.achievableNps)}` : "\u2014",
+      tone: npsTone(m.predictedNps),
+      big: true
+    }
+  ), /* @__PURE__ */ React.createElement(
+    BigScore,
+    {
+      label: "Task Success",
+      value: `${Math.round((m.taskSuccess || 0) * 100)}%`,
+      delta: `${Math.round((m.taskSuccess || 0) * totalAgents)} / ${totalAgents} \u5B8C\u6210`,
+      tone: m.taskSuccess >= 0.8 ? "good" : m.taskSuccess >= 0.5 ? "warn" : "bad"
+    }
+  ), /* @__PURE__ */ React.createElement(
+    BigScore,
+    {
+      label: "Time-to-Value",
+      value: m.timeToValueSec != null ? fmtSec(m.timeToValueSec) : "\u2014",
+      delta: m.timeToValueSec != null && m.timeToValueSec < 30 ? "\u9996\u6B21\u60CA\u559C\u5F88\u5FEB" : "\u7528\u6237\u82B1\u4E86\u4E00\u6BB5\u65F6\u95F4\u624D\u611F\u5230\u4EF7\u503C",
+      tone: m.timeToValueSec != null && m.timeToValueSec < 30 ? "good" : "warn"
+    }
+  ), /* @__PURE__ */ React.createElement(
+    BigScore,
+    {
+      label: "Rage Clicks",
+      value: String(m.rageClicks ?? 0),
+      delta: topRageContext(window.ACTIVITY || []),
+      tone: (m.rageClicks || 0) > 3 ? "bad" : (m.rageClicks || 0) > 0 ? "warn" : "good"
+    }
+  ), /* @__PURE__ */ React.createElement(
+    BigScore,
+    {
+      label: "Delight Moments",
+      value: String(m.delightCount ?? 0),
+      delta: delights[0]?.title || "\u2014",
+      tone: (m.delightCount || 0) > 0 ? "good" : "warn"
+    }
+  ))), /* @__PURE__ */ React.createElement("div", { style: { display: "grid", gridTemplateColumns: "440px 1fr", minHeight: 600 } }, /* @__PURE__ */ React.createElement("div", { style: { borderRight: "1px solid var(--line)", display: "flex", flexDirection: "column" } }, /* @__PURE__ */ React.createElement("div", { style: { padding: "16px 24px", borderBottom: "1px solid var(--line)", display: "flex", justifyContent: "space-between", alignItems: "center" } }, /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 10, letterSpacing: 1.4, color: "var(--fg-2)", textTransform: "uppercase" } }, issues.length, ' \u6761\u89C2\u5BDF \xB7 \u8FD9\u662F\u7528\u6237\u7684"\u611F\u53D7"\uFF0C\u4E0D\u662F bug \u5217\u8868'), /* @__PURE__ */ React.createElement("span", { className: "mono", style: { fontSize: 10, color: "var(--fg-3)" } }, "HIGH \xB7 MED \xB7 LOW")), issues.length === 0 && /* @__PURE__ */ React.createElement("div", { style: { padding: "40px 24px", color: "var(--fg-3)", fontSize: 13 } }, "\u6CA1\u6709 agent \u62A5\u544A\u95EE\u9898\u3002\u8981\u4E48\u4EA7\u54C1\u5DF2\u7ECF\u5F88\u597D\uFF0C\u8981\u4E48 agent \u90FD\u592A\u5BBD\u5BB9\u3002"), issues.map((iss, idx) => /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      key: iss.id,
+      onClick: () => setActiveIssue(iss.id),
+      className: "fade-in-up",
+      style: {
+        padding: "16px 24px",
+        borderBottom: "1px solid var(--line)",
+        cursor: "pointer",
+        background: activeIssue === iss.id ? "var(--bg-2)" : "transparent",
+        borderLeft: activeIssue === iss.id ? "2px solid var(--accent)" : "2px solid transparent",
+        animationDelay: `${idx * 0.04}s`
+      }
+    },
+    /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "flex-start", gap: 12, marginBottom: 8 } }, /* @__PURE__ */ React.createElement("div", { style: {
+      width: 22,
+      height: 22,
+      background: "var(--bg-3)",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      fontFamily: "JetBrains Mono",
+      fontSize: 10,
+      color: "var(--fg-2)",
+      flexShrink: 0,
+      marginTop: 1
+    } }, String(idx + 1).padStart(2, "0")), /* @__PURE__ */ React.createElement("div", { style: { flex: 1, fontSize: 13.5, lineHeight: 1.45, fontWeight: 500 } }, iss.title)),
+    /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 8, marginLeft: 34 } }, /* @__PURE__ */ React.createElement(Pill, { color: sevColor(iss.severity), style: { background: `color-mix(in oklch, ${sevColor(iss.severity)} 12%, transparent)` } }, iss.severity), /* @__PURE__ */ React.createElement("span", { className: "mono", style: { fontSize: 10, color: "var(--fg-3)" } }, iss.category), /* @__PURE__ */ React.createElement("span", { className: "mono", style: { fontSize: 10, color: "var(--fg-3)" } }, "\xB7 ", iss.agents, "/", totalAgents, " agents"), /* @__PURE__ */ React.createElement("span", { className: "mono", style: { fontSize: 10, color: "var(--fg-3)" } }, "\xB7 ", iss.evidence, " evidence"))
+  ))), /* @__PURE__ */ React.createElement("div", { style: { padding: "28px 36px", overflow: "auto" } }, issue && issueAgent && /* @__PURE__ */ React.createElement("div", { className: "fade-in-up", key: activeIssue }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 10, marginBottom: 14 } }, /* @__PURE__ */ React.createElement(Pill, { color: sevColor(issue.severity), style: { background: `color-mix(in oklch, ${sevColor(issue.severity)} 12%, transparent)` } }, issue.severity, " severity"), /* @__PURE__ */ React.createElement(Pill, null, issue.category), /* @__PURE__ */ React.createElement("span", { className: "mono", style: { fontSize: 10, color: "var(--fg-3)" } }, "impact \xB7 ", issue.agents, "/", totalAgents, " agents")), /* @__PURE__ */ React.createElement("h2", { style: { fontSize: 26, fontWeight: 400, letterSpacing: -0.4, lineHeight: 1.25, margin: "0 0 24px" } }, issue.title), /* @__PURE__ */ React.createElement("div", { style: {
+    padding: "20px 24px",
+    background: "var(--bg-1)",
+    borderLeft: `2px solid ${issueAgent.color}`,
+    marginBottom: 28
+  } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 10, marginBottom: 10 } }, /* @__PURE__ */ React.createElement(AgentAvatar, { agent: issueAgent, size: 26 }), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { style: { fontSize: 13, fontWeight: 500 } }, issueAgent.name), /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 10, color: "var(--fg-3)", marginTop: 1 } }, issueAgent.age, " \xB7 ", issueAgent.role, " \xB7 tech ", issueAgent.tech, "/5"))), /* @__PURE__ */ React.createElement("div", { className: "serif", style: { fontSize: 20, lineHeight: 1.45, color: "var(--fg)", letterSpacing: -0.1 } }, /* @__PURE__ */ React.createElement("span", { style: { color: "var(--fg-3)" } }, "\u201C"), issue.quote, /* @__PURE__ */ React.createElement("span", { style: { color: "var(--fg-3)" } }, "\u201D")), /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 10, color: "var(--fg-3)", marginTop: 12, letterSpacing: 0.4 } }, issue.journey, " \xB7 ", issue.evidence, " \u4E8B\u4EF6")), /* @__PURE__ */ React.createElement("div", { style: { marginBottom: 28 } }, /* @__PURE__ */ React.createElement("h3", { className: "mono", style: { fontSize: 10, letterSpacing: 1.4, color: "var(--fg-2)", textTransform: "uppercase", marginBottom: 12 } }, "Evidence \xB7 \u89E6\u53D1\u8BE5\u95EE\u9898\u7684\u4E8B\u4EF6\u94FE"), /* @__PURE__ */ React.createElement("div", { style: { border: "1px solid var(--line)", background: "var(--bg-1)" } }, evidenceFor(issue).map((a, i, arr) => {
+    const ag = agents.find((x) => x.id === a.agent);
+    return /* @__PURE__ */ React.createElement("div", { key: i, style: {
+      padding: "10px 14px",
+      borderBottom: i < arr.length - 1 ? "1px solid var(--line)" : 0,
+      display: "grid",
+      gridTemplateColumns: "auto auto 1fr auto",
+      gap: 10,
+      alignItems: "center"
+    } }, /* @__PURE__ */ React.createElement("span", { className: "mono", style: { fontSize: 10, color: "var(--fg-3)" } }, a.t), /* @__PURE__ */ React.createElement(AgentAvatar, { agent: ag, size: 18 }), /* @__PURE__ */ React.createElement("span", { style: { fontSize: 12, color: "var(--fg-1)" } }, a.text), /* @__PURE__ */ React.createElement("span", { className: "mono", style: { fontSize: 10, color: sentColor(a.sentiment) } }, "s=", a.sentiment > 0 ? "+" : "", a.sentiment));
+  })))))), (window.FEATURES || []).length > 0 && /* @__PURE__ */ React.createElement(Section, { label: "\u529F\u80FD\u4F7F\u7528\u9891\u7387 \xB7 \u8FD9\u6B21\u4F1A\u8BDD\u91CC\u88AB\u771F\u6B63\u4F7F\u7528\u7684\u529F\u80FD" }, /* @__PURE__ */ React.createElement("div", { style: { padding: "16px 24px" } }, /* @__PURE__ */ React.createElement("div", { style: {
+    display: "grid",
+    gridTemplateColumns: "180px 1fr 90px 100px 70px",
+    gap: 10,
+    alignItems: "center",
+    marginBottom: 8,
+    paddingBottom: 8,
+    borderBottom: "1px solid var(--line)"
+  } }, /* @__PURE__ */ React.createElement("span", { className: "mono", style: { fontSize: 9, color: "var(--fg-3)", letterSpacing: 1.4, textTransform: "uppercase" } }, "\u529F\u80FD"), /* @__PURE__ */ React.createElement("span", { className: "mono", style: { fontSize: 9, color: "var(--fg-3)", letterSpacing: 1.4, textTransform: "uppercase" } }, "HIT RATE"), /* @__PURE__ */ React.createElement("span", { className: "mono", style: { fontSize: 9, color: "var(--fg-3)", letterSpacing: 1.4, textTransform: "uppercase", textAlign: "right" } }, "\u5B8C\u6210\u7387"), /* @__PURE__ */ React.createElement("span", { className: "mono", style: { fontSize: 9, color: "var(--fg-3)", letterSpacing: 1.4, textTransform: "uppercase", textAlign: "right" } }, "SENTIMENT"), /* @__PURE__ */ React.createElement("span", { className: "mono", style: { fontSize: 9, color: "var(--fg-3)", letterSpacing: 1.4, textTransform: "uppercase", textAlign: "right" } }, "\u5C1D\u8BD5")), (window.FEATURES || []).map((f, i) => /* @__PURE__ */ React.createElement("div", { key: i, style: {
+    display: "grid",
+    gridTemplateColumns: "180px 1fr 90px 100px 70px",
+    gap: 10,
+    alignItems: "center",
+    padding: "10px 0",
+    borderBottom: i < window.FEATURES.length - 1 ? "1px solid var(--line)" : "0"
+  } }, /* @__PURE__ */ React.createElement("span", { style: { fontSize: 13, color: "var(--fg-1)" } }, f.name), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 8 } }, /* @__PURE__ */ React.createElement("div", { style: { flex: 1, height: 8, background: "var(--bg-2)", position: "relative" } }, /* @__PURE__ */ React.createElement("div", { style: {
+    width: `${(f.hitRate || 0) * 100}%`,
+    height: "100%",
+    background: "var(--accent)"
+  } })), /* @__PURE__ */ React.createElement("span", { className: "mono", style: { fontSize: 11, color: "var(--fg-2)", minWidth: 60 } }, (f.hitRate * 100).toFixed(0), "% (", f.hitCount, ")")), /* @__PURE__ */ React.createElement("span", { className: "mono", style: {
+    fontSize: 11,
+    color: f.completionRate >= 0.7 ? "var(--good)" : f.completionRate >= 0.4 ? "var(--warn)" : "var(--danger)",
+    textAlign: "right"
+  } }, (f.completionRate * 100).toFixed(0), "%"), /* @__PURE__ */ React.createElement("span", { className: "mono", style: {
+    fontSize: 11,
+    color: f.avgSentiment >= 1 ? "var(--good)" : f.avgSentiment >= -0.5 ? "var(--fg-2)" : "var(--danger)",
+    textAlign: "right"
+  } }, f.avgSentiment >= 0 ? "+" : "", f.avgSentiment.toFixed(1)), /* @__PURE__ */ React.createElement("span", { className: "mono", style: { fontSize: 11, color: "var(--fg-3)", textAlign: "right" } }, f.totalAttempts))))), /* @__PURE__ */ React.createElement("div", { style: { borderTop: "1px solid var(--line)", display: "grid", gridTemplateColumns: "1fr 1fr" } }, /* @__PURE__ */ React.createElement(Section, { label: "Delights \xB7 \u7528\u6237\u559C\u6B22\u7684" }, /* @__PURE__ */ React.createElement("div", { style: { padding: "16px 24px", display: "flex", flexDirection: "column", gap: 14 } }, delights.length === 0 && /* @__PURE__ */ React.createElement("div", { style: { color: "var(--fg-3)", fontSize: 12 } }, "\u6CA1\u6709\u4EAE\u70B9\u8BB0\u5F55\u3002\u503C\u5F97\u53CD\u601D\u3002"), delights.map((d) => {
+    const ag = agents.find((x) => x.id === d.agent);
+    return /* @__PURE__ */ React.createElement("div", { key: d.title, style: { display: "grid", gridTemplateColumns: "auto 1fr auto", gap: 12, alignItems: "center" } }, /* @__PURE__ */ React.createElement(AgentAvatar, { agent: ag, size: 24 }), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { style: { fontSize: 13, fontWeight: 500 } }, d.title), /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 10, color: "var(--fg-3)", marginTop: 2 } }, "\u201C", d.quote, "\u201D")), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 6 } }, /* @__PURE__ */ React.createElement(Dot, { color: "var(--good)", size: 6 }), /* @__PURE__ */ React.createElement("span", { className: "mono", style: { fontSize: 11, color: "var(--good)" } }, d.count)));
+  }))), /* @__PURE__ */ React.createElement(Section, { label: "Route Heatmap \xB7 \u8DEF\u5F84\u70ED\u5EA6", style: { borderLeft: "1px solid var(--line)" } }, /* @__PURE__ */ React.createElement("div", { style: { padding: "16px 24px" } }, (window.ROUTES_HEAT || []).length === 0 && /* @__PURE__ */ React.createElement("div", { style: { color: "var(--fg-3)", fontSize: 12 } }, "\u6CA1\u6709\u540C\u6E90\u8DF3\u8F6C\u8BB0\u5F55\u3002"), (window.ROUTES_HEAT || []).map((r) => /* @__PURE__ */ React.createElement("div", { key: r.path, style: { marginBottom: 14, display: "grid", gridTemplateColumns: "180px 1fr 60px 60px", gap: 12, alignItems: "center" } }, /* @__PURE__ */ React.createElement("span", { className: "mono", style: { fontSize: 11, color: "var(--fg-1)" } }, r.path), /* @__PURE__ */ React.createElement("div", { style: { height: 10, background: "var(--bg-2)", position: "relative" } }, /* @__PURE__ */ React.createElement("div", { style: { width: `${Math.min(1, r.visits / Math.max(1, totalAgents)) * 100}%`, height: "100%", background: "var(--accent)" } })), /* @__PURE__ */ React.createElement("span", { className: "mono", style: { fontSize: 10, color: "var(--fg-2)" } }, r.dwell, "s"), /* @__PURE__ */ React.createElement("span", { className: "mono", style: { fontSize: 10, color: r.drop > 0.3 ? "var(--danger)" : "var(--fg-3)" } }, "\u2193", (r.drop * 100).toFixed(0), "%")))))));
+}
+function ModeToggleBar({ mode, setMode, runId }) {
+  return /* @__PURE__ */ React.createElement("div", { style: {
+    borderBottom: "1px solid var(--line)",
+    background: "var(--bg-1)",
+    padding: "10px 40px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between"
+  } }, /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 10, letterSpacing: 1.4, color: "var(--fg-3)", textTransform: "uppercase" } }, "Report ", runId ? "\xB7 " + runId : "", " \xB7 \u4E24\u79CD\u89C6\u56FE"), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", border: "1px solid var(--line-2)" } }, /* @__PURE__ */ React.createElement("button", { onClick: () => setMode("human"), style: {
+    padding: "6px 16px",
+    fontSize: 11,
+    background: mode === "human" ? "var(--bg-3)" : "transparent",
+    color: mode === "human" ? "var(--fg)" : "var(--fg-2)",
+    display: "flex",
+    alignItems: "center",
+    gap: 6,
+    borderRight: "1px solid var(--line-2)"
+  } }, /* @__PURE__ */ React.createElement("span", { style: { fontSize: 13 } }, "\u25D0"), /* @__PURE__ */ React.createElement("div", { style: { textAlign: "left" } }, /* @__PURE__ */ React.createElement("div", { style: { fontWeight: 500 } }, "\u7ED9\u4EBA\u770B"), /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 9, color: "var(--fg-3)" } }, "\u53D9\u4E8B \xB7 \u5F15\u8BED \xB7 \u8BC1\u636E"))), /* @__PURE__ */ React.createElement("button", { onClick: () => setMode("ai"), style: {
+    padding: "6px 16px",
+    fontSize: 11,
+    background: mode === "ai" ? "var(--bg-3)" : "transparent",
+    color: mode === "ai" ? "var(--fg)" : "var(--fg-2)",
+    display: "flex",
+    alignItems: "center",
+    gap: 6
+  } }, /* @__PURE__ */ React.createElement("span", { style: { fontSize: 13 } }, "\u25D1"), /* @__PURE__ */ React.createElement("div", { style: { textAlign: "left" } }, /* @__PURE__ */ React.createElement("div", { style: { fontWeight: 500 } }, "\u7ED9 AI \u770B"), /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 9, color: "var(--fg-3)" } }, "\u7ED3\u6784\u5316 \xB7 \u53EF\u76F4\u63A5\u4FEE\u590D")))));
+}
+function BigScore({ label, value, delta, tone, big }) {
+  const toneColor = tone === "good" ? "var(--good)" : tone === "warn" ? "var(--warn)" : tone === "bad" ? "var(--danger)" : "var(--fg)";
+  return /* @__PURE__ */ React.createElement("div", { style: { background: "var(--bg-1)", padding: "18px 22px" } }, /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 9, letterSpacing: 1.4, color: "var(--fg-3)", textTransform: "uppercase", marginBottom: 8 } }, label), /* @__PURE__ */ React.createElement("div", { style: { fontSize: big ? 42 : 32, fontWeight: 400, letterSpacing: -1, lineHeight: 1, color: toneColor, fontFamily: "Geist", fontVariantNumeric: "tabular-nums" } }, value), /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 10, color: "var(--fg-3)", marginTop: 8 } }, delta));
+}
+function AIReport({ onSwitch }) {
+  const meta = window.RUN_META;
+  const issues = window.ISSUES || [];
+  const agents = window.AGENTS || [];
+  const [tab, setTab] = useStateR("patch");
+  const [copied, setCopied] = useStateR(null);
+  const copy = (key, text) => {
+    if (navigator.clipboard?.writeText) navigator.clipboard.writeText(text);
+    setCopied(key);
+    setTimeout(() => setCopied(null), 1600);
+  };
+  const counts = {
+    high: issues.filter((i) => i.severity === "high").length,
+    med: issues.filter((i) => i.severity === "med").length,
+    low: issues.filter((i) => i.severity === "low").length
+  };
+  const patchDoc = buildPatchFromRun(meta, issues, agents);
+  const jsonDoc = buildJsonFromRun(meta, issues);
+  const promptDoc = buildPromptFromRun(meta, issues);
+  const cur = { patch: patchDoc, json: jsonDoc, prompt: promptDoc }[tab];
+  return /* @__PURE__ */ React.createElement("div", { style: { height: "100%", overflow: "auto", display: "flex", flexDirection: "column" } }, /* @__PURE__ */ React.createElement("div", { style: {
+    borderBottom: "1px solid var(--line)",
+    background: "var(--bg-1)",
+    padding: "10px 40px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between"
+  } }, /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 10, letterSpacing: 1.4, color: "var(--fg-3)", textTransform: "uppercase" } }, "Report ", meta ? "\xB7 " + meta.id : "", " \xB7 \u4E24\u79CD\u89C6\u56FE"), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", border: "1px solid var(--line-2)" } }, /* @__PURE__ */ React.createElement("button", { onClick: onSwitch, style: {
+    padding: "6px 16px",
+    fontSize: 11,
+    background: "transparent",
+    color: "var(--fg-2)",
+    display: "flex",
+    alignItems: "center",
+    gap: 6,
+    borderRight: "1px solid var(--line-2)"
+  } }, /* @__PURE__ */ React.createElement("span", { style: { fontSize: 13 } }, "\u25D0"), /* @__PURE__ */ React.createElement("div", { style: { textAlign: "left" } }, /* @__PURE__ */ React.createElement("div", { style: { fontWeight: 500 } }, "\u7ED9\u4EBA\u770B"), /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 9, color: "var(--fg-3)" } }, "\u53D9\u4E8B \xB7 \u5F15\u8BED \xB7 \u8BC1\u636E"))), /* @__PURE__ */ React.createElement("button", { style: {
+    padding: "6px 16px",
+    fontSize: 11,
+    background: "var(--bg-3)",
+    color: "var(--fg)",
+    display: "flex",
+    alignItems: "center",
+    gap: 6
+  } }, /* @__PURE__ */ React.createElement("span", { style: { fontSize: 13 } }, "\u25D1"), /* @__PURE__ */ React.createElement("div", { style: { textAlign: "left" } }, /* @__PURE__ */ React.createElement("div", { style: { fontWeight: 500 } }, "\u7ED9 AI \u770B"), /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 9, color: "var(--fg-3)" } }, "\u7ED3\u6784\u5316 \xB7 \u53EF\u76F4\u63A5\u4FEE\u590D"))))), /* @__PURE__ */ React.createElement("div", { style: { padding: "32px 40px 28px", borderBottom: "1px solid var(--line)" } }, /* @__PURE__ */ React.createElement("h1", { style: { fontSize: 32, letterSpacing: -0.6, margin: "0 0 8px", fontWeight: 400, lineHeight: 1.2 } }, "\u4E00\u4EFD ", /* @__PURE__ */ React.createElement("span", { style: { color: "var(--accent)" } }, "\u53EF\u6267\u884C"), " \u7684\u4FEE\u590D\u5305\u3002"), /* @__PURE__ */ React.createElement("p", { style: { color: "var(--fg-2)", fontSize: 14, maxWidth: 680, lineHeight: 1.55, marginBottom: 20 } }, "\u8FD9\u4E00\u4EFD\u662F\u7ED9 Claude Code / Cursor / Codex \u8BFB\u7684\u3002\u628A\u4E0B\u9762\u4EFB\u4E00\u683C\u5F0F\u5582\u7ED9\u5B83\uFF0C\u5B83\u5C31\u80FD\u6309\u4F18\u5148\u7EA7\u843D\u5730\u4FEE\u590D\uFF0C\u5E76\u5728\u5B8C\u6210\u540E\u8C03\u7528 ", /* @__PURE__ */ React.createElement("span", { className: "mono", style: { color: "var(--fg-1)" } }, "pp run"), " \u9A8C\u8BC1\u3002"), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", gap: 12, alignItems: "center", flexWrap: "wrap" } }, /* @__PURE__ */ React.createElement(Pill, { color: "var(--accent)", style: { background: "var(--accent-dim)" } }, issues.length, " issues"), /* @__PURE__ */ React.createElement(Pill, null, counts.high, " high \xB7 ", counts.med, " med \xB7 ", counts.low, " low"), /* @__PURE__ */ React.createElement(Pill, null, (meta?.activity || []).length, " events"), /* @__PURE__ */ React.createElement(Pill, null, "cost \xB7 $", meta?.cost?.usd?.toFixed(2) ?? "0.00"))), /* @__PURE__ */ React.createElement("div", { style: { padding: "0 40px", borderBottom: "1px solid var(--line)", display: "flex", justifyContent: "space-between", alignItems: "center" } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", gap: 0 } }, [
+    { id: "patch", label: "Patch Plan", sub: "markdown \xB7 \u63A8\u8350" },
+    { id: "json", label: "JSON Schema", sub: "machine-strict" },
+    { id: "prompt", label: "Drop-in Prompt", sub: "\u7C98\u5230 chat \u91CC" }
+  ].map((tx) => /* @__PURE__ */ React.createElement("button", { key: tx.id, onClick: () => setTab(tx.id), style: {
+    padding: "12px 18px",
+    textAlign: "left",
+    borderBottom: tab === tx.id ? "2px solid var(--accent)" : "2px solid transparent",
+    color: tab === tx.id ? "var(--fg)" : "var(--fg-2)"
+  } }, /* @__PURE__ */ React.createElement("div", { style: { fontSize: 12, fontWeight: 500 } }, tx.label), /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 9, color: "var(--fg-3)", marginTop: 2, letterSpacing: 0.4 } }, tx.sub)))), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", gap: 6 } }, /* @__PURE__ */ React.createElement("button", { onClick: () => copy(tab, cur), className: "mono", style: {
+    fontSize: 10,
+    padding: "5px 12px",
+    border: "1px solid var(--line-2)",
+    color: copied === tab ? "var(--accent)" : "var(--fg-2)",
+    letterSpacing: 0.6
+  } }, copied === tab ? "\u2713 COPIED" : "COPY"), /* @__PURE__ */ React.createElement("a", { href: window.location.pathname.replace(/report\.html$/, "report.md"), download: true, className: "mono", style: {
+    fontSize: 10,
+    padding: "5px 12px",
+    border: "1px solid var(--line-2)",
+    color: "var(--fg-2)",
+    letterSpacing: 0.6,
+    textDecoration: "none"
+  } }, "DOWNLOAD"))), /* @__PURE__ */ React.createElement("div", { style: { display: "grid", gridTemplateColumns: "60px 1fr", flex: 1, minHeight: 600 } }, /* @__PURE__ */ React.createElement("div", { className: "mono", style: {
+    background: "var(--bg-1)",
+    borderRight: "1px solid var(--line)",
+    padding: "16px 0",
+    textAlign: "right",
+    color: "var(--fg-3)",
+    fontSize: 10.5,
+    lineHeight: 1.65,
+    userSelect: "none"
+  } }, cur.split("\n").map((_, i) => /* @__PURE__ */ React.createElement("div", { key: i, style: { padding: "0 12px" } }, i + 1))), /* @__PURE__ */ React.createElement("pre", { className: "mono", style: {
+    margin: 0,
+    padding: "16px 20px",
+    overflow: "auto",
+    background: "var(--bg)",
+    fontSize: 11.5,
+    lineHeight: 1.65,
+    color: "var(--fg-1)",
+    letterSpacing: -0.1
+  } }, highlight(cur, tab))));
+}
+function buildPatchFromRun(meta, issues, agents) {
+  if (!meta) return "# no run loaded";
+  const L = [];
+  L.push(`# product-predict / ${meta.id} / patch plan`);
+  L.push(`# target: ${meta.target?.url}`);
+  L.push(`# generated: ${meta.finishedAt} \xB7 schema: pp.patch.v1`);
+  L.push("");
+  L.push(`## SUMMARY`);
+  L.push(`- ${issues.length} issues across ${agents.length} agents \xB7 ${(meta.activity || []).length} events`);
+  L.push(`- Predicted NPS: ${meta.metrics?.predictedNps} (achievable: ${meta.metrics?.achievableNps})`);
+  L.push(`- Apply in order. Run \`pp run ${meta.target?.url} --compare ${meta.id}\` after each high-sev fix.`);
+  L.push("");
+  L.push(`## ISSUES`);
+  for (const iss of issues) {
+    const ag = agents.find((a) => a.id === iss.agentRef);
+    L.push("");
+    L.push(`### [${iss.id}] ${iss.severity.toUpperCase()} \xB7 ${iss.category} \u2014 ${iss.title}`);
+    L.push(`EVIDENCE: ${iss.evidence} events \xB7 ${iss.agents}/${agents.length} agents \xB7 journey: ${iss.journey}`);
+    if (iss.quote) L.push(`QUOTE (${ag?.name || iss.agentRef}): "${iss.quote}"`);
+  }
+  L.push("");
+  L.push(`## VERIFICATION`);
+  L.push("```");
+  L.push(`pp run ${meta.target?.url} --agents ${agents.length} --compare ${meta.id}`);
+  L.push("```");
+  return L.join("\n");
+}
+function buildJsonFromRun(meta, issues) {
+  if (!meta) return "{}";
+  return JSON.stringify({
+    schema: "pp.patch.v1",
+    run_id: meta.id,
+    target: meta.target?.url,
+    generated_at: meta.finishedAt,
+    summary: {
+      issues: issues.length,
+      agents: (meta.agents || []).length,
+      evidence_events: (meta.activity || []).length,
+      predicted_nps: meta.metrics?.predictedNps,
+      achievable_nps: meta.metrics?.achievableNps,
+      task_success: meta.metrics?.taskSuccess
+    },
+    issues: issues.map((iss) => ({
+      id: iss.id,
+      severity: iss.severity,
+      category: iss.category,
+      title: iss.title,
+      agents_affected: iss.agents,
+      evidence_count: iss.evidence,
+      journey: iss.journey,
+      quote: iss.quote
+    })),
+    verify: { command: `pp run ${meta.target?.url} --compare ${meta.id}` }
+  }, null, 2);
+}
+function buildPromptFromRun(meta, issues) {
+  if (!meta) return "# no run loaded";
+  const L = [];
+  L.push(`# Drop-in prompt for Claude Code / Cursor / Codex`);
+  L.push(`# Paste this whole block into your AI coding assistant.`);
+  L.push("");
+  L.push(`I just ran product-predict on ${meta.target?.url} (${meta.id}) and got`);
+  L.push(`${issues.length} issues across ${(meta.agents || []).length} synthetic users.`);
+  L.push(`Apply the high-severity fixes first, then re-run to verify.`);
+  L.push("");
+  L.push(`> Constraints:`);
+  L.push(`> - Touch only files clearly implicated by each issue.`);
+  L.push(`> - Keep existing tests green; add tests for new logic.`);
+  L.push(`> - After each high-sev issue, run \`pp run ${meta.target?.url} --compare ${meta.id}\` and stop if it regresses.`);
+  L.push("");
+  const high = issues.filter((i) => i.severity === "high");
+  high.forEach((iss, i) => {
+    L.push(`## Issue ${i + 1} (HIGH) \u2014 ${iss.title}`);
+    L.push(`Category: ${iss.category}`);
+    L.push(`User quote: "${iss.quote}"`);
+    L.push(`Where they got stuck: ${iss.journey}`);
+    L.push("");
+  });
+  return L.join("\n");
+}
+function evidenceFor(issue) {
+  if (!issue) return [];
+  const acts = window.ACTIVITY || [];
+  const sameAgent = acts.filter((a) => a.agent === issue.agentRef && a.sentiment < 0);
+  if (sameAgent.length) return sameAgent.slice(0, 5);
+  return acts.filter((a) => a.sentiment < 0).slice(0, 5);
+}
+function fmtSigned(n) {
+  if (n == null || !Number.isFinite(n)) return "\u2014";
+  return n > 0 ? `+${n}` : n < 0 ? `\u2212${Math.abs(n)}` : "0";
+}
+function fmtSec(s) {
+  if (s == null) return "\u2014";
+  if (s < 60) return `${s.toFixed(0)}s`;
+  const m = Math.floor(s / 60);
+  const r = Math.floor(s % 60);
+  return `${m}:${String(r).padStart(2, "0")}`;
+}
+function npsTone(n) {
+  if (n == null) return "neutral";
+  if (n >= 30) return "good";
+  if (n >= 0) return "warn";
+  return "bad";
+}
+function topRageContext(activity) {
+  const rages = activity.filter((e) => e.kind === "rage");
+  if (rages.length === 0) return "\u65E0 rage \u4E8B\u4EF6";
+  const first = rages[0];
+  return shortText(first.text, 30);
+}
+function shortText(s, n) {
+  return !s ? "\u2014" : s.length <= n ? s : s.slice(0, n - 1) + "\u2026";
+}
+function humanDuration(start, end) {
+  const ms = Math.max(0, end.getTime() - start.getTime());
+  const s = Math.round(ms / 1e3);
+  if (s < 60) return `${s} \u79D2`;
+  const m = Math.floor(s / 60);
+  const rs = s % 60;
+  if (m < 60) return rs ? `${m} \u5206 ${rs} \u79D2` : `${m} \u5206\u949F`;
+  const h = Math.floor(m / 60);
+  const rm = m % 60;
+  return `${h} \u5C0F\u65F6 ${rm} \u5206`;
+}
+Object.assign(window, { ReportView, AIReport, BigScore });
+const { useState: useStateApp, useEffect: useEffectApp } = React;
+function App() {
+  const [view, setView] = useStateApp("report");
+  const [activeRun, setActiveRun] = useStateApp(
+    window.PAST_RUNS && window.PAST_RUNS.length ? window.PAST_RUNS[0].id : null
+  );
+  useEffectApp(() => {
+    document.documentElement.style.setProperty("--accent", "oklch(0.88 0.18 118)");
+    document.documentElement.style.setProperty("--accent-dim", "oklch(0.88 0.18 118 / 0.15)");
+    document.documentElement.classList.remove("light");
+  }, []);
+  return /* @__PURE__ */ React.createElement("div", { style: { height: "100vh", display: "grid", gridTemplateColumns: "220px 1fr", overflow: "hidden" } }, /* @__PURE__ */ React.createElement(Sidebar, { view, onView: setView, activeRun, setActiveRun }), /* @__PURE__ */ React.createElement("main", { style: { display: "grid", gridTemplateRows: "auto 1fr", overflow: "hidden", position: "relative" } }, /* @__PURE__ */ React.createElement(TopBar, { view }), /* @__PURE__ */ React.createElement("div", { style: { overflow: "hidden", position: "relative" }, key: view, className: "fade-in-up" }, view === "setup" && /* @__PURE__ */ React.createElement(SetupView, { onStart: () => setView("agents") }), view === "agents" && /* @__PURE__ */ React.createElement(
+    AgentsView,
+    {
+      agentCount: (window.AGENTS || []).length || 0,
+      onBack: () => setView("setup"),
+      onStart: () => setView("sim")
+    }
+  ), view === "sim" && /* @__PURE__ */ React.createElement(
+    SimulationView,
+    {
+      agentCount: (window.AGENTS || []).length || 0,
+      simMode: "complete",
+      onComplete: () => setView("report")
+    }
+  ), view === "report" && /* @__PURE__ */ React.createElement(ReportView, { onRerun: () => setView("setup") }))));
+}
+function Sidebar({ view, onView, activeRun, setActiveRun }) {
+  const meta = window.RUN_META;
+  return /* @__PURE__ */ React.createElement("aside", { style: {
+    borderRight: "1px solid var(--line)",
+    background: "var(--bg-1)",
+    display: "flex",
+    flexDirection: "column",
+    overflow: "hidden"
+  } }, /* @__PURE__ */ React.createElement("div", { style: { padding: "18px 18px 14px" } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 8 } }, /* @__PURE__ */ React.createElement("div", { style: {
+    width: 22,
+    height: 22,
+    background: "var(--fg)",
+    position: "relative",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center"
+  } }, /* @__PURE__ */ React.createElement("div", { style: { width: 9, height: 9, background: "var(--bg)" } }), /* @__PURE__ */ React.createElement("div", { style: { position: "absolute", top: -2, right: -2, width: 6, height: 6, background: "var(--accent)" } })), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { style: { fontSize: 13, fontWeight: 600, letterSpacing: -0.2, lineHeight: 1 } }, "Product Predict"), /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 9, color: "var(--fg-3)", letterSpacing: 0.6, marginTop: 3 } }, meta ? `${meta.id} \xB7 viewer` : "viewer \xB7 no run")))), /* @__PURE__ */ React.createElement("div", { style: { padding: "20px 18px 8px" } }, /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 9, letterSpacing: 1.4, color: "var(--fg-3)", textTransform: "uppercase" } }, "Views")), /* @__PURE__ */ React.createElement("nav", { style: { display: "flex", flexDirection: "column", padding: "0 8px" } }, [
+    { id: "setup", label: "Setup", desc: "target" },
+    { id: "agents", label: "Agents", desc: "panel" },
+    { id: "sim", label: "Replay", desc: "events" },
+    { id: "report", label: "Report", desc: "findings" }
+  ].map((v, i) => /* @__PURE__ */ React.createElement("button", { key: v.id, onClick: () => onView(v.id), style: {
+    display: "flex",
+    alignItems: "center",
+    gap: 10,
+    padding: "7px 10px",
+    textAlign: "left",
+    color: view === v.id ? "var(--fg)" : "var(--fg-2)",
+    background: view === v.id ? "var(--bg-2)" : "transparent",
+    position: "relative"
+  } }, /* @__PURE__ */ React.createElement("span", { className: "mono", style: { fontSize: 10, color: view === v.id ? "var(--accent)" : "var(--fg-3)", width: 16 } }, "0", i + 1), /* @__PURE__ */ React.createElement("span", { style: { flex: 1, fontSize: 12 } }, v.label), /* @__PURE__ */ React.createElement("span", { className: "mono", style: { fontSize: 9, color: "var(--fg-3)" } }, v.desc)))), /* @__PURE__ */ React.createElement("div", { style: { padding: "24px 18px 8px" } }, /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 9, letterSpacing: 1.4, color: "var(--fg-3)", textTransform: "uppercase", marginBottom: 8 } }, "Recent Runs")), /* @__PURE__ */ React.createElement("div", { style: { flex: 1, overflow: "auto" } }, (window.PAST_RUNS || []).map((r) => /* @__PURE__ */ React.createElement("button", { key: r.id, onClick: () => setActiveRun(r.id), style: {
+    display: "block",
+    width: "100%",
+    padding: "10px 18px",
+    textAlign: "left",
+    borderLeft: activeRun === r.id ? "2px solid var(--accent)" : "2px solid transparent",
+    background: activeRun === r.id ? "var(--bg-2)" : "transparent"
+  } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 6, marginBottom: 4 } }, /* @__PURE__ */ React.createElement(Dot, { color: "var(--good)", size: 5 }), /* @__PURE__ */ React.createElement("span", { className: "mono", style: { fontSize: 10, color: "var(--fg-3)" } }, "#", r.id.split("-")[1] || r.id), /* @__PURE__ */ React.createElement("span", { style: { fontSize: 11, color: "var(--fg-1)" } }, r.name), r.score != null && /* @__PURE__ */ React.createElement("span", { className: "mono", style: { marginLeft: "auto", fontSize: 10, color: "var(--fg-2)" } }, r.score)), /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 9, color: "var(--fg-3)", letterSpacing: 0.3, paddingLeft: 12 } }, r.branch, " \xB7 ", r.commit, " \xB7 ", r.time)))), meta && /* @__PURE__ */ React.createElement("div", { style: { padding: "14px 18px", borderTop: "1px solid var(--line)" } }, /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 9, color: "var(--fg-3)", letterSpacing: 1.2, marginBottom: 6 } }, "RUN COST"), /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 11, color: "var(--fg-1)" } }, "$", (meta.cost?.usd || 0).toFixed(2)), /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 9, color: "var(--fg-3)", marginTop: 2 } }, Math.round((meta.cost?.tokensIn || 0) / 1e3), "k in \xB7 ", Math.round((meta.cost?.tokensOut || 0) / 1e3), "k out")));
+}
+function TopBar({ view }) {
+  const meta = window.RUN_META;
+  const projectName = meta ? meta.target.title || meta.target.url : "\u2014";
+  const titles = {
+    setup: { crumb: `Project / ${projectName}`, title: "Target" },
+    agents: { crumb: `Project / ${projectName} / ${meta?.id || "\u2014"}`, title: "Agent Panel" },
+    sim: { crumb: `Project / ${projectName} / ${meta?.id || "\u2014"}`, title: "Replay" },
+    report: { crumb: `Project / ${projectName} / ${meta?.id || "\u2014"}`, title: "Feedback Report" }
+  };
+  const cur = titles[view];
+  return /* @__PURE__ */ React.createElement("div", { style: {
+    borderBottom: "1px solid var(--line)",
+    padding: "10px 24px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    background: "var(--bg)"
+  } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 12 } }, /* @__PURE__ */ React.createElement("span", { className: "mono", style: { fontSize: 10, color: "var(--fg-3)", letterSpacing: 0.6 } }, cur.crumb), /* @__PURE__ */ React.createElement("span", { style: { color: "var(--fg-3)" } }, "/"), /* @__PURE__ */ React.createElement("span", { style: { fontSize: 12, fontWeight: 500 } }, cur.title)), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 16 } }, meta && /* @__PURE__ */ React.createElement("span", { className: "mono", style: { fontSize: 10, color: "var(--fg-3)" } }, meta.startedAt?.slice(0, 16).replace("T", " ")), /* @__PURE__ */ React.createElement("div", { style: { width: 24, height: 24, background: "var(--accent)", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "JetBrains Mono", fontSize: 11, fontWeight: 600, color: "var(--accent-fg)" } }, "P")));
+}
+ReactDOM.createRoot(document.getElementById("root")).render(/* @__PURE__ */ React.createElement(App, null));
+</script>
+</body>
+</html>
