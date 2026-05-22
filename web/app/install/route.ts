@@ -86,12 +86,13 @@ case ":$PATH:" in
     ;;
 esac
 
-# ── Done ────────────────────────────────────────────────────────────────────
-printf '\\n  %sInstalled.%s Try it:\\n\\n' "$C_OK" "$C_OFF"
-printf '    %spp run https://example.com --hint "what your product is"%s\\n\\n' "$C_DIM" "$C_OFF"
-printf '  More:\\n'
-printf '    pp --help\\n'
-printf '    https://product-predict.vercel.app\\n\\n'
+# ── Done — show what's available ────────────────────────────────────────────
+printf '\\n  %sInstalled.%s Here's everything pp can do:\\n' "$C_OK" "$C_OFF"
+printf '  %s──────────────────────────────────────────%s\\n' "$C_DIM" "$C_OFF"
+
+# Run the freshly-installed binary's full command manual.  Use the absolute
+# path so this works even if ~/.local/bin isn't on PATH yet.
+"$PP_DIR/pp/bin/pp" || true
 `;
 
 export async function GET() {
