@@ -48,8 +48,8 @@ program
 
 program
   .command("run")
-  .description("Run a predict against a target URL.")
-  .argument("<url>", "Target URL")
+  .description("Run a predict. Pass a URL, or run with no args in your project dir to auto-detect.")
+  .argument("[url]", "Target URL (omit to auto-detect a dev server in cwd)")
   .option("--personas <name>", "saved persona set (from `pp personas list`)")
   .option("--hint <text>", "if no --personas, generate fresh personas for this hint")
   .option("-a, --agents <n>", "number of agent slots (default: sim key count)", (v) => parseInt(v, 10))
@@ -60,11 +60,36 @@ program
   .option("--viewport <wxh>", "viewport", "1280x800")
   .option("--concurrency <n>", "parallel agents", (v) => parseInt(v, 10), 2)
   .option("--no-open", "don't open the report when done")
-  .action(async (url: string, opts) => {
+  .action(async (url: string | undefined, opts) => {
     const [w, h] = String(opts.viewport).split("x").map((n: string) => parseInt(n, 10));
     const outDir = resolve(process.cwd(), opts.out);
 
-    console.log(`pp run ${url}`);
+    // Auto-detect when no URL given: probe the cwd for a project description
+    // and scan common dev-server ports.
+    let resolvedUrl = url;
+    let autoHint: string | undefined;
+    if (!resolvedUrl) {
+      const detected = await autoDetectTarget(process.cwd());
+      if (!detected.url) {
+        console.error("✗ no URL given and no dev server found in cwd");
+        console.error(`  scanned ports: ${DEV_PORTS.join(", ")}`);
+        if (detected.projectName) {
+          console.error(`  detected project: ${detected.projectName} (${detected.projectKind})`);
+          console.error(`  start your dev server first, then re-run \`pp run\``);
+        } else {
+          console.error(`  not a recognized project dir. Pass a URL: \`pp run https://...\``);
+        }
+        process.exit(1);
+      }
+      resolvedUrl = detected.url;
+      autoHint = detected.hint;
+      console.log(`pp run ${resolvedUrl}  (auto-detected)`);
+      if (detected.projectName) {
+        console.log(`  project: ${detected.projectName} (${detected.projectKind})`);
+      }
+    } else {
+      console.log(`pp run ${resolvedUrl}`);
+    }
     printProvider();
     if (!ensurePlaywrightBrowser()) process.exit(1);
 
@@ -74,7 +99,7 @@ program
       set = await loadPersonaSet(opts.personas);
       console.log(`  personas: "${set.name}" (${set.origin}, ${set.personas.length} archetypes)`);
     } else {
-      const hint = opts.hint || url;
+      const hint = opts.hint || autoHint || resolvedUrl;
       console.log(`  personas: generating fresh from hint "${shortText(hint, 50)}"`);
       const simKeys = safeSimKeys();
       const n = Math.min(opts.agents ?? simKeys, simKeys);
@@ -87,7 +112,7 @@ program
 
     // 2. Run.
     const { run, runDir } = await executeRun({
-      targetUrl: url,
+      targetUrl: resolvedUrl,
       personaSet: set,
       agents: opts.agents,
       maxSteps: opts.maxSteps,
@@ -375,6 +400,81 @@ function shortText(s: string, n: number): string {
   return s.length <= n ? s : s.slice(0, n - 1) + "…";
 }
 
+// ── Auto-detect project + dev server ───────────────────────────────────────
+
+// Order tuned to common ecosystems: Next.js / CRA, Vite, Rails / Phoenix,
+// Vue / Vite-alt, Java / Spring, Python / Django, Go, Tomcat, alt-Next.
+const DEV_PORTS = [3000, 5173, 5174, 4000, 8080, 8000, 5000, 3001];
+
+type AutoDetect = {
+  url: string | null;
+  hint: string | undefined;
+  projectName: string | undefined;
+  projectKind: string | undefined;
+};
+
+async function autoDetectTarget(cwd: string): Promise<AutoDetect> {
+  // Pull a project description from the cwd (used as the persona-gen hint).
+  const meta = await readProjectMeta(cwd);
+
+  // Probe common dev-server ports in parallel. First success wins.
+  const probes = DEV_PORTS.map(async (port) => {
+    try {
+      const res = await Promise.race([
+        fetch(`http://localhost:${port}/`, { method: "GET" }),
+        new Promise<Response>((_, rej) => setTimeout(() => rej(new Error("timeout")), 800)),
+      ]);
+      if (res && res.ok) return port;
+    } catch {
+      // not running, ignore
+    }
+    return null;
+  });
+  const results = await Promise.all(probes);
+  const found = results.find((p) => p !== null) as number | undefined;
+
+  return {
+    url: found ? `http://localhost:${found}` : null,
+    hint: meta.hint,
+    projectName: meta.name,
+    projectKind: meta.kind,
+  };
+}
+
+async function readProjectMeta(cwd: string): Promise<{ name?: string; kind?: string; hint?: string }> {
+  // Try package.json first; fall back to a couple of other common manifests.
+  const pkg = join(cwd, "package.json");
+  if (existsSync(pkg)) {
+    try {
+      const j = JSON.parse(await readFile(pkg, "utf8"));
+      const name = String(j.name || "").trim() || undefined;
+      const desc = String(j.description || "").trim();
+      const hint = [name, desc].filter(Boolean).join(" — ") || undefined;
+      const kind =
+        j.dependencies?.next ? "Next.js" :
+        j.dependencies?.vite || j.devDependencies?.vite ? "Vite" :
+        j.dependencies?.react ? "React" :
+        j.dependencies?.vue ? "Vue" :
+        j.dependencies?.express ? "Node/Express" :
+        "Node";
+      return { name, kind, hint };
+    } catch {
+      // malformed, skip
+    }
+  }
+  for (const [file, kind] of [
+    ["Cargo.toml",       "Rust"],
+    ["pyproject.toml",   "Python"],
+    ["requirements.txt", "Python"],
+    ["go.mod",            "Go"],
+    ["Gemfile",           "Ruby"],
+    ["composer.json",     "PHP"],
+  ] as const) {
+    if (existsSync(join(cwd, file))) return { kind };
+  }
+  return {};
+}
+
 function openInBrowser(url: string): void {
   const opener =
     process.platform === "darwin" ? "open" : process.platform === "win32" ? "start" : "xdg-open";
@@ -392,36 +492,82 @@ const C = (() => {
 })();
 
 function printIntro(): void {
-  const accent = C.accent;
-  const dim = C.dim;
-  const bold = C.bold;
+  const a = C.accent;
+  const d = C.dim;
+  const b = C.bold;
   process.stdout.write(`
-  ${bold("Product Predict")} ${dim("· user experience simulation")}
+  ${b("Product Predict")} ${d("· v0.5 · user experience simulation")}
 
-  ${dim("Run synthetic users — each with their own preferences, prior tools,")}
-  ${dim("competitor experience — against your product in a real browser.")}
-  ${dim("Get back how that population felt, not just a bug list.")}
+  ${d("Run synthetic users (each with their own preferences, prior tools,")}
+  ${d("competitor experience) against your product in a real browser.")}
+  ${d("Get back how that population felt — design issues, fit issues,")}
+  ${d("not just a bug list.")}
 
-  ${bold("One-line first run")}
-    ${accent("$")} pp run ${dim("https://your-app.com")} --hint ${dim('"what your product is"')}
+  ${b("QUICK START")}
 
-  ${bold("See what a report looks like first")}
-    ${accent("$")} pp demo
+    ${a("$")} cd into your project, then:
+    ${a("$")} pp run                                ${d("# auto-detects dev server on common ports")}
 
-  ${bold("Save a reusable persona set")}
-    ${accent("$")} pp personas generate ${dim('"your product description"')} --save my-product
-    ${accent("$")} pp run ${dim("<url>")} --personas my-product
+    ${a("$")} pp run https://your-app.com           ${d("# or pass a URL directly")}
 
-  ${bold("From real beta data")}
-    ${accent("$")} pp personas from-beta ${dim("interviews/*.md calls/*.m4a")} --save my-beta
+    ${a("$")} pp demo                               ${d("# see what a sample report looks like first")}
 
-  ${bold("Browse past runs")}
-    ${accent("$")} pp serve
+  ${b("WORKFLOWS")}
 
-  ${bold("Help")}
-    ${accent("$")} pp --help                    ${dim("# all commands")}
-    ${accent("$")} pp <command> --help          ${dim("# any specific one")}
-    ${dim("https://product-predict.vercel.app")}
+    ${d("Reusable persona set (best for cross-version comparisons):")}
+      ${a("$")} pp personas generate ${d('"your product description"')} --save my-product
+      ${a("$")} pp run --personas my-product
+
+    ${d("Derive personas from real beta data (docs + audio):")}
+      ${a("$")} pp personas from-beta ${d("interviews/*.md calls/*.m4a")} --save my-beta
+      ${a("$")} pp run --personas my-beta
+
+    ${d("Mixed (AI preset weighted by beta-observed distribution):")}
+      ${a("$")} pp personas mixed ${d('"your product"')} ${d("calls/*.m4a")} --save my-mix
+
+  ${b("ALL COMMANDS")}
+
+    ${d("Running predicts")}
+      pp run [url]                       ${d("Run a predict; URL optional (auto-detects in cwd)")}
+      pp list                            ${d("List past runs in ./runs/")}
+      pp serve [--port P]                ${d("Local dashboard for all past runs (auto-opens browser)")}
+      pp demo                            ${d("Open a bundled sample report (no run needed)")}
+
+    ${d("Persona management (~/.pp/personas/<name>.json)")}
+      pp personas generate <hint>        ${d("AI-generate a persona set from a one-liner")}
+      pp personas from-beta <files...>   ${d("Derive from .md/.txt/.pdf/.docx + audio")}
+      pp personas mixed <hint> <files..> ${d("Combine preset + beta")}
+      pp personas list                   ${d("List saved sets")}
+      pp personas show <name>            ${d("Print as JSON")}
+      pp personas edit <name>            ${d("Open in $EDITOR")}
+      pp personas delete <name>          ${d("Remove")}
+
+    ${d("Each command supports --help for full options.")}
+
+  ${b("WHAT A RUN PRODUCES")}
+
+    ./runs/run-NNN/
+      ${a("report.html")}      ${d("for humans — auto-opens in your browser")}
+      ${a("report.md")}        ${d("for AI assistants — paste into Claude Code / Cursor")}
+      ${a("run.json")}         ${d("machine-readable run state (schema: pp.experience.v1)")}
+      ${a("shots/*.jpg")}      ${d("per-step screenshots")}
+
+  ${b("KEYS & PRIVACY")}
+
+    ${d("Default: zero config. Sim pool is hosted by sunrf-renlab-ai —")}
+    ${d("pp sends prompts + screenshots through https://product-predict.vercel.app")}
+    ${d("to MiniMax-M2.7. Reports stay 100% on your machine.")}
+
+    ${d("Use your own keys if you'd rather:")}
+      ${a("$")} export ANTHROPIC_API_KEY=sk-ant-...
+      ${a("$")} export PP_MAIN_KEY=sk-cp-... PP_SIM_KEYS=sk-cp-...,sk-cp-...
+    ${d("macOS Keychain entry \"minimax-coding-plan\" is also auto-loaded if present.")}
+
+  ${b("LINKS")}
+
+    ${d("source")}   https://github.com/sunrf-renlab-ai/product-predict
+    ${d("site")}     https://product-predict.vercel.app
+    ${d("upgrade")}  curl -fsSL https://product-predict.vercel.app/install | sh
 
 `);
 }
