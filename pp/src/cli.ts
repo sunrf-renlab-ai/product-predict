@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import { Command } from "commander";
-import { resolve, join, extname } from "node:path";
+import { resolve, join, extname, dirname } from "node:path";
+import { fileURLToPath } from "node:url";
 import { readdir, readFile } from "node:fs/promises";
 import { existsSync, statSync, createReadStream } from "node:fs";
 import { createServer } from "node:http";
@@ -27,11 +28,21 @@ import {
 } from "./persona-store.js";
 import type { PersonaSet } from "./types.js";
 
+// Resolve the install dir so `pp demo` can find the bundled sample report
+// regardless of where the user invoked from.
+const HERE = dirname(fileURLToPath(import.meta.url));
+const INSTALL_ROOT = resolve(HERE, ".."); // pp/ (parent of src/)
+const DEMO_DIR = resolve(INSTALL_ROOT, "demo");
+
 const program = new Command();
 program
   .name("pp")
-  .description("Product Predict — multi-agent product feedback in 3 minutes.")
-  .version("0.3.0");
+  .description("Product Predict — user experience simulation. Run synthetic users in a real browser.")
+  .version("0.5.0")
+  .action(() => {
+    // No subcommand → friendly first-screen instead of bare commander help.
+    printIntro();
+  });
 
 // ── pp run ──────────────────────────────────────────────────────────────────
 
@@ -98,9 +109,7 @@ program
     console.log(`  MD:   ${md}`);
 
     if (opts.open) {
-      const opener =
-        process.platform === "darwin" ? "open" : process.platform === "win32" ? "start" : "xdg-open";
-      spawn(opener, [html], { detached: true, stdio: "ignore" }).unref();
+      openInBrowser(html);
     }
   });
 
@@ -242,9 +251,10 @@ program
 
 program
   .command("serve")
-  .description("Serve the runs/ directory as a static dashboard.")
+  .description("Serve the runs/ directory as a local dashboard.")
   .option("--port <p>", "port", (v) => parseInt(v, 10), 8907)
   .option("--out <dir>", "runs base dir", "./runs")
+  .option("--no-open", "don't auto-open the dashboard in a browser")
   .action(async (opts) => {
     const outDir = resolve(process.cwd(), opts.out);
     const port = opts.port;
@@ -268,10 +278,44 @@ program
     server.listen(port, () => {
       console.log(`pp serve · http://localhost:${port}`);
       console.log(`  serving: ${outDir}`);
+      if (opts.open) openInBrowser(`http://localhost:${port}`);
     });
   });
 
-await program.parseAsync(process.argv);
+// ── pp demo ─────────────────────────────────────────────────────────────────
+
+program
+  .command("demo")
+  .description("Open the bundled sample report — what pp's output looks like, before you run anything.")
+  .action(async () => {
+    const html = join(DEMO_DIR, "report.html");
+    if (!existsSync(html)) {
+      console.error(`✗ demo not found at ${html}. Reinstall pp:`);
+      console.error(`    curl -fsSL https://product-predict.vercel.app/install | sh`);
+      process.exit(1);
+    }
+    // Serve the demo dir so screenshots load via their relative paths.
+    const port = 8911;
+    const server = createServer((req, res) => {
+      const url = new URL(req.url || "/", `http://localhost:${port}`);
+      const path = url.pathname === "/" ? "/report.html" : url.pathname;
+      const safe = path.replace(/^\/+/, "").replace(/\.\./g, "");
+      const file = join(DEMO_DIR, safe);
+      if (!existsSync(file) || !statSync(file).isFile()) {
+        res.writeHead(404).end("not found");
+        return;
+      }
+      res.writeHead(200, { "content-type": mime(file) });
+      createReadStream(file).pipe(res);
+    });
+    server.listen(port, () => {
+      const url = `http://localhost:${port}/`;
+      console.log(`pp demo · ${url}`);
+      console.log(`  sample: 7-agent run against a 4-tab todo app (real MiniMax-M2.7 output)`);
+      console.log(`  Ctrl-C to stop`);
+      openInBrowser(url);
+    });
+  });
 
 // ── helpers ─────────────────────────────────────────────────────────────────
 
@@ -331,6 +375,57 @@ function shortText(s: string, n: number): string {
   return s.length <= n ? s : s.slice(0, n - 1) + "…";
 }
 
+function openInBrowser(url: string): void {
+  const opener =
+    process.platform === "darwin" ? "open" : process.platform === "win32" ? "start" : "xdg-open";
+  spawn(opener, [url], { detached: true, stdio: "ignore" }).unref();
+}
+
+const C = (() => {
+  const t = process.stdout.isTTY;
+  return {
+    dim:    (s: string) => (t ? `\x1b[2m${s}\x1b[0m` : s),
+    bold:   (s: string) => (t ? `\x1b[1m${s}\x1b[0m` : s),
+    accent: (s: string) => (t ? `\x1b[38;5;191m${s}\x1b[0m` : s),  // lime-ish
+    fg:     (s: string) => s,
+  };
+})();
+
+function printIntro(): void {
+  const accent = C.accent;
+  const dim = C.dim;
+  const bold = C.bold;
+  process.stdout.write(`
+  ${bold("Product Predict")} ${dim("· user experience simulation")}
+
+  ${dim("Run synthetic users — each with their own preferences, prior tools,")}
+  ${dim("competitor experience — against your product in a real browser.")}
+  ${dim("Get back how that population felt, not just a bug list.")}
+
+  ${bold("One-line first run")}
+    ${accent("$")} pp run ${dim("https://your-app.com")} --hint ${dim('"what your product is"')}
+
+  ${bold("See what a report looks like first")}
+    ${accent("$")} pp demo
+
+  ${bold("Save a reusable persona set")}
+    ${accent("$")} pp personas generate ${dim('"your product description"')} --save my-product
+    ${accent("$")} pp run ${dim("<url>")} --personas my-product
+
+  ${bold("From real beta data")}
+    ${accent("$")} pp personas from-beta ${dim("interviews/*.md calls/*.m4a")} --save my-beta
+
+  ${bold("Browse past runs")}
+    ${accent("$")} pp serve
+
+  ${bold("Help")}
+    ${accent("$")} pp --help                    ${dim("# all commands")}
+    ${accent("$")} pp <command> --help          ${dim("# any specific one")}
+    ${dim("https://product-predict.vercel.app")}
+
+`);
+}
+
 function indexHtml(outDir: string): string {
   if (!existsSync(outDir)) {
     return `<h1>No runs yet</h1><p>Run <code>pp run &lt;url&gt;</code> first.</p>`;
@@ -363,3 +458,5 @@ function mime(file: string): string {
     ".md": "text/markdown; charset=utf-8",
   } as Record<string, string>)[ext] || "application/octet-stream";
 }
+
+await program.parseAsync(process.argv);
