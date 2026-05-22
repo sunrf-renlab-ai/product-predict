@@ -58,7 +58,7 @@ program
   .option("--out <dir>", "runs output base", "./runs")
   .option("--head", "show the browser (default: headless)", false)
   .option("--viewport <wxh>", "viewport", "1280x800")
-  .option("--concurrency <n>", "parallel agents", (v) => parseInt(v, 10), 2)
+  .option("--concurrency <n>", "parallel agents (default: all of them)", (v) => parseInt(v, 10))
   .option("--no-open", "don't open the report when done")
   .action(async (url: string | undefined, opts) => {
     const [w, h] = String(opts.viewport).split("x").map((n: string) => parseInt(n, 10));
@@ -107,7 +107,7 @@ program
       console.log(`  generated ${set.personas.length} archetypes (not saved; use \`pp personas generate\` to persist)`);
     }
 
-    console.log(`  agents=${opts.agents ?? "auto"} maxSteps=${opts.maxSteps} maxMin=${opts.maxMinutes} concurrency=${opts.concurrency} headless=${!opts.head}`);
+    console.log(`  agents=${opts.agents ?? "auto"} maxSteps=${opts.maxSteps} maxMin=${opts.maxMinutes} concurrency=${opts.concurrency ?? "all"} headless=${!opts.head}`);
     console.log(`  out=${outDir}`);
 
     // 2. Run.

@@ -24,7 +24,6 @@ export type RunOptions = {
 
 export async function executeRun(opts: RunOptions): Promise<{ run: Run; runDir: string }> {
   const viewport = opts.viewport ?? { w: 1280, h: 800 };
-  const concurrency = opts.concurrency ?? 2;
   const log = opts.log ?? (() => {});
 
   await mkdir(opts.outDir, { recursive: true });
@@ -68,7 +67,11 @@ export async function executeRun(opts: RunOptions): Promise<{ run: Run; runDir: 
     log(`probe failed: ${(e as Error).message}`);
   }
 
-  // Bounded concurrency pool.
+  // Default to running all agents in parallel — sim pool is sized by sim
+  // key count and each agent gets one Playwright context. User can throttle
+  // via --concurrency if RAM is tight (each Chromium context ≈ 150 MB).
+  const concurrency = Math.max(1, opts.concurrency ?? personas.length);
+  log(`  concurrency=${concurrency} (${opts.concurrency != null ? "user-set" : "default = all agents"})`);
   const results: AgentResult[] = [];
   let cursor = 0;
   const workers = Array.from({ length: Math.min(concurrency, personas.length) }, async () => {
