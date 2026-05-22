@@ -1,0 +1,75 @@
+name: Deploy web → Vercel
+
+# Push to main / PR against main triggers a production / preview deploy of
+# web/. pp/ changes do NOT trigger a deploy — this is a monorepo with the
+# Next.js app in a sub-directory and the CLI as a separate artifact.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "web/**"
+      - ".github/workflows/deploy-web.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "web/**"
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: web
+    env:
+      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install Vercel CLI
+        run: npm install -g vercel@latest
+
+      - name: Pull Vercel env (production for main, preview otherwise)
+        run: |
+          if [ "${{ github.event_name }}" = "push" ]; then
+            vercel pull --yes --environment=production --token="${{ secrets.VERCEL_TOKEN }}"
+          else
+            vercel pull --yes --environment=preview --token="${{ secrets.VERCEL_TOKEN }}"
+          fi
+
+      - name: Build
+        run: |
+          if [ "${{ github.event_name }}" = "push" ]; then
+            vercel build --prod --token="${{ secrets.VERCEL_TOKEN }}"
+          else
+            vercel build --token="${{ secrets.VERCEL_TOKEN }}"
+          fi
+
+      - name: Deploy
+        run: |
+          if [ "${{ github.event_name }}" = "push" ]; then
+            URL=$(vercel deploy --prebuilt --prod --token="${{ secrets.VERCEL_TOKEN }}")
+            echo "Production: $URL"
+            echo "url=$URL" >> $GITHUB_OUTPUT
+          else
+            URL=$(vercel deploy --prebuilt --token="${{ secrets.VERCEL_TOKEN }}")
+            echo "Preview: $URL"
+            echo "url=$URL" >> $GITHUB_OUTPUT
+          fi
+        id: deploy
+
+      - name: Smoke test (production only)
+        if: github.event_name == 'push'
+        run: |
+          sleep 5
+          for path in / /demo /api/health; do
+            code=$(curl -s -o /dev/null -w "%{http_code}" "https://product-predict.vercel.app$path")
+            echo "$path -> $code"
+            [ "$code" = "200" ] || exit 1
+          done
