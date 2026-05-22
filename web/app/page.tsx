@@ -293,10 +293,59 @@ function Install() {
       <div
         style={{
           background: "var(--bg-1)",
-          border: "1px solid var(--line-2)",
+          border: "1px solid var(--accent)",
           padding: "20px 24px",
-          maxWidth: 640,
+          maxWidth: 720,
+          marginBottom: 16,
+        }}
+      >
+        <div
+          className="mono"
+          style={{
+            fontSize: 9,
+            color: "var(--accent)",
+            letterSpacing: 1.2,
+            marginBottom: 8,
+            textTransform: "uppercase",
+          }}
+        >
+          install — one line
+        </div>
+        <pre
+          className="mono"
+          style={{
+            margin: 0,
+            fontSize: 13,
+            color: "var(--fg)",
+            lineHeight: 1.5,
+            whiteSpace: "pre-wrap",
+            wordBreak: "break-all",
+          }}
+        >
+          <span style={{ color: "var(--accent)" }}>$</span> curl -fsSL https://product-predict.vercel.app/install | sh
+        </pre>
+      </div>
+      <div
+        className="mono"
+        style={{
+          fontSize: 11,
+          color: "var(--fg-3)",
+          lineHeight: 1.8,
           marginBottom: 24,
+        }}
+      >
+        · Clones to <span style={{ color: "var(--fg-1)" }}>~/.pp/src</span>, symlinks <span style={{ color: "var(--fg-1)" }}>pp</span> into <span style={{ color: "var(--fg-1)" }}>~/.local/bin</span><br />
+        · Playwright + Chromium auto-downloaded on first install (~150 MB, one-time)<br />
+        · Re-run anytime to upgrade — it git-pulls the latest<br />
+        · Requires <span style={{ color: "var(--fg-1)" }}>git</span>, <span style={{ color: "var(--fg-1)" }}>node ≥ 20</span>, <span style={{ color: "var(--fg-1)" }}>npm</span>
+      </div>
+
+      <div
+        style={{
+          background: "var(--bg-1)",
+          border: "1px solid var(--line-2)",
+          padding: "16px 20px",
+          maxWidth: 720,
         }}
       >
         <div
@@ -309,7 +358,7 @@ function Install() {
             textTransform: "uppercase",
           }}
         >
-          install via git (the only path right now)
+          first run
         </div>
         <pre
           className="mono"
@@ -321,23 +370,11 @@ function Install() {
             whiteSpace: "pre-wrap",
           }}
         >
-          <span style={{ color: "var(--accent)" }}>$</span> git clone https://github.com/sunrf-renlab-ai/product-predict.git{"\n"}
-          <span style={{ color: "var(--accent)" }}>$</span> cd product-predict/pp && npm install{"\n"}
-          <span style={{ color: "var(--accent)" }}>$</span> ./bin/pp personas generate <span style={{ color: "var(--fg-3)" }}>"your product description"</span>{"\n"}
-          <span style={{ color: "var(--accent)" }}>$</span> ./bin/pp run https://your-app.com
+          <span style={{ color: "var(--accent)" }}>$</span> pp run <span style={{ color: "var(--fg-3)" }}>https://your-app.com</span> --hint <span style={{ color: "var(--fg-3)" }}>"team todo app"</span>
         </pre>
-      </div>
-      <div
-        className="mono"
-        style={{
-          fontSize: 11,
-          color: "var(--fg-3)",
-          lineHeight: 1.8,
-        }}
-      >
-        · Playwright + Chromium are installed automatically on first run<br />
-        · Reports written to <span style={{ color: "var(--fg-1)" }}>./runs/run-NNN/</span> · open <span style={{ color: "var(--fg-1)" }}>report.html</span> in your browser<br />
-        · npm + brew distributions coming when v0.6 stabilizes the API
+        <div className="mono" style={{ fontSize: 10, color: "var(--fg-3)", marginTop: 8, lineHeight: 1.7 }}>
+          AI generates ~6 personas tailored to that description, drives them through your URL in real Chromium, writes <span style={{ color: "var(--fg-1)" }}>./runs/run-001/report.html</span>. ~3 min.
+        </div>
       </div>
     </section>
   );
