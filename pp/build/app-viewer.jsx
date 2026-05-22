@@ -98,11 +98,14 @@ function Sidebar({ view, onView, activeRun, setActiveRun }) {
             textAlign: "left", borderLeft: activeRun === r.id ? "2px solid var(--accent)" : "2px solid transparent",
             background: activeRun === r.id ? "var(--bg-2)" : "transparent",
           }}>
-            <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 4 }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 4, minWidth: 0 }}>
               <Dot color="var(--good)" size={5} />
-              <span className="mono" style={{ fontSize: 10, color: "var(--fg-3)" }}>#{r.id.split("-")[1] || r.id}</span>
-              <span style={{ fontSize: 11, color: "var(--fg-1)" }}>{r.name}</span>
-              {r.score != null && <span className="mono" style={{ marginLeft: "auto", fontSize: 10, color: "var(--fg-2)" }}>{r.score}</span>}
+              <span className="mono" style={{ fontSize: 10, color: "var(--fg-3)", flexShrink: 0 }}>#{r.id.split("-")[1] || r.id}</span>
+              <span style={{
+                fontSize: 11, color: "var(--fg-1)", flex: 1, minWidth: 0,
+                overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
+              }} title={r.name}>{r.name}</span>
+              {r.score != null && <span className="mono" style={{ fontSize: 10, color: "var(--fg-2)", flexShrink: 0 }}>{r.score}</span>}
             </div>
             <div className="mono" style={{ fontSize: 9, color: "var(--fg-3)", letterSpacing: 0.3, paddingLeft: 12 }}>
               {r.branch} · {r.commit} · {r.time}
@@ -111,22 +114,75 @@ function Sidebar({ view, onView, activeRun, setActiveRun }) {
         ))}
       </div>
 
-      {meta && (
-        <div style={{ padding: "14px 18px", borderTop: "1px solid var(--line)" }}>
-          <div className="mono" style={{ fontSize: 9, color: "var(--fg-3)", letterSpacing: 1.2, marginBottom: 6 }}>RUN COST</div>
-          <div className="mono" style={{ fontSize: 11, color: "var(--fg-1)" }}>${(meta.cost?.usd || 0).toFixed(2)}</div>
-          <div className="mono" style={{ fontSize: 9, color: "var(--fg-3)", marginTop: 2 }}>
-            {Math.round((meta.cost?.tokensIn || 0) / 1000)}k in · {Math.round((meta.cost?.tokensOut || 0) / 1000)}k out
-          </div>
-        </div>
-      )}
+      {meta && (() => {
+        const agentCount = (meta.agents || []).length;
+        const eventCount = (meta.activity || []).length;
+        const wall = meta.startedAt && meta.finishedAt
+          ? Math.max(0, Math.round((new Date(meta.finishedAt).getTime() - new Date(meta.startedAt).getTime()) / 1000))
+          : null;
+        const exits = (meta.agents || []).reduce((acc, a) => {
+          const k = a.exitReason || "unknown";
+          acc[k] = (acc[k] || 0) + 1;
+          return acc;
+        }, {});
+        return (
+          <>
+            <div style={{ padding: "14px 18px 12px", borderTop: "1px solid var(--line)" }}>
+              <div className="mono" style={{ fontSize: 9, color: "var(--fg-3)", letterSpacing: 1.2, marginBottom: 8 }}>RUN SUMMARY</div>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 6 }}>
+                <SidebarStat k="AGENTS" v={agentCount} />
+                <SidebarStat k="EVENTS" v={eventCount} />
+                <SidebarStat k="WALL" v={wall != null ? `${wall < 60 ? wall + "s" : Math.floor(wall/60) + ":" + String(wall%60).padStart(2,"0")}` : "—"} />
+                <SidebarStat k="ISSUES" v={(meta.issues || []).length} />
+              </div>
+              {agentCount > 0 && (
+                <div style={{ marginTop: 12, display: "flex", gap: 4, alignItems: "center", flexWrap: "wrap" }}>
+                  {Object.entries(exits).map(([reason, n]) => (
+                    <span key={reason} className="mono" style={{
+                      fontSize: 9, letterSpacing: 0.4, padding: "2px 6px",
+                      background: "var(--bg-3)", color: exitColor(reason),
+                    }}>{reason} ×{n}</span>
+                  ))}
+                </div>
+              )}
+            </div>
+            <div style={{ padding: "12px 18px 14px", borderTop: "1px solid var(--line)" }}>
+              <div className="mono" style={{ fontSize: 9, color: "var(--fg-3)", letterSpacing: 1.2, marginBottom: 6 }}>RUN COST</div>
+              <div className="mono" style={{ fontSize: 13, color: "var(--fg-1)" }}>${(meta.cost?.usd || 0).toFixed(2)}</div>
+              <div className="mono" style={{ fontSize: 9, color: "var(--fg-3)", marginTop: 2 }}>
+                {Math.round((meta.cost?.tokensIn || 0) / 1000)}k in · {Math.round((meta.cost?.tokensOut || 0) / 1000)}k out
+              </div>
+            </div>
+          </>
+        );
+      })()}
     </aside>
   );
 }
 
+function SidebarStat({ k, v }) {
+  return (
+    <div>
+      <div className="mono" style={{ fontSize: 9, color: "var(--fg-3)", letterSpacing: 0.6 }}>{k}</div>
+      <div className="mono" style={{ fontSize: 14, color: "var(--fg-1)", marginTop: 2, fontVariantNumeric: "tabular-nums" }}>{v}</div>
+    </div>
+  );
+}
+
+function exitColor(reason) {
+  return reason === "accomplished" ? "var(--good)"
+       : reason === "explored"     ? "var(--fg-2)"
+       : reason === "frustrated"   ? "var(--warn)"
+       : reason === "timeout"      ? "var(--fg-3)"
+       :                              "var(--danger)";
+}
+
 function TopBar({ view }) {
   const meta = window.RUN_META;
-  const projectName = meta ? (meta.target.title || meta.target.url) : "—";
+  // Truncate the project name so long target.title strings don't push the page
+  // title off-screen on the right.
+  const rawName = meta ? (meta.target.title || meta.target.url) : "—";
+  const projectName = rawName.length > 38 ? rawName.slice(0, 37) + "…" : rawName;
   const titles = {
     setup: { crumb: `Project / ${projectName}`, title: "Target" },
     agents: { crumb: `Project / ${projectName} / ${meta?.id || "—"}`, title: "Agent Panel" },
@@ -138,11 +194,15 @@ function TopBar({ view }) {
     <div style={{
       borderBottom: "1px solid var(--line)", padding: "10px 24px",
       display: "flex", alignItems: "center", justifyContent: "space-between", background: "var(--bg)",
+      gap: 16,
     }}>
-      <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-        <span className="mono" style={{ fontSize: 10, color: "var(--fg-3)", letterSpacing: 0.6 }}>{cur.crumb}</span>
-        <span style={{ color: "var(--fg-3)" }}>/</span>
-        <span style={{ fontSize: 12, fontWeight: 500 }}>{cur.title}</span>
+      <div style={{ display: "flex", alignItems: "center", gap: 12, minWidth: 0, flex: 1 }}>
+        <span className="mono" style={{
+          fontSize: 10, color: "var(--fg-3)", letterSpacing: 0.6,
+          overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
+        }} title={cur.crumb}>{cur.crumb}</span>
+        <span style={{ color: "var(--fg-3)", flexShrink: 0 }}>/</span>
+        <span style={{ fontSize: 12, fontWeight: 500, flexShrink: 0 }}>{cur.title}</span>
       </div>
       <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
         {meta && (

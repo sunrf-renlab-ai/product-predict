@@ -1369,7 +1369,7 @@ function ReportView({ onRerun }) {
   const totalAgents = agents.length || 1;
   const duration = meta ? humanDuration(new Date(meta.startedAt), new Date(meta.finishedAt)) : "\u2014";
   const m = meta?.metrics || {};
-  return /* @__PURE__ */ React.createElement("div", { style: { height: "100%", overflow: "auto" } }, /* @__PURE__ */ React.createElement(ModeToggleBar, { mode, setMode, runId: meta?.id }), /* @__PURE__ */ React.createElement("div", { style: { borderBottom: "1px solid var(--line)", padding: "36px 40px 32px" } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "flex-end", justifyContent: "space-between", gap: 40, marginBottom: 28 } }, /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 10, letterSpacing: 1.6, color: "var(--fg-3)", textTransform: "uppercase", marginBottom: 8 } }, "Report \xB7 ", meta?.id || "\u2014", " \xB7 ", meta?.target?.title || meta?.target?.url || "\u2014"), /* @__PURE__ */ React.createElement("h1", { style: { fontSize: 36, letterSpacing: -0.8, margin: 0, fontWeight: 400, lineHeight: 1.15 } }, /* @__PURE__ */ React.createElement("span", { className: "serif", style: { fontStyle: "italic" } }, totalAgents, " \u4F4D"), " \u5408\u6210\u7528\u6237\u82B1\u4E86 ", duration, " \u7528\u4F60\u7684\u4EA7\u54C1\u3002", /* @__PURE__ */ React.createElement("br", null), "\u8FD9\u662F\u4ED6\u4EEC\u7684", /* @__PURE__ */ React.createElement("span", { style: { color: "var(--accent)" } }, "\u672A\u7ECF\u7C89\u9970"), "\u7684\u53CD\u9988\u3002")), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", gap: 8, flexShrink: 0 } }, /* @__PURE__ */ React.createElement(Btn, { variant: "ghost", onClick: () => window.open(window.location.pathname.replace(/report\.html$/, "report.md"), "_blank") }, "\u4E0B\u8F7D report.md"), /* @__PURE__ */ React.createElement(Btn, { variant: "ghost", onClick: () => window.open(window.location.pathname.replace(/report\.html$/, "run.json"), "_blank") }, "\u67E5\u770B run.json"), /* @__PURE__ */ React.createElement(Btn, { variant: "primary", onClick: onRerun, icon: Icon.arrow }, "\u4FEE\u590D\u540E\u91CD\u8DD1"))), /* @__PURE__ */ React.createElement("div", { style: { display: "grid", gridTemplateColumns: "1.2fr 1fr 1fr 1fr 1fr", gap: 1, background: "var(--line)", border: "1px solid var(--line)" } }, /* @__PURE__ */ React.createElement(
+  return /* @__PURE__ */ React.createElement("div", { style: { height: "100%", overflow: "auto" } }, /* @__PURE__ */ React.createElement(ModeToggleBar, { mode, setMode, runId: meta?.id }), /* @__PURE__ */ React.createElement("div", { style: { borderBottom: "1px solid var(--line)", padding: "36px 40px 32px" } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "flex-end", justifyContent: "space-between", gap: 40, marginBottom: 28 } }, /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 10, letterSpacing: 1.6, color: "var(--fg-3)", textTransform: "uppercase", marginBottom: 8 } }, "Report \xB7 ", meta?.id || "\u2014", " \xB7 ", meta?.target?.title || meta?.target?.url || "\u2014"), /* @__PURE__ */ React.createElement("h1", { style: { fontSize: 36, letterSpacing: -0.8, margin: 0, fontWeight: 400, lineHeight: 1.15 } }, /* @__PURE__ */ React.createElement("span", { className: "serif", style: { fontStyle: "italic" } }, totalAgents, " \u4F4D"), " \u5408\u6210\u7528\u6237\u82B1\u4E86 ", duration, " \u7528\u4F60\u7684\u4EA7\u54C1\u3002", /* @__PURE__ */ React.createElement("br", null), "\u8FD9\u662F\u4ED6\u4EEC\u5BF9\u5B83\u7684", /* @__PURE__ */ React.createElement("span", { style: { color: "var(--accent)" } }, "\u771F\u5B9E\u611F\u53D7"), "\u3002")), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", gap: 8, flexShrink: 0 } }, /* @__PURE__ */ React.createElement(Btn, { variant: "ghost", onClick: () => window.open(window.location.pathname.replace(/report\.html$/, "report.md"), "_blank") }, "\u4E0B\u8F7D report.md"), /* @__PURE__ */ React.createElement(Btn, { variant: "ghost", onClick: () => window.open(window.location.pathname.replace(/report\.html$/, "run.json"), "_blank") }, "\u67E5\u770B run.json"), /* @__PURE__ */ React.createElement(Btn, { variant: "primary", onClick: onRerun, icon: Icon.arrow }, "\u4FEE\u590D\u540E\u91CD\u8DD1"))), /* @__PURE__ */ React.createElement("div", { style: { display: "grid", gridTemplateColumns: "1.2fr 1fr 1fr 1fr 1fr", gap: 1, background: "var(--line)", border: "1px solid var(--line)" } }, /* @__PURE__ */ React.createElement(
     BigScore,
     {
       label: "Predicted NPS",
@@ -1438,7 +1438,17 @@ function ReportView({ onRerun }) {
       flexShrink: 0,
       marginTop: 1
     } }, String(idx + 1).padStart(2, "0")), /* @__PURE__ */ React.createElement("div", { style: { flex: 1, fontSize: 13.5, lineHeight: 1.45, fontWeight: 500 } }, iss.title)),
-    /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 8, marginLeft: 34 } }, /* @__PURE__ */ React.createElement(Pill, { color: sevColor(iss.severity), style: { background: `color-mix(in oklch, ${sevColor(iss.severity)} 12%, transparent)` } }, iss.severity), /* @__PURE__ */ React.createElement("span", { className: "mono", style: { fontSize: 10, color: "var(--fg-3)" } }, iss.category), /* @__PURE__ */ React.createElement("span", { className: "mono", style: { fontSize: 10, color: "var(--fg-3)" } }, "\xB7 ", iss.agents, "/", totalAgents, " agents"), /* @__PURE__ */ React.createElement("span", { className: "mono", style: { fontSize: 10, color: "var(--fg-3)" } }, "\xB7 ", iss.evidence, " evidence"))
+    /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 10, marginLeft: 34 } }, /* @__PURE__ */ React.createElement("span", { className: "mono", style: {
+      fontSize: 11,
+      fontWeight: 600,
+      letterSpacing: 0.6,
+      padding: "3px 9px",
+      textTransform: "uppercase",
+      color: sevColor(iss.severity),
+      background: `color-mix(in oklch, ${sevColor(iss.severity)} 14%, transparent)`,
+      border: `1px solid color-mix(in oklch, ${sevColor(iss.severity)} 40%, transparent)`,
+      borderRadius: 2
+    } }, iss.severity), /* @__PURE__ */ React.createElement("span", { className: "mono", style: { fontSize: 10, color: "var(--fg-2)" } }, iss.category), /* @__PURE__ */ React.createElement("span", { className: "mono", style: { fontSize: 10, color: "var(--fg-3)" } }, "\xB7 ", iss.agents, "/", totalAgents, " agents \xB7 ", iss.evidence, " evidence"))
   ))), /* @__PURE__ */ React.createElement("div", { style: { padding: "28px 36px", overflow: "auto" } }, issue && issueAgent && /* @__PURE__ */ React.createElement("div", { className: "fade-in-up", key: activeIssue }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 10, marginBottom: 14 } }, /* @__PURE__ */ React.createElement(Pill, { color: sevColor(issue.severity), style: { background: `color-mix(in oklch, ${sevColor(issue.severity)} 12%, transparent)` } }, issue.severity, " severity"), /* @__PURE__ */ React.createElement(Pill, null, issue.category), /* @__PURE__ */ React.createElement("span", { className: "mono", style: { fontSize: 10, color: "var(--fg-3)" } }, "impact \xB7 ", issue.agents, "/", totalAgents, " agents")), /* @__PURE__ */ React.createElement("h2", { style: { fontSize: 26, fontWeight: 400, letterSpacing: -0.4, lineHeight: 1.25, margin: "0 0 24px" } }, issue.title), /* @__PURE__ */ React.createElement("div", { style: {
     padding: "20px 24px",
     background: "var(--bg-1)",
@@ -1515,7 +1525,17 @@ function ModeToggleBar({ mode, setMode, runId }) {
 }
 function BigScore({ label, value, delta, tone, big }) {
   const toneColor = tone === "good" ? "var(--good)" : tone === "warn" ? "var(--warn)" : tone === "bad" ? "var(--danger)" : "var(--fg)";
-  return /* @__PURE__ */ React.createElement("div", { style: { background: "var(--bg-1)", padding: "18px 22px" } }, /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 9, letterSpacing: 1.4, color: "var(--fg-3)", textTransform: "uppercase", marginBottom: 8 } }, label), /* @__PURE__ */ React.createElement("div", { style: { fontSize: big ? 42 : 32, fontWeight: 400, letterSpacing: -1, lineHeight: 1, color: toneColor, fontFamily: "Geist", fontVariantNumeric: "tabular-nums" } }, value), /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 10, color: "var(--fg-3)", marginTop: 8 } }, delta));
+  return /* @__PURE__ */ React.createElement("div", { style: { background: "var(--bg-1)", padding: "22px 24px" } }, /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 9, letterSpacing: 1.4, color: "var(--fg-3)", textTransform: "uppercase", marginBottom: 10 } }, label), /* @__PURE__ */ React.createElement("div", { style: { fontSize: big ? 44 : 32, fontWeight: 400, letterSpacing: -1, lineHeight: 1, color: toneColor, fontFamily: "Geist", fontVariantNumeric: "tabular-nums" } }, value), /* @__PURE__ */ React.createElement("div", { className: "mono", style: {
+    fontSize: 10,
+    color: "var(--fg-3)",
+    marginTop: 10,
+    lineHeight: 1.5,
+    // Clamp delta to a single line — preserves layout when a long quote
+    // sneaks in (e.g. topRageContext returning a 30-char string).
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+    whiteSpace: "nowrap"
+  }, title: delta }, delta));
 }
 function AIReport({ onSwitch }) {
   const meta = window.RUN_META;
@@ -1709,9 +1729,8 @@ function npsTone(n) {
 }
 function topRageContext(activity) {
   const rages = activity.filter((e) => e.kind === "rage");
-  if (rages.length === 0) return "\u65E0 rage \u4E8B\u4EF6";
-  const first = rages[0];
-  return shortText(first.text, 30);
+  if (rages.length === 0) return "\u6CA1\u6709\u6124\u6012\u70B9\u51FB";
+  return `\u9996\u6B21\u5728\u7B2C ${rages[0].t} \u89E6\u53D1`;
 }
 function shortText(s, n) {
   return !s ? "\u2014" : s.length <= n ? s : s.slice(0, n - 1) + "\u2026";
@@ -1792,11 +1811,42 @@ function Sidebar({ view, onView, activeRun, setActiveRun }) {
     textAlign: "left",
     borderLeft: activeRun === r.id ? "2px solid var(--accent)" : "2px solid transparent",
     background: activeRun === r.id ? "var(--bg-2)" : "transparent"
-  } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 6, marginBottom: 4 } }, /* @__PURE__ */ React.createElement(Dot, { color: "var(--good)", size: 5 }), /* @__PURE__ */ React.createElement("span", { className: "mono", style: { fontSize: 10, color: "var(--fg-3)" } }, "#", r.id.split("-")[1] || r.id), /* @__PURE__ */ React.createElement("span", { style: { fontSize: 11, color: "var(--fg-1)" } }, r.name), r.score != null && /* @__PURE__ */ React.createElement("span", { className: "mono", style: { marginLeft: "auto", fontSize: 10, color: "var(--fg-2)" } }, r.score)), /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 9, color: "var(--fg-3)", letterSpacing: 0.3, paddingLeft: 12 } }, r.branch, " \xB7 ", r.commit, " \xB7 ", r.time)))), meta && /* @__PURE__ */ React.createElement("div", { style: { padding: "14px 18px", borderTop: "1px solid var(--line)" } }, /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 9, color: "var(--fg-3)", letterSpacing: 1.2, marginBottom: 6 } }, "RUN COST"), /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 11, color: "var(--fg-1)" } }, "$", (meta.cost?.usd || 0).toFixed(2)), /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 9, color: "var(--fg-3)", marginTop: 2 } }, Math.round((meta.cost?.tokensIn || 0) / 1e3), "k in \xB7 ", Math.round((meta.cost?.tokensOut || 0) / 1e3), "k out")));
+  } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 6, marginBottom: 4, minWidth: 0 } }, /* @__PURE__ */ React.createElement(Dot, { color: "var(--good)", size: 5 }), /* @__PURE__ */ React.createElement("span", { className: "mono", style: { fontSize: 10, color: "var(--fg-3)", flexShrink: 0 } }, "#", r.id.split("-")[1] || r.id), /* @__PURE__ */ React.createElement("span", { style: {
+    fontSize: 11,
+    color: "var(--fg-1)",
+    flex: 1,
+    minWidth: 0,
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+    whiteSpace: "nowrap"
+  }, title: r.name }, r.name), r.score != null && /* @__PURE__ */ React.createElement("span", { className: "mono", style: { fontSize: 10, color: "var(--fg-2)", flexShrink: 0 } }, r.score)), /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 9, color: "var(--fg-3)", letterSpacing: 0.3, paddingLeft: 12 } }, r.branch, " \xB7 ", r.commit, " \xB7 ", r.time)))), meta && (() => {
+    const agentCount = (meta.agents || []).length;
+    const eventCount = (meta.activity || []).length;
+    const wall = meta.startedAt && meta.finishedAt ? Math.max(0, Math.round((new Date(meta.finishedAt).getTime() - new Date(meta.startedAt).getTime()) / 1e3)) : null;
+    const exits = (meta.agents || []).reduce((acc, a) => {
+      const k = a.exitReason || "unknown";
+      acc[k] = (acc[k] || 0) + 1;
+      return acc;
+    }, {});
+    return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { style: { padding: "14px 18px 12px", borderTop: "1px solid var(--line)" } }, /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 9, color: "var(--fg-3)", letterSpacing: 1.2, marginBottom: 8 } }, "RUN SUMMARY"), /* @__PURE__ */ React.createElement("div", { style: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: 6 } }, /* @__PURE__ */ React.createElement(SidebarStat, { k: "AGENTS", v: agentCount }), /* @__PURE__ */ React.createElement(SidebarStat, { k: "EVENTS", v: eventCount }), /* @__PURE__ */ React.createElement(SidebarStat, { k: "WALL", v: wall != null ? `${wall < 60 ? wall + "s" : Math.floor(wall / 60) + ":" + String(wall % 60).padStart(2, "0")}` : "\u2014" }), /* @__PURE__ */ React.createElement(SidebarStat, { k: "ISSUES", v: (meta.issues || []).length })), agentCount > 0 && /* @__PURE__ */ React.createElement("div", { style: { marginTop: 12, display: "flex", gap: 4, alignItems: "center", flexWrap: "wrap" } }, Object.entries(exits).map(([reason, n]) => /* @__PURE__ */ React.createElement("span", { key: reason, className: "mono", style: {
+      fontSize: 9,
+      letterSpacing: 0.4,
+      padding: "2px 6px",
+      background: "var(--bg-3)",
+      color: exitColor(reason)
+    } }, reason, " \xD7", n)))), /* @__PURE__ */ React.createElement("div", { style: { padding: "12px 18px 14px", borderTop: "1px solid var(--line)" } }, /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 9, color: "var(--fg-3)", letterSpacing: 1.2, marginBottom: 6 } }, "RUN COST"), /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 13, color: "var(--fg-1)" } }, "$", (meta.cost?.usd || 0).toFixed(2)), /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 9, color: "var(--fg-3)", marginTop: 2 } }, Math.round((meta.cost?.tokensIn || 0) / 1e3), "k in \xB7 ", Math.round((meta.cost?.tokensOut || 0) / 1e3), "k out")));
+  })());
+}
+function SidebarStat({ k, v }) {
+  return /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 9, color: "var(--fg-3)", letterSpacing: 0.6 } }, k), /* @__PURE__ */ React.createElement("div", { className: "mono", style: { fontSize: 14, color: "var(--fg-1)", marginTop: 2, fontVariantNumeric: "tabular-nums" } }, v));
+}
+function exitColor(reason) {
+  return reason === "accomplished" ? "var(--good)" : reason === "explored" ? "var(--fg-2)" : reason === "frustrated" ? "var(--warn)" : reason === "timeout" ? "var(--fg-3)" : "var(--danger)";
 }
 function TopBar({ view }) {
   const meta = window.RUN_META;
-  const projectName = meta ? meta.target.title || meta.target.url : "\u2014";
+  const rawName = meta ? meta.target.title || meta.target.url : "\u2014";
+  const projectName = rawName.length > 38 ? rawName.slice(0, 37) + "\u2026" : rawName;
   const titles = {
     setup: { crumb: `Project / ${projectName}`, title: "Target" },
     agents: { crumb: `Project / ${projectName} / ${meta?.id || "\u2014"}`, title: "Agent Panel" },
@@ -1810,8 +1860,16 @@ function TopBar({ view }) {
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
-    background: "var(--bg)"
-  } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 12 } }, /* @__PURE__ */ React.createElement("span", { className: "mono", style: { fontSize: 10, color: "var(--fg-3)", letterSpacing: 0.6 } }, cur.crumb), /* @__PURE__ */ React.createElement("span", { style: { color: "var(--fg-3)" } }, "/"), /* @__PURE__ */ React.createElement("span", { style: { fontSize: 12, fontWeight: 500 } }, cur.title)), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 16 } }, meta && /* @__PURE__ */ React.createElement("span", { className: "mono", style: { fontSize: 10, color: "var(--fg-3)" } }, meta.startedAt?.slice(0, 16).replace("T", " ")), /* @__PURE__ */ React.createElement("div", { style: { width: 24, height: 24, background: "var(--accent)", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "JetBrains Mono", fontSize: 11, fontWeight: 600, color: "var(--accent-fg)" } }, "P")));
+    background: "var(--bg)",
+    gap: 16
+  } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 12, minWidth: 0, flex: 1 } }, /* @__PURE__ */ React.createElement("span", { className: "mono", style: {
+    fontSize: 10,
+    color: "var(--fg-3)",
+    letterSpacing: 0.6,
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+    whiteSpace: "nowrap"
+  }, title: cur.crumb }, cur.crumb), /* @__PURE__ */ React.createElement("span", { style: { color: "var(--fg-3)", flexShrink: 0 } }, "/"), /* @__PURE__ */ React.createElement("span", { style: { fontSize: 12, fontWeight: 500, flexShrink: 0 } }, cur.title)), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 16 } }, meta && /* @__PURE__ */ React.createElement("span", { className: "mono", style: { fontSize: 10, color: "var(--fg-3)" } }, meta.startedAt?.slice(0, 16).replace("T", " ")), /* @__PURE__ */ React.createElement("div", { style: { width: 24, height: 24, background: "var(--accent)", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "JetBrains Mono", fontSize: 11, fontWeight: 600, color: "var(--accent-fg)" } }, "P")));
 }
 ReactDOM.createRoot(document.getElementById("root")).render(/* @__PURE__ */ React.createElement(App, null));
 </script>

@@ -33,7 +33,7 @@ function ReportView({ onRerun }) {
             </div>
             <h1 style={{ fontSize: 36, letterSpacing: -0.8, margin: 0, fontWeight: 400, lineHeight: 1.15 }}>
               <span className="serif" style={{ fontStyle: "italic" }}>{totalAgents} 位</span> 合成用户花了 {duration} 用你的产品。
-              <br/>这是他们的<span style={{ color: "var(--accent)" }}>未经粉饰</span>的反馈。
+              <br/>这是他们对它的<span style={{ color: "var(--accent)" }}>真实感受</span>。
             </h1>
           </div>
           <div style={{ display: "flex", gap: 8, flexShrink: 0 }}>
@@ -102,13 +102,17 @@ function ReportView({ onRerun }) {
                 }}>{String(idx + 1).padStart(2, "0")}</div>
                 <div style={{ flex: 1, fontSize: 13.5, lineHeight: 1.45, fontWeight: 500 }}>{iss.title}</div>
               </div>
-              <div style={{ display: "flex", alignItems: "center", gap: 8, marginLeft: 34 }}>
-                <Pill color={sevColor(iss.severity)} style={{ background: `color-mix(in oklch, ${sevColor(iss.severity)} 12%, transparent)` }}>
-                  {iss.severity}
-                </Pill>
-                <span className="mono" style={{ fontSize: 10, color: "var(--fg-3)" }}>{iss.category}</span>
-                <span className="mono" style={{ fontSize: 10, color: "var(--fg-3)" }}>· {iss.agents}/{totalAgents} agents</span>
-                <span className="mono" style={{ fontSize: 10, color: "var(--fg-3)" }}>· {iss.evidence} evidence</span>
+              <div style={{ display: "flex", alignItems: "center", gap: 10, marginLeft: 34 }}>
+                <span className="mono" style={{
+                  fontSize: 11, fontWeight: 600, letterSpacing: 0.6,
+                  padding: "3px 9px", textTransform: "uppercase",
+                  color: sevColor(iss.severity),
+                  background: `color-mix(in oklch, ${sevColor(iss.severity)} 14%, transparent)`,
+                  border: `1px solid color-mix(in oklch, ${sevColor(iss.severity)} 40%, transparent)`,
+                  borderRadius: 2,
+                }}>{iss.severity}</span>
+                <span className="mono" style={{ fontSize: 10, color: "var(--fg-2)" }}>{iss.category}</span>
+                <span className="mono" style={{ fontSize: 10, color: "var(--fg-3)" }}>· {iss.agents}/{totalAgents} agents · {iss.evidence} evidence</span>
               </div>
             </div>
           ))}
@@ -328,10 +332,15 @@ function ModeToggleBar({ mode, setMode, runId }) {
 function BigScore({ label, value, delta, tone, big }) {
   const toneColor = tone === "good" ? "var(--good)" : tone === "warn" ? "var(--warn)" : tone === "bad" ? "var(--danger)" : "var(--fg)";
   return (
-    <div style={{ background: "var(--bg-1)", padding: "18px 22px" }}>
-      <div className="mono" style={{ fontSize: 9, letterSpacing: 1.4, color: "var(--fg-3)", textTransform: "uppercase", marginBottom: 8 }}>{label}</div>
-      <div style={{ fontSize: big ? 42 : 32, fontWeight: 400, letterSpacing: -1, lineHeight: 1, color: toneColor, fontFamily: "Geist", fontVariantNumeric: "tabular-nums" }}>{value}</div>
-      <div className="mono" style={{ fontSize: 10, color: "var(--fg-3)", marginTop: 8 }}>{delta}</div>
+    <div style={{ background: "var(--bg-1)", padding: "22px 24px" }}>
+      <div className="mono" style={{ fontSize: 9, letterSpacing: 1.4, color: "var(--fg-3)", textTransform: "uppercase", marginBottom: 10 }}>{label}</div>
+      <div style={{ fontSize: big ? 44 : 32, fontWeight: 400, letterSpacing: -1, lineHeight: 1, color: toneColor, fontFamily: "Geist", fontVariantNumeric: "tabular-nums" }}>{value}</div>
+      <div className="mono" style={{
+        fontSize: 10, color: "var(--fg-3)", marginTop: 10, lineHeight: 1.5,
+        // Clamp delta to a single line — preserves layout when a long quote
+        // sneaks in (e.g. topRageContext returning a 30-char string).
+        overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
+      }} title={delta}>{delta}</div>
     </div>
   );
 }
@@ -576,9 +585,9 @@ function npsTone(n) {
 }
 function topRageContext(activity) {
   const rages = activity.filter((e) => e.kind === "rage");
-  if (rages.length === 0) return "无 rage 事件";
-  const first = rages[0];
-  return shortText(first.text, 30);
+  if (rages.length === 0) return "没有愤怒点击";
+  // Show the kind of trigger, not the quote — quotes overflow the cell.
+  return `首次在第 ${rages[0].t} 触发`;
 }
 function shortText(s, n) {
   return !s ? "—" : s.length <= n ? s : s.slice(0, n - 1) + "…";
