@@ -1,1372 +1,282 @@
 {
-  "id": "run-006",
-  "startedAt": "2026-05-22T03:41:31.024Z",
-  "finishedAt": "2026-05-22T03:49:37.123Z",
+  "id": "run-demo",
+  "startedAt": "2026-05-25T03:14:00.000Z",
+  "finishedAt": "2026-05-25T03:19:08.000Z",
   "target": {
-    "url": "http://localhost:8908",
-    "title": "Pebble · async task flow",
-    "viewport": {
-      "w": 1280,
-      "h": 800
-    }
+    "url": "https://cadence.app",
+    "title": "Cadence — async standups for distributed teams",
+    "viewport": { "w": 1280, "h": 800 }
   },
-  "personaSetId": "pebble-todo",
+  "personaSetId": "cadence-saas-mix",
   "agents": [
     {
-      "id": "a01-2",
-      "name": "Maya Chen",
-      "age": 28,
-      "role": "产品经理",
-      "tech": 4,
-      "tone": "挑剔",
-      "preferences": [
-        "重视协作",
-        "关注跨部门沟通",
-        "喜欢简洁 UI"
-      ],
-      "knownContext": [
-        "每天用 Notion",
-        "试过 Linear，觉得 UI 过于开发向",
-        "团队 8 人"
-      ],
-      "weight": 0.3,
-      "color": "#e6c976",
-      "glyph": "M",
-      "traits": [
-        "效率控",
-        "协作型"
-      ],
-      "origin": "preset",
-      "crashed": false,
-      "truncated": false,
-      "exitReason": "frustrated",
-      "durationSec": 100.657
+      "id": "a01", "name": "Maya Chen", "age": 28, "role": "产品经理", "tech": 4, "tone": "挑剔",
+      "preferences": ["重视团队节奏的可视化", "讨厌频繁的提醒打扰", "想一眼看出谁在卡进度"],
+      "knownContext": ["团队 12 人, 用 Linear 跟 issue", "Slack 通知开了静音", "试过 Standup Buddy 觉得太机械"],
+      "weight": 0.20, "color": "#e6c976", "glyph": "M", "traits": ["效率控", "节奏敏感"], "origin": "preset",
+      "exitReason": "accomplished", "durationSec": 135
     },
     {
-      "id": "a01-1",
-      "name": "Maya Chen",
-      "age": 28,
-      "role": "产品经理",
-      "tech": 4,
-      "tone": "挑剔",
-      "preferences": [
-        "重视协作",
-        "关注跨部门沟通",
-        "喜欢简洁 UI"
-      ],
-      "knownContext": [
-        "每天用 Notion",
-        "试过 Linear，觉得 UI 过于开发向",
-        "团队 8 人"
-      ],
-      "weight": 0.3,
-      "color": "#e6c976",
-      "glyph": "M",
-      "traits": [
-        "效率控",
-        "协作型"
-      ],
-      "origin": "preset",
-      "crashed": false,
-      "truncated": false,
-      "exitReason": "frustrated",
-      "durationSec": 116.339
+      "id": "a02", "name": "Kenji Okada", "age": 41, "role": "工程主管", "tech": 5, "tone": "急躁",
+      "preferences": ["键盘流", "Markdown 原生", "CI 集成深度"],
+      "knownContext": ["Vim 用户 12 年", "团队 25 人, 微服务架构", "用过 Standup Buddy, 不喜欢"],
+      "weight": 0.15, "color": "#7fb069", "glyph": "K", "traits": ["键盘党", "自动化爱好者"], "origin": "preset",
+      "exitReason": "explored", "durationSec": 204
     },
     {
-      "id": "a02-2",
-      "name": "Kenji Okada",
-      "age": 34,
-      "role": "软件工程师",
-      "tech": 5,
-      "tone": "好奇",
-      "preferences": [
-        "追求自动化",
-        "喜欢插件生态",
-        "关注可扩展性"
-      ],
-      "knownContext": [
-        "使用 Trello 两年",
-        "最近尝试 Asana",
-        "团队 5 人"
-      ],
-      "weight": 0.2,
-      "color": "#7fa1c4",
-      "glyph": "K",
-      "traits": [
-        "技术派",
-        "自动化爱好者"
-      ],
-      "origin": "preset",
-      "crashed": false,
-      "truncated": false,
-      "exitReason": "explored",
-      "durationSec": 114.14
+      "id": "a03", "name": "王磊", "age": 39, "role": "项目经理", "tech": 2, "tone": "急躁",
+      "preferences": ["模板化输出", "需要导给老板的报告", "关注阻塞项识别"],
+      "knownContext": ["Asana 5 年用户", "团队 18 人, 跨 3 个项目", "老板只看 PDF"],
+      "weight": 0.15, "color": "#a89cc8", "glyph": "W", "traits": ["报告导向", "保守"], "origin": "preset",
+      "exitReason": "frustrated", "durationSec": 189
     },
     {
-      "id": "a02-1",
-      "name": "Kenji Okada",
-      "age": 34,
-      "role": "软件工程师",
-      "tech": 5,
-      "tone": "好奇",
-      "preferences": [
-        "追求自动化",
-        "喜欢插件生态",
-        "关注可扩展性"
-      ],
-      "knownContext": [
-        "使用 Trello 两年",
-        "最近尝试 Asana",
-        "团队 5 人"
-      ],
-      "weight": 0.2,
-      "color": "#7fa1c4",
-      "glyph": "K",
-      "traits": [
-        "技术派",
-        "自动化爱好者"
-      ],
-      "origin": "preset",
-      "crashed": false,
-      "truncated": false,
-      "exitReason": "frustrated",
-      "durationSec": 147.317
+      "id": "a04", "name": "Sofia Reyes", "age": 27, "role": "设计师", "tech": 3, "tone": "敏感",
+      "preferences": ["重视微交互细节", "讨厌满屏红点", "在意 emoji 表达力"],
+      "knownContext": ["Figma 重度用户", "试过 Daily.bot 觉得机械", "团队 8 人"],
+      "weight": 0.15, "color": "#c98686", "glyph": "S", "traits": ["美感导向", "细节控"], "origin": "preset",
+      "exitReason": "accomplished", "durationSec": 185
     },
     {
-      "id": "a03",
-      "name": "李心怡",
-      "age": 26,
-      "role": "市场运营",
-      "tech": 3,
-      "tone": "怀疑",
-      "preferences": [
-        "关注易上手",
-        "担心学习成本",
-        "重视任务提醒"
-      ],
-      "knownContext": [
-        "团队使用飞书",
-        "试过 Basecamp",
-        "团队 6 人"
-      ],
-      "weight": 0.15,
-      "color": "#b5d8a8",
-      "glyph": "L",
-      "traits": [
-        "保守型",
-        "关注提醒"
-      ],
-      "origin": "preset",
-      "crashed": false,
-      "truncated": false,
-      "exitReason": "explored",
-      "durationSec": 106.733
+      "id": "a05", "name": "Aiko Tanaka", "age": 32, "role": "运营经理", "tech": 3, "tone": "细致",
+      "preferences": ["时区敏感", "多语言团队友好", "异步而非同步"],
+      "knownContext": ["团队分布 4 时区 (东京/旧金山/伦敦/班加罗尔)", "现用 Slack DM 轮询", "之前用 Range, 觉得贵"],
+      "weight": 0.15, "color": "#76b5c5", "glyph": "A", "traits": ["国际化", "异步派"], "origin": "preset",
+      "exitReason": "frustrated", "durationSec": 308
     },
     {
-      "id": "a04",
-      "name": "王磊",
-      "age": 41,
-      "role": "项目经理",
-      "tech": 2,
-      "tone": "急躁",
-      "preferences": [
-        "快速部署",
-        "需要批量导入",
-        "关注进度可视化"
-      ],
-      "knownContext": [
-        "用 Asana 3 年",
-        "尝试 Monday.com",
-        "团队 12 人"
-      ],
-      "weight": 0.15,
-      "color": "#e0a8c3",
-      "glyph": "W",
-      "traits": [
-        "进度导向",
-        "急迫感"
-      ],
-      "origin": "preset",
-      "crashed": false,
-      "truncated": false,
-      "exitReason": "frustrated",
-      "durationSec": 104.849
-    },
-    {
-      "id": "a05",
-      "name": "Emma Liu",
-      "age": 31,
-      "role": "设计师",
-      "tech": 3,
-      "tone": "温和",
-      "preferences": [
-        "简洁界面",
-        "喜欢暗色模式",
-        "关注视觉一致性"
-      ],
-      "knownContext": [
-        "使用 Notion 管理设计稿",
-        "偶尔用 Asana",
-        "团队 4 人"
-      ],
-      "weight": 0.2,
-      "color": "#f5c16c",
-      "glyph": "E",
-      "traits": [
-        "设计敏感",
-        "简洁控"
-      ],
-      "origin": "preset",
-      "crashed": false,
-      "truncated": false,
-      "exitReason": "frustrated",
-      "durationSec": 148.328
+      "id": "a06", "name": "Lars Hjelm", "age": 52, "role": "创业者", "tech": 2, "tone": "困惑",
+      "preferences": ["5 分钟内能跑通", "害怕概念太多", "想直接用, 不想配"],
+      "knownContext": ["4 人初创团队", "试过 6 个工具最后回 Google Sheets", "没 IT 背景"],
+      "weight": 0.20, "color": "#d8a05e", "glyph": "L", "traits": ["新手", "极简派"], "origin": "preset",
+      "exitReason": "frustrated", "durationSec": 178
     }
   ],
   "activity": [
-    {
-      "t": "00:00:00",
-      "agent": "a01-2",
-      "kind": "enter",
-      "text": "进入 localhost:8908/",
-      "sentiment": 0,
-      "url": "http://localhost:8908/"
-    },
-    {
-      "t": "00:00:00",
-      "agent": "a01-2",
-      "kind": "click",
-      "text": "看看首页长什么样",
-      "sentiment": 0,
-      "url": "http://localhost:8908/",
-      "shot": "shots/a01-2-00.jpg"
-    },
-    {
-      "t": "00:00:00",
-      "agent": "a01-1",
-      "kind": "enter",
-      "text": "进入 localhost:8908/",
-      "sentiment": 0,
-      "url": "http://localhost:8908/"
-    },
-    {
-      "t": "00:00:00",
-      "agent": "a01-1",
-      "kind": "observation",
-      "text": "看起来是个任务管理工具。顶部导航是 Today/Inbox/Projects/Settings，中间有个添加任务输入框，下方是任务列表。布局看起来比较干净。",
-      "sentiment": 0,
-      "shot": "shots/a01-1-00.jpg"
-    },
-    {
-      "t": "00:00:00",
-      "agent": "a02-2",
-      "kind": "enter",
-      "text": "进入 localhost:8908/",
-      "sentiment": 0,
-      "url": "http://localhost:8908/"
-    },
-    {
-      "t": "00:00:00",
-      "agent": "a02-2",
-      "kind": "click",
-      "text": "看看这个任务管理界面长什么样",
-      "sentiment": 0,
-      "url": "http://localhost:8908/",
-      "shot": "shots/a02-2-00.jpg"
-    },
-    {
-      "t": "00:00:00",
-      "agent": "a02-1",
-      "kind": "enter",
-      "text": "进入 localhost:8908/",
-      "sentiment": 0,
-      "url": "http://localhost:8908/"
-    },
-    {
-      "t": "00:00:00",
-      "agent": "a02-1",
-      "kind": "observation",
-      "text": "打开了一个任务管理页面，界面很简洁。有 Today、Inbox、Projects、Settings 导航，底部有个输入框可以添加任务。风格很干净，没有多余的东西。",
-      "sentiment": 0,
-      "shot": "shots/a02-1-00.jpg"
-    },
-    {
-      "t": "00:00:00",
-      "agent": "a03",
-      "kind": "enter",
-      "text": "进入 localhost:8908/",
-      "sentiment": 0,
-      "url": "http://localhost:8908/"
-    },
-    {
-      "t": "00:00:00",
-      "agent": "a04",
-      "kind": "enter",
-      "text": "进入 localhost:8908/",
-      "sentiment": 0,
-      "url": "http://localhost:8908/"
-    },
-    {
-      "t": "00:00:00",
-      "agent": "a04",
-      "kind": "observation",
-      "text": "打开了一个看起来像任务管理的工具。顶部导航有 Today、Inbox、Projects、Settings，标准的待办/项目管理结构。主区域有个 \"Add a task...\" 输入框，够简洁。有点好奇这和 Asana/Monday 有什么不一样。",
-      "sentiment": 0,
-      "shot": "shots/a04-00.jpg"
-    },
-    {
-      "t": "00:00:00",
-      "agent": "a05",
-      "kind": "enter",
-      "text": "进入 localhost:8908/",
-      "sentiment": 0,
-      "url": "http://localhost:8908/"
-    },
-    {
-      "t": "00:00:00",
-      "agent": "a05",
-      "kind": "click",
-      "text": "Initial page load - looking around",
-      "sentiment": 0,
-      "url": "http://localhost:8908/",
-      "shot": "shots/a05-00.jpg"
-    },
-    {
-      "t": "00:00:03",
-      "agent": "a03",
-      "kind": "observation",
-      "text": "看起来是个任务管理工具，界面挺简洁的。顶部有导航，Today/Inbox/Projects/Settings，下面是任务列表。有点 Basecamp 的感觉，但界面更干净。",
-      "sentiment": 1,
-      "shot": "shots/a03-00.jpg"
-    },
-    {
-      "t": "00:03:52",
-      "agent": "a02-2",
-      "kind": "click",
-      "text": "测试添加任务功能 (typed: 测试任务 1)",
-      "sentiment": 0,
-      "shot": "shots/a02-2-01.jpg"
-    },
-    {
-      "t": "00:07:31",
-      "agent": "a02-2",
-      "kind": "click",
-      "text": "添加刚输入的任务",
-      "sentiment": 0,
-      "url": "http://localhost:8908/",
-      "shot": "shots/a02-2-02.jpg"
-    },
-    {
-      "t": "00:07:68",
-      "agent": "a04",
-      "kind": "click",
-      "text": "看看 Inbox 里有什么内容",
-      "sentiment": 0,
-      "url": "http://localhost:8908/",
-      "shot": "shots/a04-01.jpg"
-    },
-    {
-      "t": "00:09:00",
-      "agent": "a03",
-      "kind": "observation",
-      "text": "9秒过去了，页面没变。我需要滚动或者做点什么，不能光盯着看。任务输入框在中间位置，这是个添加任务的入口。",
-      "sentiment": 0,
-      "shot": "shots/a03-01.jpg"
-    },
-    {
-      "t": "00:10:77",
-      "agent": "a02-2",
-      "kind": "delight",
-      "text": "添加任务成功了，输入框清空了，交互很顺畅。基础功能看起来正常。",
-      "sentiment": 2,
-      "shot": "shots/a02-2-03.jpg"
-    },
-    {
-      "t": "00:11:10",
-      "agent": "a04",
-      "kind": "confused",
-      "text": "操作失败 (note): expected number, got undefined",
-      "sentiment": -1
-    },
-    {
-      "t": "00:11:51",
-      "agent": "a05",
-      "kind": "observation",
-      "text": "看到顶栏有 Today, Inbox, Projects, Settings，左侧有添加任务的输入框。背景是深色的，这点我挺喜欢。试试看能不能正常添加任务。",
-      "sentiment": 1,
-      "shot": "shots/a05-02.jpg"
-    },
-    {
-      "t": "00:14:06",
-      "agent": "a01-1",
-      "kind": "confused",
-      "text": "滚动了一下但看起来页面内容没变，下面是空的？还是加载有问题？",
-      "sentiment": -1,
-      "shot": "shots/a01-1-02.jpg"
-    },
-    {
-      "t": "00:14:20",
-      "agent": "a04",
-      "kind": "click",
-      "text": "想快速添加一个任务测试功能",
-      "sentiment": 0,
-      "url": "http://localhost:8908/#inbox",
-      "shot": "shots/a04-03.jpg"
-    },
-    {
-      "t": "00:15:04",
-      "agent": "a03",
-      "kind": "click",
-      "text": "想测试添加任务的功能",
-      "sentiment": 0,
-      "url": "http://localhost:8908/",
-      "shot": "shots/a03-02.jpg"
-    },
-    {
-      "t": "00:15:46",
-      "agent": "a01-2",
-      "kind": "observation",
-      "text": "首页很干净，顶部导航 Today/Inbox/Projects/Settings，下面一个大输入框。风格简洁，有点 Notion 的影子但更轻量。",
-      "sentiment": 1,
-      "shot": "shots/a01-2-02.jpg"
-    },
-    {
-      "t": "00:15:67",
-      "agent": "a01-1",
-      "kind": "click",
-      "text": "想看看Projects里有什么内容",
-      "sentiment": 0,
-      "url": "http://localhost:8908/",
-      "shot": "shots/a01-1-03.jpg"
-    },
-    {
-      "t": "00:17:75",
-      "agent": "a02-1",
-      "kind": "click",
-      "text": "想测试添加任务功能是否正常工作",
-      "sentiment": 0,
-      "url": "http://localhost:8908/",
-      "shot": "shots/a02-1-01.jpg"
-    },
-    {
-      "t": "00:17:80",
-      "agent": "a05",
-      "kind": "click",
-      "text": "Focus on the task input field to type a task",
-      "sentiment": 0,
-      "url": "http://localhost:8908/",
-      "shot": "shots/a05-03.jpg"
-    },
-    {
-      "t": "00:18:50",
-      "agent": "a04",
-      "kind": "click",
-      "text": "作为项目经理，脑子里第一时间想到的是手头最急的任务 (typed: 完成项目进度报告)",
-      "sentiment": 0,
-      "shot": "shots/a04-04.jpg"
-    },
-    {
-      "t": "00:18:87",
-      "agent": "a03",
-      "kind": "click",
-      "text": "添加一个任务测试功能 (typed: 完成市场报告)",
-      "sentiment": 0,
-      "shot": "shots/a03-03.jpg"
-    },
-    {
-      "t": "00:19:32",
-      "agent": "a05",
-      "kind": "click",
-      "text": "Adding a test task to see how it works (typed: Design new landing page)",
-      "sentiment": 0,
-      "shot": "shots/a05-04.jpg"
-    },
-    {
-      "t": "00:19:59",
-      "agent": "a01-1",
-      "kind": "confused",
-      "text": "点了Projects，URL变了(#projects)但页面内容完全没变，还是只有一个输入框。这是什么问题？内容没加载出来？",
-      "sentiment": -1,
-      "shot": "shots/a01-1-04.jpg"
-    },
-    {
-      "t": "00:20:33",
-      "agent": "a02-2",
-      "kind": "click",
-      "text": "看看 Inbox 里有没有刚添加的任务",
-      "sentiment": 0,
-      "url": "http://localhost:8908/",
-      "shot": "shots/a02-2-05.jpg"
-    },
-    {
-      "t": "00:21:26",
-      "agent": "a01-2",
-      "kind": "click",
-      "text": "点输入框准备添加任务",
-      "sentiment": 0,
-      "url": "http://localhost:8908/",
-      "shot": "shots/a01-2-03.jpg"
-    },
-    {
-      "t": "00:21:83",
-      "agent": "a04",
-      "kind": "click",
-      "text": "把任务添加到收件箱",
-      "sentiment": 0,
-      "url": "http://localhost:8908/#inbox",
-      "shot": "shots/a04-05.jpg"
-    },
-    {
-      "t": "00:22:01",
-      "agent": "a02-1",
-      "kind": "click",
-      "text": "在输入框中输入一个测试任务 (typed: 测试任务：写代码)",
-      "sentiment": 0,
-      "shot": "shots/a02-1-02.jpg"
-    },
-    {
-      "t": "00:22:76",
-      "agent": "a03",
-      "kind": "click",
-      "text": "提交添加的任务",
-      "sentiment": 0,
-      "url": "http://localhost:8908/",
-      "shot": "shots/a03-04.jpg"
-    },
-    {
-      "t": "00:23:17",
-      "agent": "a05",
-      "kind": "click",
-      "text": "Submit the task by clicking Add button",
-      "sentiment": 0,
-      "url": "http://localhost:8908/",
-      "shot": "shots/a05-05.jpg"
-    },
-    {
-      "t": "00:24:06",
-      "agent": "a01-2",
-      "kind": "click",
-      "text": "添加一个任务试试看 (typed: Review Q3 roadmap)",
-      "sentiment": 0,
-      "shot": "shots/a01-2-04.jpg"
-    },
-    {
-      "t": "00:24:55",
-      "agent": "a04",
-      "kind": "confused",
-      "text": "操作失败 (note): expected number, got undefined",
-      "sentiment": -1
-    },
-    {
-      "t": "00:25:11",
-      "agent": "a03",
-      "kind": "observation",
-      "text": "任务添加成功了，输入框清空了。任务应该保存到某个地方了。让我去 Inbox 看看任务是不是在那里。",
-      "sentiment": 1,
-      "shot": "shots/a03-05.jpg"
-    },
-    {
-      "t": "00:26:82",
-      "agent": "a01-1",
-      "kind": "click",
-      "text": "想试试Inbox页面会不会不同",
-      "sentiment": 0,
-      "url": "http://localhost:8908/#projects",
-      "shot": "shots/a01-1-05.jpg"
-    },
-    {
-      "t": "00:30:33",
-      "agent": "a01-2",
-      "kind": "click",
-      "text": "提交任务",
-      "sentiment": 0,
-      "url": "http://localhost:8908/",
-      "shot": "shots/a01-2-05.jpg"
-    },
-    {
-      "t": "00:31:16",
-      "agent": "a03",
-      "kind": "click",
-      "text": "查看 Inbox 中的任务",
-      "sentiment": 0,
-      "url": "http://localhost:8908/",
-      "shot": "shots/a03-06.jpg"
-    },
-    {
-      "t": "00:31:43",
-      "agent": "a02-2",
-      "kind": "click",
-      "text": "切换到 Today 视图",
-      "sentiment": 0,
-      "url": "http://localhost:8908/#inbox",
-      "shot": "shots/a02-2-07.jpg"
-    },
-    {
-      "t": "00:31:83",
-      "agent": "a05",
-      "kind": "delight",
-      "text": "任务添加成功，输入框已经清空。看看 Today 页面是否有我刚加的任务。",
-      "sentiment": 2,
-      "shot": "shots/a05-06.jpg"
-    },
-    {
-      "t": "00:32:21",
-      "agent": "a02-1",
-      "kind": "click",
-      "text": "提交刚输入的任务",
-      "sentiment": 0,
-      "url": "http://localhost:8908/",
-      "shot": "shots/a02-1-03.jpg"
-    },
-    {
-      "t": "00:38:00",
-      "agent": "a01-1",
-      "kind": "rage",
-      "text": "三个导航都点过了，URL一直在变，但页面内容完全一样。这是个半成品吧？作为用户我不可能继续等，根本不知道这东西能干嘛。",
-      "sentiment": -2,
-      "shot": "shots/a01-1-06.jpg"
-    },
-    {
-      "t": "00:38:11",
-      "agent": "a01-2",
-      "kind": "confused",
-      "text": "添加任务后页面没有变化，任务去哪儿了？ 首页没有看到任务列表。",
-      "sentiment": 0,
-      "shot": "shots/a01-2-08.jpg"
-    },
-    {
-      "t": "00:40:46",
-      "agent": "a03",
-      "kind": "click",
-      "text": "看看 Projects 里有什么",
-      "sentiment": 0,
-      "url": "http://localhost:8908/#inbox",
-      "shot": "shots/a03-08.jpg"
-    },
-    {
-      "t": "00:40:86",
-      "agent": "a05",
-      "kind": "click",
-      "text": "Check if the task appeared in Today view",
-      "sentiment": 0,
-      "url": "http://localhost:8908/",
-      "shot": "shots/a05-07.jpg"
-    },
-    {
-      "t": "00:41:31",
-      "agent": "a04",
-      "kind": "confused",
-      "text": "滚动了好几次页面内容完全没变化。我看不到任务列表在哪里。这个工具的任务展示逻辑是什么？加完任务后任务去哪了？",
-      "sentiment": -1,
-      "shot": "shots/a04-09.jpg"
-    },
-    {
-      "t": "00:42:44",
-      "agent": "a02-1",
-      "kind": "observation",
-      "text": "任务添加成功了，输入框已清空，说明任务被保存了。界面反应流畅，没有明显的加载延迟。",
-      "sentiment": 1,
-      "shot": "shots/a02-1-04.jpg"
-    },
-    {
-      "t": "00:43:73",
-      "agent": "a02-2",
-      "kind": "click",
-      "text": "看看 Projects 里有什么",
-      "sentiment": 0,
-      "url": "http://localhost:8908/#today",
-      "shot": "shots/a02-2-09.jpg"
-    },
-    {
-      "t": "00:46:10",
-      "agent": "a01-2",
-      "kind": "click",
-      "text": "想去 Inbox 查看刚添加的任务",
-      "sentiment": 0,
-      "url": "http://localhost:8908/",
-      "shot": "shots/a01-2-09.jpg"
-    },
-    {
-      "t": "00:46:36",
-      "agent": "a04",
-      "kind": "click",
-      "text": "想看看 Projects 里有没有任务列表",
-      "sentiment": 0,
-      "url": "http://localhost:8908/#inbox",
-      "shot": "shots/a04-10.jpg"
-    },
-    {
-      "t": "00:46:53",
-      "agent": "a01-1",
-      "kind": "click",
-      "text": "测试一下添加任务功能是否能正常工作",
-      "sentiment": 0,
-      "url": "http://localhost:8908/#inbox",
-      "shot": "shots/a01-1-07.jpg"
-    },
-    {
-      "t": "00:47:85",
-      "agent": "a02-1",
-      "kind": "click",
-      "text": "想查看添加的任务在哪里显示",
-      "sentiment": 0,
-      "url": "http://localhost:8908/",
-      "shot": "shots/a02-1-05.jpg"
-    },
-    {
-      "t": "00:47:90",
-      "agent": "a05",
-      "kind": "confused",
-      "text": "Today 页面是空的，我刚加的任务没出现。可能需要刷新或者在别的地方？去 Inbox 看看。",
-      "sentiment": -1,
-      "shot": "shots/a05-09.jpg"
-    },
-    {
-      "t": "00:50:89",
-      "agent": "a01-2",
-      "kind": "confused",
-      "text": "进入 Inbox 了，但页面和首页几乎一样，没看到我的任务\"Review Q3 roadmap\"。",
-      "sentiment": 0,
-      "shot": "shots/a01-2-10.jpg"
-    },
-    {
-      "t": "00:51:13",
-      "agent": "a03",
-      "kind": "click",
-      "text": "想看看设置里有什么选项",
-      "sentiment": 0,
-      "url": "http://localhost:8908/#projects",
-      "shot": "shots/a03-10.jpg"
-    },
-    {
-      "t": "00:51:74",
-      "agent": "a04",
-      "kind": "click",
-      "text": "试试 Today 视图",
-      "sentiment": 0,
-      "url": "http://localhost:8908/#projects",
-      "shot": "shots/a04-11.jpg"
-    },
-    {
-      "t": "00:51:86",
-      "agent": "a05",
-      "kind": "click",
-      "text": "Check Inbox for the added task",
-      "sentiment": 0,
-      "url": "http://localhost:8908/#today",
-      "shot": "shots/a05-10.jpg"
-    },
-    {
-      "t": "00:53:28",
-      "agent": "a01-2",
-      "kind": "click",
-      "text": "试试 Projects 页面",
-      "sentiment": 0,
-      "url": "http://localhost:8908/#inbox",
-      "shot": "shots/a01-2-11.jpg"
-    },
-    {
-      "t": "00:55:78",
-      "agent": "a01-2",
-      "kind": "click",
-      "text": "看看 Settings 里有什么",
-      "sentiment": 0,
-      "url": "http://localhost:8908/#projects",
-      "shot": "shots/a01-2-12.jpg"
-    },
-    {
-      "t": "00:58:27",
-      "agent": "a02-1",
-      "kind": "observation",
-      "text": "切换到 Inbox 视图了。页面还是只显示输入框，没有看到已添加的任务列表。可能需要滚动或者任务在别的地方显示。",
-      "sentiment": 0,
-      "shot": "shots/a02-1-06.jpg"
-    },
-    {
-      "t": "00:59:59",
-      "agent": "a01-1",
-      "kind": "click",
-      "text": "输入一个任务试试看能不能添加 (typed: 测试任务)",
-      "sentiment": 0,
-      "shot": "shots/a01-1-08.jpg"
-    },
-    {
-      "t": "00:59:78",
-      "agent": "a05",
-      "kind": "confused",
-      "text": "Inbox 也是空的，刚加的任务不见了。感觉有点奇怪，可能这个 demo 是预设数据，没有真正保存我加的内容。",
-      "sentiment": -1,
-      "shot": "shots/a05-12.jpg"
-    },
-    {
-      "t": "01:01:20",
-      "agent": "a01-2",
-      "kind": "click",
-      "text": "回到首页看看完整布局",
-      "sentiment": 0,
-      "url": "http://localhost:8908/#settings",
-      "shot": "shots/a01-2-13.jpg"
-    },
-    {
-      "t": "01:02:45",
-      "agent": "a02-2",
-      "kind": "click",
-      "text": "看看设置里有什么",
-      "sentiment": 0,
-      "url": "http://localhost:8908/#projects",
-      "shot": "shots/a02-2-11.jpg"
-    },
-    {
-      "t": "01:02:51",
-      "agent": "a01-1",
-      "kind": "click",
-      "text": "点击Add按钮提交任务",
-      "sentiment": 0,
-      "url": "http://localhost:8908/#inbox",
-      "shot": "shots/a01-1-09.jpg"
-    },
-    {
-      "t": "01:03:44",
-      "agent": "a04",
-      "kind": "click",
-      "text": "看看设置里有什么功能",
-      "sentiment": 0,
-      "url": "http://localhost:8908/#today",
-      "shot": "shots/a04-12.jpg"
-    },
-    {
-      "t": "01:04:81",
-      "agent": "a03",
-      "kind": "observation",
-      "text": "浏览了一圈后感觉这个工具比较基础。添加任务功能OK，但我在 Inbox 里没看到我刚添加的任务在哪里。Settings 页面也看不出有什么特别的配置项。可能需要更深入探索，但对于我们6人团队来说，这种简单工具可能功能不够。我们用飞书已经能满足基本需求了。",
-      "sentiment": 0,
-      "shot": "shots/a03-12.jpg"
-    },
-    {
-      "t": "01:05:17",
-      "agent": "a02-1",
-      "kind": "click",
-      "text": "回 Today 页面查看任务列表",
-      "sentiment": 0,
-      "url": "http://localhost:8908/#inbox",
-      "shot": "shots/a02-1-08.jpg"
-    },
-    {
-      "t": "01:05:53",
-      "agent": "a01-1",
-      "kind": "observation",
-      "text": "输入框清空了，说明添加任务成功了？不过我看不到任务列表在哪，有点奇怪。",
-      "sentiment": 1,
-      "shot": "shots/a01-1-10.jpg"
-    },
-    {
-      "t": "01:12:69",
-      "agent": "a02-2",
-      "kind": "confused",
-      "text": "四个标签页切换了一遍，但看起来内容都是一样的 - 只有输入框和添加按钮。没有看到任何任务列表或者内容。这个任务管理器的 UI 非常 minimal，但我不确定是不是因为没有数据还是没有渲染出来。",
-      "sentiment": -1,
-      "shot": "shots/a02-2-13.jpg"
-    },
-    {
-      "t": "01:12:99",
-      "agent": "a01-2",
-      "kind": "rage",
-      "text": "四个页面来回点，视觉上一模一样——导航栏 + 输入框。任务存了没？存在哪儿了？完全没有反馈。我都不知道自己在用一个产品还是一块白板。",
-      "sentiment": -2,
-      "shot": "shots/a01-2-14.jpg"
-    },
-    {
-      "t": "01:16:00",
-      "agent": "a02-1",
-      "kind": "click",
-      "text": "想看看 Projects 页面有什么内容",
-      "sentiment": 0,
-      "url": "http://localhost:8908/#today",
-      "shot": "shots/a02-1-10.jpg"
-    },
-    {
-      "t": "01:16:01",
-      "agent": "a01-2",
-      "kind": "exit",
-      "text": "首页只有导航栏和输入框，四个页面（Today/Inbox/Projects/Settings）视觉完全相同，看不到任何任务列表或数据。我添加了\"Review Q3 roadmap\"任务后，提交后页面毫无变化，不知道任务去了哪里。这个产品缺少最基本的可见状态反馈——我不知道它是正常工作还是根本就是空的。",
-      "sentiment": 0,
-      "shot": "shots/a01-2-15.jpg"
-    },
-    {
-      "t": "01:16:97",
-      "agent": "a05",
-      "kind": "click",
-      "text": "Check Projects page to understand structure",
-      "sentiment": 0,
-      "url": "http://localhost:8908/#inbox",
-      "shot": "shots/a05-13.jpg"
-    },
-    {
-      "t": "01:17:60",
-      "agent": "a03",
-      "kind": "exit",
-      "text": "简单浏览了一下这个任务管理工具。添加任务功能正常，但整体感觉比较基础，内容区域似乎没有太多实质内容。浏览了 Today、Inbox、Projects、Settings 四个页面，结构和 Basecamp 类似但更简洁。作为一个6人市场运营团队，我们已经在用飞书能满足大部分需求，这个工具感觉功能偏少，没有太多让人想切换过来的亮点。",
-      "sentiment": 0,
-      "shot": "shots/a03-13.jpg"
-    },
-    {
-      "t": "01:22:61",
-      "agent": "a01-1",
-      "kind": "exit",
-      "text": "试用了这个任务管理工具，导航到不同页面（Today/Inbox/Projects）后内容完全没变化，看不到任务列表。尝试添加了一个任务\"测试任务\"后输入框被清空，但依然看不到任务显示在哪里。整体感觉是个半成品，核心功能完全不可用。",
-      "sentiment": 0,
-      "shot": "shots/a01-1-11.jpg"
-    },
-    {
-      "t": "01:23:06",
-      "agent": "a02-2",
-      "kind": "exit",
-      "text": "浏览了这个任务管理器的四个页面（Today、Inbox、Projects、Settings）。添加任务功能可以工作，输入框会清空。但除了顶部的导航标签外，各页面看起来都是一样的 - 只有添加任务的输入框，没有看到任何任务列表或内容。这跟我用过的 Trello、Asana 差别很大，没有侧边栏、没有看板视图、没有任何视觉内容。可能是极度早期的 MVP，或者内容加载有问题。作为一个技术派用户，我对这种\"只有输入框\"的极简设计不感兴趣，除非它有很强的自动化或插件生态支撑，否则不会切换过来。",
-      "sentiment": 0,
-      "shot": "shots/a02-2-14.jpg"
-    },
-    {
-      "t": "01:24:65",
-      "agent": "a02-1",
-      "kind": "click",
-      "text": "想看看 Settings 里有什么配置选项",
-      "sentiment": 0,
-      "url": "http://localhost:8908/#projects",
-      "shot": "shots/a02-1-11.jpg"
-    },
-    {
-      "t": "01:24:67",
-      "agent": "a04",
-      "kind": "rage",
-      "text": "Settings 页面还是一样！导航栏点了完全没反应，内容区始终不变。我添加的任务去哪了？任务列表在哪里？这个工具的核心功能完全没有展示出来。跟 Asana 差太远了，连基本的任务列表都找不到。",
-      "sentiment": -3,
-      "shot": "shots/a04-13.jpg"
-    },
-    {
-      "t": "01:28:71",
-      "agent": "a05",
-      "kind": "click",
-      "text": "Check Settings for any configuration options",
-      "sentiment": 0,
-      "url": "http://localhost:8908/#projects",
-      "shot": "shots/a05-16.jpg"
-    },
-    {
-      "t": "01:32:12",
-      "agent": "a04",
-      "kind": "exit",
-      "text": "尝试了添加任务和切换各个导航页面（Inbox、Projects、Today、Settings），但所有页面内容完全一样，看不到任何任务列表。添加的任务也不知道去哪了。这完全不符合一个任务管理工具的基本预期——用户看不到自己添加的任务在哪里。和用了3年的 Asana 比起来差距太大，完全无法上手。",
-      "sentiment": 0,
-      "shot": "shots/a04-14.jpg"
-    },
-    {
-      "t": "01:37:98",
-      "agent": "a05",
-      "kind": "rage",
-      "text": "来回看了几个页面，内容都看不清或者空的。添加任务也没有任何反馈，感觉这 demo 可能有问题。作为设计师第一反应是觉得这界面太粗糙了，看不清实际内容。",
-      "sentiment": -2,
-      "shot": "shots/a05-18.jpg"
-    },
-    {
-      "t": "01:40:64",
-      "agent": "a01-2",
-      "kind": "note",
-      "text": "wrap-up 失败：Expected ',' or '}' after property value in JSON at position 155 (line 2 column 154)",
-      "sentiment": 0
-    },
-    {
-      "t": "01:46:44",
-      "agent": "a02-1",
-      "kind": "confused",
-      "text": "逛完了所有页面，但每个页面都只显示同样的输入框。没有看到任务列表、没有看板、没有项目分类。作为用过 Trello 和 Asana 的人，这个产品让我很困惑——我添加的任务去哪了？它真的保存了吗？感觉只是一个有四个空链接的单页应用。",
-      "sentiment": -1,
-      "shot": "shots/a02-1-14.jpg"
-    },
-    {
-      "t": "01:52:47",
-      "agent": "a05",
-      "kind": "exit",
-      "text": "尝试了这个任务管理应用，添加任务时输入框确实能清空，但添加的内容没有在任何页面显示（Today、Inbox、Projects 都是空的或看不清楚）。来回翻了几个页面，内容都模糊不清，作为设计师感觉这个 demo 可能有技术问题或者缺少数据，导致无法正常使用。黑暗模式的外观我挺喜欢，但功能没有体现出来，已放弃继续探索。",
-      "sentiment": 0,
-      "shot": "shots/a05-19.jpg"
-    },
-    {
-      "t": "01:56:33",
-      "agent": "a01-1",
-      "kind": "note",
-      "text": "wrap-up 失败：Expected ',' or '}' after property value in JSON at position 588 (line 18 column 26)",
-      "sentiment": 0
-    },
-    {
-      "t": "01:57:56",
-      "agent": "a02-1",
-      "kind": "exit",
-      "text": "尝试了这个任务管理应用，添加了一个测试任务并浏览了所有页面（Today、Inbox、Projects、Settings）。问题是：每个页面看起来都一样，只有一个输入框，没有显示任务列表或任何看板。作为用过 Trello 和 Asana 的用户，这个产品让我很困惑——添加的任务去哪了？它甚至可能是个半成品。没有找到任何有价值的功能或内容。",
-      "sentiment": 0,
-      "shot": "shots/a02-1-15.jpg"
-    }
+    { "t": "00:00:00", "agent": "a01", "kind": "enter", "text": "进入 cadence.app", "sentiment": 0, "url": "https://cadence.app/" },
+    { "t": "00:00:08", "agent": "a02", "kind": "enter", "text": "进入 cadence.app", "sentiment": 0, "url": "https://cadence.app/" },
+    { "t": "00:00:12", "agent": "a01", "kind": "observation", "text": "落地页清爽, 3 秒能看出是异步 standup 工具, 价值主张在 hero 第一行", "sentiment": 1 },
+    { "t": "00:00:15", "agent": "a03", "kind": "enter", "text": "进入 cadence.app", "sentiment": 0, "url": "https://cadence.app/" },
+    { "t": "00:00:18", "agent": "a05", "kind": "enter", "text": "进入 cadence.app", "sentiment": 0, "url": "https://cadence.app/" },
+    { "t": "00:00:22", "agent": "a04", "kind": "enter", "text": "进入 cadence.app", "sentiment": 0, "url": "https://cadence.app/" },
+    { "t": "00:00:24", "agent": "a02", "kind": "observation", "text": "落地页 hero 区有 keyboard 操作 GIF, 加分项", "sentiment": 1 },
+    { "t": "00:00:28", "agent": "a06", "kind": "enter", "text": "进入 cadence.app", "sentiment": 0, "url": "https://cadence.app/" },
+    { "t": "00:00:34", "agent": "a01", "kind": "click", "text": "点击 '看团队节奏' 演示按钮", "sentiment": 1, "url": "https://cadence.app/demo" },
+    { "t": "00:00:48", "agent": "a06", "kind": "observation", "text": "首屏列出 11 个 feature, 信息量大, 不像是给小团队设计", "sentiment": -1 },
+    { "t": "00:00:51", "agent": "a04", "kind": "delight", "text": "hover 状态都有 spring 动画, 不是敷衍的 0.2s fade", "sentiment": 2 },
+    { "t": "00:00:52", "agent": "a05", "kind": "click", "text": "找'时区设置'入口", "sentiment": 0, "url": "https://cadence.app/settings" },
+    { "t": "00:00:55", "agent": "a02", "kind": "shortcut", "text": "Cmd+K 命令面板真的弹出来了 [Meta+K]", "sentiment": 2 },
+    { "t": "00:01:08", "agent": "a01", "kind": "delight", "text": "节奏可视化图能一眼看出谁连续 3 天没回应, 这才是 PM 真正需要的", "sentiment": 2 },
+    { "t": "00:01:15", "agent": "a06", "kind": "click", "text": "找'5 分钟开始用'快速入门", "sentiment": 0, "url": "https://cadence.app/onboarding" },
+    { "t": "00:01:25", "agent": "a03", "kind": "click", "text": "找 '导出 PDF' 给老板的功能", "sentiment": 0, "url": "https://cadence.app/settings" },
+    { "t": "00:01:30", "agent": "a02", "kind": "delight", "text": "在回答里打 markdown, > blockquote / **bold** / `code` 都实时渲染", "sentiment": 2 },
+    { "t": "00:01:35", "agent": "a05", "kind": "delight", "text": "每个人能单独设时区 + 工作时段, 提醒按本地时间发, 我团队 4 时区有救", "sentiment": 3 },
+    { "t": "00:01:42", "agent": "a01", "kind": "confused", "text": "想把'是否有阻塞项'设成必填字段, 但模板编辑器只能改问题文字, 没有字段类型选项", "sentiment": -1 },
+    { "t": "00:01:52", "agent": "a06", "kind": "confused", "text": "需要先建 'team', 然后建 'cadence' (是个啥概念?), 然后再加 questions, 然后 invite", "sentiment": -2 },
+    { "t": "00:01:55", "agent": "a04", "kind": "click", "text": "试试主题切换, 想看暗色模式", "sentiment": 1 },
+    { "t": "00:01:58", "agent": "a03", "kind": "rage", "text": "导出按钮藏在 Settings → Reports → Weekly Digest 三层深, 找半天没看到 PDF", "sentiment": -2 },
+    { "t": "00:02:11", "agent": "a02", "kind": "click", "text": "找 GitHub 集成, 想让 PR merge 触发 standup answer", "sentiment": 0, "url": "https://cadence.app/api-docs" },
+    { "t": "00:02:14", "agent": "a05", "kind": "click", "text": "切日语界面", "sentiment": 0 },
+    { "t": "00:02:15", "agent": "a01", "kind": "exit", "text": "整体顺畅, 节奏图戳到我了, 模板灵活性是硬伤. 会想试试 paid plan", "sentiment": 1 },
+    { "t": "00:02:28", "agent": "a06", "kind": "rage", "text": "已经 7 步了团队人还没回答一个问题. 概念叠概念, 不是给 4 人小队设计", "sentiment": -3 },
+    { "t": "00:02:30", "agent": "a04", "kind": "confused", "text": "暗色模式整体不错, 但「未读红点」在暗背景下对比度只有 2:1, 几乎看不见", "sentiment": -1 },
+    { "t": "00:02:33", "agent": "a03", "kind": "confused", "text": "导出格式只有 CSV 和 Markdown, 没 PDF, 老板会让我自己转?", "sentiment": -2 },
+    { "t": "00:02:48", "agent": "a02", "kind": "confused", "text": "API 文档只有 REST 调用, 没找到 webhook 接收 standup answer, 想接 CI 还差关键一环", "sentiment": -2 },
+    { "t": "00:02:55", "agent": "a05", "kind": "confused", "text": "日语只翻译 60% 左右, 关键的'回答模板' / '提醒规则'还是英文. 日本同事会看不懂", "sentiment": -1 },
+    { "t": "00:03:00", "agent": "a06", "kind": "exit", "text": "对 4 人初创团队太重了, 回去用 Google Sheets", "sentiment": -2 },
+    { "t": "00:03:05", "agent": "a04", "kind": "exit", "text": "审美和动效在线, 但暗色对比度和红点该改", "sentiment": 1 },
+    { "t": "00:03:09", "agent": "a03", "kind": "exit", "text": "导出体验差到老板要 PDF 我没法用, 这是 deal-breaker", "sentiment": -2 },
+    { "t": "00:03:24", "agent": "a02", "kind": "exit", "text": "命令面板和 Markdown 顺手, 缺 webhook 接 CI 路就断了. 没立刻买的冲动", "sentiment": 0 },
+    { "t": "00:03:38", "agent": "a05", "kind": "click", "text": "找'Slack multi-workspace'设置, 团队同时用两个 workspace", "sentiment": 0 },
+    { "t": "00:04:24", "agent": "a05", "kind": "rage", "text": "Slack 集成是 1 个 Cadence ↔ 1 个 workspace, 团队同时用 2 个 workspace 的 channels, 都接进来发现不行", "sentiment": -2 },
+    { "t": "00:05:01", "agent": "a05", "kind": "exit", "text": "时区 + 工作时段做得真心好, 但 i18n 翻译不全 + Slack 多 workspace 不支持是两个硬伤", "sentiment": 0 }
   ],
   "issues": [
     {
       "id": "i01",
-      "title": "四个页面内容完全一样，看不到任务列表",
+      "title": "4 人小团队的 onboarding 概念太多",
       "severity": "high",
       "agents": 1,
-      "category": "与竞品对比",
-      "quote": "这跟我用过的 Trello、Asana 差别很大，没有侧边栏、没有看板视图、没有任何视觉内容",
-      "agentRef": "a02-2",
-      "evidence": 4,
-      "journey": "在 Today、Inbox、Projects、Settings 页面之间切换时"
-    },
-    {
-      "id": "i03",
-      "title": "任务添加后消失了，没有地方能看到它",
-      "severity": "high",
-      "agents": 1,
-      "category": "信息架构",
-      "quote": "我刚才明明加了一个任务，它去哪了？Inbox 里什么都没有。",
-      "agentRef": "a02-1",
+      "category": "学习成本",
+      "quote": "已经 7 步了团队人还没回答一个问题. 概念叠概念, 不是给 4 人小队设计",
+      "agentRef": "a06",
       "evidence": 3,
-      "journey": "提交任务后 → 切换 Inbox 查看 → 还是只有输入框"
-    },
-    {
-      "id": "i04",
-      "title": "四个导航项指向同一个空白页面，信息架构混乱",
-      "severity": "high",
-      "agents": 1,
-      "category": "信息架构",
-      "quote": "Today、Inbox、Projects、Settings 点开都是同一个界面？我是不是在用一个只有外壳的半成品？",
-      "agentRef": "a02-1",
-      "evidence": 4,
-      "journey": "依次点击 Today → Inbox → Projects → Settings，每个都只看到输入框"
-    },
-    {
-      "id": "i05",
-      "title": "相比 Trello 的看板和 Asana 的任务列表，这个产品什么都没展示",
-      "severity": "high",
-      "agents": 1,
-      "category": "与竞品对比",
-      "quote": "Trello 至少让我看到卡片在哪里，Asana 有清晰的任务列表。这东西加完任务就石沉大海了。",
-      "agentRef": "a02-1",
-      "evidence": 3,
-      "journey": "在 Today/Inbox/Projects 中寻找已添加任务的痕迹"
-    },
-    {
-      "id": "i06",
-      "title": "刚添加的任务在 Inbox 里找不到",
-      "severity": "high",
-      "agents": 1,
-      "category": "流程顺畅",
-      "quote": "我明明添加了任务，怎么在 Inbox 里看不到？是我操作有问题还是这功能有 bug？",
-      "agentRef": "a03",
-      "evidence": 2,
-      "journey": "在 Inbox 页面查找刚才添加的「完成市场报告」任务"
-    },
-    {
-      "id": "i09",
-      "title": "导航栏点什么都没反应，页面内容纹丝不动",
-      "severity": "high",
-      "agents": 1,
-      "category": "可访问性",
-      "quote": "导航栏点了完全没反应，内容区始终不变。我点了 Today、Projects、Settings，跟没点一样。",
-      "agentRef": "a04",
-      "evidence": 5,
-      "journey": "在顶栏点击 Today / Inbox / Projects / Settings 导航项"
-    },
-    {
-      "id": "i10",
-      "title": "任务加完就消失了，任务列表在哪完全找不到",
-      "severity": "high",
-      "agents": 1,
-      "category": "功能契合",
-      "quote": "加完任务后任务去哪了？任务列表在哪里？我翻来翻去找不到我刚加的那个任务。",
-      "agentRef": "a04",
-      "evidence": 2,
-      "journey": "输入'完成项目进度报告'并提交后，滚动页面寻找任务"
-    },
-    {
-      "id": "i11",
-      "title": "操作直接报错，完全没有用户友好的错误提示",
-      "severity": "high",
-      "agents": 1,
-      "category": "可访问性",
-      "quote": "expected number, got undefined——这是给用户看的错误吗？我又不是程序员。",
-      "agentRef": "a04",
-      "evidence": 2,
-      "journey": "点击添加任务按钮时"
-    },
-    {
-      "id": "i12",
-      "title": "刚加的任务凭空消失了，不知道去哪了",
-      "severity": "high",
-      "agents": 1,
-      "category": "功能契合",
-      "quote": "刚加的任务没出现。可能需要刷新或者在别的地方？去 Inbox 看看。",
-      "agentRef": "a05",
-      "evidence": 2,
-      "journey": "在 Today 页面添加任务后，刷新页面查看结果"
-    },
-    {
-      "id": "i13",
-      "title": "页面内容模糊，看不清实际有什么",
-      "severity": "high",
-      "agents": 1,
-      "category": "视觉节奏",
-      "quote": "来回看了几个页面，内容都模糊不清，作为设计师感觉这个 demo 可能有技术问题或者缺少数据。",
-      "agentRef": "a05",
-      "evidence": 4,
-      "journey": "在 Today、Inbox、Projects、Settings 页面间切换"
+      "journey": "onboarding 流程 / 注册到第一次 standup"
     },
     {
       "id": "i02",
-      "title": "极简设计没有传递价值，不知道能做什么",
-      "severity": "med",
+      "title": "导出 PDF 功能缺失 + 入口三层深",
+      "severity": "high",
       "agents": 1,
       "category": "信息架构",
-      "quote": "可能是极度早期的 MVP，或者内容加载有问题。我不太确定是不是因为没有数据还是没有渲染出来",
-      "agentRef": "a02-2",
+      "quote": "导出按钮藏在 Settings → Reports → Weekly Digest 三层深, 而且没有 PDF 选项. 老板会让我自己转?",
+      "agentRef": "a03",
+      "evidence": 2,
+      "journey": "试图导出每周报告给老板"
+    },
+    {
+      "id": "i03",
+      "title": "模板编辑器只能改问题文字, 没有字段类型",
+      "severity": "high",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "想把'是否有阻塞项'设成必填字段, 但模板编辑器只能改问题文字, 没有字段类型选项",
+      "agentRef": "a01",
       "evidence": 1,
-      "journey": "浏览完所有页面后产生的困惑"
+      "journey": "PM 配置团队 standup 模板"
+    },
+    {
+      "id": "i04",
+      "title": "Slack 集成不支持多 workspace",
+      "severity": "high",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "Slack 集成是 1 个 Cadence ↔ 1 个 workspace, 团队同时用 2 个 workspace 的 channels, 都接进来发现不行",
+      "agentRef": "a05",
+      "evidence": 1,
+      "journey": "跨多个 Slack workspace 的团队接入"
+    },
+    {
+      "id": "i05",
+      "title": "无 webhook 接收 standup answer, 阻塞 CI 集成",
+      "severity": "med",
+      "agents": 1,
+      "category": "与竞品对比",
+      "quote": "API 文档只有 REST 调用, 没找到 webhook 接收 standup answer, 想接 CI 还差关键一环",
+      "agentRef": "a02",
+      "evidence": 1,
+      "journey": "工程主管评估自动化集成深度"
+    },
+    {
+      "id": "i06",
+      "title": "日语界面只翻译 60%, 关键名词仍是英文",
+      "severity": "med",
+      "agents": 1,
+      "category": "表达文案",
+      "quote": "日语只翻译 60% 左右, 关键的'回答模板' / '提醒规则'还是英文. 日本同事会看不懂",
+      "agentRef": "a05",
+      "evidence": 1,
+      "journey": "多语言团队切换界面语言"
     },
     {
       "id": "i07",
-      "title": "内容区域太空，没什么实质内容",
+      "title": "暗色模式下未读红点对比度只有 2:1",
       "severity": "med",
       "agents": 1,
-      "category": "信息架构",
-      "quote": "导航看起来有四个入口，但点进去都差不多空，没有那种'这里有很多东西可以探索'的感觉。",
-      "agentRef": "a03",
-      "evidence": 4,
-      "journey": "浏览 Today、Inbox、Projects、Settings 页面后"
-    },
-    {
-      "id": "i14",
-      "title": "缺少成功反馈，不知道自己操作对了没有",
-      "severity": "med",
-      "agents": 1,
-      "category": "情感氛围",
-      "quote": "添加任务也没有任何反馈，感觉这 demo 可能有问题。",
-      "agentRef": "a05",
+      "category": "可访问性",
+      "quote": "暗色模式整体不错, 但「未读红点」在暗背景下对比度只有 2:1, 几乎看不见",
+      "agentRef": "a04",
       "evidence": 1,
-      "journey": "点击 Add 按钮添加任务后"
+      "journey": "切换主题后注意到通知样式"
     },
     {
       "id": "i08",
-      "title": "Settings 页面没有任何配置项",
+      "title": "落地页对小团队信息密度过高",
       "severity": "low",
       "agents": 1,
-      "category": "功能契合",
-      "quote": "Settings 点进去就是空的 or 很少？连个账号设置都没有吗，感觉不太完整。",
-      "agentRef": "a03",
+      "category": "视觉节奏",
+      "quote": "首屏列出 11 个 feature, 信息量大, 不像是给小团队设计",
+      "agentRef": "a06",
+      "evidence": 2,
+      "journey": "落地页首屏扫描"
+    },
+    {
+      "id": "i09",
+      "title": "'team' + 'cadence' 双层概念让新人卡住",
+      "severity": "low",
+      "agents": 1,
+      "category": "学习成本",
+      "quote": "需要先建 'team', 然后建 'cadence' (是个啥概念?), 然后再加 questions, 然后 invite",
+      "agentRef": "a06",
       "evidence": 1,
-      "journey": "在 Settings 页面"
+      "journey": "首次创建第一个 standup"
     }
   ],
   "delights": [
     {
-      "title": "添加任务功能流畅，输入框会清空",
+      "title": "节奏可视化图一眼识别躺平的人",
       "count": 1,
-      "quote": "添加任务成功了，输入框清空了，交互很顺畅",
-      "agent": "a02-2"
+      "quote": "节奏可视化图能一眼看出谁连续 3 天没回应, 这才是 PM 真正需要的",
+      "agent": "a01"
     },
     {
-      "title": "界面风格简洁干净，视觉上没有噪音",
+      "title": "每人独立时区 + 工作时段, 按本地时间发提醒",
       "count": 1,
-      "quote": "至少看起来不乱，没有乱七八糟的广告弹窗。",
-      "agent": "a02-1"
+      "quote": "每个人能单独设时区 + 工作时段, 提醒按本地时间发, 我团队 4 时区有救",
+      "agent": "a05"
     },
     {
-      "title": "输入框响应流畅，没有明显延迟",
-      "count": 1,
-      "quote": "打字和提交的时候挺顺的，没有卡顿。",
-      "agent": "a02-1"
+      "title": "Cmd+K 命令面板 + Markdown 实时渲染",
+      "count": 2,
+      "quote": "在回答里打 markdown, > blockquote / **bold** / `code` 都实时渲染",
+      "agent": "a02"
     },
     {
-      "title": "界面简洁，有点 Basecamp 影子但更干净",
+      "title": "微交互用 spring 动画, 不是敷衍 fade",
       "count": 1,
-      "quote": "第一印象不错，视觉上挺舒服的，没有花里胡哨的东西。",
-      "agent": "a03"
-    },
-    {
-      "title": "添加任务操作流畅",
-      "count": 1,
-      "quote": "输入框打字提交，一秒就清空了，交互很顺。",
-      "agent": "a03"
-    },
-    {
-      "title": "界面第一印象还行，够简洁",
-      "count": 1,
-      "quote": "界面看起来挺干净的，没有乱七八糟的东西，主区域有个 Add a task 输入框，够直接。",
+      "quote": "hover 状态都有 spring 动画, 不是敷衍的 0.2s fade",
       "agent": "a04"
     },
     {
-      "title": "暗色模式的外观挺喜欢的",
+      "title": "落地页 3 秒能看懂价值主张",
       "count": 1,
-      "quote": "背景是深色的，这点我挺喜欢。",
-      "agent": "a05"
-    },
-    {
-      "title": "输入框能正常清空，交互有响应",
-      "count": 1,
-      "quote": "任务添加成功，输入框已经清空。",
-      "agent": "a05"
+      "quote": "落地页清爽, 3 秒能看出是异步 standup 工具",
+      "agent": "a01"
     }
   ],
   "features": [
-    {
-      "name": "添加任务",
-      "hitCount": 5,
-      "hitRate": 0.7142857142857143,
-      "completionRate": 0.6,
-      "avgSentiment": -0.2,
-      "totalAttempts": 6
-    },
-    {
-      "name": "切换视图",
-      "hitCount": 4,
-      "hitRate": 0.5714285714285714,
-      "completionRate": 0.5,
-      "avgSentiment": -1.25,
-      "totalAttempts": 16
-    },
-    {
-      "name": "查看任务列表",
-      "hitCount": 3,
-      "hitRate": 0.42857142857142855,
-      "completionRate": 0.3333333333333333,
-      "avgSentiment": -2,
-      "totalAttempts": 10
-    },
-    {
-      "name": "切换导航",
-      "hitCount": 1,
-      "hitRate": 0.14285714285714285,
-      "completionRate": 0,
-      "avgSentiment": -3,
-      "totalAttempts": 5
-    },
-    {
-      "name": "查看设置",
-      "hitCount": 1,
-      "hitRate": 0.14285714285714285,
-      "completionRate": 1,
-      "avgSentiment": -2,
-      "totalAttempts": 1
-    },
-    {
-      "name": "浏览任务列表",
-      "hitCount": 1,
-      "hitRate": 0.14285714285714285,
-      "completionRate": 0,
-      "avgSentiment": -3,
-      "totalAttempts": 1
-    }
+    { "name": "查看落地页演示", "hitCount": 6, "hitRate": 1.0, "completionRate": 1.0, "avgSentiment": 0.8, "totalAttempts": 6 },
+    { "name": "创建 team & cadence", "hitCount": 2, "hitRate": 0.33, "completionRate": 0.5, "avgSentiment": -1.5, "totalAttempts": 4 },
+    { "name": "编辑问题模板", "hitCount": 1, "hitRate": 0.17, "completionRate": 0.0, "avgSentiment": -1.0, "totalAttempts": 2 },
+    { "name": "命令面板 (Cmd+K)", "hitCount": 1, "hitRate": 0.17, "completionRate": 1.0, "avgSentiment": 2.0, "totalAttempts": 1 },
+    { "name": "时区/工作时段设置", "hitCount": 1, "hitRate": 0.17, "completionRate": 1.0, "avgSentiment": 3.0, "totalAttempts": 1 },
+    { "name": "切换主题/语言", "hitCount": 2, "hitRate": 0.33, "completionRate": 1.0, "avgSentiment": 0.5, "totalAttempts": 2 },
+    { "name": "集成 (Slack/GitHub)", "hitCount": 2, "hitRate": 0.33, "completionRate": 0.0, "avgSentiment": -2.0, "totalAttempts": 3 },
+    { "name": "导出报告", "hitCount": 1, "hitRate": 0.17, "completionRate": 0.0, "avgSentiment": -2.0, "totalAttempts": 2 }
   ],
   "routesHeat": [
-    {
-      "path": "/",
-      "visits": 48,
-      "dwell": 11,
-      "drop": 0.125
-    }
+    { "path": "/", "visits": 6, "dwell": 18, "drop": 0.0 },
+    { "path": "/demo", "visits": 4, "dwell": 32, "drop": 0.0 },
+    { "path": "/settings", "visits": 4, "dwell": 45, "drop": 0.25 },
+    { "path": "/onboarding", "visits": 2, "dwell": 65, "drop": 0.5 },
+    { "path": "/settings/integrations", "visits": 2, "dwell": 78, "drop": 0.5 },
+    { "path": "/api-docs", "visits": 1, "dwell": 92, "drop": 0.0 },
+    { "path": "/settings/reports", "visits": 1, "dwell": 28, "drop": 1.0 }
   ],
   "sentimentCurve": [
-    {
-      "t": 0,
-      "v": 0.5111111111111112
-    },
-    {
-      "t": 5,
-      "v": 0.5555555555555556
-    },
-    {
-      "t": 10,
-      "v": 0.5
-    },
-    {
-      "t": 15,
-      "v": 0.4861111111111111
-    },
-    {
-      "t": 20,
-      "v": 0.5
-    },
-    {
-      "t": 25,
-      "v": 0.5666666666666667
-    },
-    {
-      "t": 30,
-      "v": 0.4166666666666667
-    },
-    {
-      "t": 35,
-      "v": 0.5
-    },
-    {
-      "t": 40,
-      "v": 0.47222222222222227
-    },
-    {
-      "t": 45,
-      "v": 0.5
-    },
-    {
-      "t": 50,
-      "v": 0.47222222222222227
-    },
-    {
-      "t": 55,
-      "v": 0.5555555555555556
-    },
-    {
-      "t": 60,
-      "v": 0.375
-    },
-    {
-      "t": 65,
-      "v": 0.5
-    },
-    {
-      "t": 70,
-      "v": 0.375
-    },
-    {
-      "t": 75,
-      "v": 0.5
-    },
-    {
-      "t": 80,
-      "v": 0.16666666666666666
-    },
-    {
-      "t": 85,
-      "v": 0.5
-    },
-    {
-      "t": 90,
-      "v": 0.3333333333333333
-    },
-    {
-      "t": 95,
-      "v": 0.5
-    },
-    {
-      "t": 100,
-      "v": 0.5
-    }
+    { "t": 0,   "v": 0.50 },
+    { "t": 5,   "v": 0.55 },
+    { "t": 10,  "v": 0.62 },
+    { "t": 15,  "v": 0.68 },
+    { "t": 20,  "v": 0.72 },
+    { "t": 25,  "v": 0.70 },
+    { "t": 30,  "v": 0.66 },
+    { "t": 35,  "v": 0.58 },
+    { "t": 40,  "v": 0.50 },
+    { "t": 45,  "v": 0.42 },
+    { "t": 50,  "v": 0.36 },
+    { "t": 55,  "v": 0.32 },
+    { "t": 60,  "v": 0.30 },
+    { "t": 65,  "v": 0.33 },
+    { "t": 70,  "v": 0.38 },
+    { "t": 75,  "v": 0.44 },
+    { "t": 80,  "v": 0.48 },
+    { "t": 85,  "v": 0.51 },
+    { "t": 90,  "v": 0.54 },
+    { "t": 95,  "v": 0.55 },
+    { "t": 100, "v": 0.55 }
   ],
   "metrics": {
-    "predictedNps": -3,
-    "achievableNps": 100,
-    "taskSuccess": 0.14285714285714285,
-    "timeToValueSec": 10.77,
-    "rageClicks": 4,
-    "delightCount": 2
+    "predictedNps": 14,
+    "achievableNps": 58,
+    "taskSuccess": 0.33,
+    "timeToValueSec": 68,
+    "rageClicks": 3,
+    "delightCount": 6
   },
   "cost": {
-    "tokensIn": 367160,
-    "tokensOut": 13470,
+    "tokensIn": 218430,
+    "tokensOut": 8920,
     "usd": 0
   }
 }

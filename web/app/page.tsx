@@ -1,3 +1,7 @@
+"use client";
+
+import { useState } from "react";
+
 export default function Home() {
   return (
     <main style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
@@ -290,41 +294,8 @@ function Install() {
         side — you get a free quota by virtue of having the binary installed.
         No accounts, no tokens.
       </p>
-      <div
-        style={{
-          background: "var(--bg-1)",
-          border: "1px solid var(--accent)",
-          padding: "20px 24px",
-          maxWidth: 720,
-          marginBottom: 16,
-        }}
-      >
-        <div
-          className="mono"
-          style={{
-            fontSize: 9,
-            color: "var(--accent)",
-            letterSpacing: 1.2,
-            marginBottom: 8,
-            textTransform: "uppercase",
-          }}
-        >
-          install — one line
-        </div>
-        <pre
-          className="mono"
-          style={{
-            margin: 0,
-            fontSize: 13,
-            color: "var(--fg)",
-            lineHeight: 1.5,
-            whiteSpace: "pre-wrap",
-            wordBreak: "break-all",
-          }}
-        >
-          <span style={{ color: "var(--accent)" }}>$</span> curl -fsSL https://product-predict.vercel.app/install | sh
-        </pre>
-      </div>
+      <InstallBlock />
+      <div style={{ height: 16 }} />
       <div
         className="mono"
         style={{
@@ -380,6 +351,81 @@ function Install() {
   );
 }
 
+const INSTALL_CMD = "curl -fsSL https://product-predict.vercel.app/install | sh";
+
+function InstallBlock() {
+  const [copied, setCopied] = useState(false);
+  const onCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(INSTALL_CMD);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1600);
+    } catch {
+      // ignore — fallback would be select-all but most modern browsers grant
+      // clipboard permission to https origins by default.
+    }
+  };
+  return (
+    <div
+      style={{
+        background: "var(--bg-1)",
+        border: "1px solid var(--accent)",
+        padding: "20px 24px",
+        maxWidth: 720,
+        marginBottom: 16,
+      }}
+    >
+      <div
+        className="mono"
+        style={{
+          fontSize: 9,
+          color: "var(--accent)",
+          letterSpacing: 1.2,
+          marginBottom: 10,
+          textTransform: "uppercase",
+        }}
+      >
+        install — one line
+      </div>
+      <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+        <code
+          className="mono"
+          style={{
+            flex: 1,
+            minWidth: 0,
+            fontSize: 13,
+            color: "var(--fg)",
+            lineHeight: 1.5,
+            wordBreak: "break-all",
+          }}
+        >
+          <span style={{ color: "var(--accent)" }}>$</span> {INSTALL_CMD}
+        </code>
+        <button
+          onClick={onCopy}
+          aria-label="copy install command"
+          className="mono"
+          style={{
+            flexShrink: 0,
+            padding: "6px 12px",
+            fontSize: 10,
+            letterSpacing: 0.6,
+            background: copied ? "var(--accent)" : "transparent",
+            color: copied ? "var(--accent-fg)" : "var(--accent)",
+            border: "1px solid var(--accent)",
+            borderRadius: 2,
+            fontWeight: 600,
+            transition: "background .15s ease, color .15s ease",
+            cursor: "pointer",
+          }}
+        >
+          {copied ? "✓ COPIED" : "COPY"}
+        </button>
+      </div>
+    </div>
+  );
+}
+
 function DemoCard() {
   return (
     <section
@@ -401,7 +447,7 @@ function DemoCard() {
           marginBottom: 24,
         }}
       >
-        See a real report
+        See a sample report
       </div>
       <div
         style={{
@@ -416,12 +462,10 @@ function DemoCard() {
       >
         <div>
           <div style={{ fontSize: 20, marginBottom: 8, letterSpacing: -0.2 }}>
-            run-006 · target: localhost:8908 (a 4-tab todo demo)
+            Cadence · async standups for distributed teams
           </div>
           <div style={{ fontSize: 13, color: "var(--fg-2)", lineHeight: 1.6, marginBottom: 12 }}>
-            7 agents from 5 personas. 5 quit frustrated · 2 quit explored. 14 experience
-            observations across 10 categories — most were not bugs but design/fit/competitor
-            mismatches. Feature usage chart shows where users actually spent attention.
+            6 personas — PM, eng lead, designer, project manager, ops, solo founder. <span style={{ color: "var(--fg-1)" }}>2 accomplished · 2 frustrated · 1 explored · 1 gave up.</span> The report surfaces 9 functional-design observations: PDF export missing, template field types not editable, Slack only single-workspace, i18n at 60%, onboarding too heavy for 4-person teams… plus 5 delights (Cmd+K, per-person timezones, spring animations).
           </div>
           <div
             className="mono"
@@ -431,7 +475,7 @@ function DemoCard() {
               letterSpacing: 0.6,
             }}
           >
-            王磊 (Asana 3-year user): "Trello at least shows me cards. This thing just makes my task vanish."
+            王磊 (Asana 5y user, PjM): "导出按钮藏在 Settings → Reports 三层深, 而且没有 PDF. 老板会让我自己转?"
           </div>
         </div>
         <a
