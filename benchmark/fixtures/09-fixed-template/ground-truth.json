@@ -1,0 +1,49 @@
+{
+  "id": "09-fixed-template",
+  "name": "Fixed Template Picker",
+  "hint": "A notes app's new-note flow — see if creating a note feels open-ended or forced into a mold",
+  "port": 8209,
+  "description": "Notes app that forces users into one of three hardcoded templates (Meeting / Journal / Todo) with no custom or blank option, an overlay that blocks first paint, a stiff 'Apply Template' button, and inconsistent card tints.",
+  "groundTruth": [
+    {
+      "id": "gt-01",
+      "title": "只能用 3 个固定模板",
+      "severity": "high",
+      "category": "功能契合",
+      "description": "新建笔记时必须选「会议记录 / 日记 / Todo」三个模板之一,既不能自定义模板、也不能保存自己的模板供下次复用,使用了两次以后用户的真实工作流就被锁死了。",
+      "shouldFindWith": ["重度用户", "评估者"]
+    },
+    {
+      "id": "gt-02",
+      "title": "Notion / Obsidian 都能自定义",
+      "severity": "high",
+      "category": "与竞品对比",
+      "description": "Notion / Obsidian / Craft / Bear 这一类笔记产品在 2024 之后都把「自定义模板」当作基线功能,这个产品反向开倒车,任何尝试过竞品的用户立刻会感到功能性退化。",
+      "shouldFindWith": ["重度用户", "评估者"]
+    },
+    {
+      "id": "gt-03",
+      "title": "模板选择挡住首屏",
+      "severity": "med",
+      "category": "信息架构",
+      "description": "进入「新建笔记」后整个首屏都是模板选择卡片,没有「跳过 / 直接写一个空白」入口,用户想随手记一句话也必须选模板,把临时灵感卡在仪式感里。",
+      "shouldFindWith": ["目标导向", "新手"]
+    },
+    {
+      "id": "gt-04",
+      "title": "按钮文案太正式",
+      "severity": "med",
+      "category": "表达文案",
+      "description": "主按钮叫 'Apply Template',词性偏正式/系统化,跟笔记应用的轻量氛围相违和,更合适的应该是「用这个开始」「就这个」之类口语化文案。",
+      "shouldFindWith": ["文案敏感"]
+    },
+    {
+      "id": "gt-05",
+      "title": "3 张卡片色调不统一",
+      "severity": "low",
+      "category": "视觉节奏",
+      "description": "Meeting 用蓝色渐变 / Journal 用紫红渐变 / Todo 用绿色渐变,边框颜色也跟着变,3 张卡并排在一起视觉上像三个不同产品的拼贴,缺乏一致的设计系统。",
+      "shouldFindWith": ["设计敏感"]
+    }
+  ]
+}

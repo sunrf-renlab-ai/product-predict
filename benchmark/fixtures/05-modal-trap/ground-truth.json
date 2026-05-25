@@ -1,0 +1,49 @@
+{
+  "id": "05-modal-trap",
+  "name": "Onboarding Modal Trap",
+  "hint": "A post-login onboarding modal — evaluate whether the modal helps or traps a returning user who just wants to see the product",
+  "port": 8205,
+  "description": "Full-viewport onboarding modal with no Skip button, hidden close affordance, no back button across 5 steps, generic copy, inverted CTA hierarchy (primary smaller than secondary).",
+  "groundTruth": [
+    {
+      "id": "gt-01",
+      "title": "modal 没有「跳过」按钮",
+      "severity": "high",
+      "category": "流程顺畅",
+      "description": "5 步引导 modal 完全没有 Skip 入口,「close」按钮被做成右下角灰得几乎看不见的小字,用户被迫走完所有步骤或主动找 X。",
+      "shouldFindWith": ["重度用户", "回访用户"]
+    },
+    {
+      "id": "gt-02",
+      "title": "modal 把整个页面盖住",
+      "severity": "high",
+      "category": "信息架构",
+      "description": "modal 占 90vw × 86vh,背景 dashboard 被 blur + opacity 几乎完全遮盖,首次登录的用户根本看不到产品长什么样、点哪里能做什么。",
+      "shouldFindWith": ["新手", "评估者"]
+    },
+    {
+      "id": "gt-03",
+      "title": "5 步 onboarding 不能回头改",
+      "severity": "med",
+      "category": "学习成本",
+      "description": "modal 5 个步骤每步只有「Next」,没有 Back / Previous 按钮,用户填错前一步只能取消重来或在脑子里 hold 着错误继续走。",
+      "shouldFindWith": ["细致型", "新手"]
+    },
+    {
+      "id": "gt-04",
+      "title": "文案全是「Welcome 🎉」套话",
+      "severity": "med",
+      "category": "表达文案",
+      "description": "每步标题都是 「Hi there! Welcome to our amazing product 🎉」「Pick your superpower 💪」之类的套话和 emoji,没有传递任何关于产品的具体信息,显得没诚意。",
+      "shouldFindWith": ["设计敏感", "重度用户"]
+    },
+    {
+      "id": "gt-05",
+      "title": "主 CTA 反而比次按钮小",
+      "severity": "low",
+      "category": "视觉节奏",
+      "description": "modal 底部 「Next」(主操作) 用了小尺寸 12px 蓝色按钮,而「Learn more about Drift」(次操作) 反而是大尺寸 16px 描边按钮,主次视觉权重颠倒,用户视线落在错的地方。",
+      "shouldFindWith": ["设计敏感"]
+    }
+  ]
+}

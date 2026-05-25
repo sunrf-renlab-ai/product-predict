@@ -1,0 +1,185 @@
+{
+  "fixtureId": "16-placeholder-label",
+  "gtTotal": 5,
+  "ppTotal": 8,
+  "matched": 0,
+  "recall": 0,
+  "precision": 0,
+  "f1": 0,
+  "severityAcc": 0,
+  "categoryAcc": 0,
+  "verdicts": [
+    {
+      "gtId": "gt-01",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0,
+      "reasoning": "No finding addresses placeholder-as-label accessibility issue"
+    },
+    {
+      "gtId": "gt-02",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0,
+      "reasoning": "No finding addresses placeholder text style inconsistency or copywriting uniformity"
+    },
+    {
+      "gtId": "gt-03",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0,
+      "reasoning": "No finding addresses visual focus indicator or keyboard navigation"
+    },
+    {
+      "gtId": "gt-04",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0,
+      "reasoning": "no finding addresses required field indication missing asterisks or labels"
+    },
+    {
+      "gtId": "gt-05",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0.2,
+      "reasoning": "GT解决间距导致的过长问题i06讲字段数量太多不同维度都不涉及间距"
+    }
+  ],
+  "falsePositives": [
+    {
+      "findingId": "i02",
+      "finding": {
+        "title": "填完时区就超时了，根本没机会点发送",
+        "category": "流程顺畅",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i04",
+      "finding": {
+        "title": "下拉菜单操作卡壳，不知道要滑下去",
+        "category": "信息架构",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i05",
+      "finding": {
+        "title": "填到一半被踢出去，挫败感很强",
+        "category": "流程顺畅",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i07",
+      "finding": {
+        "title": "角色权限下拉框点击完全无响应",
+        "category": "功能契合",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i01",
+      "finding": {
+        "title": "下拉框并排容易看错行",
+        "category": "视觉节奏",
+        "severity": "med"
+      }
+    },
+    {
+      "findingId": "i03",
+      "finding": {
+        "title": "时区搜索打字后等好久才出结果",
+        "category": "性能感知",
+        "severity": "med"
+      }
+    },
+    {
+      "findingId": "i06",
+      "finding": {
+        "title": "表单字段太多，看不到进度",
+        "category": "视觉节奏",
+        "severity": "med"
+      }
+    },
+    {
+      "findingId": "i08",
+      "finding": {
+        "title": "看到外部图片域名会担心数据安全",
+        "category": "情感氛围",
+        "severity": "low"
+      }
+    }
+  ],
+  "missed": [
+    {
+      "gtId": "gt-01",
+      "gt": {
+        "id": "gt-01",
+        "title": "输入后字段标签直接消失",
+        "severity": "high",
+        "category": "可访问性",
+        "description": "8 个字段的「label」全都用 placeholder 实现 (Full name / Department / Phone 等),用户开始输入后 placeholder 就消失,如果中途分神或滚动回头检查,根本想不起来这个框原来是什么字段。屏幕阅读器也读不到正式 label。",
+        "shouldFindWith": [
+          "可访问性敏感",
+          "细致用户"
+        ]
+      }
+    },
+    {
+      "gtId": "gt-02",
+      "gt": {
+        "id": "gt-02",
+        "title": "placeholder 文案风格不统一",
+        "severity": "high",
+        "category": "表达文案",
+        "description": "placeholder 一会儿是「e.g. john@example.com」/「e.g. PST, EST, UTC+8」举例式,一会儿是「Type your job title」/「Department」命令式或裸名词,同一个表单里至少 3 种风格,显得不专业且让用户猜每个字段到底想要什么格式。",
+        "shouldFindWith": [
+          "细致用户",
+          "文案敏感"
+        ]
+      }
+    },
+    {
+      "gtId": "gt-03",
+      "gt": {
+        "id": "gt-03",
+        "title": "Tab 切换字段没有焦点提示",
+        "severity": "med",
+        "category": "流程顺畅",
+        "description": "用 Tab 键在字段间跳转时,focus 状态只是把 border 从 #2a2e35 变成 #353a42 ,差异几乎看不出来。键盘用户和外接键盘用户无法判断当前光标在哪个字段。",
+        "shouldFindWith": [
+          "键盘党",
+          "可访问性敏感"
+        ]
+      }
+    },
+    {
+      "gtId": "gt-04",
+      "gt": {
+        "id": "gt-04",
+        "title": "看不出哪些字段必填",
+        "severity": "med",
+        "category": "信息架构",
+        "description": "8 个字段里只有 Phone 自标了「(optional)」,其他字段既没有星号也没有颜色或文字说明,用户不知道 Department、Job title、Time zone 是不是必须填的,直到点 Send invite 才知道。",
+        "shouldFindWith": [
+          "新手",
+          "目标导向"
+        ]
+      }
+    },
+    {
+      "gtId": "gt-05",
+      "gt": {
+        "id": "gt-05",
+        "title": "字段间距过大表单显得无尽",
+        "severity": "low",
+        "category": "视觉节奏",
+        "description": "字段之间 24px 间距加上每个 input 自己 14px padding,8 个字段加 textarea 后整个表单纵向超过 700px,在 1080p 屏要滚动才能看到提交按钮,心理负担放大。",
+        "shouldFindWith": [
+          "设计敏感"
+        ]
+      }
+    }
+  ]
+}

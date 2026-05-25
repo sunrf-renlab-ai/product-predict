@@ -1,0 +1,182 @@
+{
+  "fixtureId": "02-dense-pricing",
+  "gtTotal": 6,
+  "ppTotal": 10,
+  "matched": 2,
+  "recall": 0.3333333333333333,
+  "precision": 0.2,
+  "f1": 0.25,
+  "severityAcc": 0.5,
+  "categoryAcc": 1,
+  "verdicts": [
+    {
+      "gtId": "gt-01",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0.2,
+      "reasoning": "i07和i10涉及信息缺失但非布局问题，其余均为性能或交互故障"
+    },
+    {
+      "gtId": "gt-02",
+      "findingId": "i10",
+      "matched": true,
+      "confidence": 0.72,
+      "reasoning": "i10指出价格方案信息不足用户无法判断价值与GT问题定价文案含糊无法估算花费同属定价信息不透明问题",
+      "severityAgrees": true,
+      "categoryAgrees": true
+    },
+    {
+      "gtId": "gt-03",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0.35,
+      "reasoning": "Enterprise信息不足与禁用按钮问题相近但非同一问题"
+    },
+    {
+      "gtId": "gt-04",
+      "findingId": "i04",
+      "matched": true,
+      "confidence": 0.75,
+      "reasoning": "i04直接指出功能对比藏得不够浅，用户差点以为没有，这和GT描述的功能对比被默认折叠需先发现开关才能查看完全对应",
+      "severityAgrees": false,
+      "categoryAgrees": true
+    },
+    {
+      "gtId": "gt-05",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0,
+      "reasoning": "GT关于情感氛围机械感，无finding描述此问题"
+    },
+    {
+      "gtId": "gt-06",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0.3,
+      "reasoning": "i05 Enterprise信息少 但GT是命名混乱 无直接关联"
+    }
+  ],
+  "falsePositives": [
+    {
+      "findingId": "i01",
+      "finding": {
+        "title": "页面主内容区完全空白，滚动也没用",
+        "category": "性能感知",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i02",
+      "finding": {
+        "title": "导航栏的 Pricing 链接点了没反应",
+        "category": "流程顺畅",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i03",
+      "finding": {
+        "title": "作为一个急着比价的用户，一分钟什么都看不到已经没耐心了",
+        "category": "情感氛围",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i06",
+      "finding": {
+        "title": "产品定位模糊，看不出是什么东西",
+        "category": "信息架构",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i07",
+      "finding": {
+        "title": "定价信息几乎不可见，对比无从下手",
+        "category": "信息架构",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i08",
+      "finding": {
+        "title": "点击按钮没有反应，交互完全失效",
+        "category": "流程顺畅",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i09",
+      "finding": {
+        "title": "点「Start free」按钮完全没反应，感觉是半成品",
+        "category": "流程顺畅",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i05",
+      "finding": {
+        "title": "Enterprise 一栏只写着\"定制定价\"，感觉像是放弃了说明",
+        "category": "信息架构",
+        "severity": "low"
+      }
+    }
+  ],
+  "missed": [
+    {
+      "gtId": "gt-01",
+      "gt": {
+        "id": "gt-01",
+        "title": "5 个 plan 横向挤一行字撞墙",
+        "severity": "high",
+        "category": "信息架构",
+        "description": "5 个 plan 卡片用 grid-template-columns: repeat(5, 1fr),在 1280 视口下每张卡只有约 220px,标题/功能描述都会换行 3 次以上,扫读非常痛苦。",
+        "shouldFindWith": [
+          "评估者",
+          "购买决策者"
+        ]
+      }
+    },
+    {
+      "gtId": "gt-03",
+      "gt": {
+        "id": "gt-03",
+        "title": "Enterprise 联系销售按钮是 disabled",
+        "severity": "med",
+        "category": "流程顺畅",
+        "description": "Enterprise plan 的 Contact sales 按钮是 disabled 状态,点不动也没给邮箱或表单链接,大客户根本没法发起对话。",
+        "shouldFindWith": [
+          "购买决策者",
+          "B2B 评估者"
+        ]
+      }
+    },
+    {
+      "gtId": "gt-05",
+      "gt": {
+        "id": "gt-05",
+        "title": "每个 feature 只有 ✓/✗ 太机械",
+        "severity": "med",
+        "category": "情感氛围",
+        "description": "所有 plan 的 feature 列表都用 ✓ ✗ 标记,没有突出差异化卖点、没有图标、没有任何情绪化的描述,价格页看上去像一张干涩的电子表格而不是一个产品。",
+        "shouldFindWith": [
+          "设计敏感",
+          "营销视角"
+        ]
+      }
+    },
+    {
+      "gtId": "gt-06",
+      "gt": {
+        "id": "gt-06",
+        "title": "Pro / Pro+ / Business+ 命名混乱",
+        "severity": "low",
+        "category": "表达文案",
+        "description": "档位用「Pro / Pro+ / Business / Business+ / Enterprise」命名,Pro+ 和 Business+ 没有传达任何含义,用户得对照表格才能判断升级方向。",
+        "shouldFindWith": [
+          "新手"
+        ]
+      }
+    }
+  ]
+}

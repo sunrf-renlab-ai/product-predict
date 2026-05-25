@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>明镜 — 工作区设置</title>
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #0b0d10; color: #e7e9ee; font: 14px/1.55 -apple-system, "PingFang SC", "Inter", sans-serif; }
+  .layout { display: grid; grid-template-columns: 220px 1fr; min-height: 100vh; }
+  aside { background: #101317; border-right: 1px solid #1c1f24; padding: 18px 14px; }
+  .brand { font-weight: 600; letter-spacing: -0.01em; padding: 4px 8px 18px; }
+  .side-search { width: 100%; padding: 7px 10px; background: #14171c; border: 1px solid #2a2e35; border-radius: 6px; color: #e7e9ee; font: inherit; outline: none; margin-bottom: 12px; }
+  .side-nav { list-style: none; }
+  .side-nav li { padding: 7px 10px; border-radius: 6px; color: #b9bec7; font-size: 13px; cursor: pointer; }
+  .side-nav li.active { background: #1c1f24; color: #e7e9ee; }
+  main { padding: 32px 40px; max-width: 820px; }
+  .crumb { font-size: 12px; color: #6a7180; margin-bottom: 6px; }
+  h1 { font-size: 22px; font-weight: 600; letter-spacing: -0.01em; }
+  .sub { margin-top: 4px; font-size: 13px; color: #9aa1ab; }
+  .section { margin-top: 28px; padding: 20px; background: #101317; border: 1px solid #1c1f24; border-radius: 10px; }
+  .section h2 { font-size: 14px; font-weight: 600; margin-bottom: 12px; }
+  .row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-top: 1px solid #1c1f24; }
+  .row:first-of-type { border-top: 0; }
+  .row label { font-size: 13px; color: #c8cdd5; }
+  .row .hint { font-size: 12px; color: #6a7180; margin-top: 2px; }
+  .row input[type="text"], .row select { padding: 6px 10px; background: #14171c; border: 1px solid #2a2e35; border-radius: 6px; color: #e7e9ee; font: inherit; outline: none; min-width: 220px; }
+  .toggle { width: 36px; height: 20px; background: #2a2e35; border-radius: 999px; position: relative; cursor: pointer; }
+  .toggle.on { background: #5b8def; }
+  .toggle::after { content: ""; position: absolute; top: 2px; left: 2px; width: 16px; height: 16px; background: #e7e9ee; border-radius: 50%; transition: left 0.15s; }
+  .toggle.on::after { left: 18px; }
+  .actions { margin-top: 20px; display: flex; gap: 10px; justify-content: flex-end; }
+  .btn { padding: 8px 16px; border-radius: 6px; font: inherit; font-size: 13px; cursor: pointer; border: 1px solid #2a2e35; background: transparent; color: #e7e9ee; }
+  .btn-primary { background: #5b8def; border-color: #5b8def; color: #0b0d10; font-weight: 600; }
+  .toast { position: fixed; bottom: 24px; right: 24px; padding: 12px 16px; background: #2b1d1d; border: 1px solid #5a2a2a; border-radius: 8px; color: #f1d4d4; font-size: 13px; display: none; }
+  .toast.show { display: block; }
+</style>
+</head>
+<body>
+<div class="layout">
+  <aside>
+    <div class="brand">◆ 明镜</div>
+    <input class="side-search" placeholder="搜索设置…" id="search" />
+    <ul class="side-nav">
+      <li>通用</li>
+      <li class="active">Settings</li>
+      <li>成员</li>
+      <li>计费</li>
+      <li>Integrations</li>
+      <li>API tokens</li>
+    </ul>
+  </aside>
+
+  <main>
+    <div class="crumb">工作区 / Settings</div>
+    <h1>Settings</h1>
+    <p class="sub">管理工作区偏好和默认行为。修改后请记得保存。</p>
+
+    <div class="section">
+      <h2>基本信息</h2>
+      <div class="row">
+        <div><label>工作区名称</label><div class="hint">显示在导航栏和邮件通知中</div></div>
+        <input type="text" value="明镜内部" />
+      </div>
+      <div class="row">
+        <div><label>Workspace URL</label><div class="hint">mingjing.app/<span style="color:#9aa1ab">your-slug</span></div></div>
+        <input type="text" value="mingjing-team" />
+      </div>
+      <div class="row">
+        <div><label>时区</label><div class="hint">影响日报发送和定时任务</div></div>
+        <select>
+          <option>Asia/Shanghai (UTC+8)</option>
+          <option>America/Los_Angeles</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>通知与日报</h2>
+      <div class="row">
+        <div><label>每日摘要</label><div class="hint">每天 09:00 发送昨日总结</div></div>
+        <div class="toggle on" onclick="this.classList.toggle('on')"></div>
+      </div>
+      <div class="row">
+        <div><label>下次发送</label><div class="hint">May 26, 2026 · 09:00</div></div>
+        <span style="font-size:12px; color:#9aa1ab">上次发送 2026-05-24</span>
+      </div>
+      <div class="row">
+        <div><label>Slack 通知</label><div class="hint">绑定 Slack 后自动推送</div></div>
+        <div class="toggle" onclick="this.classList.toggle('on')"></div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button class="btn">Cancel</button>
+      <button class="btn btn-primary" onclick="document.getElementById('toast').classList.add('show'); setTimeout(()=>document.getElementById('toast').classList.remove('show'), 4000)">Save</button>
+    </div>
+  </main>
+</div>
+
+<div class="toast" id="toast">Something went wrong. Please try again later.</div>
+
+<script>
+  // search filters only by exact substring on visible Chinese text, English items get missed
+  const search = document.getElementById('search');
+  const items = document.querySelectorAll('.side-nav li');
+  search.addEventListener('input', () => {
+    const q = search.value.trim();
+    items.forEach(li => {
+      li.style.display = !q || li.textContent.includes(q) ? '' : 'none';
+    });
+  });
+</script>
+</body>
+</html>

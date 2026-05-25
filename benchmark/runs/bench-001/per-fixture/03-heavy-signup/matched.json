@@ -1,0 +1,186 @@
+{
+  "fixtureId": "03-heavy-signup",
+  "gtTotal": 6,
+  "ppTotal": 8,
+  "matched": 1,
+  "recall": 0.16666666666666666,
+  "precision": 0.125,
+  "f1": 0.14285714285714288,
+  "severityAcc": 1,
+  "categoryAcc": 1,
+  "verdicts": [
+    {
+      "gtId": "gt-01",
+      "findingId": "i04",
+      "matched": true,
+      "confidence": 0.92,
+      "reasoning": "i04直接指出电话和密码都在第一页且字段太多导致想关掉页面，完全对应GT描述的8个必填字段一屏铺开的核心问题",
+      "severityAgrees": true,
+      "categoryAgrees": true
+    },
+    {
+      "gtId": "gt-02",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0,
+      "reasoning": "GT聚焦错误提示模糊无字段定位，所有finding均未提及错误信息问题"
+    },
+    {
+      "gtId": "gt-03",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0,
+      "reasoning": "所有pp findings都是关于表单字段多、隐私感受、步骤中断或页面信息缺失，均未涉及提交后loading反馈缺失的问题"
+    },
+    {
+      "gtId": "gt-04",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0,
+      "reasoning": "No finding addresses missing individual option in company size dropdown"
+    },
+    {
+      "gtId": "gt-05",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0,
+      "reasoning": "No finding mentions placeholder labels or accessibility issues"
+    },
+    {
+      "gtId": "gt-06",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0,
+      "reasoning": "No finding mentions password requirements or late disclosure of validation rules"
+    }
+  ],
+  "falsePositives": [
+    {
+      "findingId": "i01",
+      "finding": {
+        "title": "注册字段太多，还没进门就劝退了",
+        "category": "流程顺畅",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i02",
+      "finding": {
+        "title": "要求工作邮箱和电话，感觉被过度索取隐私",
+        "category": "情感氛围",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i05",
+      "finding": {
+        "title": "表单把用户当'潜在客户'而不是'想试试的人'",
+        "category": "情感氛围",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i07",
+      "finding": {
+        "title": "注册页没有产品名称，像在填黑盒表单",
+        "category": "信息架构",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i08",
+      "finding": {
+        "title": "填到一半被强制中断，步骤限制让人很烦躁",
+        "category": "流程顺畅",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i03",
+      "finding": {
+        "title": "跟竞品Linear比，注册摩擦差距太大",
+        "category": "与竞品对比",
+        "severity": "med"
+      }
+    },
+    {
+      "findingId": "i06",
+      "finding": {
+        "title": "页面顶部看不清，不知道这个产品是做什么的",
+        "category": "信息架构",
+        "severity": "med"
+      }
+    }
+  ],
+  "missed": [
+    {
+      "gtId": "gt-02",
+      "gt": {
+        "id": "gt-02",
+        "title": "报错只说「Invalid input」",
+        "severity": "high",
+        "category": "表达文案",
+        "description": "提交失败只显示一行 「Invalid input. Please check your entries.」红条,没有定位到具体字段、没有原因解释,用户不知道改哪个。",
+        "shouldFindWith": [
+          "新手",
+          "细致型"
+        ]
+      }
+    },
+    {
+      "gtId": "gt-03",
+      "gt": {
+        "id": "gt-03",
+        "title": "提交后毫无 loading 反馈",
+        "severity": "high",
+        "category": "情感氛围",
+        "description": "Create account 按钮点了之后既不变 disabled、不显示 spinner、也没有进度条或成功页跳转,用户怀疑表单坏了,常会连点多次。",
+        "shouldFindWith": [
+          "新手",
+          "怀疑论者"
+        ]
+      }
+    },
+    {
+      "gtId": "gt-04",
+      "gt": {
+        "id": "gt-04",
+        "title": "公司规模 dropdown 没有「个人」",
+        "severity": "med",
+        "category": "功能契合",
+        "description": "Company size 是必选 dropdown,选项只有 1-5 / 6-20 / 21-100 / 100+,但产品说「无需信用卡 免费开始」吸引的是个人用户,个人用户没法选,被迫撒谎。",
+        "shouldFindWith": [
+          "个人开发者",
+          "诚实填表"
+        ]
+      }
+    },
+    {
+      "gtId": "gt-05",
+      "gt": {
+        "id": "gt-05",
+        "title": "label 全部用 placeholder 实现",
+        "severity": "med",
+        "category": "可访问性",
+        "description": "所有字段没有独立的 <label>,字段名靠 placeholder 文字,用户开始输入后 placeholder 消失,再回头检查时记不起这个框是干嘛的,且屏幕阅读器读得不准。",
+        "shouldFindWith": [
+          "可访问性敏感",
+          "新手"
+        ]
+      }
+    },
+    {
+      "gtId": "gt-06",
+      "gt": {
+        "id": "gt-06",
+        "title": "密码规则要等提交后才告诉",
+        "severity": "low",
+        "category": "学习成本",
+        "description": "代码里密码要求大小写+数字+符号+12位以上,但 placeholder 只写「Password」,前端没有任何提示;用户随便输完点提交才看到通用错误,然后还得猜哪里不合格。",
+        "shouldFindWith": [
+          "新手"
+        ]
+      }
+    }
+  ]
+}

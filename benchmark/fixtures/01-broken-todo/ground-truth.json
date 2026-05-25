@@ -1,0 +1,49 @@
+{
+  "id": "01-broken-todo",
+  "name": "Broken Todo Landing",
+  "hint": "A team todo app's landing page — evaluate how easily a first-time visitor can sign up and explore the product",
+  "port": 8201,
+  "description": "Minimalist team todo app landing with a hidden CTA, Cmd+/ instead of Cmd+K command palette, low-contrast secondary button in dark mode, and placeholder-only tab previews.",
+  "groundTruth": [
+    {
+      "id": "gt-01",
+      "title": "找不到明显的「开始使用」按钮",
+      "severity": "high",
+      "category": "流程顺畅",
+      "description": "整个 hero 区只有一个灰色虚线下划线的「request access」小链接,没有任何高亮的 primary CTA,新访客需要扫描很久才能找到怎么开始。",
+      "shouldFindWith": ["新手", "目标导向"]
+    },
+    {
+      "id": "gt-02",
+      "title": "命令面板用 Cmd+/ 不是 Cmd+K",
+      "severity": "high",
+      "category": "与竞品对比",
+      "description": "hero 区底部提示用 Cmd+/ 打开命令面板,跟 Linear / Notion / Raycast 等同类工具的 Cmd+K 不一致,键盘党用户会下意识按 Cmd+K 然后什么都没发生。",
+      "shouldFindWith": ["键盘党", "重度用户"]
+    },
+    {
+      "id": "gt-03",
+      "title": "暗色模式次要按钮几乎看不见",
+      "severity": "med",
+      "category": "可访问性",
+      "description": "右上角 Sign in 按钮文字颜色 #4a4f57 在 #0b0d10 背景上对比度约 2.1:1,远低于 WCAG AA 要求的 4.5:1,弱视用户和强光环境下完全读不出来。",
+      "shouldFindWith": ["可访问性敏感", "弱视"]
+    },
+    {
+      "id": "gt-04",
+      "title": "4 个导航 tab 全是 placeholder",
+      "severity": "med",
+      "category": "信息架构",
+      "description": "Inbox / Sprints / Reviews / Insights 四个 tab 点开都只显示「Coming soon」之类的文字,没有任何真实产品截图或交互预览,访客无法判断产品长什么样。",
+      "shouldFindWith": ["评估者", "新手"]
+    },
+    {
+      "id": "gt-05",
+      "title": "hero 标题副标题挤在一起",
+      "severity": "low",
+      "category": "视觉节奏",
+      "description": "h1 跟下面的 subtitle 间距只有 4px,subtitle 跟说明段又只有 6px,三段文字粘成一团,视觉上没有呼吸感,影响第一印象。",
+      "shouldFindWith": ["设计敏感"]
+    }
+  ]
+}

@@ -10,6 +10,12 @@ dist/
 pp/runs/
 pp/test/target-site/__pycache__/
 
+# Benchmark runs: keep summary + matched + scorecard + run.json + report.md,
+# drop bulky regeneratable artifacts (shots, per-fixture report.html ~155KB each).
+benchmark/runs/**/per-fixture/**/shots/
+benchmark/runs/**/per-fixture/**/runs/run-*/shots/
+benchmark/runs/**/per-fixture/**/runs/run-*/report.html
+
 # Next.js build cache
 web/.next/
 web/out/

@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Setup — Forge</title>
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #0c0e12; color: #e6e8ee; font: 15px/1.5 -apple-system, "Inter", "Segoe UI", sans-serif; }
+  header { padding: 16px 40px; border-bottom: 1px solid #1b1e24; display: flex; justify-content: space-between; align-items: center; }
+  .brand { font-weight: 600; }
+  /* Top progress: only shows the step number, no labels — user doesn't know what each step is */
+  .progress { font-size: 12px; color: #9aa1ab; }
+  main { max-width: 560px; margin: 50px auto 80px; padding: 0 28px; }
+  h1 { font-size: 24px; font-weight: 600; margin-bottom: 6px; letter-spacing: -0.01em; }
+  .lede { color: #9aa1ab; font-size: 14px; margin-bottom: 28px; }
+  label { display: block; font-size: 13px; color: #b9bec7; margin: 12px 0 6px; }
+  input, select, textarea {
+    width: 100%; padding: 10px 12px; background: #14171c; border: 1px solid #262a31;
+    border-radius: 6px; color: #e6e8ee; font: inherit; outline: none;
+  }
+  /* Step 1 minimal (~100px), step 3 oversized (~800px), creates jarring layout shift */
+  .step1 .body { min-height: 100px; }
+  .step2 .body { min-height: 280px; }
+  .step3 .body { min-height: 800px; }
+  .step4 .body { min-height: 220px; }
+  .step5 .body { min-height: 180px; }
+  .actions { margin-top: 28px; display: flex; justify-content: flex-end; }
+  .btn-primary { padding: 10px 20px; background: #5b8def; border: 0; border-radius: 6px; color: #fff; font: inherit; font-weight: 500; cursor: pointer; }
+  /* Note: there is intentionally NO back button on step 3 */
+  .checks { display: flex; flex-direction: column; gap: 10px; margin-top: 6px; }
+  .checks label { display: flex; align-items: center; gap: 8px; font-size: 13px; color: #b9bec7; margin: 0; }
+  .checks input[type=checkbox] { width: auto; }
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">⚒ Forge</div>
+  <div class="progress" id="prog">Step 1 / 5</div>
+</header>
+
+<main id="root"></main>
+
+<script>
+  // Step labels — but they're only shown on the page heading, never in the top bar.
+  // Names are vague ("Configure" / "Customize" / "Optimize") so users can't predict content.
+  const steps = [
+    { key: 'step1', title: 'Set up', lede: 'Tell us what to call your workspace.' },
+    { key: 'step2', title: 'Configure', lede: 'Pick the modules you want enabled.' },
+    { key: 'step3', title: 'Customize', lede: 'Fine-tune defaults across each module.' },
+    { key: 'step4', title: 'Optimize', lede: 'Choose performance and storage preferences.' },
+    { key: 'step5', title: 'Review', lede: 'You are almost there.' }
+  ];
+
+  let i = 0;
+  // Bug-by-design: form state lives ONLY in DOM. Re-rendering blows it away.
+  function render() {
+    const s = steps[i];
+    document.getElementById('prog').textContent = 'Step ' + (i + 1) + ' / 5';
+
+    let body = '';
+    if (i === 0) body = '<label>Workspace name</label><input type="text" />';
+    else if (i === 1) body = '<label>Modules</label><div class="checks">' +
+      ['Inbox','Sprints','Reviews','Insights','Automations'].map(m => '<label><input type="checkbox" /> ' + m + '</label>').join('') + '</div>';
+    else if (i === 2) body = '<label>Default sprint length (days)</label><input type="number" />' +
+      '<label>Default reviewer pool</label><input type="text" />' +
+      '<label>Status taxonomy</label><textarea rows="4"></textarea>' +
+      '<label>Custom fields</label><textarea rows="6"></textarea>' +
+      '<label>Notes</label><textarea rows="6"></textarea>';
+    else if (i === 3) body = '<label>Region</label><select><option>US-East</option><option>EU-West</option></select>' +
+      '<label>Storage tier</label><select><option>Standard</option><option>Cold</option></select>';
+    else body = '<p style="color:#9aa1ab;font-size:14px">Click finish to complete setup.</p>';
+
+    // Step 3 deliberately omits a Back button so user is trapped.
+    const showBack = i > 0 && i !== 2;
+    const nextLabel = i === steps.length - 1 ? 'Finish' : 'Next';
+
+    document.getElementById('root').innerHTML =
+      '<div class="' + s.key + '">' +
+        '<h1>' + s.title + '</h1>' +
+        '<p class="lede">' + s.lede + '</p>' +
+        '<div class="body">' + body + '</div>' +
+        '<div class="actions">' +
+          (showBack ? '<button class="btn-primary" id="back" style="background:#262a31;margin-right:8px">Back</button>' : '') +
+          '<button class="btn-primary" id="next">' + nextLabel + '</button>' +
+        '</div>' +
+      '</div>';
+
+    const back = document.getElementById('back');
+    if (back) back.onclick = () => { i--; render(); };
+    document.getElementById('next').onclick = () => {
+      if (i === steps.length - 1) {
+        // No celebration — just bare "Done."
+        document.getElementById('root').innerHTML = '<h1 style="margin-top:80px;text-align:center">Done.</h1>';
+        document.getElementById('prog').textContent = '';
+        return;
+      }
+      i++; render();
+    };
+  }
+
+  render();
+</script>
+</body>
+</html>

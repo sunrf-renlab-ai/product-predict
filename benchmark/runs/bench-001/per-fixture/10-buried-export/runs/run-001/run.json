@@ -1,0 +1,730 @@
+{
+  "id": "run-001",
+  "startedAt": "2026-05-25T11:25:40.264Z",
+  "finishedAt": "2026-05-25T11:27:21.934Z",
+  "target": {
+    "url": "http://localhost:8200/10-buried-export/site/",
+    "title": "Analytics — Beacon",
+    "viewport": {
+      "w": 1280,
+      "h": 800
+    }
+  },
+  "personaSetId": "preset-an-analytics-dashboard-your",
+  "agents": [
+    {
+      "id": "a03-2",
+      "name": "Kenji Okada",
+      "age": 35,
+      "role": "产品经理",
+      "tech": 4,
+      "tone": "急躁",
+      "preferences": [
+        "追求高效",
+        "看重一键导出",
+        "喜欢简洁界面"
+      ],
+      "knownContext": [
+        "常用 Notion 做文档",
+        "在用 Amplitude 做分析",
+        "习惯把数据嵌入 PPT"
+      ],
+      "weight": 0.45,
+      "color": "#e6c976",
+      "glyph": "K",
+      "traits": [
+        "效率控",
+        "急躁"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "frustrated",
+      "durationSec": 58.041
+    },
+    {
+      "id": "a03-1",
+      "name": "Kenji Okada",
+      "age": 35,
+      "role": "产品经理",
+      "tech": 4,
+      "tone": "急躁",
+      "preferences": [
+        "追求高效",
+        "看重一键导出",
+        "喜欢简洁界面"
+      ],
+      "knownContext": [
+        "常用 Notion 做文档",
+        "在用 Amplitude 做分析",
+        "习惯把数据嵌入 PPT"
+      ],
+      "weight": 0.45,
+      "color": "#e6c976",
+      "glyph": "K",
+      "traits": [
+        "效率控",
+        "急躁"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "frustrated",
+      "durationSec": 84.623
+    },
+    {
+      "id": "a01",
+      "name": "王磊",
+      "age": 45,
+      "role": "运营经理",
+      "tech": 2,
+      "tone": "怀疑",
+      "preferences": [
+        "关注数据安全",
+        "不喜欢多余功能",
+        "重视报表简洁"
+      ],
+      "knownContext": [
+        "常用 Excel 做报表",
+        "试过 Tableau，觉得太贵",
+        "公司在用 PowerBI"
+      ],
+      "weight": 0.2,
+      "color": "#7fb3d5",
+      "glyph": "W",
+      "traits": [
+        "保守",
+        "重视安全"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "frustrated",
+      "durationSec": 89.912
+    },
+    {
+      "id": "a04",
+      "name": "李心怡",
+      "age": 32,
+      "role": "营销专员",
+      "tech": 3,
+      "tone": "温和",
+      "preferences": [
+        "关注报表可读性",
+        "喜欢自定义排版",
+        "不喜欢技术门槛"
+      ],
+      "knownContext": [
+        "用 Google Data Studio 做仪表盘",
+        "曾用 Zapier 自动化",
+        "团队 5 人"
+      ],
+      "weight": 0.2,
+      "color": "#f5a38e",
+      "glyph": "L",
+      "traits": [
+        "温和",
+        "重视协作"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": true,
+      "exitReason": "timeout",
+      "durationSec": 101.492
+    }
+  ],
+  "activity": [
+    {
+      "t": "00:00:00",
+      "agent": "a03-2",
+      "kind": "enter",
+      "text": "进入 localhost:8200/10-buried-export/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/10-buried-export/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a03-1",
+      "kind": "enter",
+      "text": "进入 localhost:8200/10-buried-export/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/10-buried-export/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a03-1",
+      "kind": "observation",
+      "text": "打开了这个导出的网站页面，顶部有导航栏：Dashboards / Reports / Alerts / Settings。看起来像是某个数据/分析平台。",
+      "sentiment": 0,
+      "shot": "shots/a03-1-00.jpg"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a01",
+      "kind": "enter",
+      "text": "进入 localhost:8200/10-buried-export/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/10-buried-export/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a01",
+      "kind": "observation",
+      "text": "刚打开，顶部导航有Dashboards、Reports、Alerts、Settings。看起来像个数据分析/监控平台。先看看主界面长什么样。",
+      "sentiment": 0,
+      "shot": "shots/a01-00.jpg"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a04",
+      "kind": "enter",
+      "text": "进入 localhost:8200/10-buried-export/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/10-buried-export/site/"
+    },
+    {
+      "t": "00:00:01",
+      "agent": "a04",
+      "kind": "observation",
+      "text": "嗯，这是一个数据分析/仪表盘工具。顶部有 Dashboards、Reports、Alerts、Settings 导航。看起来像是做数据可视化和报表的，我之前用 Google Data Studio 可能差不多。让我先看看主界面是什么样的。",
+      "sentiment": 1,
+      "shot": "shots/a04-00.jpg"
+    },
+    {
+      "t": "00:06:76",
+      "agent": "a03-2",
+      "kind": "confused",
+      "text": "就一个顶部导航栏？Dashboards/Reports/Alerts/Settings，下面全是空白或图片。这是什么dashboard工具？看起来像个空壳。",
+      "sentiment": -1,
+      "shot": "shots/a03-2-01.jpg"
+    },
+    {
+      "t": "00:10:87",
+      "agent": "a04",
+      "kind": "observation",
+      "text": "滚动好像没用，内容还是一样。可能页面内容就这么多了。让我看看 Dashboards 吧，想看看现有的仪表盘长什么样。",
+      "sentiment": 1,
+      "shot": "shots/a04-02.jpg"
+    },
+    {
+      "t": "00:13:74",
+      "agent": "a01",
+      "kind": "confused",
+      "text": "截图显示还是顶部导航，下方没有看到主要的内容区域。有点奇怪，看起来页面可能还在加载，或者内容没正常显示。",
+      "sentiment": -1,
+      "shot": "shots/a01-02.jpg"
+    },
+    {
+      "t": "00:14:08",
+      "agent": "a03-2",
+      "kind": "click",
+      "text": "想看看Dashboards里有没有实际内容",
+      "sentiment": 0,
+      "url": "http://localhost:8200/10-buried-export/site/",
+      "shot": "shots/a03-2-02.jpg"
+    },
+    {
+      "t": "00:18:20",
+      "agent": "a04",
+      "kind": "click",
+      "text": "想看看仪表盘列表",
+      "sentiment": 0,
+      "url": "http://localhost:8200/10-buried-export/site/",
+      "shot": "shots/a04-03.jpg"
+    },
+    {
+      "t": "00:18:99",
+      "agent": "a01",
+      "kind": "click",
+      "text": "想看看主内容区域长什么样",
+      "sentiment": 0,
+      "url": "http://localhost:8200/10-buried-export/site/",
+      "shot": "shots/a01-03.jpg"
+    },
+    {
+      "t": "00:21:40",
+      "agent": "a04",
+      "kind": "confused",
+      "text": "点击 Dashboards 后页面好像没反应，内容还是一样的。可能是有下拉菜单弹出但我没看到？让我再试一次点击。",
+      "sentiment": 0,
+      "shot": "shots/a04-04.jpg"
+    },
+    {
+      "t": "00:23:48",
+      "agent": "a03-2",
+      "kind": "click",
+      "text": "Dashboards没反应，试试Reports",
+      "sentiment": 0,
+      "url": "http://localhost:8200/10-buried-export/site/",
+      "shot": "shots/a03-2-03.jpg"
+    },
+    {
+      "t": "00:25:24",
+      "agent": "a01",
+      "kind": "confused",
+      "text": "点击了Dashboards链接，但页面似乎没有变化。截图看起来还是一样的。这是一个静态页面吗？感觉什么都没有。",
+      "sentiment": -1,
+      "shot": "shots/a01-04.jpg"
+    },
+    {
+      "t": "00:27:27",
+      "agent": "a03-1",
+      "kind": "click",
+      "text": "点Dashboards看看有什么内容",
+      "sentiment": 0,
+      "url": "http://localhost:8200/10-buried-export/site/",
+      "shot": "shots/a03-1-05.jpg"
+    },
+    {
+      "t": "00:28:68",
+      "agent": "a04",
+      "kind": "click",
+      "text": "想看看报表功能",
+      "sentiment": 0,
+      "url": "http://localhost:8200/10-buried-export/site/",
+      "shot": "shots/a04-05.jpg"
+    },
+    {
+      "t": "00:30:09",
+      "agent": "a01",
+      "kind": "click",
+      "text": "想看看报表功能是不是更好用",
+      "sentiment": 0,
+      "url": "http://localhost:8200/10-buried-export/site/",
+      "shot": "shots/a01-05.jpg"
+    },
+    {
+      "t": "00:31:63",
+      "agent": "a03-2",
+      "kind": "rage",
+      "text": "导航栏三个按钮点了个遍，全都没反应。就一个静态图片撑场面。这不是产品，是PPT草稿吧？浪费我时间。",
+      "sentiment": -3,
+      "shot": "shots/a03-2-04.jpg"
+    },
+    {
+      "t": "00:32:14",
+      "agent": "a04",
+      "kind": "confused",
+      "text": "导航栏点击好像没有反应。让我往下滚动看看页面主体内容是什么。",
+      "sentiment": 0,
+      "shot": "shots/a04-06.jpg"
+    },
+    {
+      "t": "00:32:66",
+      "agent": "a03-1",
+      "kind": "click",
+      "text": "点Reports看看有什么内容",
+      "sentiment": 0,
+      "url": "http://localhost:8200/10-buried-export/site/",
+      "shot": "shots/a03-1-06.jpg"
+    },
+    {
+      "t": "00:35:78",
+      "agent": "a01",
+      "kind": "confused",
+      "text": "点击了Reports，URL没变，页面看起来还是一样。这个页面是不是有问题？试着点击一下页面中间区域看看有没有内容。",
+      "sentiment": -1,
+      "shot": "shots/a01-06.jpg"
+    },
+    {
+      "t": "00:41:03",
+      "agent": "a03-2",
+      "kind": "exit",
+      "text": "导航栏三个按钮（Dashboards/Reports/Alerts）点击后完全没反应，页面主体就是一张静态图片占满整个视口。作为一个需要快速验证功能的产品经理，这种无法交互的\"埋点导出工具\"demo完全没有价值，直接关闭。",
+      "sentiment": 0,
+      "shot": "shots/a03-2-05.jpg"
+    },
+    {
+      "t": "00:44:46",
+      "agent": "a03-1",
+      "kind": "confused",
+      "text": "点了 Dashboards 和 Reports，但页面好像没反应。感觉导航链接可能还没实现。这个页面看起来像是某个 BI 工具的导出页面，但内容很有限。我已经看了快一分钟了，不确定还能干什么。",
+      "sentiment": -1,
+      "shot": "shots/a03-1-07.jpg"
+    },
+    {
+      "t": "00:45:39",
+      "agent": "a04",
+      "kind": "rage",
+      "text": "搞什么...滚动来滚动去页面内容完全一样。这个导航栏点击都没反应，感觉像是个半成品。",
+      "sentiment": -2,
+      "shot": "shots/a04-08.jpg"
+    },
+    {
+      "t": "00:52:29",
+      "agent": "a04",
+      "kind": "click",
+      "text": "想试试Settings能不能打开",
+      "sentiment": 0,
+      "url": "http://localhost:8200/10-buried-export/site/",
+      "shot": "shots/a04-09.jpg"
+    },
+    {
+      "t": "00:54:63",
+      "agent": "a03-1",
+      "kind": "click",
+      "text": "试Alerts链接",
+      "sentiment": 0,
+      "url": "http://localhost:8200/10-buried-export/site/",
+      "shot": "shots/a03-1-08.jpg"
+    },
+    {
+      "t": "00:57:61",
+      "agent": "a04",
+      "kind": "delight",
+      "text": "哦！原来有弹窗！Settings 点开了一个模态框，右下角有个 Close 按钮。看来不是坏了，是我之前没注意到弹窗。",
+      "sentiment": 1,
+      "shot": "shots/a04-10.jpg"
+    },
+    {
+      "t": "00:58:63",
+      "agent": "a03-1",
+      "kind": "exit",
+      "text": "这个页面看起来是某个数据分析平台的导出版本，但所有导航链接（Dashboards/Reports/Alerts/Settings）点击后都没有任何反应，页面内容是静态的。我翻了翻页面但找不到任何可交互的功能，已经看了快一分钟，感觉这就是个\"壳\"，核心功能没实现。对我这种追求效率的用户来说，待在这里没有意义。",
+      "sentiment": 0,
+      "shot": "shots/a03-1-09.jpg"
+    },
+    {
+      "t": "01:02:46",
+      "agent": "a04",
+      "kind": "observation",
+      "text": "弹窗弹出来了！但是看起来内容被截断了，看不清具体有什么设置选项。让我先关闭，看看其他地方。",
+      "sentiment": 0,
+      "shot": "shots/a04-11.jpg"
+    },
+    {
+      "t": "01:03:43",
+      "agent": "a01",
+      "kind": "shortcut",
+      "text": "页面似乎没有加载任何内容，想刷新试试 [F5]",
+      "sentiment": 0,
+      "url": "http://localhost:8200/10-buried-export/site/",
+      "shot": "shots/a01-07.jpg"
+    },
+    {
+      "t": "01:08:28",
+      "agent": "a01",
+      "kind": "rage",
+      "text": "刷新了还是一样。这个页面只有顶部导航，下方什么都没有。点击Dashboards、Reports都没反应。这什么破产品？连基本的页面都加载不出来？",
+      "sentiment": -3,
+      "shot": "shots/a01-08.jpg"
+    },
+    {
+      "t": "01:09:88",
+      "agent": "a04",
+      "kind": "click",
+      "text": "关闭这个弹窗",
+      "sentiment": 0,
+      "url": "http://localhost:8200/10-buried-export/site/",
+      "shot": "shots/a04-12.jpg"
+    },
+    {
+      "t": "01:14:01",
+      "agent": "a04",
+      "kind": "click",
+      "text": "想看看Dashboards展开后的子菜单",
+      "sentiment": 0,
+      "url": "http://localhost:8200/10-buried-export/site/",
+      "shot": "shots/a04-13.jpg"
+    },
+    {
+      "t": "01:15:13",
+      "agent": "a01",
+      "kind": "exit",
+      "text": "页面打开后只有顶部导航栏，下方内容区域完全空白。点击Dashboards、Reports等导航链接都没有任何反应，页面URL也不变。这显然是个有问题或者说根本没做好的产品。作为一个运营经理，我需要的是能用的报表工具，不是只能看空页面的东西。跟PowerBI比起来差太远了，直接关掉。",
+      "sentiment": 0,
+      "shot": "shots/a01-09.jpg"
+    },
+    {
+      "t": "01:18:51",
+      "agent": "a04",
+      "kind": "click",
+      "text": "导航栏点击没反应，试试直接访问路径",
+      "sentiment": 0,
+      "url": "http://localhost:8200/dashboards",
+      "shot": "shots/a04-14.jpg"
+    },
+    {
+      "t": "01:23:79",
+      "agent": "a04",
+      "kind": "exit",
+      "text": "达到 step safety 上限 (15), 强制结束.",
+      "sentiment": -1
+    }
+  ],
+  "issues": [
+    {
+      "id": "i01",
+      "title": "导航栏是死的，点击后没有任何响应",
+      "severity": "high",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "导航栏三个按钮点了个遍，全都没反应。就一个静态图片撑场面。这不是产品，是PPT草稿吧？浪费我时间。",
+      "agentRef": "a03-2",
+      "evidence": 3,
+      "journey": "在页面顶部导航栏尝试点击 Dashboards / Reports / Alerts"
+    },
+    {
+      "id": "i02",
+      "title": "首屏没有给我任何有价值的内容可看",
+      "severity": "high",
+      "agents": 1,
+      "category": "信息架构",
+      "quote": "就一个顶部导航栏？Dashboards/Reports/Alerts/Settings，下面全是空白或图片。这是什么 dashboard 工具？看起来像个空壳。",
+      "agentRef": "a03-2",
+      "evidence": 1,
+      "journey": "进入页面的第一印象"
+    },
+    {
+      "id": "i03",
+      "title": "导航链接点击后完全没反应",
+      "severity": "high",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "点 Dashboards 没反应，点 Reports 还是没反应，这算什么？耍我呢？",
+      "agentRef": "a03-1",
+      "evidence": 3,
+      "journey": "进入首页后尝试点击顶部导航栏各个板块"
+    },
+    {
+      "id": "i04",
+      "title": "页面像个空壳，看不出能干什么",
+      "severity": "high",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "导航栏写的挺全，但点进去什么都没有。这东西到底是干嘛的，我的核心需求能在这解决吗？",
+      "agentRef": "a03-1",
+      "evidence": 1,
+      "journey": "尝试完所有导航后发现页面内容几乎空白"
+    },
+    {
+      "id": "i05",
+      "title": "页面打开后下方一片空白，什么都没加载",
+      "severity": "high",
+      "agents": 1,
+      "category": "性能感知",
+      "quote": "这什么破产品？连基本的页面都加载不出来？",
+      "agentRef": "a01",
+      "evidence": 2,
+      "journey": "刚进入localhost:8200/10-buried-export/site/"
+    },
+    {
+      "id": "i06",
+      "title": "点击导航链接完全没有反应",
+      "severity": "high",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "点击了Dashboards链接，但页面似乎没有变化。点击Reports也没反应。",
+      "agentRef": "a01",
+      "evidence": 3,
+      "journey": "在顶部导航栏尝试点击Dashboards和Reports"
+    },
+    {
+      "id": "i07",
+      "title": "刷新后问题依旧，没有恢复机制",
+      "severity": "high",
+      "agents": 1,
+      "category": "可访问性",
+      "quote": "刷新了还是一样，页面还是只有顶部导航栏。",
+      "agentRef": "a01",
+      "evidence": 2,
+      "journey": "按F5刷新页面"
+    },
+    {
+      "id": "i08",
+      "title": "导航点完没反应，我不知道发生了什么",
+      "severity": "high",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "Dashboards点了怎么什么都不出来，是坏了还是我操作不对？",
+      "agentRef": "a04",
+      "evidence": 2,
+      "journey": "点击顶部导航栏的 Dashboards 链接"
+    },
+    {
+      "id": "i09",
+      "title": "弹窗内容被截断，看不全设置选项",
+      "severity": "med",
+      "agents": 1,
+      "category": "视觉节奏",
+      "quote": "弹窗是出来了，但下面看不清，强迫症看着难受",
+      "agentRef": "a04",
+      "evidence": 1,
+      "journey": "点击 Settings 打开模态框"
+    },
+    {
+      "id": "i10",
+      "title": "页面主体内容太单薄，没有指引我往哪走",
+      "severity": "med",
+      "agents": 1,
+      "category": "信息架构",
+      "quote": "滚动来滚动去页面内容完全一样，我都不知道进来能干啥",
+      "agentRef": "a04",
+      "evidence": 1,
+      "journey": "在首页尝试滚动探索内容"
+    }
+  ],
+  "delights": [
+    {
+      "title": "模态框本身能弹出来，说明基本交互是活的",
+      "count": 1,
+      "quote": "哦！原来有弹窗，不是坏了",
+      "agent": "a04"
+    }
+  ],
+  "features": [
+    {
+      "name": "顶部导航",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -2,
+      "totalAttempts": 4
+    },
+    {
+      "name": "导航栏",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 3
+    },
+    {
+      "name": "导航切换",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 3
+    },
+    {
+      "name": "Settings弹窗",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 1,
+      "avgSentiment": 0,
+      "totalAttempts": 2
+    },
+    {
+      "name": "页面刷新",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 1
+    }
+  ],
+  "routesHeat": [
+    {
+      "path": "/10-buried-export/site/",
+      "visits": 17,
+      "dwell": 14,
+      "drop": 0.17647058823529413
+    },
+    {
+      "path": "/dashboards",
+      "visits": 1,
+      "dwell": 5,
+      "drop": 1
+    }
+  ],
+  "sentimentCurve": [
+    {
+      "t": 0,
+      "v": 0.5238095238095238
+    },
+    {
+      "t": 5,
+      "v": 0.3333333333333333
+    },
+    {
+      "t": 10,
+      "v": 0.6666666666666666
+    },
+    {
+      "t": 15,
+      "v": 0.4166666666666667
+    },
+    {
+      "t": 20,
+      "v": 0.5
+    },
+    {
+      "t": 25,
+      "v": 0.5
+    },
+    {
+      "t": 30,
+      "v": 0.4444444444444444
+    },
+    {
+      "t": 35,
+      "v": 0.375
+    },
+    {
+      "t": 40,
+      "v": 0.3333333333333333
+    },
+    {
+      "t": 45,
+      "v": 0.5
+    },
+    {
+      "t": 50,
+      "v": 0.25
+    },
+    {
+      "t": 55,
+      "v": 0.25
+    },
+    {
+      "t": 60,
+      "v": 0.5
+    },
+    {
+      "t": 65,
+      "v": 0.5555555555555556
+    },
+    {
+      "t": 70,
+      "v": 0.5
+    },
+    {
+      "t": 75,
+      "v": 0.5
+    },
+    {
+      "t": 80,
+      "v": 0.25
+    },
+    {
+      "t": 85,
+      "v": 0.5
+    },
+    {
+      "t": 90,
+      "v": 0.5
+    },
+    {
+      "t": 95,
+      "v": 0.5
+    },
+    {
+      "t": 100,
+      "v": 0.3333333333333333
+    }
+  ],
+  "metrics": {
+    "predictedNps": -10,
+    "achievableNps": 100,
+    "taskSuccess": 0,
+    "timeToValueSec": null,
+    "rageClicks": 3,
+    "delightCount": 0
+  },
+  "cost": {
+    "tokensIn": 101468,
+    "tokensOut": 4406,
+    "usd": 0
+  }
+}

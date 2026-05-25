@@ -1,0 +1,49 @@
+{
+  "id": "10-buried-export",
+  "name": "Buried Export",
+  "hint": "An analytics dashboard — your boss asked for a PDF export, try to find and use it",
+  "port": 8210,
+  "description": "Analytics dashboard where PDF export doesn't exist (only CSV/JSON), the export action lives 4 modals deep (Settings → Reports → Weekly Digest → Export), the export delivers via email with no download link, and 'Export schedule' / 'Schedule export' are two confusingly-named distinct entries.",
+  "groundTruth": [
+    {
+      "id": "gt-01",
+      "title": "导出藏在 4 层 menu 里",
+      "severity": "high",
+      "category": "信息架构",
+      "description": "导出动作藏在 Settings → Reports → Weekly Digest → Export 四层 modal 里,dashboard 主界面上没有任何「Export」按钮。用户接到「导一份给老板」的需求时几乎不可能在 10 秒内找到入口。",
+      "shouldFindWith": ["目标导向", "重度用户"]
+    },
+    {
+      "id": "gt-02",
+      "title": "导出没有 PDF 只有 CSV/JSON",
+      "severity": "high",
+      "category": "功能契合",
+      "description": "分析 dashboard 老板最常要的导出格式就是 PDF (可贴进周报、汇报材料),这里只给了 CSV / JSON 两个开发者格式,核心使用场景被切掉。",
+      "shouldFindWith": ["评估者", "目标导向"]
+    },
+    {
+      "id": "gt-03",
+      "title": "导出后不给下载链接",
+      "severity": "med",
+      "category": "流程顺畅",
+      "description": "点 Export 之后没有当场生成下载链接,而是「我们会邮件发给 workspace 拥有者」,用户既不知道什么时候到、收件人也可能不是自己,信任感和效率双降。",
+      "shouldFindWith": ["目标导向", "重度用户"]
+    },
+    {
+      "id": "gt-04",
+      "title": "Export schedule vs Schedule export",
+      "severity": "med",
+      "category": "表达文案",
+      "description": "Reports 子菜单里同时存在 'Export schedule' 和 'Schedule export' 两个入口,字面上几乎一样,但功能不同 (一个是定时导出 / 一个是导出当前的 schedule),用户随便点进去都可能走错。",
+      "shouldFindWith": ["文案敏感", "重度用户"]
+    },
+    {
+      "id": "gt-05",
+      "title": "图表挤压下方关键数据",
+      "severity": "low",
+      "category": "视觉节奏",
+      "description": "顶部活跃用户折线图占了 56vh,导致下方 MAU/DAU/留存/NPS 四个核心 KPI 被压缩成一条窄横条,信息密度倒置 — 真正要看的数变成了脚注。",
+      "shouldFindWith": ["设计敏感", "评估者"]
+    }
+  ]
+}

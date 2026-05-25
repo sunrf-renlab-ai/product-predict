@@ -1,0 +1,180 @@
+{
+  "fixtureId": "04-empty-dashboard",
+  "gtTotal": 5,
+  "ppTotal": 10,
+  "matched": 1,
+  "recall": 0.2,
+  "precision": 0.1,
+  "f1": 0.13333333333333333,
+  "severityAcc": 1,
+  "categoryAcc": 0,
+  "verdicts": [
+    {
+      "gtId": "gt-01",
+      "findingId": "i10",
+      "matched": true,
+      "confidence": 0.7,
+      "reasoning": "空状态没有引导与GT问题核心一致即缺新建入口",
+      "severityAgrees": true,
+      "categoryAgrees": false
+    },
+    {
+      "gtId": "gt-02",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0,
+      "reasoning": "GT关于侧栏8个概念区分不清学习成本问题与PP发现空状态导航失灵等问题完全不同"
+    },
+    {
+      "gtId": "gt-03",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0,
+      "reasoning": "judge failed: No JSON found in LLM output:\nLet me analyze the GT issue and the findings carefully.\n\n**GT Issue:**\n- id: gt-03\n- severity: med\n- category: 情感氛围 (Emotional Atmosphere)\n- title: 首次进入没有 onboarding tour\n- desc: 工作区为空、用户首次登录,但页面完全冷淡,没有欢迎弹窗、没有 checklist、也没有任何引导式 tour,新用户"
+    },
+    {
+      "gtId": "gt-04",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0.2,
+      "reasoning": "GT关注Help/Docs在两处重复出现的冗余问题，而i08只提到底部Help/Docs按钮是死链接，两者是不同维度的问题"
+    },
+    {
+      "gtId": "gt-05",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0,
+      "reasoning": "GT issue is about status bar wasting 80px vertical space for one line of text but PP findings focus on empty dashboard interaction issues"
+    }
+  ],
+  "falsePositives": [
+    {
+      "findingId": "i01",
+      "finding": {
+        "title": "空白仪表板没有任何内容或引导",
+        "category": "流程顺畅",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i02",
+      "finding": {
+        "title": "Projects 点击后完全没反应",
+        "category": "性能感知",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i04",
+      "finding": {
+        "title": "导航链接点击后毫无反应",
+        "category": "可访问性",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i05",
+      "finding": {
+        "title": "空壳演示让人无法评估产品价值",
+        "category": "情感氛围",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i06",
+      "finding": {
+        "title": "Dashboard 完全是空白，没有任何内容或引导",
+        "category": "信息架构",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i07",
+      "finding": {
+        "title": "左侧导航栏点击后毫无响应，交互失效",
+        "category": "可访问性",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i09",
+      "finding": {
+        "title": "点击导航完全没反应，探索之路直接断了",
+        "category": "流程顺畅",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i03",
+      "finding": {
+        "title": "和 Asana 比起来完全没法上手",
+        "category": "与竞品对比",
+        "severity": "med"
+      }
+    },
+    {
+      "findingId": "i08",
+      "finding": {
+        "title": "底部 Help/Docs 按钮也是死链接",
+        "category": "情感氛围",
+        "severity": "med"
+      }
+    }
+  ],
+  "missed": [
+    {
+      "gtId": "gt-02",
+      "gt": {
+        "id": "gt-02",
+        "title": "侧栏 8 个概念分不清",
+        "severity": "high",
+        "category": "学习成本",
+        "description": "左侧导航有 Projects / Tasks / Milestones / Sprints / Cycles / Goals / Reports / Team 8 项,Sprints 与 Cycles、Milestones 与 Goals 概念高度重合,新用户根本判断不出该先点哪个。",
+        "shouldFindWith": [
+          "新手",
+          "评估者"
+        ]
+      }
+    },
+    {
+      "gtId": "gt-03",
+      "gt": {
+        "id": "gt-03",
+        "title": "首次进入没有 onboarding tour",
+        "severity": "med",
+        "category": "情感氛围",
+        "description": "工作区为空、用户首次登录,但页面完全冷淡,没有欢迎弹窗、没有 checklist、也没有任何引导式 tour,新用户感受不到产品在帮他上手。",
+        "shouldFindWith": [
+          "新手"
+        ]
+      }
+    },
+    {
+      "gtId": "gt-04",
+      "gt": {
+        "id": "gt-04",
+        "title": "Help 和 Docs 重复出现两次",
+        "severity": "med",
+        "category": "信息架构",
+        "description": "Help 和 Docs 在左侧 Resources 区出现一次,又在右下浮窗里出现一次,而且它们彼此内容也基本重叠,造成信息架构冗余,用户不知道点哪个。",
+        "shouldFindWith": [
+          "细致型",
+          "评估者"
+        ]
+      }
+    },
+    {
+      "gtId": "gt-05",
+      "gt": {
+        "id": "gt-05",
+        "title": "顶部 status bar 占 80px 只显示一行字",
+        "severity": "low",
+        "category": "视觉节奏",
+        "description": "顶部 80px 高的 status bar 只写了一行「Workspace · Plan · Last sync」,信息密度极低,挤压了主内容区的视觉空间。",
+        "shouldFindWith": [
+          "设计敏感"
+        ]
+      }
+    }
+  ]
+}

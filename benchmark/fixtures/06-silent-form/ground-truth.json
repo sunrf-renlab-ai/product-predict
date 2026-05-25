@@ -1,0 +1,49 @@
+{
+  "id": "06-silent-form",
+  "name": "Silent Contact Form",
+  "hint": "A SaaS contact form — evaluate the submit experience and form clarity for a first-time visitor",
+  "port": 8206,
+  "description": "Contact form whose submit button gives zero feedback (no loading, no disabled, no success/error toast), with a meaningless 'Form' title, no required-field markers, and a 40px-tall textarea.",
+  "groundTruth": [
+    {
+      "id": "gt-01",
+      "title": "提交后完全没反馈",
+      "severity": "high",
+      "category": "流程顺畅",
+      "description": "点 Submit 后按钮不变 disabled、没有 loading spinner、页面无任何变化、没有跳转,用户根本不知道有没有提交成功,大概率会重复点击。",
+      "shouldFindWith": ["目标导向", "新手"]
+    },
+    {
+      "id": "gt-02",
+      "title": "没有成功 / 失败提示",
+      "severity": "high",
+      "category": "情感氛围",
+      "description": "提交后既没有成功 toast / 跳转感谢页,也没有失败提示,用户处在「我是不是搞砸了」的不安里,完全失去对产品的信任。",
+      "shouldFindWith": ["新手", "评估者"]
+    },
+    {
+      "id": "gt-03",
+      "title": "表单标题就叫 Form",
+      "severity": "med",
+      "category": "表达文案",
+      "description": "页面主标题直接是 'Form',没有传达这是联系销售、技术支持还是反馈,标签等同于「按钮.png」级别的命名,对用户毫无信息价值。",
+      "shouldFindWith": ["设计敏感", "文案敏感"]
+    },
+    {
+      "id": "gt-04",
+      "title": "必填字段没有任何标记",
+      "severity": "med",
+      "category": "可访问性",
+      "description": "所有字段都没有红色星号、没有 (required) 文字、也没有颜色区分,用户提交前无法预知哪些字段必填,屏幕阅读器也读不到 required 信息。",
+      "shouldFindWith": ["可访问性敏感", "目标导向"]
+    },
+    {
+      "id": "gt-05",
+      "title": "Message 框只有 40px 高",
+      "severity": "low",
+      "category": "视觉节奏",
+      "description": "Message textarea 的默认高度只有 40px,只能放一行文字,用户写两句话就要内部滚动,视觉上也跟旁边的 input 没区分,完全没传达「这里是给你长篇输入的」。",
+      "shouldFindWith": ["设计敏感"]
+    }
+  ]
+}

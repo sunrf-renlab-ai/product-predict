@@ -1,0 +1,182 @@
+{
+  "fixtureId": "19-slow-perceived",
+  "gtTotal": 5,
+  "ppTotal": 10,
+  "matched": 1,
+  "recall": 0.2,
+  "precision": 0.1,
+  "f1": 0.13333333333333333,
+  "severityAcc": 0,
+  "categoryAcc": 0,
+  "verdicts": [
+    {
+      "gtId": "gt-01",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0,
+      "reasoning": "judge failed: No JSON found in LLM output:\n"
+    },
+    {
+      "gtId": "gt-02",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0.4,
+      "reasoning": "i07是关于首屏看不到数据的静态问题GT是关于数据加载时缺少过渡动画的情感问题两者都不涉及功能失效或性能问题但核心问题不同"
+    },
+    {
+      "gtId": "gt-03",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0,
+      "reasoning": "GT issue is about random ordering of list items breaking visual rhythm, but no finding mentions order randomization or inconsistent item positions"
+    },
+    {
+      "gtId": "gt-04",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0,
+      "reasoning": "GT问题指向列表底部的加载更多功能缺失，属于分页体验问题。所有发现都聚焦在搜索失灵、按钮无响应、加载慢、看不到数据等，未涉及列表底部缺乏分页控件或无限滚动机制"
+    },
+    {
+      "gtId": "gt-05",
+      "findingId": "i07",
+      "matched": true,
+      "confidence": 0.65,
+      "reasoning": "i07描述看不到客户数据与GT的加载后空数据状态一致",
+      "severityAgrees": false,
+      "categoryAgrees": false
+    }
+  ],
+  "falsePositives": [
+    {
+      "findingId": "i01",
+      "finding": {
+        "title": "搜索框输入后没有任何反馈，像是卡死了",
+        "category": "性能感知",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i02",
+      "finding": {
+        "title": "两个筛选下拉按钮点完没反应，不知道是坏了还是我操作不对",
+        "category": "流程顺畅",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i03",
+      "finding": {
+        "title": "整体响应太慢，感觉像卡住了一样，让我很烦躁",
+        "category": "情感氛围",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i04",
+      "finding": {
+        "title": "搜索输入后列表不更新",
+        "category": "功能契合",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i05",
+      "finding": {
+        "title": "搜索输入后按回车完全没反应",
+        "category": "性能感知",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i06",
+      "finding": {
+        "title": "所有交互按钮都没有任何响应",
+        "category": "流程顺畅",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i08",
+      "finding": {
+        "title": "首屏只有大图，看不到任何实质功能",
+        "category": "视觉节奏",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i09",
+      "finding": {
+        "title": "搜索框和下拉按钮用途不明",
+        "category": "信息架构",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i10",
+      "finding": {
+        "title": "产品定位不清晰，不知道它是做什么的",
+        "category": "功能契合",
+        "severity": "high"
+      }
+    }
+  ],
+  "missed": [
+    {
+      "gtId": "gt-01",
+      "gt": {
+        "id": "gt-01",
+        "title": "加载时整片白屏没有 skeleton",
+        "severity": "high",
+        "category": "性能感知",
+        "description": "首屏进入页面 1.5 秒内,内容区是个高 480px 的空白容器,只有正中一小行 \"Loading...\" 灰字,没有任何 skeleton 行、placeholder 卡片、或 shimmer 动画。用户主观感受像产品卡住了,不知道是网络问题还是产品坏了。",
+        "shouldFindWith": [
+          "性能敏感",
+          "新手"
+        ]
+      }
+    },
+    {
+      "gtId": "gt-02",
+      "gt": {
+        "id": "gt-02",
+        "title": "数据加载完一下子蹦出来",
+        "severity": "high",
+        "category": "情感氛围",
+        "description": "1.5 秒后所有 10 行 customer 数据直接 snap 进 DOM,没有 fade-in / 淡入 / 渐次出现,从空白瞬间切到完整列表,视觉上一惊一乍,丧失了 \"产品在为我工作\" 的连贯感。",
+        "shouldFindWith": [
+          "设计敏感",
+          "性能敏感"
+        ]
+      }
+    },
+    {
+      "gtId": "gt-03",
+      "gt": {
+        "id": "gt-03",
+        "title": "列表项加载顺序是乱的",
+        "severity": "med",
+        "category": "视觉节奏",
+        "description": "fixture 数据有明确顺序 (Northwind Labs 在第一,Saltgrove 在最后),但 paintAll 用了 Math.random 把顺序打乱再插入。用户每次刷新页面看到的客户顺序都不一样,无法记忆位置,完全打破了「从上往下流式加载」的预期。",
+        "shouldFindWith": [
+          "细致用户",
+          "重度用户"
+        ]
+      }
+    },
+    {
+      "gtId": "gt-04",
+      "gt": {
+        "id": "gt-04",
+        "title": "滚到底没有「加载更多」",
+        "severity": "med",
+        "category": "流程顺畅",
+        "description": "列表底部就这样断了,既没有 \"Load more\" 按钮也没有 infinite scroll 监听器,旁边还残留着 — end of list — 但默认 display:none 看不到。如果客户超过 10 个用户根本不知道还有没有更多数据。",
+        "shouldFindWith": [
+          "重度用户",
+          "目标导向"
+        ]
+      }
+    }
+  ]
+}

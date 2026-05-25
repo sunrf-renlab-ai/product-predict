@@ -1,0 +1,165 @@
+{
+  "fixtureId": "05-modal-trap",
+  "gtTotal": 5,
+  "ppTotal": 12,
+  "matched": 3,
+  "recall": 0.6,
+  "precision": 0.16666666666666666,
+  "f1": 0.2608695652173913,
+  "severityAcc": 0.3333333333333333,
+  "categoryAcc": 0.6666666666666666,
+  "verdicts": [
+    {
+      "gtId": "gt-01",
+      "findingId": "i09",
+      "matched": true,
+      "confidence": 0.65,
+      "reasoning": "模态框让用户感到被困与没有跳过按钮本质相同，都是强制用户完成流程",
+      "severityAgrees": false,
+      "categoryAgrees": true
+    },
+    {
+      "gtId": "gt-02",
+      "findingId": "i07",
+      "matched": true,
+      "confidence": 0.85,
+      "reasoning": "用户无法了解产品是啥 因为被大modal遮挡 两者核心问题一致",
+      "severityAgrees": true,
+      "categoryAgrees": true
+    },
+    {
+      "gtId": "gt-03",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0.3,
+      "reasoning": "i09提到步进式填表体验但未触及无法回退核心问题"
+    },
+    {
+      "gtId": "gt-04",
+      "findingId": "i07",
+      "matched": true,
+      "confidence": 0.65,
+      "reasoning": "i07指出进门不知产品是干嘛的，GT批评标题缺少产品具体信息，两者都涉及产品信息传达不足",
+      "severityAgrees": false,
+      "categoryAgrees": false
+    },
+    {
+      "gtId": "gt-05",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0.1,
+      "reasoning": "GT关注意觉权重倒置主次按钮尺寸，PP无此发现"
+    }
+  ],
+  "falsePositives": [
+    {
+      "findingId": "i01",
+      "finding": {
+        "title": "Next 按钮点了完全没有反应",
+        "category": "功能契合",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i02",
+      "finding": {
+        "title": "Close 按钮不是关闭，而是打开模态框",
+        "category": "交互直觉",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i04",
+      "finding": {
+        "title": "onboarding 末尾突然出现 Slack 集成，感到被强推",
+        "category": "流程顺畅",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i05",
+      "finding": {
+        "title": "点关闭按钮触发 invite teammates modal，像陷阱",
+        "category": "信息架构",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i06",
+      "finding": {
+        "title": "表单提交按钮完全无响应，阻断感极强",
+        "category": "功能契合",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i10",
+      "finding": {
+        "title": "还没决定用就逼我绑Slack，太急了",
+        "category": "流程顺畅",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i11",
+      "finding": {
+        "title": "关个弹窗还报错，体验很差",
+        "category": "性能感知",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i08",
+      "finding": {
+        "title": "Learn more按钮点击无效，不知道是坏了还是需要等待",
+        "category": "可访问性",
+        "severity": "med"
+      }
+    },
+    {
+      "findingId": "i12",
+      "finding": {
+        "title": "一步接一步填表，像SAP那种烦人体验",
+        "category": "与竞品对比",
+        "severity": "med"
+      }
+    },
+    {
+      "findingId": "i03",
+      "finding": {
+        "title": "界面风格太严肃，不像 Canva 那种轻快设计",
+        "category": "情感氛围",
+        "severity": "low"
+      }
+    }
+  ],
+  "missed": [
+    {
+      "gtId": "gt-03",
+      "gt": {
+        "id": "gt-03",
+        "title": "5 步 onboarding 不能回头改",
+        "severity": "med",
+        "category": "学习成本",
+        "description": "modal 5 个步骤每步只有「Next」,没有 Back / Previous 按钮,用户填错前一步只能取消重来或在脑子里 hold 着错误继续走。",
+        "shouldFindWith": [
+          "细致型",
+          "新手"
+        ]
+      }
+    },
+    {
+      "gtId": "gt-05",
+      "gt": {
+        "id": "gt-05",
+        "title": "主 CTA 反而比次按钮小",
+        "severity": "low",
+        "category": "视觉节奏",
+        "description": "modal 底部 「Next」(主操作) 用了小尺寸 12px 蓝色按钮,而「Learn more about Drift」(次操作) 反而是大尺寸 16px 描边按钮,主次视觉权重颠倒,用户视线落在错的地方。",
+        "shouldFindWith": [
+          "设计敏感"
+        ]
+      }
+    }
+  ]
+}

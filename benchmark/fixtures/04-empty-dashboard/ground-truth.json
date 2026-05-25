@@ -1,0 +1,49 @@
+{
+  "id": "04-empty-dashboard",
+  "name": "Empty Project Dashboard",
+  "hint": "A project management tool's first-open empty dashboard — evaluate whether a new workspace user knows what to do next",
+  "port": 8204,
+  "description": "Empty state shows 'No projects yet' with no CTA, 8 overlapping nav concepts on the sidebar, duplicate Help/Docs entries, oversized status bar, no onboarding tour.",
+  "groundTruth": [
+    {
+      "id": "gt-01",
+      "title": "空状态没有「新建项目」按钮",
+      "severity": "high",
+      "category": "流程顺畅",
+      "description": "Projects 页面在没有任何项目时只显示一个图标加「No projects yet. Your projects will appear here.」,完全没有 New Project / Create your first project 之类的 CTA,新用户不知道下一步往哪点。",
+      "shouldFindWith": ["新手", "目标导向"]
+    },
+    {
+      "id": "gt-02",
+      "title": "侧栏 8 个概念分不清",
+      "severity": "high",
+      "category": "学习成本",
+      "description": "左侧导航有 Projects / Tasks / Milestones / Sprints / Cycles / Goals / Reports / Team 8 项,Sprints 与 Cycles、Milestones 与 Goals 概念高度重合,新用户根本判断不出该先点哪个。",
+      "shouldFindWith": ["新手", "评估者"]
+    },
+    {
+      "id": "gt-03",
+      "title": "首次进入没有 onboarding tour",
+      "severity": "med",
+      "category": "情感氛围",
+      "description": "工作区为空、用户首次登录,但页面完全冷淡,没有欢迎弹窗、没有 checklist、也没有任何引导式 tour,新用户感受不到产品在帮他上手。",
+      "shouldFindWith": ["新手"]
+    },
+    {
+      "id": "gt-04",
+      "title": "Help 和 Docs 重复出现两次",
+      "severity": "med",
+      "category": "信息架构",
+      "description": "Help 和 Docs 在左侧 Resources 区出现一次,又在右下浮窗里出现一次,而且它们彼此内容也基本重叠,造成信息架构冗余,用户不知道点哪个。",
+      "shouldFindWith": ["细致型", "评估者"]
+    },
+    {
+      "id": "gt-05",
+      "title": "顶部 status bar 占 80px 只显示一行字",
+      "severity": "low",
+      "category": "视觉节奏",
+      "description": "顶部 80px 高的 status bar 只写了一行「Workspace · Plan · Last sync」,信息密度极低,挤压了主内容区的视觉空间。",
+      "shouldFindWith": ["设计敏感"]
+    }
+  ]
+}

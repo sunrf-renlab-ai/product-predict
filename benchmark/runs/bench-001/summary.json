@@ -1,0 +1,3785 @@
+{
+  "runId": "bench-001",
+  "startedAt": "2026-05-25T11:41:25.963Z",
+  "finishedAt": "2026-05-25T12:38:22.529Z",
+  "pp": {
+    "version": "0.5.0",
+    "provider": "proxy",
+    "model": "MiniMax-M2.7",
+    "maxSteps": 15,
+    "maxMinutes": 4,
+    "agentsPerFixture": 4
+  },
+  "fixtureCount": 20,
+  "aggregate": {
+    "gtTotal": 102,
+    "ppTotal": 212,
+    "matched": 21,
+    "recall": 0.20588235294117646,
+    "precision": 0.08962264150943396,
+    "f1": 0.12488262910798122,
+    "severityAcc": 0.5238095238095238,
+    "categoryAcc": 0.6190476190476191
+  },
+  "perFixture": [
+    {
+      "fixtureId": "01-broken-todo",
+      "gtTotal": 5,
+      "ppTotal": 9,
+      "matched": 0,
+      "recall": 0,
+      "precision": 0,
+      "f1": 0,
+      "severityAcc": 0,
+      "categoryAcc": 0,
+      "verdicts": [
+        {
+          "gtId": "gt-01",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0.1,
+          "reasoning": "GT关于CTA不明显所有pp都是页面按钮失效问题不匹配"
+        },
+        {
+          "gtId": "gt-02",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0,
+          "reasoning": "GT 关注键盘快捷键 Cmd+ vs Cmd+K 不一致,所有 PP 都是按钮失效问题,无交集"
+        },
+        {
+          "gtId": "gt-03",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0.05,
+          "reasoning": "GT专注文本对比度可访问性问题,所有发现都是交互失效或信息架构问题,主题完全不同"
+        },
+        {
+          "gtId": "gt-04",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0.3,
+          "reasoning": "GT focuses on placeholder content in nav tabs not real previews; all findings describe complete non-interactivity or other categories"
+        },
+        {
+          "gtId": "gt-05",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0,
+          "reasoning": "GT是关于文字间距过紧导致的视觉呼吸感问题，所有finding都聚焦在功能失效或布局类型上，与GT无关"
+        }
+      ],
+      "falsePositives": [
+        {
+          "findingId": "i01",
+          "finding": {
+            "title": "整个页面完全无法交互",
+            "category": "可访问性",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i03",
+          "finding": {
+            "title": "页面完全不可交互，没有任何反馈",
+            "category": "功能契合",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i04",
+          "finding": {
+            "title": "没有产品介绍，看不懂这是做什么的",
+            "category": "信息架构",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i06",
+          "finding": {
+            "title": "落地页所有交互按钮全部失效",
+            "category": "功能契合",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i07",
+          "finding": {
+            "title": "连 Sign in 都点不动，彻底关上了体验的门",
+            "category": "流程顺畅",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i08",
+          "finding": {
+            "title": "所有功能按钮都点不了，感觉这网站是死的",
+            "category": "功能契合",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i09",
+          "finding": {
+            "title": "产品看起来像能用的，但实际上是残次品",
+            "category": "情感氛围",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i02",
+          "finding": {
+            "title": "产品定位模糊，标语缺乏信息量",
+            "category": "表达文案",
+            "severity": "med"
+          }
+        },
+        {
+          "findingId": "i05",
+          "finding": {
+            "title": "布局像是登录后界面但实际不是，用户容易困惑",
+            "category": "视觉节奏",
+            "severity": "med"
+          }
+        }
+      ],
+      "missed": [
+        {
+          "gtId": "gt-01",
+          "gt": {
+            "id": "gt-01",
+            "title": "找不到明显的「开始使用」按钮",
+            "severity": "high",
+            "category": "流程顺畅",
+            "description": "整个 hero 区只有一个灰色虚线下划线的「request access」小链接,没有任何高亮的 primary CTA,新访客需要扫描很久才能找到怎么开始。",
+            "shouldFindWith": [
+              "新手",
+              "目标导向"
+            ]
+          }
+        },
+        {
+          "gtId": "gt-02",
+          "gt": {
+            "id": "gt-02",
+            "title": "命令面板用 Cmd+/ 不是 Cmd+K",
+            "severity": "high",
+            "category": "与竞品对比",
+            "description": "hero 区底部提示用 Cmd+/ 打开命令面板,跟 Linear / Notion / Raycast 等同类工具的 Cmd+K 不一致,键盘党用户会下意识按 Cmd+K 然后什么都没发生。",
+            "shouldFindWith": [
+              "键盘党",
+              "重度用户"
+            ]
+          }
+        },
+        {
+          "gtId": "gt-03",
+          "gt": {
+            "id": "gt-03",
+            "title": "暗色模式次要按钮几乎看不见",
+            "severity": "med",
+            "category": "可访问性",
+            "description": "右上角 Sign in 按钮文字颜色 #4a4f57 在 #0b0d10 背景上对比度约 2.1:1,远低于 WCAG AA 要求的 4.5:1,弱视用户和强光环境下完全读不出来。",
+            "shouldFindWith": [
+              "可访问性敏感",
+              "弱视"
+            ]
+          }
+        },
+        {
+          "gtId": "gt-04",
+          "gt": {
+            "id": "gt-04",
+            "title": "4 个导航 tab 全是 placeholder",
+            "severity": "med",
+            "category": "信息架构",
+            "description": "Inbox / Sprints / Reviews / Insights 四个 tab 点开都只显示「Coming soon」之类的文字,没有任何真实产品截图或交互预览,访客无法判断产品长什么样。",
+            "shouldFindWith": [
+              "评估者",
+              "新手"
+            ]
+          }
+        },
+        {
+          "gtId": "gt-05",
+          "gt": {
+            "id": "gt-05",
+            "title": "hero 标题副标题挤在一起",
+            "severity": "low",
+            "category": "视觉节奏",
+            "description": "h1 跟下面的 subtitle 间距只有 4px,subtitle 跟说明段又只有 6px,三段文字粘成一团,视觉上没有呼吸感,影响第一印象。",
+            "shouldFindWith": [
+              "设计敏感"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "fixtureId": "02-dense-pricing",
+      "gtTotal": 6,
+      "ppTotal": 10,
+      "matched": 2,
+      "recall": 0.3333333333333333,
+      "precision": 0.2,
+      "f1": 0.25,
+      "severityAcc": 0.5,
+      "categoryAcc": 1,
+      "verdicts": [
+        {
+          "gtId": "gt-01",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0.2,
+          "reasoning": "i07和i10涉及信息缺失但非布局问题，其余均为性能或交互故障"
+        },
+        {
+          "gtId": "gt-02",
+          "findingId": "i10",
+          "matched": true,
+          "confidence": 0.72,
+          "reasoning": "i10指出价格方案信息不足用户无法判断价值与GT问题定价文案含糊无法估算花费同属定价信息不透明问题",
+          "severityAgrees": true,
+          "categoryAgrees": true
+        },
+        {
+          "gtId": "gt-03",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0.35,
+          "reasoning": "Enterprise信息不足与禁用按钮问题相近但非同一问题"
+        },
+        {
+          "gtId": "gt-04",
+          "findingId": "i04",
+          "matched": true,
+          "confidence": 0.75,
+          "reasoning": "i04直接指出功能对比藏得不够浅，用户差点以为没有，这和GT描述的功能对比被默认折叠需先发现开关才能查看完全对应",
+          "severityAgrees": false,
+          "categoryAgrees": true
+        },
+        {
+          "gtId": "gt-05",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0,
+          "reasoning": "GT关于情感氛围机械感，无finding描述此问题"
+        },
+        {
+          "gtId": "gt-06",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0.3,
+          "reasoning": "i05 Enterprise信息少 但GT是命名混乱 无直接关联"
+        }
+      ],
+      "falsePositives": [
+        {
+          "findingId": "i01",
+          "finding": {
+            "title": "页面主内容区完全空白，滚动也没用",
+            "category": "性能感知",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i02",
+          "finding": {
+            "title": "导航栏的 Pricing 链接点了没反应",
+            "category": "流程顺畅",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i03",
+          "finding": {
+            "title": "作为一个急着比价的用户，一分钟什么都看不到已经没耐心了",
+            "category": "情感氛围",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i06",
+          "finding": {
+            "title": "产品定位模糊，看不出是什么东西",
+            "category": "信息架构",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i07",
+          "finding": {
+            "title": "定价信息几乎不可见，对比无从下手",
+            "category": "信息架构",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i08",
+          "finding": {
+            "title": "点击按钮没有反应，交互完全失效",
+            "category": "流程顺畅",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i09",
+          "finding": {
+            "title": "点「Start free」按钮完全没反应，感觉是半成品",
+            "category": "流程顺畅",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i05",
+          "finding": {
+            "title": "Enterprise 一栏只写着\"定制定价\"，感觉像是放弃了说明",
+            "category": "信息架构",
+            "severity": "low"
+          }
+        }
+      ],
+      "missed": [
+        {
+          "gtId": "gt-01",
+          "gt": {
+            "id": "gt-01",
+            "title": "5 个 plan 横向挤一行字撞墙",
+            "severity": "high",
+            "category": "信息架构",
+            "description": "5 个 plan 卡片用 grid-template-columns: repeat(5, 1fr),在 1280 视口下每张卡只有约 220px,标题/功能描述都会换行 3 次以上,扫读非常痛苦。",
+            "shouldFindWith": [
+              "评估者",
+              "购买决策者"
+            ]
+          }
+        },
+        {
+          "gtId": "gt-03",
+          "gt": {
+            "id": "gt-03",
+            "title": "Enterprise 联系销售按钮是 disabled",
+            "severity": "med",
+            "category": "流程顺畅",
+            "description": "Enterprise plan 的 Contact sales 按钮是 disabled 状态,点不动也没给邮箱或表单链接,大客户根本没法发起对话。",
+            "shouldFindWith": [
+              "购买决策者",
+              "B2B 评估者"
+            ]
+          }
+        },
+        {
+          "gtId": "gt-05",
+          "gt": {
+            "id": "gt-05",
+            "title": "每个 feature 只有 ✓/✗ 太机械",
+            "severity": "med",
+            "category": "情感氛围",
+            "description": "所有 plan 的 feature 列表都用 ✓ ✗ 标记,没有突出差异化卖点、没有图标、没有任何情绪化的描述,价格页看上去像一张干涩的电子表格而不是一个产品。",
+            "shouldFindWith": [
+              "设计敏感",
+              "营销视角"
+            ]
+          }
+        },
+        {
+          "gtId": "gt-06",
+          "gt": {
+            "id": "gt-06",
+            "title": "Pro / Pro+ / Business+ 命名混乱",
+            "severity": "low",
+            "category": "表达文案",
+            "description": "档位用「Pro / Pro+ / Business / Business+ / Enterprise」命名,Pro+ 和 Business+ 没有传达任何含义,用户得对照表格才能判断升级方向。",
+            "shouldFindWith": [
+              "新手"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "fixtureId": "03-heavy-signup",
+      "gtTotal": 6,
+      "ppTotal": 8,
+      "matched": 1,
+      "recall": 0.16666666666666666,
+      "precision": 0.125,
+      "f1": 0.14285714285714288,
+      "severityAcc": 1,
+      "categoryAcc": 1,
+      "verdicts": [
+        {
+          "gtId": "gt-01",
+          "findingId": "i04",
+          "matched": true,
+          "confidence": 0.92,
+          "reasoning": "i04直接指出电话和密码都在第一页且字段太多导致想关掉页面，完全对应GT描述的8个必填字段一屏铺开的核心问题",
+          "severityAgrees": true,
+          "categoryAgrees": true
+        },
+        {
+          "gtId": "gt-02",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0,
+          "reasoning": "GT聚焦错误提示模糊无字段定位，所有finding均未提及错误信息问题"
+        },
+        {
+          "gtId": "gt-03",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0,
+          "reasoning": "所有pp findings都是关于表单字段多、隐私感受、步骤中断或页面信息缺失，均未涉及提交后loading反馈缺失的问题"
+        },
+        {
+          "gtId": "gt-04",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0,
+          "reasoning": "No finding addresses missing individual option in company size dropdown"
+        },
+        {
+          "gtId": "gt-05",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0,
+          "reasoning": "No finding mentions placeholder labels or accessibility issues"
+        },
+        {
+          "gtId": "gt-06",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0,
+          "reasoning": "No finding mentions password requirements or late disclosure of validation rules"
+        }
+      ],
+      "falsePositives": [
+        {
+          "findingId": "i01",
+          "finding": {
+            "title": "注册字段太多，还没进门就劝退了",
+            "category": "流程顺畅",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i02",
+          "finding": {
+            "title": "要求工作邮箱和电话，感觉被过度索取隐私",
+            "category": "情感氛围",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i05",
+          "finding": {
+            "title": "表单把用户当'潜在客户'而不是'想试试的人'",
+            "category": "情感氛围",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i07",
+          "finding": {
+            "title": "注册页没有产品名称，像在填黑盒表单",
+            "category": "信息架构",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i08",
+          "finding": {
+            "title": "填到一半被强制中断，步骤限制让人很烦躁",
+            "category": "流程顺畅",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i03",
+          "finding": {
+            "title": "跟竞品Linear比，注册摩擦差距太大",
+            "category": "与竞品对比",
+            "severity": "med"
+          }
+        },
+        {
+          "findingId": "i06",
+          "finding": {
+            "title": "页面顶部看不清，不知道这个产品是做什么的",
+            "category": "信息架构",
+            "severity": "med"
+          }
+        }
+      ],
+      "missed": [
+        {
+          "gtId": "gt-02",
+          "gt": {
+            "id": "gt-02",
+            "title": "报错只说「Invalid input」",
+            "severity": "high",
+            "category": "表达文案",
+            "description": "提交失败只显示一行 「Invalid input. Please check your entries.」红条,没有定位到具体字段、没有原因解释,用户不知道改哪个。",
+            "shouldFindWith": [
+              "新手",
+              "细致型"
+            ]
+          }
+        },
+        {
+          "gtId": "gt-03",
+          "gt": {
+            "id": "gt-03",
+            "title": "提交后毫无 loading 反馈",
+            "severity": "high",
+            "category": "情感氛围",
+            "description": "Create account 按钮点了之后既不变 disabled、不显示 spinner、也没有进度条或成功页跳转,用户怀疑表单坏了,常会连点多次。",
+            "shouldFindWith": [
+              "新手",
+              "怀疑论者"
+            ]
+          }
+        },
+        {
+          "gtId": "gt-04",
+          "gt": {
+            "id": "gt-04",
+            "title": "公司规模 dropdown 没有「个人」",
+            "severity": "med",
+            "category": "功能契合",
+            "description": "Company size 是必选 dropdown,选项只有 1-5 / 6-20 / 21-100 / 100+,但产品说「无需信用卡 免费开始」吸引的是个人用户,个人用户没法选,被迫撒谎。",
+            "shouldFindWith": [
+              "个人开发者",
+              "诚实填表"
+            ]
+          }
+        },
+        {
+          "gtId": "gt-05",
+          "gt": {
+            "id": "gt-05",
+            "title": "label 全部用 placeholder 实现",
+            "severity": "med",
+            "category": "可访问性",
+            "description": "所有字段没有独立的 <label>,字段名靠 placeholder 文字,用户开始输入后 placeholder 消失,再回头检查时记不起这个框是干嘛的,且屏幕阅读器读得不准。",
+            "shouldFindWith": [
+              "可访问性敏感",
+              "新手"
+            ]
+          }
+        },
+        {
+          "gtId": "gt-06",
+          "gt": {
+            "id": "gt-06",
+            "title": "密码规则要等提交后才告诉",
+            "severity": "low",
+            "category": "学习成本",
+            "description": "代码里密码要求大小写+数字+符号+12位以上,但 placeholder 只写「Password」,前端没有任何提示;用户随便输完点提交才看到通用错误,然后还得猜哪里不合格。",
+            "shouldFindWith": [
+              "新手"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "fixtureId": "04-empty-dashboard",
+      "gtTotal": 5,
+      "ppTotal": 10,
+      "matched": 1,
+      "recall": 0.2,
+      "precision": 0.1,
+      "f1": 0.13333333333333333,
+      "severityAcc": 1,
+      "categoryAcc": 0,
+      "verdicts": [
+        {
+          "gtId": "gt-01",
+          "findingId": "i10",
+          "matched": true,
+          "confidence": 0.7,
+          "reasoning": "空状态没有引导与GT问题核心一致即缺新建入口",
+          "severityAgrees": true,
+          "categoryAgrees": false
+        },
+        {
+          "gtId": "gt-02",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0,
+          "reasoning": "GT关于侧栏8个概念区分不清学习成本问题与PP发现空状态导航失灵等问题完全不同"
+        },
+        {
+          "gtId": "gt-03",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0,
+          "reasoning": "judge failed: No JSON found in LLM output:\nLet me analyze the GT issue and the findings carefully.\n\n**GT Issue:**\n- id: gt-03\n- severity: med\n- category: 情感氛围 (Emotional Atmosphere)\n- title: 首次进入没有 onboarding tour\n- desc: 工作区为空、用户首次登录,但页面完全冷淡,没有欢迎弹窗、没有 checklist、也没有任何引导式 tour,新用户"
+        },
+        {
+          "gtId": "gt-04",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0.2,
+          "reasoning": "GT关注Help/Docs在两处重复出现的冗余问题，而i08只提到底部Help/Docs按钮是死链接，两者是不同维度的问题"
+        },
+        {
+          "gtId": "gt-05",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0,
+          "reasoning": "GT issue is about status bar wasting 80px vertical space for one line of text but PP findings focus on empty dashboard interaction issues"
+        }
+      ],
+      "falsePositives": [
+        {
+          "findingId": "i01",
+          "finding": {
+            "title": "空白仪表板没有任何内容或引导",
+            "category": "流程顺畅",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i02",
+          "finding": {
+            "title": "Projects 点击后完全没反应",
+            "category": "性能感知",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i04",
+          "finding": {
+            "title": "导航链接点击后毫无反应",
+            "category": "可访问性",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i05",
+          "finding": {
+            "title": "空壳演示让人无法评估产品价值",
+            "category": "情感氛围",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i06",
+          "finding": {
+            "title": "Dashboard 完全是空白，没有任何内容或引导",
+            "category": "信息架构",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i07",
+          "finding": {
+            "title": "左侧导航栏点击后毫无响应，交互失效",
+            "category": "可访问性",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i09",
+          "finding": {
+            "title": "点击导航完全没反应，探索之路直接断了",
+            "category": "流程顺畅",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i03",
+          "finding": {
+            "title": "和 Asana 比起来完全没法上手",
+            "category": "与竞品对比",
+            "severity": "med"
+          }
+        },
+        {
+          "findingId": "i08",
+          "finding": {
+            "title": "底部 Help/Docs 按钮也是死链接",
+            "category": "情感氛围",
+            "severity": "med"
+          }
+        }
+      ],
+      "missed": [
+        {
+          "gtId": "gt-02",
+          "gt": {
+            "id": "gt-02",
+            "title": "侧栏 8 个概念分不清",
+            "severity": "high",
+            "category": "学习成本",
+            "description": "左侧导航有 Projects / Tasks / Milestones / Sprints / Cycles / Goals / Reports / Team 8 项,Sprints 与 Cycles、Milestones 与 Goals 概念高度重合,新用户根本判断不出该先点哪个。",
+            "shouldFindWith": [
+              "新手",
+              "评估者"
+            ]
+          }
+        },
+        {
+          "gtId": "gt-03",
+          "gt": {
+            "id": "gt-03",
+            "title": "首次进入没有 onboarding tour",
+            "severity": "med",
+            "category": "情感氛围",
+            "description": "工作区为空、用户首次登录,但页面完全冷淡,没有欢迎弹窗、没有 checklist、也没有任何引导式 tour,新用户感受不到产品在帮他上手。",
+            "shouldFindWith": [
+              "新手"
+            ]
+          }
+        },
+        {
+          "gtId": "gt-04",
+          "gt": {
+            "id": "gt-04",
+            "title": "Help 和 Docs 重复出现两次",
+            "severity": "med",
+            "category": "信息架构",
+            "description": "Help 和 Docs 在左侧 Resources 区出现一次,又在右下浮窗里出现一次,而且它们彼此内容也基本重叠,造成信息架构冗余,用户不知道点哪个。",
+            "shouldFindWith": [
+              "细致型",
+              "评估者"
+            ]
+          }
+        },
+        {
+          "gtId": "gt-05",
+          "gt": {
+            "id": "gt-05",
+            "title": "顶部 status bar 占 80px 只显示一行字",
+            "severity": "low",
+            "category": "视觉节奏",
+            "description": "顶部 80px 高的 status bar 只写了一行「Workspace · Plan · Last sync」,信息密度极低,挤压了主内容区的视觉空间。",
+            "shouldFindWith": [
+              "设计敏感"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "fixtureId": "05-modal-trap",
+      "gtTotal": 5,
+      "ppTotal": 12,
+      "matched": 3,
+      "recall": 0.6,
+      "precision": 0.16666666666666666,
+      "f1": 0.2608695652173913,
+      "severityAcc": 0.3333333333333333,
+      "categoryAcc": 0.6666666666666666,
+      "verdicts": [
+        {
+          "gtId": "gt-01",
+          "findingId": "i09",
+          "matched": true,
+          "confidence": 0.65,
+          "reasoning": "模态框让用户感到被困与没有跳过按钮本质相同，都是强制用户完成流程",
+          "severityAgrees": false,
+          "categoryAgrees": true
+        },
+        {
+          "gtId": "gt-02",
+          "findingId": "i07",
+          "matched": true,
+          "confidence": 0.85,
+          "reasoning": "用户无法了解产品是啥 因为被大modal遮挡 两者核心问题一致",
+          "severityAgrees": true,
+          "categoryAgrees": true
+        },
+        {
+          "gtId": "gt-03",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0.3,
+          "reasoning": "i09提到步进式填表体验但未触及无法回退核心问题"
+        },
+        {
+          "gtId": "gt-04",
+          "findingId": "i07",
+          "matched": true,
+          "confidence": 0.65,
+          "reasoning": "i07指出进门不知产品是干嘛的，GT批评标题缺少产品具体信息，两者都涉及产品信息传达不足",
+          "severityAgrees": false,
+          "categoryAgrees": false
+        },
+        {
+          "gtId": "gt-05",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0.1,
+          "reasoning": "GT关注意觉权重倒置主次按钮尺寸，PP无此发现"
+        }
+      ],
+      "falsePositives": [
+        {
+          "findingId": "i01",
+          "finding": {
+            "title": "Next 按钮点了完全没有反应",
+            "category": "功能契合",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i02",
+          "finding": {
+            "title": "Close 按钮不是关闭，而是打开模态框",
+            "category": "交互直觉",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i04",
+          "finding": {
+            "title": "onboarding 末尾突然出现 Slack 集成，感到被强推",
+            "category": "流程顺畅",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i05",
+          "finding": {
+            "title": "点关闭按钮触发 invite teammates modal，像陷阱",
+            "category": "信息架构",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i06",
+          "finding": {
+            "title": "表单提交按钮完全无响应，阻断感极强",
+            "category": "功能契合",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i10",
+          "finding": {
+            "title": "还没决定用就逼我绑Slack，太急了",
+            "category": "流程顺畅",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i11",
+          "finding": {
+            "title": "关个弹窗还报错，体验很差",
+            "category": "性能感知",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i08",
+          "finding": {
+            "title": "Learn more按钮点击无效，不知道是坏了还是需要等待",
+            "category": "可访问性",
+            "severity": "med"
+          }
+        },
+        {
+          "findingId": "i12",
+          "finding": {
+            "title": "一步接一步填表，像SAP那种烦人体验",
+            "category": "与竞品对比",
+            "severity": "med"
+          }
+        },
+        {
+          "findingId": "i03",
+          "finding": {
+            "title": "界面风格太严肃，不像 Canva 那种轻快设计",
+            "category": "情感氛围",
+            "severity": "low"
+          }
+        }
+      ],
+      "missed": [
+        {
+          "gtId": "gt-03",
+          "gt": {
+            "id": "gt-03",
+            "title": "5 步 onboarding 不能回头改",
+            "severity": "med",
+            "category": "学习成本",
+            "description": "modal 5 个步骤每步只有「Next」,没有 Back / Previous 按钮,用户填错前一步只能取消重来或在脑子里 hold 着错误继续走。",
+            "shouldFindWith": [
+              "细致型",
+              "新手"
+            ]
+          }
+        },
+        {
+          "gtId": "gt-05",
+          "gt": {
+            "id": "gt-05",
+            "title": "主 CTA 反而比次按钮小",
+            "severity": "low",
+            "category": "视觉节奏",
+            "description": "modal 底部 「Next」(主操作) 用了小尺寸 12px 蓝色按钮,而「Learn more about Drift」(次操作) 反而是大尺寸 16px 描边按钮,主次视觉权重颠倒,用户视线落在错的地方。",
+            "shouldFindWith": [
+              "设计敏感"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "fixtureId": "06-silent-form",
+      "gtTotal": 5,
+      "ppTotal": 10,
+      "matched": 1,
+      "recall": 0.2,
+      "precision": 0.1,
+      "f1": 0.13333333333333333,
+      "severityAcc": 1,
+      "categoryAcc": 1,
+      "verdicts": [
+        {
+          "gtId": "gt-01",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0.1,
+          "reasoning": "No finding addresses post-submit feedback absence"
+        },
+        {
+          "gtId": "gt-02",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0,
+          "reasoning": "No finding addresses missing success/failure feedback after form submission"
+        },
+        {
+          "gtId": "gt-03",
+          "findingId": "i05",
+          "matched": true,
+          "confidence": 0.6,
+          "reasoning": "两者都指向表单页面缺少上下文信息，用户不清楚表单的用途和页面目的",
+          "severityAgrees": true,
+          "categoryAgrees": true
+        },
+        {
+          "gtId": "gt-04",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0.15,
+          "reasoning": "i09 is about dropdown selection feedback not confirming what is selected, GT is about required field indicators"
+        },
+        {
+          "gtId": "gt-05",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0.1,
+          "reasoning": "所有发现都是功能交互或信息架构问题，无一涉及 textarea 高度或视觉节奏"
+        }
+      ],
+      "falsePositives": [
+        {
+          "findingId": "i01",
+          "finding": {
+            "title": "表单输入交互混乱，数据乱跳",
+            "category": "功能契合",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i02",
+          "finding": {
+            "title": "输入框不吃数据或吞内容",
+            "category": "功能契合",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i03",
+          "finding": {
+            "title": "不敢提交，怕信息错乱丢客户",
+            "category": "情感氛围",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i04",
+          "finding": {
+            "title": "导航链接全挂了，直接断了我了解产品的路",
+            "category": "信息架构",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i08",
+          "finding": {
+            "title": "品牌/产品身份缺失，看完不知道这是谁",
+            "category": "信息架构",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i10",
+          "finding": {
+            "title": "被强制踢出，连表单都没填完",
+            "category": "流程顺畅",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i06",
+          "finding": {
+            "title": "表单页面没有让我知道这个产品是什么",
+            "category": "信息架构",
+            "severity": "med"
+          }
+        },
+        {
+          "findingId": "i09",
+          "finding": {
+            "title": "下拉菜单要操作两次才能选中一个选项",
+            "category": "功能契合",
+            "severity": "med"
+          }
+        },
+        {
+          "findingId": "i07",
+          "finding": {
+            "title": "Topic 下拉菜单选完后没有明确提示当前选中的是哪个",
+            "category": "视觉节奏",
+            "severity": "low"
+          }
+        }
+      ],
+      "missed": [
+        {
+          "gtId": "gt-01",
+          "gt": {
+            "id": "gt-01",
+            "title": "提交后完全没反馈",
+            "severity": "high",
+            "category": "流程顺畅",
+            "description": "点 Submit 后按钮不变 disabled、没有 loading spinner、页面无任何变化、没有跳转,用户根本不知道有没有提交成功,大概率会重复点击。",
+            "shouldFindWith": [
+              "目标导向",
+              "新手"
+            ]
+          }
+        },
+        {
+          "gtId": "gt-02",
+          "gt": {
+            "id": "gt-02",
+            "title": "没有成功 / 失败提示",
+            "severity": "high",
+            "category": "情感氛围",
+            "description": "提交后既没有成功 toast / 跳转感谢页,也没有失败提示,用户处在「我是不是搞砸了」的不安里,完全失去对产品的信任。",
+            "shouldFindWith": [
+              "新手",
+              "评估者"
+            ]
+          }
+        },
+        {
+          "gtId": "gt-04",
+          "gt": {
+            "id": "gt-04",
+            "title": "必填字段没有任何标记",
+            "severity": "med",
+            "category": "可访问性",
+            "description": "所有字段都没有红色星号、没有 (required) 文字、也没有颜色区分,用户提交前无法预知哪些字段必填,屏幕阅读器也读不到 required 信息。",
+            "shouldFindWith": [
+              "可访问性敏感",
+              "目标导向"
+            ]
+          }
+        },
+        {
+          "gtId": "gt-05",
+          "gt": {
+            "id": "gt-05",
+            "title": "Message 框只有 40px 高",
+            "severity": "low",
+            "category": "视觉节奏",
+            "description": "Message textarea 的默认高度只有 40px,只能放一行文字,用户写两句话就要内部滚动,视觉上也跟旁边的 input 没区分,完全没传达「这里是给你长篇输入的」。",
+            "shouldFindWith": [
+              "设计敏感"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "fixtureId": "07-lost-search",
+      "gtTotal": 5,
+      "ppTotal": 12,
+      "matched": 0,
+      "recall": 0,
+      "precision": 0,
+      "f1": 0,
+      "severityAcc": 0,
+      "categoryAcc": 0,
+      "verdicts": [
+        {
+          "gtId": "gt-01",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0,
+          "reasoning": "judge failed: No JSON found in LLM output:\n"
+        },
+        {
+          "gtId": "gt-02",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0,
+          "reasoning": "GT聚焦搜索容错能力缺失拼写纠错模糊匹配，所有PP发现都是搜索功能完全无响应的交互失效问题"
+        },
+        {
+          "gtId": "gt-03",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0.1,
+          "reasoning": "GT关注placeholder文案引导问题,所有PP finding都描述搜索功能完全不工作无响应"
+        },
+        {
+          "gtId": "gt-04",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0.2,
+          "reasoning": "GT关注清除按钮缺失,PP发现都是搜索回车无响应,不同底层问题"
+        },
+        {
+          "gtId": "gt-05",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0.3,
+          "reasoning": "GT关于搜索结果视觉分组,PP findings都是功能不工作问题"
+        }
+      ],
+      "falsePositives": [
+        {
+          "findingId": "i01",
+          "finding": {
+            "title": "搜索按回车完全没反应",
+            "category": "功能契合",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i02",
+          "finding": {
+            "title": "导航链接点击后毫无响应",
+            "category": "流程顺畅",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i04",
+          "finding": {
+            "title": "搜索框在C位却完全不可用",
+            "category": "功能契合",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i05",
+          "finding": {
+            "title": "导航栏是装饰，点了没反应",
+            "category": "流程顺畅",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i06",
+          "finding": {
+            "title": "子路径直接 404",
+            "category": "信息架构",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i07",
+          "finding": {
+            "title": "搜索按回车完全没反应，核心功能挂掉",
+            "category": "功能契合",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i08",
+          "finding": {
+            "title": "导航栏点击完全没响应，页面像摆设",
+            "category": "流程顺畅",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i10",
+          "finding": {
+            "title": "搜索框输入后回车完全没反应，感觉是个摆设",
+            "category": "功能契合",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i11",
+          "finding": {
+            "title": "导航链接点击后页面没有任何变化，怀疑是假链接",
+            "category": "功能契合",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i12",
+          "finding": {
+            "title": "找不到任何实质内容，对这个网站失去信任",
+            "category": "情感氛围",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i03",
+          "finding": {
+            "title": "没有任何交互反馈让我不知所措",
+            "category": "情感氛围",
+            "severity": "med"
+          }
+        },
+        {
+          "findingId": "i09",
+          "finding": {
+            "title": "跟 Algolia DocSearch 比差太多，没理由切换过来",
+            "category": "与竞品对比",
+            "severity": "med"
+          }
+        }
+      ],
+      "missed": [
+        {
+          "gtId": "gt-01",
+          "gt": {
+            "id": "gt-01",
+            "title": "搜不到结果就完全空白",
+            "severity": "high",
+            "category": "信息架构",
+            "description": "输入一个无匹配的关键词后,结果区直接变成空白,既没有 'No results for X' 文案、也没有 'Try a different keyword' 引导,用户会以为页面坏了或者搜索框没生效。",
+            "shouldFindWith": [
+              "新手",
+              "目标导向"
+            ]
+          }
+        },
+        {
+          "gtId": "gt-02",
+          "gt": {
+            "id": "gt-02",
+            "title": "拼错一个字母就 0 结果",
+            "severity": "high",
+            "category": "功能契合",
+            "description": "搜索是严格 substring 匹配,没有 typo correction、没有 fuzzy match、没有 autocomplete。搜 'authentcation' / 'markdwn' 都返回零,普通 docs 站点早就具备的容错完全缺失。",
+            "shouldFindWith": [
+              "重度用户",
+              "评估者"
+            ]
+          }
+        },
+        {
+          "gtId": "gt-03",
+          "gt": {
+            "id": "gt-03",
+            "title": "Search... 占位符没说能搜什么",
+            "severity": "med",
+            "category": "表达文案",
+            "description": "搜索框 placeholder 就一句 'Search...',没告诉用户能搜 docs、API、还是社区内容,缺乏 'Search docs, API, guides...' 这种带选项的引导文案。",
+            "shouldFindWith": [
+              "新手"
+            ]
+          }
+        },
+        {
+          "gtId": "gt-04",
+          "gt": {
+            "id": "gt-04",
+            "title": "输入框没有清除按钮",
+            "severity": "med",
+            "category": "流程顺畅",
+            "description": "search input 没有 × clear 按钮,用户想换关键词必须全选再删除或者用退格慢慢删,在搜索这种高频交互场景里是常识级的缺失。",
+            "shouldFindWith": [
+              "重度用户"
+            ]
+          }
+        },
+        {
+          "gtId": "gt-05",
+          "gt": {
+            "id": "gt-05",
+            "title": "所有结果卡片长得一样",
+            "severity": "low",
+            "category": "视觉节奏",
+            "description": "搜索命中的所有结果都用同样大小、同样颜色的卡片,没区分最佳匹配 / 次要匹配,也没按类型 (api / guide / account) 视觉分组,用户得逐条读才能找到想要的。",
+            "shouldFindWith": [
+              "设计敏感"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "fixtureId": "08-stuck-wizard",
+      "gtTotal": 6,
+      "ppTotal": 13,
+      "matched": 3,
+      "recall": 0.5,
+      "precision": 0.23076923076923078,
+      "f1": 0.3157894736842105,
+      "severityAcc": 0,
+      "categoryAcc": 0.6666666666666666,
+      "verdicts": [
+        {
+          "gtId": "gt-01",
+          "findingId": "i10",
+          "matched": true,
+          "confidence": 0.85,
+          "reasoning": "直接提及Back按钮失效无法返回,完全对应GT缺少返回按钮的核心问题",
+          "severityAgrees": false,
+          "categoryAgrees": false
+        },
+        {
+          "gtId": "gt-02",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0.3,
+          "reasoning": "i10 mentions Back button not responding, possibly symptom but not same innerHTML re-render data loss root cause"
+        },
+        {
+          "gtId": "gt-03",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0,
+          "reasoning": "judge failed: No JSON found in LLM output:\n"
+        },
+        {
+          "gtId": "gt-04",
+          "findingId": "i07",
+          "matched": true,
+          "confidence": 0.85,
+          "reasoning": "i07 explicitly mentions lack of progress indicator and not seeing endpoint, same underlying issue as GT about progress bar without step labels",
+          "severityAgrees": false,
+          "categoryAgrees": true
+        },
+        {
+          "gtId": "gt-05",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0.15,
+          "reasoning": "GT核心是完成后的冷处理无庆祝无指引，其他发现都是过程中的缺失"
+        },
+        {
+          "gtId": "gt-06",
+          "findingId": "i06",
+          "matched": true,
+          "confidence": 0.65,
+          "reasoning": "i06同为视觉节奏类，描述初始页视觉内容稀薄空洞，与GT描述Step1仅100px的稀疏感相关",
+          "severityAgrees": false,
+          "categoryAgrees": true
+        }
+      ],
+      "falsePositives": [
+        {
+          "findingId": "i01",
+          "finding": {
+            "title": "页面完全没有任何上下文说明",
+            "category": "信息架构",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i02",
+          "finding": {
+            "title": "Next按钮点击后毫无反应",
+            "category": "流程顺畅",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i03",
+          "finding": {
+            "title": "连最基本的\"这是什么工具\"都没说清楚",
+            "category": "学习成本",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i04",
+          "finding": {
+            "title": "从简单输入直接跳到技术表单，节奏断裂",
+            "category": "流程顺畅",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i05",
+          "finding": {
+            "title": "表单字段没有语义说明，看不懂要填什么",
+            "category": "信息架构",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i08",
+          "finding": {
+            "title": "看不到复选框的标签选项，猜谜式填表",
+            "category": "信息架构",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i09",
+          "finding": {
+            "title": "没有进度指示，看不到终点在哪",
+            "category": "流程顺畅",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i11",
+          "finding": {
+            "title": "第三步冒出来一堆字段但没有任何说明",
+            "category": "信息架构",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i12",
+          "finding": {
+            "title": "Next 按钮消失或被遮挡，无法继续",
+            "category": "流程顺畅",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i13",
+          "finding": {
+            "title": "第二步的选项文字看不清楚",
+            "category": "视觉节奏",
+            "severity": "med"
+          }
+        }
+      ],
+      "missed": [
+        {
+          "gtId": "gt-02",
+          "gt": {
+            "id": "gt-02",
+            "title": "切步骤数据全没了",
+            "severity": "high",
+            "category": "性能感知",
+            "description": "每次点 Next / Back 时整个 main 被 innerHTML 重新渲染,所有 input/checkbox/textarea 里的值都丢失。表面上看是「跳页」、实际上是每步都白板,体验上等于页面 reload。",
+            "shouldFindWith": [
+              "重度用户",
+              "评估者"
+            ]
+          }
+        },
+        {
+          "gtId": "gt-03",
+          "gt": {
+            "id": "gt-03",
+            "title": "Configure / Customize / Optimize 分不清",
+            "severity": "med",
+            "category": "学习成本",
+            "description": "三个步骤名 Configure → Customize → Optimize 在语义上几乎重叠,用户提前完全无法预测哪一步要填什么,只能走到再看,导致中途想跳过/补填都没线索。",
+            "shouldFindWith": [
+              "新手",
+              "文案敏感"
+            ]
+          }
+        },
+        {
+          "gtId": "gt-05",
+          "gt": {
+            "id": "gt-05",
+            "title": "完成只显示一个 Done",
+            "severity": "med",
+            "category": "情感氛围",
+            "description": "走完全部 5 步、按 Finish 之后整个内容区只剩下一个 'Done.' 标题,没有庆祝动效、没有「下一步去哪」、没有 workspace 跳转。用户走完整套设置后心理预期是一个高点,而产品给的是冷处理。",
+            "shouldFindWith": [
+              "设计敏感",
+              "情感敏感"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "fixtureId": "09-fixed-template",
+      "gtTotal": 5,
+      "ppTotal": 12,
+      "matched": 0,
+      "recall": 0,
+      "precision": 0,
+      "f1": 0,
+      "severityAcc": 0,
+      "categoryAcc": 0,
+      "verdicts": [
+        {
+          "gtId": "gt-01",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0.25,
+          "reasoning": "i03提到功能问题但指按钮不响应不是模板限制，GT核心是三个固定模板无自定义和复用"
+        },
+        {
+          "gtId": "gt-02",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0,
+          "reasoning": "GT关注的是与NotionObsidian等竞品的自定义模板功能差距，pp发现均未提及竞品对比或自定义模板缺失"
+        },
+        {
+          "gtId": "gt-03",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0,
+          "reasoning": "judge failed: Unterminated string in JSON at position 99 (line 1 column 100)"
+        },
+        {
+          "gtId": "gt-04",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0.2,
+          "reasoning": "GT问题是按钮文案太正式不符笔记应用轻量氛围，所有发现都是关于按钮无响应或产品定位不清，未涉及文案语气问题"
+        },
+        {
+          "gtId": "gt-05",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0,
+          "reasoning": "GT关注视觉色调不一致问题，所有PP发现都集中在按钮功能反馈/产品定位/信息架构等截然不同的类别"
+        }
+      ],
+      "falsePositives": [
+        {
+          "findingId": "i01",
+          "finding": {
+            "title": "点了按钮没反应，不知道是坏了还是演示环境",
+            "category": "流程顺畅",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i02",
+          "finding": {
+            "title": "产品定位不清晰，不知道这到底是啥工具",
+            "category": "信息架构",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i04",
+          "finding": {
+            "title": "点击主要按钮没有任何反馈",
+            "category": "功能契合",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i07",
+          "finding": {
+            "title": "点 Apply Template 按钮完全没反应",
+            "category": "可访问性",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i08",
+          "finding": {
+            "title": "看不明白这个产品是干什么的",
+            "category": "信息架构",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i09",
+          "finding": {
+            "title": "找不到输入内容的地方",
+            "category": "功能契合",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i10",
+          "finding": {
+            "title": "按钮点完没反应，不知道是坏了还是在加载",
+            "category": "可访问性",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i11",
+          "finding": {
+            "title": "页面就一个按钮，我不知道这工具到底能干嘛",
+            "category": "信息架构",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i12",
+          "finding": {
+            "title": "我关心的数据导入导出功能完全找不到",
+            "category": "功能契合",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i03",
+          "finding": {
+            "title": "概念听起来有点意思，但感受不到价值",
+            "category": "功能契合",
+            "severity": "med"
+          }
+        },
+        {
+          "findingId": "i05",
+          "finding": {
+            "title": "进入页面不知道该干什么",
+            "category": "信息架构",
+            "severity": "med"
+          }
+        },
+        {
+          "findingId": "i06",
+          "finding": {
+            "title": "没有引导或示例让我快速理解",
+            "category": "学习成本",
+            "severity": "low"
+          }
+        }
+      ],
+      "missed": [
+        {
+          "gtId": "gt-01",
+          "gt": {
+            "id": "gt-01",
+            "title": "只能用 3 个固定模板",
+            "severity": "high",
+            "category": "功能契合",
+            "description": "新建笔记时必须选「会议记录 / 日记 / Todo」三个模板之一,既不能自定义模板、也不能保存自己的模板供下次复用,使用了两次以后用户的真实工作流就被锁死了。",
+            "shouldFindWith": [
+              "重度用户",
+              "评估者"
+            ]
+          }
+        },
+        {
+          "gtId": "gt-02",
+          "gt": {
+            "id": "gt-02",
+            "title": "Notion / Obsidian 都能自定义",
+            "severity": "high",
+            "category": "与竞品对比",
+            "description": "Notion / Obsidian / Craft / Bear 这一类笔记产品在 2024 之后都把「自定义模板」当作基线功能,这个产品反向开倒车,任何尝试过竞品的用户立刻会感到功能性退化。",
+            "shouldFindWith": [
+              "重度用户",
+              "评估者"
+            ]
+          }
+        },
+        {
+          "gtId": "gt-03",
+          "gt": {
+            "id": "gt-03",
+            "title": "模板选择挡住首屏",
+            "severity": "med",
+            "category": "信息架构",
+            "description": "进入「新建笔记」后整个首屏都是模板选择卡片,没有「跳过 / 直接写一个空白」入口,用户想随手记一句话也必须选模板,把临时灵感卡在仪式感里。",
+            "shouldFindWith": [
+              "目标导向",
+              "新手"
+            ]
+          }
+        },
+        {
+          "gtId": "gt-04",
+          "gt": {
+            "id": "gt-04",
+            "title": "按钮文案太正式",
+            "severity": "med",
+            "category": "表达文案",
+            "description": "主按钮叫 'Apply Template',词性偏正式/系统化,跟笔记应用的轻量氛围相违和,更合适的应该是「用这个开始」「就这个」之类口语化文案。",
+            "shouldFindWith": [
+              "文案敏感"
+            ]
+          }
+        },
+        {
+          "gtId": "gt-05",
+          "gt": {
+            "id": "gt-05",
+            "title": "3 张卡片色调不统一",
+            "severity": "low",
+            "category": "视觉节奏",
+            "description": "Meeting 用蓝色渐变 / Journal 用紫红渐变 / Todo 用绿色渐变,边框颜色也跟着变,3 张卡并排在一起视觉上像三个不同产品的拼贴,缺乏一致的设计系统。",
+            "shouldFindWith": [
+              "设计敏感"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "fixtureId": "10-buried-export",
+      "gtTotal": 5,
+      "ppTotal": 10,
+      "matched": 0,
+      "recall": 0,
+      "precision": 0,
+      "f1": 0,
+      "severityAcc": 0,
+      "categoryAcc": 0,
+      "verdicts": [
+        {
+          "gtId": "gt-01",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0,
+          "reasoning": "No finding mentions export function or deep menu navigation"
+        },
+        {
+          "gtId": "gt-02",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0,
+          "reasoning": "GT关于导出功能缺少PDF格式，其他都是导航和空壳问题"
+        },
+        {
+          "gtId": "gt-03",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0.1,
+          "reasoning": "GT关注导出后无下载链接改邮件通知流程所有finding均围绕导航失效或页面空白无任何导出相关问题"
+        },
+        {
+          "gtId": "gt-04",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0.1,
+          "reasoning": "GT issue 是命名混淆，PP 发现都是导航失效或内容空白，无相关"
+        },
+        {
+          "gtId": "gt-05",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0,
+          "reasoning": "GT是图表挤压KPI布局问题i09是弹窗截断完全不同"
+        }
+      ],
+      "falsePositives": [
+        {
+          "findingId": "i01",
+          "finding": {
+            "title": "导航栏是死的，点击后没有任何响应",
+            "category": "流程顺畅",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i02",
+          "finding": {
+            "title": "首屏没有给我任何有价值的内容可看",
+            "category": "信息架构",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i03",
+          "finding": {
+            "title": "导航链接点击后完全没反应",
+            "category": "流程顺畅",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i04",
+          "finding": {
+            "title": "页面像个空壳，看不出能干什么",
+            "category": "功能契合",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i05",
+          "finding": {
+            "title": "页面打开后下方一片空白，什么都没加载",
+            "category": "性能感知",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i06",
+          "finding": {
+            "title": "点击导航链接完全没有反应",
+            "category": "流程顺畅",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i07",
+          "finding": {
+            "title": "刷新后问题依旧，没有恢复机制",
+            "category": "可访问性",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i08",
+          "finding": {
+            "title": "导航点完没反应，我不知道发生了什么",
+            "category": "流程顺畅",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i09",
+          "finding": {
+            "title": "弹窗内容被截断，看不全设置选项",
+            "category": "视觉节奏",
+            "severity": "med"
+          }
+        },
+        {
+          "findingId": "i10",
+          "finding": {
+            "title": "页面主体内容太单薄，没有指引我往哪走",
+            "category": "信息架构",
+            "severity": "med"
+          }
+        }
+      ],
+      "missed": [
+        {
+          "gtId": "gt-01",
+          "gt": {
+            "id": "gt-01",
+            "title": "导出藏在 4 层 menu 里",
+            "severity": "high",
+            "category": "信息架构",
+            "description": "导出动作藏在 Settings → Reports → Weekly Digest → Export 四层 modal 里,dashboard 主界面上没有任何「Export」按钮。用户接到「导一份给老板」的需求时几乎不可能在 10 秒内找到入口。",
+            "shouldFindWith": [
+              "目标导向",
+              "重度用户"
+            ]
+          }
+        },
+        {
+          "gtId": "gt-02",
+          "gt": {
+            "id": "gt-02",
+            "title": "导出没有 PDF 只有 CSV/JSON",
+            "severity": "high",
+            "category": "功能契合",
+            "description": "分析 dashboard 老板最常要的导出格式就是 PDF (可贴进周报、汇报材料),这里只给了 CSV / JSON 两个开发者格式,核心使用场景被切掉。",
+            "shouldFindWith": [
+              "评估者",
+              "目标导向"
+            ]
+          }
+        },
+        {
+          "gtId": "gt-03",
+          "gt": {
+            "id": "gt-03",
+            "title": "导出后不给下载链接",
+            "severity": "med",
+            "category": "流程顺畅",
+            "description": "点 Export 之后没有当场生成下载链接,而是「我们会邮件发给 workspace 拥有者」,用户既不知道什么时候到、收件人也可能不是自己,信任感和效率双降。",
+            "shouldFindWith": [
+              "目标导向",
+              "重度用户"
+            ]
+          }
+        },
+        {
+          "gtId": "gt-04",
+          "gt": {
+            "id": "gt-04",
+            "title": "Export schedule vs Schedule export",
+            "severity": "med",
+            "category": "表达文案",
+            "description": "Reports 子菜单里同时存在 'Export schedule' 和 'Schedule export' 两个入口,字面上几乎一样,但功能不同 (一个是定时导出 / 一个是导出当前的 schedule),用户随便点进去都可能走错。",
+            "shouldFindWith": [
+              "文案敏感",
+              "重度用户"
+            ]
+          }
+        },
+        {
+          "gtId": "gt-05",
+          "gt": {
+            "id": "gt-05",
+            "title": "图表挤压下方关键数据",
+            "severity": "low",
+            "category": "视觉节奏",
+            "description": "顶部活跃用户折线图占了 56vh,导致下方 MAU/DAU/留存/NPS 四个核心 KPI 被压缩成一条窄横条,信息密度倒置 — 真正要看的数变成了脚注。",
+            "shouldFindWith": [
+              "设计敏感",
+              "评估者"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "fixtureId": "11-modal-modal",
+      "gtTotal": 5,
+      "ppTotal": 12,
+      "matched": 1,
+      "recall": 0.2,
+      "precision": 0.08333333333333333,
+      "f1": 0.11764705882352941,
+      "severityAcc": 1,
+      "categoryAcc": 1,
+      "verdicts": [
+        {
+          "gtId": "gt-01",
+          "findingId": "i10",
+          "matched": true,
+          "confidence": 0.95,
+          "reasoning": "三个弹窗轮番轰炸与GT三连弹窗完全一致",
+          "severityAgrees": true,
+          "categoryAgrees": true
+        },
+        {
+          "gtId": "gt-02",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0.2,
+          "reasoning": ""
+        },
+        {
+          "gtId": "gt-03",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0.35,
+          "reasoning": "No finding addresses visual style inconsistency among the three modals"
+        },
+        {
+          "gtId": "gt-04",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0,
+          "reasoning": "No finding mentions the subscribe button size asymmetry or confirm-shaming"
+        },
+        {
+          "gtId": "gt-05",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0,
+          "reasoning": "No finding mentions button contrast or visual weight imbalance of cookie consent options"
+        }
+      ],
+      "falsePositives": [
+        {
+          "findingId": "i01",
+          "finding": {
+            "title": "弹窗关不掉，操作全被阻断",
+            "category": "情感氛围",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i02",
+          "finding": {
+            "title": "强制弹窗让我没被尊重",
+            "category": "情感氛围",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i03",
+          "finding": {
+            "title": "连导航栏都点不了，太粗糙",
+            "category": "可访问性",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i04",
+          "finding": {
+            "title": "弹窗连环轰炸，打断感太强",
+            "category": "情感氛围",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i05",
+          "finding": {
+            "title": "导航点击没反应，不知道有没有生效",
+            "category": "流程顺畅",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i07",
+          "finding": {
+            "title": "弹窗轰炸打断了我的阅读节奏",
+            "category": "情感氛围",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i08",
+          "finding": {
+            "title": "导航功能全部失效让人感到失控",
+            "category": "功能契合",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i11",
+          "finding": {
+            "title": "导航栏点了没反应，根本找不到想看的书",
+            "category": "功能契合",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i12",
+          "finding": {
+            "title": "用了半天不知道这产品能给我干嘛",
+            "category": "学习成本",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i06",
+          "finding": {
+            "title": "给我的感觉有点像多看阅读——功能多但有点杂",
+            "category": "功能契合",
+            "severity": "med"
+          }
+        },
+        {
+          "findingId": "i09",
+          "finding": {
+            "title": "和竞品相比缺乏基本信任感",
+            "category": "与竞品对比",
+            "severity": "med"
+          }
+        }
+      ],
+      "missed": [
+        {
+          "gtId": "gt-02",
+          "gt": {
+            "id": "gt-02",
+            "title": "不点同意 cookie 就无法滚动",
+            "severity": "high",
+            "category": "流程顺畅",
+            "description": "页面初始 body 带 .locked class 禁用 overflow,只有点 cookie banner 上的 Accept 或 Reject 才会解锁。用户连产品介绍都没看就被逼着做决定,违反正常浏览习惯。",
+            "shouldFindWith": [
+              "目标导向",
+              "新手"
+            ]
+          }
+        },
+        {
+          "gtId": "gt-03",
+          "gt": {
+            "id": "gt-03",
+            "title": "三个弹窗视觉风格不一致",
+            "severity": "med",
+            "category": "视觉节奏",
+            "description": "cookie banner 用直角无阴影,订阅弹窗用 18px 大圆角 + 重阴影,升级 Pro 是带渐变边框的侧边抽屉。三个高优先级 UI 元素出现在同一会话里却各说各话,看着像三个不同产品。",
+            "shouldFindWith": [
+              "设计敏感"
+            ]
+          }
+        },
+        {
+          "gtId": "gt-04",
+          "gt": {
+            "id": "gt-04",
+            "title": "Subscribe 按钮巨大 no thanks 缩成小字",
+            "severity": "med",
+            "category": "表达文案",
+            "description": "邮件订阅弹窗的 Subscribe 按钮 100% 宽 + 18px padding + 17px 加粗字号,而 no thanks 退出按钮是 11px 灰色下划线小字。这是典型的 confirm-shaming dark pattern,让用户难以理直气壮地拒绝。",
+            "shouldFindWith": [
+              "伦理敏感",
+              "重度用户"
+            ]
+          }
+        },
+        {
+          "gtId": "gt-05",
+          "gt": {
+            "id": "gt-05",
+            "title": "cookie 同意拒绝按钮对比度太低",
+            "severity": "low",
+            "category": "可访问性",
+            "description": "cookie banner 里 I agree 是亮绿色 (#2f8b4a),Reject 是深灰边框 + #5a5f68 文字,视觉权重严重失衡。低视力或赶时间用户极易误点 I agree。",
+            "shouldFindWith": [
+              "可访问性敏感",
+              "弱视"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "fixtureId": "12-noisy-notifs",
+      "gtTotal": 5,
+      "ppTotal": 11,
+      "matched": 1,
+      "recall": 0.2,
+      "precision": 0.09090909090909091,
+      "f1": 0.12500000000000003,
+      "severityAcc": 1,
+      "categoryAcc": 1,
+      "verdicts": [
+        {
+          "gtId": "gt-01",
+          "findingId": "i10",
+          "matched": true,
+          "confidence": 0.7,
+          "reasoning": "i10提及通知数量过多淹没用户与GT中50+条通知无法快速定位问题同属信息过载",
+          "severityAgrees": true,
+          "categoryAgrees": true
+        },
+        {
+          "gtId": "gt-02",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0.1,
+          "reasoning": "GT关于缺批量已读功能 PP都是点击无响应问题完全不相关"
+        },
+        {
+          "gtId": "gt-03",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0,
+          "reasoning": "GT about notifications opening in new tabs打断workflow, no finding addresses same issue"
+        },
+        {
+          "gtId": "gt-04",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0.3,
+          "reasoning": "GT关注通知类型间视觉层级差异，pp都是交互功能失效或不相关内容"
+        },
+        {
+          "gtId": "gt-05",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0,
+          "reasoning": "GT是时间格式不一致问题，混合相对时间与ISO绝对时间。所有pp finding都围绕通知交互、功能流程、视觉噪音等，无一提及时间显示格式不一致"
+        }
+      ],
+      "falsePositives": [
+        {
+          "findingId": "i01",
+          "finding": {
+            "title": "铃铛点不开，核心交互废了",
+            "category": "功能契合",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i02",
+          "finding": {
+            "title": "通知列表里的条目也点不开",
+            "category": "流程顺畅",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i04",
+          "finding": {
+            "title": "规则添加流程形同虚设，输入框根本用不上",
+            "category": "流程顺畅",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i05",
+          "finding": {
+            "title": "来源下拉框触发意外行为，弹窗直接关闭",
+            "category": "流程顺畅",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i06",
+          "finding": {
+            "title": "免打扰模式触发通知，逻辑自相矛盾",
+            "category": "功能契合",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i07",
+          "finding": {
+            "title": "toast内容与实际操作不符",
+            "category": "表达文案",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i09",
+          "finding": {
+            "title": "通知铃铛点了三次都没反应，直接失去耐心",
+            "category": "流程顺畅",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i03",
+          "finding": {
+            "title": "每个任务都带🔔徽章，视觉上很吵",
+            "category": "信息架构",
+            "severity": "med"
+          }
+        },
+        {
+          "findingId": "i08",
+          "finding": {
+            "title": "聊天区始终显示暂无消息，无法验证设置效果",
+            "category": "可访问性",
+            "severity": "med"
+          }
+        },
+        {
+          "findingId": "i11",
+          "finding": {
+            "title": "通知面板要导航才能打开，而不是铃铛弹窗",
+            "category": "信息架构",
+            "severity": "med"
+          }
+        }
+      ],
+      "missed": [
+        {
+          "gtId": "gt-02",
+          "gt": {
+            "id": "gt-02",
+            "title": "没有「全部标已读」按钮",
+            "severity": "high",
+            "category": "功能契合",
+            "description": "顶部右侧只显示「50 notifications」纯文本,没有 Mark all as read / 批量选择 / 清空已读 等任何批处理入口。要清掉 50 条只能逐条点开,严重违反同类工具(Slack/Linear/GitHub)的基本预期。",
+            "shouldFindWith": [
+              "重度用户",
+              "效率敏感"
+            ]
+          }
+        },
+        {
+          "gtId": "gt-03",
+          "gt": {
+            "id": "gt-03",
+            "title": "点通知在新 tab 打开",
+            "severity": "med",
+            "category": "流程顺畅",
+            "description": "每条通知点击后用 window.open(..., '_blank') 跳到新 tab,而不是在当前 tab 内导航或抽屉里展开详情。用户处理完一条要切回 inbox tab 才能继续,工作流被反复打断。",
+            "shouldFindWith": [
+              "重度用户",
+              "键盘党"
+            ]
+          }
+        },
+        {
+          "gtId": "gt-04",
+          "gt": {
+            "id": "gt-04",
+            "title": "重要 mention 跟系统通知一样小",
+            "severity": "med",
+            "category": "视觉节奏",
+            "description": "@提及 / 系统消息 / 周报摘要三种通知用了完全一样的行高、字号、颜色和图标。最该被看到的「同事 @了你」跟「存储 82%」视觉权重相等,违反信息层级原则。",
+            "shouldFindWith": [
+              "设计敏感",
+              "效率敏感"
+            ]
+          }
+        },
+        {
+          "gtId": "gt-05",
+          "gt": {
+            "id": "gt-05",
+            "title": "时间「3 hours ago」混着 ISO 格式",
+            "severity": "low",
+            "category": "表达文案",
+            "description": "右侧时间列一会儿是「3 hours ago」、「yesterday」相对格式,一会儿是「2026-05-25 14:23」绝对 ISO 格式。同一列两种风格交错,大脑要不停切换语境。",
+            "shouldFindWith": [
+              "设计敏感",
+              "细节敏感"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "fixtureId": "13-mobile-broken",
+      "gtTotal": 5,
+      "ppTotal": 10,
+      "matched": 1,
+      "recall": 0.2,
+      "precision": 0.1,
+      "f1": 0.13333333333333333,
+      "severityAcc": 0,
+      "categoryAcc": 1,
+      "verdicts": [
+        {
+          "gtId": "gt-01",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0,
+          "reasoning": "GT issue is mobile horizontal scroll from fixed 1280px min-width; no finding addresses this"
+        },
+        {
+          "gtId": "gt-02",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0,
+          "reasoning": "没有发现任何关于按钮尺寸或触控目标大小的提及"
+        },
+        {
+          "gtId": "gt-03",
+          "findingId": "i03",
+          "matched": true,
+          "confidence": 0.65,
+          "reasoning": "Both share visual rhythm category and reference card layout issues",
+          "severityAgrees": false,
+          "categoryAgrees": true
+        },
+        {
+          "gtId": "gt-04",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0,
+          "reasoning": "No finding addresses navigation icon crowding or missing hamburger menu on mobile"
+        },
+        {
+          "gtId": "gt-05",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0,
+          "reasoning": "GT is about missing viewport meta causing mobile rendering issues no findings address this"
+        }
+      ],
+      "falsePositives": [
+        {
+          "findingId": "i01",
+          "finding": {
+            "title": "客服入口为零，不知道这东西能帮我干什么",
+            "category": "功能契合",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i04",
+          "finding": {
+            "title": "核心交互按钮全部失灵",
+            "category": "功能契合",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i05",
+          "finding": {
+            "title": "没有反馈，不知道发生了什么",
+            "category": "情感氛围",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i06",
+          "finding": {
+            "title": "帖子内容完全看不见，像个空壳",
+            "category": "可访问性",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i07",
+          "finding": {
+            "title": "点击按钮毫无反馈，页面像死机了",
+            "category": "交互反馈",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i08",
+          "finding": {
+            "title": "产品可靠性让我打问号",
+            "category": "情感氛围",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i09",
+          "finding": {
+            "title": "核心交互按钮全部失灵，直接劝退",
+            "category": "流程顺畅",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i10",
+          "finding": {
+            "title": "没有状态反馈，不知道是自己的问题还是产品的问题",
+            "category": "情感氛围",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i02",
+          "finding": {
+            "title": "URL 和页面内容对不上，感觉走错地方了",
+            "category": "信息架构",
+            "severity": "med"
+          }
+        }
+      ],
+      "missed": [
+        {
+          "gtId": "gt-01",
+          "gt": {
+            "id": "gt-01",
+            "title": "手机上有水平滚动",
+            "severity": "high",
+            "category": "流程顺畅",
+            "description": ".page 容器写死 min-width: 1280px,手机视口下页面会超出屏幕,用户必须左右滑动才能看完一行内容。最基础的移动可用性失败,真实场景下大概率被立刻关掉。",
+            "shouldFindWith": [
+              "移动用户",
+              "新手"
+            ]
+          }
+        },
+        {
+          "gtId": "gt-02",
+          "gt": {
+            "id": "gt-02",
+            "title": "按钮高度 28px 远低于 44px",
+            "severity": "high",
+            "category": "可访问性",
+            "description": "Upvote / Comment 按钮 height 写死 28px,Apple HIG 和 Material Design 都要求触控目标至少 44×44px。手指点击容易误触相邻按钮或卡片,大拇指操作时尤其痛苦。",
+            "shouldFindWith": [
+              "移动用户",
+              "可访问性敏感"
+            ]
+          }
+        },
+        {
+          "gtId": "gt-04",
+          "gt": {
+            "id": "gt-04",
+            "title": "6 个导航图标挤一行没汉堡",
+            "severity": "med",
+            "category": "信息架构",
+            "description": "顶部导航在桌面是 6 个并排的 28×28 小方块图标,在手机上同样直接显示,没有折叠成 hamburger 菜单。图标本身只是 F/R/B/A/N/S 字母,既不能识别又点不准。",
+            "shouldFindWith": [
+              "移动用户",
+              "新手"
+            ]
+          }
+        },
+        {
+          "gtId": "gt-05",
+          "gt": {
+            "id": "gt-05",
+            "title": "缺 viewport meta 初始缩成桌面",
+            "severity": "low",
+            "category": "性能感知",
+            "description": "<head> 里特意没写 <meta name=\"viewport\" content=\"width=device-width\">,移动浏览器会按桌面 980px 比例渲染再缩成屏宽,首屏显示是一张被压扁的小图,需要双指放大才能读。",
+            "shouldFindWith": [
+              "移动用户",
+              "性能敏感"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "fixtureId": "14-rage-button",
+      "gtTotal": 5,
+      "ppTotal": 10,
+      "matched": 2,
+      "recall": 0.4,
+      "precision": 0.2,
+      "f1": 0.26666666666666666,
+      "severityAcc": 0.5,
+      "categoryAcc": 0,
+      "verdicts": [
+        {
+          "gtId": "gt-01",
+          "findingId": "i03",
+          "matched": true,
+          "confidence": 0.9,
+          "reasoning": "i03精准描述了点击Sync后没有任何反馈包括loading与GT完全一致",
+          "severityAgrees": true,
+          "categoryAgrees": false
+        },
+        {
+          "gtId": "gt-02",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0,
+          "reasoning": "judge failed: No JSON found in LLM output:\n"
+        },
+        {
+          "gtId": "gt-03",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0,
+          "reasoning": "GT关注的是Sync按钮缺少同步内容的说明文字，用户不知道会同步什么。所有PP发现都集中在按钮无反应/无反馈/页面空白等交互问题，没有一个发现涉及缺少说明性文案这个核心问题。"
+        },
+        {
+          "gtId": "gt-04",
+          "findingId": "i08",
+          "matched": true,
+          "confidence": 0.75,
+          "reasoning": "i08提到按钮固定在右上角周围全是空白，与GT描述按钮孤零零在右上角无相关元素一致",
+          "severityAgrees": false,
+          "categoryAgrees": false
+        },
+        {
+          "gtId": "gt-05",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0.4,
+          "reasoning": "i03提没有loading但仅是用户感知层面感受不到反馈,未涉及:disabled/aria-busy等无障碍状态技术实现层面"
+        }
+      ],
+      "falsePositives": [
+        {
+          "findingId": "i01",
+          "finding": {
+            "title": "刚进门就被踢出来，连看都没看完",
+            "category": "流程顺畅",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i02",
+          "finding": {
+            "title": "页面内容为空，我不知道这是什么东西",
+            "category": "信息架构",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i04",
+          "finding": {
+            "title": "没有任何功能入口，我不知道能做什么",
+            "category": "功能契合",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i05",
+          "finding": {
+            "title": "Sync 按钮点了毫无反应",
+            "category": "功能契合",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i06",
+          "finding": {
+            "title": "没有任何使用引导或内容反馈",
+            "category": "学习成本",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i07",
+          "finding": {
+            "title": "滚动后内容没有更新",
+            "category": "信息架构",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i09",
+          "finding": {
+            "title": "唯一可见的按钮毫无反应",
+            "category": "功能契合",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i10",
+          "finding": {
+            "title": "标题党落差感严重",
+            "category": "情感氛围",
+            "severity": "med"
+          }
+        }
+      ],
+      "missed": [
+        {
+          "gtId": "gt-02",
+          "gt": {
+            "id": "gt-02",
+            "title": "后台在跑但 UI 完全静止",
+            "severity": "high",
+            "category": "情感氛围",
+            "description": "代码里 setTimeout 2.5 秒模拟同步过程,期间 UI 没有任何提示。用户看到「点了什么都没发生」第一反应是产品坏了 / 网断了,信任感快速崩塌。这是经典的 perceived-broken bug。",
+            "shouldFindWith": [
+              "情感敏感",
+              "新手"
+            ]
+          }
+        },
+        {
+          "gtId": "gt-03",
+          "gt": {
+            "id": "gt-03",
+            "title": "Sync 没说同步什么",
+            "severity": "med",
+            "category": "表达文案",
+            "description": "按钮只有一个单词「Sync」,旁边没有任何说明文字。文档?成员?集成?设置?用户根本不知道点下去会同步什么内容,在企业场景下是高风险操作 —— 用户可能因为害怕而不敢点。",
+            "shouldFindWith": [
+              "新手",
+              "目标导向"
+            ]
+          }
+        },
+        {
+          "gtId": "gt-05",
+          "gt": {
+            "id": "gt-05",
+            "title": "按钮没有 disabled / loading 状态",
+            "severity": "low",
+            "category": "可访问性",
+            "description": "CSS 里没定义 :disabled / [aria-busy] 样式,JS 里也不切 disabled 属性或 aria-busy。屏幕阅读器用户和键盘党都得不到「操作进行中」的提示,只能瞎猜状态。",
+            "shouldFindWith": [
+              "可访问性敏感",
+              "键盘党"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "fixtureId": "15-emoji-mess",
+      "gtTotal": 6,
+      "ppTotal": 11,
+      "matched": 2,
+      "recall": 0.3333333333333333,
+      "precision": 0.09090909090909091,
+      "f1": 0.14285714285714288,
+      "severityAcc": 0.5,
+      "categoryAcc": 0,
+      "verdicts": [
+        {
+          "gtId": "gt-01",
+          "findingId": "i07",
+          "matched": true,
+          "confidence": 0.55,
+          "reasoning": "i07 mentions emoji overload but focuses on professionalism not visual density",
+          "severityAgrees": true,
+          "categoryAgrees": false
+        },
+        {
+          "gtId": "gt-02",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0,
+          "reasoning": "No finding addresses mixed-language copy or Chinese-English writing issues"
+        },
+        {
+          "gtId": "gt-03",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0,
+          "reasoning": "GT关于空洞营销套话无具体信息，所有发现均为导航失灵或内容稀少问题，无一涉及营销文案质量"
+        },
+        {
+          "gtId": "gt-04",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0,
+          "reasoning": "GT issue is about font style mixing visual chaos, all findings address navigationcontent issues"
+        },
+        {
+          "gtId": "gt-05",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0.3,
+          "reasoning": "i07提及emoji但属情感氛围范畴指花哨外观问题非无障碍屏幕阅读器问题"
+        },
+        {
+          "gtId": "gt-06",
+          "findingId": "i07",
+          "matched": true,
+          "confidence": 0.72,
+          "reasoning": "i07指出主按钮emoji过多含GT中的🚀和🎉情感氛围问题匹配但未直接提及三感叹号",
+          "severityAgrees": false,
+          "categoryAgrees": false
+        }
+      ],
+      "falsePositives": [
+        {
+          "findingId": "i01",
+          "finding": {
+            "title": "导航栏所有链接点不动",
+            "category": "功能契合",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i02",
+          "finding": {
+            "title": "无法查看价格，预算评估阻断",
+            "category": "信息架构",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i04",
+          "finding": {
+            "title": "导航链接全部失灵，根本不知道这产品是干嘛的",
+            "category": "流程顺畅",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i05",
+          "finding": {
+            "title": "页面内容空洞，只有一个图片糊弄人",
+            "category": "信息架构",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i06",
+          "finding": {
+            "title": "导航链接全部失灵，像个死站",
+            "category": "功能契合",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i09",
+          "finding": {
+            "title": "页面内容太少，看不到产品价值",
+            "category": "信息架构",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i10",
+          "finding": {
+            "title": "导航链接点击没反应",
+            "category": "功能契合",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i03",
+          "finding": {
+            "title": "基础交互缺失让产品显得不可信",
+            "category": "情感氛围",
+            "severity": "med"
+          }
+        },
+        {
+          "findingId": "i08",
+          "finding": {
+            "title": "静态 hero 区域，内容太少",
+            "category": "信息架构",
+            "severity": "med"
+          }
+        },
+        {
+          "findingId": "i11",
+          "finding": {
+            "title": "没有免费试用或安全感提示",
+            "category": "流程顺畅",
+            "severity": "med"
+          }
+        }
+      ],
+      "missed": [
+        {
+          "gtId": "gt-02",
+          "gt": {
+            "id": "gt-02",
+            "title": "中英混写读起来卡顿",
+            "severity": "high",
+            "category": "表达文案",
+            "description": "「Welcome to 我们的 amazing 产品」「Your all-in-one 神器 for tasks」「让 your workflow 起飞」这种逐词级别的中英混写到处都是。既不是中文文案也不是英文文案,任何母语用户读都要不停切换语言区,完全不像专业产品。",
+            "shouldFindWith": [
+              "新手",
+              "情感敏感"
+            ]
+          }
+        },
+        {
+          "gtId": "gt-03",
+          "gt": {
+            "id": "gt-03",
+            "title": "营销腔用力过猛",
+            "severity": "med",
+            "category": "情感氛围",
+            "description": "「Unlock the power of productivity」「Your all-in-one 神器」「彻底 changed how our team works」这类空洞的 marketing 套话堆满全页。读完一遍记不住任何具体功能,只感受到一股 AI slop 味的廉价吹捧。",
+            "shouldFindWith": [
+              "评估者",
+              "情感敏感"
+            ]
+          }
+        },
+        {
+          "gtId": "gt-04",
+          "gt": {
+            "id": "gt-04",
+            "title": "字体混用 5 种风格打架",
+            "severity": "med",
+            "category": "视觉节奏",
+            "description": "brand 和 feature h3 用 Pacifico 手写体,h1 用 Comic Sans,lede 和 testimonial 用 Arial,nav 和 CTA 用 Roboto,body 默认 system-ui。同一屏出现 5 种风格完全不同的字体,视觉权威感彻底丧失。",
+            "shouldFindWith": [
+              "设计敏感"
+            ]
+          }
+        },
+        {
+          "gtId": "gt-05",
+          "gt": {
+            "id": "gt-05",
+            "title": "emoji 没 alt 屏幕阅读器读出乱码",
+            "severity": "med",
+            "category": "可访问性",
+            "description": "所有 emoji 都是裸字符直接嵌在文本里,没有 aria-label 也没有用 role=\"img\" 包裹。屏幕阅读器会读出「火箭 Welcome to 我们的 amazing 产品 火花 Unlock the power...」这种破碎的语音流,听感极差。",
+            "shouldFindWith": [
+              "可访问性敏感",
+              "弱视"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "fixtureId": "16-placeholder-label",
+      "gtTotal": 5,
+      "ppTotal": 8,
+      "matched": 0,
+      "recall": 0,
+      "precision": 0,
+      "f1": 0,
+      "severityAcc": 0,
+      "categoryAcc": 0,
+      "verdicts": [
+        {
+          "gtId": "gt-01",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0,
+          "reasoning": "No finding addresses placeholder-as-label accessibility issue"
+        },
+        {
+          "gtId": "gt-02",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0,
+          "reasoning": "No finding addresses placeholder text style inconsistency or copywriting uniformity"
+        },
+        {
+          "gtId": "gt-03",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0,
+          "reasoning": "No finding addresses visual focus indicator or keyboard navigation"
+        },
+        {
+          "gtId": "gt-04",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0,
+          "reasoning": "no finding addresses required field indication missing asterisks or labels"
+        },
+        {
+          "gtId": "gt-05",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0.2,
+          "reasoning": "GT解决间距导致的过长问题i06讲字段数量太多不同维度都不涉及间距"
+        }
+      ],
+      "falsePositives": [
+        {
+          "findingId": "i02",
+          "finding": {
+            "title": "填完时区就超时了，根本没机会点发送",
+            "category": "流程顺畅",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i04",
+          "finding": {
+            "title": "下拉菜单操作卡壳，不知道要滑下去",
+            "category": "信息架构",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i05",
+          "finding": {
+            "title": "填到一半被踢出去，挫败感很强",
+            "category": "流程顺畅",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i07",
+          "finding": {
+            "title": "角色权限下拉框点击完全无响应",
+            "category": "功能契合",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i01",
+          "finding": {
+            "title": "下拉框并排容易看错行",
+            "category": "视觉节奏",
+            "severity": "med"
+          }
+        },
+        {
+          "findingId": "i03",
+          "finding": {
+            "title": "时区搜索打字后等好久才出结果",
+            "category": "性能感知",
+            "severity": "med"
+          }
+        },
+        {
+          "findingId": "i06",
+          "finding": {
+            "title": "表单字段太多，看不到进度",
+            "category": "视觉节奏",
+            "severity": "med"
+          }
+        },
+        {
+          "findingId": "i08",
+          "finding": {
+            "title": "看到外部图片域名会担心数据安全",
+            "category": "情感氛围",
+            "severity": "low"
+          }
+        }
+      ],
+      "missed": [
+        {
+          "gtId": "gt-01",
+          "gt": {
+            "id": "gt-01",
+            "title": "输入后字段标签直接消失",
+            "severity": "high",
+            "category": "可访问性",
+            "description": "8 个字段的「label」全都用 placeholder 实现 (Full name / Department / Phone 等),用户开始输入后 placeholder 就消失,如果中途分神或滚动回头检查,根本想不起来这个框原来是什么字段。屏幕阅读器也读不到正式 label。",
+            "shouldFindWith": [
+              "可访问性敏感",
+              "细致用户"
+            ]
+          }
+        },
+        {
+          "gtId": "gt-02",
+          "gt": {
+            "id": "gt-02",
+            "title": "placeholder 文案风格不统一",
+            "severity": "high",
+            "category": "表达文案",
+            "description": "placeholder 一会儿是「e.g. john@example.com」/「e.g. PST, EST, UTC+8」举例式,一会儿是「Type your job title」/「Department」命令式或裸名词,同一个表单里至少 3 种风格,显得不专业且让用户猜每个字段到底想要什么格式。",
+            "shouldFindWith": [
+              "细致用户",
+              "文案敏感"
+            ]
+          }
+        },
+        {
+          "gtId": "gt-03",
+          "gt": {
+            "id": "gt-03",
+            "title": "Tab 切换字段没有焦点提示",
+            "severity": "med",
+            "category": "流程顺畅",
+            "description": "用 Tab 键在字段间跳转时,focus 状态只是把 border 从 #2a2e35 变成 #353a42 ,差异几乎看不出来。键盘用户和外接键盘用户无法判断当前光标在哪个字段。",
+            "shouldFindWith": [
+              "键盘党",
+              "可访问性敏感"
+            ]
+          }
+        },
+        {
+          "gtId": "gt-04",
+          "gt": {
+            "id": "gt-04",
+            "title": "看不出哪些字段必填",
+            "severity": "med",
+            "category": "信息架构",
+            "description": "8 个字段里只有 Phone 自标了「(optional)」,其他字段既没有星号也没有颜色或文字说明,用户不知道 Department、Job title、Time zone 是不是必须填的,直到点 Send invite 才知道。",
+            "shouldFindWith": [
+              "新手",
+              "目标导向"
+            ]
+          }
+        },
+        {
+          "gtId": "gt-05",
+          "gt": {
+            "id": "gt-05",
+            "title": "字段间距过大表单显得无尽",
+            "severity": "low",
+            "category": "视觉节奏",
+            "description": "字段之间 24px 间距加上每个 input 自己 14px padding,8 个字段加 textarea 后整个表单纵向超过 700px,在 1080p 屏要滚动才能看到提交按钮,心理负担放大。",
+            "shouldFindWith": [
+              "设计敏感"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "fixtureId": "17-monolingual",
+      "gtTotal": 5,
+      "ppTotal": 12,
+      "matched": 0,
+      "recall": 0,
+      "precision": 0,
+      "f1": 0,
+      "severityAcc": 0,
+      "categoryAcc": 0,
+      "verdicts": [
+        {
+          "gtId": "gt-01",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0,
+          "reasoning": "GT issue is about English hardcoded in Chinese UI Settings page but none of the findings mention language mix or i18n issues all findings focus on search content guidance feedback"
+        },
+        {
+          "gtId": "gt-02",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0,
+          "reasoning": "没有发现任何关于中文化或部分翻译的反馈"
+        },
+        {
+          "gtId": "gt-03",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0,
+          "reasoning": "没有任何PP发现涉及日期格式问题，所有发现都与GT的日期格式混用问题无关"
+        },
+        {
+          "gtId": "gt-04",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0.4,
+          "reasoning": "i10 mentions no feedback after save but does not address the language issue causing incomprehension"
+        },
+        {
+          "gtId": "gt-05",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0.35,
+          "reasoning": "i11 describes search not working but does not mention Chinese-English keyword mismatch"
+        }
+      ],
+      "falsePositives": [
+        {
+          "findingId": "i01",
+          "finding": {
+            "title": "搜索框输完一点反应都没有",
+            "category": "功能契合",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i02",
+          "finding": {
+            "title": "页面内容少得可怜",
+            "category": "信息架构",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i04",
+          "finding": {
+            "title": "新用户进来看到配置页，完全不知道这产品是啥",
+            "category": "信息架构",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i05",
+          "finding": {
+            "title": "搜索功能形同虚设，完全没有响应",
+            "category": "功能契合",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i06",
+          "finding": {
+            "title": "没有任何引导或说明，不知道下一步该干嘛",
+            "category": "学习成本",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i07",
+          "finding": {
+            "title": "进来就见设置页，不知道产品是干嘛的",
+            "category": "信息架构",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i08",
+          "finding": {
+            "title": "没有引导，不知道从哪开始",
+            "category": "学习成本",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i10",
+          "finding": {
+            "title": "保存操作后零反馈，不知道有没有生效",
+            "category": "流程顺畅",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i11",
+          "finding": {
+            "title": "字段术语看不懂，表单对我毫无意义",
+            "category": "学习成本",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i12",
+          "finding": {
+            "title": "这个产品解决什么问题？我找不到自己的使用场景",
+            "category": "功能契合",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i03",
+          "finding": {
+            "title": "Save/Cancel点了也白点",
+            "category": "流程顺畅",
+            "severity": "med"
+          }
+        },
+        {
+          "findingId": "i09",
+          "finding": {
+            "title": "搜索功能感觉没效果，不知道搜什么关键词",
+            "category": "流程顺畅",
+            "severity": "med"
+          }
+        }
+      ],
+      "missed": [
+        {
+          "gtId": "gt-01",
+          "gt": {
+            "id": "gt-01",
+            "title": "中文界面里混了英文硬编码",
+            "severity": "high",
+            "category": "表达文案",
+            "description": "页面其他文字 (工作区名称 / 时区 / 通知与日报 / 取消按钮 hint) 都是中文,但页面标题、面包屑、侧栏第 2 项、侧栏底部两项、保存/取消按钮都直接是 Settings / Integrations / API tokens / Save / Cancel,显然是 i18n key 漏译,中文用户读起来割裂。",
+            "shouldFindWith": [
+              "本地化敏感",
+              "文案敏感"
+            ]
+          }
+        },
+        {
+          "gtId": "gt-02",
+          "gt": {
+            "id": "gt-02",
+            "title": "同类工具早就完整中文化",
+            "severity": "high",
+            "category": "与竞品对比",
+            "description": "Notion / Linear / Figma 等同类协作工具都为简中做了完整本地化,所有 UI 字符串都能翻译。这个工具半中半英的状态会被中国用户直接拿来跟竞品对比并扣分。",
+            "shouldFindWith": [
+              "本地化敏感",
+              "评估者"
+            ]
+          }
+        },
+        {
+          "gtId": "gt-03",
+          "gt": {
+            "id": "gt-03",
+            "title": "日期格式两种风格混用",
+            "severity": "med",
+            "category": "表达文案",
+            "description": "同一个「通知与日报」section 里,「下次发送」显示 May 26, 2026 (US 长格式),旁边「上次发送」是 2026-05-24 (ISO),两种日期格式并存会让中文用户瞬间困惑,不知道哪个是「明天」。",
+            "shouldFindWith": [
+              "细致用户",
+              "本地化敏感"
+            ]
+          }
+        },
+        {
+          "gtId": "gt-04",
+          "gt": {
+            "id": "gt-04",
+            "title": "错误提示是英文看不懂",
+            "severity": "med",
+            "category": "情感氛围",
+            "description": "保存按钮点击后右下角弹的 toast 是 \"Something went wrong. Please try again later.\",对纯中文用户既看不懂出了什么问题、也不知道是不是真的失败了,本来就紧张的报错时刻雪上加霜。",
+            "shouldFindWith": [
+              "新手",
+              "本地化敏感"
+            ]
+          }
+        },
+        {
+          "gtId": "gt-05",
+          "gt": {
+            "id": "gt-05",
+            "title": "搜索「保存」找不到 Save",
+            "severity": "low",
+            "category": "信息架构",
+            "description": "左侧栏的搜索只做字面 substring 匹配,用户输入中文「保存」找不到 Save 按钮所在的 Settings 项,反之输入英文「settings」找不到「通用」「成员」等中文项,中英两套关键词被人为割开。",
+            "shouldFindWith": [
+              "键盘党",
+              "本地化敏感"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "fixtureId": "18-no-keyboard",
+      "gtTotal": 5,
+      "ppTotal": 11,
+      "matched": 2,
+      "recall": 0.4,
+      "precision": 0.18181818181818182,
+      "f1": 0.25000000000000006,
+      "severityAcc": 1,
+      "categoryAcc": 1,
+      "verdicts": [
+        {
+          "gtId": "gt-01",
+          "findingId": "i01",
+          "matched": true,
+          "confidence": 0.85,
+          "reasoning": "i01直接指出Tab键导航失效，这正是GT中缺少button标签和tabindex导致的可访问性问题",
+          "severityAgrees": true,
+          "categoryAgrees": true
+        },
+        {
+          "gtId": "gt-02",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0.3,
+          "reasoning": "i08关注笔记存储位置安全感，与GT键盘快捷键失效问题不相关"
+        },
+        {
+          "gtId": "gt-03",
+          "findingId": "i08",
+          "matched": true,
+          "confidence": 0.75,
+          "reasoning": "i08 explicitly asks about autosave and storage security, matching GT concern",
+          "severityAgrees": true,
+          "categoryAgrees": true
+        },
+        {
+          "gtId": "gt-04",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0,
+          "reasoning": "judge failed: Unterminated string in JSON at position 145 (line 1 column 146)"
+        },
+        {
+          "gtId": "gt-05",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0.1,
+          "reasoning": "No finding mentions Save button missing shortcut hint display"
+        }
+      ],
+      "falsePositives": [
+        {
+          "findingId": "i02",
+          "finding": {
+            "title": "页面几乎是空的，不知道能做什么",
+            "category": "信息架构",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i04",
+          "finding": {
+            "title": "首页没有任何产品标识或说明",
+            "category": "信息架构",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i05",
+          "finding": {
+            "title": "输入框里打字没有反馈，不知道能不能用",
+            "category": "流程顺畅",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i06",
+          "finding": {
+            "title": "Tab和回车没有任何作用，不知道能干啥",
+            "category": "功能契合",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i07",
+          "finding": {
+            "title": "内容输入区不好点，不知道是不是我没找对地方",
+            "category": "信息架构",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i09",
+          "finding": {
+            "title": "初次加载只显示标题框，让用户以为页面坏了",
+            "category": "性能感知",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i03",
+          "finding": {
+            "title": "连Notion最基础的体验都差太远",
+            "category": "与竞品对比",
+            "severity": "med"
+          }
+        },
+        {
+          "findingId": "i10",
+          "finding": {
+            "title": "「18-no-keyboard」这个名字没在产品里体现出来",
+            "category": "信息架构",
+            "severity": "med"
+          }
+        },
+        {
+          "findingId": "i11",
+          "finding": {
+            "title": "还没来得及真正使用产品就超时了",
+            "category": "流程顺畅",
+            "severity": "med"
+          }
+        }
+      ],
+      "missed": [
+        {
+          "gtId": "gt-02",
+          "gt": {
+            "id": "gt-02",
+            "title": "Cmd+S Cmd+Enter 全失效",
+            "severity": "high",
+            "category": "与竞品对比",
+            "description": "Notion / Linear / Figma / Google Docs 等所有同类编辑器都支持 Cmd+S 保存、Cmd+B 粗体、Cmd+Enter 提交。这个工具不仅没实现,还在 window keydown 里把这些组合键 preventDefault 掉,反而比不做更糟,键盘党会立刻觉得「这工具不专业」。",
+            "shouldFindWith": [
+              "键盘党",
+              "重度用户"
+            ]
+          }
+        },
+        {
+          "gtId": "gt-04",
+          "gt": {
+            "id": "gt-04",
+            "title": "没有 ? 弹出快捷键说明",
+            "severity": "med",
+            "category": "信息架构",
+            "description": "现代编辑器普遍用「?」键弹出 keyboard shortcuts cheat sheet (Linear / Notion / Slack 都有),这个产品既没有这个入口、菜单里也找不到帮助文档,新用户哪怕想学快捷键也学不到。",
+            "shouldFindWith": [
+              "键盘党",
+              "新手"
+            ]
+          }
+        },
+        {
+          "gtId": "gt-05",
+          "gt": {
+            "id": "gt-05",
+            "title": "Save 按钮没有快捷键提示",
+            "severity": "low",
+            "category": "表达文案",
+            "description": "Save 按钮就是裸的 \"Save\" 文字,没有像 Notion / VSCode 那样在 hover 时显示 ⌘S 角标,用户根本不会知道「可能存在」快捷键,更不会去尝试。",
+            "shouldFindWith": [
+              "键盘党",
+              "细致用户"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "fixtureId": "19-slow-perceived",
+      "gtTotal": 5,
+      "ppTotal": 10,
+      "matched": 1,
+      "recall": 0.2,
+      "precision": 0.1,
+      "f1": 0.13333333333333333,
+      "severityAcc": 0,
+      "categoryAcc": 0,
+      "verdicts": [
+        {
+          "gtId": "gt-01",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0,
+          "reasoning": "judge failed: No JSON found in LLM output:\n"
+        },
+        {
+          "gtId": "gt-02",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0.4,
+          "reasoning": "i07是关于首屏看不到数据的静态问题GT是关于数据加载时缺少过渡动画的情感问题两者都不涉及功能失效或性能问题但核心问题不同"
+        },
+        {
+          "gtId": "gt-03",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0,
+          "reasoning": "GT issue is about random ordering of list items breaking visual rhythm, but no finding mentions order randomization or inconsistent item positions"
+        },
+        {
+          "gtId": "gt-04",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0,
+          "reasoning": "GT问题指向列表底部的加载更多功能缺失，属于分页体验问题。所有发现都聚焦在搜索失灵、按钮无响应、加载慢、看不到数据等，未涉及列表底部缺乏分页控件或无限滚动机制"
+        },
+        {
+          "gtId": "gt-05",
+          "findingId": "i07",
+          "matched": true,
+          "confidence": 0.65,
+          "reasoning": "i07描述看不到客户数据与GT的加载后空数据状态一致",
+          "severityAgrees": false,
+          "categoryAgrees": false
+        }
+      ],
+      "falsePositives": [
+        {
+          "findingId": "i01",
+          "finding": {
+            "title": "搜索框输入后没有任何反馈，像是卡死了",
+            "category": "性能感知",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i02",
+          "finding": {
+            "title": "两个筛选下拉按钮点完没反应，不知道是坏了还是我操作不对",
+            "category": "流程顺畅",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i03",
+          "finding": {
+            "title": "整体响应太慢，感觉像卡住了一样，让我很烦躁",
+            "category": "情感氛围",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i04",
+          "finding": {
+            "title": "搜索输入后列表不更新",
+            "category": "功能契合",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i05",
+          "finding": {
+            "title": "搜索输入后按回车完全没反应",
+            "category": "性能感知",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i06",
+          "finding": {
+            "title": "所有交互按钮都没有任何响应",
+            "category": "流程顺畅",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i08",
+          "finding": {
+            "title": "首屏只有大图，看不到任何实质功能",
+            "category": "视觉节奏",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i09",
+          "finding": {
+            "title": "搜索框和下拉按钮用途不明",
+            "category": "信息架构",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i10",
+          "finding": {
+            "title": "产品定位不清晰，不知道它是做什么的",
+            "category": "功能契合",
+            "severity": "high"
+          }
+        }
+      ],
+      "missed": [
+        {
+          "gtId": "gt-01",
+          "gt": {
+            "id": "gt-01",
+            "title": "加载时整片白屏没有 skeleton",
+            "severity": "high",
+            "category": "性能感知",
+            "description": "首屏进入页面 1.5 秒内,内容区是个高 480px 的空白容器,只有正中一小行 \"Loading...\" 灰字,没有任何 skeleton 行、placeholder 卡片、或 shimmer 动画。用户主观感受像产品卡住了,不知道是网络问题还是产品坏了。",
+            "shouldFindWith": [
+              "性能敏感",
+              "新手"
+            ]
+          }
+        },
+        {
+          "gtId": "gt-02",
+          "gt": {
+            "id": "gt-02",
+            "title": "数据加载完一下子蹦出来",
+            "severity": "high",
+            "category": "情感氛围",
+            "description": "1.5 秒后所有 10 行 customer 数据直接 snap 进 DOM,没有 fade-in / 淡入 / 渐次出现,从空白瞬间切到完整列表,视觉上一惊一乍,丧失了 \"产品在为我工作\" 的连贯感。",
+            "shouldFindWith": [
+              "设计敏感",
+              "性能敏感"
+            ]
+          }
+        },
+        {
+          "gtId": "gt-03",
+          "gt": {
+            "id": "gt-03",
+            "title": "列表项加载顺序是乱的",
+            "severity": "med",
+            "category": "视觉节奏",
+            "description": "fixture 数据有明确顺序 (Northwind Labs 在第一,Saltgrove 在最后),但 paintAll 用了 Math.random 把顺序打乱再插入。用户每次刷新页面看到的客户顺序都不一样,无法记忆位置,完全打破了「从上往下流式加载」的预期。",
+            "shouldFindWith": [
+              "细致用户",
+              "重度用户"
+            ]
+          }
+        },
+        {
+          "gtId": "gt-04",
+          "gt": {
+            "id": "gt-04",
+            "title": "滚到底没有「加载更多」",
+            "severity": "med",
+            "category": "流程顺畅",
+            "description": "列表底部就这样断了,既没有 \"Load more\" 按钮也没有 infinite scroll 监听器,旁边还残留着 — end of list — 但默认 display:none 看不到。如果客户超过 10 个用户根本不知道还有没有更多数据。",
+            "shouldFindWith": [
+              "重度用户",
+              "目标导向"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "fixtureId": "20-anti-pattern",
+      "gtTotal": 3,
+      "ppTotal": 11,
+      "matched": 0,
+      "recall": 0,
+      "precision": 0,
+      "f1": 0,
+      "severityAcc": 0,
+      "categoryAcc": 0,
+      "verdicts": [
+        {
+          "gtId": "gt-01",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0,
+          "reasoning": "No finding addresses the Beta tag visual hierarchy issue specifically"
+        },
+        {
+          "gtId": "gt-02",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0,
+          "reasoning": "GT关注的是全站单一lime色无视觉层级，所有PP发现都聚焦于导航失效产品定位模糊等，完全不涉及颜色单调问题"
+        },
+        {
+          "gtId": "gt-03",
+          "findingId": null,
+          "matched": false,
+          "confidence": 0.1,
+          "reasoning": "GT聚焦导航入口层级隐藏问题(More下拉),所有发现均指向链接失效/产品定位模糊,无匹配"
+        }
+      ],
+      "falsePositives": [
+        {
+          "findingId": "i01",
+          "finding": {
+            "title": "入口就失败了，用户没有第二次机会",
+            "category": "性能感知",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i02",
+          "finding": {
+            "title": "没有任何加载提示或错误信息，空白感很强",
+            "category": "情感氛围",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i03",
+          "finding": {
+            "title": "产品定位完全模糊，看不出是PM工具",
+            "category": "信息架构",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i04",
+          "finding": {
+            "title": "页面内容看不清楚，无法获取有效信息",
+            "category": "视觉节奏",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i06",
+          "finding": {
+            "title": "导航栏全部失灵，产品概貌都看不到",
+            "category": "可访问性",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i09",
+          "finding": {
+            "title": "所有可点击元素都毫无反应，像打开了个死页面",
+            "category": "功能契合",
+            "severity": "high"
+          }
+        },
+        {
+          "findingId": "i05",
+          "finding": {
+            "title": "导航链接点击后没有明显反馈",
+            "category": "流程顺畅",
+            "severity": "med"
+          }
+        },
+        {
+          "findingId": "i07",
+          "finding": {
+            "title": "产品定位模糊，\"in Minutes\" 让我本能怀疑",
+            "category": "表达文案",
+            "severity": "med"
+          }
+        },
+        {
+          "findingId": "i08",
+          "finding": {
+            "title": "找不到任何实质性信息，产品价值主张缺失",
+            "category": "信息架构",
+            "severity": "med"
+          }
+        },
+        {
+          "findingId": "i10",
+          "finding": {
+            "title": "页面内容信息太少，看不出这个产品到底是做什么的",
+            "category": "信息架构",
+            "severity": "med"
+          }
+        },
+        {
+          "findingId": "i11",
+          "finding": {
+            "title": "从截图猜页面应该很大很壮观，但啥都点不了",
+            "category": "视觉节奏",
+            "severity": "low"
+          }
+        }
+      ],
+      "missed": [
+        {
+          "gtId": "gt-01",
+          "gt": {
+            "id": "gt-01",
+            "title": "Beta 标签字号大到抢戏",
+            "severity": "med",
+            "category": "表达文案",
+            "description": "顶部 brand 旁边的「Beta」标签用了 18px + bold + 高饱和 lime 背景,实际比 brand 名「Plain」(默认 15px) 还要醒目,视觉重心被这个临时性标签抢走。\"Beta\" 应当是低调的元信息,不该是页面里最亮眼的元素。",
+            "shouldFindWith": [
+              "设计敏感",
+              "细致用户"
+            ]
+          }
+        },
+        {
+          "gtId": "gt-02",
+          "gt": {
+            "id": "gt-02",
+            "title": "全站只有 lime 一种主色",
+            "severity": "med",
+            "category": "视觉节奏",
+            "description": "页面所有 accent (CTA、Beta 标签、终端 ✓ 勾、feature 小方块、hover 状态) 都是同一种 lime 色 #b4ec5b,没有任何层级 (没有 success/warning/info 的区分,也没有次要 accent)。在 hero、preview、features 三个区段都看到同一种绿,视觉单调,长页面下显得疲劳。注意:这跟『单色调克制』是有差别的,这是『同一个色板只有一档亮度,没有梯度』。",
+            "shouldFindWith": [
+              "设计敏感",
+              "重度用户"
+            ]
+          }
+        },
+        {
+          "gtId": "gt-03",
+          "gt": {
+            "id": "gt-03",
+            "title": "Changelog 等入口藏在 More 里",
+            "severity": "low",
+            "category": "信息架构",
+            "description": "顶部导航只露出 Product / Docs / Pricing 三项,Changelog、Customers、Security、Sign in 全部塞进 More ▾ 下拉。对开发者工具的常客来说,Sign in 应当是一级入口而不是藏一层。这是有意识的简化但确实牺牲了一点点直达性,属于 low 而非更严重——故意混在真问题里测 pp 能否给出合理 severity。",
+            "shouldFindWith": [
+              "重度用户",
+              "评估者"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

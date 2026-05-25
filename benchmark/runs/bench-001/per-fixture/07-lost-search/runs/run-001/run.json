@@ -1,0 +1,765 @@
+{
+  "id": "run-001",
+  "startedAt": "2026-05-25T11:22:33.525Z",
+  "finishedAt": "2026-05-25T11:24:09.488Z",
+  "target": {
+    "url": "http://localhost:8200/07-lost-search/site/",
+    "title": "Search — Quill Docs",
+    "viewport": {
+      "w": 1280,
+      "h": 800
+    }
+  },
+  "personaSetId": "preset-a-docs-search-page-try-searc",
+  "agents": [
+    {
+      "id": "a04",
+      "name": "李心怡",
+      "age": 24,
+      "role": "前端开发",
+      "tech": 5,
+      "tone": "好奇",
+      "preferences": [
+        "愿意尝试新工具",
+        "关注开发者体验",
+        "喜欢开源生态"
+      ],
+      "knownContext": [
+        "试过 Raycast Docs 插件",
+        "经常给开源项目提 PR",
+        "订阅了 Product Hunt"
+      ],
+      "weight": 0.18,
+      "color": "#a8c5e8",
+      "glyph": "L",
+      "traits": [
+        "尝鲜族",
+        "技术敏锐"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "frustrated",
+      "durationSec": 77.266
+    },
+    {
+      "id": "a01",
+      "name": "Maya Chen",
+      "age": 28,
+      "role": "产品经理",
+      "tech": 4,
+      "tone": "挑剔",
+      "preferences": [
+        "追求精准匹配",
+        "注重搜索速度",
+        "讨厌无关结果"
+      ],
+      "knownContext": [
+        "每天用 Notion 记笔记",
+        "试过 Linear，感觉对非开发不友好",
+        "团队 12 人"
+      ],
+      "weight": 0.32,
+      "color": "#e6c976",
+      "glyph": "M",
+      "traits": [
+        "效率控",
+        "结果导向"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "frustrated",
+      "durationSec": 86.546
+    },
+    {
+      "id": "a02",
+      "name": "王磊",
+      "age": 35,
+      "role": "运维工程师",
+      "tech": 5,
+      "tone": "急躁",
+      "preferences": [
+        "命令行优先",
+        "讨厌重复点击",
+        "期望键盘快捷键"
+      ],
+      "knownContext": [
+        "公司文档站用 Algolia DocSearch",
+        "自己搭过 Elasticsearch",
+        "习惯用浏览器开发者工具排查问题"
+      ],
+      "weight": 0.28,
+      "color": "#7eb5a6",
+      "glyph": "W",
+      "traits": [
+        "命令行党",
+        "耐心有限"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "frustrated",
+      "durationSec": 91.102
+    },
+    {
+      "id": "a03",
+      "name": "Kenji Okada",
+      "age": 31,
+      "role": "内容运营",
+      "tech": 3,
+      "tone": "温和",
+      "preferences": [
+        "界面简洁",
+        "偏好分类导航",
+        "对搜索功能期望不高"
+      ],
+      "knownContext": [
+        "日常用 Confluence 管理内容",
+        "不熟悉 Markdown",
+        "团队文档分散在 3 个平台"
+      ],
+      "weight": 0.22,
+      "color": "#c5a3c5",
+      "glyph": "K",
+      "traits": [
+        "保守型",
+        "分类思维"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "frustrated",
+      "durationSec": 95.847
+    }
+  ],
+  "activity": [
+    {
+      "t": "00:00:00",
+      "agent": "a04",
+      "kind": "enter",
+      "text": "进入 localhost:8200/07-lost-search/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/07-lost-search/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a04",
+      "kind": "click",
+      "text": "点击搜索框准备搜索",
+      "sentiment": 0,
+      "url": "http://localhost:8200/07-lost-search/site/",
+      "shot": "shots/a04-00.jpg"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a01",
+      "kind": "enter",
+      "text": "进入 localhost:8200/07-lost-search/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/07-lost-search/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a01",
+      "kind": "observation",
+      "text": "首页看起来是个文档站。导航栏有 Docs、Guides、API、Community，都是标准配置。中央有个大搜索框，位置很显眼——说明搜索功能是核心。设计师把它放C位了。让我看看这个搜索框是否值得期待。",
+      "sentiment": 0,
+      "shot": "shots/a01-00.jpg"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a02",
+      "kind": "enter",
+      "text": "进入 localhost:8200/07-lost-search/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/07-lost-search/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a02",
+      "kind": "observation",
+      "text": "经典文档站布局，顶部导航+Docs/Guides/API/Community分类，中间大搜索框。看起来像 Algolia DocSearch 的标准模板。",
+      "sentiment": 0,
+      "shot": "shots/a02-00.jpg"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a03",
+      "kind": "enter",
+      "text": "进入 localhost:8200/07-lost-search/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/07-lost-search/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a03",
+      "kind": "click",
+      "text": "Looking at the search bar placement and sizing on the page",
+      "sentiment": 0,
+      "url": "http://localhost:8200/07-lost-search/site/",
+      "shot": "shots/a03-00.jpg"
+    },
+    {
+      "t": "00:03:79",
+      "agent": "a01",
+      "kind": "click",
+      "text": "想测试搜索功能是否好用",
+      "sentiment": 0,
+      "url": "http://localhost:8200/07-lost-search/site/",
+      "shot": "shots/a01-01.jpg"
+    },
+    {
+      "t": "00:06:59",
+      "agent": "a01",
+      "kind": "click",
+      "text": "搜索是我来这里的主要目的 (typed: install)",
+      "sentiment": 0,
+      "shot": "shots/a01-02.jpg"
+    },
+    {
+      "t": "00:06:85",
+      "agent": "a02",
+      "kind": "click",
+      "text": "点击搜索框，准备输入关键词测试搜索功能",
+      "sentiment": 0,
+      "url": "http://localhost:8200/07-lost-search/site/",
+      "shot": "shots/a02-01.jpg"
+    },
+    {
+      "t": "00:09:96",
+      "agent": "a02",
+      "kind": "click",
+      "text": "输入搜索关键词测试搜索功能 (typed: install)",
+      "sentiment": 0,
+      "shot": "shots/a02-02.jpg"
+    },
+    {
+      "t": "00:12:62",
+      "agent": "a01",
+      "kind": "search",
+      "text": "输入了\"install\"，还没看到结果。试试按回车触发搜索。",
+      "sentiment": 0,
+      "shot": "shots/a01-03.jpg"
+    },
+    {
+      "t": "00:14:23",
+      "agent": "a03",
+      "kind": "confused",
+      "text": "页面好像没有太大变化。我刚点击了搜索框但看不出效果。让我试试直接在这个输入框里输入内容来测试搜索功能。",
+      "sentiment": -1,
+      "shot": "shots/a03-01.jpg"
+    },
+    {
+      "t": "00:14:52",
+      "agent": "a02",
+      "kind": "shortcut",
+      "text": "按回车执行搜索 [Enter]",
+      "sentiment": 0,
+      "url": "http://localhost:8200/07-lost-search/site/",
+      "shot": "shots/a02-03.jpg"
+    },
+    {
+      "t": "00:17:88",
+      "agent": "a04",
+      "kind": "click",
+      "text": "尝试搜索功能，看能否找到相关内容 (typed: installation)",
+      "sentiment": 0,
+      "shot": "shots/a04-01.jpg"
+    },
+    {
+      "t": "00:18:43",
+      "agent": "a01",
+      "kind": "shortcut",
+      "text": "尝试触发搜索 [Enter]",
+      "sentiment": 0,
+      "url": "http://localhost:8200/07-lost-search/site/",
+      "shot": "shots/a01-04.jpg"
+    },
+    {
+      "t": "00:19:38",
+      "agent": "a02",
+      "kind": "rage",
+      "text": "回车按完什么都没发生？搜索框里的字还在，但没有任何结果。这不对劲。我习惯 Algolia 那种输入就出结果的感觉，这里像死机了一样。",
+      "sentiment": -2,
+      "shot": "shots/a02-04.jpg"
+    },
+    {
+      "t": "00:21:45",
+      "agent": "a04",
+      "kind": "shortcut",
+      "text": "按回车尝试搜索 [Enter]",
+      "sentiment": 0,
+      "url": "http://localhost:8200/07-lost-search/site/",
+      "shot": "shots/a04-02.jpg"
+    },
+    {
+      "t": "00:21:69",
+      "agent": "a03",
+      "kind": "click",
+      "text": "Click to focus on the search input box",
+      "sentiment": 0,
+      "url": "http://localhost:8200/07-lost-search/site/",
+      "shot": "shots/a03-02.jpg"
+    },
+    {
+      "t": "00:25:38",
+      "agent": "a01",
+      "kind": "rage",
+      "text": "按了回车，完全没反应。搜索框放C位，结果按回车不动？有点失望。",
+      "sentiment": -1,
+      "shot": "shots/a01-05.jpg"
+    },
+    {
+      "t": "00:25:99",
+      "agent": "a04",
+      "kind": "rage",
+      "text": "搜索按了回车什么都没发生？没有下拉框、没有结果、连 loading 都没有？这搜索是坏的吧……",
+      "sentiment": -2,
+      "shot": "shots/a04-03.jpg"
+    },
+    {
+      "t": "00:26:05",
+      "agent": "a03",
+      "kind": "click",
+      "text": "Testing search by typing a query to see if results appear (typed: getting started)",
+      "sentiment": 0,
+      "shot": "shots/a03-03.jpg"
+    },
+    {
+      "t": "00:31:78",
+      "agent": "a04",
+      "kind": "click",
+      "text": "搜索坏了，改看文档结构",
+      "sentiment": 0,
+      "url": "http://localhost:8200/07-lost-search/site/",
+      "shot": "shots/a04-04.jpg"
+    },
+    {
+      "t": "00:32:06",
+      "agent": "a02",
+      "kind": "shortcut",
+      "text": "放弃搜索，看看有没有搜索按钮 [Escape]",
+      "sentiment": 0,
+      "url": "http://localhost:8200/07-lost-search/site/",
+      "shot": "shots/a02-05.jpg"
+    },
+    {
+      "t": "00:32:24",
+      "agent": "a03",
+      "kind": "shortcut",
+      "text": "Submit search query to see results [Enter]",
+      "sentiment": 0,
+      "url": "http://localhost:8200/07-lost-search/site/",
+      "shot": "shots/a03-04.jpg"
+    },
+    {
+      "t": "00:37:41",
+      "agent": "a03",
+      "kind": "rage",
+      "text": "输入了\"getting started\"按回车，页面完全没变化。没有搜索结果，没有下拉建议，什么都没有。这搜索功能到底是摆设还是我哪里操作错了？",
+      "sentiment": -2,
+      "shot": "shots/a03-05.jpg"
+    },
+    {
+      "t": "00:37:42",
+      "agent": "a01",
+      "kind": "click",
+      "text": "搜索没反应，去看看 Docs 页面有什么内容",
+      "sentiment": 0,
+      "url": "http://localhost:8200/07-lost-search/site/",
+      "shot": "shots/a01-06.jpg"
+    },
+    {
+      "t": "00:41:80",
+      "agent": "a02",
+      "kind": "click",
+      "text": "搜索没反应，直接点 Docs 看看内容",
+      "sentiment": 0,
+      "url": "http://localhost:8200/07-lost-search/site/",
+      "shot": "shots/a02-06.jpg"
+    },
+    {
+      "t": "00:42:60",
+      "agent": "a03",
+      "kind": "click",
+      "text": "Browse the Docs section to understand what content is available on the site",
+      "sentiment": 0,
+      "url": "http://localhost:8200/07-lost-search/site/",
+      "shot": "shots/a03-06.jpg"
+    },
+    {
+      "t": "00:45:60",
+      "agent": "a01",
+      "kind": "rage",
+      "text": "点击了 Docs 但页面完全没变。这是个假页面吧？导航栏都是装饰？搜索框也是摆设？",
+      "sentiment": -2,
+      "shot": "shots/a01-08.jpg"
+    },
+    {
+      "t": "00:48:69",
+      "agent": "a04",
+      "kind": "click",
+      "text": "点击 Guides 看看有没有内容",
+      "sentiment": 0,
+      "url": "http://localhost:8200/07-lost-search/site/",
+      "shot": "shots/a04-07.jpg"
+    },
+    {
+      "t": "00:49:96",
+      "agent": "a02",
+      "kind": "rage",
+      "text": "导航点不了，搜索也没反应。这整个站是摆设吧？搜索功能是核心功能，居然完全不工作。跟 Algolia DocSearch 比差太远了，完全没法用。",
+      "sentiment": -3,
+      "shot": "shots/a02-07.jpg"
+    },
+    {
+      "t": "00:51:53",
+      "agent": "a01",
+      "kind": "click",
+      "text": "直接访问 Docs 子路径看看有没有真实内容",
+      "sentiment": 0,
+      "url": "http://localhost:8200/site/docs",
+      "shot": "shots/a01-09.jpg"
+    },
+    {
+      "t": "00:54:20",
+      "agent": "a02",
+      "kind": "exit",
+      "text": "搜索功能完全失效（输入后按回车没有任何结果），顶部导航栏点击也没反应。作为运维工程师，第一反应就是这东西核心功能全挂了，根本没法用。跟 Algolia DocSearch 体验差太多，直接放弃。",
+      "sentiment": 0,
+      "shot": "shots/a02-08.jpg"
+    },
+    {
+      "t": "00:54:74",
+      "agent": "a04",
+      "kind": "exit",
+      "text": "搜索功能完全不工作，点击任何导航都没反应，页面像是静态的。这个产品看起来有严重的 bug，或者根本没实现功能。作为一个开发者，我肯定不会用这种连基础搜索都不工作的文档站。",
+      "sentiment": 0,
+      "shot": "shots/a04-08.jpg"
+    },
+    {
+      "t": "00:55:51",
+      "agent": "a01",
+      "kind": "rage",
+      "text": "404 了。导航栏是装饰，搜索框是摆设，这就是个空壳 Demo。浪费生命。",
+      "sentiment": -3,
+      "shot": "shots/a01-10.jpg"
+    },
+    {
+      "t": "00:59:89",
+      "agent": "a01",
+      "kind": "exit",
+      "text": "作为产品经理来这里测试搜索功能，结果发现整个站是个空壳：搜索框按回车没反应、导航栏点击没变化、直接访问子路径返回404。搜索功能被放在页面C位却完全不可用，这种\"缺失的搜索\"比没有搜索更让人沮丧——它浪费了用户的信任和期待。",
+      "sentiment": 0,
+      "shot": "shots/a01-11.jpg"
+    },
+    {
+      "t": "01:00:92",
+      "agent": "a03",
+      "kind": "confused",
+      "text": "页面看起来没有任何变化。我点击了 Docs，向下滚动了，但似乎什么都没有发生。这是个假链接吗？还是页面本身就没有内容？",
+      "sentiment": -1,
+      "shot": "shots/a03-08.jpg"
+    },
+    {
+      "t": "01:05:09",
+      "agent": "a03",
+      "kind": "click",
+      "text": "Try clicking Guides nav item to see if page content changes",
+      "sentiment": 0,
+      "url": "http://localhost:8200/07-lost-search/site/",
+      "shot": "shots/a03-09.jpg"
+    },
+    {
+      "t": "01:12:27",
+      "agent": "a03",
+      "kind": "rage",
+      "text": "我已经点击了 Docs、滚动、点击 Guides，页面完全没有任何变化。搜索也不工作。这个网站看起来完全坏掉了，或者就是个空壳。作为真实用户，我早就关掉去别的网站了。",
+      "sentiment": -3,
+      "shot": "shots/a03-10.jpg"
+    },
+    {
+      "t": "01:21:48",
+      "agent": "a03",
+      "kind": "exit",
+      "text": "作为内容运营的 Kenji，我满怀期待地打开这个文档网站，但实际体验非常糟糕。搜索框输入内容后回车完全没有反应，没有任何结果或建议下拉。导航链接（Docs、Guides）点击后页面也完全没有变化。这个网站看起来像是坏掉的空壳。我作为一个偏好清晰界面和分类导航的用户，完全找不到想看的内容，早就放弃离开去用别的工具了。",
+      "sentiment": 0,
+      "shot": "shots/a03-11.jpg"
+    }
+  ],
+  "issues": [
+    {
+      "id": "i01",
+      "title": "搜索按回车完全没反应",
+      "severity": "high",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "搜索按了回车什么都没发生？没有下拉框、没有结果、连 loading 都没有？这搜索是坏的吧……",
+      "agentRef": "a04",
+      "evidence": 2,
+      "journey": "在搜索框输入 installation 后按 Enter"
+    },
+    {
+      "id": "i02",
+      "title": "导航链接点击后毫无响应",
+      "severity": "high",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "搜索坏了，改看文档结构。点击 Guides 看看有没有内容。点击任何导航都没反应，页面像是静态的。",
+      "agentRef": "a04",
+      "evidence": 2,
+      "journey": "在顶部导航找 Guides 并点击"
+    },
+    {
+      "id": "i04",
+      "title": "搜索框在C位却完全不可用",
+      "severity": "high",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "搜索框放C位，结果按回车不动？有点失望。",
+      "agentRef": "a01",
+      "evidence": 2,
+      "journey": "在首页搜索框输入 install 并按回车"
+    },
+    {
+      "id": "i05",
+      "title": "导航栏是装饰，点了没反应",
+      "severity": "high",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "点击了 Docs 但页面完全没变。这是个假页面吧？导航栏都是装饰？",
+      "agentRef": "a01",
+      "evidence": 2,
+      "journey": "点击导航栏 Docs 链接"
+    },
+    {
+      "id": "i06",
+      "title": "子路径直接 404",
+      "severity": "high",
+      "agents": 1,
+      "category": "信息架构",
+      "quote": "直接访问 Docs 子路径看看有没有真实内容 — 404 了。",
+      "agentRef": "a01",
+      "evidence": 1,
+      "journey": "直接访问 /docs 路径"
+    },
+    {
+      "id": "i07",
+      "title": "搜索按回车完全没反应，核心功能挂掉",
+      "severity": "high",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "回车按完什么都没发生？搜索框里的字还在，但没有任何结果。这不对劲。",
+      "agentRef": "a02",
+      "evidence": 3,
+      "journey": "在首页搜索框输入 install 后按回车"
+    },
+    {
+      "id": "i08",
+      "title": "导航栏点击完全没响应，页面像摆设",
+      "severity": "high",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "导航点不了，搜索也没反应。这整个站是摆设吧？",
+      "agentRef": "a02",
+      "evidence": 2,
+      "journey": "搜索失败后尝试点击顶部 Docs 导航"
+    },
+    {
+      "id": "i10",
+      "title": "搜索框输入后回车完全没反应，感觉是个摆设",
+      "severity": "high",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "输入了'getting started'按回车，页面完全没变化。没有搜索结果，没有下拉建议，什么都没有。这搜索功能到底是摆设还是我哪里操作错了？",
+      "agentRef": "a03",
+      "evidence": 1,
+      "journey": "我在首页看到搜索框，想搜索感兴趣的内容，输入后按回车查看结果"
+    },
+    {
+      "id": "i11",
+      "title": "导航链接点击后页面没有任何变化，怀疑是假链接",
+      "severity": "high",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "页面看起来没有任何变化。我点击了 Docs，向下滚动了，但似乎什么都没有发生。这是个假链接吗？",
+      "agentRef": "a03",
+      "evidence": 2,
+      "journey": "我想通过导航找内容分类，点 Docs 和 Guides 看看有没有内容"
+    },
+    {
+      "id": "i12",
+      "title": "找不到任何实质内容，对这个网站失去信任",
+      "severity": "high",
+      "agents": 1,
+      "category": "情感氛围",
+      "quote": "我已经点击了 Docs、滚动、点击 Guides，页面完全没有任何变化。作为真实用户，我早就关掉去别的网站了。",
+      "agentRef": "a03",
+      "evidence": 1,
+      "journey": "在首页，搜索不工作，导航也不工作，想找内容但完全找不到入口"
+    },
+    {
+      "id": "i03",
+      "title": "没有任何交互反馈让我不知所措",
+      "severity": "med",
+      "agents": 1,
+      "category": "情感氛围",
+      "quote": "作为开发者我肯定不会用这种连基础搜索都不工作的文档站",
+      "agentRef": "a04",
+      "evidence": 1,
+      "journey": "整体使用过程中的感受"
+    },
+    {
+      "id": "i09",
+      "title": "跟 Algolia DocSearch 比差太多，没理由切换过来",
+      "severity": "med",
+      "agents": 1,
+      "category": "与竞品对比",
+      "quote": "跟 Algolia DocSearch 体验差太多，完全没法用。",
+      "agentRef": "a02",
+      "evidence": 1,
+      "journey": "整个会话过程中持续对比"
+    }
+  ],
+  "delights": [],
+  "features": [
+    {
+      "name": "搜索",
+      "hitCount": 4,
+      "hitRate": 1,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 6
+    },
+    {
+      "name": "导航浏览",
+      "hitCount": 2,
+      "hitRate": 0.5,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 3
+    },
+    {
+      "name": "导航点击",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 1
+    }
+  ],
+  "routesHeat": [
+    {
+      "path": "/07-lost-search/site/",
+      "visits": 20,
+      "dwell": 11,
+      "drop": 0.15
+    },
+    {
+      "path": "/site/docs",
+      "visits": 1,
+      "dwell": 5,
+      "drop": 1
+    }
+  ],
+  "sentimentCurve": [
+    {
+      "t": 0,
+      "v": 0.5
+    },
+    {
+      "t": 5,
+      "v": 0.5
+    },
+    {
+      "t": 10,
+      "v": 0.5
+    },
+    {
+      "t": 15,
+      "v": 0.4444444444444444
+    },
+    {
+      "t": 20,
+      "v": 0.3888888888888889
+    },
+    {
+      "t": 25,
+      "v": 0.5
+    },
+    {
+      "t": 30,
+      "v": 0.3333333333333333
+    },
+    {
+      "t": 35,
+      "v": 0.5
+    },
+    {
+      "t": 40,
+      "v": 0.5
+    },
+    {
+      "t": 45,
+      "v": 0.3333333333333333
+    },
+    {
+      "t": 50,
+      "v": 0.5
+    },
+    {
+      "t": 55,
+      "v": 0.3333333333333333
+    },
+    {
+      "t": 60,
+      "v": 0.25
+    },
+    {
+      "t": 65,
+      "v": 0.3333333333333333
+    },
+    {
+      "t": 70,
+      "v": 0.4166666666666667
+    },
+    {
+      "t": 75,
+      "v": 0.5
+    },
+    {
+      "t": 80,
+      "v": 0.5
+    },
+    {
+      "t": 85,
+      "v": 0
+    },
+    {
+      "t": 90,
+      "v": 0
+    },
+    {
+      "t": 95,
+      "v": 0
+    },
+    {
+      "t": 100,
+      "v": 0.5
+    }
+  ],
+  "metrics": {
+    "predictedNps": -16,
+    "achievableNps": 100,
+    "taskSuccess": 0,
+    "timeToValueSec": null,
+    "rageClicks": 8,
+    "delightCount": 0
+  },
+  "cost": {
+    "tokensIn": 107048,
+    "tokensOut": 5080,
+    "usd": 0
+  }
+}

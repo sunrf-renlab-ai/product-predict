@@ -403,30 +403,58 @@ export async function callJson<T>(args: {
   if (MOCK_MODE) return mockWrap() as T;
   const c = mainClient();       // analysis work goes on the main key
 
-  const msg = await c.messages.create({
-    model: detectProvider().model,
-    max_tokens: args.maxTokens ?? 2048,
-    system: args.system,
-    messages: [{ role: "user", content: args.prompt }],
-  });
-  const text = msg.content
-    .filter((b): b is Anthropic.TextBlock => b.type === "text")
-    .map((b) => b.text)
-    .join("\n");
-  const json = extractJson(text);
-  return JSON.parse(json) as T;
+  let lastErr: unknown;
+  for (let attempt = 0; attempt < 2; attempt++) {
+    const msg = await c.messages.create({
+      model: detectProvider().model,
+      max_tokens: args.maxTokens ?? 2048,
+      system: attempt === 0 ? args.system : args.system + "\n\nIMPORTANT: previous attempt returned malformed JSON. Output ONLY a single JSON object. No prose, no markdown fences, no commentary.",
+      messages: [{ role: "user", content: args.prompt }],
+    });
+    const text = msg.content
+      .filter((b): b is Anthropic.TextBlock => b.type === "text")
+      .map((b) => b.text)
+      .join("\n");
+    try {
+      const json = extractJson(text);
+      return JSON.parse(json) as T;
+    } catch (e) {
+      lastErr = e;
+      // retry once with stricter system message
+    }
+  }
+  throw lastErr;
 }
 
 function extractJson(text: string): string {
-  // Accept ```json ... ``` or bare JSON. Pick the first balanced { ... } or [ ... ].
+  // Accept ```json ... ``` fenced or bare JSON. Then walk char-by-char to find
+  // a balanced { ... } (or [ ... ]) — this survives trailing prose, missing
+  // closing fences, and (mostly) unescaped quotes inside string values.
   const fence = text.match(/```(?:json)?\s*([\s\S]*?)```/);
   const candidate = (fence ? fence[1] : text).trim();
-  // If candidate starts with [ or {, return as-is.
-  const first = candidate.indexOf("{");
+  const firstObj = candidate.indexOf("{");
   const firstArr = candidate.indexOf("[");
   const start =
-    first === -1 ? firstArr : firstArr === -1 ? first : Math.min(first, firstArr);
+    firstObj === -1 ? firstArr : firstArr === -1 ? firstObj : Math.min(firstObj, firstArr);
   if (start === -1) throw new Error("No JSON found in LLM output:\n" + text);
+  const open = candidate[start];
+  const close = open === "{" ? "}" : "]";
+  let depth = 0;
+  let inString = false;
+  let escape = false;
+  for (let i = start; i < candidate.length; i++) {
+    const c = candidate[i];
+    if (escape) { escape = false; continue; }
+    if (c === "\\") { escape = true; continue; }
+    if (c === '"') { inString = !inString; continue; }
+    if (inString) continue;
+    if (c === open) depth++;
+    else if (c === close) {
+      depth--;
+      if (depth === 0) return candidate.slice(start, i + 1);
+    }
+  }
+  // Unclosed — return what we have; JSON.parse will throw with a real error.
   return candidate.slice(start);
 }
 

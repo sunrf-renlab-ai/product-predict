@@ -1,0 +1,1011 @@
+{
+  "id": "run-001",
+  "startedAt": "2026-05-25T11:20:20.824Z",
+  "finishedAt": "2026-05-25T11:22:13.676Z",
+  "target": {
+    "url": "http://localhost:8200/05-modal-trap/site/",
+    "title": "Welcome to Drift",
+    "viewport": {
+      "w": 1280,
+      "h": 800
+    }
+  },
+  "personaSetId": "preset-a-post-login-onboarding-modal",
+  "agents": [
+    {
+      "id": "a03",
+      "name": "Kenji Okada",
+      "age": 31,
+      "role": "市场专员",
+      "tech": 3,
+      "tone": "好奇",
+      "preferences": [
+        "喜欢视觉化学习",
+        "追求快速上手",
+        "关心界面美观"
+      ],
+      "knownContext": [
+        "常用 Figma 和 Canva",
+        "上个月刚换了一套协作工具",
+        "个人用户"
+      ],
+      "weight": 0.35,
+      "color": "#d4a5c9",
+      "glyph": "K",
+      "traits": [
+        "视觉敏感",
+        "乐于尝新"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "frustrated",
+      "durationSec": 86.136
+    },
+    {
+      "id": "a01",
+      "name": "Maya Chen",
+      "age": 28,
+      "role": "产品经理",
+      "tech": 4,
+      "tone": "挑剔",
+      "preferences": [
+        "关注工作流效率",
+        "重视团队协作",
+        "希望减少干扰"
+      ],
+      "knownContext": [
+        "每天用 Notion 管理项目",
+        "试过 Linear，觉得上手成本高",
+        "团队 8 人"
+      ],
+      "weight": 0.3,
+      "color": "#e6c976",
+      "glyph": "M",
+      "traits": [
+        "效率优先",
+        "谨慎评估"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": true,
+      "exitReason": "timeout",
+      "durationSec": 101.907
+    },
+    {
+      "id": "a02",
+      "name": "李明辉",
+      "age": 38,
+      "role": "IT 经理",
+      "tech": 5,
+      "tone": "怀疑",
+      "preferences": [
+        "关注数据安全",
+        "重视系统集成",
+        "要求稳定可靠"
+      ],
+      "knownContext": [
+        "企业用 Slack 和钉钉",
+        "之前部署过两套协作工具均弃用",
+        "IT 团队 5 人"
+      ],
+      "weight": 0.18,
+      "color": "#b8c4a8",
+      "glyph": "L",
+      "traits": [
+        "风险敏感",
+        "技术导向"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": true,
+      "exitReason": "timeout",
+      "durationSec": 108.317
+    },
+    {
+      "id": "a04",
+      "name": "王晓燕",
+      "age": 26,
+      "role": "行政专员",
+      "tech": 3,
+      "tone": "急躁",
+      "preferences": [
+        "要求操作简单",
+        "希望快速完成任务",
+        "避免复杂设置"
+      ],
+      "knownContext": [
+        "每天用 飞书 处理日常事务",
+        "用过 SAP 系统觉得很麻烦",
+        "非技术背景"
+      ],
+      "weight": 0.17,
+      "color": "#a8b4c4",
+      "glyph": "W",
+      "traits": [
+        "追求简洁",
+        "时间敏感"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": true,
+      "exitReason": "timeout",
+      "durationSec": 112.732
+    }
+  ],
+  "activity": [
+    {
+      "t": "00:00:00",
+      "agent": "a03",
+      "kind": "enter",
+      "text": "进入 localhost:8200/05-modal-trap/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/05-modal-trap/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a03",
+      "kind": "click",
+      "text": "打开页面查看整体布局",
+      "sentiment": 0,
+      "url": "http://localhost:8200/05-modal-trap/site/",
+      "shot": "shots/a03-00.jpg"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a01",
+      "kind": "enter",
+      "text": "进入 localhost:8200/05-modal-trap/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/05-modal-trap/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a01",
+      "kind": "observation",
+      "text": "页面很简洁，看起来是团队名称设置的 onboarding 第一步。我快速填一下看看能到哪里。",
+      "sentiment": 0,
+      "shot": "shots/a01-00.jpg"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a02",
+      "kind": "enter",
+      "text": "进入 localhost:8200/05-modal-trap/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/05-modal-trap/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a02",
+      "kind": "click",
+      "text": "Page loaded, want to see the full interface",
+      "sentiment": 0,
+      "url": "http://localhost:8200/05-modal-trap/site/",
+      "shot": "shots/a02-00.jpg"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a04",
+      "kind": "enter",
+      "text": "进入 localhost:8200/05-modal-trap/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/05-modal-trap/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a04",
+      "kind": "click",
+      "text": "I'm just opening the page, need to see what it looks like first",
+      "sentiment": 0,
+      "url": "http://localhost:8200/05-modal-trap/site/",
+      "shot": "shots/a04-00.jpg"
+    },
+    {
+      "t": "00:03:58",
+      "agent": "a03",
+      "kind": "observation",
+      "text": "看起来是个入职设置流程，第一步是设置团队名称。风格挺干净的，但感觉有点企业级软件的严肃感，不像 Canva 那种轻快的设计。",
+      "sentiment": 0,
+      "shot": "shots/a03-01.jpg"
+    },
+    {
+      "t": "00:03:78",
+      "agent": "a04",
+      "kind": "confused",
+      "text": "Drift? 这个我好像听说过，是那个在线客服聊天的工具？不太熟。先看看这个页面让我干嘛。",
+      "sentiment": 0,
+      "shot": "shots/a04-01.jpg"
+    },
+    {
+      "t": "00:03:83",
+      "agent": "a02",
+      "kind": "click",
+      "text": "See the full page and understand what this product is",
+      "sentiment": 0,
+      "url": "http://localhost:8200/05-modal-trap/site/",
+      "shot": "shots/a02-01.jpg"
+    },
+    {
+      "t": "00:04:09",
+      "agent": "a01",
+      "kind": "click",
+      "text": "先填团队名称",
+      "sentiment": 0,
+      "url": "http://localhost:8200/05-modal-trap/site/",
+      "shot": "shots/a01-01.jpg"
+    },
+    {
+      "t": "00:06:82",
+      "agent": "a02",
+      "kind": "confused",
+      "text": "刚进来就让我填团队名字？这产品是干嘛的我还不知道呢。底部那个\"Learn more about Drift\"倒是挺小的，我得先搞清楚这个工具是干什么的。",
+      "sentiment": -1,
+      "shot": "shots/a02-02.jpg"
+    },
+    {
+      "t": "00:07:48",
+      "agent": "a03",
+      "kind": "click",
+      "text": "聚焦到团队名称输入框",
+      "sentiment": 0,
+      "url": "http://localhost:8200/05-modal-trap/site/",
+      "shot": "shots/a03-02.jpg"
+    },
+    {
+      "t": "00:07:53",
+      "agent": "a01",
+      "kind": "click",
+      "text": "输入团队名称 (typed: Product Design Team)",
+      "sentiment": 0,
+      "shot": "shots/a01-02.jpg"
+    },
+    {
+      "t": "00:11:86",
+      "agent": "a03",
+      "kind": "click",
+      "text": "输入团队名称继续设置流程 (typed: Kenji's Marketing Team)",
+      "sentiment": 0,
+      "shot": "shots/a03-03.jpg"
+    },
+    {
+      "t": "00:12:21",
+      "agent": "a01",
+      "kind": "click",
+      "text": "进入下一步",
+      "sentiment": 0,
+      "url": "http://localhost:8200/05-modal-trap/site/",
+      "shot": "shots/a01-03.jpg"
+    },
+    {
+      "t": "00:12:80",
+      "agent": "a04",
+      "kind": "click",
+      "text": "To enter my team name",
+      "sentiment": 0,
+      "url": "http://localhost:8200/05-modal-trap/site/",
+      "shot": "shots/a04-02.jpg"
+    },
+    {
+      "t": "00:16:79",
+      "agent": "a01",
+      "kind": "click",
+      "text": "填角色",
+      "sentiment": 0,
+      "url": "http://localhost:8200/05-modal-trap/site/",
+      "shot": "shots/a01-04.jpg"
+    },
+    {
+      "t": "00:19:45",
+      "agent": "a04",
+      "kind": "click",
+      "text": "To enter a team name as requested (typed: Marketing Team)",
+      "sentiment": 0,
+      "shot": "shots/a04-03.jpg"
+    },
+    {
+      "t": "00:20:45",
+      "agent": "a03",
+      "kind": "click",
+      "text": "点击 Next 进入下一步设置",
+      "sentiment": 0,
+      "url": "http://localhost:8200/05-modal-trap/site/",
+      "shot": "shots/a03-04.jpg"
+    },
+    {
+      "t": "00:21:23",
+      "agent": "a02",
+      "kind": "click",
+      "text": "点击 Learn more 了解这个产品是什么",
+      "sentiment": 0,
+      "url": "http://localhost:8200/05-modal-trap/site/",
+      "shot": "shots/a02-03.jpg"
+    },
+    {
+      "t": "00:21:57",
+      "agent": "a01",
+      "kind": "click",
+      "text": "填产品经理角色 (typed: Product Manager)",
+      "sentiment": 0,
+      "shot": "shots/a01-05.jpg"
+    },
+    {
+      "t": "00:23:21",
+      "agent": "a03",
+      "kind": "shortcut",
+      "text": "尝试用键盘提交表单 [Enter]",
+      "sentiment": 0,
+      "url": "http://localhost:8200/05-modal-trap/site/",
+      "shot": "shots/a03-05.jpg"
+    },
+    {
+      "t": "00:26:33",
+      "agent": "a03",
+      "kind": "rage",
+      "text": "什么鬼？点 Next 没反应，按 Enter 也没反应。页面完全不动。这网站是不是坏了？还是我网络有问题？",
+      "sentiment": -2,
+      "shot": "shots/a03-06.jpg"
+    },
+    {
+      "t": "00:26:76",
+      "agent": "a01",
+      "kind": "click",
+      "text": "继续下一步",
+      "sentiment": 0,
+      "url": "http://localhost:8200/05-modal-trap/site/",
+      "shot": "shots/a01-06.jpg"
+    },
+    {
+      "t": "00:26:76",
+      "agent": "a04",
+      "kind": "click",
+      "text": "To proceed to the next step",
+      "sentiment": 0,
+      "url": "http://localhost:8200/05-modal-trap/site/",
+      "shot": "shots/a04-04.jpg"
+    },
+    {
+      "t": "00:29:68",
+      "agent": "a02",
+      "kind": "confused",
+      "text": "点了一下\"Learn more\"但什么都没发生。这按钮是假的吗？还是需要网络加载？",
+      "sentiment": -1,
+      "shot": "shots/a02-04.jpg"
+    },
+    {
+      "t": "00:30:68",
+      "agent": "a01",
+      "kind": "click",
+      "text": "填工作流",
+      "sentiment": 0,
+      "url": "http://localhost:8200/05-modal-trap/site/",
+      "shot": "shots/a01-07.jpg"
+    },
+    {
+      "t": "00:31:15",
+      "agent": "a04",
+      "kind": "click",
+      "text": "To enter my role",
+      "sentiment": 0,
+      "url": "http://localhost:8200/05-modal-trap/site/",
+      "shot": "shots/a04-05.jpg"
+    },
+    {
+      "t": "00:34:25",
+      "agent": "a03",
+      "kind": "click",
+      "text": "试试关闭按钮能不能打开什么",
+      "sentiment": 0,
+      "url": "http://localhost:8200/05-modal-trap/site/",
+      "shot": "shots/a03-07.jpg"
+    },
+    {
+      "t": "00:35:05",
+      "agent": "a04",
+      "kind": "click",
+      "text": "To enter my role (typed: Admin)",
+      "sentiment": 0,
+      "shot": "shots/a04-06.jpg"
+    },
+    {
+      "t": "00:35:07",
+      "agent": "a01",
+      "kind": "click",
+      "text": "填工作流类型 (typed: Project Management)",
+      "sentiment": 0,
+      "shot": "shots/a01-08.jpg"
+    },
+    {
+      "t": "00:39:04",
+      "agent": "a03",
+      "kind": "delight",
+      "text": "哦？点 close 按钮反而打开了什么。可能这是个模态框？标题写着 \"What's on your mind?\" 感觉像是要我输入点什么。",
+      "sentiment": 1,
+      "shot": "shots/a03-08.jpg"
+    },
+    {
+      "t": "00:39:38",
+      "agent": "a02",
+      "kind": "click",
+      "text": "尝试点击输入框看看会发生什么",
+      "sentiment": 0,
+      "url": "http://localhost:8200/05-modal-trap/site/",
+      "shot": "shots/a02-05.jpg"
+    },
+    {
+      "t": "00:39:45",
+      "agent": "a04",
+      "kind": "click",
+      "text": "To proceed to the next step",
+      "sentiment": 0,
+      "url": "http://localhost:8200/05-modal-trap/site/",
+      "shot": "shots/a04-07.jpg"
+    },
+    {
+      "t": "00:40:81",
+      "agent": "a01",
+      "kind": "click",
+      "text": "完成 onboarding",
+      "sentiment": 0,
+      "url": "http://localhost:8200/05-modal-trap/site/",
+      "shot": "shots/a01-09.jpg"
+    },
+    {
+      "t": "00:43:18",
+      "agent": "a02",
+      "kind": "observation",
+      "text": "哦原来点输入框会触发这个介绍视频弹出来。\"Drift是一个消息应用，让你可以和客户、潜在客户和团队聊天\"——听起来像是一个客服聊天工具。但这个模态弹窗挡住了整个页面，右上角的关闭按钮很小。我不喜欢被\"困\"在模态框里的感觉。",
+      "sentiment": 0,
+      "shot": "shots/a02-06.jpg"
+    },
+    {
+      "t": "00:43:35",
+      "agent": "a03",
+      "kind": "click",
+      "text": "想提交产品反馈",
+      "sentiment": 0,
+      "url": "http://localhost:8200/05-modal-trap/site/",
+      "shot": "shots/a03-09.jpg"
+    },
+    {
+      "t": "00:46:38",
+      "agent": "a01",
+      "kind": "rage",
+      "text": "填完 team name、role、workflow 三步还要集成 Slack？才刚注册就想拉我进生态，有点 pushing 了。我不想随便填 Slack URL。",
+      "sentiment": -2,
+      "shot": "shots/a01-10.jpg"
+    },
+    {
+      "t": "00:46:42",
+      "agent": "a04",
+      "kind": "click",
+      "text": "To enter primary workflow",
+      "sentiment": 0,
+      "url": "http://localhost:8200/05-modal-trap/site/",
+      "shot": "shots/a04-08.jpg"
+    },
+    {
+      "t": "00:47:49",
+      "agent": "a03",
+      "kind": "click",
+      "text": "输入反馈内容 (typed: The Next button on the setup page doesn…)",
+      "sentiment": 0,
+      "shot": "shots/a03-10.jpg"
+    },
+    {
+      "t": "00:48:07",
+      "agent": "a02",
+      "kind": "click",
+      "text": "关闭模态弹窗，回到主页面",
+      "sentiment": 0,
+      "url": "http://localhost:8200/05-modal-trap/site/",
+      "shot": "shots/a02-07.jpg"
+    },
+    {
+      "t": "00:49:59",
+      "agent": "a04",
+      "kind": "click",
+      "text": "To enter my primary workflow (typed: Customer Support)",
+      "sentiment": 0,
+      "shot": "shots/a04-09.jpg"
+    },
+    {
+      "t": "00:51:40",
+      "agent": "a02",
+      "kind": "click",
+      "text": "点击输入框准备填写团队名称",
+      "sentiment": 0,
+      "url": "http://localhost:8200/05-modal-trap/site/",
+      "shot": "shots/a02-08.jpg"
+    },
+    {
+      "t": "00:51:93",
+      "agent": "a01",
+      "kind": "click",
+      "text": "不想填 Slack，看能不能跳过或退出",
+      "sentiment": 0,
+      "url": "http://localhost:8200/05-modal-trap/site/",
+      "shot": "shots/a01-11.jpg"
+    },
+    {
+      "t": "00:52:96",
+      "agent": "a04",
+      "kind": "click",
+      "text": "To proceed to the next step",
+      "sentiment": 0,
+      "url": "http://localhost:8200/05-modal-trap/site/",
+      "shot": "shots/a04-10.jpg"
+    },
+    {
+      "t": "00:53:25",
+      "agent": "a03",
+      "kind": "confused",
+      "text": "奇怪，我明明想继续设置，但点了 close 却打开了这个反馈框。现在我被困在这个模态框里了，Next 按钮还是不能用。",
+      "sentiment": -1,
+      "shot": "shots/a03-11.jpg"
+    },
+    {
+      "t": "00:55:81",
+      "agent": "a02",
+      "kind": "click",
+      "text": "输入团队名称继续体验 (typed: IT Department)",
+      "sentiment": 0,
+      "shot": "shots/a02-09.jpg"
+    },
+    {
+      "t": "00:57:29",
+      "agent": "a04",
+      "kind": "confused",
+      "text": "等等，Slack工作区URL？我还没决定要用这个产品呢，就让我绑定Slack？有点太快了吧……而且这让我想起SAP那种一步接一步填信息的体验，挺烦的。",
+      "sentiment": -1,
+      "shot": "shots/a04-11.jpg"
+    },
+    {
+      "t": "00:57:44",
+      "agent": "a01",
+      "kind": "confused",
+      "text": "点击 close 后弹出了一个 modal，显示 invite teammates。这个 modal 是因为我点 close 触发的，还是本来就应该显示的？有点陷阱感，我本来只是想退出 onboarding。",
+      "sentiment": -1,
+      "shot": "shots/a01-12.jpg"
+    },
+    {
+      "t": "01:00:38",
+      "agent": "a02",
+      "kind": "click",
+      "text": "输入完成，点击 Next 继续",
+      "sentiment": 0,
+      "url": "http://localhost:8200/05-modal-trap/site/",
+      "shot": "shots/a02-10.jpg"
+    },
+    {
+      "t": "01:04:20",
+      "agent": "a02",
+      "kind": "click",
+      "text": "再次尝试点击 Next 按钮",
+      "sentiment": 0,
+      "url": "http://localhost:8200/05-modal-trap/site/",
+      "shot": "shots/a02-11.jpg"
+    },
+    {
+      "t": "01:05:14",
+      "agent": "a01",
+      "kind": "observation",
+      "text": "modal 上有 \"Skip for now\" 链接。既然不想集成 Slack，跳过这个 invite 步骤是合理的选择。",
+      "sentiment": 0,
+      "shot": "shots/a01-13.jpg"
+    },
+    {
+      "t": "01:08:71",
+      "agent": "a04",
+      "kind": "click",
+      "text": "To enter Slack workspace URL",
+      "sentiment": 0,
+      "url": "http://localhost:8200/05-modal-trap/site/",
+      "shot": "shots/a04-12.jpg"
+    },
+    {
+      "t": "01:10:56",
+      "agent": "a02",
+      "kind": "shortcut",
+      "text": "尝试用键盘回车来提交表单 [Enter]",
+      "sentiment": 0,
+      "url": "http://localhost:8200/05-modal-trap/site/",
+      "shot": "shots/a02-12.jpg"
+    },
+    {
+      "t": "01:13:73",
+      "agent": "a04",
+      "kind": "click",
+      "text": "To close this setup wizard",
+      "sentiment": 0,
+      "url": "http://localhost:8200/05-modal-trap/site/",
+      "shot": "shots/a04-13.jpg"
+    },
+    {
+      "t": "01:14:62",
+      "agent": "a03",
+      "kind": "exit",
+      "text": "我完全被困住了。输入了团队名称后，Next 按钮点击没反应，按 Enter 也没反应。点了一下 close 按钮，却意外打开了反馈模态框，现在更没法继续设置了。这完全破坏了我的第一次使用体验 —— 连基本的 onboarding 都走不完。",
+      "sentiment": 0,
+      "shot": "shots/a03-12.jpg"
+    },
+    {
+      "t": "01:14:65",
+      "agent": "a02",
+      "kind": "rage",
+      "text": "这 Next 按钮点了好几次都没反应。输入了内容但就是没法继续。典型的表单交互问题——如果我是用户，早就关掉走人了。",
+      "sentiment": -2,
+      "shot": "shots/a02-13.jpg"
+    },
+    {
+      "t": "01:16:83",
+      "agent": "a01",
+      "kind": "click",
+      "text": "跳过邀请步骤",
+      "sentiment": 0,
+      "url": "http://localhost:8200/05-modal-trap/site/",
+      "shot": "shots/a01-14.jpg"
+    },
+    {
+      "t": "01:18:35",
+      "agent": "a04",
+      "kind": "confused",
+      "text": "操作失败 (note): expected number, got undefined",
+      "sentiment": -1
+    },
+    {
+      "t": "01:22:81",
+      "agent": "a01",
+      "kind": "exit",
+      "text": "达到 step safety 上限 (15), 强制结束.",
+      "sentiment": -1
+    },
+    {
+      "t": "01:25:55",
+      "agent": "a04",
+      "kind": "exit",
+      "text": "达到 step safety 上限 (15), 强制结束.",
+      "sentiment": -1
+    },
+    {
+      "t": "01:26:32",
+      "agent": "a02",
+      "kind": "exit",
+      "text": "达到 step safety 上限 (15), 强制结束.",
+      "sentiment": -1
+    }
+  ],
+  "issues": [
+    {
+      "id": "i01",
+      "title": "Next 按钮点了完全没有反应",
+      "severity": "high",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "什么鬼？点 Next 没反应，按 Enter 也没反应。页面完全不动。这网站是不是坏了？",
+      "agentRef": "a03",
+      "evidence": 3,
+      "journey": "在设置团队名称之后，点击 Next 继续下一步"
+    },
+    {
+      "id": "i02",
+      "title": "Close 按钮不是关闭，而是打开模态框",
+      "severity": "high",
+      "agents": 1,
+      "category": "交互直觉",
+      "quote": "我明明想继续设置，但点了 close 却打开了这个反馈框。现在我被困在这个模态框里了。",
+      "agentRef": "a03",
+      "evidence": 2,
+      "journey": "在点击 Next 无效后，试图关闭或寻找其他出路"
+    },
+    {
+      "id": "i04",
+      "title": "onboarding 末尾突然出现 Slack 集成，感到被强推",
+      "severity": "high",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "才刚注册就想拉我进生态，有点 pushing 了。我不想随便填 Slack URL。",
+      "agentRef": "a01",
+      "evidence": 1,
+      "journey": "填写了 team name、role、workflow 三个步骤后，以为 onboarding 就结束了，结果页面跳转到了 Slack integration 步骤"
+    },
+    {
+      "id": "i05",
+      "title": "点关闭按钮触发 invite teammates modal，像陷阱",
+      "severity": "high",
+      "agents": 1,
+      "category": "信息架构",
+      "quote": "点击 close 后弹出了一个 modal，显示 invite teammates。这个 modal 是因为我点 close 触发的，还是本来就应该显示的？有点陷阱感，我本来只是想退出 onboarding。",
+      "agentRef": "a01",
+      "evidence": 1,
+      "journey": "在 Slack 集成页面点击 close 按钮时"
+    },
+    {
+      "id": "i06",
+      "title": "表单提交按钮完全无响应，阻断感极强",
+      "severity": "high",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "这Next按钮点了好几次都没反应。输入了内容但就是没法继续。典型的表单交互问题——如果我是用户，早就关掉走人了。",
+      "agentRef": "a02",
+      "evidence": 3,
+      "journey": "在输入团队名称「IT Department」后点击Next按钮"
+    },
+    {
+      "id": "i07",
+      "title": "进门就让我填信息，却不告诉我这是什么产品",
+      "severity": "high",
+      "agents": 1,
+      "category": "信息架构",
+      "quote": "刚进来就让我填团队名字？这产品是干嘛的我还不知道呢。",
+      "agentRef": "a02",
+      "evidence": 1,
+      "journey": "进入首页看到输入框"
+    },
+    {
+      "id": "i10",
+      "title": "还没决定用就逼我绑Slack，太急了",
+      "severity": "high",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "还没决定要用这个产品呢，就让我绑定Slack？有点太快了吧",
+      "agentRef": "a04",
+      "evidence": 1,
+      "journey": "完成三个信息填写步骤后，直接跳到Slack工作区URL输入"
+    },
+    {
+      "id": "i11",
+      "title": "关个弹窗还报错，体验很差",
+      "severity": "high",
+      "agents": 1,
+      "category": "性能感知",
+      "quote": "操作失败 expected number, got undefined",
+      "agentRef": "a04",
+      "evidence": 1,
+      "journey": "试图关闭设置向导时"
+    },
+    {
+      "id": "i08",
+      "title": "Learn more按钮点击无效，不知道是坏了还是需要等待",
+      "severity": "med",
+      "agents": 1,
+      "category": "可访问性",
+      "quote": "点了一下Learn more但什么都没发生。这按钮是假的吗？还是需要网络加载？",
+      "agentRef": "a02",
+      "evidence": 1,
+      "journey": "首页点击Learn more了解产品"
+    },
+    {
+      "id": "i12",
+      "title": "一步接一步填表，像SAP那种烦人体验",
+      "severity": "med",
+      "agents": 1,
+      "category": "与竞品对比",
+      "quote": "让我想起SAP那种一步接一步填信息的体验，挺烦的",
+      "agentRef": "a04",
+      "evidence": 3,
+      "journey": "整个设置向导流程"
+    },
+    {
+      "id": "i03",
+      "title": "界面风格太严肃，不像 Canva 那种轻快设计",
+      "severity": "low",
+      "agents": 1,
+      "category": "情感氛围",
+      "quote": "风格挺干净的，但感觉有点企业级软件的严肃感，不像 Canva 那种轻快的设计。",
+      "agentRef": "a03",
+      "evidence": 1,
+      "journey": "刚进入页面时的第一印象"
+    },
+    {
+      "id": "i09",
+      "title": "模态弹窗让我感觉被「困」住",
+      "severity": "low",
+      "agents": 1,
+      "category": "情感氛围",
+      "quote": "我不喜欢被「困」在模态框里的感觉。",
+      "agentRef": "a02",
+      "evidence": 1,
+      "journey": "点击输入框后触发介绍视频弹窗"
+    }
+  ],
+  "delights": [
+    {
+      "title": "页面视觉看起来干净整洁",
+      "count": 1,
+      "quote": "看起来是个入职设置流程，第一步是设置团队名称。风格挺干净的。",
+      "agent": "a03"
+    },
+    {
+      "title": "三步基本 onboarding 节奏还算顺畅",
+      "count": 1,
+      "quote": "页面很简洁，看起来是团队名称设置的 onboarding 第一步。我快速填一下看看能到哪里。",
+      "agent": "a01"
+    },
+    {
+      "title": "触发视频后能快速了解产品定位",
+      "count": 1,
+      "quote": "哦原来点输入框会触发这个介绍视频弹出来。",
+      "agent": "a02"
+    },
+    {
+      "title": "前面几步输入框够简洁，输入体验还行",
+      "count": 1,
+      "quote": "To enter my primary workflow (typed: Customer Support)",
+      "agent": "a04"
+    }
+  ],
+  "features": [
+    {
+      "name": "注册/初始化表单",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 5
+    },
+    {
+      "name": "设置向导",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 4
+    },
+    {
+      "name": "查看产品介绍",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 1,
+      "avgSentiment": 1,
+      "totalAttempts": 2
+    },
+    {
+      "name": "设置团队名称",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -2,
+      "totalAttempts": 1
+    },
+    {
+      "name": "提交反馈表单",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -1,
+      "totalAttempts": 1
+    },
+    {
+      "name": "onboarding 流程",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 1,
+      "avgSentiment": 0,
+      "totalAttempts": 1
+    },
+    {
+      "name": "跳过 invite teammates",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 1,
+      "avgSentiment": 1,
+      "totalAttempts": 1
+    },
+    {
+      "name": "关闭弹窗",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 1
+    }
+  ],
+  "routesHeat": [
+    {
+      "path": "/05-modal-trap/site/",
+      "visits": 36,
+      "dwell": 8,
+      "drop": 0.08333333333333333
+    }
+  ],
+  "sentimentCurve": [
+    {
+      "t": 0,
+      "v": 0.5
+    },
+    {
+      "t": 5,
+      "v": 0.4444444444444444
+    },
+    {
+      "t": 10,
+      "v": 0.5
+    },
+    {
+      "t": 15,
+      "v": 0.5
+    },
+    {
+      "t": 20,
+      "v": 0.5
+    },
+    {
+      "t": 25,
+      "v": 0.5
+    },
+    {
+      "t": 30,
+      "v": 0.375
+    },
+    {
+      "t": 35,
+      "v": 0.5
+    },
+    {
+      "t": 40,
+      "v": 0.5
+    },
+    {
+      "t": 45,
+      "v": 0.5416666666666666
+    },
+    {
+      "t": 50,
+      "v": 0.4166666666666667
+    },
+    {
+      "t": 55,
+      "v": 0.5
+    },
+    {
+      "t": 60,
+      "v": 0.4583333333333333
+    },
+    {
+      "t": 65,
+      "v": 0.3888888888888889
+    },
+    {
+      "t": 70,
+      "v": 0.5
+    },
+    {
+      "t": 75,
+      "v": 0.5
+    },
+    {
+      "t": 80,
+      "v": 0.5
+    },
+    {
+      "t": 85,
+      "v": 0.4166666666666667
+    },
+    {
+      "t": 90,
+      "v": 0.3333333333333333
+    },
+    {
+      "t": 95,
+      "v": 0.3333333333333333
+    },
+    {
+      "t": 100,
+      "v": 0.3333333333333333
+    }
+  ],
+  "metrics": {
+    "predictedNps": -7,
+    "achievableNps": 100,
+    "taskSuccess": 0.25,
+    "timeToValueSec": null,
+    "rageClicks": 3,
+    "delightCount": 0
+  },
+  "cost": {
+    "tokensIn": 169538,
+    "tokensOut": 7371,
+    "usd": 0
+  }
+}

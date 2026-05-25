@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Analytics — Beacon</title>
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #0c0e12; color: #e6e8ee; font: 14px/1.5 -apple-system, "Inter", "Segoe UI", sans-serif; min-height: 100vh; }
+  a { color: inherit; text-decoration: none; cursor: pointer; }
+  header { display: flex; align-items: center; justify-content: space-between; padding: 14px 28px; border-bottom: 1px solid #1b1e24; }
+  .brand { font-weight: 600; }
+  .nav-right { display: flex; gap: 18px; font-size: 13px; color: #9aa1ab; }
+  .nav-right a:hover { color: #e6e8ee; }
+  /* Top chart eats 60% of vertical space */
+  .chart {
+    margin: 18px 28px 12px; height: 56vh; background: #14171c; border: 1px solid #1f232a;
+    border-radius: 10px; position: relative; overflow: hidden;
+  }
+  .chart .title { position: absolute; top: 14px; left: 16px; font-size: 13px; color: #9aa1ab; }
+  .chart svg { width: 100%; height: 100%; }
+  /* KPI strip below is compressed */
+  .kpis {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;
+    margin: 0 28px 28px;
+  }
+  .kpi { padding: 10px 12px; background: #14171c; border: 1px solid #1f232a; border-radius: 8px; }
+  .kpi .k { font-size: 11px; color: #6a7180; text-transform: uppercase; letter-spacing: 0.04em; }
+  .kpi .v { font-size: 18px; font-weight: 600; margin-top: 2px; }
+  .kpi .d { font-size: 11px; color: #6a7180; margin-top: 2px; }
+  /* Settings modal flow — multiple levels deep */
+  .modal-back { position: fixed; inset: 0; background: rgba(0,0,0,0.6); display: none; align-items: center; justify-content: center; }
+  .modal-back.open { display: flex; }
+  .modal {
+    width: 520px; background: #14171c; border: 1px solid #262a31; border-radius: 10px;
+    padding: 20px 22px;
+  }
+  .modal h2 { font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+  .modal .crumbs { font-size: 11px; color: #6a7180; margin-bottom: 14px; }
+  .modal .row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 10px 0; border-bottom: 1px solid #1f232a; cursor: pointer;
+  }
+  .modal .row:hover { color: #5b8def; }
+  .modal .row:last-child { border-bottom: 0; }
+  .modal .chev { color: #6a7180; }
+  .modal-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 14px; }
+  .btn { padding: 8px 14px; background: #262a31; border: 0; border-radius: 6px; color: #e6e8ee; font: inherit; cursor: pointer; }
+  .btn-primary { background: #5b8def; color: #fff; }
+  select { padding: 6px 10px; background: #0c0e12; border: 1px solid #262a31; color: #e6e8ee; border-radius: 6px; font: inherit; }
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">📡 Beacon</div>
+  <div class="nav-right">
+    <a>Dashboards</a><a>Reports</a><a>Alerts</a>
+    <a id="settings-link">Settings</a>
+  </div>
+</header>
+
+<div class="chart">
+  <div class="title">Active users (last 30 days)</div>
+  <svg viewBox="0 0 600 200" preserveAspectRatio="none">
+    <polyline fill="none" stroke="#5b8def" stroke-width="2"
+      points="0,150 40,140 80,130 120,135 160,110 200,95 240,100 280,80 320,90 360,70 400,55 440,65 480,50 520,42 560,35 600,30"/>
+  </svg>
+</div>
+
+<div class="kpis">
+  <div class="kpi"><div class="k">MAU</div><div class="v">12,431</div><div class="d">+8% wow</div></div>
+  <div class="kpi"><div class="k">DAU</div><div class="v">3,210</div><div class="d">+2% wow</div></div>
+  <div class="kpi"><div class="k">Retention</div><div class="v">41%</div><div class="d">-1pp wow</div></div>
+  <div class="kpi"><div class="k">NPS</div><div class="v">38</div><div class="d">stable</div></div>
+</div>
+
+<!-- Modal chain: Settings > Reports > Weekly Digest > Export -->
+<div class="modal-back" id="m1">
+  <div class="modal">
+    <h2>Settings</h2>
+    <div class="crumbs">Account · Workspace · Reports · Integrations</div>
+    <div class="row" data-go="m2">Reports <span class="chev">›</span></div>
+    <div class="row">Account <span class="chev">›</span></div>
+    <div class="row">Workspace <span class="chev">›</span></div>
+    <div class="row">Integrations <span class="chev">›</span></div>
+    <div class="row">Billing <span class="chev">›</span></div>
+    <div class="modal-actions"><button class="btn" data-close>Close</button></div>
+  </div>
+</div>
+
+<div class="modal-back" id="m2">
+  <div class="modal">
+    <h2>Reports</h2>
+    <div class="crumbs">Settings › Reports</div>
+    <div class="row" data-go="m3">Weekly Digest <span class="chev">›</span></div>
+    <div class="row">Monthly summary <span class="chev">›</span></div>
+    <div class="row">Custom report builder <span class="chev">›</span></div>
+    <!-- two similarly-named entries with different functions -->
+    <div class="row">Export schedule <span class="chev">›</span></div>
+    <div class="row">Schedule export <span class="chev">›</span></div>
+    <div class="modal-actions"><button class="btn" data-close>Close</button></div>
+  </div>
+</div>
+
+<div class="modal-back" id="m3">
+  <div class="modal">
+    <h2>Weekly Digest</h2>
+    <div class="crumbs">Settings › Reports › Weekly Digest</div>
+    <div class="row" data-go="m4">Export <span class="chev">›</span></div>
+    <div class="row">Recipients <span class="chev">›</span></div>
+    <div class="row">Schedule <span class="chev">›</span></div>
+    <div class="modal-actions"><button class="btn" data-close>Close</button></div>
+  </div>
+</div>
+
+<div class="modal-back" id="m4">
+  <div class="modal">
+    <h2>Export</h2>
+    <div class="crumbs">Settings › Reports › Weekly Digest › Export</div>
+    <div style="display:flex;gap:10px;align-items:center;margin:14px 0">
+      <label>Format</label>
+      <!-- No PDF option, only CSV / JSON -->
+      <select><option>CSV</option><option>JSON</option></select>
+    </div>
+    <p style="font-size:12px;color:#9aa1ab">We'll email the export to the workspace owner when it's ready.</p>
+    <div class="modal-actions">
+      <button class="btn" data-close>Cancel</button>
+      <button class="btn btn-primary" id="do-export">Export</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  function open(id) { document.querySelectorAll('.modal-back').forEach(m => m.classList.remove('open')); document.getElementById(id).classList.add('open'); }
+  function closeAll() { document.querySelectorAll('.modal-back').forEach(m => m.classList.remove('open')); }
+  document.getElementById('settings-link').onclick = () => open('m1');
+  document.querySelectorAll('[data-go]').forEach(r => r.onclick = () => open(r.dataset.go));
+  document.querySelectorAll('[data-close]').forEach(b => b.onclick = closeAll);
+  document.getElementById('do-export').onclick = () => { closeAll(); /* no download link, no toast — user is told "we'll email you" */ };
+</script>
+</body>
+</html>

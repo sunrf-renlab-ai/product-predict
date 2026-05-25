@@ -1,0 +1,187 @@
+{
+  "fixtureId": "08-stuck-wizard",
+  "gtTotal": 6,
+  "ppTotal": 13,
+  "matched": 3,
+  "recall": 0.5,
+  "precision": 0.23076923076923078,
+  "f1": 0.3157894736842105,
+  "severityAcc": 0,
+  "categoryAcc": 0.6666666666666666,
+  "verdicts": [
+    {
+      "gtId": "gt-01",
+      "findingId": "i10",
+      "matched": true,
+      "confidence": 0.85,
+      "reasoning": "直接提及Back按钮失效无法返回,完全对应GT缺少返回按钮的核心问题",
+      "severityAgrees": false,
+      "categoryAgrees": false
+    },
+    {
+      "gtId": "gt-02",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0.3,
+      "reasoning": "i10 mentions Back button not responding, possibly symptom but not same innerHTML re-render data loss root cause"
+    },
+    {
+      "gtId": "gt-03",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0,
+      "reasoning": "judge failed: No JSON found in LLM output:\n"
+    },
+    {
+      "gtId": "gt-04",
+      "findingId": "i07",
+      "matched": true,
+      "confidence": 0.85,
+      "reasoning": "i07 explicitly mentions lack of progress indicator and not seeing endpoint, same underlying issue as GT about progress bar without step labels",
+      "severityAgrees": false,
+      "categoryAgrees": true
+    },
+    {
+      "gtId": "gt-05",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0.15,
+      "reasoning": "GT核心是完成后的冷处理无庆祝无指引，其他发现都是过程中的缺失"
+    },
+    {
+      "gtId": "gt-06",
+      "findingId": "i06",
+      "matched": true,
+      "confidence": 0.65,
+      "reasoning": "i06同为视觉节奏类，描述初始页视觉内容稀薄空洞，与GT描述Step1仅100px的稀疏感相关",
+      "severityAgrees": false,
+      "categoryAgrees": true
+    }
+  ],
+  "falsePositives": [
+    {
+      "findingId": "i01",
+      "finding": {
+        "title": "页面完全没有任何上下文说明",
+        "category": "信息架构",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i02",
+      "finding": {
+        "title": "Next按钮点击后毫无反应",
+        "category": "流程顺畅",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i03",
+      "finding": {
+        "title": "连最基本的\"这是什么工具\"都没说清楚",
+        "category": "学习成本",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i04",
+      "finding": {
+        "title": "从简单输入直接跳到技术表单，节奏断裂",
+        "category": "流程顺畅",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i05",
+      "finding": {
+        "title": "表单字段没有语义说明，看不懂要填什么",
+        "category": "信息架构",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i08",
+      "finding": {
+        "title": "看不到复选框的标签选项，猜谜式填表",
+        "category": "信息架构",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i09",
+      "finding": {
+        "title": "没有进度指示，看不到终点在哪",
+        "category": "流程顺畅",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i11",
+      "finding": {
+        "title": "第三步冒出来一堆字段但没有任何说明",
+        "category": "信息架构",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i12",
+      "finding": {
+        "title": "Next 按钮消失或被遮挡，无法继续",
+        "category": "流程顺畅",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i13",
+      "finding": {
+        "title": "第二步的选项文字看不清楚",
+        "category": "视觉节奏",
+        "severity": "med"
+      }
+    }
+  ],
+  "missed": [
+    {
+      "gtId": "gt-02",
+      "gt": {
+        "id": "gt-02",
+        "title": "切步骤数据全没了",
+        "severity": "high",
+        "category": "性能感知",
+        "description": "每次点 Next / Back 时整个 main 被 innerHTML 重新渲染,所有 input/checkbox/textarea 里的值都丢失。表面上看是「跳页」、实际上是每步都白板,体验上等于页面 reload。",
+        "shouldFindWith": [
+          "重度用户",
+          "评估者"
+        ]
+      }
+    },
+    {
+      "gtId": "gt-03",
+      "gt": {
+        "id": "gt-03",
+        "title": "Configure / Customize / Optimize 分不清",
+        "severity": "med",
+        "category": "学习成本",
+        "description": "三个步骤名 Configure → Customize → Optimize 在语义上几乎重叠,用户提前完全无法预测哪一步要填什么,只能走到再看,导致中途想跳过/补填都没线索。",
+        "shouldFindWith": [
+          "新手",
+          "文案敏感"
+        ]
+      }
+    },
+    {
+      "gtId": "gt-05",
+      "gt": {
+        "id": "gt-05",
+        "title": "完成只显示一个 Done",
+        "severity": "med",
+        "category": "情感氛围",
+        "description": "走完全部 5 步、按 Finish 之后整个内容区只剩下一个 'Done.' 标题,没有庆祝动效、没有「下一步去哪」、没有 workspace 跳转。用户走完整套设置后心理预期是一个高点,而产品给的是冷处理。",
+        "shouldFindWith": [
+          "设计敏感",
+          "情感敏感"
+        ]
+      }
+    }
+  ]
+}

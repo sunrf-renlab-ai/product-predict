@@ -1,0 +1,854 @@
+{
+  "id": "run-001",
+  "startedAt": "2026-05-25T11:26:23.432Z",
+  "finishedAt": "2026-05-25T11:28:13.205Z",
+  "target": {
+    "url": "http://localhost:8200/11-modal-modal/site/",
+    "title": "Lumen — Read smarter",
+    "viewport": {
+      "w": 1280,
+      "h": 800
+    }
+  },
+  "personaSetId": "preset-a-reading-app-s-landing-page",
+  "agents": [
+    {
+      "id": "a04",
+      "name": "张建国",
+      "age": 55,
+      "role": "退休干部",
+      "tech": 1,
+      "tone": "挑剔",
+      "preferences": [
+        "大字体护眼",
+        "专注阅读无干扰",
+        "图书资源丰富"
+      ],
+      "knownContext": [
+        "只用 掌阅 App",
+        "家中藏书 3000 册",
+        "排斥手机刷视频"
+      ],
+      "weight": 0.15,
+      "color": "#9e8ec2",
+      "glyph": "Z",
+      "traits": [
+        "慢生活",
+        "品质党",
+        "专注"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "frustrated",
+      "durationSec": 56.223
+    },
+    {
+      "id": "a01",
+      "name": "Maya Chen",
+      "age": 28,
+      "role": "产品经理",
+      "tech": 4,
+      "tone": "好奇",
+      "preferences": [
+        "追求新鲜阅读体验",
+        "界面简洁美观",
+        "个性化设置"
+      ],
+      "knownContext": [
+        "重度使用 Kindle App",
+        "试过 多看阅读，功能太多"
+      ],
+      "weight": 0.35,
+      "color": "#e6c976",
+      "glyph": "M",
+      "traits": [
+        "书虫",
+        "探索者",
+        "界面控"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "explored",
+      "durationSec": 80.659
+    },
+    {
+      "id": "a02",
+      "name": "李心怡",
+      "age": 42,
+      "role": "大学教师",
+      "tech": 2,
+      "tone": "怀疑",
+      "preferences": [
+        "长期阅读计划",
+        "数据迁移便捷",
+        "书签和笔记整理"
+      ],
+      "knownContext": [
+        "微信读书 2 年",
+        "Kindle 入门级",
+        "习惯纸质批注"
+      ],
+      "weight": 0.3,
+      "color": "#f4b8c0",
+      "glyph": "L",
+      "traits": [
+        "学术派",
+        "保守",
+        "数据党"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "frustrated",
+      "durationSec": 99.819
+    },
+    {
+      "id": "a03",
+      "name": "王磊",
+      "age": 23,
+      "role": "研究生",
+      "tech": 5,
+      "tone": "急躁",
+      "preferences": [
+        "快速上手",
+        "批注同步",
+        "不打断阅读节奏"
+      ],
+      "knownContext": [
+        "试过 微信读书，体验卡顿",
+        "Notion 记录读书笔记",
+        "用 Reeder 刷 RSS"
+      ],
+      "weight": 0.2,
+      "color": "#7ab8b5",
+      "glyph": "W",
+      "traits": [
+        "效率控",
+        "多线程",
+        "快节奏"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "frustrated",
+      "durationSec": 109.638
+    }
+  ],
+  "activity": [
+    {
+      "t": "00:00:00",
+      "agent": "a04",
+      "kind": "enter",
+      "text": "进入 localhost:8200/11-modal-modal/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/11-modal-modal/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a01",
+      "kind": "enter",
+      "text": "进入 localhost:8200/11-modal-modal/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/11-modal-modal/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a01",
+      "kind": "observation",
+      "text": "看到页面有导航栏和底部 cookie 弹窗，先把 cookie 弹窗关掉，然后看看里面有什么内容。",
+      "sentiment": 0,
+      "shot": "shots/a01-00.jpg"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a02",
+      "kind": "enter",
+      "text": "进入 localhost:8200/11-modal-modal/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/11-modal-modal/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a02",
+      "kind": "observation",
+      "text": "页面加载完就弹出一个同意条款的弹窗，底部有 Reject 和 I agree 两个按钮。这种弹窗我每次用新产品都会遇到，先看看这个弹窗的内容是什么再决定点哪个。",
+      "sentiment": 0,
+      "shot": "shots/a02-00.jpg"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a03",
+      "kind": "enter",
+      "text": "进入 localhost:8200/11-modal-modal/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/11-modal-modal/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a03",
+      "kind": "observation",
+      "text": "打开了页面，看到顶部导航栏有 Library/Highlights/Discover/Settings，底部有个 cookie 同意弹窗。先关掉这个弹窗看看主界面。",
+      "sentiment": 0,
+      "shot": "shots/a03-00.jpg"
+    },
+    {
+      "t": "00:03:69",
+      "agent": "a04",
+      "kind": "click",
+      "text": "不想被弹窗打扰，直接同意算了",
+      "sentiment": 0,
+      "url": "http://localhost:8200/11-modal-modal/site/",
+      "shot": "shots/a04-01.jpg"
+    },
+    {
+      "t": "00:04:13",
+      "agent": "a03",
+      "kind": "click",
+      "text": "关掉 cookie 弹窗，不想被这东西分散注意力",
+      "sentiment": 0,
+      "url": "http://localhost:8200/11-modal-modal/site/",
+      "shot": "shots/a03-01.jpg"
+    },
+    {
+      "t": "00:05:57",
+      "agent": "a01",
+      "kind": "click",
+      "text": "关闭 cookie 弹窗",
+      "sentiment": 0,
+      "url": "http://localhost:8200/11-modal-modal/site/",
+      "shot": "shots/a01-01.jpg"
+    },
+    {
+      "t": "00:07:93",
+      "agent": "a03",
+      "kind": "observation",
+      "text": "弹窗没了。看到中间有一堆书卡，还挺像微信读书的布局。扫一眼看有什么书。",
+      "sentiment": 0,
+      "shot": "shots/a03-02.jpg"
+    },
+    {
+      "t": "00:09:21",
+      "agent": "a01",
+      "kind": "observation",
+      "text": "Cookie 弹窗关掉了。现在页面是主界面，有 Library、Highlights、Discover、Settings 四个导航。有点好奇 Highlights 是什么功能，像我这种喜欢做笔记的人可能会感兴趣。",
+      "sentiment": 1,
+      "shot": "shots/a01-02.jpg"
+    },
+    {
+      "t": "00:09:34",
+      "agent": "a02",
+      "kind": "click",
+      "text": "同意条款并关闭弹窗",
+      "sentiment": 0,
+      "url": "http://localhost:8200/11-modal-modal/site/",
+      "shot": "shots/a02-01.jpg"
+    },
+    {
+      "t": "00:10:40",
+      "agent": "a04",
+      "kind": "click",
+      "text": "又来订阅这套，我不需要",
+      "sentiment": 0,
+      "url": "http://localhost:8200/11-modal-modal/site/",
+      "shot": "shots/a04-03.jpg"
+    },
+    {
+      "t": "00:11:72",
+      "agent": "a03",
+      "kind": "click",
+      "text": "又来一个弹窗，赶紧关掉，打断阅读节奏了",
+      "sentiment": 0,
+      "url": "http://localhost:8200/11-modal-modal/site/",
+      "shot": "shots/a03-03.jpg"
+    },
+    {
+      "t": "00:13:12",
+      "agent": "a02",
+      "kind": "observation",
+      "text": "弹窗关闭了，现在能看到主界面。顶部是常见的导航栏：Library、Highlights、Discover、Settings，和微信读书的布局有点类似。中间有一个卡片区域显示了一本书的封面和标题。",
+      "sentiment": 0,
+      "shot": "shots/a02-02.jpg"
+    },
+    {
+      "t": "00:13:88",
+      "agent": "a01",
+      "kind": "rage",
+      "text": "刚关掉 cookie 弹窗又来一个订阅弹窗？这种感觉就像逛商店一直被店员拦住推销，有点烦。",
+      "sentiment": -1,
+      "shot": "shots/a01-03.jpg"
+    },
+    {
+      "t": "00:16:39",
+      "agent": "a03",
+      "kind": "rage",
+      "text": "cookie 弹窗刚关又来 newsletter 订阅弹窗，两个模态框叠着来，太打断节奏了。已经有负面印象。",
+      "sentiment": -2,
+      "shot": "shots/a03-04.jpg"
+    },
+    {
+      "t": "00:16:48",
+      "agent": "a02",
+      "kind": "rage",
+      "text": "刚关掉一个弹窗又来一个订阅的，这种连环弹窗让我有点烦躁。微信读书从来没有这么频繁的弹窗。我先看看有没有\"no thanks\"可以关掉它。",
+      "sentiment": -1,
+      "shot": "shots/a02-03.jpg"
+    },
+    {
+      "t": "00:19:57",
+      "agent": "a03",
+      "kind": "click",
+      "text": "关掉付费升级弹窗",
+      "sentiment": 0,
+      "url": "http://localhost:8200/11-modal-modal/site/",
+      "shot": "shots/a03-05.jpg"
+    },
+    {
+      "t": "00:21:01",
+      "agent": "a04",
+      "kind": "click",
+      "text": "弹窗还卡在那，我要去Settings看看有没有登出",
+      "sentiment": 0,
+      "url": "http://localhost:8200/11-modal-modal/site/",
+      "shot": "shots/a04-05.jpg"
+    },
+    {
+      "t": "00:24:22",
+      "agent": "a02",
+      "kind": "click",
+      "text": "关闭订阅弹窗",
+      "sentiment": 0,
+      "url": "http://localhost:8200/11-modal-modal/site/",
+      "shot": "shots/a02-04.jpg"
+    },
+    {
+      "t": "00:25:01",
+      "agent": "a04",
+      "kind": "click",
+      "text": "算了，去Library看看有没有我收藏的书",
+      "sentiment": 0,
+      "url": "http://localhost:8200/11-modal-modal/site/",
+      "shot": "shots/a04-06.jpg"
+    },
+    {
+      "t": "00:27:51",
+      "agent": "a01",
+      "kind": "click",
+      "text": "关闭订阅弹窗",
+      "sentiment": 0,
+      "url": "http://localhost:8200/11-modal-modal/site/",
+      "shot": "shots/a01-04.jpg"
+    },
+    {
+      "t": "00:28:16",
+      "agent": "a04",
+      "kind": "click",
+      "text": "试一下能不能点到弹窗外面去",
+      "sentiment": 0,
+      "url": "http://localhost:8200/11-modal-modal/site/",
+      "shot": "shots/a04-07.jpg"
+    },
+    {
+      "t": "00:30:00",
+      "agent": "a02",
+      "kind": "observation",
+      "text": "终于看到真正的主界面了。中间有一个书籍卡片，显示了一本书。封面和标题都有，作为读书应用这个基本展示是合格的。现在我想点击这本书看看里面的内容，或者看看Library里面有什么书。",
+      "sentiment": 1,
+      "shot": "shots/a02-05.jpg"
+    },
+    {
+      "t": "00:31:53",
+      "agent": "a01",
+      "kind": "search",
+      "text": "现在终于看到干净的主界面了。看到有 Library 和 Highlights，作为一个爱看书的人，Highlights 这个功能名让我挺好奇的，想点进去看看。",
+      "sentiment": 0,
+      "shot": "shots/a01-05.jpg"
+    },
+    {
+      "t": "00:34:36",
+      "agent": "a03",
+      "kind": "click",
+      "text": "看看 Library 里有什么书",
+      "sentiment": 0,
+      "url": "http://localhost:8200/11-modal-modal/site/",
+      "shot": "shots/a03-07.jpg"
+    },
+    {
+      "t": "00:35:62",
+      "agent": "a04",
+      "kind": "shortcut",
+      "text": "弹窗关不掉，按ESC试试 [Escape]",
+      "sentiment": 0,
+      "url": "http://localhost:8200/11-modal-modal/site/",
+      "shot": "shots/a04-08.jpg"
+    },
+    {
+      "t": "00:38:15",
+      "agent": "a01",
+      "kind": "click",
+      "text": "关闭升级弹窗",
+      "sentiment": 0,
+      "url": "http://localhost:8200/11-modal-modal/site/",
+      "shot": "shots/a01-06.jpg"
+    },
+    {
+      "t": "00:39:58",
+      "agent": "a02",
+      "kind": "rage",
+      "text": "第三个弹窗了！这次是升级付费的。这种频繁弹窗让我感觉像是在用免费软件，到处都是付费墙。微信读书虽然也有付费，但从来没有在使用过程中不断弹窗打断我。",
+      "sentiment": -2,
+      "shot": "shots/a02-06.jpg"
+    },
+    {
+      "t": "00:40:21",
+      "agent": "a04",
+      "kind": "exit",
+      "text": "弹窗卡死关不掉，点\"no thanks\"没反应，ESC也没用。整个页面被一个邮件订阅弹窗彻底堵住，什么都做不了。导航栏点了几次完全无效。作为一个喜欢专注阅读的人，这种强制的弹窗体验非常粗糙，一点没有\"被尊重\"的感觉。关掉了，不会再回来。",
+      "sentiment": 0,
+      "shot": "shots/a04-09.jpg"
+    },
+    {
+      "t": "00:41:62",
+      "agent": "a03",
+      "kind": "confused",
+      "text": "点了 Library 但页面没变化？还是显示同样的内容，不知道是不是点了没反应。",
+      "sentiment": -1,
+      "shot": "shots/a03-08.jpg"
+    },
+    {
+      "t": "00:42:40",
+      "agent": "a01",
+      "kind": "click",
+      "text": "看看 Highlights 功能是什么",
+      "sentiment": 0,
+      "url": "http://localhost:8200/11-modal-modal/site/",
+      "shot": "shots/a01-07.jpg"
+    },
+    {
+      "t": "00:46:38",
+      "agent": "a02",
+      "kind": "click",
+      "text": "关闭升级弹窗",
+      "sentiment": 0,
+      "url": "http://localhost:8200/11-modal-modal/site/",
+      "shot": "shots/a02-07.jpg"
+    },
+    {
+      "t": "00:50:67",
+      "agent": "a01",
+      "kind": "confused",
+      "text": "点了 Highlights 之后好像什么都没发生？页面还是老样子。作为产品经理，我理解可能内容还没加载或者需要滚动，但我作为普通用户会有点困惑——到底有没有真的点进去？",
+      "sentiment": -1,
+      "shot": "shots/a01-09.jpg"
+    },
+    {
+      "t": "00:51:58",
+      "agent": "a02",
+      "kind": "click",
+      "text": "查看设置选项",
+      "sentiment": 0,
+      "url": "http://localhost:8200/11-modal-modal/site/",
+      "shot": "shots/a02-08.jpg"
+    },
+    {
+      "t": "00:53:26",
+      "agent": "a03",
+      "kind": "click",
+      "text": "试试 Highlights 标签",
+      "sentiment": 0,
+      "url": "http://localhost:8200/11-modal-modal/site/",
+      "shot": "shots/a03-09.jpg"
+    },
+    {
+      "t": "00:56:59",
+      "agent": "a01",
+      "kind": "exit",
+      "text": "这个阅读应用给我的第一感觉是弹窗太多——刚关掉 cookie 弹窗，又来订阅弹窗，再来升级弹窗，连环轰炸让人有点烦躁。我对 Highlights 功能很好奇，但点了之后页面完全没反应，不知道是导航问题还是演示环境的限制。整体体验有点像多看阅读那种功能很多但有点杂乱的感觉，不过这个 demo 似乎还比较简陋，核心功能展示不出来。",
+      "sentiment": 0,
+      "shot": "shots/a01-10.jpg"
+    },
+    {
+      "t": "00:56:61",
+      "agent": "a02",
+      "kind": "confused",
+      "text": "点击 Settings 后没有任何反应，不知道是加载太慢还是这个导航本来就是摆设。作为学术派用户，我习惯每个功能都要能用才行，这种静默失败让我很困惑。",
+      "sentiment": 0,
+      "shot": "shots/a02-09.jpg"
+    },
+    {
+      "t": "01:06:68",
+      "agent": "a02",
+      "kind": "click",
+      "text": "查看书架页面",
+      "sentiment": 0,
+      "url": "http://localhost:8200/11-modal-modal/site/",
+      "shot": "shots/a02-10.jpg"
+    },
+    {
+      "t": "01:10:85",
+      "agent": "a02",
+      "kind": "rage",
+      "text": "导航链接没有一个能用的。Settings 点没反应，Library 也没反应。三个弹窗倒是很积极地跳出来了。这种产品让我完全没有继续探索的欲望。",
+      "sentiment": -2,
+      "shot": "shots/a02-11.jpg"
+    },
+    {
+      "t": "01:11:95",
+      "agent": "a03",
+      "kind": "rage",
+      "text": "导航栏点了两个都没反应，页面完全没变化。弹窗倒是来得勤快。这产品到底能干什么我都没搞清楚，已经没耐心了。",
+      "sentiment": -2,
+      "shot": "shots/a03-10.jpg"
+    },
+    {
+      "t": "01:16:32",
+      "agent": "a02",
+      "kind": "exit",
+      "text": "打开页面后连续遇到三个弹窗（同意条款、订阅、升级付费），关闭弹窗后所有导航链接（Library、Highlights、Discover、Settings）都点击无反应。作为一个读书应用，连最基本的书架和设置功能都无法使用，频繁弹窗却核心功能失效，体验很差，不会继续使用。",
+      "sentiment": 0,
+      "shot": "shots/a02-12.jpg"
+    },
+    {
+      "t": "01:28:08",
+      "agent": "a03",
+      "kind": "exit",
+      "text": "一进来就被三个模态弹窗轮番打断，好不容易关掉了，导航栏点 Library 和 Highlights 都没反应，根本不知道这个产品能干什么。1分半钟已经耗尽耐心，退出。",
+      "sentiment": 0,
+      "shot": "shots/a03-11.jpg"
+    }
+  ],
+  "issues": [
+    {
+      "id": "i01",
+      "title": "弹窗关不掉，操作全被阻断",
+      "severity": "high",
+      "agents": 1,
+      "category": "情感氛围",
+      "quote": "弹窗卡死关不掉，点'no thanks'没反应，ESC也没用。整个页面被一个邮件订阅弹窗彻底堵住，什么都做不了。",
+      "agentRef": "a04",
+      "evidence": 7,
+      "journey": "页面加载后弹出邮件订阅modal，多次尝试关闭失败"
+    },
+    {
+      "id": "i02",
+      "title": "强制弹窗让我没被尊重",
+      "severity": "high",
+      "agents": 1,
+      "category": "情感氛围",
+      "quote": "作为一个喜欢专注阅读的人，这种强制的弹窗体验非常粗糙，一点没有'被尊重'的感觉。",
+      "agentRef": "a04",
+      "evidence": 4,
+      "journey": "刚进入页面就被弹窗打断，无法正常浏览内容"
+    },
+    {
+      "id": "i03",
+      "title": "连导航栏都点不了，太粗糙",
+      "severity": "high",
+      "agents": 1,
+      "category": "可访问性",
+      "quote": "导航栏点了几次完全无效。",
+      "agentRef": "a04",
+      "evidence": 2,
+      "journey": "尝试点击导航栏的Library和Settings入口"
+    },
+    {
+      "id": "i04",
+      "title": "弹窗连环轰炸，打断感太强",
+      "severity": "high",
+      "agents": 1,
+      "category": "情感氛围",
+      "quote": "刚关掉 cookie 弹窗又来一个订阅弹窗？这种感觉就像逛商店一直被店员拦住推销，有点烦。",
+      "agentRef": "a01",
+      "evidence": 3,
+      "journey": "进入主页后连续遇到 cookie 弹窗 → 订阅弹窗 → 升级弹窗"
+    },
+    {
+      "id": "i05",
+      "title": "导航点击没反应，不知道有没有生效",
+      "severity": "high",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "点了 Highlights 之后好像什么都没发生？页面还是老样子。作为产品经理，我理解可能内容还没加载或者需要滚动，但我作为普通用户会有点困惑——到底有没有真的点进去？",
+      "agentRef": "a01",
+      "evidence": 1,
+      "journey": "在主界面点击 Highlights 标签"
+    },
+    {
+      "id": "i07",
+      "title": "弹窗轰炸打断了我的阅读节奏",
+      "severity": "high",
+      "agents": 1,
+      "category": "情感氛围",
+      "quote": "刚关掉一个弹窗又来一个订阅的，微信读书从来没有这么频繁的弹窗。这让我觉得自己不是在用产品，而是在被迫看广告。",
+      "agentRef": "a02",
+      "evidence": 3,
+      "journey": "进入页面后，同意条款弹窗 → 订阅弹窗 → 升级付费弹窗，连续三个弹窗打断初始体验"
+    },
+    {
+      "id": "i08",
+      "title": "导航功能全部失效让人感到失控",
+      "severity": "high",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "三个弹窗倒是很积极地跳出来了，可导航链接一个都点不动。Settings点没反应，Library也没反应，这种静默失败让我很没有安全感。",
+      "agentRef": "a02",
+      "evidence": 4,
+      "journey": "关闭弹窗后尝试点击Settings、Library等导航项"
+    },
+    {
+      "id": "i10",
+      "title": "连续三个弹窗轮番轰炸，还没开始就烦躁了",
+      "severity": "high",
+      "agents": 1,
+      "category": "情感氛围",
+      "quote": "cookie 刚关又来 newsletter，刚关完又来付费升级，这节奏是要闹哪样？",
+      "agentRef": "a03",
+      "evidence": 3,
+      "journey": "进入页面后 0-20 秒内连续遭遇三个模态弹窗"
+    },
+    {
+      "id": "i11",
+      "title": "导航栏点了没反应，根本找不到想看的书",
+      "severity": "high",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "点了 Library 没变化，又点 Highlights 还是原页面，导航栏是摆设吗？",
+      "agentRef": "a03",
+      "evidence": 2,
+      "journey": "关闭所有弹窗后尝试用导航栏浏览内容"
+    },
+    {
+      "id": "i12",
+      "title": "用了半天不知道这产品能给我干嘛",
+      "severity": "high",
+      "agents": 1,
+      "category": "学习成本",
+      "quote": "弹窗关了一堆，导航也不行，就看到一堆书卡，完全不知道从哪开始。",
+      "agentRef": "a03",
+      "evidence": 1,
+      "journey": "整个会话过程"
+    },
+    {
+      "id": "i06",
+      "title": "给我的感觉有点像多看阅读——功能多但有点杂",
+      "severity": "med",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "整体体验有点像多看阅读那种功能很多但有点杂乱的感觉，不过这个 demo 似乎还比较简陋，核心功能展示不出来。",
+      "agentRef": "a01",
+      "evidence": 1,
+      "journey": "看到顶部导航栏有 Library、Highlights、Discover、Settings 四个选项"
+    },
+    {
+      "id": "i09",
+      "title": "和竞品相比缺乏基本信任感",
+      "severity": "med",
+      "agents": 1,
+      "category": "与竞品对比",
+      "quote": "我用微信读书两年了，从来没有遇到这种核心功能全部挂掉的情况。我不可能把书签和笔记迁移到一个连Settings都打不开的产品里。",
+      "agentRef": "a02",
+      "evidence": 1,
+      "journey": "与微信读书的使用习惯进行对比"
+    }
+  ],
+  "delights": [
+    {
+      "title": "Highlights 这个功能名让我好奇",
+      "count": 1,
+      "quote": "有点好奇 Highlights 是什么功能，像我这种喜欢做笔记的人可能会感兴趣。",
+      "agent": "a01"
+    },
+    {
+      "title": "界面的阅读风格设计看起来挺舒服的",
+      "count": 1,
+      "quote": "虽然弹窗烦人，但界面的排版和配色看起来还挺清爽的。",
+      "agent": "a01"
+    },
+    {
+      "title": "书籍卡片的基本展示还是合格的",
+      "count": 1,
+      "quote": "封面和标题都有，作为一个读书应用这个基本展示是合格的。",
+      "agent": "a02"
+    },
+    {
+      "title": "书卡布局看起来有点像微信读书，还算眼熟",
+      "count": 1,
+      "quote": "看到中间那些书卡，视觉上觉得还行，至少知道是个读书类产品。",
+      "agent": "a03"
+    }
+  ],
+  "features": [
+    {
+      "name": "关闭弹窗",
+      "hitCount": 4,
+      "hitRate": 1,
+      "completionRate": 0.75,
+      "avgSentiment": -2.5,
+      "totalAttempts": 12
+    },
+    {
+      "name": "访问Library",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 1
+    },
+    {
+      "name": "访问Settings",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 1
+    },
+    {
+      "name": "探索导航",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -1,
+      "totalAttempts": 1
+    },
+    {
+      "name": "查看书架",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -2,
+      "totalAttempts": 1
+    },
+    {
+      "name": "进入设置",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 1
+    },
+    {
+      "name": "浏览 Library",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -2,
+      "totalAttempts": 1
+    },
+    {
+      "name": "浏览 Highlights",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -2,
+      "totalAttempts": 1
+    }
+  ],
+  "routesHeat": [
+    {
+      "path": "/11-modal-modal/site/",
+      "visits": 24,
+      "dwell": 9,
+      "drop": 0.16666666666666666
+    }
+  ],
+  "sentimentCurve": [
+    {
+      "t": 0,
+      "v": 0.5
+    },
+    {
+      "t": 5,
+      "v": 0.5
+    },
+    {
+      "t": 10,
+      "v": 0.5333333333333333
+    },
+    {
+      "t": 15,
+      "v": 0.2777777777777778
+    },
+    {
+      "t": 20,
+      "v": 0.5
+    },
+    {
+      "t": 25,
+      "v": 0.5
+    },
+    {
+      "t": 30,
+      "v": 0.5555555555555556
+    },
+    {
+      "t": 35,
+      "v": 0.5
+    },
+    {
+      "t": 40,
+      "v": 0.3888888888888889
+    },
+    {
+      "t": 45,
+      "v": 0.4444444444444444
+    },
+    {
+      "t": 50,
+      "v": 0.5
+    },
+    {
+      "t": 55,
+      "v": 0.4166666666666667
+    },
+    {
+      "t": 60,
+      "v": 0.5
+    },
+    {
+      "t": 65,
+      "v": 0.5
+    },
+    {
+      "t": 70,
+      "v": 0.5
+    },
+    {
+      "t": 75,
+      "v": 0.5
+    },
+    {
+      "t": 80,
+      "v": 0.16666666666666666
+    },
+    {
+      "t": 85,
+      "v": 0.5
+    },
+    {
+      "t": 90,
+      "v": 0.5
+    },
+    {
+      "t": 95,
+      "v": 0.5
+    },
+    {
+      "t": 100,
+      "v": 0.5
+    }
+  ],
+  "metrics": {
+    "predictedNps": -7,
+    "achievableNps": 100,
+    "taskSuccess": 0,
+    "timeToValueSec": null,
+    "rageClicks": 6,
+    "delightCount": 0
+  },
+  "cost": {
+    "tokensIn": 112966,
+    "tokensOut": 5674,
+    "usd": 0
+  }
+}

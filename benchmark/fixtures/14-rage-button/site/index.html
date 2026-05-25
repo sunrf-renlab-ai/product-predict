@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Vault — Workspace</title>
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #0a0c10; color: #e7e9ee; font: 14px/1.5 -apple-system, "Inter", "Segoe UI", sans-serif; }
+  .app { display: grid; grid-template-columns: 220px 1fr; min-height: 100vh; }
+  .side { background: #0d1015; border-right: 1px solid #1a1d22; padding: 22px 14px; }
+  .brand { font-weight: 600; padding: 4px 10px 20px; letter-spacing: -0.01em; }
+  .side-item { padding: 8px 10px; border-radius: 6px; color: #97a0ac; font-size: 13px; cursor: pointer; }
+  .side-item.active { background: #181c23; color: #e7e9ee; }
+  .main { padding: 28px 36px; }
+  .head { display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 28px; border-bottom: 1px solid #1a1d22; }
+  .head h1 { font-size: 24px; letter-spacing: -0.01em; }
+  .head .sub { color: #97a0ac; margin-top: 4px; font-size: 13px; }
+  /* Sync button is isolated in top-right with no surrounding context */
+  .sync-btn { padding: 9px 18px; background: #5b8def; color: #fff; border: 0; border-radius: 6px; font: inherit; cursor: pointer; }
+  /* deliberately: no hover, no active, no disabled, no aria states */
+  .content { margin-top: 28px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .stat { background: #11141a; border: 1px solid #1e222a; border-radius: 10px; padding: 18px; }
+  .stat .label { color: #6a7180; font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; }
+  .stat .value { font-size: 26px; margin-top: 8px; letter-spacing: -0.01em; }
+  .stat .delta { color: #59c585; font-size: 12px; margin-top: 4px; }
+  table { width: 100%; margin-top: 28px; border-collapse: collapse; }
+  th, td { text-align: left; padding: 10px 12px; font-size: 13px; border-bottom: 1px solid #14171c; }
+  th { color: #6a7180; font-weight: 500; font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; }
+  td .pill { background: #181c23; color: #b8bec7; font-size: 11px; padding: 2px 8px; border-radius: 999px; }
+  /* secret log so we can prove the click did fire — but nothing visible */
+  .secret-log { display: none; }
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="side">
+    <div class="brand">▦ Vault</div>
+    <div class="side-item active">Overview</div>
+    <div class="side-item">Documents</div>
+    <div class="side-item">Members</div>
+    <div class="side-item">Integrations</div>
+    <div class="side-item">Settings</div>
+  </aside>
+  <main class="main">
+    <div class="head">
+      <div>
+        <h1>Overview</h1>
+        <div class="sub">Last updated 4 minutes ago</div>
+      </div>
+      <button class="sync-btn" id="syncBtn">Sync</button>
+    </div>
+    <div class="content">
+      <div class="stat"><div class="label">Documents</div><div class="value">1,284</div><div class="delta">+24 this week</div></div>
+      <div class="stat"><div class="label">Active members</div><div class="value">38</div><div class="delta">+3 this week</div></div>
+      <div class="stat"><div class="label">Storage used</div><div class="value">42%</div><div class="delta">+2% this week</div></div>
+    </div>
+    <table>
+      <thead><tr><th>Document</th><th>Owner</th><th>Modified</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>Q3 OKR planning</td><td>maya</td><td>2h ago</td><td><span class="pill">draft</span></td></tr>
+        <tr><td>Pricing v2 deck</td><td>tom</td><td>5h ago</td><td><span class="pill">review</span></td></tr>
+        <tr><td>Customer interviews</td><td>priya</td><td>yesterday</td><td><span class="pill">final</span></td></tr>
+        <tr><td>Onboarding flow</td><td>alex</td><td>2d ago</td><td><span class="pill">draft</span></td></tr>
+        <tr><td>Brand guidelines</td><td>jordan</td><td>3d ago</td><td><span class="pill">final</span></td></tr>
+      </tbody>
+    </table>
+    <div class="secret-log" id="log"></div>
+  </main>
+</div>
+<script>
+  // Sync actually fires — but no UI feedback at all. No spinner, no disabled, no toast.
+  // Background work pretends to run for 2.5s.
+  const btn = document.getElementById('syncBtn');
+  const log = document.getElementById('log');
+  let count = 0;
+  btn.addEventListener('click', () => {
+    count++;
+    log.textContent = 'sync invocations: ' + count;
+    // Simulated background "sync" — completes silently, no notification.
+    setTimeout(() => {
+      // intentionally do nothing visible. The data was already current.
+    }, 2500);
+  });
+</script>
+</body>
+</html>

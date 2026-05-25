@@ -1,0 +1,49 @@
+{
+  "id": "11-modal-modal",
+  "name": "Modal Stack of Doom",
+  "hint": "A reading app's landing page — evaluate the first 30 seconds of a visitor's experience",
+  "port": 8211,
+  "description": "Lumen 阅读应用落地页 — 一进来连续三个弹窗 (cookie + 邮件订阅 + 升级 Pro),cookie banner 不点同意无法滚动,弹窗视觉风格不统一,且充斥 dark pattern 设计。",
+  "groundTruth": [
+    {
+      "id": "gt-01",
+      "title": "进来就三连弹窗",
+      "severity": "high",
+      "category": "情感氛围",
+      "description": "页面加载立刻弹 cookie banner,关掉后弹邮件订阅,再关掉又弹「升级 Pro」侧边栏。访客还没看清产品长什么样就被三连骚扰,信任感瞬间崩塌。",
+      "shouldFindWith": ["新手", "情感敏感"]
+    },
+    {
+      "id": "gt-02",
+      "title": "不点同意 cookie 就无法滚动",
+      "severity": "high",
+      "category": "流程顺畅",
+      "description": "页面初始 body 带 .locked class 禁用 overflow,只有点 cookie banner 上的 Accept 或 Reject 才会解锁。用户连产品介绍都没看就被逼着做决定,违反正常浏览习惯。",
+      "shouldFindWith": ["目标导向", "新手"]
+    },
+    {
+      "id": "gt-03",
+      "title": "三个弹窗视觉风格不一致",
+      "severity": "med",
+      "category": "视觉节奏",
+      "description": "cookie banner 用直角无阴影,订阅弹窗用 18px 大圆角 + 重阴影,升级 Pro 是带渐变边框的侧边抽屉。三个高优先级 UI 元素出现在同一会话里却各说各话,看着像三个不同产品。",
+      "shouldFindWith": ["设计敏感"]
+    },
+    {
+      "id": "gt-04",
+      "title": "Subscribe 按钮巨大 no thanks 缩成小字",
+      "severity": "med",
+      "category": "表达文案",
+      "description": "邮件订阅弹窗的 Subscribe 按钮 100% 宽 + 18px padding + 17px 加粗字号,而 no thanks 退出按钮是 11px 灰色下划线小字。这是典型的 confirm-shaming dark pattern,让用户难以理直气壮地拒绝。",
+      "shouldFindWith": ["伦理敏感", "重度用户"]
+    },
+    {
+      "id": "gt-05",
+      "title": "cookie 同意拒绝按钮对比度太低",
+      "severity": "low",
+      "category": "可访问性",
+      "description": "cookie banner 里 I agree 是亮绿色 (#2f8b4a),Reject 是深灰边框 + #5a5f68 文字,视觉权重严重失衡。低视力或赶时间用户极易误点 I agree。",
+      "shouldFindWith": ["可访问性敏感", "弱视"]
+    }
+  ]
+}

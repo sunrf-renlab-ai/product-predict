@@ -1,0 +1,215 @@
+{
+  "fixtureId": "07-lost-search",
+  "gtTotal": 5,
+  "ppTotal": 12,
+  "matched": 0,
+  "recall": 0,
+  "precision": 0,
+  "f1": 0,
+  "severityAcc": 0,
+  "categoryAcc": 0,
+  "verdicts": [
+    {
+      "gtId": "gt-01",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0,
+      "reasoning": "judge failed: No JSON found in LLM output:\n"
+    },
+    {
+      "gtId": "gt-02",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0,
+      "reasoning": "GT聚焦搜索容错能力缺失拼写纠错模糊匹配，所有PP发现都是搜索功能完全无响应的交互失效问题"
+    },
+    {
+      "gtId": "gt-03",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0.1,
+      "reasoning": "GT关注placeholder文案引导问题,所有PP finding都描述搜索功能完全不工作无响应"
+    },
+    {
+      "gtId": "gt-04",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0.2,
+      "reasoning": "GT关注清除按钮缺失,PP发现都是搜索回车无响应,不同底层问题"
+    },
+    {
+      "gtId": "gt-05",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0.3,
+      "reasoning": "GT关于搜索结果视觉分组,PP findings都是功能不工作问题"
+    }
+  ],
+  "falsePositives": [
+    {
+      "findingId": "i01",
+      "finding": {
+        "title": "搜索按回车完全没反应",
+        "category": "功能契合",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i02",
+      "finding": {
+        "title": "导航链接点击后毫无响应",
+        "category": "流程顺畅",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i04",
+      "finding": {
+        "title": "搜索框在C位却完全不可用",
+        "category": "功能契合",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i05",
+      "finding": {
+        "title": "导航栏是装饰，点了没反应",
+        "category": "流程顺畅",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i06",
+      "finding": {
+        "title": "子路径直接 404",
+        "category": "信息架构",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i07",
+      "finding": {
+        "title": "搜索按回车完全没反应，核心功能挂掉",
+        "category": "功能契合",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i08",
+      "finding": {
+        "title": "导航栏点击完全没响应，页面像摆设",
+        "category": "流程顺畅",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i10",
+      "finding": {
+        "title": "搜索框输入后回车完全没反应，感觉是个摆设",
+        "category": "功能契合",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i11",
+      "finding": {
+        "title": "导航链接点击后页面没有任何变化，怀疑是假链接",
+        "category": "功能契合",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i12",
+      "finding": {
+        "title": "找不到任何实质内容，对这个网站失去信任",
+        "category": "情感氛围",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i03",
+      "finding": {
+        "title": "没有任何交互反馈让我不知所措",
+        "category": "情感氛围",
+        "severity": "med"
+      }
+    },
+    {
+      "findingId": "i09",
+      "finding": {
+        "title": "跟 Algolia DocSearch 比差太多，没理由切换过来",
+        "category": "与竞品对比",
+        "severity": "med"
+      }
+    }
+  ],
+  "missed": [
+    {
+      "gtId": "gt-01",
+      "gt": {
+        "id": "gt-01",
+        "title": "搜不到结果就完全空白",
+        "severity": "high",
+        "category": "信息架构",
+        "description": "输入一个无匹配的关键词后,结果区直接变成空白,既没有 'No results for X' 文案、也没有 'Try a different keyword' 引导,用户会以为页面坏了或者搜索框没生效。",
+        "shouldFindWith": [
+          "新手",
+          "目标导向"
+        ]
+      }
+    },
+    {
+      "gtId": "gt-02",
+      "gt": {
+        "id": "gt-02",
+        "title": "拼错一个字母就 0 结果",
+        "severity": "high",
+        "category": "功能契合",
+        "description": "搜索是严格 substring 匹配,没有 typo correction、没有 fuzzy match、没有 autocomplete。搜 'authentcation' / 'markdwn' 都返回零,普通 docs 站点早就具备的容错完全缺失。",
+        "shouldFindWith": [
+          "重度用户",
+          "评估者"
+        ]
+      }
+    },
+    {
+      "gtId": "gt-03",
+      "gt": {
+        "id": "gt-03",
+        "title": "Search... 占位符没说能搜什么",
+        "severity": "med",
+        "category": "表达文案",
+        "description": "搜索框 placeholder 就一句 'Search...',没告诉用户能搜 docs、API、还是社区内容,缺乏 'Search docs, API, guides...' 这种带选项的引导文案。",
+        "shouldFindWith": [
+          "新手"
+        ]
+      }
+    },
+    {
+      "gtId": "gt-04",
+      "gt": {
+        "id": "gt-04",
+        "title": "输入框没有清除按钮",
+        "severity": "med",
+        "category": "流程顺畅",
+        "description": "search input 没有 × clear 按钮,用户想换关键词必须全选再删除或者用退格慢慢删,在搜索这种高频交互场景里是常识级的缺失。",
+        "shouldFindWith": [
+          "重度用户"
+        ]
+      }
+    },
+    {
+      "gtId": "gt-05",
+      "gt": {
+        "id": "gt-05",
+        "title": "所有结果卡片长得一样",
+        "severity": "low",
+        "category": "视觉节奏",
+        "description": "搜索命中的所有结果都用同样大小、同样颜色的卡片,没区分最佳匹配 / 次要匹配,也没按类型 (api / guide / account) 视觉分组,用户得逐条读才能找到想要的。",
+        "shouldFindWith": [
+          "设计敏感"
+        ]
+      }
+    }
+  ]
+}

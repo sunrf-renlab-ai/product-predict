@@ -1,0 +1,946 @@
+{
+  "id": "run-001",
+  "startedAt": "2026-05-25T11:27:41.395Z",
+  "finishedAt": "2026-05-25T11:30:05.951Z",
+  "target": {
+    "url": "http://localhost:8200/12-noisy-notifs/site/",
+    "title": "Pulse — Inbox",
+    "viewport": {
+      "w": 1280,
+      "h": 800
+    }
+  },
+  "personaSetId": "preset-a-team-workspace-s-notificatio",
+  "agents": [
+    {
+      "id": "a02",
+      "name": "Kenji Okada",
+      "age": 35,
+      "role": "后端工程师",
+      "tech": 5,
+      "tone": "好奇",
+      "preferences": [
+        "追求自动化",
+        "API 集成",
+        "批量操作"
+      ],
+      "knownContext": [
+        "用 JIRA 管理任务",
+        "试过 Linear，觉得视图太简化",
+        "团队 5 人"
+      ],
+      "weight": 0.3,
+      "color": "#7ec8e3",
+      "glyph": "K",
+      "traits": [
+        "技术宅",
+        "自动化爱好者"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "frustrated",
+      "durationSec": 108.495
+    },
+    {
+      "id": "a01",
+      "name": "Maya Chen",
+      "age": 31,
+      "role": "产品经理",
+      "tech": 4,
+      "tone": "挑剔",
+      "preferences": [
+        "快速筛选重要通知",
+        "自定义过滤规则",
+        "清晰的视觉层次"
+      ],
+      "knownContext": [
+        "每天用 Notion 记录项目",
+        "试过 Slack 通知，觉得噪音大",
+        "团队 12 人"
+      ],
+      "weight": 0.33,
+      "color": "#e6c976",
+      "glyph": "M",
+      "traits": [
+        "效率控",
+        "细节强迫"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "frustrated",
+      "durationSec": 133.147
+    },
+    {
+      "id": "a04",
+      "name": "王磊",
+      "age": 44,
+      "role": "部门主管",
+      "tech": 2,
+      "tone": "怀疑",
+      "preferences": [
+        "安全隐私",
+        "审计日志",
+        "低噪音容忍"
+      ],
+      "knownContext": [
+        "过去用企业微信",
+        "不熟悉新技术",
+        "团队 20 人"
+      ],
+      "weight": 0.15,
+      "color": "#a8d8b9",
+      "glyph": "W",
+      "traits": [
+        "保守",
+        "风险管理"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "frustrated",
+      "durationSec": 133.745
+    },
+    {
+      "id": "a03",
+      "name": "Lucas Schmidt",
+      "age": 29,
+      "role": "项目经理",
+      "tech": 3,
+      "tone": "急躁",
+      "preferences": [
+        "一次性概览",
+        "快速标记已读",
+        "移动端适配"
+      ],
+      "knownContext": [
+        "每天用 Trello 管理看板",
+        "试过 Asana，觉得太繁琐",
+        "团队 8 人"
+      ],
+      "weight": 0.22,
+      "color": "#f5a623",
+      "glyph": "L",
+      "traits": [
+        "快节奏",
+        "多任务"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": true,
+      "exitReason": "timeout",
+      "durationSec": 144.426
+    }
+  ],
+  "activity": [
+    {
+      "t": "00:00:00",
+      "agent": "a02",
+      "kind": "enter",
+      "text": "进入 localhost:8200/12-noisy-notifs/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/12-noisy-notifs/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a02",
+      "kind": "observation",
+      "text": "打开了一个看起来像任务管理工具的页面。标题是\"MiniMax M2.7\"，左侧有导航栏，中间是问题列表。这界面有点像 Linear 或 JIRA 的风格。",
+      "sentiment": 0,
+      "shot": "shots/a02-00.jpg"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a01",
+      "kind": "enter",
+      "text": "进入 localhost:8200/12-noisy-notifs/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/12-noisy-notifs/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a01",
+      "kind": "observation",
+      "text": "通知中心界面，标题是\"通知中心\"。有三条通知预览：任务通知（Alice）、消息（Bob）、项目更新。底部有\"全部已读\"、\"全部忽略\"、\"设置\"和\"通知规则\"按钮。",
+      "sentiment": 0,
+      "shot": "shots/a01-00.jpg"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a04",
+      "kind": "enter",
+      "text": "进入 localhost:8200/12-noisy-notifs/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/12-noisy-notifs/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a04",
+      "kind": "observation",
+      "text": "这界面看起来挺像企业微信的，左边是导航栏和联系人列表，右边是聊天区。顶上还有个\"即时通讯\"标签。右下角有个\"任务面板\"悬浮按钮。",
+      "sentiment": 0,
+      "shot": "shots/a04-00.jpg"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a03",
+      "kind": "enter",
+      "text": "进入 localhost:8200/12-noisy-notifs/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/12-noisy-notifs/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a03",
+      "kind": "observation",
+      "text": "页面看起来是个任务管理界面，有点像 Trello 的看板风格。左上角有 Logo\"TaskFlow\"，导航栏有 Dashboard、Projects、Tasks、Notifications、Team，还有个通知铃铛图标。页面标题是\"Project Phoenix\"，下面有进度条显示 72% 和 5天剩余时间。中间是看板，分了 Backlog、To Do、In Progress、Review、Done 五列，每列有不同颜色的卡片。我注意到通知铃铛上有红色小圆点提示。打开页面花了点时间。",
+      "sentiment": 0,
+      "shot": "shots/a03-00.jpg"
+    },
+    {
+      "t": "00:04:02",
+      "agent": "a02",
+      "kind": "observation",
+      "text": "看到通知铃铛上有\"9+\"的红色角标，这和URL里的\"noisy-notifs\"呼应了。点开看看这些通知是什么内容。",
+      "sentiment": -1,
+      "shot": "shots/a02-01.jpg"
+    },
+    {
+      "t": "00:08:85",
+      "agent": "a01",
+      "kind": "click",
+      "text": "想看看能不能自定义通知规则，减少噪音",
+      "sentiment": 0,
+      "url": "http://localhost:8200/12-noisy-notifs/site/",
+      "shot": "shots/a01-01.jpg"
+    },
+    {
+      "t": "00:09:33",
+      "agent": "a03",
+      "kind": "click",
+      "text": "看看那个红点通知是什么",
+      "sentiment": 0,
+      "url": "http://localhost:8200/12-noisy-notifs/site/",
+      "shot": "shots/a03-01.jpg"
+    },
+    {
+      "t": "00:10:81",
+      "agent": "a04",
+      "kind": "confused",
+      "text": "操作失败 (note): expected number, got undefined",
+      "sentiment": -1
+    },
+    {
+      "t": "00:16:21",
+      "agent": "a02",
+      "kind": "click",
+      "text": "想看看9+条通知都写了什么",
+      "sentiment": 0,
+      "url": "http://localhost:8200/12-noisy-notifs/site/",
+      "shot": "shots/a02-02.jpg"
+    },
+    {
+      "t": "00:17:29",
+      "agent": "a03",
+      "kind": "confused",
+      "text": "点击了通知铃铛，但页面好像没变化。不知道通知面板有没有打开。",
+      "sentiment": -1,
+      "shot": "shots/a03-02.jpg"
+    },
+    {
+      "t": "00:18:50",
+      "agent": "a04",
+      "kind": "click",
+      "text": "好奇这个任务面板功能是什么，想看看",
+      "sentiment": 0,
+      "url": "http://localhost:8200/12-noisy-notifs/site/",
+      "shot": "shots/a04-02.jpg"
+    },
+    {
+      "t": "00:18:67",
+      "agent": "a01",
+      "kind": "confused",
+      "text": "三个开关太基础了。能按人过滤吗？能按关键词吗？点\"添加新规则\"看看能不能自定义",
+      "sentiment": 0,
+      "shot": "shots/a01-02.jpg"
+    },
+    {
+      "t": "00:19:42",
+      "agent": "a02",
+      "kind": "click",
+      "text": "再点一次通知铃铛，看看能不能弹出通知列表",
+      "sentiment": 0,
+      "url": "http://localhost:8200/12-noisy-notifs/site/",
+      "shot": "shots/a02-03.jpg"
+    },
+    {
+      "t": "00:21:46",
+      "agent": "a04",
+      "kind": "delight",
+      "text": "哦，打开了通知设置面板。这功能挺实用，可以统一管理各种通知的开关。企业微信里要找这些设置要翻好几层菜单。",
+      "sentiment": 1,
+      "shot": "shots/a04-03.jpg"
+    },
+    {
+      "t": "00:24:48",
+      "agent": "a02",
+      "kind": "rage",
+      "text": "点两次铃铛都没反应，不知道是点击位置不对还是这玩意儿就是坏的。算了，看看问题列表里有什么内容吧。",
+      "sentiment": -2,
+      "shot": "shots/a02-04.jpg"
+    },
+    {
+      "t": "00:27:00",
+      "agent": "a01",
+      "kind": "click",
+      "text": "点击添加新规则看看能自定义到什么程度",
+      "sentiment": 0,
+      "url": "http://localhost:8200/12-noisy-notifs/site/",
+      "shot": "shots/a01-03.jpg"
+    },
+    {
+      "t": "00:28:65",
+      "agent": "a04",
+      "kind": "observation",
+      "text": "通知面板列出了几类通知开关：免打扰模式、消息提醒、声音提示、桌面通知、语言播报。这个设计思路不错，把通知控制权都集中到一起了。",
+      "sentiment": 1,
+      "shot": "shots/a04-04.jpg"
+    },
+    {
+      "t": "00:30:95",
+      "agent": "a03",
+      "kind": "confused",
+      "text": "操作失败 (click_at): expected string, got undefined",
+      "sentiment": -1
+    },
+    {
+      "t": "00:31:37",
+      "agent": "a01",
+      "kind": "delight",
+      "text": "弹窗里有来源、关键词两个标签，可以自定义过滤条件。这个比刚才的三个开关实用多了。",
+      "sentiment": 1,
+      "shot": "shots/a01-04.jpg"
+    },
+    {
+      "t": "00:35:36",
+      "agent": "a03",
+      "kind": "click",
+      "text": "重试点击通知铃铛看看有没有通知面板弹出",
+      "sentiment": 0,
+      "url": "http://localhost:8200/12-noisy-notifs/site/",
+      "shot": "shots/a03-04.jpg"
+    },
+    {
+      "t": "00:36:46",
+      "agent": "a01",
+      "kind": "click",
+      "text": "聚焦输入框准备输入关键词",
+      "sentiment": 0,
+      "url": "http://localhost:8200/12-noisy-notifs/site/",
+      "shot": "shots/a01-05.jpg"
+    },
+    {
+      "t": "00:38:55",
+      "agent": "a03",
+      "kind": "confused",
+      "text": "通知铃铛点了两次都没反应，不知道是坏了还是通知面板已经在某处显示但我没注意到。算了，先看看别的地方。",
+      "sentiment": -1,
+      "shot": "shots/a03-05.jpg"
+    },
+    {
+      "t": "00:38:80",
+      "agent": "a04",
+      "kind": "click",
+      "text": "想测试一下免打扰模式开关",
+      "sentiment": 0,
+      "url": "http://localhost:8200/12-noisy-notifs/site/",
+      "shot": "shots/a04-05.jpg"
+    },
+    {
+      "t": "00:43:65",
+      "agent": "a01",
+      "kind": "click",
+      "text": "输入想屏蔽的关键词，比如周报 (typed: 周报)",
+      "sentiment": 0,
+      "shot": "shots/a01-06.jpg"
+    },
+    {
+      "t": "00:45:18",
+      "agent": "a04",
+      "kind": "observation",
+      "text": "开关切换了，从蓝色变成灰色。状态变化有视觉反馈，不错。",
+      "sentiment": 0,
+      "shot": "shots/a04-06.jpg"
+    },
+    {
+      "t": "00:47:94",
+      "agent": "a02",
+      "kind": "observation",
+      "text": "滚动看到了更多任务列表。每个任务右边都有个\"🔔+数字\"的图标，比如\"Update onboarding flow\"有🔔2，\"Fix navigation bug\"有🔔1。这可能就是URL里说的\"noisy notifications\"——每个任务都带通知数，感觉挺多余的。试试点击Inbox看看。",
+      "sentiment": 0,
+      "shot": "shots/a02-07.jpg"
+    },
+    {
+      "t": "00:50:44",
+      "agent": "a01",
+      "kind": "click",
+      "text": "想看看来源能选什么，比如按人过滤",
+      "sentiment": 0,
+      "url": "http://localhost:8200/12-noisy-notifs/site/",
+      "shot": "shots/a01-07.jpg"
+    },
+    {
+      "t": "00:55:45",
+      "agent": "a03",
+      "kind": "observation",
+      "text": "向下滚动后看到了更多内容。现在能看清看板结构了：Backlog、To Do、In Progress、Review、Done 五列，每列有彩色标签的任务卡片。进度条显示 72%，还有 5 天截止日期。团队成员显示在右上角。这个布局和 Trello 挺像的，上手应该快。",
+      "sentiment": 1,
+      "shot": "shots/a03-07.jpg"
+    },
+    {
+      "t": "00:57:38",
+      "agent": "a01",
+      "kind": "confused",
+      "text": "点来源那里好像触发了什么，又回到主页了。刚输入的\"周报\"关键词也没了。有点烦。",
+      "sentiment": -1,
+      "shot": "shots/a01-08.jpg"
+    },
+    {
+      "t": "00:59:77",
+      "agent": "a02",
+      "kind": "click",
+      "text": "想看看通知列表的内容",
+      "sentiment": 0,
+      "url": "http://localhost:8200/12-noisy-notifs/site/",
+      "shot": "shots/a02-08.jpg"
+    },
+    {
+      "t": "01:01:31",
+      "agent": "a03",
+      "kind": "rage",
+      "text": "我看到通知铃铛上显示\"99+\"，顶部还有条通知说\"🎉 你的团队成员增加了！\"... 这通知已经多得有点吓人了。再次尝试点击通知铃铛看看能不能看到通知列表。",
+      "sentiment": -2,
+      "shot": "shots/a03-08.jpg"
+    },
+    {
+      "t": "01:04:39",
+      "agent": "a01",
+      "kind": "click",
+      "text": "重新打开规则设置尝试",
+      "sentiment": 0,
+      "url": "http://localhost:8200/12-noisy-notifs/site/",
+      "shot": "shots/a01-09.jpg"
+    },
+    {
+      "t": "01:06:31",
+      "agent": "a04",
+      "kind": "click",
+      "text": "作为低噪音偏好者，想把消息提醒也关掉",
+      "sentiment": 0,
+      "url": "http://localhost:8200/12-noisy-notifs/site/",
+      "shot": "shots/a04-07.jpg"
+    },
+    {
+      "t": "01:11:51",
+      "agent": "a01",
+      "kind": "click",
+      "text": "再次尝试添加自定义规则",
+      "sentiment": 0,
+      "url": "http://localhost:8200/12-noisy-notifs/site/",
+      "shot": "shots/a01-10.jpg"
+    },
+    {
+      "t": "01:11:61",
+      "agent": "a03",
+      "kind": "confused",
+      "text": "操作失败 (click_at): expected string, got undefined",
+      "sentiment": -1
+    },
+    {
+      "t": "01:12:76",
+      "agent": "a04",
+      "kind": "delight",
+      "text": "消息提醒也关掉了。界面对我的控制权很尊重，没有弹什么确认框或者挽留的提示。这点挺满意。",
+      "sentiment": 2,
+      "shot": "shots/a04-08.jpg"
+    },
+    {
+      "t": "01:15:37",
+      "agent": "a02",
+      "kind": "observation",
+      "text": "通知列表的时间显示不一致，有\"2小时前\"、\"1天前\"等不同格式。每个任务都带🔔徽章，确实很吵。试试点击一条通知看看详情。",
+      "sentiment": -1,
+      "shot": "shots/a02-10.jpg"
+    },
+    {
+      "t": "01:16:41",
+      "agent": "a03",
+      "kind": "click",
+      "text": "尝试打开通知列表，看看那些99+通知是什么",
+      "sentiment": 0,
+      "url": "http://localhost:8200/12-noisy-notifs/site/",
+      "shot": "shots/a03-10.jpg"
+    },
+    {
+      "t": "01:17:95",
+      "agent": "a04",
+      "kind": "click",
+      "text": "关闭通知设置面板",
+      "sentiment": 0,
+      "url": "http://localhost:8200/12-noisy-notifs/site/",
+      "shot": "shots/a04-09.jpg"
+    },
+    {
+      "t": "01:20:36",
+      "agent": "a01",
+      "kind": "click",
+      "text": "直接保存规则，不再尝试其他交互以免再出错",
+      "sentiment": 0,
+      "url": "http://localhost:8200/12-noisy-notifs/site/",
+      "shot": "shots/a01-11.jpg"
+    },
+    {
+      "t": "01:20:51",
+      "agent": "a03",
+      "kind": "rage",
+      "text": "通知铃铛点了好几次都没反应，\"99+\"个通知是什么鬼？这铃铛到底是坏了还是通知太多了？不太爽。换个地方看看，先去 Tasks 页面。",
+      "sentiment": -2,
+      "shot": "shots/a03-11.jpg"
+    },
+    {
+      "t": "01:22:28",
+      "agent": "a04",
+      "kind": "rage",
+      "text": "刚关掉免打扰模式，马上弹出一个toast提示……这算什么？噪音零容忍的人最烦的就是这种\"善意提醒\"，我本来就要安静，你又给我弹一条。这逻辑自相矛盾。",
+      "sentiment": -1,
+      "shot": "shots/a04-10.jpg"
+    },
+    {
+      "t": "01:22:38",
+      "agent": "a02",
+      "kind": "click",
+      "text": "点击通知想看详情",
+      "sentiment": 0,
+      "url": "http://localhost:8200/12-noisy-notifs/site/",
+      "shot": "shots/a02-11.jpg"
+    },
+    {
+      "t": "01:27:11",
+      "agent": "a04",
+      "kind": "rage",
+      "text": "还写错了？我明明关掉了\"消息提醒\"，toast却说我开启了。这bug还是我理解错了？算了不想深究。右边的聊天界面还显示\"暂无消息\"，根本没有任何实际内容来验证这些设置对不对。",
+      "sentiment": -2,
+      "shot": "shots/a04-11.jpg"
+    },
+    {
+      "t": "01:28:23",
+      "agent": "a03",
+      "kind": "confused",
+      "text": "DOM 显示通知面板应该存在，但我看不到它。可能是个弹窗/遮罩效果，试试点击通知面板里的内容。",
+      "sentiment": -1,
+      "shot": "shots/a03-12.jpg"
+    },
+    {
+      "t": "01:29:44",
+      "agent": "a01",
+      "kind": "click",
+      "text": "看看能不能看到刚添加的规则列表",
+      "sentiment": 0,
+      "url": "http://localhost:8200/12-noisy-notifs/site/",
+      "shot": "shots/a01-12.jpg"
+    },
+    {
+      "t": "01:31:21",
+      "agent": "a02",
+      "kind": "rage",
+      "text": "通知点了没反应，铃铛也点不开，整个产品的核心交互基本都坏了。我感觉这是个半成品原型，或者在本地跑的 demo 有问题。作为真实用户我不可能继续花时间在这上面。",
+      "sentiment": -3,
+      "shot": "shots/a02-13.jpg"
+    },
+    {
+      "t": "01:32:96",
+      "agent": "a03",
+      "kind": "click",
+      "text": "尝试直接导航到通知页面",
+      "sentiment": 0,
+      "url": "http://localhost:8200/12-noisy-notifs/site/",
+      "shot": "shots/a03-13.jpg"
+    },
+    {
+      "t": "01:35:48",
+      "agent": "a04",
+      "kind": "exit",
+      "text": "我尝试了这个\"即时通讯\"产品，主要看了通知设置功能。发现一个明显矛盾：当我开启\"免打扰模式\"后，系统反而弹出了一个toast通知——这对追求低噪音的用户来说完全无法接受。而且toast内容似乎还写错了（我关闭的是消息提醒，它却说开启了）。右侧聊天区始终显示\"暂无消息\"，没有实际内容可体验。作为一个20人团队的主管，我对这种噪音容忍度很低，这个体验让我不太可能切换使用。",
+      "sentiment": 0,
+      "shot": "shots/a04-12.jpg"
+    },
+    {
+      "t": "01:36:83",
+      "agent": "a02",
+      "kind": "exit",
+      "text": "花了约1分半体验这个任务管理工具，主要问题：1) 铃铛通知图标点了没反应，无法查看通知内容；2) 通知列表里的通知点开没反应，核心交互基本失效；3) 界面显示\"noisy notifications\"——每个任务都带🔔徽章，确实很吵且不实用。作为真实用户，这种半成品体验让我不可能继续用下去。",
+      "sentiment": 0,
+      "shot": "shots/a02-14.jpg"
+    },
+    {
+      "t": "01:37:11",
+      "agent": "a03",
+      "kind": "delight",
+      "text": "通知面板终于弹出来了！我看到了一堆通知列表：Marcus 完成了数据库迁移、Lin 在 Phoenix 集成上添加了评论、项目仪表板已更新、5 个新团队成员...还有\"全部标记为已读\"按钮。这面板终于打开了。",
+      "sentiment": 1,
+      "shot": "shots/a03-14.jpg"
+    },
+    {
+      "t": "01:38:26",
+      "agent": "a01",
+      "kind": "rage",
+      "text": "点击\"添加规则\"直接触发保存了，根本没给输入的机会。输入框在眼睛下面但根本没用上。弹窗消失，规则直接保存了？这交互太奇怪了，完全不符合我的预期。",
+      "sentiment": -2,
+      "shot": "shots/a01-13.jpg"
+    },
+    {
+      "t": "01:50:30",
+      "agent": "a01",
+      "kind": "exit",
+      "text": "尝试使用通知规则自定义功能，但遇到严重交互bug：点击来源下拉框会直接关闭弹窗返回主页，点击\"添加规则\"按钮直接保存空规则，输入框根本无法使用。作为一个需要精细控制噪音的用户，这个产品的核心功能目前无法正常工作，失望离开。",
+      "sentiment": 0,
+      "shot": "shots/a01-14.jpg"
+    },
+    {
+      "t": "02:17:52",
+      "agent": "a03",
+      "kind": "exit",
+      "text": "达到 step safety 上限 (15), 强制结束.",
+      "sentiment": -1
+    }
+  ],
+  "issues": [
+    {
+      "id": "i01",
+      "title": "铃铛点不开，核心交互废了",
+      "severity": "high",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "点两次铃铛都没反应，不知道是点击位置不对还是这玩意儿就是坏的",
+      "agentRef": "a02",
+      "evidence": 2,
+      "journey": "在首页看到铃铛上有9+红色角标，想点开看看内容"
+    },
+    {
+      "id": "i02",
+      "title": "通知列表里的条目也点不开",
+      "severity": "high",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "通知点了没反应，整个产品的核心交互基本都坏了",
+      "agentRef": "a02",
+      "evidence": 1,
+      "journey": "打开Inbox看到通知列表，试着点击其中一条通知详情"
+    },
+    {
+      "id": "i04",
+      "title": "规则添加流程形同虚设，输入框根本用不上",
+      "severity": "high",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "点击'添加规则'直接触发保存了，根本没给输入的机会。输入框在眼睛下面但根本没用上。弹窗消失，规则直接保存了？这交互太奇怪了，完全不符合我的预期。",
+      "agentRef": "a01",
+      "evidence": 1,
+      "journey": "在通知规则设置弹窗内操作时"
+    },
+    {
+      "id": "i05",
+      "title": "来源下拉框触发意外行为，弹窗直接关闭",
+      "severity": "high",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "点来源那里好像触发了什么，又回到主页了。刚输入的'周报'关键词也没了。有点烦。",
+      "agentRef": "a01",
+      "evidence": 1,
+      "journey": "在通知规则设置弹窗内点击来源下拉框时"
+    },
+    {
+      "id": "i06",
+      "title": "免打扰模式触发通知，逻辑自相矛盾",
+      "severity": "high",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "刚关掉免打扰模式，马上弹出一个toast提示……这算什么？噪音零容忍的人最烦的就是这种「善意提醒」，我本来就要安静，你又给我弹一条。",
+      "agentRef": "a04",
+      "evidence": 1,
+      "journey": "在通知设置面板关闭免打扰模式后，右侧聊天区弹出toast提示"
+    },
+    {
+      "id": "i07",
+      "title": "toast内容与实际操作不符",
+      "severity": "high",
+      "agents": 1,
+      "category": "表达文案",
+      "quote": "我明明关掉了消息提醒，toast却说我开启了。这bug还是我理解错了？",
+      "agentRef": "a04",
+      "evidence": 1,
+      "journey": "关闭消息提醒后，toast提示内容显示错误"
+    },
+    {
+      "id": "i09",
+      "title": "通知铃铛点了三次都没反应，直接失去耐心",
+      "severity": "high",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "通知铃铛点了好几次都没反应，不知道是坏了还是通知太多了？不太爽。",
+      "agentRef": "a03",
+      "evidence": 5,
+      "journey": "进入首页后看到铃铛上有红点和99+标识，想点开看看通知内容"
+    },
+    {
+      "id": "i10",
+      "title": "99+通知像轰炸机，完全感受不到'智能'",
+      "severity": "high",
+      "agents": 1,
+      "category": "情感氛围",
+      "quote": "这通知已经多得有点吓人了。99+个通知是什么鬼？",
+      "agentRef": "a03",
+      "evidence": 2,
+      "journey": "通知面板终于打开后看到堆积如山的通知列表"
+    },
+    {
+      "id": "i03",
+      "title": "每个任务都带🔔徽章，视觉上很吵",
+      "severity": "med",
+      "agents": 1,
+      "category": "信息架构",
+      "quote": "每个任务右边都有个🔔+数字的图标，感觉挺多余的",
+      "agentRef": "a02",
+      "evidence": 1,
+      "journey": "滚动浏览任务列表时注意到每个任务右侧的🔔徽章"
+    },
+    {
+      "id": "i08",
+      "title": "聊天区始终显示暂无消息，无法验证设置效果",
+      "severity": "med",
+      "agents": 1,
+      "category": "可访问性",
+      "quote": "右边的聊天界面还显示「暂无消息」，根本没有任何实际内容来验证这些设置对不对。",
+      "agentRef": "a04",
+      "evidence": 1,
+      "journey": "进入产品后，右侧聊天区始终为空"
+    },
+    {
+      "id": "i11",
+      "title": "通知面板要导航才能打开，而不是铃铛弹窗",
+      "severity": "med",
+      "agents": 1,
+      "category": "信息架构",
+      "quote": "通知铃铛点了好几次都没反应，不知道是坏了还是通知面板已经在某处显示但我没注意到。",
+      "agentRef": "a03",
+      "evidence": 3,
+      "journey": "在首页点击通知铃铛但无响应后尝试导航到通知页面"
+    }
+  ],
+  "delights": [
+    {
+      "title": "界面风格有Linear的味道",
+      "count": 1,
+      "quote": "这界面有点像 Linear 或 JIRA 的风格，看着挺顺眼的",
+      "agent": "a02"
+    },
+    {
+      "title": "弹窗里有来源+关键词双维度，可自定义程度不错",
+      "count": 1,
+      "quote": "弹窗里有来源、关键词两个标签，可以自定义过滤条件。这个比刚才的三个开关实用多了。",
+      "agent": "a01"
+    },
+    {
+      "title": "通知设置面板把控制权集中到一起",
+      "count": 1,
+      "quote": "通知面板列出了几类通知开关：免打扰模式、消息提醒、声音提示、桌面通知、语言播报。这个设计思路不错，把通知控制权都集中到一起了。企业微信里要找这些设置要翻好几层菜单。",
+      "agent": "a04"
+    },
+    {
+      "title": "看板布局和 Trello 很像，上手没门槛",
+      "count": 1,
+      "quote": "这个布局和 Trello 挺像的，上手应该快。",
+      "agent": "a03"
+    },
+    {
+      "title": "通知面板最终能打开，看到团队动态",
+      "count": 1,
+      "quote": "通知面板终于弹出来了！团队成员增加了。",
+      "agent": "a03"
+    }
+  ],
+  "features": [
+    {
+      "name": "查看通知列表",
+      "hitCount": 2,
+      "hitRate": 0.5,
+      "completionRate": 0.5,
+      "avgSentiment": -2,
+      "totalAttempts": 6
+    },
+    {
+      "name": "添加通知规则",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 3
+    },
+    {
+      "name": "浏览任务列表",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 1,
+      "avgSentiment": 0,
+      "totalAttempts": 1
+    },
+    {
+      "name": "查看通知详情",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 1
+    },
+    {
+      "name": "通知设置面板",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 1,
+      "avgSentiment": 1,
+      "totalAttempts": 1
+    },
+    {
+      "name": "开关免打扰模式",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 1,
+      "avgSentiment": -2,
+      "totalAttempts": 1
+    },
+    {
+      "name": "关闭消息提醒",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 1,
+      "avgSentiment": -1,
+      "totalAttempts": 1
+    },
+    {
+      "name": "查看看板主页",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 1,
+      "avgSentiment": 1,
+      "totalAttempts": 1
+    }
+  ],
+  "routesHeat": [
+    {
+      "path": "/12-noisy-notifs/site/",
+      "visits": 24,
+      "dwell": 15,
+      "drop": 0.16666666666666666
+    }
+  ],
+  "sentimentCurve": [
+    {
+      "t": 0,
+      "v": 0.48148148148148145
+    },
+    {
+      "t": 5,
+      "v": 0.4444444444444444
+    },
+    {
+      "t": 10,
+      "v": 0.4666666666666666
+    },
+    {
+      "t": 15,
+      "v": 0.4444444444444444
+    },
+    {
+      "t": 20,
+      "v": 0.5555555555555556
+    },
+    {
+      "t": 25,
+      "v": 0.4583333333333333
+    },
+    {
+      "t": 30,
+      "v": 0.5
+    },
+    {
+      "t": 35,
+      "v": 0.5
+    },
+    {
+      "t": 40,
+      "v": 0.4166666666666667
+    },
+    {
+      "t": 45,
+      "v": 0.5
+    },
+    {
+      "t": 50,
+      "v": 0.5
+    },
+    {
+      "t": 55,
+      "v": 0.4166666666666667
+    },
+    {
+      "t": 60,
+      "v": 0.25
+    },
+    {
+      "t": 65,
+      "v": 0.375
+    },
+    {
+      "t": 70,
+      "v": 0.4444444444444444
+    },
+    {
+      "t": 75,
+      "v": 0.4444444444444444
+    },
+    {
+      "t": 80,
+      "v": 0.5
+    },
+    {
+      "t": 85,
+      "v": 0.5
+    },
+    {
+      "t": 90,
+      "v": 0.5
+    },
+    {
+      "t": 95,
+      "v": 0.5
+    },
+    {
+      "t": 100,
+      "v": 0.3333333333333333
+    }
+  ],
+  "metrics": {
+    "predictedNps": -10,
+    "achievableNps": 100,
+    "taskSuccess": 0,
+    "timeToValueSec": 72.76,
+    "rageClicks": 7,
+    "delightCount": 1
+  },
+  "cost": {
+    "tokensIn": 149327,
+    "tokensOut": 9652,
+    "usd": 0
+  }
+}

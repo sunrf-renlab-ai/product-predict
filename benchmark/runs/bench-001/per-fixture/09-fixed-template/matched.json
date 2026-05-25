@@ -1,0 +1,216 @@
+{
+  "fixtureId": "09-fixed-template",
+  "gtTotal": 5,
+  "ppTotal": 12,
+  "matched": 0,
+  "recall": 0,
+  "precision": 0,
+  "f1": 0,
+  "severityAcc": 0,
+  "categoryAcc": 0,
+  "verdicts": [
+    {
+      "gtId": "gt-01",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0.25,
+      "reasoning": "i03提到功能问题但指按钮不响应不是模板限制，GT核心是三个固定模板无自定义和复用"
+    },
+    {
+      "gtId": "gt-02",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0,
+      "reasoning": "GT关注的是与NotionObsidian等竞品的自定义模板功能差距，pp发现均未提及竞品对比或自定义模板缺失"
+    },
+    {
+      "gtId": "gt-03",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0,
+      "reasoning": "judge failed: Unterminated string in JSON at position 99 (line 1 column 100)"
+    },
+    {
+      "gtId": "gt-04",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0.2,
+      "reasoning": "GT问题是按钮文案太正式不符笔记应用轻量氛围，所有发现都是关于按钮无响应或产品定位不清，未涉及文案语气问题"
+    },
+    {
+      "gtId": "gt-05",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0,
+      "reasoning": "GT关注视觉色调不一致问题，所有PP发现都集中在按钮功能反馈/产品定位/信息架构等截然不同的类别"
+    }
+  ],
+  "falsePositives": [
+    {
+      "findingId": "i01",
+      "finding": {
+        "title": "点了按钮没反应，不知道是坏了还是演示环境",
+        "category": "流程顺畅",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i02",
+      "finding": {
+        "title": "产品定位不清晰，不知道这到底是啥工具",
+        "category": "信息架构",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i04",
+      "finding": {
+        "title": "点击主要按钮没有任何反馈",
+        "category": "功能契合",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i07",
+      "finding": {
+        "title": "点 Apply Template 按钮完全没反应",
+        "category": "可访问性",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i08",
+      "finding": {
+        "title": "看不明白这个产品是干什么的",
+        "category": "信息架构",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i09",
+      "finding": {
+        "title": "找不到输入内容的地方",
+        "category": "功能契合",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i10",
+      "finding": {
+        "title": "按钮点完没反应，不知道是坏了还是在加载",
+        "category": "可访问性",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i11",
+      "finding": {
+        "title": "页面就一个按钮，我不知道这工具到底能干嘛",
+        "category": "信息架构",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i12",
+      "finding": {
+        "title": "我关心的数据导入导出功能完全找不到",
+        "category": "功能契合",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i03",
+      "finding": {
+        "title": "概念听起来有点意思，但感受不到价值",
+        "category": "功能契合",
+        "severity": "med"
+      }
+    },
+    {
+      "findingId": "i05",
+      "finding": {
+        "title": "进入页面不知道该干什么",
+        "category": "信息架构",
+        "severity": "med"
+      }
+    },
+    {
+      "findingId": "i06",
+      "finding": {
+        "title": "没有引导或示例让我快速理解",
+        "category": "学习成本",
+        "severity": "low"
+      }
+    }
+  ],
+  "missed": [
+    {
+      "gtId": "gt-01",
+      "gt": {
+        "id": "gt-01",
+        "title": "只能用 3 个固定模板",
+        "severity": "high",
+        "category": "功能契合",
+        "description": "新建笔记时必须选「会议记录 / 日记 / Todo」三个模板之一,既不能自定义模板、也不能保存自己的模板供下次复用,使用了两次以后用户的真实工作流就被锁死了。",
+        "shouldFindWith": [
+          "重度用户",
+          "评估者"
+        ]
+      }
+    },
+    {
+      "gtId": "gt-02",
+      "gt": {
+        "id": "gt-02",
+        "title": "Notion / Obsidian 都能自定义",
+        "severity": "high",
+        "category": "与竞品对比",
+        "description": "Notion / Obsidian / Craft / Bear 这一类笔记产品在 2024 之后都把「自定义模板」当作基线功能,这个产品反向开倒车,任何尝试过竞品的用户立刻会感到功能性退化。",
+        "shouldFindWith": [
+          "重度用户",
+          "评估者"
+        ]
+      }
+    },
+    {
+      "gtId": "gt-03",
+      "gt": {
+        "id": "gt-03",
+        "title": "模板选择挡住首屏",
+        "severity": "med",
+        "category": "信息架构",
+        "description": "进入「新建笔记」后整个首屏都是模板选择卡片,没有「跳过 / 直接写一个空白」入口,用户想随手记一句话也必须选模板,把临时灵感卡在仪式感里。",
+        "shouldFindWith": [
+          "目标导向",
+          "新手"
+        ]
+      }
+    },
+    {
+      "gtId": "gt-04",
+      "gt": {
+        "id": "gt-04",
+        "title": "按钮文案太正式",
+        "severity": "med",
+        "category": "表达文案",
+        "description": "主按钮叫 'Apply Template',词性偏正式/系统化,跟笔记应用的轻量氛围相违和,更合适的应该是「用这个开始」「就这个」之类口语化文案。",
+        "shouldFindWith": [
+          "文案敏感"
+        ]
+      }
+    },
+    {
+      "gtId": "gt-05",
+      "gt": {
+        "id": "gt-05",
+        "title": "3 张卡片色调不统一",
+        "severity": "low",
+        "category": "视觉节奏",
+        "description": "Meeting 用蓝色渐变 / Journal 用紫红渐变 / Todo 用绿色渐变,边框颜色也跟着变,3 张卡并排在一起视觉上像三个不同产品的拼贴,缺乏一致的设计系统。",
+        "shouldFindWith": [
+          "设计敏感"
+        ]
+      }
+    }
+  ]
+}

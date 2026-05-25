@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Welcome to Drift</title>
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #0a0c10; color: #e7e9ee; font: 14px/1.45 -apple-system, "Inter", "Segoe UI", sans-serif; height: 100vh; overflow: hidden; }
+  /* faint dashboard backdrop barely visible behind the modal */
+  .app { padding: 24px; opacity: 0.4; filter: blur(1px); }
+  .app header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #1a1d22; padding-bottom: 14px; }
+  .app .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 18px; }
+  .app .tile { background: #11141a; border: 1px solid #1e222a; border-radius: 8px; height: 120px; }
+  /* Modal: 90% viewport, dim background */
+  .scrim { position: fixed; inset: 0; background: rgba(5,6,9,0.85); display: grid; place-items: center; }
+  .modal { width: 90vw; height: 86vh; max-width: 1100px; background: #11141a; border: 1px solid #1e222a; border-radius: 14px; padding: 44px 56px; display: flex; flex-direction: column; }
+  .step-count { color: #6a7180; font-size: 12px; }
+  .modal h2 { font-size: 26px; letter-spacing: -0.01em; margin-top: 6px; }
+  .modal p.lede { color: #b8bec7; margin-top: 8px; font-size: 14px; }
+  .step-body { flex: 1; display: grid; place-items: center; color: #97a0ac; margin: 20px 0; }
+  .step-body input, .step-body select { width: 360px; padding: 10px 12px; background: #0b0d11; border: 1px solid #2a2f38; border-radius: 6px; color: #e7e9ee; font: inherit; }
+  .actions { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+  /* Primary CTA "Next" is small; secondary "Learn more" is larger — sizing reversed */
+  .next { padding: 7px 14px; font-size: 12px; background: #5b8def; color: #fff; border: 0; border-radius: 5px; cursor: pointer; }
+  .learn-more { padding: 14px 28px; font-size: 16px; background: transparent; color: #b8bec7; border: 1px solid #2a2f38; border-radius: 8px; cursor: pointer; }
+  /* close X tucked in the bottom-right corner */
+  .close-corner { position: absolute; right: 18px; bottom: 14px; font-size: 11px; color: #4a4f57; cursor: pointer; background: none; border: 0; }
+</style>
+</head>
+<body>
+<div class="app">
+  <header><div>◇ Drift</div><div style="font-size:12px;color:#97a0ac">acme@drift.app</div></header>
+  <div class="grid">
+    <div class="tile"></div><div class="tile"></div><div class="tile"></div>
+    <div class="tile"></div><div class="tile"></div><div class="tile"></div>
+  </div>
+</div>
+
+<div class="scrim" id="scrim">
+  <div class="modal">
+    <div class="step-count">Step <span id="cur">1</span> of 5</div>
+    <h2 id="title">Hi there! Welcome to our amazing product 🎉</h2>
+    <p class="lede" id="lede">Let's get you set up in just a few clicks. We're so excited to have you on board!</p>
+
+    <div class="step-body" id="body">
+      <input id="answer" placeholder="What's your team's name?" />
+    </div>
+
+    <div class="actions">
+      <button class="learn-more">Learn more about Drift</button>
+      <button class="next" id="next">Next →</button>
+    </div>
+
+    <button class="close-corner" id="close">close</button>
+  </div>
+</div>
+
+<script>
+  const steps = [
+    { t: "Hi there! Welcome to our amazing product 🎉", l: "Let's get you set up in just a few clicks. We're so excited to have you on board!", q: "What's your team's name?" },
+    { t: "Tell us a bit about you ✨", l: "It only takes a moment! Your answers help us tailor the magic just for you.", q: "What's your role?" },
+    { t: "Pick your superpower 💪", l: "Choose the workflow you're most excited about. You can always change later!", q: "Primary workflow?" },
+    { t: "Connect your stack 🔌", l: "Drift plays nicely with the tools you already love.", q: "Slack workspace URL?" },
+    { t: "Almost there — let's launch 🚀", l: "You're going to love what's next. Hit Finish to enter your dashboard!", q: "Invite a teammate (email)?" }
+  ];
+  let i = 0;
+  const cur = document.getElementById('cur');
+  const title = document.getElementById('title');
+  const lede = document.getElementById('lede');
+  const answer = document.getElementById('answer');
+  const next = document.getElementById('next');
+  function render() {
+    cur.textContent = i + 1;
+    title.textContent = steps[i].t;
+    lede.textContent = steps[i].l;
+    answer.placeholder = steps[i].q;
+    answer.value = '';
+    next.textContent = i === steps.length - 1 ? 'Finish' : 'Next →';
+  }
+  next.onclick = () => {
+    if (i < steps.length - 1) { i++; render(); }
+    else document.getElementById('scrim').remove();
+  };
+  document.getElementById('close').onclick = () => document.getElementById('scrim').remove();
+  render();
+</script>
+</body>
+</html>

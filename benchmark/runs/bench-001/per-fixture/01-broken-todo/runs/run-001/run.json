@@ -1,0 +1,688 @@
+{
+  "id": "run-001",
+  "startedAt": "2026-05-25T11:16:23.526Z",
+  "finishedAt": "2026-05-25T11:17:35.988Z",
+  "target": {
+    "url": "http://localhost:8200/01-broken-todo/site/",
+    "title": "Stack — todo for teams that ship",
+    "viewport": {
+      "w": 1280,
+      "h": 800
+    }
+  },
+  "personaSetId": "preset-a-team-todo-app-s-landing-page",
+  "agents": [
+    {
+      "id": "a01",
+      "name": "Maya Chen",
+      "age": 28,
+      "role": "产品经理",
+      "tech": 4,
+      "tone": "挑剔",
+      "preferences": [
+        "重视团队协作",
+        "看重模板生态",
+        "关注学习曲线"
+      ],
+      "knownContext": [
+        "每天用 Notion 写文档",
+        "试过 Linear，觉得对设计师不友好"
+      ],
+      "weight": 0.22,
+      "color": "#e6c976",
+      "glyph": "M",
+      "traits": [
+        "效率控",
+        "协作向"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "frustrated",
+      "durationSec": 45.715
+    },
+    {
+      "id": "a03",
+      "name": "李心怡",
+      "age": 30,
+      "role": "运营专员",
+      "tech": 3,
+      "tone": "急躁",
+      "preferences": [
+        "界面要直观",
+        "不想看教程",
+        "上手要快"
+      ],
+      "knownContext": [
+        "用 Trello 管日常活动",
+        "讨厌复杂设置",
+        "对工具学习成本敏感"
+      ],
+      "weight": 0.35,
+      "color": "#e6a976",
+      "glyph": "L",
+      "traits": [
+        "视觉控",
+        "怕麻烦"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "frustrated",
+      "durationSec": 54.543
+    },
+    {
+      "id": "a02",
+      "name": "Kenji Okada",
+      "age": 32,
+      "role": "开发工程师",
+      "tech": 5,
+      "tone": "好奇",
+      "preferences": [
+        "关注 API 扩展能力",
+        "喜欢尝鲜",
+        "在意自动化程度"
+      ],
+      "knownContext": [
+        "团队用 Asana 管理任务",
+        "之前试过 ClickUp，但感觉不够灵活"
+      ],
+      "weight": 0.18,
+      "color": "#7eb5e6",
+      "glyph": "K",
+      "traits": [
+        "技术向",
+        "爱折腾"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "frustrated",
+      "durationSec": 71.838
+    },
+    {
+      "id": "a04",
+      "name": "王磊",
+      "age": 42,
+      "role": "小企业主",
+      "tech": 2,
+      "tone": "怀疑",
+      "preferences": [
+        "价格要合理",
+        "操作要简便",
+        "看重稳定性"
+      ],
+      "knownContext": [
+        "习惯用 Excel 管任务",
+        "不熟悉 SaaS 产品",
+        "担心迁移成本"
+      ],
+      "weight": 0.25,
+      "color": "#9ee6a7",
+      "glyph": "W",
+      "traits": [
+        "务实",
+        "谨慎"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "frustrated",
+      "durationSec": 72.18
+    }
+  ],
+  "activity": [
+    {
+      "t": "00:00:00",
+      "agent": "a01",
+      "kind": "enter",
+      "text": "进入 localhost:8200/01-broken-todo/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/01-broken-todo/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a01",
+      "kind": "confused",
+      "text": "Product页面？看起来是个项目管理工具，但名字没显示出来。\"Ship products your customers will love\" 这标语挺大但没啥信息量。我需要看看这到底是啥。",
+      "sentiment": -1,
+      "shot": "shots/a01-00.jpg"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a03",
+      "kind": "enter",
+      "text": "进入 localhost:8200/01-broken-todo/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/01-broken-todo/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a03",
+      "kind": "click",
+      "text": "I'm on the landing page, want to see what the product actually is about",
+      "sentiment": 0,
+      "url": "http://localhost:8200/01-broken-todo/site/",
+      "shot": "shots/a03-00.jpg"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a02",
+      "kind": "enter",
+      "text": "进入 localhost:8200/01-broken-todo/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/01-broken-todo/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a02",
+      "kind": "confused",
+      "text": "嗯，这是一个产品落地页。导航栏有 Product、Changelog、Customers、Pricing，右上角 Sign in。\"Inbox, Sprints, Reviews, Insights\" 这些按钮让我好奇——看起来像是项目管理工具的核心功能分区。还有一个 \"request access →\" 链接，说明这东西可能还在邀请测试阶段。",
+      "sentiment": 0,
+      "shot": "shots/a02-00.jpg"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a04",
+      "kind": "enter",
+      "text": "进入 localhost:8200/01-broken-todo/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/01-broken-todo/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a04",
+      "kind": "observation",
+      "text": "打开页面了，看起来是个项目管理类的 SaaS 产品。导航栏有 Product、Changelog、Customers、Pricing，还有一个 Sign in 按钮。下方有 \"request access →\" 的链接，以及 Inbox、Sprints、Reviews、Insights 四个按钮。我刚进来，先看看主要文字内容说什么。",
+      "sentiment": 0,
+      "shot": "shots/a04-00.jpg"
+    },
+    {
+      "t": "00:05:46",
+      "agent": "a01",
+      "kind": "click",
+      "text": "想看看实际页面长什么样",
+      "sentiment": 0,
+      "url": "http://localhost:8200/01-broken-todo/site/",
+      "shot": "shots/a01-01.jpg"
+    },
+    {
+      "t": "00:06:55",
+      "agent": "a02",
+      "kind": "click",
+      "text": "想看看这些功能按钮能导航到哪里",
+      "sentiment": 0,
+      "url": "http://localhost:8200/01-broken-todo/site/",
+      "shot": "shots/a02-01.jpg"
+    },
+    {
+      "t": "00:06:89",
+      "agent": "a03",
+      "kind": "confused",
+      "text": "这个页面的布局有点奇怪...上面是导航栏，下面直接就是一堆按钮（Inbox、Sprints、Reviews、Insights），看起来像是已经登录后的界面，不像是 landing page。中间那个 \"request access →\" 也不知道点进去会干嘛。",
+      "sentiment": -1,
+      "shot": "shots/a03-02.jpg"
+    },
+    {
+      "t": "00:08:42",
+      "agent": "a01",
+      "kind": "click",
+      "text": "想看看实际的产品功能是什么样的",
+      "sentiment": 0,
+      "url": "http://localhost:8200/01-broken-todo/site/",
+      "shot": "shots/a01-02.jpg"
+    },
+    {
+      "t": "00:11:62",
+      "agent": "a02",
+      "kind": "confused",
+      "text": "点了 Sprints 按钮，页面没变化，URL 也一样。这落地页上的按钮看起来是装饰性的？让我试试 Inbox。",
+      "sentiment": -1,
+      "shot": "shots/a02-02.jpg"
+    },
+    {
+      "t": "00:15:30",
+      "agent": "a04",
+      "kind": "observation",
+      "text": "这个产品看起来是个项目管理工具，有 Inbox、Sprints、Reviews、Insights 这些功能。我先试试 Inbox 看看能做什么。",
+      "sentiment": 0,
+      "shot": "shots/a04-03.jpg"
+    },
+    {
+      "t": "00:15:59",
+      "agent": "a02",
+      "kind": "click",
+      "text": "想申请内测资格看看产品实际功能",
+      "sentiment": 0,
+      "url": "http://localhost:8200/01-broken-todo/site/",
+      "shot": "shots/a02-03.jpg"
+    },
+    {
+      "t": "00:16:63",
+      "agent": "a01",
+      "kind": "confused",
+      "text": "点击 Inbox 按钮后页面完全没变化。这不会是个坏掉的 demo 吧？",
+      "sentiment": -1,
+      "shot": "shots/a01-03.jpg"
+    },
+    {
+      "t": "00:17:39",
+      "agent": "a03",
+      "kind": "click",
+      "text": "Want to try one of the main feature buttons to see if page changes",
+      "sentiment": 0,
+      "url": "http://localhost:8200/01-broken-todo/site/",
+      "shot": "shots/a03-03.jpg"
+    },
+    {
+      "t": "00:19:36",
+      "agent": "a02",
+      "kind": "rage",
+      "text": "点了三次什么都发生——Sprints、Inbox、request access，全是死链接。这落地页是摆设吧？试试右上角 Sign in。",
+      "sentiment": -2,
+      "shot": "shots/a02-04.jpg"
+    },
+    {
+      "t": "00:21:43",
+      "agent": "a04",
+      "kind": "click",
+      "text": "想看看 Inbox 功能是什么",
+      "sentiment": 0,
+      "url": "http://localhost:8200/01-broken-todo/site/",
+      "shot": "shots/a04-04.jpg"
+    },
+    {
+      "t": "00:23:34",
+      "agent": "a01",
+      "kind": "click",
+      "text": "试试点击Product导航看看页面会不会跳转",
+      "sentiment": 0,
+      "url": "http://localhost:8200/01-broken-todo/site/",
+      "shot": "shots/a01-04.jpg"
+    },
+    {
+      "t": "00:23:74",
+      "agent": "a03",
+      "kind": "rage",
+      "text": "点 Inbox 按钮一点反应都没有？连 URL 都没变化。这也太 broken 了吧...",
+      "sentiment": -2,
+      "shot": "shots/a03-04.jpg"
+    },
+    {
+      "t": "00:27:46",
+      "agent": "a04",
+      "kind": "confused",
+      "text": "点了 Inbox 但页面没反应，这些按钮是不是摆设啊？怀疑这东西是不是能正常工作。",
+      "sentiment": -1,
+      "shot": "shots/a04-05.jpg"
+    },
+    {
+      "t": "00:27:88",
+      "agent": "a03",
+      "kind": "click",
+      "text": "Try the Product nav link to understand what this product is",
+      "sentiment": 0,
+      "url": "http://localhost:8200/01-broken-todo/site/",
+      "shot": "shots/a03-05.jpg"
+    },
+    {
+      "t": "00:29:38",
+      "agent": "a02",
+      "kind": "click",
+      "text": "所有交互都没反应，试试最后一个导航项",
+      "sentiment": 0,
+      "url": "http://localhost:8200/01-broken-todo/site/",
+      "shot": "shots/a02-05.jpg"
+    },
+    {
+      "t": "00:29:85",
+      "agent": "a01",
+      "kind": "rage",
+      "text": "我靠。这破页面什么鬼？点击任何东西都没反应。导航链接、按钮全部失效。这不是产品，这是展示废料的。",
+      "sentiment": -3,
+      "shot": "shots/a01-05.jpg"
+    },
+    {
+      "t": "00:31:43",
+      "agent": "a03",
+      "kind": "rage",
+      "text": "导航栏的链接也不行！整个页面就是死的，什么都点不了。这真的是一个可用产品吗？我都不知道这个是做什么的，页面也没有任何说明。浪费时间。",
+      "sentiment": -3,
+      "shot": "shots/a03-06.jpg"
+    },
+    {
+      "t": "00:32:34",
+      "agent": "a04",
+      "kind": "click",
+      "text": "Inbox 没反应，试试 Sprints",
+      "sentiment": 0,
+      "url": "http://localhost:8200/01-broken-todo/site/",
+      "shot": "shots/a04-06.jpg"
+    },
+    {
+      "t": "00:33:86",
+      "agent": "a02",
+      "kind": "rage",
+      "text": "连 Sign in 都是死的。整个产品落地页所有交互元素全部失效——Sprints、Inbox、Reviews、Insights、request access、Sign in，一个都不工作。这是个完全坏掉的产品demo。我还试什么 Pricing、Changelog 吗？算了，不必了，肯定也是摆设。结论已出：这是个坏掉的页面，没有任何实际功能，我在这耗时间没意义。",
+      "sentiment": -3,
+      "shot": "shots/a02-06.jpg"
+    },
+    {
+      "t": "00:36:08",
+      "agent": "a04",
+      "kind": "click",
+      "text": "功能按钮都没反应，看看 Pricing 页面对我有没有价值",
+      "sentiment": 0,
+      "url": "http://localhost:8200/01-broken-todo/site/",
+      "shot": "shots/a04-07.jpg"
+    },
+    {
+      "t": "00:36:33",
+      "agent": "a01",
+      "kind": "exit",
+      "text": "这个页面完全是坏的。点击任何按钮（Inbox、Sprints、Reviews、Insights）、导航链接（Product、Changelog等）、Sign in都没有任何反应。我甚至尝试了\"request access\"链接也纹丝不动。作为一个潜在用户，我完全没有理由在这种坏掉的展示页面上浪费时间。",
+      "sentiment": 0,
+      "shot": "shots/a01-06.jpg"
+    },
+    {
+      "t": "00:39:01",
+      "agent": "a02",
+      "kind": "exit",
+      "text": "试了落地页上所有交互元素——Inbox、Sprints、Reviews、Insights、request access、Sign in——全部点击无效，页面完全没反应。这是一个功能全部坏掉的半成品页面，没有任何东西可以体验。作为一个开发者，我不可能信任或考虑使用这样的产品。",
+      "sentiment": 0,
+      "shot": "shots/a02-07.jpg"
+    },
+    {
+      "t": "00:41:95",
+      "agent": "a03",
+      "kind": "exit",
+      "text": "页面完全不可用 - 所有按钮和链接点击都没有任何反应。我试了 Inbox 按钮、导航栏的 Product 链接，都没有任何变化。页面也缺乏基本的产品介绍，我都不知道这是做什么的。作为一个怕麻烦、想要快速上手的用户，这种东西我根本不会想继续用下去。",
+      "sentiment": 0,
+      "shot": "shots/a03-07.jpg"
+    },
+    {
+      "t": "00:44:56",
+      "agent": "a04",
+      "kind": "click",
+      "text": "功能按钮都不行，试试 request access",
+      "sentiment": 0,
+      "url": "http://localhost:8200/01-broken-todo/site/",
+      "shot": "shots/a04-08.jpg"
+    },
+    {
+      "t": "00:52:56",
+      "agent": "a04",
+      "kind": "rage",
+      "text": "这什么破东西？所有的按钮都点不了，导航栏也没反应。这页面就是摆着看的，根本不是能用的产品。我小企业主，时间就是钱，花一分钟在这破网站上够了。",
+      "sentiment": -2,
+      "shot": "shots/a04-09.jpg"
+    },
+    {
+      "t": "00:59:23",
+      "agent": "a04",
+      "kind": "exit",
+      "text": "这个产品页面完全不能用——所有功能按钮（Inbox、Sprints、Reviews、Insights）和导航链接都点不了，没有任何反应。看起来是个\"broken todo\"演示站点。作为一个时间宝贵的小企业主，我不会在一个打不开的产品上浪费时间，直接关掉。",
+      "sentiment": 0,
+      "shot": "shots/a04-10.jpg"
+    }
+  ],
+  "issues": [
+    {
+      "id": "i01",
+      "title": "整个页面完全无法交互",
+      "severity": "high",
+      "agents": 1,
+      "category": "可访问性",
+      "quote": "我靠，这破页面什么鬼？点击任何东西都没反应。导航链接、按钮全部失效。这不是产品，这是展示废料。",
+      "agentRef": "a01",
+      "evidence": 8,
+      "journey": "在首页尝试点击 Inbox 按钮后页面完全没变化，之后又尝试了 Sprints、Reviews、Insights、导航栏的所有链接、Sign in 按钮以及 Request access 链接，全部没有任何反应。"
+    },
+    {
+      "id": "i03",
+      "title": "页面完全不可交互，没有任何反馈",
+      "severity": "high",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "点 Inbox 按钮一点反应都没有？连 URL 都没变化。这也太 broken 了吧。",
+      "agentRef": "a03",
+      "evidence": 2,
+      "journey": "在首页点击 Inbox 按钮尝试了解产品功能"
+    },
+    {
+      "id": "i04",
+      "title": "没有产品介绍，看不懂这是做什么的",
+      "severity": "high",
+      "agents": 1,
+      "category": "信息架构",
+      "quote": "页面也缺乏基本的产品介绍，我都不知道这是做什么的。",
+      "agentRef": "a03",
+      "evidence": 1,
+      "journey": "在首页顶部导航栏附近寻找产品说明"
+    },
+    {
+      "id": "i06",
+      "title": "落地页所有交互按钮全部失效",
+      "severity": "high",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "点了三次什么都发生——Sprints、Inbox、request access，全是死链接。这落地页是摆设吧？",
+      "agentRef": "a02",
+      "evidence": 7,
+      "journey": "在产品落地页首页尝试点击功能按钮和登录入口"
+    },
+    {
+      "id": "i07",
+      "title": "连 Sign in 都点不动，彻底关上了体验的门",
+      "severity": "high",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "连 Sign in 都是死的。整个产品落地页所有交互元素全部失效，一个都不工作。",
+      "agentRef": "a02",
+      "evidence": 3,
+      "journey": "尝试最后一个可能的入口 Sign in"
+    },
+    {
+      "id": "i08",
+      "title": "所有功能按钮都点不了，感觉这网站是死的",
+      "severity": "high",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "这什么破东西？所有的按钮都点不了，导航栏也没反应。这页面就是摆着看的，根本不是能用的产品。",
+      "agentRef": "a04",
+      "evidence": 5,
+      "journey": "刚进入首页，尝试点击 Inbox、Sprints、Reviews、Pricing、request access 等多个按钮"
+    },
+    {
+      "id": "i09",
+      "title": "产品看起来像能用的，但实际上是残次品",
+      "severity": "high",
+      "agents": 1,
+      "category": "情感氛围",
+      "quote": "我小企业主，时间就是钱，花一分钟在这破网站上够了。",
+      "agentRef": "a04",
+      "evidence": 5,
+      "journey": "多次尝试交互失败后，对产品失去信任"
+    },
+    {
+      "id": "i02",
+      "title": "产品定位模糊，标语缺乏信息量",
+      "severity": "med",
+      "agents": 1,
+      "category": "表达文案",
+      "quote": "Product页面？看起来是个项目管理工具，但名字没显示出来。'Ship products your customers will love'这标语挺大但没啥信息量。我需要看看这到底是啥。",
+      "agentRef": "a01",
+      "evidence": 1,
+      "journey": "刚进入页面时，除了看到标语和一些功能按钮，完全不知道这个产品是什么、解决什么问题、适合谁用。"
+    },
+    {
+      "id": "i05",
+      "title": "布局像是登录后界面但实际不是，用户容易困惑",
+      "severity": "med",
+      "agents": 1,
+      "category": "视觉节奏",
+      "quote": "这个页面的布局有点奇怪...上面是导航栏，下面直接就是一堆按钮，看起来像是已经登录后的界面，不像是 landing page。",
+      "agentRef": "a03",
+      "evidence": 1,
+      "journey": "刚进入页面时的第一印象"
+    }
+  ],
+  "delights": [],
+  "features": [
+    {
+      "name": "导航菜单",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 2
+    },
+    {
+      "name": "Inbox功能",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 1
+    },
+    {
+      "name": "Sprints功能",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 1
+    },
+    {
+      "name": "Reviews功能",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 1
+    },
+    {
+      "name": "Pricing",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 1
+    },
+    {
+      "name": "申请访问",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 1
+    }
+  ],
+  "routesHeat": [
+    {
+      "path": "/01-broken-todo/site/",
+      "visits": 17,
+      "dwell": 9,
+      "drop": 0.23529411764705882
+    }
+  ],
+  "sentimentCurve": [
+    {
+      "t": 0,
+      "v": 0.4791666666666667
+    },
+    {
+      "t": 5,
+      "v": 0.5
+    },
+    {
+      "t": 10,
+      "v": 0.4444444444444444
+    },
+    {
+      "t": 15,
+      "v": 0.3333333333333333
+    },
+    {
+      "t": 20,
+      "v": 0.3333333333333333
+    },
+    {
+      "t": 25,
+      "v": 0.4583333333333333
+    },
+    {
+      "t": 30,
+      "v": 0.16666666666666666
+    },
+    {
+      "t": 35,
+      "v": 0.5
+    },
+    {
+      "t": 40,
+      "v": 0.16666666666666666
+    },
+    {
+      "t": 45,
+      "v": 0.4444444444444444
+    },
+    {
+      "t": 50,
+      "v": 0.16666666666666666
+    },
+    {
+      "t": 55,
+      "v": 0
+    },
+    {
+      "t": 60,
+      "v": 0.5
+    },
+    {
+      "t": 65,
+      "v": 0.5
+    },
+    {
+      "t": 70,
+      "v": 0.5
+    },
+    {
+      "t": 75,
+      "v": 0.5
+    },
+    {
+      "t": 80,
+      "v": 0.5
+    },
+    {
+      "t": 85,
+      "v": 0.16666666666666666
+    },
+    {
+      "t": 90,
+      "v": 0.16666666666666666
+    },
+    {
+      "t": 95,
+      "v": 0.16666666666666666
+    },
+    {
+      "t": 100,
+      "v": 0.5
+    }
+  ],
+  "metrics": {
+    "predictedNps": -19,
+    "achievableNps": 79,
+    "taskSuccess": 0,
+    "timeToValueSec": null,
+    "rageClicks": 6,
+    "delightCount": 0
+  },
+  "cost": {
+    "tokensIn": 86627,
+    "tokensOut": 4652,
+    "usd": 0
+  }
+}

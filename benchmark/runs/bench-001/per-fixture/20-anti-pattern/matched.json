@@ -1,0 +1,168 @@
+{
+  "fixtureId": "20-anti-pattern",
+  "gtTotal": 3,
+  "ppTotal": 11,
+  "matched": 0,
+  "recall": 0,
+  "precision": 0,
+  "f1": 0,
+  "severityAcc": 0,
+  "categoryAcc": 0,
+  "verdicts": [
+    {
+      "gtId": "gt-01",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0,
+      "reasoning": "No finding addresses the Beta tag visual hierarchy issue specifically"
+    },
+    {
+      "gtId": "gt-02",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0,
+      "reasoning": "GT关注的是全站单一lime色无视觉层级，所有PP发现都聚焦于导航失效产品定位模糊等，完全不涉及颜色单调问题"
+    },
+    {
+      "gtId": "gt-03",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0.1,
+      "reasoning": "GT聚焦导航入口层级隐藏问题(More下拉),所有发现均指向链接失效/产品定位模糊,无匹配"
+    }
+  ],
+  "falsePositives": [
+    {
+      "findingId": "i01",
+      "finding": {
+        "title": "入口就失败了，用户没有第二次机会",
+        "category": "性能感知",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i02",
+      "finding": {
+        "title": "没有任何加载提示或错误信息，空白感很强",
+        "category": "情感氛围",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i03",
+      "finding": {
+        "title": "产品定位完全模糊，看不出是PM工具",
+        "category": "信息架构",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i04",
+      "finding": {
+        "title": "页面内容看不清楚，无法获取有效信息",
+        "category": "视觉节奏",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i06",
+      "finding": {
+        "title": "导航栏全部失灵，产品概貌都看不到",
+        "category": "可访问性",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i09",
+      "finding": {
+        "title": "所有可点击元素都毫无反应，像打开了个死页面",
+        "category": "功能契合",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i05",
+      "finding": {
+        "title": "导航链接点击后没有明显反馈",
+        "category": "流程顺畅",
+        "severity": "med"
+      }
+    },
+    {
+      "findingId": "i07",
+      "finding": {
+        "title": "产品定位模糊，\"in Minutes\" 让我本能怀疑",
+        "category": "表达文案",
+        "severity": "med"
+      }
+    },
+    {
+      "findingId": "i08",
+      "finding": {
+        "title": "找不到任何实质性信息，产品价值主张缺失",
+        "category": "信息架构",
+        "severity": "med"
+      }
+    },
+    {
+      "findingId": "i10",
+      "finding": {
+        "title": "页面内容信息太少，看不出这个产品到底是做什么的",
+        "category": "信息架构",
+        "severity": "med"
+      }
+    },
+    {
+      "findingId": "i11",
+      "finding": {
+        "title": "从截图猜页面应该很大很壮观，但啥都点不了",
+        "category": "视觉节奏",
+        "severity": "low"
+      }
+    }
+  ],
+  "missed": [
+    {
+      "gtId": "gt-01",
+      "gt": {
+        "id": "gt-01",
+        "title": "Beta 标签字号大到抢戏",
+        "severity": "med",
+        "category": "表达文案",
+        "description": "顶部 brand 旁边的「Beta」标签用了 18px + bold + 高饱和 lime 背景,实际比 brand 名「Plain」(默认 15px) 还要醒目,视觉重心被这个临时性标签抢走。\"Beta\" 应当是低调的元信息,不该是页面里最亮眼的元素。",
+        "shouldFindWith": [
+          "设计敏感",
+          "细致用户"
+        ]
+      }
+    },
+    {
+      "gtId": "gt-02",
+      "gt": {
+        "id": "gt-02",
+        "title": "全站只有 lime 一种主色",
+        "severity": "med",
+        "category": "视觉节奏",
+        "description": "页面所有 accent (CTA、Beta 标签、终端 ✓ 勾、feature 小方块、hover 状态) 都是同一种 lime 色 #b4ec5b,没有任何层级 (没有 success/warning/info 的区分,也没有次要 accent)。在 hero、preview、features 三个区段都看到同一种绿,视觉单调,长页面下显得疲劳。注意:这跟『单色调克制』是有差别的,这是『同一个色板只有一档亮度,没有梯度』。",
+        "shouldFindWith": [
+          "设计敏感",
+          "重度用户"
+        ]
+      }
+    },
+    {
+      "gtId": "gt-03",
+      "gt": {
+        "id": "gt-03",
+        "title": "Changelog 等入口藏在 More 里",
+        "severity": "low",
+        "category": "信息架构",
+        "description": "顶部导航只露出 Product / Docs / Pricing 三项,Changelog、Customers、Security、Sign in 全部塞进 More ▾ 下拉。对开发者工具的常客来说,Sign in 应当是一级入口而不是藏一层。这是有意识的简化但确实牺牲了一点点直达性,属于 low 而非更严重——故意混在真问题里测 pp 能否给出合理 severity。",
+        "shouldFindWith": [
+          "重度用户",
+          "评估者"
+        ]
+      }
+    }
+  ]
+}

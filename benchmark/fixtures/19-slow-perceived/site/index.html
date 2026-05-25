@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Drift — customers</title>
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #0b0d10; color: #e7e9ee; font: 14px/1.5 -apple-system, "Inter", "Segoe UI", sans-serif; }
+  header { display: flex; justify-content: space-between; align-items: center; padding: 16px 32px; border-bottom: 1px solid #1c1f24; }
+  .brand { font-weight: 600; }
+  .actions { display: flex; gap: 10px; align-items: center; font-size: 13px; color: #9aa1ab; }
+  .actions input { padding: 6px 10px; background: #14171c; border: 1px solid #2a2e35; border-radius: 6px; color: #e7e9ee; font: inherit; outline: none; width: 220px; }
+  .filter { padding: 5px 10px; background: #14171c; border: 1px solid #2a2e35; border-radius: 6px; color: #c8cdd5; font: inherit; cursor: pointer; }
+  main { max-width: 1080px; margin: 24px auto; padding: 0 32px; }
+  .pagehead { display: flex; justify-content: space-between; align-items: end; margin-bottom: 16px; }
+  h1 { font-size: 22px; font-weight: 600; letter-spacing: -0.01em; }
+  .pagehead p { font-size: 13px; color: #9aa1ab; margin-top: 4px; }
+  .count { font-size: 12px; color: #6a7180; }
+  .table { background: #101317; border: 1px solid #1c1f24; border-radius: 10px; overflow: hidden; }
+  .thead, .tr { display: grid; grid-template-columns: 2fr 1.4fr 1fr 1fr 1fr; gap: 12px; padding: 12px 16px; align-items: center; }
+  .thead { background: #14171c; font-size: 12px; color: #9aa1ab; text-transform: uppercase; letter-spacing: 0.04em; }
+  .tr { border-top: 1px solid #1c1f24; font-size: 13px; }
+  .tr:hover { background: #14171c; }
+  .name { font-weight: 500; color: #e7e9ee; }
+  .name .sub { font-size: 11px; color: #6a7180; font-weight: 400; }
+  .plan { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 11px; background: #1c1f24; color: #c8cdd5; }
+  .plan.pro { background: #1d2a3a; color: #8fb6e8; }
+  .plan.ent { background: #2a1d3a; color: #b68fe8; }
+  .mrr { color: #c8cdd5; }
+  .status { font-size: 11px; color: #9aa1ab; }
+  .status.ok::before { content: "● "; color: #6aa86a; }
+  .status.risk::before { content: "● "; color: #d5a04c; }
+  /* empty-during-load content area: blank white-space, no skeleton */
+  .table.loading { min-height: 480px; }
+  .table.loading .thead, .table.loading .tr { display: none; }
+  .loading-msg { padding: 40px; text-align: center; font-size: 13px; color: #6a7180; }
+  /* infinite scroll absent; bottom of list is just abrupt */
+  .listend { padding: 18px; text-align: center; font-size: 12px; color: #6a7180; display: none; }
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">≋ Drift</div>
+  <div class="actions">
+    <input placeholder="Search customers…" />
+    <button class="filter">Plan ▾</button>
+    <button class="filter">Status ▾</button>
+  </div>
+</header>
+
+<main>
+  <div class="pagehead">
+    <div>
+      <h1>Customers</h1>
+      <p>All accounts across your workspace</p>
+    </div>
+    <div class="count" id="count">— accounts</div>
+  </div>
+
+  <div class="table loading" id="table">
+    <div class="loading-msg" id="loadingMsg">Loading...</div>
+    <div class="thead">
+      <div>Customer</div><div>Plan</div><div>MRR</div><div>Joined</div><div>Status</div>
+    </div>
+    <div id="rows"></div>
+  </div>
+  <div class="listend" id="listend">— end of list —</div>
+</main>
+
+<script>
+  const fixture = [
+    ["Northwind Labs", "Series A · 42 seats", "pro", "$3,400", "2025-08-12", "ok", "Active"],
+    ["Halcyon", "Bootstrapped · 6 seats", "", "$240", "2026-01-04", "ok", "Active"],
+    ["Bluepoint Health", "Healthtech · 110 seats", "ent", "$11,200", "2024-11-22", "risk", "At risk"],
+    ["Forge & Co", "Agency · 14 seats", "pro", "$980", "2025-03-08", "ok", "Active"],
+    ["Cinder Studio", "Solo · 1 seat", "", "$12", "2026-05-19", "ok", "Trial"],
+    ["Polaris Robotics", "Series B · 64 seats", "ent", "$8,900", "2025-02-17", "ok", "Active"],
+    ["Vanta Brick", "Bootstrap · 9 seats", "pro", "$540", "2025-10-30", "risk", "At risk"],
+    ["Ember Tax", "Fintech · 28 seats", "pro", "$2,100", "2025-06-14", "ok", "Active"],
+    ["Kestrel", "AI · 18 seats", "pro", "$1,440", "2026-02-02", "ok", "Active"],
+    ["Saltgrove", "Marketplace · 7 seats", "", "$320", "2026-04-21", "ok", "Trial"]
+  ];
+
+  function paintAll(items) {
+    const rowsEl = document.getElementById('rows');
+    rowsEl.innerHTML = '';
+    // intentionally append in shuffled order — list does NOT stream top-down
+    const shuffled = items.map((r, i) => ({ r, i })).sort(() => Math.random() - 0.5);
+    for (const { r } of shuffled) {
+      const div = document.createElement('div');
+      div.className = 'tr';
+      div.innerHTML = `
+        <div class="name">${r[0]}<div class="sub">${r[1]}</div></div>
+        <div>${r[2] ? `<span class="plan ${r[2]}">${r[2].toUpperCase()}</span>` : '<span class="plan">FREE</span>'}</div>
+        <div class="mrr">${r[3]}</div>
+        <div>${r[4]}</div>
+        <div class="status ${r[5]}">${r[6]}</div>`;
+      rowsEl.appendChild(div);
+    }
+    document.getElementById('count').textContent = items.length + ' accounts';
+  }
+
+  // 1.5s blank wait — no skeleton, just empty space + tiny "Loading..."
+  setTimeout(() => {
+    document.getElementById('table').classList.remove('loading');
+    document.getElementById('loadingMsg').remove();
+    paintAll(fixture); // snaps in all at once, shuffled
+  }, 1500);
+
+  // scroll-to-bottom: nothing happens, no load more button either
+</script>
+</body>
+</html>

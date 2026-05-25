@@ -1,0 +1,49 @@
+{
+  "id": "14-rage-button",
+  "name": "Sync Rage Button",
+  "hint": "A workspace dashboard with a Sync button — evaluate the feedback loop when a user taps it",
+  "port": 8214,
+  "description": "Vault 工作区 Overview 页 — 右上角孤立放着一个 Sync 按钮,点击后完全没有任何视觉反馈 (无 loading / 无 disabled / 无 toast / 无文字变化),实际后台在运行,但用户只能反复点。",
+  "groundTruth": [
+    {
+      "id": "gt-01",
+      "title": "点 Sync 按钮毫无反馈",
+      "severity": "high",
+      "category": "流程顺畅",
+      "description": "Sync 按钮的 click handler 只在隐藏 .secret-log 里记次数,UI 上没有任何变化 — 没 spinner,没 toast,没文字「Syncing...」,按钮甚至连 :active 高亮都没。用户大概率会怒点 5 次以上才放弃。",
+      "shouldFindWith": ["新手", "目标导向"]
+    },
+    {
+      "id": "gt-02",
+      "title": "后台在跑但 UI 完全静止",
+      "severity": "high",
+      "category": "情感氛围",
+      "description": "代码里 setTimeout 2.5 秒模拟同步过程,期间 UI 没有任何提示。用户看到「点了什么都没发生」第一反应是产品坏了 / 网断了,信任感快速崩塌。这是经典的 perceived-broken bug。",
+      "shouldFindWith": ["情感敏感", "新手"]
+    },
+    {
+      "id": "gt-03",
+      "title": "Sync 没说同步什么",
+      "severity": "med",
+      "category": "表达文案",
+      "description": "按钮只有一个单词「Sync」,旁边没有任何说明文字。文档?成员?集成?设置?用户根本不知道点下去会同步什么内容,在企业场景下是高风险操作 —— 用户可能因为害怕而不敢点。",
+      "shouldFindWith": ["新手", "目标导向"]
+    },
+    {
+      "id": "gt-04",
+      "title": "按钮孤零零在右上角",
+      "severity": "med",
+      "category": "视觉节奏",
+      "description": "Sync 按钮放在 .head 的最右端,周围 32px 内没有任何相关元素或上下文。既不在数据卡片旁也不靠近文档列表,看起来像被遗忘的孤立 UI,无法和它要操作的内容建立视觉关联。",
+      "shouldFindWith": ["设计敏感"]
+    },
+    {
+      "id": "gt-05",
+      "title": "按钮没有 disabled / loading 状态",
+      "severity": "low",
+      "category": "可访问性",
+      "description": "CSS 里没定义 :disabled / [aria-busy] 样式,JS 里也不切 disabled 属性或 aria-busy。屏幕阅读器用户和键盘党都得不到「操作进行中」的提示,只能瞎猜状态。",
+      "shouldFindWith": ["可访问性敏感", "键盘党"]
+    }
+  ]
+}

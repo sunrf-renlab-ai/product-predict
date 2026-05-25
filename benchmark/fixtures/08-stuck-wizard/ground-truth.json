@@ -1,0 +1,57 @@
+{
+  "id": "08-stuck-wizard",
+  "name": "Stuck Setup Wizard",
+  "hint": "A 5-step setup wizard — walk through it and notice navigation, data persistence, and finish moments",
+  "port": 8208,
+  "description": "Multi-step setup wizard where step 3 has no Back button, re-render wipes form state, step labels are vague (Configure / Customize / Optimize), the top progress shows only step numbers, and finishing just says 'Done'.",
+  "groundTruth": [
+    {
+      "id": "gt-01",
+      "title": "第 3 步没有返回按钮",
+      "severity": "high",
+      "category": "流程顺畅",
+      "description": "走到 Step 3 (Customize) 时 Back 按钮被故意隐藏,用户填错或想检查第 2 步的选择都没法回头,只能用浏览器后退,但那会丢失全部表单状态,等于「填错从头来」。",
+      "shouldFindWith": ["目标导向", "新手"]
+    },
+    {
+      "id": "gt-02",
+      "title": "切步骤数据全没了",
+      "severity": "high",
+      "category": "性能感知",
+      "description": "每次点 Next / Back 时整个 main 被 innerHTML 重新渲染,所有 input/checkbox/textarea 里的值都丢失。表面上看是「跳页」、实际上是每步都白板,体验上等于页面 reload。",
+      "shouldFindWith": ["重度用户", "评估者"]
+    },
+    {
+      "id": "gt-03",
+      "title": "Configure / Customize / Optimize 分不清",
+      "severity": "med",
+      "category": "学习成本",
+      "description": "三个步骤名 Configure → Customize → Optimize 在语义上几乎重叠,用户提前完全无法预测哪一步要填什么,只能走到再看,导致中途想跳过/补填都没线索。",
+      "shouldFindWith": ["新手", "文案敏感"]
+    },
+    {
+      "id": "gt-04",
+      "title": "进度条只显示 1/5",
+      "severity": "med",
+      "category": "信息架构",
+      "description": "顶部进度区只有 'Step 1 / 5' 这种数字,没有任何 step label 或者节点指示,用户不知道每步分别是干嘛、距离结束还要做什么、能不能跳过。",
+      "shouldFindWith": ["新手", "目标导向"]
+    },
+    {
+      "id": "gt-05",
+      "title": "完成只显示一个 Done",
+      "severity": "med",
+      "category": "情感氛围",
+      "description": "走完全部 5 步、按 Finish 之后整个内容区只剩下一个 'Done.' 标题,没有庆祝动效、没有「下一步去哪」、没有 workspace 跳转。用户走完整套设置后心理预期是一个高点,而产品给的是冷处理。",
+      "shouldFindWith": ["设计敏感", "情感敏感"]
+    },
+    {
+      "id": "gt-06",
+      "title": "5 步表单高度差太大",
+      "severity": "low",
+      "category": "视觉节奏",
+      "description": "Step 1 只有一个输入框 (~100px),Step 3 一口气塞了 5 个字段 (~800px),整体节奏忽高忽低、视觉跳跃,翻页时背景空白和滚动条出现/消失,体验割裂。",
+      "shouldFindWith": ["设计敏感"]
+    }
+  ]
+}

@@ -1,0 +1,735 @@
+{
+  "id": "run-001",
+  "startedAt": "2026-05-25T11:31:47.361Z",
+  "finishedAt": "2026-05-25T11:34:05.385Z",
+  "target": {
+    "url": "http://localhost:8200/15-emoji-mess/site/",
+    "title": "🚀 Sparkle — Your all-in-one productivity 神器 ✨",
+    "viewport": {
+      "w": 1280,
+      "h": 800
+    }
+  },
+  "personaSetId": "preset-a-productivity-saas-landing",
+  "agents": [
+    {
+      "id": "a02",
+      "name": "Kenji Okada",
+      "age": 28,
+      "role": "产品设计师",
+      "tech": 4,
+      "tone": "好奇",
+      "preferences": [
+        "喜欢新功能",
+        "关注集成能力",
+        "乐于分享反馈"
+      ],
+      "knownContext": [
+        "日常使用 Figma 做原型",
+        "最近在试用 Notion",
+        "关注跨平台协作"
+      ],
+      "weight": 0.25,
+      "color": "#2a9d8f",
+      "glyph": "K",
+      "traits": [
+        "Curious",
+        "Team player"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "frustrated",
+      "durationSec": 80.012
+    },
+    {
+      "id": "a04",
+      "name": "Alex Liu",
+      "age": 41,
+      "role": "研发主管",
+      "tech": 5,
+      "tone": "急躁",
+      "preferences": [
+        "注重自动化",
+        "关注 API 扩展",
+        "要求高稳定性"
+      ],
+      "knownContext": [
+        "主力使用 Jira",
+        "熟悉 GitHub Actions",
+        "团队 10 人"
+      ],
+      "weight": 0.2,
+      "color": "#9b5de5",
+      "glyph": "A",
+      "traits": [
+        "自动化工兵",
+        "高可靠性"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "frustrated",
+      "durationSec": 80.552
+    },
+    {
+      "id": "a03",
+      "name": "Maya Chen",
+      "age": 38,
+      "role": "项目经理",
+      "tech": 3,
+      "tone": "温和",
+      "preferences": [
+        "重视团队协作",
+        "关注报表和统计",
+        "偏好清晰的界面"
+      ],
+      "knownContext": [
+        "在用 Asana 管理项目进度",
+        "曾尝试 Monday.com",
+        "团队 12 人"
+      ],
+      "weight": 0.35,
+      "color": "#e6c976",
+      "glyph": "M",
+      "traits": [
+        "协作达人",
+        "数据驱动"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "frustrated",
+      "durationSec": 95.307
+    },
+    {
+      "id": "a01",
+      "name": "李心怡",
+      "age": 33,
+      "role": "运营专员",
+      "tech": 3,
+      "tone": "怀疑",
+      "preferences": [
+        "重视易上手",
+        "担心数据安全",
+        "希望有免费试用期"
+      ],
+      "knownContext": [
+        "使用 Trello 进行日常任务管理",
+        "对 Asana 有顾虑",
+        "团队 5 人"
+      ],
+      "weight": 0.2,
+      "color": "#f4a261",
+      "glyph": "S",
+      "traits": [
+        "效率控",
+        "数据安全意识"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": true,
+      "exitReason": "timeout",
+      "durationSec": 137.911
+    }
+  ],
+  "activity": [
+    {
+      "t": "00:00:00",
+      "agent": "a02",
+      "kind": "enter",
+      "text": "进入 localhost:8200/15-emoji-mess/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/15-emoji-mess/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a02",
+      "kind": "click",
+      "text": "Page is already at the URL",
+      "sentiment": 0,
+      "url": "http://localhost:8200/15-emoji-mess/site/",
+      "shot": "shots/a02-00.jpg"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a04",
+      "kind": "enter",
+      "text": "进入 localhost:8200/15-emoji-mess/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/15-emoji-mess/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a04",
+      "kind": "confused",
+      "text": "打开了一个看起来像是 MiniMax 的产品页面。先往下滚动看看主要内容是什么。",
+      "sentiment": 0,
+      "shot": "shots/a04-00.jpg"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a03",
+      "kind": "enter",
+      "text": "进入 localhost:8200/15-emoji-mess/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/15-emoji-mess/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a01",
+      "kind": "enter",
+      "text": "进入 localhost:8200/15-emoji-mess/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/15-emoji-mess/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a01",
+      "kind": "confused",
+      "text": "打开了一个新页面，URL是emoji-mess，看起来是emoji相关的产品？先看看首页在说什么。",
+      "sentiment": 0,
+      "shot": "shots/a01-00.jpg"
+    },
+    {
+      "t": "00:10:15",
+      "agent": "a01",
+      "kind": "observation",
+      "text": "emoji使用这么多，标题里也是emoji...这个产品是做什么的？我需要滚动看看页面内容。",
+      "sentiment": 0,
+      "shot": "shots/a01-01.jpg"
+    },
+    {
+      "t": "00:15:80",
+      "agent": "a03",
+      "kind": "observation",
+      "text": "第一印象：导航栏每个项目前都有emoji，主按钮也塞了🚀和🎉。作为一个用惯了 Asana 的人，这界面有点太花哨了。感觉像是个需要\"萌\"属性的产品，不是给专业项目管理场景用的。",
+      "sentiment": -1,
+      "shot": "shots/a03-02.jpg"
+    },
+    {
+      "t": "00:16:84",
+      "agent": "a04",
+      "kind": "observation",
+      "text": "页面基本全是图片，没看到什么文字内容。导航栏里有Pricing，我想看看这个产品的定价如何。",
+      "sentiment": 0,
+      "shot": "shots/a04-03.jpg"
+    },
+    {
+      "t": "00:25:16",
+      "agent": "a02",
+      "kind": "click",
+      "text": "想知道价格，看看是否适合我的团队预算",
+      "sentiment": 0,
+      "url": "http://localhost:8200/15-emoji-mess/site/",
+      "shot": "shots/a02-04.jpg"
+    },
+    {
+      "t": "00:28:20",
+      "agent": "a03",
+      "kind": "click",
+      "text": "想了解这个产品的价格定位，作为项目经理我会先看定价",
+      "sentiment": 0,
+      "url": "http://localhost:8200/15-emoji-mess/site/",
+      "shot": "shots/a03-03.jpg"
+    },
+    {
+      "t": "00:28:50",
+      "agent": "a04",
+      "kind": "click",
+      "text": "查看定价信息",
+      "sentiment": 0,
+      "url": "http://localhost:8200/15-emoji-mess/site/",
+      "shot": "shots/a04-04.jpg"
+    },
+    {
+      "t": "00:30:55",
+      "agent": "a02",
+      "kind": "confused",
+      "text": "点击了 Pricing，页面好像没反应？URL 没变，内容也没变。有点奇怪。",
+      "sentiment": -1,
+      "shot": "shots/a02-05.jpg"
+    },
+    {
+      "t": "00:38:22",
+      "agent": "a04",
+      "kind": "click",
+      "text": "再次尝试点击定价页面",
+      "sentiment": 0,
+      "url": "http://localhost:8200/15-emoji-mess/site/",
+      "shot": "shots/a04-06.jpg"
+    },
+    {
+      "t": "00:38:47",
+      "agent": "a02",
+      "kind": "click",
+      "text": "再试一次 Pricing 链接，看能不能打开",
+      "sentiment": 0,
+      "url": "http://localhost:8200/15-emoji-mess/site/",
+      "shot": "shots/a02-06.jpg"
+    },
+    {
+      "t": "00:39:20",
+      "agent": "a01",
+      "kind": "confused",
+      "text": "操作失败 (note): expected number, got undefined",
+      "sentiment": -1
+    },
+    {
+      "t": "00:39:26",
+      "agent": "a03",
+      "kind": "confused",
+      "text": "点了 Pricing 但页面没变化？URL 还是同一个。也许这是个 SPA 单页应用，点击导航不会换页面？让我再看看当前页面内容。",
+      "sentiment": -1,
+      "shot": "shots/a03-05.jpg"
+    },
+    {
+      "t": "00:42:44",
+      "agent": "a04",
+      "kind": "rage",
+      "text": "点了两次Pricing都没反应，这链接要么是死的，要么页面根本没实现路由跳转。这技术实现也太敷衍了。",
+      "sentiment": -2,
+      "shot": "shots/a04-07.jpg"
+    },
+    {
+      "t": "00:42:84",
+      "agent": "a02",
+      "kind": "rage",
+      "text": "导航栏一个都不管用...这还怎么做产品评估？作为设计师，这种基础交互失败直接让我失去信心。",
+      "sentiment": -2,
+      "shot": "shots/a02-07.jpg"
+    },
+    {
+      "t": "00:47:27",
+      "agent": "a02",
+      "kind": "click",
+      "text": "试一下 Docs 链接",
+      "sentiment": 0,
+      "url": "http://localhost:8200/15-emoji-mess/site/",
+      "shot": "shots/a02-08.jpg"
+    },
+    {
+      "t": "00:47:43",
+      "agent": "a01",
+      "kind": "click",
+      "text": "看看这个emoji产品的定价，了解它是做什么的",
+      "sentiment": 0,
+      "url": "http://localhost:8200/15-emoji-mess/site/",
+      "shot": "shots/a01-07.jpg"
+    },
+    {
+      "t": "00:49:88",
+      "agent": "a04",
+      "kind": "click",
+      "text": "尝试点击Login按钮",
+      "sentiment": 0,
+      "url": "http://localhost:8200/15-emoji-mess/site/",
+      "shot": "shots/a04-08.jpg"
+    },
+    {
+      "t": "00:52:06",
+      "agent": "a02",
+      "kind": "exit",
+      "text": "导航栏所有链接都点不动——Pricing、Docs、Community、Login 全部没反应，页面卡在同一屏。这像个单页静态展示，连基本交互都没有。我作为产品设计师无法评估产品功能，直接放弃。",
+      "sentiment": 0,
+      "shot": "shots/a02-09.jpg"
+    },
+    {
+      "t": "00:52:49",
+      "agent": "a03",
+      "kind": "click",
+      "text": "Pricing 没反应，试试 Docs 链接",
+      "sentiment": 0,
+      "url": "http://localhost:8200/15-emoji-mess/site/",
+      "shot": "shots/a03-07.jpg"
+    },
+    {
+      "t": "00:54:12",
+      "agent": "a04",
+      "kind": "rage",
+      "text": "所有导航链接都是摆设，完全点不动。就一个静态英雄区图片糊弄人，这种半成品页面谁会留下来？直接关掉。",
+      "sentiment": -3,
+      "shot": "shots/a04-09.jpg"
+    },
+    {
+      "t": "00:58:96",
+      "agent": "a04",
+      "kind": "exit",
+      "text": "页面基本是静态的，所有导航链接(Pricing/Docs/Community/Login)都点不动，页面没有任何实际内容，只有一个英雄区大图和糊弄人的按钮。作为潜在用户，这种半成品完全没有继续探索的欲望，直接关闭。",
+      "sentiment": 0,
+      "shot": "shots/a04-10.jpg"
+    },
+    {
+      "t": "01:05:31",
+      "agent": "a03",
+      "kind": "rage",
+      "text": "导航链接全都没反应，点 Pricing、点 Docs，页面纹丝不动。这要么是个半成品，要么是个假站点。作为一个用了 3 年 Asana 的人，我不会把团队的项目管理寄托在一个连导航都不工作的产品上。",
+      "sentiment": -2,
+      "shot": "shots/a03-08.jpg"
+    },
+    {
+      "t": "01:14:49",
+      "agent": "a01",
+      "kind": "click",
+      "text": "点击主按钮看看这个产品是做什么的",
+      "sentiment": 0,
+      "url": "http://localhost:8200/15-emoji-mess/site/",
+      "shot": "shots/a01-10.jpg"
+    },
+    {
+      "t": "01:15:61",
+      "agent": "a03",
+      "kind": "click",
+      "text": "导航都坏了，看看主按钮能不能用",
+      "sentiment": 0,
+      "url": "http://localhost:8200/15-emoji-mess/site/",
+      "shot": "shots/a03-09.jpg"
+    },
+    {
+      "t": "01:19:61",
+      "agent": "a01",
+      "kind": "click",
+      "text": "看看登录后能否了解产品更多信息",
+      "sentiment": 0,
+      "url": "http://localhost:8200/15-emoji-mess/site/",
+      "shot": "shots/a01-11.jpg"
+    },
+    {
+      "t": "01:19:89",
+      "agent": "a03",
+      "kind": "exit",
+      "text": "作为项目经理我想了解这个产品，但从进入页面的第一秒起，所有导航链接（Pricing、Docs、Community、Login）和主按钮全部无法点击，没有任何反应。页面只有一个静态的 hero 区域。这不是\"节奏不对\"的问题——是基本功能完全不工作。我不可能把 12 人团队的项目管理托付给这样一个半成品。",
+      "sentiment": 0,
+      "shot": "shots/a03-10.jpg"
+    },
+    {
+      "t": "01:30:10",
+      "agent": "a01",
+      "kind": "click",
+      "text": "试试文档，看能不能了解这个产品",
+      "sentiment": 0,
+      "url": "http://localhost:8200/15-emoji-mess/site/",
+      "shot": "shots/a01-12.jpg"
+    },
+    {
+      "t": "01:44:54",
+      "agent": "a01",
+      "kind": "rage",
+      "text": "花了快2分钟，滚动无数次，页面内容基本没变。就一张大图和几个导航链接，而且导航链接点完也没反应。这个产品体验太差了，完全不知道它是做什么的，链接也点不动。",
+      "sentiment": -3,
+      "shot": "shots/a01-14.jpg"
+    },
+    {
+      "t": "01:57:00",
+      "agent": "a01",
+      "kind": "exit",
+      "text": "达到 step safety 上限 (15), 强制结束.",
+      "sentiment": -1
+    }
+  ],
+  "issues": [
+    {
+      "id": "i01",
+      "title": "导航栏所有链接点不动",
+      "severity": "high",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "导航栏一个都不管用...这还怎么做产品评估？",
+      "agentRef": "a02",
+      "evidence": 5,
+      "journey": "刚进页面、想找入口了解产品"
+    },
+    {
+      "id": "i02",
+      "title": "无法查看价格，预算评估阻断",
+      "severity": "high",
+      "agents": 1,
+      "category": "信息架构",
+      "quote": "想知道价格，看看是否适合我的团队预算，点进去没反应",
+      "agentRef": "a02",
+      "evidence": 2,
+      "journey": "25秒左右主动寻找价格信息"
+    },
+    {
+      "id": "i04",
+      "title": "导航链接全部失灵，根本不知道这产品是干嘛的",
+      "severity": "high",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "点了两次 Pricing 都没反应，这链接要么是死的，要么页面根本没实现路由跳转。这技术实现也太敷衍了。",
+      "agentRef": "a04",
+      "evidence": 4,
+      "journey": "进入页面后想通过导航栏了解定价和产品信息"
+    },
+    {
+      "id": "i05",
+      "title": "页面内容空洞，只有一个图片糊弄人",
+      "severity": "high",
+      "agents": 1,
+      "category": "信息架构",
+      "quote": "所有导航链接都是摆设，就一个静态英雄区图片糊弄人，这种半成品页面谁会留下来？",
+      "agentRef": "a04",
+      "evidence": 2,
+      "journey": "发现链接点不动后，在页面内浏览寻找有价值内容"
+    },
+    {
+      "id": "i06",
+      "title": "导航链接全部失灵，像个死站",
+      "severity": "high",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "导航都坏了，点 Pricing 没反应，点 Docs 也没反应，这要么是个半成品，要么是个假站。",
+      "agentRef": "a03",
+      "evidence": 4,
+      "journey": "首页导航栏 → 点击 Pricing → 点击 Docs → 点击主按钮"
+    },
+    {
+      "id": "i09",
+      "title": "页面内容太少，看不到产品价值",
+      "severity": "high",
+      "agents": 1,
+      "category": "信息架构",
+      "quote": "就一张大图和几个导航链接，滚动无数次内容基本没变，完全不知道它是做什么的。",
+      "agentRef": "a01",
+      "evidence": 3,
+      "journey": "进入首页后试图通过滚动了解产品"
+    },
+    {
+      "id": "i10",
+      "title": "导航链接点击没反应",
+      "severity": "high",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "点了主按钮、登录、文档，链接都点不动，这不是耍人吗？",
+      "agentRef": "a01",
+      "evidence": 4,
+      "journey": "尝试点击 Pricing / Main / Login / Docs 等导航项"
+    },
+    {
+      "id": "i03",
+      "title": "基础交互缺失让产品显得不可信",
+      "severity": "med",
+      "agents": 1,
+      "category": "情感氛围",
+      "quote": "像个单页静态展示，连基本交互都没有",
+      "agentRef": "a02",
+      "evidence": 1,
+      "journey": "多次尝试导航后"
+    },
+    {
+      "id": "i07",
+      "title": "界面 emoji 过多，不像正经 PM 工具",
+      "severity": "med",
+      "agents": 1,
+      "category": "情感氛围",
+      "quote": "每个导航项前都塞 emoji，主按钮还带 🚀 和 🎉，太花哨了，像是需要\"萌\"属性的产品，不是给专业项目管理场景用的。",
+      "agentRef": "a03",
+      "evidence": 1,
+      "journey": "首页首屏 → 导航栏"
+    },
+    {
+      "id": "i08",
+      "title": "静态 hero 区域，内容太少",
+      "severity": "med",
+      "agents": 1,
+      "category": "信息架构",
+      "quote": "页面就一个 hero 区域，什么实质性内容都没有，我想了解产品的核心价值根本无从下手。",
+      "agentRef": "a03",
+      "evidence": 1,
+      "journey": "首页首屏"
+    },
+    {
+      "id": "i11",
+      "title": "没有免费试用或安全感提示",
+      "severity": "med",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "我连它是干什么的都不知道，就别谈什么免费试用了。",
+      "agentRef": "a01",
+      "evidence": 1,
+      "journey": "进入页面后寻找定价或试用入口"
+    }
+  ],
+  "delights": [],
+  "features": [
+    {
+      "name": "查看定价",
+      "hitCount": 3,
+      "hitRate": 0.75,
+      "completionRate": 0,
+      "avgSentiment": -2.6666666666666665,
+      "totalAttempts": 5
+    },
+    {
+      "name": "页面滚动",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -2,
+      "totalAttempts": 10
+    },
+    {
+      "name": "导航点击",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 4
+    },
+    {
+      "name": "浏览文档",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 1
+    },
+    {
+      "name": "登录入口",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 1
+    },
+    {
+      "name": "查看文档",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -2,
+      "totalAttempts": 1
+    },
+    {
+      "name": "登录/注册",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -2,
+      "totalAttempts": 1
+    },
+    {
+      "name": "主 CTA 按钮",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -2,
+      "totalAttempts": 1
+    },
+    {
+      "name": "浏览首页",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 1
+    }
+  ],
+  "routesHeat": [
+    {
+      "path": "/15-emoji-mess/site/",
+      "visits": 18,
+      "dwell": 16,
+      "drop": 0.2222222222222222
+    }
+  ],
+  "sentimentCurve": [
+    {
+      "t": 0,
+      "v": 0.5
+    },
+    {
+      "t": 5,
+      "v": 0.5
+    },
+    {
+      "t": 10,
+      "v": 0.4166666666666667
+    },
+    {
+      "t": 15,
+      "v": 0.4166666666666667
+    },
+    {
+      "t": 20,
+      "v": 0.5
+    },
+    {
+      "t": 25,
+      "v": 0.3333333333333333
+    },
+    {
+      "t": 30,
+      "v": 0.4166666666666667
+    },
+    {
+      "t": 35,
+      "v": 0.16666666666666666
+    },
+    {
+      "t": 40,
+      "v": 0.5
+    },
+    {
+      "t": 45,
+      "v": 0
+    },
+    {
+      "t": 50,
+      "v": 0.5
+    },
+    {
+      "t": 55,
+      "v": 0.16666666666666666
+    },
+    {
+      "t": 60,
+      "v": 0.5
+    },
+    {
+      "t": 65,
+      "v": 0.5
+    },
+    {
+      "t": 70,
+      "v": 0.5
+    },
+    {
+      "t": 75,
+      "v": 0.5
+    },
+    {
+      "t": 80,
+      "v": 0.5
+    },
+    {
+      "t": 85,
+      "v": 0
+    },
+    {
+      "t": 90,
+      "v": 0
+    },
+    {
+      "t": 95,
+      "v": 0
+    },
+    {
+      "t": 100,
+      "v": 0.3333333333333333
+    }
+  ],
+  "metrics": {
+    "predictedNps": -16,
+    "achievableNps": 82,
+    "taskSuccess": 0,
+    "timeToValueSec": null,
+    "rageClicks": 5,
+    "delightCount": 0
+  },
+  "cost": {
+    "tokensIn": 117481,
+    "tokensOut": 5594,
+    "usd": 0
+  }
+}

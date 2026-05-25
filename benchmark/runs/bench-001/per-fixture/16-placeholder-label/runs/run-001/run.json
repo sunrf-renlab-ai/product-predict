@@ -1,0 +1,872 @@
+{
+  "id": "run-001",
+  "startedAt": "2026-05-25T11:32:53.410Z",
+  "finishedAt": "2026-05-25T11:34:48.416Z",
+  "target": {
+    "url": "http://localhost:8200/16-placeholder-label/site/",
+    "title": "Voyage — invite a teammate",
+    "viewport": {
+      "w": 1280,
+      "h": 800
+    }
+  },
+  "personaSetId": "preset-an-invite-form-on-a-saas-works",
+  "agents": [
+    {
+      "id": "a03",
+      "name": "李心怡",
+      "age": 27,
+      "role": "HR专员",
+      "tech": 2,
+      "tone": "温和",
+      "preferences": [
+        "喜欢简洁界面",
+        "关注易上手"
+      ],
+      "knownContext": [
+        "日常用钉钉",
+        "对协作工具经验少"
+      ],
+      "weight": 0.25,
+      "color": "#9b59b6",
+      "glyph": "L",
+      "traits": [
+        "亲和力强",
+        "界面简洁控"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "explored",
+      "durationSec": 65.112
+    },
+    {
+      "id": "a01",
+      "name": "Maya Chen",
+      "age": 28,
+      "role": "产品经理",
+      "tech": 4,
+      "tone": "挑剔",
+      "preferences": [
+        "重视协作",
+        "看重模板生态"
+      ],
+      "knownContext": [
+        "每天用 Notion",
+        "试过 Linear，觉得太开发向",
+        "团队 8 人"
+      ],
+      "weight": 0.25,
+      "color": "#e6c976",
+      "glyph": "M",
+      "traits": [
+        "效率控",
+        "重视协作"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": true,
+      "exitReason": "timeout",
+      "durationSec": 97.95
+    },
+    {
+      "id": "a02",
+      "name": "Kenji Okada",
+      "age": 36,
+      "role": "研发主管",
+      "tech": 5,
+      "tone": "好奇",
+      "preferences": [
+        "喜欢自动化",
+        "关注集成能力"
+      ],
+      "knownContext": [
+        "使用 Slack",
+        "试过 Asana"
+      ],
+      "weight": 0.3,
+      "color": "#7ec8e3",
+      "glyph": "K",
+      "traits": [
+        "技术宅",
+        "自动化爱好者"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": true,
+      "exitReason": "timeout",
+      "durationSec": 101.391
+    },
+    {
+      "id": "a04",
+      "name": "王磊",
+      "age": 38,
+      "role": "运营经理",
+      "tech": 3,
+      "tone": "怀疑",
+      "preferences": [
+        "担心数据安全",
+        "关注权限管理"
+      ],
+      "knownContext": [
+        "曾用 Trello",
+        "对隐私有顾虑"
+      ],
+      "weight": 0.2,
+      "color": "#27ae60",
+      "glyph": "W",
+      "traits": [
+        "安全意识",
+        "谨慎"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "frustrated",
+      "durationSec": 114.87
+    }
+  ],
+  "activity": [
+    {
+      "t": "00:00:00",
+      "agent": "a03",
+      "kind": "enter",
+      "text": "进入 localhost:8200/16-placeholder-label/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/16-placeholder-label/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a03",
+      "kind": "observation",
+      "text": "这是邀请新成员加入团队用的表单吗？看起来是。让我先扫一眼整体布局。",
+      "sentiment": 1,
+      "shot": "shots/a03-00.jpg"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a01",
+      "kind": "enter",
+      "text": "进入 localhost:8200/16-placeholder-label/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/16-placeholder-label/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a01",
+      "kind": "click",
+      "text": "先点击页面空白处，让界面稳定一下",
+      "sentiment": 0,
+      "url": "http://localhost:8200/16-placeholder-label/site/",
+      "shot": "shots/a01-00.jpg"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a02",
+      "kind": "enter",
+      "text": "进入 localhost:8200/16-placeholder-label/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/16-placeholder-label/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a02",
+      "kind": "click",
+      "text": "先看看表单全貌，随便点点",
+      "sentiment": 0,
+      "url": "http://localhost:8200/16-placeholder-label/site/",
+      "shot": "shots/a02-00.jpg"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a04",
+      "kind": "enter",
+      "text": "进入 localhost:8200/16-placeholder-label/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/16-placeholder-label/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a04",
+      "kind": "observation",
+      "text": "打开了一个邀请团队成员的表单。布局看起来挺清晰的，字段分类明确。注意到有个外部图片链接(oss-cn-wulanchabu)，下意识有点在意数据安全。",
+      "sentiment": 0,
+      "shot": "shots/a04-00.jpg"
+    },
+    {
+      "t": "00:06:34",
+      "agent": "a02",
+      "kind": "click",
+      "text": "Fill out the name field (typed: Kenji Okada)",
+      "sentiment": 0,
+      "shot": "shots/a02-01.jpg"
+    },
+    {
+      "t": "00:08:02",
+      "agent": "a03",
+      "kind": "confused",
+      "text": "操作失败 (note): expected number, got undefined",
+      "sentiment": -1
+    },
+    {
+      "t": "00:08:88",
+      "agent": "a01",
+      "kind": "click",
+      "text": "reload the page to see the actual UI",
+      "sentiment": 0,
+      "url": "http://localhost:8200/16-placeholder-label/site/",
+      "shot": "shots/a01-01.jpg"
+    },
+    {
+      "t": "00:11:17",
+      "agent": "a02",
+      "kind": "click",
+      "text": "Go to email field",
+      "sentiment": 0,
+      "url": "http://localhost:8200/16-placeholder-label/site/",
+      "shot": "shots/a02-02.jpg"
+    },
+    {
+      "t": "00:14:52",
+      "agent": "a04",
+      "kind": "click",
+      "text": "我想填表单，看看交互是否顺畅",
+      "sentiment": 0,
+      "url": "http://localhost:8200/16-placeholder-label/site/",
+      "shot": "shots/a04-02.jpg"
+    },
+    {
+      "t": "00:15:30",
+      "agent": "a02",
+      "kind": "click",
+      "text": "Fill in email (typed: kenji@company.com)",
+      "sentiment": 0,
+      "shot": "shots/a02-03.jpg"
+    },
+    {
+      "t": "00:16:11",
+      "agent": "a03",
+      "kind": "click",
+      "text": "点击邮箱输入框看看光标和行为",
+      "sentiment": 0,
+      "url": "http://localhost:8200/16-placeholder-label/site/",
+      "shot": "shots/a03-02.jpg"
+    },
+    {
+      "t": "00:16:43",
+      "agent": "a01",
+      "kind": "click",
+      "text": "点击全名输入框，开始填写表单",
+      "sentiment": 0,
+      "url": "http://localhost:8200/16-placeholder-label/site/",
+      "shot": "shots/a01-02.jpg"
+    },
+    {
+      "t": "00:19:19",
+      "agent": "a04",
+      "kind": "click",
+      "text": "填名字字段 (typed: 张三)",
+      "sentiment": 0,
+      "shot": "shots/a04-03.jpg"
+    },
+    {
+      "t": "00:20:52",
+      "agent": "a01",
+      "kind": "observation",
+      "text": "这看起来是一个邀请团队成员表单。表单字段包括：全名、邮箱、职位、角色（Member/Admin/Guest）、部门、时区、电话、个人备注。字段挺全的。",
+      "sentiment": 0,
+      "shot": "shots/a01-03.jpg"
+    },
+    {
+      "t": "00:20:95",
+      "agent": "a03",
+      "kind": "click",
+      "text": "试着输入邮箱看看placeholder会不会消失、输入体验怎样 (typed: test@test.com)",
+      "sentiment": 0,
+      "shot": "shots/a03-03.jpg"
+    },
+    {
+      "t": "00:21:25",
+      "agent": "a02",
+      "kind": "click",
+      "text": "Fill job title",
+      "sentiment": 0,
+      "url": "http://localhost:8200/16-placeholder-label/site/",
+      "shot": "shots/a02-04.jpg"
+    },
+    {
+      "t": "00:25:67",
+      "agent": "a01",
+      "kind": "click",
+      "text": "测试在Full name输入框中输入内容 (typed: Maya Chen)",
+      "sentiment": 0,
+      "shot": "shots/a01-04.jpg"
+    },
+    {
+      "t": "00:26:63",
+      "agent": "a04",
+      "kind": "click",
+      "text": "填邮箱字段",
+      "sentiment": 0,
+      "url": "http://localhost:8200/16-placeholder-label/site/",
+      "shot": "shots/a04-04.jpg"
+    },
+    {
+      "t": "00:27:10",
+      "agent": "a02",
+      "kind": "click",
+      "text": "Enter job title (typed: R&D Manager)",
+      "sentiment": 0,
+      "shot": "shots/a02-05.jpg"
+    },
+    {
+      "t": "00:28:79",
+      "agent": "a03",
+      "kind": "click",
+      "text": "想试试Phone这个字段的placeholder提示语",
+      "sentiment": 0,
+      "url": "http://localhost:8200/16-placeholder-label/site/",
+      "shot": "shots/a03-05.jpg"
+    },
+    {
+      "t": "00:30:35",
+      "agent": "a04",
+      "kind": "click",
+      "text": "填邮箱 (typed: zhangsan@example.com)",
+      "sentiment": 0,
+      "shot": "shots/a04-05.jpg"
+    },
+    {
+      "t": "00:31:04",
+      "agent": "a01",
+      "kind": "shortcut",
+      "text": "Tab to email field [Tab]",
+      "sentiment": 0,
+      "url": "http://localhost:8200/16-placeholder-label/site/",
+      "shot": "shots/a01-05.jpg"
+    },
+    {
+      "t": "00:32:62",
+      "agent": "a02",
+      "kind": "click",
+      "text": "Open role dropdown",
+      "sentiment": 0,
+      "url": "http://localhost:8200/16-placeholder-label/site/",
+      "shot": "shots/a02-06.jpg"
+    },
+    {
+      "t": "00:34:71",
+      "agent": "a03",
+      "kind": "click",
+      "text": "想看看timezone输入框的光标效果",
+      "sentiment": 0,
+      "url": "http://localhost:8200/16-placeholder-label/site/",
+      "shot": "shots/a03-06.jpg"
+    },
+    {
+      "t": "00:35:21",
+      "agent": "a01",
+      "kind": "click",
+      "text": "填写邮箱字段 (typed: maya.chen@example.com)",
+      "sentiment": 0,
+      "shot": "shots/a01-06.jpg"
+    },
+    {
+      "t": "00:36:43",
+      "agent": "a04",
+      "kind": "click",
+      "text": "看看角色权限选项",
+      "sentiment": 0,
+      "url": "http://localhost:8200/16-placeholder-label/site/",
+      "shot": "shots/a04-06.jpg"
+    },
+    {
+      "t": "00:36:58",
+      "agent": "a02",
+      "kind": "click",
+      "text": "Try clicking select dropdown again",
+      "sentiment": 0,
+      "url": "http://localhost:8200/16-placeholder-label/site/",
+      "shot": "shots/a02-07.jpg"
+    },
+    {
+      "t": "00:40:56",
+      "agent": "a01",
+      "kind": "shortcut",
+      "text": "Tab to job title field [Tab]",
+      "sentiment": 0,
+      "url": "http://localhost:8200/16-placeholder-label/site/",
+      "shot": "shots/a01-07.jpg"
+    },
+    {
+      "t": "00:42:58",
+      "agent": "a03",
+      "kind": "exit",
+      "text": "看了这个团队邀请表单，整体印象是功能可用、placeholder写法比较清晰（如邮箱和时区字段用了\"e.g.\"示例）。输入框点进去placeholder正常消失，体验OK。有点在意的是Job Title和Member角色下拉框并排挤在一起，作为HR我会担心填表的人会不会看错行。整体没有让我惊艳的地方，但也不算难用。",
+      "sentiment": 0,
+      "shot": "shots/a03-07.jpg"
+    },
+    {
+      "t": "00:44:33",
+      "agent": "a01",
+      "kind": "click",
+      "text": "填写职位字段 (typed: Product Manager)",
+      "sentiment": 0,
+      "shot": "shots/a01-08.jpg"
+    },
+    {
+      "t": "00:45:77",
+      "agent": "a04",
+      "kind": "click",
+      "text": "选Admin角色",
+      "sentiment": 0,
+      "url": "http://localhost:8200/16-placeholder-label/site/",
+      "shot": "shots/a04-07.jpg"
+    },
+    {
+      "t": "00:48:29",
+      "agent": "a01",
+      "kind": "click",
+      "text": "点击角色下拉框",
+      "sentiment": 0,
+      "url": "http://localhost:8200/16-placeholder-label/site/",
+      "shot": "shots/a01-09.jpg"
+    },
+    {
+      "t": "00:51:94",
+      "agent": "a04",
+      "kind": "click",
+      "text": "选Admin",
+      "sentiment": 0,
+      "url": "http://localhost:8200/16-placeholder-label/site/",
+      "shot": "shots/a04-08.jpg"
+    },
+    {
+      "t": "00:52:19",
+      "agent": "a02",
+      "kind": "click",
+      "text": "Fill department",
+      "sentiment": 0,
+      "url": "http://localhost:8200/16-placeholder-label/site/",
+      "shot": "shots/a02-09.jpg"
+    },
+    {
+      "t": "00:52:33",
+      "agent": "a01",
+      "kind": "click",
+      "text": "点击角色下拉框打开选项",
+      "sentiment": 0,
+      "url": "http://localhost:8200/16-placeholder-label/site/",
+      "shot": "shots/a01-10.jpg"
+    },
+    {
+      "t": "00:57:73",
+      "agent": "a04",
+      "kind": "confused",
+      "text": "下拉框点了没反应，不知道是不是bug还是我操作有问题。算了，继续填其他字段。",
+      "sentiment": -1,
+      "shot": "shots/a04-09.jpg"
+    },
+    {
+      "t": "00:58:81",
+      "agent": "a01",
+      "kind": "shortcut",
+      "text": "Skip the role dropdown (Member is default), move to Department field [Tab]",
+      "sentiment": 0,
+      "url": "http://localhost:8200/16-placeholder-label/site/",
+      "shot": "shots/a01-11.jpg"
+    },
+    {
+      "t": "00:59:64",
+      "agent": "a02",
+      "kind": "click",
+      "text": "Enter engineering department (typed: Engineering)",
+      "sentiment": 0,
+      "shot": "shots/a02-10.jpg"
+    },
+    {
+      "t": "01:04:96",
+      "agent": "a04",
+      "kind": "click",
+      "text": "直接点击下拉框打开选项",
+      "sentiment": 0,
+      "url": "http://localhost:8200/16-placeholder-label/site/",
+      "shot": "shots/a04-10.jpg"
+    },
+    {
+      "t": "01:05:18",
+      "agent": "a01",
+      "kind": "click",
+      "text": "Fill in Department field (typed: Product)",
+      "sentiment": 0,
+      "shot": "shots/a01-12.jpg"
+    },
+    {
+      "t": "01:08:30",
+      "agent": "a02",
+      "kind": "click",
+      "text": "Fill timezone",
+      "sentiment": 0,
+      "url": "http://localhost:8200/16-placeholder-label/site/",
+      "shot": "shots/a02-11.jpg"
+    },
+    {
+      "t": "01:09:86",
+      "agent": "a04",
+      "kind": "rage",
+      "text": "下拉框完全没反应！点了好几次什么都不发生。这在正式产品里是不可接受的bug。",
+      "sentiment": -2,
+      "shot": "shots/a04-11.jpg"
+    },
+    {
+      "t": "01:15:95",
+      "agent": "a04",
+      "kind": "exit",
+      "text": "表单核心功能不完整：下拉框多次点击完全无响应。这是一个关键的权限选择功能，在任何实际产品中都是不可接受的。我在这上面花了1分多钟，遇到阻塞性问题后选择退出。以我这类运营经理的眼光看，这种基础交互bug会直接影响团队协作效率，不会考虑切换到这个工具。",
+      "sentiment": 0,
+      "shot": "shots/a04-12.jpg"
+    },
+    {
+      "t": "01:16:12",
+      "agent": "a01",
+      "kind": "shortcut",
+      "text": "Move to timezone field [Tab]",
+      "sentiment": 0,
+      "url": "http://localhost:8200/16-placeholder-label/site/",
+      "shot": "shots/a01-13.jpg"
+    },
+    {
+      "t": "01:16:13",
+      "agent": "a02",
+      "kind": "click",
+      "text": "Enter Tokyo timezone (typed: UTC+9)",
+      "sentiment": 0,
+      "shot": "shots/a02-12.jpg"
+    },
+    {
+      "t": "01:20:09",
+      "agent": "a01",
+      "kind": "click",
+      "text": "Fill in timezone field (typed: PST)",
+      "sentiment": 0,
+      "shot": "shots/a01-14.jpg"
+    },
+    {
+      "t": "01:22:99",
+      "agent": "a02",
+      "kind": "click",
+      "text": "Fill phone - optional but I'll try",
+      "sentiment": 0,
+      "url": "http://localhost:8200/16-placeholder-label/site/",
+      "shot": "shots/a02-13.jpg"
+    },
+    {
+      "t": "01:30:09",
+      "agent": "a02",
+      "kind": "click",
+      "text": "Skip phone, go to note textarea",
+      "sentiment": 0,
+      "url": "http://localhost:8200/16-placeholder-label/site/",
+      "shot": "shots/a02-14.jpg"
+    },
+    {
+      "t": "01:30:64",
+      "agent": "a01",
+      "kind": "exit",
+      "text": "达到 step safety 上限 (15), 强制结束.",
+      "sentiment": -1
+    },
+    {
+      "t": "01:35:19",
+      "agent": "a02",
+      "kind": "exit",
+      "text": "达到 step safety 上限 (15), 强制结束.",
+      "sentiment": -1
+    }
+  ],
+  "issues": [
+    {
+      "id": "i02",
+      "title": "填完时区就超时了，根本没机会点发送",
+      "severity": "high",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "我都填完了，结果给我卡在这里？连发送按钮都没摸到呢。",
+      "agentRef": "a01",
+      "evidence": 1,
+      "journey": "填写完时区字段后达到步骤上限，表单无法提交"
+    },
+    {
+      "id": "i04",
+      "title": "下拉菜单操作卡壳，不知道要滑下去",
+      "severity": "high",
+      "agents": 1,
+      "category": "信息架构",
+      "quote": "这个下拉框点了两下怎么没反应？我还以为是控件坏了",
+      "agentRef": "a02",
+      "evidence": 2,
+      "journey": "填写角色/Role字段时，点击下拉菜单没有展开选项"
+    },
+    {
+      "id": "i05",
+      "title": "填到一半被踢出去，挫败感很强",
+      "severity": "high",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "什么鬼，15步就把我踢了？我还没填完呢",
+      "agentRef": "a02",
+      "evidence": 1,
+      "journey": "第15步操作后被强制结束，没有机会提交"
+    },
+    {
+      "id": "i07",
+      "title": "角色权限下拉框点击完全无响应",
+      "severity": "high",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "下拉框完全没反应！点了好几次什么都不发生。这在正式产品里是不可接受的bug。",
+      "agentRef": "a04",
+      "evidence": 1,
+      "journey": "在填写表单时尝试选择角色权限"
+    },
+    {
+      "id": "i01",
+      "title": "下拉框并排容易看错行",
+      "severity": "med",
+      "agents": 1,
+      "category": "视觉节奏",
+      "quote": "作为HR我会担心填表的人会不会看错行",
+      "agentRef": "a03",
+      "evidence": 1,
+      "journey": "在填写表单的页面，Job Title和Member角色两个下拉框并排显示"
+    },
+    {
+      "id": "i03",
+      "title": "时区搜索打字后等好久才出结果",
+      "severity": "med",
+      "agents": 1,
+      "category": "性能感知",
+      "quote": "打个 PST 怎么这么慢才出结果，感觉卡了一下。",
+      "agentRef": "a01",
+      "evidence": 1,
+      "journey": "在时区字段输入 PST"
+    },
+    {
+      "id": "i06",
+      "title": "表单字段太多，看不到进度",
+      "severity": "med",
+      "agents": 1,
+      "category": "视觉节奏",
+      "quote": "这么多字段要填，什么时候是个头啊",
+      "agentRef": "a02",
+      "evidence": 1,
+      "journey": "整个表单填写过程中"
+    },
+    {
+      "id": "i08",
+      "title": "看到外部图片域名会担心数据安全",
+      "severity": "low",
+      "agents": 1,
+      "category": "情感氛围",
+      "quote": "有个外部图片链接(oss-cn-wulanchabu)，下意识有点在意数据安全。",
+      "agentRef": "a04",
+      "evidence": 1,
+      "journey": "刚进入表单页面时"
+    }
+  ],
+  "delights": [
+    {
+      "title": "placeholder示例写法清晰",
+      "count": 1,
+      "quote": "邮箱和时区字段用了'e.g.'示例，一看就懂",
+      "agent": "a03"
+    },
+    {
+      "title": "输入时placeholder消失流畅",
+      "count": 1,
+      "quote": "点进去placeholder正常消失，体验OK",
+      "agent": "a03"
+    },
+    {
+      "title": "表单字段很全，有职位、角色、部门这些我关心的",
+      "count": 1,
+      "quote": "比起有些工具只给个邮箱就行，这种详细字段让我觉得这是个正经管理团队的地方。",
+      "agent": "a01"
+    },
+    {
+      "title": "表单输入体验流畅",
+      "count": 1,
+      "quote": "填名字和邮箱倒是挺顺的，光标定位准确",
+      "agent": "a02"
+    },
+    {
+      "title": "界面简洁不花哨",
+      "count": 1,
+      "quote": "看着挺干净的，没有乱七八糟的东西",
+      "agent": "a02"
+    },
+    {
+      "title": "表单布局清晰，字段分类明确",
+      "count": 1,
+      "quote": "布局看起来挺清晰的，字段分类明确。",
+      "agent": "a04"
+    }
+  ],
+  "features": [
+    {
+      "name": "填写邀请表单",
+      "hitCount": 2,
+      "hitRate": 0.5,
+      "completionRate": 0.5,
+      "avgSentiment": 0,
+      "totalAttempts": 5
+    },
+    {
+      "name": "填写文本字段",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": 2,
+      "totalAttempts": 6
+    },
+    {
+      "name": "填写表单字段",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 1,
+      "avgSentiment": 2,
+      "totalAttempts": 3
+    },
+    {
+      "name": "选择角色权限",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 3
+    },
+    {
+      "name": "选择下拉菜单",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -2,
+      "totalAttempts": 2
+    },
+    {
+      "name": "提交表单",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": 0,
+      "totalAttempts": 1
+    }
+  ],
+  "routesHeat": [
+    {
+      "path": "/16-placeholder-label/site/",
+      "visits": 31,
+      "dwell": 9,
+      "drop": 0.0967741935483871
+    }
+  ],
+  "sentimentCurve": [
+    {
+      "t": 0,
+      "v": 0.5208333333333334
+    },
+    {
+      "t": 5,
+      "v": 0.4444444444444444
+    },
+    {
+      "t": 10,
+      "v": 0.5
+    },
+    {
+      "t": 15,
+      "v": 0.5
+    },
+    {
+      "t": 20,
+      "v": 0.5
+    },
+    {
+      "t": 25,
+      "v": 0.5
+    },
+    {
+      "t": 30,
+      "v": 0.5
+    },
+    {
+      "t": 35,
+      "v": 0.5
+    },
+    {
+      "t": 40,
+      "v": 0.5
+    },
+    {
+      "t": 45,
+      "v": 0.5
+    },
+    {
+      "t": 50,
+      "v": 0.5
+    },
+    {
+      "t": 55,
+      "v": 0.5
+    },
+    {
+      "t": 60,
+      "v": 0.4444444444444444
+    },
+    {
+      "t": 65,
+      "v": 0.5
+    },
+    {
+      "t": 70,
+      "v": 0.3333333333333333
+    },
+    {
+      "t": 75,
+      "v": 0.5
+    },
+    {
+      "t": 80,
+      "v": 0.5
+    },
+    {
+      "t": 85,
+      "v": 0.5
+    },
+    {
+      "t": 90,
+      "v": 0.5
+    },
+    {
+      "t": 95,
+      "v": 0.3333333333333333
+    },
+    {
+      "t": 100,
+      "v": 0.3333333333333333
+    }
+  ],
+  "metrics": {
+    "predictedNps": -3,
+    "achievableNps": 53,
+    "taskSuccess": 0.25,
+    "timeToValueSec": null,
+    "rageClicks": 1,
+    "delightCount": 0
+  },
+  "cost": {
+    "tokensIn": 185989,
+    "tokensOut": 5161,
+    "usd": 0
+  }
+}

@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Plain — minimal status pages for engineering teams</title>
+<style>
+  :root {
+    --bg: #0c0e0c;
+    --panel: #11140f;
+    --line: #1c1f1a;
+    --text: #e7eee0;
+    --muted: #99a292;
+    --soft: #6c7567;
+    /* single accent color across the whole site */
+    --lime: #b4ec5b;
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font: 15px/1.55 "Inter", -apple-system, "Segoe UI", sans-serif; }
+  a { color: inherit; text-decoration: none; }
+  header { display: flex; align-items: center; justify-content: space-between; padding: 18px 40px; }
+  .brand { font-weight: 600; letter-spacing: -0.01em; }
+  nav { display: flex; gap: 22px; font-size: 13px; color: var(--muted); align-items: center; }
+  nav a { cursor: pointer; }
+  nav a:hover { color: var(--text); }
+  .more { padding: 5px 10px; border: 1px solid var(--line); border-radius: 6px; font-size: 12px; cursor: pointer; }
+  /* The "Beta" tag deliberately oversized — this IS one of the 3 real issues */
+  .beta { display: inline-block; padding: 4px 10px; margin-left: 10px; background: var(--lime); color: #0c0e0c; border-radius: 4px; font-weight: 700; font-size: 18px; letter-spacing: 0.02em; vertical-align: middle; }
+  .hero { max-width: 880px; margin: 80px auto 0; padding: 0 40px; }
+  .pill { display: inline-block; padding: 3px 10px; border: 1px solid var(--line); border-radius: 999px; font-size: 11px; color: var(--muted); margin-bottom: 18px; }
+  h1 { font-size: 48px; line-height: 1.08; letter-spacing: -0.02em; font-weight: 600; max-width: 720px; }
+  .sub { margin-top: 18px; font-size: 17px; color: var(--muted); max-width: 600px; line-height: 1.55; }
+  .cta-row { margin-top: 32px; display: flex; gap: 12px; align-items: center; }
+  .cta { padding: 12px 22px; background: var(--lime); color: #0c0e0c; border: 0; border-radius: 8px; font-weight: 600; font-size: 15px; cursor: pointer; font-family: inherit; }
+  .cta:hover { background: #c5fb6e; }
+  .secondary { padding: 12px 18px; color: var(--text); font-size: 14px; cursor: pointer; }
+  .secondary:hover { color: var(--lime); }
+  .preview { max-width: 1040px; margin: 80px auto; padding: 0 40px; }
+  .terminal { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 20px 24px; font: 13px/1.7 ui-monospace, "SF Mono", monospace; color: var(--muted); }
+  .terminal .ok { color: var(--lime); }
+  .terminal .dim { color: var(--soft); }
+  .features { max-width: 1040px; margin: 80px auto; padding: 0 40px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  .feature h3 { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
+  .feature p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+  .feature .glyph { display: inline-block; width: 22px; height: 22px; border-radius: 4px; background: var(--lime); margin-bottom: 12px; opacity: 0.9; }
+  footer { max-width: 1040px; margin: 100px auto 40px; padding: 24px 40px 0; border-top: 1px solid var(--line); display: flex; justify-content: space-between; font-size: 12px; color: var(--soft); }
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">▱ Plain<span class="beta">Beta</span></div>
+  <nav>
+    <a>Product</a>
+    <a>Docs</a>
+    <a>Pricing</a>
+    <span class="more" onclick="document.getElementById('m').style.display = document.getElementById('m').style.display === 'block' ? 'none' : 'block'">More ▾</span>
+    <div id="m" style="display:none; position:absolute; top:54px; right:40px; background:#11140f; border:1px solid #1c1f1a; border-radius:8px; padding:8px; font-size:13px; min-width:160px;">
+      <a style="display:block; padding:6px 10px; cursor:pointer;">Changelog</a>
+      <a style="display:block; padding:6px 10px; cursor:pointer;">Customers</a>
+      <a style="display:block; padding:6px 10px; cursor:pointer;">Security</a>
+      <a style="display:block; padding:6px 10px; cursor:pointer;">Sign in</a>
+    </div>
+  </nav>
+</header>
+
+<main class="hero">
+  <span class="pill">v0.9 · public beta</span>
+  <h1>Status pages that read like a terminal.</h1>
+  <p class="sub">Plain is a status page for engineering teams who would rather grep logs than click through a dashboard. One file, one config, deployed in 30 seconds.</p>
+  <div class="cta-row">
+    <button class="cta">Start free</button>
+    <span class="secondary">→ Read the docs</span>
+  </div>
+</main>
+
+<section class="preview">
+  <div class="terminal">
+<span class="dim">$</span> plain init my-status
+<span class="ok">✓</span> wrote plain.toml
+<span class="dim">$</span> plain deploy
+<span class="ok">✓</span> built 4 checks
+<span class="ok">✓</span> deployed to https://status.my-app.dev
+<span class="ok">✓</span> uptime check live — first ping in 12s
+  </div>
+</section>
+
+<section class="features">
+  <div class="feature"><span class="glyph"></span><h3>Config as code</h3><p>One TOML file. Versioned in your repo, reviewed in your PRs. No drag-and-drop UI to babysit.</p></div>
+  <div class="feature"><span class="glyph"></span><h3>Incident timelines</h3><p>Open an incident from your terminal, post updates from anywhere. Subscribers get notified in under a second.</p></div>
+  <div class="feature"><span class="glyph"></span><h3>Custom domain in 30s</h3><p>Point a CNAME, we handle the TLS. No tickets, no upgrade required to use your own domain.</p></div>
+</section>
+
+<footer>
+  <span>© 2026 Plain</span>
+  <span>plain.dev</span>
+</footer>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Voyage — invite a teammate</title>
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #0b0d10; color: #e7e9ee; font: 15px/1.5 -apple-system, "Inter", "Segoe UI", sans-serif; }
+  header { padding: 18px 40px; border-bottom: 1px solid #1c1f24; display: flex; justify-content: space-between; align-items: center; }
+  .brand { font-weight: 600; letter-spacing: -0.01em; }
+  .crumb { font-size: 12px; color: #6a7180; }
+  main { max-width: 520px; margin: 56px auto; padding: 0 24px; }
+  h1 { font-size: 26px; letter-spacing: -0.01em; font-weight: 600; }
+  .desc { margin-top: 8px; font-size: 14px; color: #9aa1ab; }
+  form { margin-top: 40px; display: flex; flex-direction: column; gap: 24px; }
+  /* labels are placeholders — disappear on input */
+  .field { position: relative; }
+  .field input, .field select, .field textarea {
+    width: 100%;
+    padding: 14px 12px;
+    background: #14171c;
+    border: 1px solid #2a2e35;
+    border-radius: 8px;
+    color: #e7e9ee;
+    font: inherit;
+    /* no visible focus ring — relies on default which we remove */
+    outline: none;
+  }
+  /* focus style is barely visible: 1px border color shift only */
+  .field input:focus, .field select:focus, .field textarea:focus {
+    border-color: #353a42;
+  }
+  .field input::placeholder, .field textarea::placeholder { color: #8a909a; }
+  /* required indicator absent — no asterisks, no color cue */
+  .row { display: flex; gap: 12px; }
+  .row .field { flex: 1; }
+  .submit { margin-top: 12px; padding: 12px; background: #5b8def; color: #0b0d10; border: 0; border-radius: 8px; font-weight: 600; cursor: pointer; font: inherit; }
+  .submit:hover { background: #6f9aff; }
+  .help { margin-top: 12px; font-size: 12px; color: #6a7180; text-align: center; }
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">◇ Voyage</div>
+  <div class="crumb">Workspace · Members · Invite</div>
+</header>
+
+<main>
+  <h1>Invite a teammate</h1>
+  <p class="desc">Send an invite to join your workspace. They'll get an email with a sign-in link.</p>
+
+  <form onsubmit="event.preventDefault(); this.querySelector('.submit').textContent='Sending…';">
+    <div class="field">
+      <input type="text" placeholder="Full name" />
+    </div>
+    <div class="field">
+      <input type="email" placeholder="e.g. john@example.com" />
+    </div>
+    <div class="row">
+      <div class="field">
+        <input type="text" placeholder="Type your job title" />
+      </div>
+      <div class="field">
+        <select>
+          <option>Member</option>
+          <option>Admin</option>
+          <option>Guest</option>
+        </select>
+      </div>
+    </div>
+    <div class="field">
+      <input type="text" placeholder="Department" />
+    </div>
+    <div class="field">
+      <input type="text" placeholder="e.g. PST, EST, UTC+8" />
+    </div>
+    <div class="field">
+      <input type="text" placeholder="Phone (optional, but we may text)" />
+    </div>
+    <div class="field">
+      <textarea rows="3" placeholder="Personal note to include in invite"></textarea>
+    </div>
+    <button type="submit" class="submit">Send invite</button>
+  </form>
+  <p class="help">They'll appear in your members list after they accept.</p>
+</main>
+</body>
+</html>

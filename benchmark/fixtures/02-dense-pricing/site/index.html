@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Pricing — Loop</title>
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #0a0c10; color: #e6e8ed; font: 14px/1.45 -apple-system, "Inter", "Segoe UI", sans-serif; }
+  header { display: flex; justify-content: space-between; align-items: center; padding: 18px 36px; border-bottom: 1px solid #1a1d22; }
+  .brand { font-weight: 600; }
+  nav { display: flex; gap: 22px; color: #97a0ac; font-size: 13px; }
+  main { max-width: 1280px; margin: 0 auto; padding: 60px 24px; }
+  h1 { font-size: 34px; letter-spacing: -0.02em; text-align: center; }
+  .lede { text-align: center; color: #97a0ac; margin-top: 10px; }
+  /* 5 plans crammed in one row — at 1280 viewport each card ≈ 220px */
+  .plans { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-top: 48px; }
+  .plan { background: #11141a; border: 1px solid #1e222a; border-radius: 10px; padding: 20px 16px; }
+  .plan h3 { font-size: 15px; font-weight: 600; }
+  .plan .price { font-size: 22px; margin-top: 14px; letter-spacing: -0.02em; }
+  .plan .price small { font-size: 11px; color: #97a0ac; font-weight: 400; }
+  .plan ul { list-style: none; margin-top: 16px; font-size: 12px; color: #b8bec7; }
+  .plan li { padding: 6px 0; border-top: 1px solid #1e222a; display: flex; gap: 6px; align-items: flex-start; }
+  .plan li:first-child { border-top: 0; }
+  .plan .yes::before { content: "✓"; color: #74c79a; }
+  .plan .no::before  { content: "✗"; color: #6a7180; }
+  .plan button { width: 100%; margin-top: 16px; padding: 9px; border-radius: 6px; border: 1px solid #2a2f38; background: #1a1d24; color: #e6e8ed; cursor: pointer; font: inherit; font-size: 13px; }
+  .plan button.primary { background: #5b8def; border-color: #5b8def; color: #fff; }
+  .plan button:disabled { color: #5a6170; background: #11141a; cursor: not-allowed; }
+  .compare { margin-top: 48px; text-align: center; }
+  .compare summary { cursor: pointer; color: #97a0ac; font-size: 13px; padding: 10px; display: inline-block; list-style: none; }
+  .compare summary::-webkit-details-marker { display: none; }
+  .compare summary::after { content: " ▾"; }
+  table { width: 100%; margin-top: 20px; border-collapse: collapse; font-size: 13px; }
+  th, td { padding: 10px; border-bottom: 1px solid #1e222a; text-align: center; color: #b8bec7; }
+  th { color: #e6e8ed; }
+  td:first-child, th:first-child { text-align: left; }
+  footer { padding: 22px 36px; border-top: 1px solid #1a1d22; color: #6a7180; font-size: 12px; text-align: center; }
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">◐ Loop</div>
+  <nav><a>Product</a><a>Customers</a><a>Docs</a><a>Pricing</a><a>Sign in</a></nav>
+</header>
+
+<main>
+  <h1>Pricing that scales with your team</h1>
+  <p class="lede">Pick a plan. Upgrade or downgrade any time.</p>
+
+  <div class="plans">
+    <div class="plan">
+      <h3>Pro</h3>
+      <div class="price">From $9 <small>/mo</small></div>
+      <ul>
+        <li class="yes">Up to 5 projects</li>
+        <li class="yes">2 GB storage</li>
+        <li class="no">Custom domains</li>
+        <li class="no">SSO &amp; SCIM</li>
+        <li class="no">Audit log</li>
+      </ul>
+      <button>Start free</button>
+    </div>
+    <div class="plan">
+      <h3>Pro+</h3>
+      <div class="price">From $19 <small>/mo</small></div>
+      <ul>
+        <li class="yes">Up to 20 projects</li>
+        <li class="yes">10 GB storage</li>
+        <li class="yes">Custom domains</li>
+        <li class="no">SSO &amp; SCIM</li>
+        <li class="no">Audit log</li>
+      </ul>
+      <button class="primary">Start free</button>
+    </div>
+    <div class="plan">
+      <h3>Business</h3>
+      <div class="price">From $39 <small>/mo</small></div>
+      <ul>
+        <li class="yes">Unlimited projects</li>
+        <li class="yes">100 GB storage</li>
+        <li class="yes">Custom domains</li>
+        <li class="yes">SSO &amp; SCIM</li>
+        <li class="no">Audit log retention 1y</li>
+      </ul>
+      <button>Start free</button>
+    </div>
+    <div class="plan">
+      <h3>Business+</h3>
+      <div class="price">From $79 <small>/mo</small></div>
+      <ul>
+        <li class="yes">Unlimited projects</li>
+        <li class="yes">500 GB storage</li>
+        <li class="yes">Custom domains</li>
+        <li class="yes">SSO &amp; SCIM</li>
+        <li class="yes">Audit log retention 3y</li>
+      </ul>
+      <button>Start free</button>
+    </div>
+    <div class="plan">
+      <h3>Enterprise</h3>
+      <div class="price">Custom <small>pricing</small></div>
+      <ul>
+        <li class="yes">Everything in Business+</li>
+        <li class="yes">Dedicated CSM</li>
+        <li class="yes">Custom SLA</li>
+        <li class="yes">Onboarding services</li>
+        <li class="yes">99.99% uptime</li>
+      </ul>
+      <button disabled>Contact sales</button>
+    </div>
+  </div>
+
+  <details class="compare">
+    <summary>View all features</summary>
+    <table>
+      <thead><tr><th>Feature</th><th>Pro</th><th>Pro+</th><th>Business</th><th>Business+</th><th>Enterprise</th></tr></thead>
+      <tbody>
+        <tr><td>Projects</td><td>5</td><td>20</td><td>∞</td><td>∞</td><td>∞</td></tr>
+        <tr><td>Storage</td><td>2 GB</td><td>10 GB</td><td>100 GB</td><td>500 GB</td><td>Custom</td></tr>
+        <tr><td>Custom domains</td><td>✗</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr>
+        <tr><td>SSO &amp; SCIM</td><td>✗</td><td>✗</td><td>✓</td><td>✓</td><td>✓</td></tr>
+        <tr><td>Audit log</td><td>✗</td><td>✗</td><td>1y</td><td>3y</td><td>Custom</td></tr>
+        <tr><td>Support</td><td>Email</td><td>Email</td><td>Priority</td><td>Priority</td><td>Dedicated</td></tr>
+      </tbody>
+    </table>
+  </details>
+</main>
+
+<footer>© 2026 Loop · All prices in USD</footer>
+</body>
+</html>

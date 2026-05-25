@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>New Note — Pagely</title>
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #0c0e12; color: #e6e8ee; font: 15px/1.5 -apple-system, "Inter", "Segoe UI", sans-serif; min-height: 100vh; }
+  header { padding: 16px 40px; border-bottom: 1px solid #1b1e24; display: flex; justify-content: space-between; align-items: center; }
+  .brand { font-weight: 600; }
+  .user { font-size: 12px; color: #9aa1ab; }
+  /* The template picker fills the first viewport, no skip path */
+  .picker { padding: 90px 28px; max-width: 980px; margin: 0 auto; min-height: 100vh; }
+  .picker h1 { font-size: 30px; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 6px; }
+  .picker .lede { color: #9aa1ab; font-size: 14px; margin-bottom: 36px; }
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .card {
+    padding: 22px; border-radius: 10px; cursor: pointer;
+    border: 1px solid #262a31; transition: transform .12s ease;
+  }
+  .card:hover { transform: translateY(-2px); }
+  /* Each card uses a different colored tint — no shared system */
+  .card.meeting { background: linear-gradient(160deg, #1c2436, #161a22); }
+  .card.journal { background: linear-gradient(160deg, #2a1c24, #241620); border-color: #3a2530; }
+  .card.todo    { background: linear-gradient(160deg, #1a2a1c, #16221a); border-color: #25402a; }
+  .card .ico { font-size: 22px; margin-bottom: 8px; }
+  .card .t { font-weight: 600; font-size: 16px; margin-bottom: 4px; }
+  .card .s { color: #9aa1ab; font-size: 13px; line-height: 1.45; }
+  .apply-bar { margin-top: 30px; display: flex; justify-content: flex-end; gap: 10px; }
+  .btn-primary {
+    padding: 10px 18px; background: #5b8def; border: 0; border-radius: 6px;
+    color: #fff; font: inherit; font-weight: 500; cursor: pointer;
+  }
+  .btn-primary[disabled] { opacity: 0.5; cursor: not-allowed; }
+  .selected { outline: 2px solid #5b8def; outline-offset: 2px; }
+  /* Editor (post-selection) */
+  .editor { padding: 50px 28px; max-width: 760px; margin: 0 auto; }
+  .editor textarea {
+    width: 100%; min-height: 60vh; background: transparent; border: 0;
+    color: #e6e8ee; font: inherit; font-size: 16px; line-height: 1.6;
+    outline: none; resize: none;
+  }
+  .hidden { display: none; }
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">📓 Pagely</div>
+  <div class="user">eric@renlab.ai</div>
+</header>
+
+<main>
+  <section class="picker" id="picker">
+    <h1>Start a new note</h1>
+    <p class="lede">Pick a template to get going. You can change templates later — just not the template itself.</p>
+    <div class="cards" id="cards">
+      <div class="card meeting" data-k="meeting">
+        <div class="ico">📅</div>
+        <div class="t">Meeting Notes</div>
+        <div class="s">Agenda · attendees · decisions · action items. Pre-filled headings.</div>
+      </div>
+      <div class="card journal" data-k="journal">
+        <div class="ico">📔</div>
+        <div class="t">Daily Journal</div>
+        <div class="s">Today's date, three prompts, mood scale. One per day.</div>
+      </div>
+      <div class="card todo" data-k="todo">
+        <div class="ico">✅</div>
+        <div class="t">Todo</div>
+        <div class="s">Checklist with priorities and due dates.</div>
+      </div>
+    </div>
+    <div class="apply-bar">
+      <!-- No "skip" / "blank note" path -->
+      <button class="btn-primary" id="apply" disabled>Apply Template</button>
+    </div>
+  </section>
+
+  <section class="editor hidden" id="editor">
+    <textarea id="ta" placeholder="Start typing…"></textarea>
+  </section>
+</main>
+
+<script>
+  const cards = document.querySelectorAll('.card');
+  let selected = null;
+  cards.forEach(c => {
+    c.addEventListener('click', () => {
+      cards.forEach(x => x.classList.remove('selected'));
+      c.classList.add('selected');
+      selected = c.dataset.k;
+      document.getElementById('apply').disabled = false;
+    });
+  });
+
+  const seeds = {
+    meeting: '# Meeting Notes\n\nDate:\nAttendees:\n\n## Agenda\n- \n\n## Decisions\n- \n\n## Action items\n- ',
+    journal: '# ' + new Date().toISOString().slice(0,10) + '\n\nMood (1-5):\n\nWhat went well?\nWhat got in the way?\nOne thing for tomorrow:',
+    todo:    '# Todo\n\n- [ ] \n- [ ] \n- [ ] '
+  };
+
+  document.getElementById('apply').addEventListener('click', () => {
+    if (!selected) return;
+    document.getElementById('picker').classList.add('hidden');
+    document.getElementById('editor').classList.remove('hidden');
+    document.getElementById('ta').value = seeds[selected];
+    document.getElementById('ta').focus();
+  });
+
+  // Note: no custom-template path, no "start blank" path, no "new template" button.
+</script>
+</body>
+</html>

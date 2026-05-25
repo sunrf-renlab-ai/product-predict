@@ -1,0 +1,856 @@
+{
+  "id": "run-001",
+  "startedAt": "2026-05-25T11:34:15.431Z",
+  "finishedAt": "2026-05-25T11:36:15.945Z",
+  "target": {
+    "url": "http://localhost:8200/17-monolingual/site/",
+    "title": "明镜 — 工作区设置",
+    "viewport": {
+      "w": 1280,
+      "h": 800
+    }
+  },
+  "personaSetId": "preset",
+  "agents": [
+    {
+      "id": "a01",
+      "name": "Maya Chen",
+      "age": 32,
+      "role": "UI设计师",
+      "tech": 4,
+      "tone": "挑剔",
+      "preferences": [
+        "重视视觉一致性",
+        "关注微交互动效",
+        "追求无障碍设计"
+      ],
+      "knownContext": [
+        "每天用 Figma",
+        "试过 Notion，觉得中文翻译别扭",
+        "团队 12 人"
+      ],
+      "weight": 0.25,
+      "color": "#e6c976",
+      "glyph": "M",
+      "traits": [
+        "完美主义",
+        "细节控",
+        "熟悉设计系统"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "explored",
+      "durationSec": 73.511
+    },
+    {
+      "id": "a03",
+      "name": "王磊",
+      "age": 38,
+      "role": "项目经理",
+      "tech": 3,
+      "tone": "温和",
+      "preferences": [
+        "重视团队协作",
+        "关心帮助文档质量",
+        "希望设置简洁易懂"
+      ],
+      "knownContext": [
+        "每天用企业微信",
+        "试过飞书，觉得配置太复杂",
+        "管理团队 6 人"
+      ],
+      "weight": 0.25,
+      "color": "#7da695",
+      "glyph": "W",
+      "traits": [
+        "注重效率",
+        "善于协调",
+        "偏好确定性"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "explored",
+      "durationSec": 85.081
+    },
+    {
+      "id": "a04",
+      "name": "李心怡",
+      "age": 24,
+      "role": "运营专员",
+      "tech": 2,
+      "tone": "好奇",
+      "preferences": [
+        "喜欢探索新功能",
+        "看重快捷键支持",
+        "希望有新手引导"
+      ],
+      "knownContext": [
+        "刚转行做运营",
+        "试过 Asana，卡在英文设置页",
+        "业余用 Canva 做图"
+      ],
+      "weight": 0.3,
+      "color": "#d4917a",
+      "glyph": "L",
+      "traits": [
+        "外向好学",
+        "效率意识弱",
+        "依赖视觉提示"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": true,
+      "exitReason": "timeout",
+      "durationSec": 104.59
+    },
+    {
+      "id": "a02",
+      "name": "Kenji Okada",
+      "age": 45,
+      "role": "财务分析师",
+      "tech": 3,
+      "tone": "怀疑",
+      "preferences": [
+        "数据安全第一",
+        "讨厌花哨界面",
+        "要求操作可逆"
+      ],
+      "knownContext": [
+        "每天用 Excel 和 SAP",
+        "担心云端数据泄露",
+        "曾因机翻错误吃过亏"
+      ],
+      "weight": 0.2,
+      "color": "#6b8cae",
+      "glyph": "K",
+      "traits": [
+        "保守谨慎",
+        "数据敏感",
+        "务实导向"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "explored",
+      "durationSec": 120.394
+    }
+  ],
+  "activity": [
+    {
+      "t": "00:00:00",
+      "agent": "a01",
+      "kind": "enter",
+      "text": "进入 localhost:8200/17-monolingual/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/17-monolingual/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a01",
+      "kind": "observation",
+      "text": "打开了一个设置页面，有搜索框、输入框、时区选择器和保存/取消按钮。看起来像是某种应用配置面板。",
+      "sentiment": 0,
+      "shot": "shots/a01-00.jpg"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a03",
+      "kind": "enter",
+      "text": "进入 localhost:8200/17-monolingual/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/17-monolingual/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a03",
+      "kind": "confused",
+      "text": "看到的是一个配置页面，有\"明镜内部\"和\"mingjing-team\"的输入框，还有时区选择。这看起来像是团队或同步相关的设置。但我不太确定这是什么产品，以及为什么会有这些字段。",
+      "sentiment": -1,
+      "shot": "shots/a03-00.jpg"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a04",
+      "kind": "enter",
+      "text": "进入 localhost:8200/17-monolingual/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/17-monolingual/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a04",
+      "kind": "click",
+      "text": "先看看这个页面长什么样",
+      "sentiment": 0,
+      "url": "http://localhost:8200/17-monolingual/site/",
+      "shot": "shots/a04-00.jpg"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a02",
+      "kind": "enter",
+      "text": "进入 localhost:8200/17-monolingual/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/17-monolingual/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a02",
+      "kind": "observation",
+      "text": "打开了一个看起来像设置页面的东西。有搜索框、\"明镜内部\"、\"mingjing-team\"、时区选择，还有保存/取消按钮。底下还有个图片在加载。我需要先看看全貌。",
+      "sentiment": 0,
+      "shot": "shots/a02-00.jpg"
+    },
+    {
+      "t": "00:06:98",
+      "agent": "a02",
+      "kind": "observation",
+      "text": "看起来是个设置页面，左边有导航项\"Personal Access Tokens\"，右边是表单。表单里有\"明镜内部\"和\"mingjing-team\"这样的预填值，还有一个时区选择器。是某种API Token管理界面？我想确认这个是做什么的。",
+      "sentiment": 0,
+      "shot": "shots/a02-02.jpg"
+    },
+    {
+      "t": "00:07:98",
+      "agent": "a04",
+      "kind": "confused",
+      "text": "这个页面看起来像是某个设置页面？但我只看到了一些表单字段，看不到全貌。让我先往下滑看看页面的其他部分。",
+      "sentiment": -1,
+      "shot": "shots/a04-02.jpg"
+    },
+    {
+      "t": "00:09:60",
+      "agent": "a01",
+      "kind": "click",
+      "text": "搜索框是最常用的入口，想看看有哪些可配置的选项",
+      "sentiment": 0,
+      "url": "http://localhost:8200/17-monolingual/site/",
+      "shot": "shots/a01-02.jpg"
+    },
+    {
+      "t": "00:13:26",
+      "agent": "a01",
+      "kind": "click",
+      "text": "测试搜索功能，看看有没有相关的设置选项 (typed: 语言)",
+      "sentiment": 0,
+      "shot": "shots/a01-03.jpg"
+    },
+    {
+      "t": "00:17:33",
+      "agent": "a01",
+      "kind": "confused",
+      "text": "搜索\"语言\"后没有任何反应，也没有看到搜索结果。这个搜索功能是即时搜索还是需要按回车？",
+      "sentiment": -1,
+      "shot": "shots/a01-04.jpg"
+    },
+    {
+      "t": "00:18:94",
+      "agent": "a03",
+      "kind": "click",
+      "text": "想看看搜索功能能搜到什么内容",
+      "sentiment": 0,
+      "url": "http://localhost:8200/17-monolingual/site/",
+      "shot": "shots/a03-03.jpg"
+    },
+    {
+      "t": "00:21:51",
+      "agent": "a01",
+      "kind": "shortcut",
+      "text": "试试按回车触发搜索 [Enter]",
+      "sentiment": 0,
+      "url": "http://localhost:8200/17-monolingual/site/",
+      "shot": "shots/a01-05.jpg"
+    },
+    {
+      "t": "00:22:84",
+      "agent": "a03",
+      "kind": "click",
+      "text": "搜索看能搜出什么设置选项 (typed: 团队)",
+      "sentiment": 0,
+      "shot": "shots/a03-04.jpg"
+    },
+    {
+      "t": "00:23:25",
+      "agent": "a04",
+      "kind": "click",
+      "text": "想看看顶部有没有页面标题或导航",
+      "sentiment": 0,
+      "url": "http://localhost:8200/17-monolingual/site/",
+      "shot": "shots/a04-04.jpg"
+    },
+    {
+      "t": "00:24:69",
+      "agent": "a01",
+      "kind": "shortcut",
+      "text": "清除搜索框内容 [Escape]",
+      "sentiment": 0,
+      "url": "http://localhost:8200/17-monolingual/site/",
+      "shot": "shots/a01-06.jpg"
+    },
+    {
+      "t": "00:27:94",
+      "agent": "a04",
+      "kind": "click",
+      "text": "尝试搜索框看看有什么设置选项",
+      "sentiment": 0,
+      "url": "http://localhost:8200/17-monolingual/site/",
+      "shot": "shots/a04-05.jpg"
+    },
+    {
+      "t": "00:29:32",
+      "agent": "a01",
+      "kind": "shortcut",
+      "text": "全选搜索框内容 [Control+a]",
+      "sentiment": 0,
+      "url": "http://localhost:8200/17-monolingual/site/",
+      "shot": "shots/a01-07.jpg"
+    },
+    {
+      "t": "00:31:09",
+      "agent": "a03",
+      "kind": "shortcut",
+      "text": "清除搜索框内容 [Escape]",
+      "sentiment": 0,
+      "url": "http://localhost:8200/17-monolingual/site/",
+      "shot": "shots/a03-05.jpg"
+    },
+    {
+      "t": "00:32:24",
+      "agent": "a04",
+      "kind": "click",
+      "text": "在搜索框输入API看看有什么相关设置 (typed: API)",
+      "sentiment": 0,
+      "shot": "shots/a04-06.jpg"
+    },
+    {
+      "t": "00:32:54",
+      "agent": "a01",
+      "kind": "click",
+      "text": "清空搜索框 (typed: )",
+      "sentiment": 0,
+      "shot": "shots/a01-08.jpg"
+    },
+    {
+      "t": "00:36:08",
+      "agent": "a02",
+      "kind": "click",
+      "text": "我想看看左侧导航有哪些选项，了解这个产品是什么",
+      "sentiment": 0,
+      "url": "http://localhost:8200/17-monolingual/site/",
+      "shot": "shots/a02-06.jpg"
+    },
+    {
+      "t": "00:36:76",
+      "agent": "a03",
+      "kind": "click",
+      "text": "想搜索看看有什么帮助文档",
+      "sentiment": 0,
+      "url": "http://localhost:8200/17-monolingual/site/",
+      "shot": "shots/a03-06.jpg"
+    },
+    {
+      "t": "00:36:95",
+      "agent": "a01",
+      "kind": "click",
+      "text": "看看时区选择器是否能打开",
+      "sentiment": 0,
+      "url": "http://localhost:8200/17-monolingual/site/",
+      "shot": "shots/a01-09.jpg"
+    },
+    {
+      "t": "00:38:91",
+      "agent": "a04",
+      "kind": "shortcut",
+      "text": "清空搜索框内容 [Escape]",
+      "sentiment": 0,
+      "url": "http://localhost:8200/17-monolingual/site/",
+      "shot": "shots/a04-07.jpg"
+    },
+    {
+      "t": "00:40:89",
+      "agent": "a03",
+      "kind": "click",
+      "text": "搜索帮助文档看看这个产品是做什么的 (typed: 帮助)",
+      "sentiment": 0,
+      "shot": "shots/a03-07.jpg"
+    },
+    {
+      "t": "00:43:67",
+      "agent": "a04",
+      "kind": "click",
+      "text": "清空搜索框并重试",
+      "sentiment": 0,
+      "url": "http://localhost:8200/17-monolingual/site/",
+      "shot": "shots/a04-08.jpg"
+    },
+    {
+      "t": "00:46:91",
+      "agent": "a02",
+      "kind": "click",
+      "text": "点击搜索框看看会有什么反应",
+      "sentiment": 0,
+      "url": "http://localhost:8200/17-monolingual/site/",
+      "shot": "shots/a02-08.jpg"
+    },
+    {
+      "t": "00:47:43",
+      "agent": "a01",
+      "kind": "click",
+      "text": "点击页面中间区域，看看有没有更多内容",
+      "sentiment": 0,
+      "url": "http://localhost:8200/17-monolingual/site/",
+      "shot": "shots/a01-11.jpg"
+    },
+    {
+      "t": "00:50:06",
+      "agent": "a04",
+      "kind": "shortcut",
+      "text": "全选搜索框内容 [Control+a]",
+      "sentiment": 0,
+      "url": "http://localhost:8200/17-monolingual/site/",
+      "shot": "shots/a04-09.jpg"
+    },
+    {
+      "t": "00:52:45",
+      "agent": "a02",
+      "kind": "click",
+      "text": "聚焦搜索框",
+      "sentiment": 0,
+      "url": "http://localhost:8200/17-monolingual/site/",
+      "shot": "shots/a02-09.jpg"
+    },
+    {
+      "t": "00:54:01",
+      "agent": "a04",
+      "kind": "click",
+      "text": "清空搜索框 (typed: )",
+      "sentiment": 0,
+      "shot": "shots/a04-10.jpg"
+    },
+    {
+      "t": "00:54:08",
+      "agent": "a03",
+      "kind": "shortcut",
+      "text": "尝试提交搜索 [Enter]",
+      "sentiment": 0,
+      "url": "http://localhost:8200/17-monolingual/site/",
+      "shot": "shots/a03-08.jpg"
+    },
+    {
+      "t": "00:56:64",
+      "agent": "a01",
+      "kind": "rage",
+      "text": "搜索功能形同虚设，输入后没有任何反馈或结果。整个页面只有几个固定字段，翻来翻去就这点东西，没有更多内容可探索。作为用户我已经完全失去兴趣了。",
+      "sentiment": -2,
+      "shot": "shots/a01-12.jpg"
+    },
+    {
+      "t": "00:56:69",
+      "agent": "a02",
+      "kind": "click",
+      "text": "在搜索框输入看看有没有搜索过滤功能 (typed: token)",
+      "sentiment": 0,
+      "shot": "shots/a02-10.jpg"
+    },
+    {
+      "t": "00:58:74",
+      "agent": "a03",
+      "kind": "rage",
+      "text": "这个产品到底是干什么的？我试了搜索帮助，但什么都没发生。页面上只有一些看不懂的配置字段（明镜内部、mingjing-team），我不知道这个工具是做什么的。作为一个PM，我关心的是效率——如果我不能快速理解这是什么东西，我就会关掉去找别的工具。",
+      "sentiment": -2,
+      "shot": "shots/a03-09.jpg"
+    },
+    {
+      "t": "00:59:68",
+      "agent": "a04",
+      "kind": "shortcut",
+      "text": "尝试触发搜索 [Enter]",
+      "sentiment": 0,
+      "url": "http://localhost:8200/17-monolingual/site/",
+      "shot": "shots/a04-11.jpg"
+    },
+    {
+      "t": "01:01:45",
+      "agent": "a01",
+      "kind": "exit",
+      "text": "尝试使用这个设置页面，但页面几乎没有交互功能：搜索框输入后无反应，页面内容极其有限，只有团队名称、频道名和时区三个字段，Save/Cancel按钮无法改变任何状态。整体像一个半成品，完全不知道这个产品能解决什么问题。作为UI设计师，我对这种没有视觉反馈和清晰交互逻辑的界面完全提不起兴趣。",
+      "sentiment": 0,
+      "shot": "shots/a01-13.jpg"
+    },
+    {
+      "t": "01:01:84",
+      "agent": "a02",
+      "kind": "shortcut",
+      "text": "清空搜索框，看看页面是否有变化 [Escape]",
+      "sentiment": 0,
+      "url": "http://localhost:8200/17-monolingual/site/",
+      "shot": "shots/a02-11.jpg"
+    },
+    {
+      "t": "01:04:58",
+      "agent": "a04",
+      "kind": "click",
+      "text": "点击团队名称输入框",
+      "sentiment": 0,
+      "url": "http://localhost:8200/17-monolingual/site/",
+      "shot": "shots/a04-12.jpg"
+    },
+    {
+      "t": "01:06:82",
+      "agent": "a03",
+      "kind": "exit",
+      "text": "花了一分钟多，试了搜索功能但没有任何反应。页面只显示一些看不懂的配置字段（明镜内部、mingjing-team），完全没有产品介绍或使用说明。作为一个PM，我关心的是快速理解这个工具的价值，但这个产品没有给我任何线索——它是什么、能做什么、我为什么需要它。搜索功能的失败让我更失望了，已经没有动力继续探索。",
+      "sentiment": 0,
+      "shot": "shots/a03-10.jpg"
+    },
+    {
+      "t": "01:09:08",
+      "agent": "a04",
+      "kind": "click",
+      "text": "点击Save按钮看看会发生什么",
+      "sentiment": 0,
+      "url": "http://localhost:8200/17-monolingual/site/",
+      "shot": "shots/a04-13.jpg"
+    },
+    {
+      "t": "01:14:70",
+      "agent": "a02",
+      "kind": "click",
+      "text": "点击保存，看看保存后会有什么反馈",
+      "sentiment": 0,
+      "url": "http://localhost:8200/17-monolingual/site/",
+      "shot": "shots/a02-12.jpg"
+    },
+    {
+      "t": "01:19:12",
+      "agent": "a02",
+      "kind": "observation",
+      "text": "一个模型服务的配置页面。我看了半天，不知道这东西能帮我做什么财务工作。表单里的\"明镜内部\"、\"mingjing-team\"是什么意思？是模型ID还是什么？保存后也没有任何提示，不确定设置是否生效。这对我是黑盒子。",
+      "sentiment": -1,
+      "shot": "shots/a02-13.jpg"
+    },
+    {
+      "t": "01:22:76",
+      "agent": "a04",
+      "kind": "confused",
+      "text": "这个页面看起来是个设置面板，有团队名、时区这些配置。但我完全不知道这个产品是做什么的，它能帮运营做什么？没有首页/导航让我了解全貌？之前用 Asana 的时候一进来就知道是个项目管理工具，这里让我有点摸不着头脑。",
+      "sentiment": -2,
+      "shot": "shots/a04-14.jpg"
+    },
+    {
+      "t": "01:26:58",
+      "agent": "a02",
+      "kind": "exit",
+      "text": "看了一圈，是个AI模型服务的配置页面，有API Endpoint、Model ID、Team配置、时区选择这些字段。但我是财务分析师，完全不知道这东西能帮我做什么。而且保存后没有任何反馈，设置是否生效我也不清楚。作为一个数据敏感型用户，不喜欢这种黑盒子操作。",
+      "sentiment": 0,
+      "shot": "shots/a02-14.jpg"
+    },
+    {
+      "t": "01:28:79",
+      "agent": "a04",
+      "kind": "exit",
+      "text": "达到 step safety 上限 (15), 强制结束.",
+      "sentiment": -1
+    }
+  ],
+  "issues": [
+    {
+      "id": "i01",
+      "title": "搜索框输完一点反应都没有",
+      "severity": "high",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "搜索功能形同虚设，输入后没有任何反馈或结果。",
+      "agentRef": "a01",
+      "evidence": 4,
+      "journey": "在页面顶部的搜索框输入了「语言」，尝试按回车、清空、再输入，折腾了半天什么结果都没有。"
+    },
+    {
+      "id": "i02",
+      "title": "页面内容少得可怜",
+      "severity": "high",
+      "agents": 1,
+      "category": "信息架构",
+      "quote": "整个页面只有几个固定字段，翻来翻去就这点东西，没有更多内容可探索。",
+      "agentRef": "a01",
+      "evidence": 3,
+      "journey": "打开设置页面，发现只有团队名称、频道名、时区三个输入框，没有更多层级或内容。"
+    },
+    {
+      "id": "i04",
+      "title": "新用户进来看到配置页，完全不知道这产品是啥",
+      "severity": "high",
+      "agents": 1,
+      "category": "信息架构",
+      "quote": "这到底是干什么的？页面只有配置字段，没有产品介绍。我一个PM连入口都不知道往哪走。",
+      "agentRef": "a03",
+      "evidence": 1,
+      "journey": "进入首页看到配置页面"
+    },
+    {
+      "id": "i05",
+      "title": "搜索功能形同虚设，完全没有响应",
+      "severity": "high",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "我输入了'团队'，按回车，什么都没发生。又试了'帮助'，还是没反应。这功能是不是坏了？",
+      "agentRef": "a03",
+      "evidence": 2,
+      "journey": "在搜索框输入内容尝试搜索"
+    },
+    {
+      "id": "i06",
+      "title": "没有任何引导或说明，不知道下一步该干嘛",
+      "severity": "high",
+      "agents": 1,
+      "category": "学习成本",
+      "quote": "看完页面我一脸懵，没有任何提示告诉我这个产品怎么用、需要配置什么、配置完能干什么。",
+      "agentRef": "a03",
+      "evidence": 1,
+      "journey": "扫视整个页面寻找入口"
+    },
+    {
+      "id": "i07",
+      "title": "进来就见设置页，不知道产品是干嘛的",
+      "severity": "high",
+      "agents": 1,
+      "category": "信息架构",
+      "quote": "这个页面看起来是个设置面板，有团队名、时区这些配置。但我完全不知道这个产品是做什么的，它能帮运营做什么？没有首页/导航让我了解全貌？",
+      "agentRef": "a04",
+      "evidence": 4,
+      "journey": "刚进入 http://localhost:8200/17-monolingual/site/ 时"
+    },
+    {
+      "id": "i08",
+      "title": "没有引导，不知道从哪开始",
+      "severity": "high",
+      "agents": 1,
+      "category": "学习成本",
+      "quote": "让我先往下滑看看页面的其他部分。我以为下面可能有说明或者首页内容，结果还是表单。",
+      "agentRef": "a04",
+      "evidence": 2,
+      "journey": "进入页面后尝试往下滑动探索时"
+    },
+    {
+      "id": "i10",
+      "title": "保存操作后零反馈，不知道有没有生效",
+      "severity": "high",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "保存后没有任何提示，不确定设置是否生效。作为数据敏感型用户，不喜欢这种黑盒子操作。",
+      "agentRef": "a02",
+      "evidence": 1,
+      "journey": "在设置页点击保存按钮后"
+    },
+    {
+      "id": "i11",
+      "title": "字段术语看不懂，表单对我毫无意义",
+      "severity": "high",
+      "agents": 1,
+      "category": "学习成本",
+      "quote": "'明镜内部'和'mingjing-team'是什么意思？是模型ID还是什么？我一个财务分析师完全不知道这些字段能帮我做什么。",
+      "agentRef": "a02",
+      "evidence": 2,
+      "journey": "在设置表单页面观察各字段"
+    },
+    {
+      "id": "i12",
+      "title": "这个产品解决什么问题？我找不到自己的使用场景",
+      "severity": "high",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "我是财务分析师，完全不知道这东西能帮我做什么财务工作。感觉就是个技术配置页面，跟我的日常工作八竿子打不着。",
+      "agentRef": "a02",
+      "evidence": 3,
+      "journey": "在整个页面浏览过程中"
+    },
+    {
+      "id": "i03",
+      "title": "Save/Cancel点了也白点",
+      "severity": "med",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "Save/Cancel按钮无法改变任何状态。",
+      "agentRef": "a01",
+      "evidence": 2,
+      "journey": "尝试点击Save和Cancel按钮，不知道有没有生效，界面也没有任何变化反馈。"
+    },
+    {
+      "id": "i09",
+      "title": "搜索功能感觉没效果，不知道搜什么关键词",
+      "severity": "med",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "清空搜索框并重试... 尝试触发搜索 [Enter]，但好像什么都没发生。",
+      "agentRef": "a04",
+      "evidence": 3,
+      "journey": "在搜索框输入API并按Enter时"
+    }
+  ],
+  "delights": [
+    {
+      "title": "有快捷键支持，清空搜索框挺顺手",
+      "count": 1,
+      "quote": "按 Escape 清空搜索框，这个我记得，Canva 里也有，挺好用的。",
+      "agent": "a04"
+    }
+  ],
+  "features": [
+    {
+      "name": "搜索",
+      "hitCount": 2,
+      "hitRate": 0.5,
+      "completionRate": 0,
+      "avgSentiment": -2,
+      "totalAttempts": 8
+    },
+    {
+      "name": "保存设置",
+      "hitCount": 2,
+      "hitRate": 0.5,
+      "completionRate": 0,
+      "avgSentiment": -1,
+      "totalAttempts": 2
+    },
+    {
+      "name": "页面浏览",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -2,
+      "totalAttempts": 3
+    },
+    {
+      "name": "浏览设置页面",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -2,
+      "totalAttempts": 2
+    },
+    {
+      "name": "搜索功能",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 2
+    },
+    {
+      "name": "搜索过滤",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": 0,
+      "totalAttempts": 2
+    }
+  ],
+  "routesHeat": [
+    {
+      "path": "/17-monolingual/site/",
+      "visits": 28,
+      "dwell": 9,
+      "drop": 0.14285714285714285
+    }
+  ],
+  "sentimentCurve": [
+    {
+      "t": 0,
+      "v": 0.4791666666666667
+    },
+    {
+      "t": 5,
+      "v": 0.4166666666666667
+    },
+    {
+      "t": 10,
+      "v": 0.5
+    },
+    {
+      "t": 15,
+      "v": 0.3333333333333333
+    },
+    {
+      "t": 20,
+      "v": 0.5
+    },
+    {
+      "t": 25,
+      "v": 0.5
+    },
+    {
+      "t": 30,
+      "v": 0.5
+    },
+    {
+      "t": 35,
+      "v": 0.5
+    },
+    {
+      "t": 40,
+      "v": 0.5
+    },
+    {
+      "t": 45,
+      "v": 0.5
+    },
+    {
+      "t": 50,
+      "v": 0.5
+    },
+    {
+      "t": 55,
+      "v": 0.5
+    },
+    {
+      "t": 60,
+      "v": 0.4166666666666667
+    },
+    {
+      "t": 65,
+      "v": 0.4166666666666667
+    },
+    {
+      "t": 70,
+      "v": 0.5
+    },
+    {
+      "t": 75,
+      "v": 0.5
+    },
+    {
+      "t": 80,
+      "v": 0.5
+    },
+    {
+      "t": 85,
+      "v": 0.3333333333333333
+    },
+    {
+      "t": 90,
+      "v": 0.16666666666666666
+    },
+    {
+      "t": 95,
+      "v": 0.5
+    },
+    {
+      "t": 100,
+      "v": 0.3333333333333333
+    }
+  ],
+  "metrics": {
+    "predictedNps": -7,
+    "achievableNps": 100,
+    "taskSuccess": 0,
+    "timeToValueSec": null,
+    "rageClicks": 2,
+    "delightCount": 0
+  },
+  "cost": {
+    "tokensIn": 168662,
+    "tokensOut": 9057,
+    "usd": 0
+  }
+}

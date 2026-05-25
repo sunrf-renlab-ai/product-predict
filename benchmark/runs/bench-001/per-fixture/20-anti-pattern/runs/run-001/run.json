@@ -1,0 +1,638 @@
+{
+  "id": "run-001",
+  "startedAt": "2026-05-25T11:38:12.878Z",
+  "finishedAt": "2026-05-25T11:41:25.948Z",
+  "target": {
+    "url": "http://localhost:8200/20-anti-pattern/site/",
+    "title": "Plain — minimal status pages for engineering teams",
+    "viewport": {
+      "w": 1280,
+      "h": 800
+    }
+  },
+  "personaSetId": "preset",
+  "agents": [
+    {
+      "id": "a01",
+      "name": "林哲远",
+      "age": 34,
+      "role": "后端工程师",
+      "tech": 5,
+      "tone": "怀疑",
+      "preferences": [
+        "追求性能极限",
+        "厌恶过度设计",
+        "代码即文档"
+      ],
+      "knownContext": [
+        "主力编辑器 Vim",
+        "用 Postman 测 API 三年",
+        "觉得 VS Code 太重"
+      ],
+      "weight": 0.28,
+      "color": "#6b8cce",
+      "glyph": "L",
+      "traits": [
+        "性能洁癖",
+        "怀疑营销",
+        "资深用户"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": true,
+      "exitReason": "timeout",
+      "durationSec": 22.076
+    },
+    {
+      "id": "a04",
+      "name": "Michael Rodriguez",
+      "age": 42,
+      "role": "技术总监",
+      "tech": 3,
+      "tone": "温和",
+      "preferences": [
+        "团队协作效率",
+        "迁移成本要低",
+        "出了问题能找到人"
+      ],
+      "knownContext": [
+        "团队 20+ 人",
+        "用 Jira 五年想换",
+        "买过 Notion 团队版"
+      ],
+      "weight": 0.25,
+      "color": "#6bce8c",
+      "glyph": "M",
+      "traits": [
+        "管理视角",
+        "成本意识",
+        "风险厌恶"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "frustrated",
+      "durationSec": 61.845
+    },
+    {
+      "id": "a03",
+      "name": "王思琪",
+      "age": 29,
+      "role": "DevOps 工程师",
+      "tech": 4,
+      "tone": "挑剔",
+      "preferences": [
+        "文档要完整",
+        "CLI 要顺手",
+        "不能三天两头崩"
+      ],
+      "knownContext": [
+        "每天用 kubectl",
+        "Terraform 重度用户",
+        "试过 Dagger，觉得学习曲线陡"
+      ],
+      "weight": 0.25,
+      "color": "#ce8f6b",
+      "glyph": "W",
+      "traits": [
+        "实用主义",
+        "重视稳定性",
+        "文档依赖者"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "frustrated",
+      "durationSec": 81.698
+    },
+    {
+      "id": "a02",
+      "name": "Yuki Tanaka",
+      "age": 26,
+      "role": "全栈开发",
+      "tech": 4,
+      "tone": "好奇",
+      "preferences": [
+        "愿为好东西付费",
+        "爱折腾工作流",
+        "follow效率博客"
+      ],
+      "knownContext": [
+        "刚试了 Cursor 三周",
+        "买了 Warp Terminal",
+        "团队在用 Linear 管 issue"
+      ],
+      "weight": 0.22,
+      "color": "#e6c976",
+      "glyph": "Y",
+      "traits": [
+        "工具爱好者",
+        "早期采纳者",
+        "愿意学习"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "frustrated",
+      "durationSec": 192.927
+    }
+  ],
+  "activity": [
+    {
+      "t": "00:00:00",
+      "agent": "a01",
+      "kind": "enter",
+      "text": "进入 localhost:8200/20-anti-pattern/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/20-anti-pattern/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a01",
+      "kind": "exit",
+      "text": "LLM 调用失败：Connection error.",
+      "sentiment": -2
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a04",
+      "kind": "enter",
+      "text": "进入 localhost:8200/20-anti-pattern/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/20-anti-pattern/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a04",
+      "kind": "confused",
+      "text": "标题写着\"20个Web架构反模式\"，这看起来像技术文档或博客，不是项目管理系统。有点困惑——我是来看替代Jira的工具的，但这页面是讲架构反模式的？",
+      "sentiment": 0,
+      "shot": "shots/a04-00.jpg"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a03",
+      "kind": "enter",
+      "text": "进入 localhost:8200/20-anti-pattern/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/20-anti-pattern/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a03",
+      "kind": "click",
+      "text": "了解这个产品是什么，Product 应该能给我产品概览",
+      "sentiment": 0,
+      "url": "http://localhost:8200/20-anti-pattern/site/",
+      "shot": "shots/a03-00.jpg"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a02",
+      "kind": "enter",
+      "text": "进入 localhost:8200/20-anti-pattern/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/20-anti-pattern/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a02",
+      "kind": "observation",
+      "text": "打开页面，看到这是一个 AI 产品页面。我平时就喜欢逛这类工具网站，看看有什么新东西。",
+      "sentiment": 0,
+      "shot": "shots/a02-00.jpg"
+    },
+    {
+      "t": "00:10:96",
+      "agent": "a01",
+      "kind": "exit",
+      "text": "达到 step safety 上限 (15), 强制结束.",
+      "sentiment": -1
+    },
+    {
+      "t": "00:13:32",
+      "agent": "a04",
+      "kind": "confused",
+      "text": "滚动后看到的还是图片为主，内容不太清楚。这页面到底是讲什么的？产品还是博客？让我看看导航里的Product链接。",
+      "sentiment": -1,
+      "shot": "shots/a04-02.jpg"
+    },
+    {
+      "t": "00:17:63",
+      "agent": "a04",
+      "kind": "click",
+      "text": "想了解这个产品的定位",
+      "sentiment": 0,
+      "url": "http://localhost:8200/20-anti-pattern/site/",
+      "shot": "shots/a04-03.jpg"
+    },
+    {
+      "t": "00:22:73",
+      "agent": "a03",
+      "kind": "confused",
+      "text": "又是 AI Agent 平台...最近这种 landing page 看太多了。\"Build & Deploy AI Agents in Minutes\" - 这个 \"in Minutes\" 我要打问号。作为天天和 kubectl, Terraform 打交道的人，我最烦这种模糊的承诺。",
+      "sentiment": -1,
+      "shot": "shots/a03-04.jpg"
+    },
+    {
+      "t": "00:28:29",
+      "agent": "a04",
+      "kind": "rage",
+      "text": "这个页面全是图片为主，内容看不清楚。作为想找Jira替代品的团队管理者，我进来是想了解项目管理工具的，结果这是个讲架构反模式的网站？根本不是我要找的东西。",
+      "sentiment": -2,
+      "shot": "shots/a04-05.jpg"
+    },
+    {
+      "t": "00:36:04",
+      "agent": "a03",
+      "kind": "click",
+      "text": "想快速了解定价和商业模式",
+      "sentiment": 0,
+      "url": "http://localhost:8200/20-anti-pattern/site/",
+      "shot": "shots/a03-05.jpg"
+    },
+    {
+      "t": "00:37:80",
+      "agent": "a04",
+      "kind": "exit",
+      "text": "打开后发现这是个\"20个Web架构反模式\"的页面，完全不是我要找的项目管理工具。页面内容以图片为主，看不清楚实际文字。导航链接Product、Docs、Pricing点击后没有明显变化，内容也看不清楚。作为想找Jira替代品的团队管理者，这个页面完全不是我想要的类型，已经离开。",
+      "sentiment": 0,
+      "shot": "shots/a04-06.jpg"
+    },
+    {
+      "t": "00:40:43",
+      "agent": "a03",
+      "kind": "click",
+      "text": "导航链接没反应，试试 Docs",
+      "sentiment": 0,
+      "url": "http://localhost:8200/20-anti-pattern/site/",
+      "shot": "shots/a03-06.jpg"
+    },
+    {
+      "t": "00:49:19",
+      "agent": "a03",
+      "kind": "click",
+      "text": "所有导航都不工作，试试这个按钮",
+      "sentiment": 0,
+      "url": "http://localhost:8200/20-anti-pattern/site/",
+      "shot": "shots/a03-07.jpg"
+    },
+    {
+      "t": "00:55:67",
+      "agent": "a03",
+      "kind": "rage",
+      "text": "导航栏三个链接全部不响应，Start free 按钮也点不动。就一张静态图？我 DevOps 天天跟 kubectl 和 Terraform 打交道，最烦这种\"花瓶\"产品页面 — 文档链接打不开我怎么评估？",
+      "sentiment": -2,
+      "shot": "shots/a03-08.jpg"
+    },
+    {
+      "t": "01:04:46",
+      "agent": "a03",
+      "kind": "exit",
+      "text": "导航栏三个链接无一响应，Start free 按钮也点不动，就一张静态 landing page 摆在那。作为一个需要评估工具的 DevOps，我完全无法获取任何有用信息：产品是什么、怎么定价、文档在哪里——全部被\"花瓶\"设计挡住了。跟我熟悉的 kubectl/Terraform 比，这种页面让我根本不想继续探索。",
+      "sentiment": 0,
+      "shot": "shots/a03-09.jpg"
+    },
+    {
+      "t": "01:38:95",
+      "agent": "a02",
+      "kind": "confused",
+      "text": "看不到截图内容，只能看到有\"Start free\"按钮。这让我觉得有点奇怪，正常应该能显示页面的。",
+      "sentiment": -1,
+      "shot": "shots/a02-02.jpg"
+    },
+    {
+      "t": "01:53:64",
+      "agent": "a02",
+      "kind": "click",
+      "text": "看看这个产品是什么，价格如何",
+      "sentiment": 0,
+      "url": "http://localhost:8200/20-anti-pattern/site/",
+      "shot": "shots/a02-04.jpg"
+    },
+    {
+      "t": "02:02:01",
+      "agent": "a02",
+      "kind": "confused",
+      "text": "点击了 Pricing 但页面没反应，不知道是不是在加载中还是链接有问题。",
+      "sentiment": -1,
+      "shot": "shots/a02-05.jpg"
+    },
+    {
+      "t": "02:06:47",
+      "agent": "a02",
+      "kind": "click",
+      "text": "想看看这个产品能做什么",
+      "sentiment": 0,
+      "url": "http://localhost:8200/20-anti-pattern/site/",
+      "shot": "shots/a02-06.jpg"
+    },
+    {
+      "t": "02:12:34",
+      "agent": "a02",
+      "kind": "rage",
+      "text": "导航链接点什么都没反应，Product、Pricing 都点过了。感觉这网站是坏掉的，或者是那种只有静态展示的页面。有点烦躁了。",
+      "sentiment": -2,
+      "shot": "shots/a02-07.jpg"
+    },
+    {
+      "t": "02:16:34",
+      "agent": "a02",
+      "kind": "click",
+      "text": "试试这个按钮能不能让我注册或体验产品",
+      "sentiment": 0,
+      "url": "http://localhost:8200/20-anti-pattern/site/",
+      "shot": "shots/a02-08.jpg"
+    },
+    {
+      "t": "02:24:00",
+      "agent": "a02",
+      "kind": "click",
+      "text": "最后试试文档链接能不能打开",
+      "sentiment": 0,
+      "url": "http://localhost:8200/20-anti-pattern/site/",
+      "shot": "shots/a02-09.jpg"
+    },
+    {
+      "t": "02:34:91",
+      "agent": "a02",
+      "kind": "rage",
+      "text": "试了所有导航链接：Product、Pricing、Docs、Start free 按钮——一个都不工作。这完全是个死页面。浪费我时间。",
+      "sentiment": -3,
+      "shot": "shots/a02-10.jpg"
+    },
+    {
+      "t": "02:47:37",
+      "agent": "a02",
+      "kind": "exit",
+      "text": "这个网站几乎是不可用的——我尝试点击了所有导航链接（Product、Pricing、Docs）和 Start free 按钮，全部没有任何反应。页面似乎只显示了一张大图但无法交互。作为一个对效率工具感兴趣的用户，这种体验让我完全没有继续探索的欲望，直接关掉。",
+      "sentiment": 0,
+      "shot": "shots/a02-11.jpg"
+    }
+  ],
+  "issues": [
+    {
+      "id": "i01",
+      "title": "入口就失败了，用户没有第二次机会",
+      "severity": "high",
+      "agents": 1,
+      "category": "性能感知",
+      "quote": "什么东西啊，连接都不通？我还以为本地能直接跑呢。",
+      "agentRef": "a01",
+      "evidence": 1,
+      "journey": "进入 URL 后立即失败"
+    },
+    {
+      "id": "i02",
+      "title": "没有任何加载提示或错误信息，空白感很强",
+      "severity": "high",
+      "agents": 1,
+      "category": "情感氛围",
+      "quote": "连个报错都没有，直接一片空白，我不知道是浏览器的问题还是服务没启动。",
+      "agentRef": "a01",
+      "evidence": 1,
+      "journey": "页面加载阶段"
+    },
+    {
+      "id": "i03",
+      "title": "产品定位完全模糊，看不出是PM工具",
+      "severity": "high",
+      "agents": 1,
+      "category": "信息架构",
+      "quote": "标题写着'20个Web架构反模式'，这看起来像技术文档或博客，不是项目管理系统。我进来是想找Jira替代品的，但这页面跟我有什么关系？",
+      "agentRef": "a04",
+      "evidence": 1,
+      "journey": "刚进入 landing page 时"
+    },
+    {
+      "id": "i04",
+      "title": "页面内容看不清楚，无法获取有效信息",
+      "severity": "high",
+      "agents": 1,
+      "category": "视觉节奏",
+      "quote": "滚动后看到的还是图片为主，内容不太清楚。这页面到底是讲什么的？产品还是博客？",
+      "agentRef": "a04",
+      "evidence": 2,
+      "journey": "在首页滚动浏览时"
+    },
+    {
+      "id": "i06",
+      "title": "导航栏全部失灵，产品概貌都看不到",
+      "severity": "high",
+      "agents": 1,
+      "category": "可访问性",
+      "quote": "导航栏三个链接全部不响应，Start free 按钮也点不动。就一张静态图？我 DevOps 天天跟 kubectl 和 Terraform 打交道，最烦这种\"花瓶\"产品页面 — 文档链接打不开我怎么评估？",
+      "agentRef": "a03",
+      "evidence": 5,
+      "journey": "进入首页后，依次点击了 Product、Docs、导航栏里的链接、还有一个按钮"
+    },
+    {
+      "id": "i09",
+      "title": "所有可点击元素都毫无反应，像打开了个死页面",
+      "severity": "high",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "导航链接点什么都没反应，Product、Pricing、Docs、Start free 按钮——一个都不工作。这完全是个死页面。浪费我时间。",
+      "agentRef": "a02",
+      "evidence": 4,
+      "journey": "在首页依次尝试 Product、Pricing、Docs 导航链接和 Start free 按钮"
+    },
+    {
+      "id": "i05",
+      "title": "导航链接点击后没有明显反馈",
+      "severity": "med",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "导航里的Product、Docs、Pricing点击后没有明显变化，内容也看不清楚。我想了解这个产品的定位，结果找不到入口。",
+      "agentRef": "a04",
+      "evidence": 1,
+      "journey": "尝试点击导航链接想了解产品时"
+    },
+    {
+      "id": "i07",
+      "title": "产品定位模糊，\"in Minutes\" 让我本能怀疑",
+      "severity": "med",
+      "agents": 1,
+      "category": "表达文案",
+      "quote": "又是 AI Agent 平台...最近这种 landing page 看太多了。\"Build & Deploy AI Agents in Minutes\" - 这个 \"in Minutes\" 我要打问号。作为天天和 kubectl、Terraform 打交道的人，我最烦这种模糊的承诺。",
+      "agentRef": "a03",
+      "evidence": 1,
+      "journey": "刚进入页面扫视 hero 区域"
+    },
+    {
+      "id": "i08",
+      "title": "找不到任何实质性信息，产品价值主张缺失",
+      "severity": "med",
+      "agents": 1,
+      "category": "信息架构",
+      "quote": "产品是什么、怎么定价、文档在哪里 — 全部被\"花瓶\"设计挡住了。跟我熟悉的 kubectl/Terraform 比，这种页面让我根本不想继续探索。",
+      "agentRef": "a03",
+      "evidence": 3,
+      "journey": "试图点击 Pricing/Docs 了解更多信息但全部失败"
+    },
+    {
+      "id": "i10",
+      "title": "页面内容信息太少，看不出这个产品到底是做什么的",
+      "severity": "med",
+      "agents": 1,
+      "category": "信息架构",
+      "quote": "看不到截图内容，只能看到有 Start free 按钮。这让我觉得有点奇怪，正常应该能显示页面的。",
+      "agentRef": "a02",
+      "evidence": 1,
+      "journey": "刚进入页面时"
+    },
+    {
+      "id": "i11",
+      "title": "从截图猜页面应该很大很壮观，但啥都点不了",
+      "severity": "low",
+      "agents": 1,
+      "category": "视觉节奏",
+      "quote": "页面似乎只显示了一张大图但无法交互。作为一个对效率工具感兴趣的用户，这种体验让我完全没有继续探索的欲望。",
+      "agentRef": "a02",
+      "evidence": 1,
+      "journey": "试图理解页面布局时"
+    }
+  ],
+  "delights": [],
+  "features": [
+    {
+      "name": "点击导航链接",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 5
+    },
+    {
+      "name": "导航体验",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 3
+    },
+    {
+      "name": "访问产品主页",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -2,
+      "totalAttempts": 1
+    },
+    {
+      "name": "CTA 按钮点击",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 1
+    }
+  ],
+  "routesHeat": [
+    {
+      "path": "/20-anti-pattern/site/",
+      "visits": 13,
+      "dwell": 18,
+      "drop": 0.3076923076923077
+    }
+  ],
+  "sentimentCurve": [
+    {
+      "t": 0,
+      "v": 0.4583333333333333
+    },
+    {
+      "t": 5,
+      "v": 0.3333333333333333
+    },
+    {
+      "t": 10,
+      "v": 0.4166666666666667
+    },
+    {
+      "t": 15,
+      "v": 0.16666666666666666
+    },
+    {
+      "t": 20,
+      "v": 0.5
+    },
+    {
+      "t": 25,
+      "v": 0.5
+    },
+    {
+      "t": 30,
+      "v": 0.16666666666666666
+    },
+    {
+      "t": 35,
+      "v": 0.5
+    },
+    {
+      "t": 40,
+      "v": 0.5
+    },
+    {
+      "t": 45,
+      "v": 0.5
+    },
+    {
+      "t": 50,
+      "v": 0.5
+    },
+    {
+      "t": 55,
+      "v": 0.3333333333333333
+    },
+    {
+      "t": 60,
+      "v": 0.3333333333333333
+    },
+    {
+      "t": 65,
+      "v": 0.5
+    },
+    {
+      "t": 70,
+      "v": 0.3333333333333333
+    },
+    {
+      "t": 75,
+      "v": 0.3333333333333333
+    },
+    {
+      "t": 80,
+      "v": 0.5
+    },
+    {
+      "t": 85,
+      "v": 0.5
+    },
+    {
+      "t": 90,
+      "v": 0
+    },
+    {
+      "t": 95,
+      "v": 0
+    },
+    {
+      "t": 100,
+      "v": 0.5
+    }
+  ],
+  "metrics": {
+    "predictedNps": -19,
+    "achievableNps": 65,
+    "taskSuccess": 0,
+    "timeToValueSec": null,
+    "rageClicks": 4,
+    "delightCount": 0
+  },
+  "cost": {
+    "tokensIn": 70603,
+    "tokensOut": 3822,
+    "usd": 0
+  }
+}
