@@ -1,0 +1,952 @@
+{
+  "id": "run-001",
+  "startedAt": "2026-05-26T06:17:40.716Z",
+  "finishedAt": "2026-05-26T06:20:55.340Z",
+  "target": {
+    "url": "http://localhost:8200/12-noisy-notifs/site/",
+    "title": "Pulse — Inbox",
+    "viewport": {
+      "w": 1280,
+      "h": 800
+    }
+  },
+  "personaSetId": "preset-a-team-workspace-s-notificatio",
+  "agents": [
+    {
+      "id": "a03",
+      "name": "Emma Zhang",
+      "age": 29,
+      "role": "项目经理",
+      "tech": 3,
+      "tone": "急躁",
+      "preferences": [
+        "追求快速浏览",
+        "偏好简洁界面",
+        "希望批量操作"
+      ],
+      "knownContext": [
+        "使用企业微信处理日常",
+        "试过 Asana，觉得学习成本高"
+      ],
+      "weight": 0.2,
+      "color": "#f2a7a0",
+      "glyph": "E",
+      "traits": [
+        "急性子",
+        "简洁控",
+        "急躁"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "explored",
+      "durationSec": 106.547
+    },
+    {
+      "id": "a01",
+      "name": "Maya Chen",
+      "age": 31,
+      "role": "产品经理",
+      "tech": 4,
+      "tone": "挑剔",
+      "preferences": [
+        "重视信息清晰度",
+        "注重可定制工作流",
+        "希望快速标记重要事项"
+      ],
+      "knownContext": [
+        "每天用 Notion 记录需求",
+        "试过 Linear，觉得流程不够直观"
+      ],
+      "weight": 0.35,
+      "color": "#e6c976",
+      "glyph": "M",
+      "traits": [
+        "效率控",
+        "细节导向",
+        "挑剔"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "explored",
+      "durationSec": 115.374
+    },
+    {
+      "id": "a04",
+      "name": "李心怡",
+      "age": 27,
+      "role": "运营专员",
+      "tech": 2,
+      "tone": "保守",
+      "preferences": [
+        "关注跨部门协同",
+        "重视信息安全",
+        "不习惯频繁弹窗"
+      ],
+      "knownContext": [
+        "熟悉钉钉的工作流",
+        "未使用过类似工具"
+      ],
+      "weight": 0.15,
+      "color": "#7eb5d6",
+      "glyph": "L",
+      "traits": [
+        "保守",
+        "安全意识",
+        "跨部门协同"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "explored",
+      "durationSec": 118.71
+    },
+    {
+      "id": "a02",
+      "name": "Kenji Okada",
+      "age": 38,
+      "role": "后端工程师",
+      "tech": 5,
+      "tone": "好奇",
+      "preferences": [
+        "喜欢自动化脚本",
+        "关注 API 集成",
+        "对批量操作有兴趣"
+      ],
+      "knownContext": [
+        "团队使用 Slack 接收通知",
+        "试过 Trello，偏好看板式"
+      ],
+      "weight": 0.3,
+      "color": "#a8d5ba",
+      "glyph": "K",
+      "traits": [
+        "技术宅",
+        "自动化爱好者",
+        "好奇"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "explored",
+      "durationSec": 194.345
+    }
+  ],
+  "activity": [
+    {
+      "t": "00:00:00",
+      "agent": "a03",
+      "kind": "enter",
+      "text": "进入 localhost:8200/12-noisy-notifs/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/12-noisy-notifs/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a03",
+      "kind": "observation",
+      "text": "打开了这个页面，看URL是关于\"noisy notifs\"（噪音通知）的。作为一个每天被企业微信轰炸的人，这个主题很吸引我。我想快速扫一眼这是个什么产品。",
+      "sentiment": 0,
+      "shot": "shots/a03-00.jpg"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a01",
+      "kind": "enter",
+      "text": "进入 localhost:8200/12-noisy-notifs/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/12-noisy-notifs/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a01",
+      "kind": "confused",
+      "text": "打开了一个关于\"噪音通知\"的网站。先扫一眼整体布局和主要内容。",
+      "sentiment": 0,
+      "shot": "shots/a01-00.jpg"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a04",
+      "kind": "enter",
+      "text": "进入 localhost:8200/12-noisy-notifs/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/12-noisy-notifs/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a02",
+      "kind": "enter",
+      "text": "进入 localhost:8200/12-noisy-notifs/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/12-noisy-notifs/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a02",
+      "kind": "confused",
+      "text": "看起来是个仪表盘/看板页面，标题是\"Dashboard\"，显示\"Noisy notifications\"相关的任务列表。左边有侧边栏导航。让我仔细看看内容。",
+      "sentiment": 0,
+      "shot": "shots/a02-00.jpg"
+    },
+    {
+      "t": "00:00:03",
+      "agent": "a04",
+      "kind": "observation",
+      "text": "打开页面，先看看整体布局。标题是\"Noisy Notifications Demo\"，看起来是关于通知的演示。这符合页面URL的主题。",
+      "sentiment": 0,
+      "shot": "shots/a04-00.jpg"
+    },
+    {
+      "t": "00:05:72",
+      "agent": "a04",
+      "kind": "observation",
+      "text": "页面内容很简洁，只有一个标题和\"Click to load data\"按钮。这是一个空状态演示。作为运营，我平时用钉钉，习惯了工作流程清晰、功能齐全的界面，这种空白页面让我有点摸不着头脑——不知道点击后会发生什么，也担心会不会突然弹出很多通知。",
+      "sentiment": -1,
+      "shot": "shots/a04-01.jpg"
+    },
+    {
+      "t": "00:09:35",
+      "agent": "a01",
+      "kind": "observation",
+      "text": "看起来是个通知管理工具。有点意思 — 右上角有个通知铃铛图标带\"12\"数字，说明有未读通知。左边有菜单，右侧是通知卡片列表。我注意到有不同类型的通知：会议、产品发布、DevOps问题。这个分类方式挺直觉的。",
+      "sentiment": 1,
+      "shot": "shots/a01-01.jpg"
+    },
+    {
+      "t": "00:10:02",
+      "agent": "a04",
+      "kind": "click",
+      "text": "点击按钮加载数据，看看会发生什么",
+      "sentiment": 0,
+      "url": "http://localhost:8200/12-noisy-notifs/site/",
+      "shot": "shots/a04-02.jpg"
+    },
+    {
+      "t": "00:12:73",
+      "agent": "a02",
+      "kind": "observation",
+      "text": "这是个看板式的任务管理界面，四个列：Backlog、In Progress、In Review、Done。看起来是关于通知噪音管理的项目。标题\"Noisy notifications\"确实戳到了我——作为工程师每天被各种通知轰炸，这种工具如果能解决通知过载问题，我会很感兴趣。",
+      "sentiment": 1,
+      "shot": "shots/a02-02.jpg"
+    },
+    {
+      "t": "00:14:83",
+      "agent": "a04",
+      "kind": "confused",
+      "text": "啊，一下子弹出三个通知框！有To Do、Reminder和Sales促销通知各一个。作为运营，我习惯了钉钉里通知按类型和优先级分层展示，不会一下子全堆在眼前。这种突然弹出的方式让我有种被信息轰炸的感觉，有点烦躁。",
+      "sentiment": -1,
+      "shot": "shots/a04-03.jpg"
+    },
+    {
+      "t": "00:15:45",
+      "agent": "a03",
+      "kind": "confused",
+      "text": "操作失败 (note): expected number, got undefined",
+      "sentiment": -1
+    },
+    {
+      "t": "00:18:42",
+      "agent": "a01",
+      "kind": "click",
+      "text": "点击通知铃铛图标，查看未读通知详情",
+      "sentiment": 0,
+      "url": "http://localhost:8200/12-noisy-notifs/site/",
+      "shot": "shots/a01-02.jpg"
+    },
+    {
+      "t": "00:20:38",
+      "agent": "a02",
+      "kind": "click",
+      "text": "想看看通知收件箱是什么样子",
+      "sentiment": 0,
+      "url": "http://localhost:8200/12-noisy-notifs/site/",
+      "shot": "shots/a02-03.jpg"
+    },
+    {
+      "t": "00:23:03",
+      "agent": "a02",
+      "kind": "delight",
+      "text": "哦，有点意思！显示的是通知收件箱，有不同类型的通知渠道：Slack、PagerDuty、Datadog等。这正好对应我的使用场景——我们团队就是用Slack接收通知的。看起来它能聚合各种来源的通知。",
+      "sentiment": 2,
+      "shot": "shots/a02-04.jpg"
+    },
+    {
+      "t": "00:23:48",
+      "agent": "a04",
+      "kind": "click",
+      "text": "尝试关闭一个通知看看交互",
+      "sentiment": 0,
+      "url": "http://localhost:8200/12-noisy-notifs/site/",
+      "shot": "shots/a04-04.jpg"
+    },
+    {
+      "t": "00:30:70",
+      "agent": "a02",
+      "kind": "click",
+      "text": "想看看通知渠道的配置选项",
+      "sentiment": 0,
+      "url": "http://localhost:8200/12-noisy-notifs/site/",
+      "shot": "shots/a02-05.jpg"
+    },
+    {
+      "t": "00:30:88",
+      "agent": "a03",
+      "kind": "confused",
+      "text": "看到三步流程了：触发→分析噪音→防止疲劳。逻辑清晰，但我找不到明显的\"开始试用\"或\"注册\"按钮。这种产品不注册怎么体验？",
+      "sentiment": 0,
+      "shot": "shots/a03-03.jpg"
+    },
+    {
+      "t": "00:34:20",
+      "agent": "a01",
+      "kind": "delight",
+      "text": "哦，有通知偏好设置页面。三个快捷开关 + 分渠道配置，比我想象中细致。\"仅重要\"这个选项很实用 — 我最烦的就是半夜被非关键通知吵醒。",
+      "sentiment": 2,
+      "shot": "shots/a01-04.jpg"
+    },
+    {
+      "t": "00:39:00",
+      "agent": "a04",
+      "kind": "observation",
+      "text": "关闭按钮可以工作，把Reminder关掉了。剩下的To Do和Sales通知还在。这大概就是\"Noisy Notifications\"的演示——告诉我一次性弹太多通知有多烦人。不过作为一个工具，我更关心的是它能帮我整理和优化这些通知吗？光展示问题可不够，我需要看到解决方案。",
+      "sentiment": 0,
+      "shot": "shots/a04-05.jpg"
+    },
+    {
+      "t": "00:41:33",
+      "agent": "a01",
+      "kind": "observation",
+      "text": "看到了Email、Slack、SMS、Desktop四个标签页，还有免打扰模式、仅重要通知、静音时段等设置。这个隐私时段配置（23:00-07:00）正好戳中我的痛点 — 之前就是因为半夜被钉钉吵醒才把整个群都静音了。",
+      "sentiment": 1,
+      "shot": "shots/a01-05.jpg"
+    },
+    {
+      "t": "00:44:56",
+      "agent": "a03",
+      "kind": "confused",
+      "text": "操作失败 (note): expected number, got undefined",
+      "sentiment": -1
+    },
+    {
+      "t": "00:46:82",
+      "agent": "a02",
+      "kind": "delight",
+      "text": "Silent Hours！这就是我想要的！深夜和工作外的非紧急时段静音通知，这个功能太实用了。我现在Slack晚上11点还会响，完全可以设置个静默时段。还有不同渠道：Email、SMS、Teams、Discord——基本覆盖了常用的。",
+      "sentiment": 2,
+      "shot": "shots/a02-07.jpg"
+    },
+    {
+      "t": "00:48:44",
+      "agent": "a04",
+      "kind": "click",
+      "text": "看看待办列表里有什么",
+      "sentiment": 0,
+      "url": "http://localhost:8200/12-noisy-notifs/site/",
+      "shot": "shots/a04-06.jpg"
+    },
+    {
+      "t": "00:56:37",
+      "agent": "a01",
+      "kind": "click",
+      "text": "想看看Email渠道的具体通知设置",
+      "sentiment": 0,
+      "url": "http://localhost:8200/12-noisy-notifs/site/",
+      "shot": "shots/a01-06.jpg"
+    },
+    {
+      "t": "00:57:55",
+      "agent": "a04",
+      "kind": "rage",
+      "text": "又弹回来了？！每次点击都重新来一遍，这本身就是\"Noisy\"的体现吧……作为一个运营，我平时需要处理各种跨部门消息，最烦的就是信息过载。这个演示确实让我感同身受，但它只展示了问题，没有给我任何解决思路。我需要的是\"怎么让通知不这么吵\"，而不是\"你看通知就是这么吵\"。失望。",
+      "sentiment": -2,
+      "shot": "shots/a04-07.jpg"
+    },
+    {
+      "t": "01:04:83",
+      "agent": "a03",
+      "kind": "confused",
+      "text": "操作失败 (note): expected number, got undefined",
+      "sentiment": -1
+    },
+    {
+      "t": "01:04:98",
+      "agent": "a01",
+      "kind": "delight",
+      "text": "点击Email标签后看到了分类型的开关。Conference meeting我可以关掉 — 会议通知我不需要邮件提醒，有日历就够了。Product launch这种重要的才需要。这个颗粒度我喜欢。",
+      "sentiment": 2,
+      "shot": "shots/a01-07.jpg"
+    },
+    {
+      "t": "01:07:59",
+      "agent": "a04",
+      "kind": "observation",
+      "text": "重复触发了，又来三个通知。这演示确实很直观地展示了\"Noisy\"是什么意思，但我作为潜在用户，心里想的是\"然后呢？\"。如果这是个通知管理工具，我需要看到它怎么帮我解决噪音问题，而不只是把噪音展示给我看。看完了，可以撤了。",
+      "sentiment": -1,
+      "shot": "shots/a04-08.jpg"
+    },
+    {
+      "t": "01:08:56",
+      "agent": "a02",
+      "kind": "click",
+      "text": "想看看规则是怎么配置的",
+      "sentiment": 0,
+      "url": "http://localhost:8200/12-noisy-notifs/site/",
+      "shot": "shots/a02-09.jpg"
+    },
+    {
+      "t": "01:08:75",
+      "agent": "a03",
+      "kind": "confused",
+      "text": "操作失败 (note): expected number, got undefined",
+      "sentiment": -1
+    },
+    {
+      "t": "01:10:13",
+      "agent": "a01",
+      "kind": "observation",
+      "text": "Email的四种类型开关都一目了然。这个产品解决的是我真实痛点：不同类型通知需要不同渠道不同处理方式。现在我已经看明白了它的核心功能。",
+      "sentiment": 1,
+      "shot": "shots/a01-08.jpg"
+    },
+    {
+      "t": "01:16:28",
+      "agent": "a03",
+      "kind": "confused",
+      "text": "看完整个页面了。概念戳中痛点，功能也实用（Notification Inbox智能分组我喜欢），但找不到任何注册入口、演示申请或联系方式。一个落地页没有任何CTA？太奇怪了。我不知道下一步该做什么，只能关掉。",
+      "sentiment": -2,
+      "shot": "shots/a03-09.jpg"
+    },
+    {
+      "t": "01:18:71",
+      "agent": "a02",
+      "kind": "observation",
+      "text": "现在看到规则配置了——Slack、PagerDuty、Email都有各自的规则。看起来每个渠道可以单独设置静音时段和周末模式。这个分层控制挺合理的。",
+      "sentiment": 1,
+      "shot": "shots/a02-10.jpg"
+    },
+    {
+      "t": "01:19:97",
+      "agent": "a04",
+      "kind": "exit",
+      "text": "我体验了这个\"Noisy Notifications\"演示，理解了它想展示的问题——一次性弹出太多通知会很烦。作为运营人员，我平时被各种跨部门消息轰炸，对信息过载很有共鸣。但这个工具只展示了问题本身，没有给出任何解决方案或优化建议。我需要的是\"怎么让通知安静下来\"，而不是\"你看通知就是这么吵\"。看完后我没有动力继续探索，因为没看到它能帮我解决什么实际问题。",
+      "sentiment": 0,
+      "shot": "shots/a04-09.jpg"
+    },
+    {
+      "t": "01:20:21",
+      "agent": "a03",
+      "kind": "exit",
+      "text": "浏览完整个落地页。概念戳中痛点（减少通知噪音），功能展示也清晰（智能分组、按类型过滤等），但页面没有任何行动入口——没有注册、没有Demo申请、没有任何联系方式。作为真实用户，我不知道下一步该做什么，只能离开。",
+      "sentiment": 0,
+      "shot": "shots/a03-10.jpg"
+    },
+    {
+      "t": "01:21:16",
+      "agent": "a01",
+      "kind": "exit",
+      "text": "看了通知管理工具，主打分渠道+分类型的通知过滤。隐私时段（23:00-07:00）、免打扰、仅重要通知这几个功能戳到了我的痛点，比Linear那种一刀切的通知处理合理多了。如果真能让我按场景配置不同通知策略，我会切过来用。",
+      "sentiment": 0,
+      "shot": "shots/a01-09.jpg"
+    },
+    {
+      "t": "01:39:58",
+      "agent": "a02",
+      "kind": "delight",
+      "text": "这个Emergency override太重要了！静音不能把真正的紧急告警也关掉。这个设计很合理——平时安静，但P0级别的问题还是要能叫醒人。",
+      "sentiment": 3,
+      "shot": "shots/a02-12.jpg"
+    },
+    {
+      "t": "01:47:02",
+      "agent": "a02",
+      "kind": "observation",
+      "text": "Rules列表看起来很实用，都是针对不同渠道的静音规则。这个产品的核心价值我理解了——解决通知噪音问题。让我回去看看Dashboard里任务能不能实际管理起来。",
+      "sentiment": 1,
+      "shot": "shots/a02-13.jpg"
+    },
+    {
+      "t": "01:58:94",
+      "agent": "a02",
+      "kind": "click",
+      "text": "想回去看Dashboard的任务管理功能",
+      "sentiment": 0,
+      "url": "http://localhost:8200/12-noisy-notifs/site/",
+      "shot": "shots/a02-14.jpg"
+    },
+    {
+      "t": "02:03:42",
+      "agent": "a02",
+      "kind": "observation",
+      "text": "又回到Dashboard了。看板任务列表，四个状态列（P0/P1/P2/P3优先级），还有负责人和标签。这个看板功能感觉一般，关键是通知管理那部分吸引我。让我快速试试能不能拖动任务。",
+      "sentiment": 2,
+      "shot": "shots/a02-15.jpg"
+    },
+    {
+      "t": "02:08:11",
+      "agent": "a02",
+      "kind": "click",
+      "text": "试试看拖动任务这个基本功能",
+      "sentiment": 0,
+      "url": "http://localhost:8200/12-noisy-notifs/site/",
+      "shot": "shots/a02-16.jpg"
+    },
+    {
+      "t": "02:12:89",
+      "agent": "a02",
+      "kind": "search",
+      "text": "看板点击似乎没什么反应，可能需要拖拽。算了，我已经看到这个产品的核心价值了：通知管理、静音时段、紧急覆盖。任务看板只是个辅助功能。对我这种被通知轰炸的工程师来说，如果团队 notification 噪音问题严重，这个工具会有吸引力。",
+      "sentiment": 0,
+      "shot": "shots/a02-17.jpg"
+    },
+    {
+      "t": "02:30:68",
+      "agent": "a02",
+      "kind": "exit",
+      "text": "探索了这个通知噪音管理工具，主要关注了Dashboard看板和通知配置功能。核心卖点很明确：解决工程师被各种渠道（Slack/PagerDuty/Email等）通知轰炸的问题。Silent Hours（静音时段）和Emergency override（紧急告警不被屏蔽）的组合很实用。任务看板功能比较普通，但配合通知管理功能就很有价值——正好戳中我的痛点。如果团队真的饱受通知噪音困扰，这类工具会考虑使用。",
+      "sentiment": 0,
+      "shot": "shots/a02-18.jpg"
+    }
+  ],
+  "issues": [
+    {
+      "id": "i01",
+      "title": "落地页缺少任何 CTA 入口，无法注册或申请演示",
+      "severity": "high",
+      "agents": 1,
+      "category": "信息架构",
+      "quote": "一个落地页没有任何 CTA？太奇怪了。我不知道下一步该做什么，只能关掉。",
+      "agentRef": "a03",
+      "evidence": 4,
+      "journey": "看完整个页面后，想找注册入口或 Demo 申请入口"
+    },
+    {
+      "id": "i02",
+      "title": "三步流程之后没有引导用户行动的设计",
+      "severity": "high",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "触发→分析噪音→防止疲劳，逻辑清晰，但看完不知道下一步要干嘛。",
+      "agentRef": "a03",
+      "evidence": 1,
+      "journey": "读完三步流程区块后"
+    },
+    {
+      "id": "i09",
+      "title": "一次性弹出三个通知，信息过载令人烦躁",
+      "severity": "high",
+      "agents": 1,
+      "category": "情感氛围",
+      "quote": "有To Do、Reminder和Sales促销通知各一个。这种突然弹出的方式让我有种被信息轰炸的感觉，有点烦躁",
+      "agentRef": "a04",
+      "evidence": 1,
+      "journey": "点击按钮加载数据后，三个通知同时弹出"
+    },
+    {
+      "id": "i10",
+      "title": "只展示问题不提供解决方案，工具价值缺失",
+      "severity": "high",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "这个工具只展示了问题本身，没有给出任何解决方案或优化建议。我需要的是'怎么让通知安静下来'，而不是'你看通知就是这么吵'",
+      "agentRef": "a04",
+      "evidence": 1,
+      "journey": "体验完整个演示后"
+    },
+    {
+      "id": "i13",
+      "title": "看板任务点击后没有任何反应",
+      "severity": "high",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "看板点击似乎没什么反应，可能需要拖拽。但我点了没反应就不知道该怎么办了",
+      "agentRef": "a02",
+      "evidence": 1,
+      "journey": "在Dashboard看板列上尝试点击任务卡片"
+    },
+    {
+      "id": "i03",
+      "title": "功能展示区只有文字说明，没有「免费试用」或「查看 Demo」按钮",
+      "severity": "med",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "Notification Inbox 智能分组我喜欢，但我不能点进去试试吗？",
+      "agentRef": "a03",
+      "evidence": 2,
+      "journey": "看到功能展示区时"
+    },
+    {
+      "id": "i04",
+      "title": "找不到任何联系方式（邮箱、微信、客服入口）",
+      "severity": "med",
+      "agents": 1,
+      "category": "信息架构",
+      "quote": "连个联系方式都没有，我怎么问问题？",
+      "agentRef": "a03",
+      "evidence": 3,
+      "journey": "页面底部找不到任何联系入口"
+    },
+    {
+      "id": "i05",
+      "title": "首页没有说明这个工具怎么工作，进来就看到12条通知有点懵",
+      "severity": "med",
+      "agents": 1,
+      "category": "信息架构",
+      "quote": "打开了一个关于'噪音通知'的网站，先扫一眼整体布局和主要内容——有点confused，不知道这个工具是干嘛的、解决什么问题、我要从哪开始用",
+      "agentRef": "a01",
+      "evidence": 1,
+      "journey": "进入localhost:8200/12-noisy-notifs/site/"
+    },
+    {
+      "id": "i06",
+      "title": "通知列表没有标注时间，看到12条通知但不知道是今天的还是积压了好几天的",
+      "severity": "med",
+      "agents": 1,
+      "category": "信息架构",
+      "quote": "右上角铃铛图标带'12'数字说明有未读通知，但没有时间戳让我判断紧急程度",
+      "agentRef": "a01",
+      "evidence": 1,
+      "journey": "查看通知列表时"
+    },
+    {
+      "id": "i08",
+      "title": "空白页面缺少引导，让人不知该做什么",
+      "severity": "med",
+      "agents": 1,
+      "category": "信息架构",
+      "quote": "这种空白页面让我有点摸不着头脑——不知道点击后会发生什么，也担心会不会突然弹出很多通知",
+      "agentRef": "a04",
+      "evidence": 1,
+      "journey": "首次进入页面时，只看到标题和一个按钮"
+    },
+    {
+      "id": "i11",
+      "title": "每次点击都重新触发通知，交互设计不合理",
+      "severity": "med",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "又弹回来了？！每次点击都重新来一遍，这本身就是'Noisy'的体现吧",
+      "agentRef": "a04",
+      "evidence": 2,
+      "journey": "点击待办列表查看内容时"
+    },
+    {
+      "id": "i12",
+      "title": "没有退出机制或安静模式选项",
+      "severity": "med",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "如果这是个通知管理工具，我需要看到它怎么帮我解决噪音问题，而不只是把噪音展示给我看",
+      "agentRef": "a04",
+      "evidence": 1,
+      "journey": "体验过程中希望有办法让通知安静下来"
+    },
+    {
+      "id": "i14",
+      "title": "缺少拖拽移动任务到其他列的功能",
+      "severity": "med",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "这是看板式工具，拖拽应该是基本功能，但我找不到明显的拖拽入口或者拖拽效果",
+      "agentRef": "a02",
+      "evidence": 1,
+      "journey": "想尝试把In Progress的任务拖到In Review"
+    },
+    {
+      "id": "i07",
+      "title": "跳转通知偏好设置后，没有明显的返回路径说明我在哪里",
+      "severity": "low",
+      "agents": 1,
+      "category": "信息架构",
+      "quote": "点击铃铛后弹出设置面板，但面板和主体页面的层级关系不够清晰，我不确定这个设置是弹层还是新页面",
+      "agentRef": "a01",
+      "evidence": 1,
+      "journey": "点击通知铃铛后弹出设置面板时"
+    },
+    {
+      "id": "i15",
+      "title": "Kanban的列宽在窄屏下可能显示不佳",
+      "severity": "low",
+      "agents": 1,
+      "category": "视觉节奏",
+      "quote": "Dashboard的四个列都挤在一起，内容少的时候看起来很空，内容多的时候又可能溢出",
+      "agentRef": "a02",
+      "evidence": 1,
+      "journey": "观察Dashboard的四个状态列"
+    }
+  ],
+  "delights": [
+    {
+      "title": "概念直击痛点：「减少通知噪音」正好是企业微信用户的心声",
+      "count": 1,
+      "quote": "作为一个每天被企业微信轰炸的人，这个主题很吸引我。",
+      "agent": "a03"
+    },
+    {
+      "title": "三步流程（触发→分析→防止）逻辑清晰，易理解",
+      "count": 1,
+      "quote": "触发→分析噪音→防止疲劳，逻辑清晰。",
+      "agent": "a03"
+    },
+    {
+      "title": "三个快捷开关+分渠道配置的隐私时段设置，正好解决我半夜被吵醒的痛点",
+      "count": 1,
+      "quote": "哦，有通知偏好设置页面。三个快捷开关+分渠道配置，比我想象中细致。隐私时段（23:00-07:00）正好戳中我的痛点——之前就是因为半夜被钉钉吵醒才把整个群都静音了",
+      "agent": "a01"
+    },
+    {
+      "title": "Email分类型开关的颗粒度刚刚好，可以关掉Conference只保留Product launch",
+      "count": 1,
+      "quote": "Conference meeting我可以关掉——会议通知我不需要邮件提醒，有日历就够了。Product launch这种重要的才需要。这个颗粒度我喜欢",
+      "agent": "a01"
+    },
+    {
+      "title": "关闭按钮操作流畅，交互反馈清晰",
+      "count": 1,
+      "quote": "关闭按钮可以工作，把Reminder关掉了",
+      "agent": "a04"
+    },
+    {
+      "title": "Silent Hours功能正好解决我的痛点",
+      "count": 1,
+      "quote": "深夜和工作外的非紧急时段静音通知，这个功能太实用了。我现在Slack晚上11点还会响，完全可以设置个静默时段",
+      "agent": "a02"
+    },
+    {
+      "title": "Emergency override设计合理",
+      "count": 1,
+      "quote": "静音不能把真正的紧急告警也关掉。P0级别的问题还是要能叫醒人，这个设计很合理",
+      "agent": "a02"
+    }
+  ],
+  "features": [
+    {
+      "name": "浏览落地页",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 1,
+      "avgSentiment": 1,
+      "totalAttempts": 1
+    },
+    {
+      "name": "查看三步流程说明",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 1,
+      "avgSentiment": 1,
+      "totalAttempts": 1
+    },
+    {
+      "name": "寻找注册/CTA 入口",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -2,
+      "totalAttempts": 1
+    },
+    {
+      "name": "查看通知列表",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 1,
+      "avgSentiment": 1,
+      "totalAttempts": 1
+    },
+    {
+      "name": "打开通知偏好设置",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 1,
+      "avgSentiment": 2,
+      "totalAttempts": 1
+    },
+    {
+      "name": "切换通知渠道标签(Email/Slack/SMS/Desktop)",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 1,
+      "avgSentiment": 2,
+      "totalAttempts": 1
+    },
+    {
+      "name": "查看分类型通知开关(Conference/Product launch/DevOps/Meeting)",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 1,
+      "avgSentiment": 2,
+      "totalAttempts": 1
+    },
+    {
+      "name": "加载数据",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 1,
+      "avgSentiment": -2,
+      "totalAttempts": 1
+    },
+    {
+      "name": "关闭通知",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 1,
+      "avgSentiment": 0,
+      "totalAttempts": 1
+    },
+    {
+      "name": "查看待办列表",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -2,
+      "totalAttempts": 1
+    },
+    {
+      "name": "查看Dashboard看板",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 1,
+      "avgSentiment": 1,
+      "totalAttempts": 1
+    },
+    {
+      "name": "浏览通知收件箱",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 1,
+      "avgSentiment": 2,
+      "totalAttempts": 1
+    },
+    {
+      "name": "查看通知渠道配置",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 1,
+      "avgSentiment": 2,
+      "totalAttempts": 1
+    },
+    {
+      "name": "查看静音规则配置",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 1,
+      "avgSentiment": 2,
+      "totalAttempts": 1
+    },
+    {
+      "name": "看板任务拖拽",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -1,
+      "totalAttempts": 1
+    }
+  ],
+  "routesHeat": [
+    {
+      "path": "/12-noisy-notifs/site/",
+      "visits": 14,
+      "dwell": 18,
+      "drop": 0.14285714285714285
+    }
+  ],
+  "sentimentCurve": [
+    {
+      "t": 0,
+      "v": 0.48148148148148145
+    },
+    {
+      "t": 5,
+      "v": 0.5416666666666666
+    },
+    {
+      "t": 10,
+      "v": 0.4444444444444444
+    },
+    {
+      "t": 15,
+      "v": 0.6666666666666666
+    },
+    {
+      "t": 20,
+      "v": 0.611111111111111
+    },
+    {
+      "t": 25,
+      "v": 0.5
+    },
+    {
+      "t": 30,
+      "v": 0.6666666666666666
+    },
+    {
+      "t": 35,
+      "v": 0.3333333333333333
+    },
+    {
+      "t": 40,
+      "v": 0.5
+    },
+    {
+      "t": 45,
+      "v": 0.5
+    },
+    {
+      "t": 50,
+      "v": 0.4666666666666666
+    },
+    {
+      "t": 55,
+      "v": 0.4666666666666666
+    },
+    {
+      "t": 60,
+      "v": 0.4666666666666666
+    },
+    {
+      "t": 65,
+      "v": 1
+    },
+    {
+      "t": 70,
+      "v": 0.6666666666666666
+    },
+    {
+      "t": 75,
+      "v": 0.5
+    },
+    {
+      "t": 80,
+      "v": 0.8333333333333334
+    },
+    {
+      "t": 85,
+      "v": 0.5
+    },
+    {
+      "t": 90,
+      "v": 0.5
+    },
+    {
+      "t": 95,
+      "v": 0.5
+    },
+    {
+      "t": 100,
+      "v": 0.5
+    }
+  ],
+  "metrics": {
+    "predictedNps": 6,
+    "achievableNps": 76,
+    "taskSuccess": 0.5,
+    "timeToValueSec": 23.03,
+    "rageClicks": 1,
+    "delightCount": 6
+  },
+  "cost": {
+    "tokensIn": 121674,
+    "tokensOut": 8651,
+    "usd": 0
+  }
+}

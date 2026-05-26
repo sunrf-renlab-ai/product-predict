@@ -1,0 +1,975 @@
+{
+  "id": "run-001",
+  "startedAt": "2026-05-26T06:10:59.925Z",
+  "finishedAt": "2026-05-26T06:13:35.600Z",
+  "target": {
+    "url": "http://localhost:8200/08-stuck-wizard/site/",
+    "title": "Setup — Forge",
+    "viewport": {
+      "w": 1280,
+      "h": 800
+    }
+  },
+  "personaSetId": "preset-a-5-step-setup-wizard-walk-t",
+  "agents": [
+    {
+      "id": "a03",
+      "name": "David Kim",
+      "age": 33,
+      "role": "产品经理",
+      "tech": 4,
+      "tone": "温和",
+      "preferences": [
+        "关注步骤间数据保存",
+        "希望有撤销功能",
+        "喜欢进度提示"
+      ],
+      "knownContext": [
+        "团队使用 Jira",
+        "之前用过 Trello 进行项目管理"
+      ],
+      "weight": 0.3,
+      "color": "#9fc5e8",
+      "glyph": "D",
+      "traits": [
+        "流程控",
+        "细致"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "frustrated",
+      "durationSec": 53.942
+    },
+    {
+      "id": "a02",
+      "name": "Kenji Okada",
+      "age": 36,
+      "role": "前端开发",
+      "tech": 4,
+      "tone": "怀疑",
+      "preferences": [
+        "担心兼容性",
+        "在意学习成本",
+        "重视文档完整性"
+      ],
+      "knownContext": [
+        "使用 GitHub Actions 自动化",
+        "试过 Zapier, 觉得不够灵活"
+      ],
+      "weight": 0.2,
+      "color": "#d4a0a0",
+      "glyph": "K",
+      "traits": [
+        "技术控",
+        "谨慎"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "frustrated",
+      "durationSec": 71.93
+    },
+    {
+      "id": "a04",
+      "name": "李心怡",
+      "age": 44,
+      "role": "传统企业IT支持",
+      "tech": 2,
+      "tone": "保守",
+      "preferences": [
+        "操作要简洁",
+        "不想被频繁弹窗打扰",
+        "偏好离线文档"
+      ],
+      "knownContext": [
+        "日常使用 Excel 进行数据管理",
+        "最近试用了 Zapier, 觉得界面复杂"
+      ],
+      "weight": 0.2,
+      "color": "#e7a1a1",
+      "glyph": "L",
+      "traits": [
+        "保守",
+        "务实"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "frustrated",
+      "durationSec": 104.467
+    },
+    {
+      "id": "a01",
+      "name": "Maya Chen",
+      "age": 29,
+      "role": "创业公司创始人",
+      "tech": 3,
+      "tone": "好奇",
+      "preferences": [
+        "渴望快速上手",
+        "喜欢直观的引导",
+        "关注新功能"
+      ],
+      "knownContext": [
+        "使用 Notion 管理项目",
+        "最近在尝试 Airtable"
+      ],
+      "weight": 0.3,
+      "color": "#b3d1c6",
+      "glyph": "M",
+      "traits": [
+        "探索者",
+        "外向"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "frustrated",
+      "durationSec": 155.343
+    }
+  ],
+  "activity": [
+    {
+      "t": "00:00:00",
+      "agent": "a03",
+      "kind": "enter",
+      "text": "进入 localhost:8200/08-stuck-wizard/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/08-stuck-wizard/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a02",
+      "kind": "enter",
+      "text": "进入 localhost:8200/08-stuck-wizard/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/08-stuck-wizard/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a04",
+      "kind": "enter",
+      "text": "进入 localhost:8200/08-stuck-wizard/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/08-stuck-wizard/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a01",
+      "kind": "enter",
+      "text": "进入 localhost:8200/08-stuck-wizard/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/08-stuck-wizard/site/"
+    },
+    {
+      "t": "00:00:01",
+      "agent": "a03",
+      "kind": "click",
+      "text": "Click to see the current state of the page",
+      "sentiment": 0,
+      "url": "http://localhost:8200/08-stuck-wizard/site/",
+      "shot": "shots/a03-00.jpg"
+    },
+    {
+      "t": "00:00:01",
+      "agent": "a02",
+      "kind": "confused",
+      "text": "页面打开后，只看到一个输入框和Next按钮，图片显示了一个奇怪的向导界面。这是什么？看起来像个多步骤向导，但只有一个步骤。我需要输入什么？完全没有上下文。",
+      "sentiment": -1,
+      "shot": "shots/a02-00.jpg"
+    },
+    {
+      "t": "00:00:01",
+      "agent": "a04",
+      "kind": "observation",
+      "text": "打开了一个本地页面，看起来是MiniMax的翻译产品？页面上有个输入框和Next按钮，中间还有个女士的图片。让我先看看整体内容。",
+      "sentiment": 0,
+      "shot": "shots/a04-00.jpg"
+    },
+    {
+      "t": "00:00:01",
+      "agent": "a01",
+      "kind": "observation",
+      "text": "刚打开页面，看到有输入框和Next按钮，还有张图片。向导类的产品？有点好奇这是做什么的。",
+      "sentiment": 0,
+      "shot": "shots/a01-00.jpg"
+    },
+    {
+      "t": "00:02:57",
+      "agent": "a02",
+      "kind": "observation",
+      "text": "看起来是个向导界面，显示\"Step 1 of 3\"。有一个Collection Name输入框。进度条显示已完成一步。但我不知道这个工具是做什么的，也不知道输入什么内容。这让我有点抵触——没有明确的使用场景说明，我不确定这个工具是否适合我。",
+      "sentiment": 0,
+      "shot": "shots/a02-01.jpg"
+    },
+    {
+      "t": "00:04:25",
+      "agent": "a01",
+      "kind": "click",
+      "text": "想看看输入框能输入什么",
+      "sentiment": 0,
+      "url": "http://localhost:8200/08-stuck-wizard/site/",
+      "shot": "shots/a01-01.jpg"
+    },
+    {
+      "t": "00:06:79",
+      "agent": "a01",
+      "kind": "click",
+      "text": "输入一个测试问题看看Next按钮会做什么 (typed: 我想创建一个项目)",
+      "sentiment": 0,
+      "shot": "shots/a01-02.jpg"
+    },
+    {
+      "t": "00:08:55",
+      "agent": "a04",
+      "kind": "click",
+      "text": "看看输入框里有什么提示文字",
+      "sentiment": 0,
+      "url": "http://localhost:8200/08-stuck-wizard/site/",
+      "shot": "shots/a04-02.jpg"
+    },
+    {
+      "t": "00:09:78",
+      "agent": "a01",
+      "kind": "click",
+      "text": "输入完成了，想看看点击Next会跳转到什么",
+      "sentiment": 0,
+      "url": "http://localhost:8200/08-stuck-wizard/site/",
+      "shot": "shots/a01-03.jpg"
+    },
+    {
+      "t": "00:10:19",
+      "agent": "a03",
+      "kind": "click",
+      "text": "Click to focus the input field and see any placeholder text",
+      "sentiment": 0,
+      "url": "http://localhost:8200/08-stuck-wizard/site/",
+      "shot": "shots/a03-02.jpg"
+    },
+    {
+      "t": "00:13:48",
+      "agent": "a02",
+      "kind": "click",
+      "text": "Focus on the input field to enter a collection name",
+      "sentiment": 0,
+      "url": "http://localhost:8200/08-stuck-wizard/site/",
+      "shot": "shots/a02-02.jpg"
+    },
+    {
+      "t": "00:14:40",
+      "agent": "a03",
+      "kind": "click",
+      "text": "Test what this input field is for (typed: test)",
+      "sentiment": 0,
+      "shot": "shots/a03-03.jpg"
+    },
+    {
+      "t": "00:15:02",
+      "agent": "a01",
+      "kind": "observation",
+      "text": "哇，页面自动生成了5个选项！这是一个智能向导的感觉，跟我输入的问题\"我想创建一个项目\"相关。有点意思。",
+      "sentiment": 2,
+      "shot": "shots/a01-04.jpg"
+    },
+    {
+      "t": "00:15:09",
+      "agent": "a02",
+      "kind": "click",
+      "text": "Enter a test collection name to see what happens next (typed: MyTestCollection)",
+      "sentiment": 0,
+      "shot": "shots/a02-03.jpg"
+    },
+    {
+      "t": "00:16:52",
+      "agent": "a04",
+      "kind": "observation",
+      "text": "原来是翻译向导，Step 2 of 5，显示\"Translate any text\"。让我输入一段中文试试翻译功能。",
+      "sentiment": 0,
+      "shot": "shots/a04-03.jpg"
+    },
+    {
+      "t": "00:17:79",
+      "agent": "a03",
+      "kind": "click",
+      "text": "Try clicking Next to see if anything happens",
+      "sentiment": 0,
+      "url": "http://localhost:8200/08-stuck-wizard/site/",
+      "shot": "shots/a03-04.jpg"
+    },
+    {
+      "t": "00:18:14",
+      "agent": "a01",
+      "kind": "click",
+      "text": "想看看向导的下一步是什么",
+      "sentiment": 0,
+      "url": "http://localhost:8200/08-stuck-wizard/site/",
+      "shot": "shots/a01-05.jpg"
+    },
+    {
+      "t": "00:18:40",
+      "agent": "a02",
+      "kind": "click",
+      "text": "Proceed to the next step to see what else is required",
+      "sentiment": 0,
+      "url": "http://localhost:8200/08-stuck-wizard/site/",
+      "shot": "shots/a02-04.jpg"
+    },
+    {
+      "t": "00:19:44",
+      "agent": "a04",
+      "kind": "click",
+      "text": "输入中文测试翻译功能 (typed: 今天天气真好，我们去公园散步吧)",
+      "sentiment": 0,
+      "shot": "shots/a04-04.jpg"
+    },
+    {
+      "t": "00:20:22",
+      "agent": "a03",
+      "kind": "rage",
+      "text": "Ok, this is clearly broken. The directory is literally called \"stuck-wizard\" - this is intentional. I typed in the input, clicked Next, nothing happens. No loading indicator, no error message, no nothing. This is a frozen wizard. As a PM who relies on workflow tools like Jira and Trello, this is the kind of thing that makes me immediately close the tab and never come back.",
+      "sentiment": -2,
+      "shot": "shots/a03-05.jpg"
+    },
+    {
+      "t": "00:21:72",
+      "agent": "a01",
+      "kind": "observation",
+      "text": "现在出现了很多输入框——数字、文本、多个textarea区域。看来向导是帮用户分步骤填写复杂表单的。不过要填这么多，有点像在做问卷调查...",
+      "sentiment": 0,
+      "shot": "shots/a01-06.jpg"
+    },
+    {
+      "t": "00:28:91",
+      "agent": "a01",
+      "kind": "confused",
+      "text": "滚动之后页面内容变了，但感觉还是需要填很多东西。有点累了，不想一个个填写这些表单。",
+      "sentiment": -1,
+      "shot": "shots/a01-08.jpg"
+    },
+    {
+      "t": "00:29:33",
+      "agent": "a04",
+      "kind": "click",
+      "text": "点击Next按钮查看翻译结果",
+      "sentiment": 0,
+      "url": "http://localhost:8200/08-stuck-wizard/site/",
+      "shot": "shots/a04-05.jpg"
+    },
+    {
+      "t": "00:29:61",
+      "agent": "a03",
+      "kind": "exit",
+      "text": "Tried to interact with this wizard, but it's completely stuck - the Next button does nothing, input field doesn't trigger any response, no loading state, no error, no nothing. Even the URL says \"stuck-wizard\". This is a broken workflow demo. As a PM who needs reliable tooling, I'd close this immediately and not look back.",
+      "sentiment": 0,
+      "shot": "shots/a03-06.jpg"
+    },
+    {
+      "t": "00:31:32",
+      "agent": "a04",
+      "kind": "confused",
+      "text": "点击了Next但好像页面没反应？输入框内容还在，但也没有跳到下一步的迹象。",
+      "sentiment": -1,
+      "shot": "shots/a04-06.jpg"
+    },
+    {
+      "t": "00:34:14",
+      "agent": "a02",
+      "kind": "click",
+      "text": "Proceed to final step to see completion",
+      "sentiment": 0,
+      "url": "http://localhost:8200/08-stuck-wizard/site/",
+      "shot": "shots/a02-08.jpg"
+    },
+    {
+      "t": "00:36:40",
+      "agent": "a02",
+      "kind": "rage",
+      "text": "第三步突然出现这么多输入框，但完全没有标签说明。数字输入框是什么？几个 textarea 又是什么？这完全是让我凭猜测填表，毫无引导可言。我不知道这个向导完成后会做什么，也不知道这些字段的格式要求。\n\n作为一个谨慎的技术人员，这种没有上下文、没有验证提示、不知道最终产出的界面，让我完全没有信任感。我不会继续往下填。\n\n这就像 Zapier 那种需要用户自己理解数据结构的工具一样 —— 学习成本太高，文档又不够清晰，我为什么要花这个时间？",
+      "sentiment": -2,
+      "shot": "shots/a02-09.jpg"
+    },
+    {
+      "t": "00:38:69",
+      "agent": "a01",
+      "kind": "click",
+      "text": "想看看向导的下一步是什么",
+      "sentiment": 0,
+      "url": "http://localhost:8200/08-stuck-wizard/site/",
+      "shot": "shots/a01-09.jpg"
+    },
+    {
+      "t": "00:41:17",
+      "agent": "a02",
+      "kind": "exit",
+      "text": "尝试了这个向导，但第三步突然冒出5个无标签的输入框，没有任何说明或上下文。作为一个重视文档完整性和学习成本的技术人员，这种界面让我完全不知道该填什么、为什么要填、填完会怎样。跟试 Zapier 时的感觉一样——工具本身可能有用，但引导太差，让我没有信心继续。",
+      "sentiment": 0,
+      "shot": "shots/a02-10.jpg"
+    },
+    {
+      "t": "00:42:91",
+      "agent": "a01",
+      "kind": "delight",
+      "text": "啊！这个感觉对了！像是云服务配置向导——选择区域和实例类型。这个流程越来越像 Vercel 或 AWS 的服务配置了。",
+      "sentiment": 2,
+      "shot": "shots/a01-10.jpg"
+    },
+    {
+      "t": "00:46:60",
+      "agent": "a01",
+      "kind": "click",
+      "text": "选择区域",
+      "sentiment": 0,
+      "url": "http://localhost:8200/08-stuck-wizard/site/",
+      "shot": "shots/a01-11.jpg"
+    },
+    {
+      "t": "00:49:33",
+      "agent": "a01",
+      "kind": "shortcut",
+      "text": "选择 EU-West [ArrowDown]",
+      "sentiment": 0,
+      "url": "http://localhost:8200/08-stuck-wizard/site/",
+      "shot": "shots/a01-12.jpg"
+    },
+    {
+      "t": "00:49:64",
+      "agent": "a04",
+      "kind": "click",
+      "text": "再试一次点击Next按钮",
+      "sentiment": 0,
+      "url": "http://localhost:8200/08-stuck-wizard/site/",
+      "shot": "shots/a04-07.jpg"
+    },
+    {
+      "t": "00:52:28",
+      "agent": "a01",
+      "kind": "click",
+      "text": "选择实例类型",
+      "sentiment": 0,
+      "url": "http://localhost:8200/08-stuck-wizard/site/",
+      "shot": "shots/a01-13.jpg"
+    },
+    {
+      "t": "00:54:92",
+      "agent": "a01",
+      "kind": "shortcut",
+      "text": "选择Cold实例类型 [ArrowDown]",
+      "sentiment": 0,
+      "url": "http://localhost:8200/08-stuck-wizard/site/",
+      "shot": "shots/a01-14.jpg"
+    },
+    {
+      "t": "00:56:39",
+      "agent": "a04",
+      "kind": "rage",
+      "text": "连点了两次Next按钮，页面完全没有反应。这是怎么回事？按钮是不是坏了？或者需要先填点什么才能点？这个交互设计让我很困惑。",
+      "sentiment": -2,
+      "shot": "shots/a04-08.jpg"
+    },
+    {
+      "t": "00:59:95",
+      "agent": "a01",
+      "kind": "shortcut",
+      "text": "确认选择 [Enter]",
+      "sentiment": 0,
+      "url": "http://localhost:8200/08-stuck-wizard/site/",
+      "shot": "shots/a01-15.jpg"
+    },
+    {
+      "t": "01:03:14",
+      "agent": "a04",
+      "kind": "shortcut",
+      "text": "尝试用键盘回车来提交 [Enter]",
+      "sentiment": 0,
+      "url": "http://localhost:8200/08-stuck-wizard/site/",
+      "shot": "shots/a04-10.jpg"
+    },
+    {
+      "t": "01:14:88",
+      "agent": "a04",
+      "kind": "rage",
+      "text": "试了点击按钮、按回车键，页面完全没有反应。这个翻译向导完全卡住了，已经花了一分多钟什么都没做成。作为一个务实保守的用户，我需要的是能快速完成任务的工具，而不是在这里耗时间。",
+      "sentiment": -2,
+      "shot": "shots/a04-11.jpg"
+    },
+    {
+      "t": "01:23:05",
+      "agent": "a01",
+      "kind": "observation",
+      "text": "选择了 EU-West 和 Cold，选项好像选好了。不过这整个流程感觉步骤有点多，前面那一大堆表单让人有点犯困。",
+      "sentiment": 0,
+      "shot": "shots/a01-16.jpg"
+    },
+    {
+      "t": "01:27:21",
+      "agent": "a01",
+      "kind": "click",
+      "text": "想看看向导的最后一步是什么",
+      "sentiment": 0,
+      "url": "http://localhost:8200/08-stuck-wizard/site/",
+      "shot": "shots/a01-17.jpg"
+    },
+    {
+      "t": "01:34:74",
+      "agent": "a04",
+      "kind": "exit",
+      "text": "页面上有个翻译向导（Step 2 of 5），我输入了中文想测试翻译功能，但是Next按钮点击后完全没有任何反应，不管点几次还是按回车键，页面都卡在原地不动。一分半钟过去了，什么都没做成。对于我这种务实保守、需要快速完成任务的传统IT用户来说，这种卡住的体验让我直接放弃。",
+      "sentiment": 0,
+      "shot": "shots/a04-12.jpg"
+    },
+    {
+      "t": "01:36:37",
+      "agent": "a01",
+      "kind": "click",
+      "text": "完成向导流程",
+      "sentiment": 0,
+      "url": "http://localhost:8200/08-stuck-wizard/site/",
+      "shot": "shots/a01-18.jpg"
+    },
+    {
+      "t": "01:44:35",
+      "agent": "a01",
+      "kind": "confused",
+      "text": "点完 Finish 后页面只显示一张图片，没有反馈信息。感觉完成后的状态不够清晰，不知道配置到底保存了没有。",
+      "sentiment": -1,
+      "shot": "shots/a01-19.jpg"
+    },
+    {
+      "t": "01:49:16",
+      "agent": "a01",
+      "kind": "rage",
+      "text": "这流程结束得太突然了！前面让我填了那么多东西，最后就一个空白页配图片？感觉像是在走一个空壳流程，没有告诉我\"项目创建成功\"或者展示配置摘要。如果这是一个真实产品，我大概会怀疑它有没有正常工作。",
+      "sentiment": -2,
+      "shot": "shots/a01-20.jpg"
+    },
+    {
+      "t": "01:55:89",
+      "agent": "a01",
+      "kind": "exit",
+      "text": "我体验了一个向导式创建流程。优点是第一步用自然语言输入后能自动生成选项，这个交互很聪明。但中间步骤太多太杂，尤其是那些大段落的表单填写让人疲劳。最后 Finish 后只有一个图片页面，没有任何成功反馈或摘要，这种结束方式让人感到困惑和失落——如果真的是在创建项目，我不会确信它是否真的成功了。",
+      "sentiment": 0,
+      "shot": "shots/a01-21.jpg"
+    }
+  ],
+  "issues": [
+    {
+      "id": "i01",
+      "title": "Next 按钮点击后完全无响应",
+      "severity": "high",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "我点了 Next，什么都没发生，连个转圈都没有。这是个死按钮吧？",
+      "agentRef": "a03",
+      "evidence": 1,
+      "journey": "在 wizard 的某个步骤页面，输入了内容后点击 Next"
+    },
+    {
+      "id": "i02",
+      "title": "输入框内容提交后无任何反馈",
+      "severity": "high",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "我在输入框里打了 test，敲了回车，什么都没变，感觉像是打到空气里",
+      "agentRef": "a03",
+      "evidence": 1,
+      "journey": "在输入字段中输入文字后"
+    },
+    {
+      "id": "i03",
+      "title": "操作失败时无错误提示",
+      "severity": "high",
+      "agents": 1,
+      "category": "情感氛围",
+      "quote": "我做了操作，但没有告诉我出了什么问题，我甚至不知道是失败了还是卡住了",
+      "agentRef": "a03",
+      "evidence": 1,
+      "journey": "点击 Next 之后无反应时"
+    },
+    {
+      "id": "i05",
+      "title": "wizard 整体处于不可用状态",
+      "severity": "high",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "URL 都叫 stuck-wizard 了，明显是个坏掉的 demo，跟正常的任务管理工具差太远了",
+      "agentRef": "a03",
+      "evidence": 1,
+      "journey": "整个页面加载完成后"
+    },
+    {
+      "id": "i06",
+      "title": "第一步没有任何工具用途说明，不知道我为什么需要创建 collection",
+      "severity": "high",
+      "agents": 1,
+      "category": "信息架构",
+      "quote": "这是什么？看起来像个多步骤向导，但只有一个步骤。我需要输入什么？完全没有上下文。",
+      "agentRef": "a02",
+      "evidence": 1,
+      "journey": "Step 1 of 3 页面"
+    },
+    {
+      "id": "i07",
+      "title": "第三步突然出现 5 个无标签输入框，全靠猜",
+      "severity": "high",
+      "agents": 1,
+      "category": "表达文案",
+      "quote": "第三步突然出现这么多输入框，但完全没有标签说明。数字输入框是什么？几个 textarea 又是什么？这完全是让我凭猜测填表，毫无引导可言。",
+      "agentRef": "a02",
+      "evidence": 1,
+      "journey": "Step 3 of 3 页面"
+    },
+    {
+      "id": "i11",
+      "title": "Next按钮点击后完全无反应",
+      "severity": "high",
+      "agents": 1,
+      "category": "性能感知",
+      "quote": "按钮是不是坏了？或者需要先填点什么才能点？这个交互设计让我很困惑。",
+      "agentRef": "a04",
+      "evidence": 3,
+      "journey": "在翻译向导Step 2页面输入文本后点击Next按钮"
+    },
+    {
+      "id": "i12",
+      "title": "没有加载状态/处理反馈",
+      "severity": "high",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "点了按钮之后页面什么都没变，我不知道它是正在处理还是已经卡死了。",
+      "agentRef": "a04",
+      "evidence": 2,
+      "journey": "点击Next后等待过程中"
+    },
+    {
+      "id": "i13",
+      "title": "没有错误提示或引导信息",
+      "severity": "high",
+      "agents": 1,
+      "category": "表达文案",
+      "quote": "连点了两次Next按钮，页面完全没有反应。这是怎么回事？",
+      "agentRef": "a04",
+      "evidence": 2,
+      "journey": "多次点击Next无效后"
+    },
+    {
+      "id": "i16",
+      "title": "Finish后只显示图片，没有成功反馈或配置摘要",
+      "severity": "high",
+      "agents": 1,
+      "category": "情感氛围",
+      "quote": "这流程结束得太突然了！前面让我填了那么多东西，最后就一个空白页配图片？感觉像是在走一个空壳流程，没有告诉我'项目创建成功'或者展示配置摘要。如果这是一个真实产品，我大概会怀疑它有没有正常工作。",
+      "agentRef": "a01",
+      "evidence": 1,
+      "journey": "点击 Finish 按钮后的页面"
+    },
+    {
+      "id": "i17",
+      "title": "第二步表单字段过多，无进度提示",
+      "severity": "high",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "滚动之后页面内容变了，但感觉还是需要填很多东西。有点累了，不想一个个填写这些表单。",
+      "agentRef": "a01",
+      "evidence": 2,
+      "journey": "向导第二步，填写多个表单字段"
+    },
+    {
+      "id": "i04",
+      "title": "没有 loading 状态指示",
+      "severity": "med",
+      "agents": 1,
+      "category": "性能感知",
+      "quote": "点了一下 Next，我不知道它是正在处理还是完全没在响应，没有个转圈让我等等",
+      "agentRef": "a03",
+      "evidence": 1,
+      "journey": "点击 Next 后等待过程中"
+    },
+    {
+      "id": "i08",
+      "title": "全程没有字段格式说明和验证反馈",
+      "severity": "med",
+      "agents": 1,
+      "category": "学习成本",
+      "quote": "我不知道这个向导完成后会做什么，也不知道这些字段的格式要求。",
+      "agentRef": "a02",
+      "evidence": 1,
+      "journey": "整个向导流程"
+    },
+    {
+      "id": "i09",
+      "title": "没有告知完成后的产出是什么",
+      "severity": "med",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "我不知道这些字段的格式要求。跟 Zapier 那种需要用户自己理解数据结构的工具一样。",
+      "agentRef": "a02",
+      "evidence": 1,
+      "journey": "Step 3 of 3 页面"
+    },
+    {
+      "id": "i14",
+      "title": "回车键提交也不起作用",
+      "severity": "med",
+      "agents": 1,
+      "category": "可访问性",
+      "quote": "试了点击按钮、按回车键，页面都卡在原地不动。",
+      "agentRef": "a04",
+      "evidence": 1,
+      "journey": "尝试用键盘Enter键提交表单"
+    },
+    {
+      "id": "i18",
+      "title": "表单字段标签和用途不清晰",
+      "severity": "med",
+      "agents": 1,
+      "category": "信息架构",
+      "quote": "出现了很多输入框——数字、文本、多个textarea区域。不知道这些是填什么用的。",
+      "agentRef": "a01",
+      "evidence": 1,
+      "journey": "向导第二步表单"
+    },
+    {
+      "id": "i10",
+      "title": "进度条只显示步骤数，不说明每步的目的",
+      "severity": "low",
+      "agents": 1,
+      "category": "信息架构",
+      "quote": "显示'Step 1 of 3'，但我不知道第一步是要做什么。",
+      "agentRef": "a02",
+      "evidence": 1,
+      "journey": "Step 1 of 3 页面"
+    },
+    {
+      "id": "i15",
+      "title": "输入框内容一直保留，没有清空或反馈",
+      "severity": "low",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "输入框内容还在，但也没有跳到下一步的迹象。",
+      "agentRef": "a04",
+      "evidence": 1,
+      "journey": "多次尝试提交后观察页面状态"
+    },
+    {
+      "id": "i19",
+      "title": "选项选择后没有明确选中状态",
+      "severity": "low",
+      "agents": 1,
+      "category": "视觉节奏",
+      "quote": "选择了 EU-West 和 Cold，选项好像选好了。但不太确定是不是真的选上了。",
+      "agentRef": "a01",
+      "evidence": 1,
+      "journey": "选择区域和实例类型时"
+    }
+  ],
+  "delights": [
+    {
+      "title": "页面整体布局看起来正规，有输入框和操作按钮",
+      "count": 1,
+      "quote": "打开页面看到有个输入框和Next按钮，中间还有个女士的图片，看起来像是正经的翻译产品。",
+      "agent": "a04"
+    },
+    {
+      "title": "自然语言输入后自动生成相关选项",
+      "count": 1,
+      "quote": "哇，页面自动生成了5个选项！这是一个智能向导的感觉，跟我输入的问题'我想创建一个项目'相关。有点意思。",
+      "agent": "a01"
+    },
+    {
+      "title": "云服务配置步骤感觉很熟悉",
+      "count": 1,
+      "quote": "这个感觉对了！像是云服务配置向导——选择区域和实例类型。这个流程越来越像 Vercel 或 AWS 的服务配置了。",
+      "agent": "a01"
+    }
+  ],
+  "features": [
+    {
+      "name": "提交翻译请求",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 5
+    },
+    {
+      "name": "输入表单内容",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -2,
+      "totalAttempts": 1
+    },
+    {
+      "name": "点击 Next 按钮",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 1
+    },
+    {
+      "name": "多步骤向导",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 1
+    },
+    {
+      "name": "填写 collection name",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 1,
+      "avgSentiment": -1,
+      "totalAttempts": 1
+    },
+    {
+      "name": "翻译输入",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -2,
+      "totalAttempts": 1
+    },
+    {
+      "name": "自然语言生成选项",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 1,
+      "avgSentiment": 2,
+      "totalAttempts": 1
+    },
+    {
+      "name": "填写表单",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -2,
+      "totalAttempts": 1
+    },
+    {
+      "name": "选择配置项",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 1,
+      "avgSentiment": 1,
+      "totalAttempts": 1
+    },
+    {
+      "name": "完成向导",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 1,
+      "avgSentiment": -2,
+      "totalAttempts": 1
+    }
+  ],
+  "routesHeat": [
+    {
+      "path": "/08-stuck-wizard/site/",
+      "visits": 25,
+      "dwell": 9,
+      "drop": 0.16
+    }
+  ],
+  "sentimentCurve": [
+    {
+      "t": 0,
+      "v": 0.48333333333333334
+    },
+    {
+      "t": 5,
+      "v": 0.5
+    },
+    {
+      "t": 10,
+      "v": 0.5666666666666667
+    },
+    {
+      "t": 15,
+      "v": 0.4444444444444444
+    },
+    {
+      "t": 20,
+      "v": 0.3333333333333333
+    },
+    {
+      "t": 25,
+      "v": 0.4583333333333333
+    },
+    {
+      "t": 30,
+      "v": 0.3333333333333333
+    },
+    {
+      "t": 35,
+      "v": 0.6666666666666666
+    },
+    {
+      "t": 40,
+      "v": 0.5
+    },
+    {
+      "t": 45,
+      "v": 0.3888888888888889
+    },
+    {
+      "t": 50,
+      "v": 0.5
+    },
+    {
+      "t": 55,
+      "v": 0.5
+    },
+    {
+      "t": 60,
+      "v": 0.16666666666666666
+    },
+    {
+      "t": 65,
+      "v": 0.16666666666666666
+    },
+    {
+      "t": 70,
+      "v": 0.5
+    },
+    {
+      "t": 75,
+      "v": 0.5
+    },
+    {
+      "t": 80,
+      "v": 0.5
+    },
+    {
+      "t": 85,
+      "v": 0.5
+    },
+    {
+      "t": 90,
+      "v": 0.25
+    },
+    {
+      "t": 95,
+      "v": 0.25
+    },
+    {
+      "t": 100,
+      "v": 0.5
+    }
+  ],
+  "metrics": {
+    "predictedNps": -7,
+    "achievableNps": 100,
+    "taskSuccess": 0,
+    "timeToValueSec": 15.02,
+    "rageClicks": 5,
+    "delightCount": 2
+  },
+  "cost": {
+    "tokensIn": 156278,
+    "tokensOut": 7154,
+    "usd": 0
+  }
+}

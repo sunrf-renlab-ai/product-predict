@@ -1,0 +1,913 @@
+{
+  "id": "run-001",
+  "startedAt": "2026-05-26T06:08:34.163Z",
+  "finishedAt": "2026-05-26T06:10:12.130Z",
+  "target": {
+    "url": "http://localhost:8200/07-lost-search/site/",
+    "title": "Search — Quill Docs",
+    "viewport": {
+      "w": 1280,
+      "h": 800
+    }
+  },
+  "personaSetId": "preset-a-docs-search-page-try-searc",
+  "agents": [
+    {
+      "id": "a01",
+      "name": "Maya Chen",
+      "age": 28,
+      "role": "后端工程师",
+      "tech": 4,
+      "tone": "怀疑",
+      "preferences": [
+        "注重细节",
+        "搜索结果要精准",
+        "希望有代码示例"
+      ],
+      "knownContext": [
+        "曾用 Algolia DocSearch",
+        "使用 Confluence 做内部文档"
+      ],
+      "weight": 0.35,
+      "color": "#5b9bd5",
+      "glyph": "M",
+      "traits": [
+        "细节控",
+        "效率控"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "frustrated",
+      "durationSec": 54.939
+    },
+    {
+      "id": "a04",
+      "name": "王磊",
+      "age": 45,
+      "role": "运维经理",
+      "tech": 2,
+      "tone": "急躁",
+      "preferences": [
+        "快速定位问题",
+        "简洁的文档",
+        "不浪费时间"
+      ],
+      "knownContext": [
+        "常用 Slack 协作",
+        "使用 JIRA 追踪",
+        "曾用 Confluence"
+      ],
+      "weight": 0.15,
+      "color": "#7030a0",
+      "glyph": "W",
+      "traits": [
+        "急躁",
+        "注重效率",
+        "结果导向"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "frustrated",
+      "durationSec": 89.273
+    },
+    {
+      "id": "a02",
+      "name": "Kenji Okada",
+      "age": 24,
+      "role": "产品经理",
+      "tech": 3,
+      "tone": "好奇",
+      "preferences": [
+        "喜欢有示例的搜索",
+        "注重可读性",
+        "快速找到最佳实践"
+      ],
+      "knownContext": [
+        "常用 Notion 记录需求",
+        "试用过 GitBook",
+        "偶尔使用 Stack Overflow"
+      ],
+      "weight": 0.25,
+      "color": "#70ad47",
+      "glyph": "K",
+      "traits": [
+        "好奇心强",
+        "善于探索",
+        "协作意识"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "explored",
+      "durationSec": 90.761
+    },
+    {
+      "id": "a03",
+      "name": "李心怡",
+      "age": 31,
+      "role": "技术写作师",
+      "tech": 4,
+      "tone": "温和",
+      "preferences": [
+        "简洁界面",
+        "搜索结果清晰",
+        "支持全文检索"
+      ],
+      "knownContext": [
+        "使用 GitHub Wiki",
+        "试过 ReadMe"
+      ],
+      "weight": 0.25,
+      "color": "#ed7d31",
+      "glyph": "L",
+      "traits": [
+        "文笔流畅",
+        "结构化思维",
+        "用户友好"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "frustrated",
+      "durationSec": 97.746
+    }
+  ],
+  "activity": [
+    {
+      "t": "00:00:00",
+      "agent": "a01",
+      "kind": "enter",
+      "text": "进入 localhost:8200/07-lost-search/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/07-lost-search/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a01",
+      "kind": "observation",
+      "text": "看起来是个文档搜索网站。导航栏有 Docs、Guides、API、Community、Changelog。搜索框挺显眼的，下面还有分类筛选按钮。",
+      "sentiment": 0,
+      "shot": "shots/a01-00.jpg"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a04",
+      "kind": "enter",
+      "text": "进入 localhost:8200/07-lost-search/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/07-lost-search/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a04",
+      "kind": "click",
+      "text": "我需要先看看页面完整内容，了解这是什么",
+      "sentiment": 0,
+      "url": "http://localhost:8200/07-lost-search/site/",
+      "shot": "shots/a04-00.jpg"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a02",
+      "kind": "enter",
+      "text": "进入 localhost:8200/07-lost-search/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/07-lost-search/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a02",
+      "kind": "click",
+      "text": "Check if the search box is interactive",
+      "sentiment": 0,
+      "url": "http://localhost:8200/07-lost-search/site/",
+      "shot": "shots/a02-00.jpg"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a03",
+      "kind": "enter",
+      "text": "进入 localhost:8200/07-lost-search/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/07-lost-search/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a03",
+      "kind": "click",
+      "text": "Initial load of the documentation site",
+      "sentiment": 0,
+      "url": "http://localhost:8200/07-lost-search/site/",
+      "shot": "shots/a03-00.jpg"
+    },
+    {
+      "t": "00:03:71",
+      "agent": "a04",
+      "kind": "observation",
+      "text": "页面加载完了，看起来是个文档网站？有搜索框和分类按钮。导航栏有Docs、Guides、API、Community、Changelog。中间有个\"Back to results\"按钮，说明之前可能搜过什么。",
+      "sentiment": 0,
+      "shot": "shots/a04-01.jpg"
+    },
+    {
+      "t": "00:03:98",
+      "agent": "a01",
+      "kind": "click",
+      "text": "想试试搜索功能，找点相关内容",
+      "sentiment": 0,
+      "url": "http://localhost:8200/07-lost-search/site/",
+      "shot": "shots/a01-01.jpg"
+    },
+    {
+      "t": "00:06:48",
+      "agent": "a01",
+      "kind": "click",
+      "text": "搜索身份验证相关内容 (typed: authentication)",
+      "sentiment": 0,
+      "shot": "shots/a01-02.jpg"
+    },
+    {
+      "t": "00:06:80",
+      "agent": "a04",
+      "kind": "click",
+      "text": "试试搜索功能，找找有没有运维相关的内容",
+      "sentiment": 0,
+      "url": "http://localhost:8200/07-lost-search/site/",
+      "shot": "shots/a04-02.jpg"
+    },
+    {
+      "t": "00:06:80",
+      "agent": "a02",
+      "kind": "click",
+      "text": "Try searching for \"API\" to see how search works (typed: API)",
+      "sentiment": 0,
+      "shot": "shots/a02-01.jpg"
+    },
+    {
+      "t": "00:08:63",
+      "agent": "a02",
+      "kind": "shortcut",
+      "text": "Trigger search to see results [Enter]",
+      "sentiment": 0,
+      "url": "http://localhost:8200/07-lost-search/site/",
+      "shot": "shots/a02-02.jpg"
+    },
+    {
+      "t": "00:10:00",
+      "agent": "a01",
+      "kind": "shortcut",
+      "text": "触发搜索 [Enter]",
+      "sentiment": 0,
+      "url": "http://localhost:8200/07-lost-search/site/",
+      "shot": "shots/a01-03.jpg"
+    },
+    {
+      "t": "00:10:36",
+      "agent": "a02",
+      "kind": "rage",
+      "text": "输入了 \"API\" 按回车搜索，结果什么都没发生。搜索功能是坏的吗？",
+      "sentiment": -2,
+      "shot": "shots/a02-03.jpg"
+    },
+    {
+      "t": "00:12:86",
+      "agent": "a01",
+      "kind": "confused",
+      "text": "按了Enter但搜索结果没出来？页面完全没变化，这搜索功能到底有没有做啊...",
+      "sentiment": -1,
+      "shot": "shots/a01-04.jpg"
+    },
+    {
+      "t": "00:13:20",
+      "agent": "a04",
+      "kind": "click",
+      "text": "搜索部署相关内容，看看结果如何 (typed: deployment)",
+      "sentiment": 0,
+      "shot": "shots/a04-03.jpg"
+    },
+    {
+      "t": "00:15:55",
+      "agent": "a01",
+      "kind": "rage",
+      "text": "等了几秒还是没反应。搜索框都放到这么大了，结果呢？这体验比我之前用过的 Algolia DocSearch 差太多。",
+      "sentiment": -2,
+      "shot": "shots/a01-05.jpg"
+    },
+    {
+      "t": "00:18:26",
+      "agent": "a02",
+      "kind": "click",
+      "text": "Navigate to Guides section since search isn't working",
+      "sentiment": 0,
+      "url": "http://localhost:8200/07-lost-search/site/",
+      "shot": "shots/a02-04.jpg"
+    },
+    {
+      "t": "00:19:90",
+      "agent": "a03",
+      "kind": "click",
+      "text": "Focus the search input to test search functionality",
+      "sentiment": 0,
+      "url": "http://localhost:8200/07-lost-search/site/",
+      "shot": "shots/a03-01.jpg"
+    },
+    {
+      "t": "00:20:32",
+      "agent": "a04",
+      "kind": "shortcut",
+      "text": "触发搜索 [Enter]",
+      "sentiment": 0,
+      "url": "http://localhost:8200/07-lost-search/site/",
+      "shot": "shots/a04-04.jpg"
+    },
+    {
+      "t": "00:21:11",
+      "agent": "a01",
+      "kind": "click",
+      "text": "试试 Guides 分类筛选",
+      "sentiment": 0,
+      "url": "http://localhost:8200/07-lost-search/site/",
+      "shot": "shots/a01-06.jpg"
+    },
+    {
+      "t": "00:24:01",
+      "agent": "a04",
+      "kind": "rage",
+      "text": "我靠，按了回车啥反应都没有？搜索功能是坏的吗？还是说需要等一会儿？",
+      "sentiment": -2,
+      "shot": "shots/a04-05.jpg"
+    },
+    {
+      "t": "00:24:25",
+      "agent": "a02",
+      "kind": "click",
+      "text": "Go to Docs section to explore content",
+      "sentiment": 0,
+      "url": "http://localhost:8200/07-lost-search/site/",
+      "shot": "shots/a02-05.jpg"
+    },
+    {
+      "t": "00:24:91",
+      "agent": "a03",
+      "kind": "click",
+      "text": "Test search by typing a query for authentication (typed: authentication)",
+      "sentiment": 0,
+      "shot": "shots/a03-02.jpg"
+    },
+    {
+      "t": "00:27:02",
+      "agent": "a01",
+      "kind": "click",
+      "text": "导航到 Guides 页面看看有没有内容",
+      "sentiment": 0,
+      "url": "http://localhost:8200/07-lost-search/site/",
+      "shot": "shots/a01-07.jpg"
+    },
+    {
+      "t": "00:29:72",
+      "agent": "a01",
+      "kind": "rage",
+      "text": "彻底放弃了。搜索不工作，导航链接点不动，页面完全没反应。是个空壳Demo吧？这体验太糟糕了。",
+      "sentiment": -3,
+      "shot": "shots/a01-08.jpg"
+    },
+    {
+      "t": "00:31:03",
+      "agent": "a02",
+      "kind": "click",
+      "text": "Try the Guides filter button to see if it filters content",
+      "sentiment": 0,
+      "url": "http://localhost:8200/07-lost-search/site/",
+      "shot": "shots/a02-06.jpg"
+    },
+    {
+      "t": "00:35:79",
+      "agent": "a01",
+      "kind": "exit",
+      "text": "搜索功能完全不工作，输入关键词按Enter没反应，导航栏链接点击后页面无变化。作为一个需要找文档的后端工程师，这个产品连最基本的搜索都实现不了，已经没有任何理由继续耗下去。",
+      "sentiment": 0,
+      "shot": "shots/a01-09.jpg"
+    },
+    {
+      "t": "00:37:18",
+      "agent": "a03",
+      "kind": "shortcut",
+      "text": "Submit search to see results [Enter]",
+      "sentiment": 0,
+      "url": "http://localhost:8200/07-lost-search/site/",
+      "shot": "shots/a03-03.jpg"
+    },
+    {
+      "t": "00:39:89",
+      "agent": "a04",
+      "kind": "click",
+      "text": "搜索不好用，试试直接点 Guides 分类",
+      "sentiment": 0,
+      "url": "http://localhost:8200/07-lost-search/site/",
+      "shot": "shots/a04-07.jpg"
+    },
+    {
+      "t": "00:40:04",
+      "agent": "a02",
+      "kind": "click",
+      "text": "Clear and retype in search to check for autocomplete",
+      "sentiment": 0,
+      "url": "http://localhost:8200/07-lost-search/site/",
+      "shot": "shots/a02-08.jpg"
+    },
+    {
+      "t": "00:40:88",
+      "agent": "a03",
+      "kind": "click",
+      "text": "Click Guides filter to see if it triggers search results",
+      "sentiment": 0,
+      "url": "http://localhost:8200/07-lost-search/site/",
+      "shot": "shots/a03-04.jpg"
+    },
+    {
+      "t": "00:43:28",
+      "agent": "a02",
+      "kind": "click",
+      "text": "Click back to see search results",
+      "sentiment": 0,
+      "url": "http://localhost:8200/07-lost-search/site/",
+      "shot": "shots/a02-09.jpg"
+    },
+    {
+      "t": "00:47:33",
+      "agent": "a02",
+      "kind": "click",
+      "text": "Try clicking the API button to see if it filters content",
+      "sentiment": 0,
+      "url": "http://localhost:8200/07-lost-search/site/",
+      "shot": "shots/a02-10.jpg"
+    },
+    {
+      "t": "00:47:92",
+      "agent": "a04",
+      "kind": "rage",
+      "text": "点 Guides 也没反应...导航栏完全不工作？这网站有问题吧。",
+      "sentiment": -2,
+      "shot": "shots/a04-08.jpg"
+    },
+    {
+      "t": "00:49:91",
+      "agent": "a03",
+      "kind": "rage",
+      "text": "搜索功能完全失效了。我输入了\"authentication\"，按了Enter，页面一点反应都没有。没有结果出现，没有下拉框，没有任何反馈。这让我感觉很迷茫——是我的操作方式不对，还是搜索功能就是坏的？我作为用户遇到这种情况会直接放弃这个产品。",
+      "sentiment": -2,
+      "shot": "shots/a03-05.jpg"
+    },
+    {
+      "t": "00:50:20",
+      "agent": "a04",
+      "kind": "rage",
+      "text": "导航栏、搜索全都失灵，页面像死的一样。作为用户根本不知道这个站能干嘛。走了。",
+      "sentiment": -3,
+      "shot": "shots/a04-09.jpg"
+    },
+    {
+      "t": "00:53:84",
+      "agent": "a03",
+      "kind": "click",
+      "text": "Try navigating to Docs section to see if basic nav works",
+      "sentiment": 0,
+      "url": "http://localhost:8200/07-lost-search/site/",
+      "shot": "shots/a03-06.jpg"
+    },
+    {
+      "t": "00:54:22",
+      "agent": "a02",
+      "kind": "exit",
+      "text": "尝试用了这个文档站点，搜索功能完全不工作——输入内容后按回车没反应，也没有自动补全。顶部导航和分类按钮（All/Guides/API/Account）也都点不动。唯一看到一点希望的是在搜索框里打字时短暂出现了 \"← Back to results\" 按钮，说明搜索框可能有点状态变化，但随后就一片空白。作为产品经理，我需要找东西时遇到这种情况会直接关掉去别的地方找。",
+      "sentiment": 0,
+      "shot": "shots/a02-11.jpg"
+    },
+    {
+      "t": "00:59:67",
+      "agent": "a04",
+      "kind": "exit",
+      "text": "搜索功能无响应，导航栏点击也无反应，页面像死的一样。尝试了输入\"deployment\"回车、点击导航栏的 Guides，都没有任何效果。完全无法正常使用，留下的唯一印象是这个网站有严重的交互bug。",
+      "sentiment": 0,
+      "shot": "shots/a04-10.jpg"
+    },
+    {
+      "t": "01:05:36",
+      "agent": "a03",
+      "kind": "click",
+      "text": "Check if there's a hidden dropdown or overlay by clicking the Status footer link",
+      "sentiment": 0,
+      "url": "http://localhost:8200/07-lost-search/site/",
+      "shot": "shots/a03-09.jpg"
+    },
+    {
+      "t": "01:10:93",
+      "agent": "a03",
+      "kind": "exit",
+      "text": "搜索功能完全失效，我输入\"authentication\"后没有任何反应，Enter键不起作用，点击分类按钮（All/Guides/API/Account）也没有任何反馈。顶部导航链接（Docs/Guides/API等）点击后也没有任何变化。整个页面看起来像是半成品，搜索栏存在但不起任何作用，导航也不工作。作为一个需要找文档的技术写作者，这种体验让我立刻放弃，会直接转向GitHub Wiki或ReadMe这类可靠的产品。",
+      "sentiment": 0,
+      "shot": "shots/a03-10.jpg"
+    }
+  ],
+  "issues": [
+    {
+      "id": "i01",
+      "title": "搜索框输入后按Enter无反应",
+      "severity": "high",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "按了Enter但搜索结果没出来？页面完全没变化，这搜索功能到底有没有做啊",
+      "agentRef": "a01",
+      "evidence": 1,
+      "journey": "在首页搜索框输入authentication后按Enter"
+    },
+    {
+      "id": "i02",
+      "title": "导航栏Guides链接点击后页面无变化",
+      "severity": "high",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "导航栏链接点击后页面无变化",
+      "agentRef": "a01",
+      "evidence": 1,
+      "journey": "在首页点击导航栏的Guides分类"
+    },
+    {
+      "id": "i03",
+      "title": "所有交互没有反馈，失败无提示",
+      "severity": "high",
+      "agents": 1,
+      "category": "信息架构",
+      "quote": "彻底放弃了，搜索不工作，导航链接点不动，页面完全没反应",
+      "agentRef": "a01",
+      "evidence": 3,
+      "journey": "多次尝试搜索和导航后"
+    },
+    {
+      "id": "i05",
+      "title": "搜索框输入内容后按回车没有任何响应",
+      "severity": "high",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "我靠，按了回车啥反应都没有？搜索功能是坏的吗？还是说需要等一会儿？",
+      "agentRef": "a04",
+      "evidence": 1,
+      "journey": "在首页搜索框输入关键词 deployment 后按 Enter 触发搜索"
+    },
+    {
+      "id": "i06",
+      "title": "顶部导航栏各分类按钮点击后没有反应",
+      "severity": "high",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "点 Guides 也没反应...导航栏完全不工作？这网站有问题吧。",
+      "agentRef": "a04",
+      "evidence": 1,
+      "journey": "搜索失败后尝试点击导航栏的 Guides 分类"
+    },
+    {
+      "id": "i07",
+      "title": "页面功能完全失效，用户无法完成任何操作",
+      "severity": "high",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "导航栏、搜索全都失灵，页面像死的一样。作为用户根本不知道这个站能干嘛。走了。",
+      "agentRef": "a04",
+      "evidence": 2,
+      "journey": "搜索和导航都无响应后彻底放弃"
+    },
+    {
+      "id": "i10",
+      "title": "搜索框按回车无任何响应，搜完就石沉大海",
+      "severity": "high",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "输入了 'API' 按回车搜索，结果什么都没发生。搜索功能是坏的吗？",
+      "agentRef": "a02",
+      "evidence": 3,
+      "journey": "在首页搜索框输入 'API' 并按 Enter 之后"
+    },
+    {
+      "id": "i11",
+      "title": "搜索框没有任何自动补全或实时建议",
+      "severity": "high",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "打字时连个下拉建议都没有，不知道是词没匹配还是功能压根没做",
+      "agentRef": "a02",
+      "evidence": 1,
+      "journey": "在搜索框输入内容的过程中"
+    },
+    {
+      "id": "i12",
+      "title": "顶部 All / Guides / API / Account 分类按钮全部点不动",
+      "severity": "high",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "我想点 API 分类看看内容，结果按钮完全没反应，不知道是禁用还是坏了",
+      "agentRef": "a02",
+      "evidence": 1,
+      "journey": "首页顶部导航区域"
+    },
+    {
+      "id": "i13",
+      "title": "搜索没有任何反馈机制——失败也不报错，空状态也不提示",
+      "severity": "high",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "按完回车什么都不出来，我都不知道是搜到了 0 条还是搜索功能坏了",
+      "agentRef": "a02",
+      "evidence": 1,
+      "journey": "搜索结果应该出现的位置"
+    },
+    {
+      "id": "i16",
+      "title": "搜索框输入后按Enter完全无响应",
+      "severity": "high",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "我输入了\"authentication\"，按了Enter，页面一点反应都没有。没有结果出现，没有下拉框，没有任何反馈。这让我感觉很迷茫——是我的操作方式不对，还是搜索功能就是坏的？",
+      "agentRef": "a03",
+      "evidence": 2,
+      "journey": "在首页搜索框输入查询词后回车"
+    },
+    {
+      "id": "i17",
+      "title": "分类按钮All/Guides/API/Account点击无效",
+      "severity": "high",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "点击分类按钮（All/Guides/API/Account）也没有任何反馈。",
+      "agentRef": "a03",
+      "evidence": 1,
+      "journey": "在首页点击分类过滤按钮"
+    },
+    {
+      "id": "i18",
+      "title": "顶部导航链接Docs/Guides/API等完全无作用",
+      "severity": "high",
+      "agents": 1,
+      "category": "信息架构",
+      "quote": "顶部导航链接（Docs/Guides/API等）点击后也没有任何变化。",
+      "agentRef": "a03",
+      "evidence": 1,
+      "journey": "尝试点击顶部导航菜单"
+    },
+    {
+      "id": "i19",
+      "title": "没有任何操作反馈让用户感到迷失",
+      "severity": "high",
+      "agents": 1,
+      "category": "情感氛围",
+      "quote": "作为用户遇到这种情况会直接放弃这个产品。",
+      "agentRef": "a03",
+      "evidence": 4,
+      "journey": "所有交互操作后"
+    },
+    {
+      "id": "i04",
+      "title": "相比Algolia DocSearch体验差距太大",
+      "severity": "med",
+      "agents": 1,
+      "category": "与竞品对比",
+      "quote": "这体验比我之前用过的Algolia DocSearch差太多",
+      "agentRef": "a01",
+      "evidence": 1,
+      "journey": "搜索失败后与竞品做对比"
+    },
+    {
+      "id": "i08",
+      "title": "没有错误提示或加载状态，用户不知道该等多久",
+      "severity": "med",
+      "agents": 1,
+      "category": "表达文案",
+      "quote": "搜索功能是坏的吗？还是说需要等一会儿？",
+      "agentRef": "a04",
+      "evidence": 1,
+      "journey": "点击搜索或导航后没有任何反馈"
+    },
+    {
+      "id": "i09",
+      "title": "导航栏设计成装饰性，用户被误导点击",
+      "severity": "med",
+      "agents": 1,
+      "category": "信息架构",
+      "quote": "导航栏完全不工作？这网站有问题吧。",
+      "agentRef": "a04",
+      "evidence": 1,
+      "journey": "看到明显的导航栏以为是可点击的，结果是摆设"
+    },
+    {
+      "id": "i14",
+      "title": "出现了 '← Back to results' 按钮却没有实际结果，状态自相矛盾",
+      "severity": "med",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "打字时这个按钮短暂出现，说明搜索框有状态变化，但结果始终不显示，我到底是在什么状态里？",
+      "agentRef": "a02",
+      "evidence": 1,
+      "journey": "搜索框输入过程中"
+    },
+    {
+      "id": "i15",
+      "title": "Guides 区域内部的筛选按钮也点不动",
+      "severity": "med",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "进到 Guides 之后想点里面的筛选按钮，还是没反应，同一套问题",
+      "agentRef": "a02",
+      "evidence": 1,
+      "journey": "Guides 分类页面内"
+    }
+  ],
+  "delights": [
+    {
+      "title": "页面视觉风格看起来比较现代简洁",
+      "count": 1,
+      "quote": "配色和排版还行，至少第一眼看起来是正经文档站的样子。",
+      "agent": "a03"
+    }
+  ],
+  "features": [
+    {
+      "name": "搜索",
+      "hitCount": 2,
+      "hitRate": 0.5,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 4
+    },
+    {
+      "name": "导航分类",
+      "hitCount": 2,
+      "hitRate": 0.5,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 3
+    },
+    {
+      "name": "搜索功能",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 2
+    },
+    {
+      "name": "顶部分类导航",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 2
+    },
+    {
+      "name": "分类筛选按钮",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 2
+    },
+    {
+      "name": "页面浏览",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 1,
+      "avgSentiment": -2,
+      "totalAttempts": 1
+    },
+    {
+      "name": "搜索文档",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 1
+    },
+    {
+      "name": "分类筛选",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 1
+    },
+    {
+      "name": "导航浏览",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 1
+    }
+  ],
+  "routesHeat": [
+    {
+      "path": "/07-lost-search/site/",
+      "visits": 26,
+      "dwell": 8,
+      "drop": 0.15384615384615385
+    }
+  ],
+  "sentimentCurve": [
+    {
+      "t": 0,
+      "v": 0.5
+    },
+    {
+      "t": 5,
+      "v": 0.5
+    },
+    {
+      "t": 10,
+      "v": 0.3888888888888889
+    },
+    {
+      "t": 15,
+      "v": 0.4166666666666667
+    },
+    {
+      "t": 20,
+      "v": 0.16666666666666666
+    },
+    {
+      "t": 25,
+      "v": 0.5
+    },
+    {
+      "t": 30,
+      "v": 0.3333333333333333
+    },
+    {
+      "t": 35,
+      "v": 0.5
+    },
+    {
+      "t": 40,
+      "v": 0.25
+    },
+    {
+      "t": 45,
+      "v": 0.25
+    },
+    {
+      "t": 50,
+      "v": 0.5
+    },
+    {
+      "t": 55,
+      "v": 0.5
+    },
+    {
+      "t": 60,
+      "v": 0.5
+    },
+    {
+      "t": 65,
+      "v": 0.3333333333333333
+    },
+    {
+      "t": 70,
+      "v": 0.08333333333333333
+    },
+    {
+      "t": 75,
+      "v": 0.5
+    },
+    {
+      "t": 80,
+      "v": 0.5
+    },
+    {
+      "t": 85,
+      "v": 0.5
+    },
+    {
+      "t": 90,
+      "v": 0.5
+    },
+    {
+      "t": 95,
+      "v": 0.5
+    },
+    {
+      "t": 100,
+      "v": 0.5
+    }
+  ],
+  "metrics": {
+    "predictedNps": -13,
+    "achievableNps": 100,
+    "taskSuccess": 0,
+    "timeToValueSec": null,
+    "rageClicks": 7,
+    "delightCount": 0
+  },
+  "cost": {
+    "tokensIn": 124265,
+    "tokensOut": 6111,
+    "usd": 0
+  }
+}

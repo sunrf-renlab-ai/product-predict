@@ -1,0 +1,864 @@
+{
+  "id": "run-001",
+  "startedAt": "2026-05-26T06:00:32.658Z",
+  "finishedAt": "2026-05-26T06:03:08.544Z",
+  "target": {
+    "url": "http://localhost:8200/02-dense-pricing/site/",
+    "title": "Pricing — Loop",
+    "viewport": {
+      "w": 1280,
+      "h": 800
+    }
+  },
+  "personaSetId": "preset-a-saas-pricing-page-with-5-pla",
+  "agents": [
+    {
+      "id": "a03",
+      "name": "Lucas Brown",
+      "age": 45,
+      "role": "企业采购经理",
+      "tech": 3,
+      "tone": "挑剔",
+      "preferences": [
+        "要求透明定价",
+        "需要合同条款",
+        "重视 SLA"
+      ],
+      "knownContext": [
+        "之前使用 Salesforce",
+        "对比过 HubSpot"
+      ],
+      "weight": 0.25,
+      "color": "#f7dc6f",
+      "glyph": "L",
+      "traits": [
+        "采购经验",
+        "风险规避",
+        "关注合规"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "frustrated",
+      "durationSec": 59.22
+    },
+    {
+      "id": "a02",
+      "name": "Kenji Okada",
+      "age": 35,
+      "role": "技术负责人",
+      "tech": 5,
+      "tone": "温和",
+      "preferences": [
+        "关注安全合规",
+        "需要 API 集成",
+        "预算有限"
+      ],
+      "knownContext": [
+        "公司使用 GitHub Enterprise",
+        "已有 Jenkins CI"
+      ],
+      "weight": 0.3,
+      "color": "#58d68d",
+      "glyph": "K",
+      "traits": [
+        "技术栈深度",
+        "关注安全",
+        "成本意识"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "frustrated",
+      "durationSec": 89.852
+    },
+    {
+      "id": "a01-1",
+      "name": "Maya Chen",
+      "age": 28,
+      "role": "产品经理",
+      "tech": 4,
+      "tone": "好奇",
+      "preferences": [
+        "重视协作",
+        "看重模板生态",
+        "倾向免费试用"
+      ],
+      "knownContext": [
+        "每天用 Notion",
+        "试过 Linear，觉得界面友好"
+      ],
+      "weight": 0.35,
+      "color": "#7fb3d5",
+      "glyph": "M",
+      "traits": [
+        "效率控",
+        "重视协作",
+        "模板控"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "frustrated",
+      "durationSec": 101.301
+    },
+    {
+      "id": "a01-2",
+      "name": "Maya Chen",
+      "age": 28,
+      "role": "产品经理",
+      "tech": 4,
+      "tone": "好奇",
+      "preferences": [
+        "重视协作",
+        "看重模板生态",
+        "倾向免费试用"
+      ],
+      "knownContext": [
+        "每天用 Notion",
+        "试过 Linear，觉得界面友好"
+      ],
+      "weight": 0.35,
+      "color": "#7fb3d5",
+      "glyph": "M",
+      "traits": [
+        "效率控",
+        "重视协作",
+        "模板控"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "frustrated",
+      "durationSec": 155.757
+    }
+  ],
+  "activity": [
+    {
+      "t": "00:00:00",
+      "agent": "a03",
+      "kind": "enter",
+      "text": "进入 localhost:8200/02-dense-pricing/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/02-dense-pricing/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a03",
+      "kind": "observation",
+      "text": "打开页面，看到导航栏有 Pricing 链接。作为采购，我最关心的就是定价。首页就展示 Pricing 相关内容，节奏不错。",
+      "sentiment": 1,
+      "shot": "shots/a03-00.jpg"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a02",
+      "kind": "enter",
+      "text": "进入 localhost:8200/02-dense-pricing/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/02-dense-pricing/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a02",
+      "kind": "observation",
+      "text": "打开了一个定价页面。标题是\"Dense Pricing\"——这种dense pricing概念在技术产品中不常见，密度定价是什么鬼？先往下滑看看有什么内容。",
+      "sentiment": 0,
+      "shot": "shots/a02-00.jpg"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a01-1",
+      "kind": "enter",
+      "text": "进入 localhost:8200/02-dense-pricing/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/02-dense-pricing/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a01-1",
+      "kind": "observation",
+      "text": "打开了一个产品页面，URL里有\"dense-pricing\"，应该是关于定价方案的。导航栏有Product/Customers/Docs/Pricing/Sign in。页面上有多个\"Start free\"按钮和一个\"Contact sales\"按钮。看起来像是一个SaaS产品的首页。",
+      "sentiment": 0,
+      "shot": "shots/a01-1-00.jpg"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a01-2",
+      "kind": "enter",
+      "text": "进入 localhost:8200/02-dense-pricing/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/02-dense-pricing/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a01-2",
+      "kind": "confused",
+      "text": "打开了一个定价页面，看导航栏有 Product, Customers, Docs, Pricing, Sign in，应该是某个 SaaS 产品。先扫一眼整体布局，了解这是什么产品、定价结构。",
+      "sentiment": 0,
+      "shot": "shots/a01-2-00.jpg"
+    },
+    {
+      "t": "00:09:26",
+      "agent": "a01-1",
+      "kind": "confused",
+      "text": "操作失败 (note): expected number, got undefined",
+      "sentiment": -1
+    },
+    {
+      "t": "00:11:16",
+      "agent": "a03",
+      "kind": "confused",
+      "text": "滚动后页面内容似乎没有变化，DOM 还是一样的元素。作为采购经理，我想看详细定价信息和套餐对比，但这页面可能太单薄了。",
+      "sentiment": -1,
+      "shot": "shots/a03-02.jpg"
+    },
+    {
+      "t": "00:16:14",
+      "agent": "a03",
+      "kind": "click",
+      "text": "点击 Pricing 链接查看详细定价信息",
+      "sentiment": 0,
+      "url": "http://localhost:8200/02-dense-pricing/site/",
+      "shot": "shots/a03-03.jpg"
+    },
+    {
+      "t": "00:19:12",
+      "agent": "a01-1",
+      "kind": "click",
+      "text": "想看详细的定价方案",
+      "sentiment": 0,
+      "url": "http://localhost:8200/02-dense-pricing/site/",
+      "shot": "shots/a01-1-04.jpg"
+    },
+    {
+      "t": "00:20:86",
+      "agent": "a01-2",
+      "kind": "click",
+      "text": "Already on pricing page, but want to see if the page has changed or if I need to scroll differently",
+      "sentiment": 0,
+      "url": "http://localhost:8200/02-dense-pricing/site/",
+      "shot": "shots/a01-2-04.jpg"
+    },
+    {
+      "t": "00:28:54",
+      "agent": "a01-1",
+      "kind": "confused",
+      "text": "这个页面有点奇怪。我看到4个\"Start free\"按钮和1个\"Contact sales\"，但看不到具体的方案内容和价格。让我多滚动看看。",
+      "sentiment": -1,
+      "shot": "shots/a01-1-06.jpg"
+    },
+    {
+      "t": "00:28:93",
+      "agent": "a01-2",
+      "kind": "observation",
+      "text": "滚动后看到似乎是某种定价方案对比的页面，有多个套餐选项，每个都有\"Start free\"按钮，还有\"Contact sales\"。我看到了一些定价卡片/表格，但需要更仔细看看具体的套餐内容和价格。",
+      "sentiment": 1,
+      "shot": "shots/a01-2-06.jpg"
+    },
+    {
+      "t": "00:31:69",
+      "agent": "a03",
+      "kind": "rage",
+      "text": "滚动好几次了，DOM 还是那几样东西。作为采购经理，我想要的是透明定价、各方案对比、甚至 SLA 说明。这页面空荡荡的，让我怀疑这家公司到底有没有认真做产品。",
+      "sentiment": -2,
+      "shot": "shots/a03-06.jpg"
+    },
+    {
+      "t": "00:36:29",
+      "agent": "a03",
+      "kind": "click",
+      "text": "想联系销售了解企业级定价和合同条款",
+      "sentiment": 0,
+      "url": "http://localhost:8200/02-dense-pricing/site/",
+      "shot": "shots/a03-07.jpg"
+    },
+    {
+      "t": "00:42:31",
+      "agent": "a02",
+      "kind": "click",
+      "text": "想看看Pricing页面具体有什么套餐和价格",
+      "sentiment": 0,
+      "url": "http://localhost:8200/02-dense-pricing/site/",
+      "shot": "shots/a02-05.jpg"
+    },
+    {
+      "t": "00:42:46",
+      "agent": "a03",
+      "kind": "rage",
+      "text": "点击 \"Contact sales\" 按钮也没反应。这页面要么是个空壳，要么加载失败了。跟 Salesforce 比差太远了，人家至少让我能找到销售联系方式和 SLA。",
+      "sentiment": -3,
+      "shot": "shots/a03-08.jpg"
+    },
+    {
+      "t": "00:42:48",
+      "agent": "a01-1",
+      "kind": "click",
+      "text": "看看免费版是什么情况",
+      "sentiment": 0,
+      "url": "http://localhost:8200/02-dense-pricing/site/",
+      "shot": "shots/a01-1-07.jpg"
+    },
+    {
+      "t": "00:44:93",
+      "agent": "a01-2",
+      "kind": "observation",
+      "text": "看到了4个套餐的定价：Starter $19/mo、Growth $49/mo、Scale $99/mo、Enterprise定制。表格形式列出了seats、projects、templates、support等信息。很密集，信息量不小。",
+      "sentiment": 0,
+      "shot": "shots/a01-2-08.jpg"
+    },
+    {
+      "t": "00:45:95",
+      "agent": "a03",
+      "kind": "exit",
+      "text": "作为企业采购经理，我来这里想看透明定价和套餐对比。但这个页面几乎没有任何实质内容——DOM 元素就那么几个，滚动和点击都没有反应。无法找到定价详情、合同条款或 SLA 信息。这让我对这家公司的专业度产生严重怀疑，不会考虑合作。",
+      "sentiment": 0,
+      "shot": "shots/a03-09.jpg"
+    },
+    {
+      "t": "00:49:60",
+      "agent": "a02",
+      "kind": "rage",
+      "text": "这个页面加载了50秒，我却只能看到导航栏和底部的按钮，完全看不到任何实质内容。滚动来滚动去都是同样的东西。这要么是页面有bug，要么就是一个没有完成的占位页。",
+      "sentiment": -2,
+      "shot": "shots/a02-08.jpg"
+    },
+    {
+      "t": "00:51:81",
+      "agent": "a01-1",
+      "kind": "rage",
+      "text": "点了几次按钮都没反应，页面上看不到具体的产品内容、定价信息、方案对比。感觉这就是个空壳页面，没有实际内容。作为一个产品经理，我想看的是具体的功能对比和价格，但这个页面什么都没给我。",
+      "sentiment": -2,
+      "shot": "shots/a01-1-08.jpg"
+    },
+    {
+      "t": "00:59:56",
+      "agent": "a02",
+      "kind": "exit",
+      "text": "页面加载近一分钟，但除了导航栏和几个\"Start free\"按钮外，看不到任何实质内容。标题\"Dense Pricing\"没有解释，定价方案不可见，产品定位不明。作为技术负责人，我需要了解产品价值和定价，但这个页面连基本内容都缺失，我无法完成评估。",
+      "sentiment": 0,
+      "shot": "shots/a02-09.jpg"
+    },
+    {
+      "t": "01:02:13",
+      "agent": "a01-1",
+      "kind": "exit",
+      "text": "作为产品经理，我对\"dense-pricing\"页面期望能看到定价方案对比和功能差异，但这个页面看起来只是个空壳——导航栏和按钮都在，但页面主体内容缺失，滚动也看不到具体的产品信息或价格。点击了几个\"Start free\"按钮但没有反应。体验很糟糕，看不出这个产品的价值主张，不会再回来。",
+      "sentiment": 0,
+      "shot": "shots/a01-1-09.jpg"
+    },
+    {
+      "t": "01:10:70",
+      "agent": "a01-2",
+      "kind": "confused",
+      "text": "滚动好像没有效果，页面内容没怎么变。我还是回到顶部仔细看一下这个页面的整体结构吧。点击 Pricing 导航试试。",
+      "sentiment": -1,
+      "shot": "shots/a01-2-09.jpg"
+    },
+    {
+      "t": "01:15:38",
+      "agent": "a01-2",
+      "kind": "shortcut",
+      "text": "尝试用键盘回到页面顶部，看看页面完整结构 [Home]",
+      "sentiment": 0,
+      "url": "http://localhost:8200/02-dense-pricing/site/",
+      "shot": "shots/a01-2-10.jpg"
+    },
+    {
+      "t": "01:22:17",
+      "agent": "a01-2",
+      "kind": "click",
+      "text": "想看看这是什么产品",
+      "sentiment": 0,
+      "url": "http://localhost:8200/02-dense-pricing/site/",
+      "shot": "shots/a01-2-11.jpg"
+    },
+    {
+      "t": "01:26:90",
+      "agent": "a01-2",
+      "kind": "shortcut",
+      "text": "回到页面顶部 [Home]",
+      "sentiment": 0,
+      "url": "http://localhost:8200/02-dense-pricing/site/",
+      "shot": "shots/a01-2-12.jpg"
+    },
+    {
+      "t": "01:37:02",
+      "agent": "a01-2",
+      "kind": "click",
+      "text": "点击最左边的Start free按钮试试看会跳转到注册页面吗",
+      "sentiment": 0,
+      "url": "http://localhost:8200/02-dense-pricing/site/",
+      "shot": "shots/a01-2-13.jpg"
+    },
+    {
+      "t": "01:48:65",
+      "agent": "a01-2",
+      "kind": "observation",
+      "text": "页面看起来是静态的，截图似乎没有变化。这可能是一个纯展示页面。让我试试看Sign in链接，了解一下这个产品是什么类型的。",
+      "sentiment": 0,
+      "shot": "shots/a01-2-14.jpg"
+    },
+    {
+      "t": "02:01:01",
+      "agent": "a01-2",
+      "kind": "click",
+      "text": "点击Sign in看登录页面，也顺便了解这是什么产品",
+      "sentiment": 0,
+      "url": "http://localhost:8200/02-dense-pricing/site/",
+      "shot": "shots/a01-2-15.jpg"
+    },
+    {
+      "t": "02:07:19",
+      "agent": "a01-2",
+      "kind": "rage",
+      "text": "这个页面导航链接都不生效，点了 Sign in、Pricing、Start free 按钮都没反应，页面完全不动。这是个坏掉的原型还是我网络有问题？总之没法正常使用。有点想放弃了。",
+      "sentiment": -2,
+      "shot": "shots/a01-2-16.jpg"
+    },
+    {
+      "t": "02:14:68",
+      "agent": "a01-2",
+      "kind": "exit",
+      "text": "打开的是一个 SaaS 产品的定价页面（localhost），有4个套餐：Starter $19/mo、Growth $49/mo、Scale $99/mo、Enterprise定制。页面信息密度较高，用表格对比各套餐功能。但问题是——这个原型几乎是静态的，所有导航链接（Product/Customers/Docs/Pricing/Sign in）和按钮（Start free、Contact sales）点击后都毫无反应，页面完全不交互。作为一个真实用户，我无法深入了解产品、没有注册试用入口可用、也没办法点击任何功能——这种体验让我很快就失去兴趣了。",
+      "sentiment": 0,
+      "shot": "shots/a01-2-17.jpg"
+    }
+  ],
+  "issues": [
+    {
+      "id": "i01",
+      "title": "Pricing链接点击后无详细定价内容",
+      "severity": "high",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "滚动好几次了，DOM还是那几样东西。作为采购经理，我想要的是透明定价、各方案对比、甚至SLA说明。这页面空荡荡的，让我怀疑这家公司到底有没有认真做产品。",
+      "agentRef": "a03",
+      "evidence": 2,
+      "journey": "在Pricing页面滚动查看详细定价信息时"
+    },
+    {
+      "id": "i02",
+      "title": "Contact sales按钮点击无反应",
+      "severity": "high",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "点击'Contact sales'按钮也没反应。这页面要么是个空壳，要么加载失败了。跟Salesforce比差太远了，人家至少让我能找到销售联系方式和SLA。",
+      "agentRef": "a03",
+      "evidence": 1,
+      "journey": "在页面底部寻找联系销售了解企业定价时"
+    },
+    {
+      "id": "i03",
+      "title": "找不到套餐对比表格",
+      "severity": "high",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "作为采购经理，我想看详细定价信息和套餐对比，但这页面可能太单薄了。滚动后页面内容似乎没有变化。",
+      "agentRef": "a03",
+      "evidence": 1,
+      "journey": "在首页/Pricing页面尝试对比各方案时"
+    },
+    {
+      "id": "i04",
+      "title": "没有SLA服务等级说明入口",
+      "severity": "high",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "我想要的是透明定价、各方案对比、甚至SLA说明。这页面空荡荡的，让我怀疑这家公司到底有没有认真做产品。",
+      "agentRef": "a03",
+      "evidence": 1,
+      "journey": "在Pricing页面寻找企业级SLA信息时"
+    },
+    {
+      "id": "i05",
+      "title": "没有合同条款或法律协议页面",
+      "severity": "high",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "我需要合同条款。这家公司看起来连这些基本的企业采购需求都满足不了。",
+      "agentRef": "a03",
+      "evidence": 1,
+      "journey": "在页面底部导航寻找Terms/Privacy等法律条款时"
+    },
+    {
+      "id": "i07",
+      "title": "页面主体内容完全不加载，只剩导航栏和按钮",
+      "severity": "high",
+      "agents": 1,
+      "category": "性能感知",
+      "quote": "这个页面加载了50秒，我却只能看到导航栏和底部的按钮，完全看不到任何实质内容。滚动来滚动去都是同样的东西。",
+      "agentRef": "a02",
+      "evidence": 1,
+      "journey": "进入首页后尝试滚动查看内容"
+    },
+    {
+      "id": "i09",
+      "title": "看不到任何定价方案，无法评估成本",
+      "severity": "high",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "想看看Pricing页面具体有什么套餐和价格，结果看不到。",
+      "agentRef": "a02",
+      "evidence": 1,
+      "journey": "试图查看定价内容"
+    },
+    {
+      "id": "i10",
+      "title": "产品定位和价值主张缺失",
+      "severity": "high",
+      "agents": 1,
+      "category": "信息架构",
+      "quote": "产品定位不明，连基本内容都缺失，我无法完成评估。",
+      "agentRef": "a02",
+      "evidence": 1,
+      "journey": "期待在定价页了解产品能解决什么问题"
+    },
+    {
+      "id": "i11",
+      "title": "页面主体内容完全缺失，看不到任何定价信息",
+      "severity": "high",
+      "agents": 1,
+      "category": "信息架构",
+      "quote": "页面上有多个'Start free'按钮和'Contact sales'，但滚动看不到具体的产品内容、定价信息、方案对比，感觉这就是个空壳页面",
+      "agentRef": "a01-1",
+      "evidence": 2,
+      "journey": "在 localhost:8200/02-dense-pricing/site/ 首页滚动查看时"
+    },
+    {
+      "id": "i12",
+      "title": "所有'Start free'按钮点击后无任何反应",
+      "severity": "high",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "点了几次按钮都没反应，不知道是按钮坏了还是页面卡住了",
+      "agentRef": "a01-1",
+      "evidence": 4,
+      "journey": "在首页多次尝试点击'Start free'按钮时"
+    },
+    {
+      "id": "i13",
+      "title": "无法了解产品价值和定价方案，没有留下来继续探索的动力",
+      "severity": "high",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "作为产品经理，我想看的是具体的功能对比和价格，但这个页面什么都没给我，我不会再回来",
+      "agentRef": "a01-1",
+      "evidence": 3,
+      "journey": "在整个页面探索过程中"
+    },
+    {
+      "id": "i16",
+      "title": "导航栏链接全部不可点击",
+      "severity": "high",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "点了 Sign in、Pricing、Product 导航都完全没反应，这页面是死机了吗？",
+      "agentRef": "a01-2",
+      "evidence": 5,
+      "journey": "在顶部导航栏尝试点击任意链接"
+    },
+    {
+      "id": "i17",
+      "title": "Start free 和 Contact sales 按钮点击无响应",
+      "severity": "high",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "所有按钮按下去页面都不动，连个光标变化都没有，根本不知道这是个按钮还是装饰图",
+      "agentRef": "a01-2",
+      "evidence": 4,
+      "journey": "点击各套餐卡片里的 Start free 按钮和 Contact sales 按钮"
+    },
+    {
+      "id": "i18",
+      "title": "滚动后页面内容没有变化，无法继续浏览",
+      "severity": "high",
+      "agents": 1,
+      "category": "性能感知",
+      "quote": "滚动好像没有效果，页面内容没怎么变，我还是回到顶部仔细看一下整体结构吧。",
+      "agentRef": "a01-2",
+      "evidence": 2,
+      "journey": "向下滚动页面查看更多内容"
+    },
+    {
+      "id": "i19",
+      "title": "没有注册/试用入口可用，无法开始使用产品",
+      "severity": "high",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "作为新用户我唯一想做的事就是注册试用，结果注册入口根本点不动，那我来这干嘛。",
+      "agentRef": "a01-2",
+      "evidence": 2,
+      "journey": "在 Sign in 区域寻找注册或开始使用的入口"
+    },
+    {
+      "id": "i06",
+      "title": "滚动后内容不更新，用户体验停滞",
+      "severity": "med",
+      "agents": 1,
+      "category": "信息架构",
+      "quote": "滚动后页面内容似乎没有变化，DOM还是一样的元素。",
+      "agentRef": "a03",
+      "evidence": 2,
+      "journey": "在页面滚动探索时"
+    },
+    {
+      "id": "i08",
+      "title": "Dense Pricing 标题没有解释，看不懂是什么",
+      "severity": "med",
+      "agents": 1,
+      "category": "表达文案",
+      "quote": "Dense Pricing？这种dense pricing概念在技术产品中不常见，密度定价是什么鬼？",
+      "agentRef": "a02",
+      "evidence": 1,
+      "journey": "刚进入页面看到标题时"
+    },
+    {
+      "id": "i14",
+      "title": "看不到免费版的具体功能和限制信息",
+      "severity": "med",
+      "agents": 1,
+      "category": "信息架构",
+      "quote": "我看到4个'Start free'按钮，但看不到免费版具体是什么情况，连基本信息都没有",
+      "agentRef": "a01-1",
+      "evidence": 2,
+      "journey": "在首页尝试了解免费版方案时"
+    },
+    {
+      "id": "i15",
+      "title": "导航栏'Pricing'链接没有指向不同的定价详情页",
+      "severity": "med",
+      "agents": 1,
+      "category": "信息架构",
+      "quote": "导航栏有Pricing选项，但我以为点它会看到详细方案，结果页面没变化",
+      "agentRef": "a01-1",
+      "evidence": 1,
+      "journey": "点击导航栏Pricing时"
+    },
+    {
+      "id": "i20",
+      "title": "页面完全没有交互反馈",
+      "severity": "med",
+      "agents": 1,
+      "category": "情感氛围",
+      "quote": "点哪儿都没反应，感觉像在戳一张印刷品海报，没有一点活着产品的感觉。",
+      "agentRef": "a01-2",
+      "evidence": 6,
+      "journey": "在页面任意位置尝试交互"
+    },
+    {
+      "id": "i21",
+      "title": "看不清这是什么产品、功能是什么、解决什么问题",
+      "severity": "med",
+      "agents": 1,
+      "category": "信息架构",
+      "quote": "看了半天只知道有套餐和价格，但这个产品到底是干嘛的、能不能解决我的问题，完全不知道。没有产品介绍也没有使用场景。",
+      "agentRef": "a01-2",
+      "evidence": 1,
+      "journey": "在首页/Pricing 页面了解产品是什么"
+    }
+  ],
+  "delights": [
+    {
+      "title": "首页导航直接展示Pricing链接，节奏不错",
+      "count": 1,
+      "quote": "首页就展示Pricing相关内容，作为采购，我最关心的就是定价，这点节奏不错。",
+      "agent": "a03"
+    },
+    {
+      "title": "定价表格信息清晰、层级分明",
+      "count": 1,
+      "quote": "4 个套餐从 $19 到 Enterprise，价格和主要功能（seats、projects、templates）对比一目了然，作为参考是合格的。",
+      "agent": "a01-2"
+    }
+  ],
+  "features": [
+    {
+      "name": "点击导航/按钮",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 9
+    },
+    {
+      "name": "点击开始免费使用",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 4
+    },
+    {
+      "name": "查看定价",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 3
+    },
+    {
+      "name": "查看定价方案",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 3
+    },
+    {
+      "name": "浏览定价信息",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 1,
+      "avgSentiment": 1,
+      "totalAttempts": 3
+    },
+    {
+      "name": "查看套餐对比",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 2
+    },
+    {
+      "name": "滚动浏览页面",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 1,
+      "avgSentiment": -2,
+      "totalAttempts": 2
+    },
+    {
+      "name": "页面滚动",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -2,
+      "totalAttempts": 2
+    },
+    {
+      "name": "联系销售",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 1
+    },
+    {
+      "name": "页面浏览",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 1
+    }
+  ],
+  "routesHeat": [
+    {
+      "path": "/02-dense-pricing/site/",
+      "visits": 15,
+      "dwell": 17,
+      "drop": 0.26666666666666666
+    }
+  ],
+  "sentimentCurve": [
+    {
+      "t": 0,
+      "v": 0.5208333333333334
+    },
+    {
+      "t": 5,
+      "v": 0.3333333333333333
+    },
+    {
+      "t": 10,
+      "v": 0.5
+    },
+    {
+      "t": 15,
+      "v": 0.5
+    },
+    {
+      "t": 20,
+      "v": 0.3888888888888889
+    },
+    {
+      "t": 25,
+      "v": 0.5
+    },
+    {
+      "t": 30,
+      "v": 0.39999999999999997
+    },
+    {
+      "t": 35,
+      "v": 0.16666666666666666
+    },
+    {
+      "t": 40,
+      "v": 0.5
+    },
+    {
+      "t": 45,
+      "v": 0.5
+    },
+    {
+      "t": 50,
+      "v": 0.3333333333333333
+    },
+    {
+      "t": 55,
+      "v": 0.5
+    },
+    {
+      "t": 60,
+      "v": 0.5
+    },
+    {
+      "t": 65,
+      "v": 0.5
+    },
+    {
+      "t": 70,
+      "v": 0.5
+    },
+    {
+      "t": 75,
+      "v": 0.5
+    },
+    {
+      "t": 80,
+      "v": 0.5
+    },
+    {
+      "t": 85,
+      "v": 0.5
+    },
+    {
+      "t": 90,
+      "v": 0.16666666666666666
+    },
+    {
+      "t": 95,
+      "v": 0.16666666666666666
+    },
+    {
+      "t": 100,
+      "v": 0.5
+    }
+  ],
+  "metrics": {
+    "predictedNps": -12,
+    "achievableNps": 100,
+    "taskSuccess": 0,
+    "timeToValueSec": null,
+    "rageClicks": 5,
+    "delightCount": 0
+  },
+  "cost": {
+    "tokensIn": 152919,
+    "tokensOut": 6863,
+    "usd": 0
+  }
+}

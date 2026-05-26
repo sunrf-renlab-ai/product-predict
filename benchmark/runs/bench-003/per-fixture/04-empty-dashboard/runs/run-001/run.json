@@ -1,0 +1,727 @@
+{
+  "id": "run-001",
+  "startedAt": "2026-05-26T06:03:28.550Z",
+  "finishedAt": "2026-05-26T06:05:28.084Z",
+  "target": {
+    "url": "http://localhost:8200/04-empty-dashboard/site/",
+    "title": "Helm — workspace",
+    "viewport": {
+      "w": 1280,
+      "h": 800
+    }
+  },
+  "personaSetId": "preset-a-project-management-tool-s-fi",
+  "agents": [
+    {
+      "id": "a02",
+      "name": "Kenji Okada",
+      "age": 34,
+      "role": "前端开发者",
+      "tech": 5,
+      "tone": "好奇",
+      "preferences": [
+        "喜欢自动化",
+        "需要集成 Git",
+        "偏好简洁 UI"
+      ],
+      "knownContext": [
+        "团队在用 Jira",
+        "用过 Trello",
+        "熟悉 CI/CD 流水线"
+      ],
+      "weight": 0.25,
+      "color": "#5f9ea0",
+      "glyph": "K",
+      "traits": [
+        "技术宅",
+        "自动化爱好者",
+        "简洁控"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "explored",
+      "durationSec": 48.146
+    },
+    {
+      "id": "a04",
+      "name": "Alex Wang",
+      "age": 41,
+      "role": "小企业主",
+      "tech": 2,
+      "tone": "怀疑",
+      "preferences": [
+        "关注成本",
+        "需要简单易用",
+        "重视数据安全"
+      ],
+      "knownContext": [
+        "以前用 Excel 做项目跟踪",
+        "用过 Basecamp，觉得贵",
+        "团队 5 人"
+      ],
+      "weight": 0.25,
+      "color": "#87ceeb",
+      "glyph": "X",
+      "traits": [
+        "谨慎",
+        "成本敏感",
+        "保守"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "frustrated",
+      "durationSec": 80.738
+    },
+    {
+      "id": "a01",
+      "name": "Maya Chen",
+      "age": 28,
+      "role": "产品经理",
+      "tech": 4,
+      "tone": "挑剔",
+      "preferences": [
+        "重视协作",
+        "看重模板生态",
+        "需要清晰视图"
+      ],
+      "knownContext": [
+        "每天用 Notion",
+        "团队 6 人",
+        "试过 Asana，觉得太复杂"
+      ],
+      "weight": 0.3,
+      "color": "#e6c976",
+      "glyph": "M",
+      "traits": [
+        "效率控",
+        "重视协作",
+        "细节控"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "frustrated",
+      "durationSec": 118.846
+    },
+    {
+      "id": "a03",
+      "name": "李心怡",
+      "age": 26,
+      "role": "设计师",
+      "tech": 3,
+      "tone": "急躁",
+      "preferences": [
+        "需要快速上手",
+        "重视视觉呈现",
+        "重视移动端体验"
+      ],
+      "knownContext": [
+        "用 Monday.com 做设计项目",
+        "团队 3 人",
+        "喜欢看板视图"
+      ],
+      "weight": 0.2,
+      "color": "#ffa07a",
+      "glyph": "L",
+      "traits": [
+        "急躁",
+        "设计感强",
+        "追求速度"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "frustrated",
+      "durationSec": 119.279
+    }
+  ],
+  "activity": [
+    {
+      "t": "00:00:00",
+      "agent": "a02",
+      "kind": "enter",
+      "text": "进入 localhost:8200/04-empty-dashboard/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/04-empty-dashboard/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a02",
+      "kind": "observation",
+      "text": "打开了一个看起来像项目管理工具的仪表板。左侧导航有 Projects、Tasks、Milestones、Sprints 等，标准的项目管理功能。现在是空状态，没什么东西。右边有个类似图片/预览区域。",
+      "sentiment": 0,
+      "shot": "shots/a02-00.jpg"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a04",
+      "kind": "enter",
+      "text": "进入 localhost:8200/04-empty-dashboard/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/04-empty-dashboard/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a04",
+      "kind": "observation",
+      "text": "我刚打开这个页面，看到左侧有导航栏，列了 Projects、Tasks、Milestones、Sprints、Cycles、Goals、Reports、Team。顶部右边有 Help 和 Docs。这是一个项目管理工具？看起来挺专业的，但这个空状态页面目前只有左侧导航。我还没看到主要内容区显示什么。",
+      "sentiment": 0,
+      "shot": "shots/a04-00.jpg"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a01",
+      "kind": "enter",
+      "text": "进入 localhost:8200/04-empty-dashboard/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/04-empty-dashboard/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a01",
+      "kind": "click",
+      "text": "查看整体仪表盘布局",
+      "sentiment": 0,
+      "url": "http://localhost:8200/04-empty-dashboard/site/",
+      "shot": "shots/a01-00.jpg"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a03",
+      "kind": "enter",
+      "text": "进入 localhost:8200/04-empty-dashboard/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/04-empty-dashboard/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a03",
+      "kind": "observation",
+      "text": "打开了这个页面，先看看整体布局和视觉感受。作为设计师，第一眼会关注整体的美感和排版。",
+      "sentiment": 0,
+      "shot": "shots/a03-00.jpg"
+    },
+    {
+      "t": "00:06:20",
+      "agent": "a04",
+      "kind": "click",
+      "text": "I'm a project manager looking for a tool, Projects is the logical first thing to explore",
+      "sentiment": 0,
+      "url": "http://localhost:8200/04-empty-dashboard/site/",
+      "shot": "shots/a04-01.jpg"
+    },
+    {
+      "t": "00:18:97",
+      "agent": "a04",
+      "kind": "confused",
+      "text": "点击了 Projects，但是页面好像完全没变化，内容区还是空的。是不是点错了位置？或者这只是个展示用的静态页面？",
+      "sentiment": -1,
+      "shot": "shots/a04-02.jpg"
+    },
+    {
+      "t": "00:19:66",
+      "agent": "a01",
+      "kind": "observation",
+      "text": "空仪表盘。左侧是导航，右侧全空白。作为用户我会觉得有点迷茫——没有引导，没有\"创建第一个项目\"的提示，也不知道空白是正常的还是加载失败。",
+      "sentiment": -1,
+      "shot": "shots/a01-04.jpg"
+    },
+    {
+      "t": "00:25:32",
+      "agent": "a04",
+      "kind": "confused",
+      "text": "等了25秒，页面还是没反应。我试着点击Projects，结果什么都没发生。这个导航栏是摆设吗？还是说这只是个静态设计稿？作为真实用户我可能已经关掉这个标签页了。",
+      "sentiment": -1,
+      "shot": "shots/a04-03.jpg"
+    },
+    {
+      "t": "00:26:19",
+      "agent": "a03",
+      "kind": "confused",
+      "text": "操作失败 (note): expected number, got undefined",
+      "sentiment": -1
+    },
+    {
+      "t": "00:27:44",
+      "agent": "a02",
+      "kind": "confused",
+      "text": "操作失败 (note): expected number, got undefined",
+      "sentiment": -1
+    },
+    {
+      "t": "00:33:11",
+      "agent": "a02",
+      "kind": "click",
+      "text": "想看看 Projects 页面有没有内容",
+      "sentiment": 0,
+      "url": "http://localhost:8200/04-empty-dashboard/site/",
+      "shot": "shots/a02-03.jpg"
+    },
+    {
+      "t": "00:33:68",
+      "agent": "a01",
+      "kind": "click",
+      "text": "想看看有没有项目列表或创建项目的入口",
+      "sentiment": 0,
+      "url": "http://localhost:8200/04-empty-dashboard/site/",
+      "shot": "shots/a01-06.jpg"
+    },
+    {
+      "t": "00:34:77",
+      "agent": "a03",
+      "kind": "observation",
+      "text": "第一印象：左侧导航栏用深色背景，跟 Monday.com 的浅色侧边栏不太一样。Dashboard 区域是空白的，中间有个大提示\"Pin a project, or create a new one to get started\"，下方有明显的 \"+ New Project\" 按钮。这种空状态引导做得还不错，一眼就知道要干嘛。",
+      "sentiment": 0,
+      "shot": "shots/a03-02.jpg"
+    },
+    {
+      "t": "00:35:45",
+      "agent": "a02",
+      "kind": "exit",
+      "text": "打开了一个空仪表板模板，左侧有项目管理的标准导航项（Projects、Tasks、Sprints 等），但右侧内容区完全是空的。点击 Projects 没有反应，URL 和页面都没有变化。这个模板没有实质内容可体验，我的好奇心已经满足了。",
+      "sentiment": 0,
+      "shot": "shots/a02-04.jpg"
+    },
+    {
+      "t": "00:35:50",
+      "agent": "a04",
+      "kind": "rage",
+      "text": "35秒了，页面还是一动不动。我点击导航栏根本没有任何反应。这到底是什么东西？一个假的设计稿吗？如果我是认真在选项目管理工具，这种空壳页面直接就让我放弃了。完全没有交互，连基本的反馈都没有。",
+      "sentiment": -2,
+      "shot": "shots/a04-04.jpg"
+    },
+    {
+      "t": "00:38:50",
+      "agent": "a03",
+      "kind": "click",
+      "text": "点击中间空白区域查看Dashboard内容",
+      "sentiment": 0,
+      "url": "http://localhost:8200/04-empty-dashboard/site/",
+      "shot": "shots/a03-03.jpg"
+    },
+    {
+      "t": "00:40:97",
+      "agent": "a01",
+      "kind": "click",
+      "text": "点击Tasks看看有没有任务内容",
+      "sentiment": 0,
+      "url": "http://localhost:8200/04-empty-dashboard/site/",
+      "shot": "shots/a01-07.jpg"
+    },
+    {
+      "t": "00:41:00",
+      "agent": "a04",
+      "kind": "exit",
+      "text": "我在这个\"空状态仪表板\"页面上等了41秒，点击了Projects导航，但页面完全没有任何反应。左侧导航栏显示Projects、Tasks、Milestones、Sprints等多个选项，但点击后内容区始终空白且无任何交互反馈。作为一个正在评估项目管理工具的小企业主（5人团队），这种完全无响应的页面让我直接放弃了。导航栏看起来像是静态设计稿而不是真实功能，我不可能花时间在一个连基本点击都没反应的演示上。这个产品错过了我——它没有给我任何理由相信它能帮助我跟踪项目。",
+      "sentiment": 0,
+      "shot": "shots/a04-05.jpg"
+    },
+    {
+      "t": "00:42:55",
+      "agent": "a03",
+      "kind": "click",
+      "text": "想创建一个新项目试试",
+      "sentiment": 0,
+      "url": "http://localhost:8200/04-empty-dashboard/site/",
+      "shot": "shots/a03-04.jpg"
+    },
+    {
+      "t": "00:45:82",
+      "agent": "a01",
+      "kind": "rage",
+      "text": "点了好几个导航，都是空白。这是个空壳模板，没有任何内容引导。跟Notion的Dashboard比起来差太远了——Notion至少会告诉你\"创建一个新的\"或展示widget模板。",
+      "sentiment": -2,
+      "shot": "shots/a01-08.jpg"
+    },
+    {
+      "t": "00:54:44",
+      "agent": "a01",
+      "kind": "exit",
+      "text": "打开的是一个空仪表盘模板，左侧有导航但右侧内容区全空白。点击Projects、Tasks等多个导航项，内容区没有任何变化，依旧是一片空白。这是一个没有填充任何真实内容的设计骨架，没有引导、没有示例、没有\"创建第一个项目\"的提示。作为一个需要快速上手的产品经理，这种空壳体验让我完全没有动力继续探索——跟Notion的Dashboard比起来差太多了，不会想再回来。",
+      "sentiment": 0,
+      "shot": "shots/a01-09.jpg"
+    },
+    {
+      "t": "01:13:83",
+      "agent": "a03",
+      "kind": "confused",
+      "text": "点击了中间区域没反应，这应该是静态原型？让我试试左侧导航。",
+      "sentiment": -1,
+      "shot": "shots/a03-05.jpg"
+    },
+    {
+      "t": "01:18:59",
+      "agent": "a03",
+      "kind": "click",
+      "text": "试试点击Projects导航项",
+      "sentiment": 0,
+      "url": "http://localhost:8200/04-empty-dashboard/site/",
+      "shot": "shots/a03-06.jpg"
+    },
+    {
+      "t": "01:20:66",
+      "agent": "a03",
+      "kind": "rage",
+      "text": "好家伙，连导航都是死的。点什么都没反应，这就是个静态页面吧？浪费时间。",
+      "sentiment": -2,
+      "shot": "shots/a03-07.jpg"
+    },
+    {
+      "t": "01:28:33",
+      "agent": "a03",
+      "kind": "exit",
+      "text": "这是个纯静态的空Dashboard原型页，所有按钮和导航都点不动。我作为设计师只能看视觉布局——深色侧边栏配空白的Dashboard，中央有引导文案\"+ New Project\"。但既然什么都点不了，我没法真正体验产品。30秒内就能判断这只是个设计稿，不是可交互的产品，没必要继续耗下去。",
+      "sentiment": 0,
+      "shot": "shots/a03-08.jpg"
+    }
+  ],
+  "issues": [
+    {
+      "id": "i01",
+      "title": "左侧导航点击后页面和 URL 均无变化",
+      "severity": "high",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "我点了 Projects 一下，结果什么都没发生，连 URL 都没变。这让我完全不清楚这个工具是否真的在运作。",
+      "agentRef": "a02",
+      "evidence": 1,
+      "journey": "在仪表板首页点击左侧导航 Projects 项"
+    },
+    {
+      "id": "i02",
+      "title": "空状态页面缺少引导文案",
+      "severity": "high",
+      "agents": 1,
+      "category": "信息架构",
+      "quote": "页面上啥都没有，连个「创建你的第一个项目」之类的引导都没有，我根本不知道下一步该干嘛。",
+      "agentRef": "a02",
+      "evidence": 1,
+      "journey": "在空仪表板上观察"
+    },
+    {
+      "id": "i04",
+      "title": "点击导航栏Projects后页面无任何响应",
+      "severity": "high",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "我点击了Projects，但是页面好像完全没变化，内容区还是空的。是不是点错了位置？",
+      "agentRef": "a04",
+      "evidence": 3,
+      "journey": "在空仪表板首页点击左侧导航栏的Projects"
+    },
+    {
+      "id": "i05",
+      "title": "空状态页面没有任何引导用户下一步的操作",
+      "severity": "high",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "这个空状态页面目前只有左侧导航，我还没看到主要内容区显示什么。进去之后该干嘛？",
+      "agentRef": "a04",
+      "evidence": 1,
+      "journey": "刚进入首页观察整个页面布局"
+    },
+    {
+      "id": "i06",
+      "title": "等了40秒没有任何反馈，让我以为这是个假页面",
+      "severity": "high",
+      "agents": 1,
+      "category": "性能感知",
+      "quote": "35秒了，页面还是一动不动。这到底是什么东西？一个假的设计稿吗？",
+      "agentRef": "a04",
+      "evidence": 3,
+      "journey": "点击Projects后等待页面响应"
+    },
+    {
+      "id": "i08",
+      "title": "导航栏八个选项（Projects到Team）完全无法点击",
+      "severity": "high",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "导航栏看起来像是静态设计稿而不是真实功能，连基本的点击都没反应。",
+      "agentRef": "a04",
+      "evidence": 4,
+      "journey": "尝试点击导航栏的各个项目"
+    },
+    {
+      "id": "i09",
+      "title": "仪表盘全空白无引导，缺“创建第一个项目”提示",
+      "severity": "high",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "空仪表盘，没有引导，没有创建第一个项目的提示，不知道空白是正常的还是加载失败",
+      "agentRef": "a01",
+      "evidence": 2,
+      "journey": "进入 localhost:8200/04-empty-dashboard/site/ 后查看整体仪表盘布局"
+    },
+    {
+      "id": "i10",
+      "title": "导航点击后内容区无变化，缺加载/错误/空状态反馈",
+      "severity": "high",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "点了好几个导航，都是空白，不知道是在加载还是坏了",
+      "agentRef": "a01",
+      "evidence": 3,
+      "journey": "依次点击 Projects、Tasks 等多个导航项"
+    },
+    {
+      "id": "i11",
+      "title": "空壳模板无示例内容，无法理解产品用途",
+      "severity": "high",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "这是空壳模板，没有任何内容引导，跟Notion比差太远",
+      "agentRef": "a01",
+      "evidence": 2,
+      "journey": "在仪表盘空白内容区浏览"
+    },
+    {
+      "id": "i14",
+      "title": "所有交互元素均无反应，无法体验产品核心流程",
+      "severity": "high",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "好家伙，连导航都是死的。点什么都没反应，这就是个静态页面吧？浪费时间。",
+      "agentRef": "a03",
+      "evidence": 4,
+      "journey": "在 Dashboard 主区域点击空白处、在 Projects 导航项上点击、尝试点击「+ New Project」按钮"
+    },
+    {
+      "id": "i15",
+      "title": "「+ New Project」按钮视觉上可点击，实际却无功能",
+      "severity": "high",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "想创建一个新项目试试，结果点完什么都没有。",
+      "agentRef": "a03",
+      "evidence": 1,
+      "journey": "看到中央引导区的「+ New Project」按钮后尝试点击"
+    },
+    {
+      "id": "i03",
+      "title": "右侧预览区完全是空白，没有内容或说明",
+      "severity": "med",
+      "agents": 1,
+      "category": "视觉节奏",
+      "quote": "右侧那一大块区域空得像没加载完一样，让我怀疑是不是网络出了问题。",
+      "agentRef": "a02",
+      "evidence": 1,
+      "journey": "在空仪表板上观察右侧区域"
+    },
+    {
+      "id": "i07",
+      "title": "右侧只有Help和Docs入口，没有快速创建项目的按钮",
+      "severity": "med",
+      "agents": 1,
+      "category": "信息架构",
+      "quote": "顶部右边有Help和Docs，但作为一个新用户，我想先建个项目试试，它没给我这个入口。",
+      "agentRef": "a04",
+      "evidence": 1,
+      "journey": "观察首页顶部右侧功能区"
+    },
+    {
+      "id": "i12",
+      "title": "与竞品 Notion 相比缺少 widget/模板组件引导",
+      "severity": "med",
+      "agents": 1,
+      "category": "与竞品对比",
+      "quote": "Notion 至少会展示 widget 模板或者告诉你创建新的，这个什么都没有",
+      "agentRef": "a01",
+      "evidence": 2,
+      "journey": "与 Notion Dashboard 体验对比"
+    },
+    {
+      "id": "i16",
+      "title": "空状态缺少进度指示，无法判断是加载中还是真的没内容",
+      "severity": "med",
+      "agents": 1,
+      "category": "可访问性",
+      "quote": "点了一下没反应——是加载慢还是在骗我？",
+      "agentRef": "a03",
+      "evidence": 2,
+      "journey": "点击 Dashboard 空白区域后等待几秒无响应"
+    },
+    {
+      "id": "i13",
+      "title": "侧边导航项过多，缺视觉层级和分组",
+      "severity": "low",
+      "agents": 1,
+      "category": "信息架构",
+      "quote": "导航太多太杂，点开都是空的，找不到重点",
+      "agentRef": "a01",
+      "evidence": 1,
+      "journey": "查看左侧导航列表"
+    }
+  ],
+  "delights": [
+    {
+      "title": "左侧导航布局符合我对项目管理工具的认知",
+      "count": 1,
+      "quote": "Projects、Tasks、Milestones、Sprints 这些导航项看起来很熟悉，和 Jira 或 Trello 类似的结构让我有种亲切感。",
+      "agent": "a02"
+    },
+    {
+      "title": "左侧导航栏布局清晰，看起来专业",
+      "count": 1,
+      "quote": "左侧有导航栏，列了Projects、Tasks、Milestones、Sprints、Cycles、Goals、Reports、Team，看起来挺专业的。",
+      "agent": "a04"
+    },
+    {
+      "title": "空状态引导文案清晰，一眼知道要干什么",
+      "count": 1,
+      "quote": "Pin a project, or create a new one to get started——这个提示很清楚，不迷路。",
+      "agent": "a03"
+    }
+  ],
+  "features": [
+    {
+      "name": "切换导航项",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 4
+    },
+    {
+      "name": "点击导航项目",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -2,
+      "totalAttempts": 1
+    },
+    {
+      "name": "观察空仪表板布局",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 1,
+      "avgSentiment": -1,
+      "totalAttempts": 1
+    },
+    {
+      "name": "点击Projects导航",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 1
+    },
+    {
+      "name": "查看仪表盘",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -2,
+      "totalAttempts": 1
+    }
+  ],
+  "routesHeat": [
+    {
+      "path": "/04-empty-dashboard/site/",
+      "visits": 12,
+      "dwell": 15,
+      "drop": 0.3333333333333333
+    }
+  ],
+  "sentimentCurve": [
+    {
+      "t": 0,
+      "v": 0.5
+    },
+    {
+      "t": 5,
+      "v": 0.5
+    },
+    {
+      "t": 10,
+      "v": 0.5
+    },
+    {
+      "t": 15,
+      "v": 0.5
+    },
+    {
+      "t": 20,
+      "v": 0.3333333333333333
+    },
+    {
+      "t": 25,
+      "v": 0.3333333333333333
+    },
+    {
+      "t": 30,
+      "v": 0.3333333333333333
+    },
+    {
+      "t": 35,
+      "v": 0.5
+    },
+    {
+      "t": 40,
+      "v": 0.3888888888888889
+    },
+    {
+      "t": 45,
+      "v": 0.5
+    },
+    {
+      "t": 50,
+      "v": 0.16666666666666666
+    },
+    {
+      "t": 55,
+      "v": 0.16666666666666666
+    },
+    {
+      "t": 60,
+      "v": 0.5
+    },
+    {
+      "t": 65,
+      "v": 0.5
+    },
+    {
+      "t": 70,
+      "v": 0.5
+    },
+    {
+      "t": 75,
+      "v": 0.5
+    },
+    {
+      "t": 80,
+      "v": 0.3333333333333333
+    },
+    {
+      "t": 85,
+      "v": 0.5
+    },
+    {
+      "t": 90,
+      "v": 0.16666666666666666
+    },
+    {
+      "t": 95,
+      "v": 0.16666666666666666
+    },
+    {
+      "t": 100,
+      "v": 0.5
+    }
+  ],
+  "metrics": {
+    "predictedNps": -14,
+    "achievableNps": 100,
+    "taskSuccess": 0,
+    "timeToValueSec": null,
+    "rageClicks": 3,
+    "delightCount": 0
+  },
+  "cost": {
+    "tokensIn": 73510,
+    "tokensOut": 4834,
+    "usd": 0
+  }
+}

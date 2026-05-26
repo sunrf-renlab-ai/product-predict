@@ -1,0 +1,825 @@
+{
+  "id": "run-001",
+  "startedAt": "2026-05-26T06:20:12.014Z",
+  "finishedAt": "2026-05-26T06:22:06.856Z",
+  "target": {
+    "url": "http://localhost:8200/13-mobile-broken/site/",
+    "title": "Beacon — Customer feedback",
+    "viewport": {
+      "w": 1280,
+      "h": 800
+    }
+  },
+  "personaSetId": "preset-a-customer-feedback-board-ev",
+  "agents": [
+    {
+      "id": "a01",
+      "name": "Maya Chen",
+      "age": 28,
+      "role": "产品经理",
+      "tech": 4,
+      "tone": "挑剔",
+      "preferences": [
+        "重视数据驱动",
+        "追求简洁高效",
+        "关注用户留存"
+      ],
+      "knownContext": [
+        "每天用 Notion 记录需求",
+        "试过 Canny，觉得 UI 不够现代",
+        "团队 10 人"
+      ],
+      "weight": 0.28,
+      "color": "#a8d5e2",
+      "glyph": "M",
+      "traits": [
+        "效率控",
+        "数据驱动",
+        "细节敏感"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "frustrated",
+      "durationSec": 47.927
+    },
+    {
+      "id": "a04",
+      "name": "李心怡",
+      "age": 45,
+      "role": "客服代表",
+      "tech": 2,
+      "tone": "怀疑",
+      "preferences": [
+        "关注客户满意度",
+        "重视易用性",
+        "需要快速上手"
+      ],
+      "knownContext": [
+        "每天使用 微信 工作",
+        "用过 Zendesk 客户系统",
+        "对隐私政策敏感"
+      ],
+      "weight": 0.2,
+      "color": "#e6c976",
+      "glyph": "X",
+      "traits": [
+        "客服经验丰富",
+        "耐心",
+        "关注细节"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "frustrated",
+      "durationSec": 65.738
+    },
+    {
+      "id": "a03",
+      "name": "Lucas Wang",
+      "age": 30,
+      "role": "UI 设计师",
+      "tech": 3,
+      "tone": "外向",
+      "preferences": [
+        "关注视觉体验",
+        "注重交互细节",
+        "喜欢新潮设计"
+      ],
+      "knownContext": [
+        "使用 Figma 做设计稿",
+        "试过 Hotjar 看热图",
+        "熟悉 Slack 集成"
+      ],
+      "weight": 0.25,
+      "color": "#d4e7a5",
+      "glyph": "L",
+      "traits": [
+        "设计感",
+        "创新",
+        "用户中心"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "frustrated",
+      "durationSec": 80.419
+    },
+    {
+      "id": "a02",
+      "name": "Kenji Okada",
+      "age": 34,
+      "role": "前端开发",
+      "tech": 5,
+      "tone": "好奇",
+      "preferences": [
+        "关注性能",
+        "喜欢技术深度",
+        "追求可扩展性"
+      ],
+      "knownContext": [
+        "团队使用 GitLab 管理代码",
+        "熟悉 Jira 反馈流程",
+        "曾用 UserVoice 集成"
+      ],
+      "weight": 0.27,
+      "color": "#f5c6d0",
+      "glyph": "K",
+      "traits": [
+        "技术极客",
+        "性能优化",
+        "自动化"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "frustrated",
+      "durationSec": 114.613
+    }
+  ],
+  "activity": [
+    {
+      "t": "00:00:00",
+      "agent": "a01",
+      "kind": "enter",
+      "text": "进入 localhost:8200/13-mobile-broken/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/13-mobile-broken/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a01",
+      "kind": "observation",
+      "text": "看起来是个产品反馈板，顶部有 F R B A N S 按钮——可能是分类筛选。卡片列表带 Upvote 和 Comment。这界面风格有点 Canny 的味道。",
+      "sentiment": 0,
+      "shot": "shots/a01-00.jpg"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a04",
+      "kind": "enter",
+      "text": "进入 localhost:8200/13-mobile-broken/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/13-mobile-broken/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a04",
+      "kind": "observation",
+      "text": "打开页面了，先看看整体布局。看起来是个类似社交媒体或内容聚合的页面，有Upvote和Comment按钮。",
+      "sentiment": 0,
+      "shot": "shots/a04-00.jpg"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a03",
+      "kind": "enter",
+      "text": "进入 localhost:8200/13-mobile-broken/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/13-mobile-broken/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a03",
+      "kind": "observation",
+      "text": "看到一堆人像图卡排列着，下面有 Upvote 和 Comment 按钮。顶部有一排小按钮 F R B A N S，像筛选标签。",
+      "sentiment": 0,
+      "shot": "shots/a03-00.jpg"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a02",
+      "kind": "enter",
+      "text": "进入 localhost:8200/13-mobile-broken/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/13-mobile-broken/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a02",
+      "kind": "observation",
+      "text": "页面加载完成，看起来是一个反馈/社区类型的页面。看到有 Upvote 和 Comment 按钮，顶部有 F、R、B、A、N、S 等按钮。让我先了解一下这个页面的全貌。",
+      "sentiment": 1,
+      "shot": "shots/a02-00.jpg"
+    },
+    {
+      "t": "00:08:47",
+      "agent": "a02",
+      "kind": "click",
+      "text": "想看看\"N\"按钮是什么功能，可能是 New 或某种排序",
+      "sentiment": 0,
+      "url": "http://localhost:8200/13-mobile-broken/site/",
+      "shot": "shots/a02-02.jpg"
+    },
+    {
+      "t": "00:09:43",
+      "agent": "a04",
+      "kind": "confused",
+      "text": "顶部有F、R、B、A、N、S一排按钮，不太明白是什么意思。像是某种筛选标签？但按钮太小了，而且没有文字说明。让我点击看看。",
+      "sentiment": -1,
+      "shot": "shots/a04-03.jpg"
+    },
+    {
+      "t": "00:11:89",
+      "agent": "a01",
+      "kind": "click",
+      "text": "想看看 Bug 分类下有什么反馈",
+      "sentiment": 0,
+      "url": "http://localhost:8200/13-mobile-broken/site/",
+      "shot": "shots/a01-02.jpg"
+    },
+    {
+      "t": "00:12:53",
+      "agent": "a04",
+      "kind": "click",
+      "text": "想看看这些按钮是干什么的，先点F",
+      "sentiment": 0,
+      "url": "http://localhost:8200/13-mobile-broken/site/",
+      "shot": "shots/a04-04.jpg"
+    },
+    {
+      "t": "00:14:98",
+      "agent": "a04",
+      "kind": "click",
+      "text": "点第一个Upvote试试功能",
+      "sentiment": 0,
+      "url": "http://localhost:8200/13-mobile-broken/site/",
+      "shot": "shots/a04-05.jpg"
+    },
+    {
+      "t": "00:19:11",
+      "agent": "a03",
+      "kind": "confused",
+      "text": "这些 F R B A N S 按钮是什么意思？感觉像筛选，但不知道代表什么。看不出这是个什么产品。",
+      "sentiment": 0,
+      "shot": "shots/a03-02.jpg"
+    },
+    {
+      "t": "00:24:86",
+      "agent": "a01",
+      "kind": "rage",
+      "text": "要登录才能看内容？作为产品经理我想先快速扫一眼，结果直接被登录墙拦住了。这种产品反馈工具通常可以先浏览再决定要不要注册的。",
+      "sentiment": -2,
+      "shot": "shots/a01-04.jpg"
+    },
+    {
+      "t": "00:25:16",
+      "agent": "a04",
+      "kind": "observation",
+      "text": "点完Upvote没什么反应，不知道有没有成功。试试点Comment看看会怎样。",
+      "sentiment": 0,
+      "shot": "shots/a04-06.jpg"
+    },
+    {
+      "t": "00:27:43",
+      "agent": "a04",
+      "kind": "click",
+      "text": "想看看点Comment会弹出什么",
+      "sentiment": 0,
+      "url": "http://localhost:8200/13-mobile-broken/site/",
+      "shot": "shots/a04-07.jpg"
+    },
+    {
+      "t": "00:28:38",
+      "agent": "a01",
+      "kind": "exit",
+      "text": "本来想体验一下提交产品反馈的流程，结果一进来就被登录墙挡住。作为一个陌生的潜在用户，我想先看看现有的反馈内容再做决定，但光看个列表也看不出什么有价值的信息。顶部 F/R/B/A/N/S 按钮的语义不够直观，B 猜是 Bug 但不确定。分类筛选、详细内容都需要登录才能看，整个产品对我来说是\"黑箱\"，我感受不到它的价值。没有继续探索的动力了。",
+      "sentiment": 0,
+      "shot": "shots/a01-05.jpg"
+    },
+    {
+      "t": "00:31:49",
+      "agent": "a04",
+      "kind": "rage",
+      "text": "这页面怎么回事，点什么都没有反馈。按钮按下去感觉就是死的。内容也看不清，只看到图片链接地址。作为用户我真的要继续用吗？",
+      "sentiment": -2,
+      "shot": "shots/a04-08.jpg"
+    },
+    {
+      "t": "00:33:71",
+      "agent": "a04",
+      "kind": "click",
+      "text": "想试试这个按钮有什么作用",
+      "sentiment": 0,
+      "url": "http://localhost:8200/13-mobile-broken/site/",
+      "shot": "shots/a04-09.jpg"
+    },
+    {
+      "t": "00:33:89",
+      "agent": "a03",
+      "kind": "click",
+      "text": "想看看点击评论会发生什么，了解这个产品的交互",
+      "sentiment": 0,
+      "url": "http://localhost:8200/13-mobile-broken/site/",
+      "shot": "shots/a03-03.jpg"
+    },
+    {
+      "t": "00:36:20",
+      "agent": "a04",
+      "kind": "rage",
+      "text": "彻底死心了。这页面点击什么都像打在棉花上，完全没有反馈。不知道是我手机的问题还是它本身就坏了。算了，不浪费时间了。",
+      "sentiment": -3,
+      "shot": "shots/a04-10.jpg"
+    },
+    {
+      "t": "00:37:99",
+      "agent": "a02",
+      "kind": "click",
+      "text": "想看看评论功能是什么样的，点击第一个评论按钮",
+      "sentiment": 0,
+      "url": "http://localhost:8200/13-mobile-broken/site/",
+      "shot": "shots/a02-05.jpg"
+    },
+    {
+      "t": "00:38:67",
+      "agent": "a03",
+      "kind": "rage",
+      "text": "点了 Comment 按钮，页面完全没反应。这是什么破产品？",
+      "sentiment": -2,
+      "shot": "shots/a03-04.jpg"
+    },
+    {
+      "t": "00:39:32",
+      "agent": "a04",
+      "kind": "exit",
+      "text": "这个页面完全没有交互反馈。作为一个潜在用户，我尝试点击了筛选按钮、Upvote和Comment，但页面上没有任何变化或提示。顶部的一排字母按钮也不知道是什么意思，没有文字说明。整个体验感觉像是一个死掉的页面，我已经没有信心再继续尝试了。",
+      "sentiment": 0,
+      "shot": "shots/a04-11.jpg"
+    },
+    {
+      "t": "00:41:68",
+      "agent": "a03",
+      "kind": "click",
+      "text": "试试 Upvote 按钮能不能用",
+      "sentiment": 0,
+      "url": "http://localhost:8200/13-mobile-broken/site/",
+      "shot": "shots/a03-05.jpg"
+    },
+    {
+      "t": "00:44:14",
+      "agent": "a03",
+      "kind": "rage",
+      "text": "两个按钮都不管用。Upvote 和 Comment 全是摆设。这产品简直没法用，我走了。",
+      "sentiment": -3,
+      "shot": "shots/a03-06.jpg"
+    },
+    {
+      "t": "00:47:26",
+      "agent": "a02",
+      "kind": "click",
+      "text": "试试 Upvote 按钮，看看有没有视觉反馈",
+      "sentiment": 0,
+      "url": "http://localhost:8200/13-mobile-broken/site/",
+      "shot": "shots/a02-06.jpg"
+    },
+    {
+      "t": "00:50:42",
+      "agent": "a02",
+      "kind": "click",
+      "text": "点击 A 按钮看看是什么功能",
+      "sentiment": 0,
+      "url": "http://localhost:8200/13-mobile-broken/site/",
+      "shot": "shots/a02-07.jpg"
+    },
+    {
+      "t": "00:54:08",
+      "agent": "a02",
+      "kind": "rage",
+      "text": "页面上所有的按钮点击后完全没有反应 - 导航按钮 F/R/B/A/N/S 无效，Upvote 和 Comment 按钮也不响应。作为前端开发者，我立刻意识到这可能是移动端兼容性问题，或者是 JS 事件绑定有问题。页面视觉上加载了，但交互完全失效。",
+      "sentiment": -2,
+      "shot": "shots/a02-08.jpg"
+    },
+    {
+      "t": "01:00:72",
+      "agent": "a03",
+      "kind": "exit",
+      "text": "这是个看起来像图片社区的产品，有人物图卡和 Upvote/Comment 按钮。但我尝试了 Comment 和 Upvote 按钮，都完全没有反应。顶部的 F R B A N S 筛选按钮也不知道什么意思。核心交互功能全坏了，作为一个真实用户，我没有理由继续待下去，直接关掉。",
+      "sentiment": 0,
+      "shot": "shots/a03-07.jpg"
+    },
+    {
+      "t": "01:11:73",
+      "agent": "a02",
+      "kind": "exit",
+      "text": "页面加载后所有按钮都完全无法点击 — 顶部导航栏的 F/R/B/A/N/S 按钮、Upvote、Comment 全部无响应。作为前端开发者，我怀疑这是移动端兼容性问题或者 JS 事件绑定挂了。页面视觉能渲染，但交互完全失效，这种体验下普通用户会直接关掉。",
+      "sentiment": 0,
+      "shot": "shots/a02-09.jpg"
+    }
+  ],
+  "issues": [
+    {
+      "id": "i01",
+      "title": "登录墙阻断内容浏览，无法在注册前评估产品价值",
+      "severity": "high",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "要登录才能看内容？作为产品经理我想先快速扫一眼，结果直接被登录墙拦住了。这种产品反馈工具通常可以先浏览再决定要不要注册的。",
+      "agentRef": "a01",
+      "evidence": 1,
+      "journey": "在列表页点击 B（Bug）分类后，直接跳转登录页"
+    },
+    {
+      "id": "i04",
+      "title": "未登录状态下无法预览反馈详情，严重限制新用户的探索意愿",
+      "severity": "high",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "分类筛选、详细内容都需要登录才能看，整个产品对我来说是黑箱，我感受不到它的价值。",
+      "agentRef": "a01",
+      "evidence": 1,
+      "journey": "在列表页想点击某个卡片查看详情时"
+    },
+    {
+      "id": "i05",
+      "title": "点Upvote按钮没有任何反馈，不知道有没有成功",
+      "severity": "high",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "点完Upvote没什么反应，不知道有没有成功。试试点Comment看看会怎样。",
+      "agentRef": "a04",
+      "evidence": 1,
+      "journey": "在内容卡片上点击Upvote按钮后"
+    },
+    {
+      "id": "i06",
+      "title": "点Comment按钮后没有任何反应，没有弹出输入框",
+      "severity": "high",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "想看看点Comment会弹出什么，点完发现什么都没发生。",
+      "agentRef": "a04",
+      "evidence": 1,
+      "journey": "在内容卡片上点击Comment按钮后"
+    },
+    {
+      "id": "i07",
+      "title": "顶部F、R、B、A、N、S按钮没有文字说明，看不懂含义",
+      "severity": "high",
+      "agents": 1,
+      "category": "信息架构",
+      "quote": "顶部有F、R、B、A、N、S一排按钮，不太明白是什么意思。像是某种筛选标签？但按钮太小了，而且没有文字说明。",
+      "agentRef": "a04",
+      "evidence": 1,
+      "journey": "刚进入页面观察顶部导航时"
+    },
+    {
+      "id": "i08",
+      "title": "所有按钮按下去都像打在棉花上，完全没有交互反馈",
+      "severity": "high",
+      "agents": 1,
+      "category": "情感氛围",
+      "quote": "这页面点击什么都像打在棉花上，完全没有反馈。不知道是我手机的问题还是它本身就坏了。",
+      "agentRef": "a04",
+      "evidence": 2,
+      "journey": "连续尝试多个按钮后"
+    },
+    {
+      "id": "i10",
+      "title": "Upvote 按钮点击后完全无响应",
+      "severity": "high",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "点了 Upvote 按钮，页面完全没反应。这是什么破产品？",
+      "agentRef": "a03",
+      "evidence": 1,
+      "journey": "在图卡上点击 Upvote 按钮"
+    },
+    {
+      "id": "i11",
+      "title": "Comment 按钮点击后完全无响应",
+      "severity": "high",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "点了 Comment 按钮，页面完全没反应。这是什么破产品？",
+      "agentRef": "a03",
+      "evidence": 1,
+      "journey": "在图卡上点击 Comment 按钮"
+    },
+    {
+      "id": "i15",
+      "title": "所有按钮点击无响应，交互完全失效",
+      "severity": "high",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "页面上所有的按钮点击后完全没有反应——导航按钮F/R/B/A/N/S无效，Upvote和Comment也不响应，这种体验下普通用户会直接关掉。",
+      "agentRef": "a02",
+      "evidence": 6,
+      "journey": "进入页面后，我依次尝试点击导航按钮、Upvote按钮、Comment按钮，结果全部无响应。"
+    },
+    {
+      "id": "i17",
+      "title": "移动端适配问题导致交互完全失效",
+      "severity": "high",
+      "agents": 1,
+      "category": "性能感知",
+      "quote": "作为前端开发者，我怀疑这是移动端兼容性问题或者JS事件绑定有问题。页面在移动设备上可能没有正确绑定点击事件。",
+      "agentRef": "a02",
+      "evidence": 6,
+      "journey": "在移动端查看页面，所有按钮无法点击。"
+    },
+    {
+      "id": "i02",
+      "title": "顶部 F/R/B/A/N/S 按钮语义不明确，用户只能靠猜",
+      "severity": "med",
+      "agents": 1,
+      "category": "表达文案",
+      "quote": "顶部 F/R/B/A/N/S 按钮的语义不够直观，B 猜是 Bug 但不确定。",
+      "agentRef": "a01",
+      "evidence": 1,
+      "journey": "进入首页，扫视顶部导航按钮"
+    },
+    {
+      "id": "i03",
+      "title": "列表页卡片仅展示标题和统计数据，无法在未登录状态下获取任何实质信息",
+      "severity": "med",
+      "agents": 1,
+      "category": "信息架构",
+      "quote": "光看个列表也看不出什么有价值的信息。",
+      "agentRef": "a01",
+      "evidence": 1,
+      "journey": "在首页浏览卡片列表时"
+    },
+    {
+      "id": "i09",
+      "title": "内容区域只显示图片链接地址，看不清实际内容",
+      "severity": "med",
+      "agents": 1,
+      "category": "视觉节奏",
+      "quote": "内容也看不清，只看到图片链接地址。作为用户我真的要继续用吗？",
+      "agentRef": "a04",
+      "evidence": 1,
+      "journey": "查看页面主体内容时"
+    },
+    {
+      "id": "i12",
+      "title": "F R B A N S 筛选按钮含义不明确，我完全猜不到什么意思",
+      "severity": "med",
+      "agents": 1,
+      "category": "学习成本",
+      "quote": "这些 F R B A N S 按钮是什么意思？感觉像筛选，但不知道代表什么。看不出这是个什么产品。",
+      "agentRef": "a03",
+      "evidence": 1,
+      "journey": "进入首页后看到顶部一排小按钮"
+    },
+    {
+      "id": "i13",
+      "title": "产品定位不明，我不知道这是什么、给我带来什么价值",
+      "severity": "med",
+      "agents": 1,
+      "category": "信息架构",
+      "quote": "看不出这是个什么产品。跟我熟悉的工具比起来，完全不知道它是干嘛的。",
+      "agentRef": "a03",
+      "evidence": 1,
+      "journey": "刚进入首页浏览整体界面"
+    },
+    {
+      "id": "i14",
+      "title": "没有任何品牌信息或页面标题来告诉我这是什么",
+      "severity": "med",
+      "agents": 1,
+      "category": "信息架构",
+      "quote": "页面左上角没有任何 logo 或产品名称，空空荡荡的，看不出来这是谁的产品。",
+      "agentRef": "a03",
+      "evidence": 1,
+      "journey": "进入首页后扫视整体布局"
+    },
+    {
+      "id": "i16",
+      "title": "顶部导航按钮含义不明确",
+      "severity": "med",
+      "agents": 1,
+      "category": "可访问性",
+      "quote": "F/R/B/A/N/S这些缩写让我完全猜不出含义，是Feedback/Recent/...什么的缩写吗？",
+      "agentRef": "a02",
+      "evidence": 1,
+      "journey": "进入页面后想用导航按钮，但看到单个字母不知道是什么意思。"
+    }
+  ],
+  "delights": [
+    {
+      "title": "界面风格现代，卡片设计清晰，接近 Canny 的视觉质量",
+      "count": 1,
+      "quote": "这界面风格有点 Canny 的味道。",
+      "agent": "a01"
+    },
+    {
+      "title": "页面视觉设计看起来专业，类似UserVoice",
+      "count": 1,
+      "quote": "有Upvote和Comment卡片、顶部导航栏的布局，让我感觉这是个成熟的反馈/社区平台，功能结构是我熟悉的。",
+      "agent": "a02"
+    }
+  ],
+  "features": [
+    {
+      "name": "导航浏览",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 6
+    },
+    {
+      "name": "浏览反馈列表",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -2,
+      "totalAttempts": 1
+    },
+    {
+      "name": "分类筛选（B按钮）",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -2,
+      "totalAttempts": 1
+    },
+    {
+      "name": "登录/注册",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 1
+    },
+    {
+      "name": "筛选按钮",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -1,
+      "totalAttempts": 1
+    },
+    {
+      "name": "Upvote功能",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -2,
+      "totalAttempts": 1
+    },
+    {
+      "name": "Comment功能",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 1
+    },
+    {
+      "name": "浏览图片卡片",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 1,
+      "avgSentiment": 0,
+      "totalAttempts": 1
+    },
+    {
+      "name": "点击 Upvote 点赞",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 1
+    },
+    {
+      "name": "点击 Comment 评论",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 1
+    },
+    {
+      "name": "页面加载",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 1,
+      "avgSentiment": 0,
+      "totalAttempts": 1
+    },
+    {
+      "name": "Upvote点赞",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 1
+    },
+    {
+      "name": "查看评论",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 1
+    }
+  ],
+  "routesHeat": [
+    {
+      "path": "/13-mobile-broken/site/",
+      "visits": 15,
+      "dwell": 11,
+      "drop": 0.26666666666666666
+    }
+  ],
+  "sentimentCurve": [
+    {
+      "t": 0,
+      "v": 0.5208333333333334
+    },
+    {
+      "t": 5,
+      "v": 0.5208333333333334
+    },
+    {
+      "t": 10,
+      "v": 0.4166666666666667
+    },
+    {
+      "t": 15,
+      "v": 0.5
+    },
+    {
+      "t": 20,
+      "v": 0.5
+    },
+    {
+      "t": 25,
+      "v": 0.5
+    },
+    {
+      "t": 30,
+      "v": 0.16666666666666666
+    },
+    {
+      "t": 35,
+      "v": 0.5
+    },
+    {
+      "t": 40,
+      "v": 0.16666666666666666
+    },
+    {
+      "t": 45,
+      "v": 0.5
+    },
+    {
+      "t": 50,
+      "v": 0.2916666666666667
+    },
+    {
+      "t": 55,
+      "v": 0.5
+    },
+    {
+      "t": 60,
+      "v": 0
+    },
+    {
+      "t": 65,
+      "v": 0.5
+    },
+    {
+      "t": 70,
+      "v": 0.5
+    },
+    {
+      "t": 75,
+      "v": 0.16666666666666666
+    },
+    {
+      "t": 80,
+      "v": 0.5
+    },
+    {
+      "t": 85,
+      "v": 0.5
+    },
+    {
+      "t": 90,
+      "v": 0.5
+    },
+    {
+      "t": 95,
+      "v": 0.5
+    },
+    {
+      "t": 100,
+      "v": 0.5
+    }
+  ],
+  "metrics": {
+    "predictedNps": -14,
+    "achievableNps": 100,
+    "taskSuccess": 0,
+    "timeToValueSec": null,
+    "rageClicks": 6,
+    "delightCount": 0
+  },
+  "cost": {
+    "tokensIn": 114325,
+    "tokensOut": 5007,
+    "usd": 0
+  }
+}

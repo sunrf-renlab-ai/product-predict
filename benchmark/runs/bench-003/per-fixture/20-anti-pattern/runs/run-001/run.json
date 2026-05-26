@@ -1,0 +1,1003 @@
+{
+  "id": "run-001",
+  "startedAt": "2026-05-26T06:31:18.166Z",
+  "finishedAt": "2026-05-26T06:33:00.858Z",
+  "target": {
+    "url": "http://localhost:8200/20-anti-pattern/site/",
+    "title": "Plain — minimal status pages for engineering teams",
+    "viewport": {
+      "w": 1280,
+      "h": 800
+    }
+  },
+  "personaSetId": "preset",
+  "agents": [
+    {
+      "id": "a01",
+      "name": "Maya Chen",
+      "age": 31,
+      "role": "全栈工程师",
+      "tech": 4,
+      "tone": "怀疑",
+      "preferences": [
+        "关注代码可维护性",
+        "看重长期维护成本"
+      ],
+      "knownContext": [
+        "每天用 Postman 调试 API",
+        "试过 Insomnia，觉得界面太繁杂",
+        "目前用 Vercel 部署 Node 服务"
+      ],
+      "weight": 0.22,
+      "color": "#a8d5ba",
+      "glyph": "M",
+      "traits": [
+        "务实",
+        "代码洁癖"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "frustrated",
+      "durationSec": 53.738
+    },
+    {
+      "id": "a03",
+      "name": "李心怡",
+      "age": 34,
+      "role": "前端组长",
+      "tech": 3,
+      "tone": "挑剔",
+      "preferences": [
+        "在意组件是否易读",
+        "看重团队协作效率",
+        "关注文档完整性"
+      ],
+      "knownContext": [
+        "用 Figma 做设计交接",
+        "每天用 Notion 写技术文档",
+        "试过 Supabase，觉得学习曲线陡"
+      ],
+      "weight": 0.35,
+      "color": "#c5b8d5",
+      "glyph": "L",
+      "traits": [
+        "细节控",
+        "重视协作"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "explored",
+      "durationSec": 79.393
+    },
+    {
+      "id": "a02",
+      "name": "Kenji Okada",
+      "age": 26,
+      "role": "独立开发者",
+      "tech": 5,
+      "tone": "好奇",
+      "preferences": [
+        "喜欢尝鲜",
+        "愿意为设计付费",
+        "关注开发体验细节"
+      ],
+      "knownContext": [
+        "主力用 VS Code + Vim 插件",
+        "试过 Zeabur、Railway 等竞品",
+        "订阅了 Fig Pro 和 Raycast"
+      ],
+      "weight": 0.18,
+      "color": "#f4b8c5",
+      "glyph": "K",
+      "traits": [
+        "尝鲜族",
+        "细节控"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "frustrated",
+      "durationSec": 100.747
+    },
+    {
+      "id": "a04",
+      "name": "Tyler Brooks",
+      "age": 29,
+      "role": "DevOps 工程师",
+      "tech": 4,
+      "tone": "急躁",
+      "preferences": [
+        "看重部署速度",
+        "需要零配置上手",
+        "关注 CLI 工具链"
+      ],
+      "knownContext": [
+        "每天用 Docker Compose",
+        "试过 Fly.io，觉得 region 支持少",
+        "用 GitHub Actions 做 CI/CD"
+      ],
+      "weight": 0.25,
+      "color": "#d5c5b8",
+      "glyph": "T",
+      "traits": [
+        "效率控",
+        "抗拒配置"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "frustrated",
+      "durationSec": 102.548
+    }
+  ],
+  "activity": [
+    {
+      "t": "00:00:00",
+      "agent": "a01",
+      "kind": "enter",
+      "text": "进入 localhost:8200/20-anti-pattern/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/20-anti-pattern/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a01",
+      "kind": "observation",
+      "text": "Opening the site. Nav links: Product, Docs, Pricing. Main CTA: Start free. Interesting - there are some buttons at the bottom that look like command-line style buttons (plain status, plain incident open, plain logs --tail). That OSS URL in the DOM is suspicious - looks like a screenshot or image reference. Let me see the actual page.",
+      "sentiment": 0,
+      "shot": "shots/a01-00.jpg"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a03",
+      "kind": "enter",
+      "text": "进入 localhost:8200/20-anti-pattern/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/20-anti-pattern/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a02",
+      "kind": "enter",
+      "text": "进入 localhost:8200/20-anti-pattern/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/20-anti-pattern/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a02",
+      "kind": "observation",
+      "text": "看起来是个监控/状态页产品。底部有命令行示例，展示 plain status, plain incident open, plain logs --tail 这些命令，有点意思——感觉像是面向开发者/运维人的状态页工具。",
+      "sentiment": 1,
+      "shot": "shots/a02-00.jpg"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a04",
+      "kind": "enter",
+      "text": "进入 localhost:8200/20-anti-pattern/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/20-anti-pattern/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a04",
+      "kind": "click",
+      "text": "Click Product to see what this product actually is",
+      "sentiment": 0,
+      "url": "http://localhost:8200/20-anti-pattern/site/",
+      "shot": "shots/a04-00.jpg"
+    },
+    {
+      "t": "00:02:38",
+      "agent": "a03",
+      "kind": "observation",
+      "text": "看到几个按钮: Start free、Read the docs、还有三个命令行风格的按钮 (plain status, plain incident open, plain logs --tail)。这看起来像个开发工具或者日志/状态管理类的产品。让我先看看上面的内容再决定下一步。",
+      "sentiment": 0,
+      "shot": "shots/a03-01.jpg"
+    },
+    {
+      "t": "00:03:62",
+      "agent": "a01",
+      "kind": "click",
+      "text": "Page seems to be the same, let me reload to see content",
+      "sentiment": 0,
+      "url": "http://localhost:8200/20-anti-pattern/site/",
+      "shot": "shots/a01-01.jpg"
+    },
+    {
+      "t": "00:06:45",
+      "agent": "a04",
+      "kind": "click",
+      "text": "Check what kind of status page this is - relevant to my DevOps work",
+      "sentiment": 0,
+      "url": "http://localhost:8200/20-anti-pattern/site/",
+      "shot": "shots/a04-02.jpg"
+    },
+    {
+      "t": "00:06:58",
+      "agent": "a01",
+      "kind": "click",
+      "text": "Page seems broken, DOM is too sparse - checking if there's a loading issue",
+      "sentiment": 0,
+      "url": "http://localhost:8200/20-anti-pattern/site/",
+      "shot": "shots/a01-02.jpg"
+    },
+    {
+      "t": "00:09:26",
+      "agent": "a01",
+      "kind": "click",
+      "text": "Try clicking the main CTA to see if page responds",
+      "sentiment": 0,
+      "url": "http://localhost:8200/20-anti-pattern/site/",
+      "shot": "shots/a01-03.jpg"
+    },
+    {
+      "t": "00:11:44",
+      "agent": "a01",
+      "kind": "confused",
+      "text": "终于看到内容了！有个注册弹窗出来，问邮箱和工作区名。之前那些 \"plain logs --tail\" 按钮看起来像是 CLI 命令伪装成 UI 按钮...这可能就是那个 anti-pattern 演示站？但我作为普通用户第一眼完全不知道这站是干嘛的。",
+      "sentiment": -1,
+      "shot": "shots/a01-04.jpg"
+    },
+    {
+      "t": "00:15:01",
+      "agent": "a02",
+      "kind": "observation",
+      "text": "三个\"Learn more\"链接，看来是功能特性区块。CLI 命令示例是亮点——作为习惯用终端的开发者，这种产品思路挺对我胃口。想点开看看具体功能。",
+      "sentiment": 1,
+      "shot": "shots/a02-02.jpg"
+    },
+    {
+      "t": "00:15:07",
+      "agent": "a01",
+      "kind": "click",
+      "text": "Close the signup modal to see the main page",
+      "sentiment": 0,
+      "url": "http://localhost:8200/20-anti-pattern/site/",
+      "shot": "shots/a01-05.jpg"
+    },
+    {
+      "t": "00:15:22",
+      "agent": "a03",
+      "kind": "confused",
+      "text": "页面加载了但我看不到主要文字内容，只看到底部有那几个按钮。不知道这个产品是做什么的，光看截图文字信息太少了。让我试试点击 Docs 看看文档。",
+      "sentiment": -1,
+      "shot": "shots/a03-03.jpg"
+    },
+    {
+      "t": "00:18:29",
+      "agent": "a01",
+      "kind": "observation",
+      "text": "OK 现在看到更多内容了。那些 \"plain status\", \"plain incident open\", \"plain logs --tail\" 按钮...这些名字明显是命令行风格。这应该就是那个 anti-pattern 站点吧？把 CLI 命令硬做成按钮样式。",
+      "sentiment": 0,
+      "shot": "shots/a01-07.jpg"
+    },
+    {
+      "t": "00:19:75",
+      "agent": "a03",
+      "kind": "click",
+      "text": "点击 Read the docs 了解产品是做什么的",
+      "sentiment": 0,
+      "url": "http://localhost:8200/20-anti-pattern/site/",
+      "shot": "shots/a03-04.jpg"
+    },
+    {
+      "t": "00:21:78",
+      "agent": "a03",
+      "kind": "observation",
+      "text": "页面上有一个标题 \"CLI debugger for developers\"，这看起来是个开发者CLI调试工具。底部有三个命令按钮。我试试点击 plain status 看看会发生什么。",
+      "sentiment": 0,
+      "shot": "shots/a03-05.jpg"
+    },
+    {
+      "t": "00:21:79",
+      "agent": "a01",
+      "kind": "click",
+      "text": "Test one of the weird CLI-style buttons to see what it does",
+      "sentiment": 0,
+      "url": "http://localhost:8200/20-anti-pattern/site/",
+      "shot": "shots/a01-08.jpg"
+    },
+    {
+      "t": "00:24:25",
+      "agent": "a02",
+      "kind": "click",
+      "text": "想看第一个功能特性具体是什么",
+      "sentiment": 0,
+      "url": "http://localhost:8200/20-anti-pattern/site/",
+      "shot": "shots/a02-03.jpg"
+    },
+    {
+      "t": "00:24:36",
+      "agent": "a01",
+      "kind": "observation",
+      "text": "点了 \"plain status\" 按钮，什么反应都没有。这些按钮明显是装饰性的，不是真正的功能按钮。这anti-pattern演示得挺到位的——按钮看着像命令行，但实际上什么都不做。",
+      "sentiment": -1,
+      "shot": "shots/a01-09.jpg"
+    },
+    {
+      "t": "00:24:94",
+      "agent": "a04",
+      "kind": "click",
+      "text": "Try the incident open button - maybe it changes the view",
+      "sentiment": 0,
+      "url": "http://localhost:8200/20-anti-pattern/site/",
+      "shot": "shots/a04-03.jpg"
+    },
+    {
+      "t": "00:27:58",
+      "agent": "a02",
+      "kind": "observation",
+      "text": "点了一个 \"Learn more\" 什么都没发生，页面还是原样。可能这些链接没实现，或者我网络/JS加载问题。",
+      "sentiment": 0,
+      "shot": "shots/a02-04.jpg"
+    },
+    {
+      "t": "00:28:97",
+      "agent": "a03",
+      "kind": "observation",
+      "text": "页面终于加载完了。标题是 \"CLI debugger for developers\"，三个 Learn more 链接是关于功能特性的。让我点击 plain status 试试交互效果。",
+      "sentiment": 0,
+      "shot": "shots/a03-06.jpg"
+    },
+    {
+      "t": "00:29:22",
+      "agent": "a01",
+      "kind": "click",
+      "text": "Check what Product page says about this service",
+      "sentiment": 0,
+      "url": "http://localhost:8200/20-anti-pattern/site/",
+      "shot": "shots/a01-11.jpg"
+    },
+    {
+      "t": "00:30:18",
+      "agent": "a04",
+      "kind": "rage",
+      "text": "These buttons are fake - they're labeled like CLI commands (\"plain status\", \"plain logs --tail\") but clicking does nothing. This is a static demo page. I'm not getting a real feel for the product.",
+      "sentiment": -2,
+      "shot": "shots/a04-04.jpg"
+    },
+    {
+      "t": "00:32:03",
+      "agent": "a01",
+      "kind": "click",
+      "text": "Try Pricing nav link",
+      "sentiment": 0,
+      "url": "http://localhost:8200/20-anti-pattern/site/",
+      "shot": "shots/a01-12.jpg"
+    },
+    {
+      "t": "00:34:89",
+      "agent": "a03",
+      "kind": "click",
+      "text": "点击 plain status 按钮体验交互",
+      "sentiment": 0,
+      "url": "http://localhost:8200/20-anti-pattern/site/",
+      "shot": "shots/a03-07.jpg"
+    },
+    {
+      "t": "00:36:66",
+      "agent": "a02",
+      "kind": "click",
+      "text": "想通过文档了解这个产品的具体功能",
+      "sentiment": 0,
+      "url": "http://localhost:8200/20-anti-pattern/site/",
+      "shot": "shots/a02-05.jpg"
+    },
+    {
+      "t": "00:36:75",
+      "agent": "a01",
+      "kind": "rage",
+      "text": "导航链接全都不工作！Product/Docs/Pricing 点了个寂寞。作为用户我会以为网站坏了直接关掉。那个 OSS 图片 URL 在 DOM 里裸着，域名还带日期戳，这代码质量堪忧。",
+      "sentiment": -2,
+      "shot": "shots/a01-13.jpg"
+    },
+    {
+      "t": "00:36:82",
+      "agent": "a04",
+      "kind": "click",
+      "text": "Try the main CTA - see if signup flow exists",
+      "sentiment": 0,
+      "url": "http://localhost:8200/20-anti-pattern/site/",
+      "shot": "shots/a04-05.jpg"
+    },
+    {
+      "t": "00:39:16",
+      "agent": "a03",
+      "kind": "confused",
+      "text": "点了 plain status 按钮，页面看起来没变化。这三个按钮可能是展示区，不是交互的。URL 里写着 \"anti-pattern\"，难道这是个\"反模式\"展示页面？这挺有意思。",
+      "sentiment": 0,
+      "shot": "shots/a03-08.jpg"
+    },
+    {
+      "t": "00:39:33",
+      "agent": "a04",
+      "kind": "click",
+      "text": "Try Docs link - maybe there's real content",
+      "sentiment": 0,
+      "url": "http://localhost:8200/20-anti-pattern/site/",
+      "shot": "shots/a04-06.jpg"
+    },
+    {
+      "t": "00:41:20",
+      "agent": "a02",
+      "kind": "click",
+      "text": "想看看文档页面",
+      "sentiment": 0,
+      "url": "http://localhost:8200/20-anti-pattern/site/",
+      "shot": "shots/a02-06.jpg"
+    },
+    {
+      "t": "00:42:14",
+      "agent": "a01",
+      "kind": "exit",
+      "text": "作为真实用户，我大概30秒就会关掉这个页面。网站明显是个anti-pattern教学演示——导航链接全部无效，那些 \"plain status\", \"plain logs --tail\" 按钮看起来像命令行但点什么都不反应。更糟糕的是 OSS 图片 URL 直接暴露在 DOM 里，signature 参数都看得到。作为开发者，这代码质量让我皱眉；作为普通用户，我会以为网站坏了直接关掉。唯一的\"功能\"是点击后弹出一个注册邮箱的弹窗，但主页上没有任何有价值的内容。完全没有让我留下来的理由。",
+      "sentiment": 0,
+      "shot": "shots/a01-14.jpg"
+    },
+    {
+      "t": "00:42:71",
+      "agent": "a03",
+      "kind": "click",
+      "text": "看看 Learn more 会跳到哪里",
+      "sentiment": 0,
+      "url": "http://localhost:8200/20-anti-pattern/site/",
+      "shot": "shots/a03-09.jpg"
+    },
+    {
+      "t": "00:45:27",
+      "agent": "a02",
+      "kind": "click",
+      "text": "想看看价格页面",
+      "sentiment": 0,
+      "url": "http://localhost:8200/20-anti-pattern/site/",
+      "shot": "shots/a02-07.jpg"
+    },
+    {
+      "t": "00:46:76",
+      "agent": "a04",
+      "kind": "click",
+      "text": "Check pricing - important for evaluating if I would switch",
+      "sentiment": 0,
+      "url": "http://localhost:8200/20-anti-pattern/site/",
+      "shot": "shots/a04-08.jpg"
+    },
+    {
+      "t": "00:47:91",
+      "agent": "a03",
+      "kind": "confused",
+      "text": "Learn more 链接也不跳转，整个页面像是个静态展示。既然 URL 是 /20-anti-pattern/site/，这可能是展示\"反模式\"的示例，不是真正的产品站。我点击 Start free 试试。",
+      "sentiment": -1,
+      "shot": "shots/a03-10.jpg"
+    },
+    {
+      "t": "00:47:95",
+      "agent": "a02",
+      "kind": "rage",
+      "text": "导航栏三个链接全部点了一遍，URL 都是同一个，页面完全没有变化。这是在逗我？静态页面还是半成品？",
+      "sentiment": -2,
+      "shot": "shots/a02-08.jpg"
+    },
+    {
+      "t": "00:51:12",
+      "agent": "a04",
+      "kind": "rage",
+      "text": "Nothing works. Nav links, buttons, CTA - all dead. This is a broken demo. No wonder it's labeled \"anti-pattern\" - the page itself is the anti-pattern.",
+      "sentiment": -3,
+      "shot": "shots/a04-09.jpg"
+    },
+    {
+      "t": "00:54:15",
+      "agent": "a03",
+      "kind": "click",
+      "text": "测试 Start free 按钮是否有响应",
+      "sentiment": 0,
+      "url": "http://localhost:8200/20-anti-pattern/site/",
+      "shot": "shots/a03-11.jpg"
+    },
+    {
+      "t": "00:55:66",
+      "agent": "a02",
+      "kind": "click",
+      "text": "试试 CLI 命令按钮是否可交互",
+      "sentiment": 0,
+      "url": "http://localhost:8200/20-anti-pattern/site/",
+      "shot": "shots/a02-09.jpg"
+    },
+    {
+      "t": "00:59:57",
+      "agent": "a04",
+      "kind": "exit",
+      "text": "Tried to evaluate plain.dev for incident management. Everything on this demo is non-functional - buttons don't work, nav links don't navigate, CTAs don't lead anywhere. The page is labeled \"anti-pattern\" so I'm experiencing exactly that: a broken landing page that shows zero value. Without a working demo, I can't assess pricing, features, or UX. Won't be coming back.",
+      "sentiment": 0,
+      "shot": "shots/a04-10.jpg"
+    },
+    {
+      "t": "01:02:06",
+      "agent": "a03",
+      "kind": "rage",
+      "text": "这个页面是个反模式展示 - 所有按钮和链接都是假的，完全不可交互。我试了 Start free、Read the docs、Learn more、plain status 全部没反应。整个页面看起来像是个教学示例，不是真正的产品。作为用户在这里完全是浪费时间，不知道这在教什么\"反模式\"。",
+      "sentiment": -2,
+      "shot": "shots/a03-12.jpg"
+    },
+    {
+      "t": "01:02:06",
+      "agent": "a02",
+      "kind": "exit",
+      "text": "尝试了导航栏 (Product/Docs/Pricing)、Learn more 链接和底部按钮，全部点击后毫无反应。页面基本是静态的，交互功能完全没实现。CLI 命令示例的想法挺有意思，但产品本身还是半成品，没有继续探索的价值。",
+      "sentiment": 0,
+      "shot": "shots/a02-11.jpg"
+    },
+    {
+      "t": "01:11:41",
+      "agent": "a03",
+      "kind": "exit",
+      "text": "打开的是一个反模式展示页面（URL含 anti-pattern），所有按钮和链接均不可交互，是静态展示页而非真实产品。作为用户，花了1分钟试了多个按钮都无响应，完全是在浪费时间。这是个教学演示，不是真正需要体验的产品站。",
+      "sentiment": 0,
+      "shot": "shots/a03-13.jpg"
+    }
+  ],
+  "issues": [
+    {
+      "id": "i01",
+      "title": "导航链接全部无响应",
+      "severity": "high",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "Product/Docs/Pricing点了个寂寞",
+      "agentRef": "a01",
+      "evidence": 3,
+      "journey": "在首页点击顶部导航栏的任何链接"
+    },
+    {
+      "id": "i02",
+      "title": "CLI风格按钮点击后无反应",
+      "severity": "high",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "点了plain status按钮，什么反应都没有",
+      "agentRef": "a01",
+      "evidence": 1,
+      "journey": "点击plain status/plain incident open/plain logs --tail等按钮"
+    },
+    {
+      "id": "i06",
+      "title": "所有按钮和链接均不可点击，无任何响应",
+      "severity": "high",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "点了 plain status 按钮，页面看起来没变化。这三个按钮可能是展示区，不是交互的。",
+      "agentRef": "a03",
+      "evidence": 4,
+      "journey": "在首页点击 plain status 按钮后"
+    },
+    {
+      "id": "i07",
+      "title": "所有 Learn more 链接不可跳转",
+      "severity": "high",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "Learn more 链接也不跳转，整个页面像是个静态展示。",
+      "agentRef": "a03",
+      "evidence": 3,
+      "journey": "在首页点击三个 Learn more 链接后"
+    },
+    {
+      "id": "i08",
+      "title": "Start free 按钮无任何交互或跳转",
+      "severity": "high",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "这个页面是个反模式展示——所有按钮和链接都是假的，完全不可交互。作为用户在这里完全是浪费时间。",
+      "agentRef": "a03",
+      "evidence": 1,
+      "journey": "在首页点击 Start free 按钮后"
+    },
+    {
+      "id": "i11",
+      "title": "导航栏 Product/Docs/Pricing 三个链接全部无效",
+      "severity": "high",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "导航栏三个链接全部点了一遍，URL 都是同一个，页面完全没有变化。这是在逗我？",
+      "agentRef": "a02",
+      "evidence": 3,
+      "journey": "在页面顶部导航栏点击 Product、Docs、Pricing"
+    },
+    {
+      "id": "i12",
+      "title": "三个区块的 Learn more 链接点击后无响应",
+      "severity": "high",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "点了一个 Learn more 什么都没发生，页面还是原样。可能这些链接没实现，或者我网络/JS加载问题。",
+      "agentRef": "a02",
+      "evidence": 1,
+      "journey": "在 Features 区块点击第一个 Learn more"
+    },
+    {
+      "id": "i15",
+      "title": "All CTA buttons are fake/captive - clicking does nothing",
+      "severity": "high",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "These buttons are fake - they're labeled like CLI commands ('plain status', 'plain logs --tail') but clicking does nothing. This is a static demo page.",
+      "agentRef": "a04",
+      "evidence": 4,
+      "journey": "Tried clicking 'plain logs --tail', 'plain status', incident open button, and main CTA button"
+    },
+    {
+      "id": "i16",
+      "title": "Navigation links don't work - no actual pages to visit",
+      "severity": "high",
+      "agents": 1,
+      "category": "信息架构",
+      "quote": "Nav links, buttons, CTA - all dead. This is a broken demo.",
+      "agentRef": "a04",
+      "evidence": 3,
+      "journey": "Clicked Product link, Docs link, Pricing link - none navigated anywhere"
+    },
+    {
+      "id": "i17",
+      "title": "Can't access pricing page to evaluate cost/plan options",
+      "severity": "high",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "Without a working demo, I can't assess pricing, features, or UX.",
+      "agentRef": "a04",
+      "evidence": 1,
+      "journey": "Wanted to check pricing tier to evaluate if I would switch from my current tools"
+    },
+    {
+      "id": "i18",
+      "title": "Status page interaction is fake - no real data or logs",
+      "severity": "high",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "Check what kind of status page this is - relevant to my DevOps work. But the 'incident open' button does nothing.",
+      "agentRef": "a04",
+      "evidence": 1,
+      "journey": "Expected to see actual incident management UI with logs, status changes - got nothing"
+    },
+    {
+      "id": "i03",
+      "title": "首页无有价值内容，用户无法理解产品定位",
+      "severity": "med",
+      "agents": 1,
+      "category": "信息架构",
+      "quote": "之前那些plain logs --tail按钮看起来像是CLI命令伪装成UI按钮，我作为普通用户第一眼完全不知道这站是干嘛的",
+      "agentRef": "a01",
+      "evidence": 1,
+      "journey": "初次进入首页"
+    },
+    {
+      "id": "i04",
+      "title": "唯一\"功能\"仅是注册弹窗",
+      "severity": "med",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "那个注册弹窗出来问邮箱和工作区名，但这之前没有任何有价值的内容铺垫",
+      "agentRef": "a01",
+      "evidence": 1,
+      "journey": "点击后触发的注册弹窗"
+    },
+    {
+      "id": "i09",
+      "title": "页面内容加载慢，等待成本高",
+      "severity": "med",
+      "agents": 1,
+      "category": "性能感知",
+      "quote": "页面终于加载完了。等了快1分钟才看到完整内容。",
+      "agentRef": "a03",
+      "evidence": 2,
+      "journey": "首页加载过程中"
+    },
+    {
+      "id": "i10",
+      "title": "产品定位不明，看不出是做什么的",
+      "severity": "med",
+      "agents": 1,
+      "category": "信息架构",
+      "quote": "不知道这个产品是做什么的，光看截图文字信息太少了。",
+      "agentRef": "a03",
+      "evidence": 2,
+      "journey": "首页初见，只看到几个按钮时"
+    },
+    {
+      "id": "i13",
+      "title": "底部命令示例的交互按钮不可用",
+      "severity": "med",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "试试 CLI 命令按钮是否可交互，结果点完还是没反应。",
+      "agentRef": "a02",
+      "evidence": 1,
+      "journey": "在页面底部的命令示例区域尝试点击"
+    },
+    {
+      "id": "i14",
+      "title": "页面缺乏基本状态反馈机制",
+      "severity": "med",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "点完什么都没发生，没有任何提示——是加载中还是坏了？完全不知道。",
+      "agentRef": "a02",
+      "evidence": 5,
+      "journey": "所有点击操作后"
+    },
+    {
+      "id": "i19",
+      "title": "Anti-pattern label undermines trust without explaining the product",
+      "severity": "med",
+      "agents": 1,
+      "category": "情感氛围",
+      "quote": "The page is labeled 'anti-pattern' so I'm experiencing exactly that: a broken landing page that shows zero value.",
+      "agentRef": "a04",
+      "evidence": 1,
+      "journey": "Landing page labeled '20-anti-pattern' - confusing whether this is intentional demo of bad patterns or broken real product"
+    },
+    {
+      "id": "i05",
+      "title": "OSS资源URL暴露在DOM中带signature参数",
+      "severity": "low",
+      "agents": 1,
+      "category": "可访问性",
+      "quote": "那个OSS图片URL在DOM里裸着，域名还带日期戳，signature参数都看得到",
+      "agentRef": "a01",
+      "evidence": 1,
+      "journey": "查看页面DOM结构时发现"
+    }
+  ],
+  "delights": [
+    {
+      "title": "URL标注了 anti-pattern，有一定暗示性",
+      "count": 1,
+      "quote": "URL 里写着 'anti-pattern'，难道这是个'反模式'展示页面？这挺有意思。",
+      "agent": "a03"
+    },
+    {
+      "title": "CLI 命令示例的想法戳中了我这类开发者",
+      "count": 1,
+      "quote": "底部展示 plain status, plain incident open, plain logs --tail 这些命令，有点意思——感觉像是面向开发者/运维人的状态页工具。作为习惯用终端的开发者，这种产品思路挺对我胃口。",
+      "agent": "a02"
+    },
+    {
+      "title": "CLI-style button labels appeal to my DevOps identity",
+      "count": 1,
+      "quote": "The button labels like 'plain logs --tail' and 'plain status' felt familiar - matching how I think in terminals.",
+      "agent": "a04"
+    }
+  ],
+  "features": [
+    {
+      "name": "点击主按钮",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 4
+    },
+    {
+      "name": "尝试导航功能",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 3
+    },
+    {
+      "name": "点击 Learn more",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 3
+    },
+    {
+      "name": "导航切换",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 3
+    },
+    {
+      "name": "功能详情入口",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -2,
+      "totalAttempts": 3
+    },
+    {
+      "name": "点击CLI按钮",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -2,
+      "totalAttempts": 2
+    },
+    {
+      "name": "Product exploration",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 2
+    },
+    {
+      "name": "Status page interaction",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 2
+    },
+    {
+      "name": "查看首页内容",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -2,
+      "totalAttempts": 1
+    },
+    {
+      "name": "触发注册弹窗",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 1,
+      "avgSentiment": -1,
+      "totalAttempts": 1
+    },
+    {
+      "name": "导航到文档",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -2,
+      "totalAttempts": 1
+    },
+    {
+      "name": "产品文档入口",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -2,
+      "totalAttempts": 1
+    },
+    {
+      "name": "价格页面入口",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -2,
+      "totalAttempts": 1
+    },
+    {
+      "name": "Pricing check",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -2,
+      "totalAttempts": 1
+    },
+    {
+      "name": "Docs access",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -1,
+      "totalAttempts": 1
+    }
+  ],
+  "routesHeat": [
+    {
+      "path": "/20-anti-pattern/site/",
+      "visits": 26,
+      "dwell": 8,
+      "drop": 0.15384615384615385
+    }
+  ],
+  "sentimentCurve": [
+    {
+      "t": 0,
+      "v": 0.5208333333333334
+    },
+    {
+      "t": 5,
+      "v": 0.5
+    },
+    {
+      "t": 10,
+      "v": 0.5
+    },
+    {
+      "t": 15,
+      "v": 0.3333333333333333
+    },
+    {
+      "t": 20,
+      "v": 0.5
+    },
+    {
+      "t": 25,
+      "v": 0.5
+    },
+    {
+      "t": 30,
+      "v": 0.4666666666666666
+    },
+    {
+      "t": 35,
+      "v": 0.5
+    },
+    {
+      "t": 40,
+      "v": 0.4166666666666667
+    },
+    {
+      "t": 45,
+      "v": 0.5
+    },
+    {
+      "t": 50,
+      "v": 0.4166666666666667
+    },
+    {
+      "t": 55,
+      "v": 0.5
+    },
+    {
+      "t": 60,
+      "v": 0.5
+    },
+    {
+      "t": 65,
+      "v": 0.3333333333333333
+    },
+    {
+      "t": 70,
+      "v": 0
+    },
+    {
+      "t": 75,
+      "v": 0.5
+    },
+    {
+      "t": 80,
+      "v": 0.5
+    },
+    {
+      "t": 85,
+      "v": 0.3333333333333333
+    },
+    {
+      "t": 90,
+      "v": 0.3333333333333333
+    },
+    {
+      "t": 95,
+      "v": 0.3333333333333333
+    },
+    {
+      "t": 100,
+      "v": 0.5
+    }
+  ],
+  "metrics": {
+    "predictedNps": -9,
+    "achievableNps": 100,
+    "taskSuccess": 0,
+    "timeToValueSec": null,
+    "rageClicks": 5,
+    "delightCount": 0
+  },
+  "cost": {
+    "tokensIn": 172351,
+    "tokensOut": 7117,
+    "usd": 0
+  }
+}

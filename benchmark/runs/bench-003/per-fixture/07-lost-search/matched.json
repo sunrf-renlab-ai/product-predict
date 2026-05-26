@@ -1,0 +1,271 @@
+{
+  "fixtureId": "07-lost-search",
+  "gtTotal": 5,
+  "ppTotal": 19,
+  "matched": 0,
+  "recall": 0,
+  "precision": 0,
+  "f1": 0,
+  "severityAcc": 0,
+  "categoryAcc": 0,
+  "verdicts": [
+    {
+      "gtId": "gt-01",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0.45,
+      "reasoning": "i13提到空状态不提示但未聚焦搜索无结果场景"
+    },
+    {
+      "gtId": "gt-02",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0.3,
+      "reasoning": "GT describes search returning 0 results due to strict matching without typo tolerance; all 搜索 findings describe search producing no results because the feature is completely broken (no response at all). The underlying issue is fundamentally different: GT is about missing fuzzy/au"
+    },
+    {
+      "gtId": "gt-03",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0,
+      "reasoning": "GT is about placeholder text wording; all findings focus on broken search/navigation"
+    },
+    {
+      "gtId": "gt-04",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0,
+      "reasoning": "No finding mentions missing clear button for search input"
+    },
+    {
+      "gtId": "gt-05",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0,
+      "reasoning": "GT is about visual uniformity of search result cards lacking hierarchy and type grouping; all PP findings focus on broken search navigation or zero feedback, not visual design"
+    }
+  ],
+  "falsePositives": [
+    {
+      "findingId": "i01",
+      "finding": {
+        "title": "搜索框输入后按Enter无反应",
+        "category": "流程顺畅",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i02",
+      "finding": {
+        "title": "导航栏Guides链接点击后页面无变化",
+        "category": "流程顺畅",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i03",
+      "finding": {
+        "title": "所有交互没有反馈，失败无提示",
+        "category": "信息架构",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i05",
+      "finding": {
+        "title": "搜索框输入内容后按回车没有任何响应",
+        "category": "功能契合",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i06",
+      "finding": {
+        "title": "顶部导航栏各分类按钮点击后没有反应",
+        "category": "功能契合",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i07",
+      "finding": {
+        "title": "页面功能完全失效，用户无法完成任何操作",
+        "category": "流程顺畅",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i10",
+      "finding": {
+        "title": "搜索框按回车无任何响应，搜完就石沉大海",
+        "category": "功能契合",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i11",
+      "finding": {
+        "title": "搜索框没有任何自动补全或实时建议",
+        "category": "功能契合",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i12",
+      "finding": {
+        "title": "顶部 All / Guides / API / Account 分类按钮全部点不动",
+        "category": "功能契合",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i13",
+      "finding": {
+        "title": "搜索没有任何反馈机制——失败也不报错，空状态也不提示",
+        "category": "流程顺畅",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i16",
+      "finding": {
+        "title": "搜索框输入后按Enter完全无响应",
+        "category": "功能契合",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i17",
+      "finding": {
+        "title": "分类按钮All/Guides/API/Account点击无效",
+        "category": "功能契合",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i18",
+      "finding": {
+        "title": "顶部导航链接Docs/Guides/API等完全无作用",
+        "category": "信息架构",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i19",
+      "finding": {
+        "title": "没有任何操作反馈让用户感到迷失",
+        "category": "情感氛围",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i04",
+      "finding": {
+        "title": "相比Algolia DocSearch体验差距太大",
+        "category": "与竞品对比",
+        "severity": "med"
+      }
+    },
+    {
+      "findingId": "i08",
+      "finding": {
+        "title": "没有错误提示或加载状态，用户不知道该等多久",
+        "category": "表达文案",
+        "severity": "med"
+      }
+    },
+    {
+      "findingId": "i09",
+      "finding": {
+        "title": "导航栏设计成装饰性，用户被误导点击",
+        "category": "信息架构",
+        "severity": "med"
+      }
+    },
+    {
+      "findingId": "i14",
+      "finding": {
+        "title": "出现了 '← Back to results' 按钮却没有实际结果，状态自相矛盾",
+        "category": "流程顺畅",
+        "severity": "med"
+      }
+    },
+    {
+      "findingId": "i15",
+      "finding": {
+        "title": "Guides 区域内部的筛选按钮也点不动",
+        "category": "功能契合",
+        "severity": "med"
+      }
+    }
+  ],
+  "missed": [
+    {
+      "gtId": "gt-01",
+      "gt": {
+        "id": "gt-01",
+        "title": "搜不到结果就完全空白",
+        "severity": "high",
+        "category": "信息架构",
+        "description": "输入一个无匹配的关键词后,结果区直接变成空白,既没有 'No results for X' 文案、也没有 'Try a different keyword' 引导,用户会以为页面坏了或者搜索框没生效。",
+        "shouldFindWith": [
+          "新手",
+          "目标导向"
+        ]
+      }
+    },
+    {
+      "gtId": "gt-02",
+      "gt": {
+        "id": "gt-02",
+        "title": "拼错一个字母就 0 结果",
+        "severity": "high",
+        "category": "功能契合",
+        "description": "搜索是严格 substring 匹配,没有 typo correction、没有 fuzzy match、没有 autocomplete。搜 'authentcation' / 'markdwn' 都返回零,普通 docs 站点早就具备的容错完全缺失。",
+        "shouldFindWith": [
+          "重度用户",
+          "评估者"
+        ]
+      }
+    },
+    {
+      "gtId": "gt-03",
+      "gt": {
+        "id": "gt-03",
+        "title": "Search... 占位符没说能搜什么",
+        "severity": "med",
+        "category": "表达文案",
+        "description": "搜索框 placeholder 就一句 'Search...',没告诉用户能搜 docs、API、还是社区内容,缺乏 'Search docs, API, guides...' 这种带选项的引导文案。",
+        "shouldFindWith": [
+          "新手"
+        ]
+      }
+    },
+    {
+      "gtId": "gt-04",
+      "gt": {
+        "id": "gt-04",
+        "title": "输入框没有清除按钮",
+        "severity": "med",
+        "category": "流程顺畅",
+        "description": "search input 没有 × clear 按钮,用户想换关键词必须全选再删除或者用退格慢慢删,在搜索这种高频交互场景里是常识级的缺失。",
+        "shouldFindWith": [
+          "重度用户"
+        ]
+      }
+    },
+    {
+      "gtId": "gt-05",
+      "gt": {
+        "id": "gt-05",
+        "title": "所有结果卡片长得一样",
+        "severity": "low",
+        "category": "视觉节奏",
+        "description": "搜索命中的所有结果都用同样大小、同样颜色的卡片,没区分最佳匹配 / 次要匹配,也没按类型 (api / guide / account) 视觉分组,用户得逐条读才能找到想要的。",
+        "shouldFindWith": [
+          "设计敏感"
+        ]
+      }
+    }
+  ]
+}

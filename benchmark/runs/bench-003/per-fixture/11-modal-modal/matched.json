@@ -1,0 +1,237 @@
+{
+  "fixtureId": "11-modal-modal",
+  "gtTotal": 5,
+  "ppTotal": 17,
+  "matched": 1,
+  "recall": 0.2,
+  "precision": 0.058823529411764705,
+  "f1": 0.0909090909090909,
+  "severityAcc": 1,
+  "categoryAcc": 1,
+  "verdicts": [
+    {
+      "gtId": "gt-01",
+      "findingId": "i08",
+      "matched": true,
+      "confidence": 0.95,
+      "reasoning": "三个弹窗轰炸描述完全一致Cookie订阅升级Pro",
+      "severityAgrees": true,
+      "categoryAgrees": true
+    },
+    {
+      "gtId": "gt-02",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0.35,
+      "reasoning": "i02提到cookie弹窗但未描述overflow锁定机制，仅是弹窗顺序问题而非无法滚动的根本问题"
+    },
+    {
+      "gtId": "gt-03",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0.3,
+      "reasoning": "GT关注三个弹窗的视觉风格不一致(直角vs圆角vs渐变边框),但i08只描述弹窗数量多和轰炸感,未提及任何视觉风格差异"
+    },
+    {
+      "gtId": "gt-04",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0,
+      "reasoning": "GT关注订阅弹窗按钮大小对比的dark pattern Confirm-shaming，但所有pp findings只描述弹窗数量时机压力等问题，无一提及Subscribe和no thanks按钮的视觉大小对比差异"
+    },
+    {
+      "gtId": "gt-05",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0.05,
+      "reasoning": "no finding mentions cookie banner button contrast issue GT is about"
+    }
+  ],
+  "falsePositives": [
+    {
+      "findingId": "i01",
+      "finding": {
+        "title": "导航链接全部失效，点击无响应",
+        "category": "功能契合",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i02",
+      "finding": {
+        "title": "新用户首次访问连续弹出三个模态框",
+        "category": "情感氛围",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i04",
+      "finding": {
+        "title": "点击导航 Tab 后内容区域毫无变化",
+        "category": "功能契合",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i05",
+      "finding": {
+        "title": "Library 页面没有书籍列表/阅读内容",
+        "category": "功能契合",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i07",
+      "finding": {
+        "title": "Highlights 页面完全空白",
+        "category": "功能契合",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i09",
+      "finding": {
+        "title": "导航栏 Library 和 Highlights 点击无效，无法浏览书库内容",
+        "category": "功能契合",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i12",
+      "finding": {
+        "title": "作为读书应用，核心的看书功能从未真正可用",
+        "category": "功能契合",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i13",
+      "finding": {
+        "title": "一进来3个弹窗叠着来，还没看到内容就先挨轰",
+        "category": "情感氛围",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i14",
+      "finding": {
+        "title": "搜索框点两次没反应，功能是否存在让人怀疑",
+        "category": "功能契合",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i03",
+      "finding": {
+        "title": "订阅弹窗出现时机过早，用户尚未完成任何操作",
+        "category": "流程顺畅",
+        "severity": "med"
+      }
+    },
+    {
+      "findingId": "i06",
+      "finding": {
+        "title": "Library 里弹出了升级提示，但没有关闭按钮",
+        "category": "流程顺畅",
+        "severity": "med"
+      }
+    },
+    {
+      "findingId": "i10",
+      "finding": {
+        "title": "订阅弹窗要求填邮箱，与我来看书的目的完全不符",
+        "category": "流程顺畅",
+        "severity": "med"
+      }
+    },
+    {
+      "findingId": "i11",
+      "finding": {
+        "title": "付费升级弹窗反复出现，让人感到被催促付费的压力",
+        "category": "情感氛围",
+        "severity": "med"
+      }
+    },
+    {
+      "findingId": "i15",
+      "finding": {
+        "title": "找不到书籍列表入口，只能看到单本书的详情",
+        "category": "信息架构",
+        "severity": "med"
+      }
+    },
+    {
+      "findingId": "i16",
+      "finding": {
+        "title": "界面视觉有点模糊，元素识别困难",
+        "category": "视觉节奏",
+        "severity": "med"
+      }
+    },
+    {
+      "findingId": "i17",
+      "finding": {
+        "title": "Discover入口点击后不知道跳到哪去了",
+        "category": "导航",
+        "severity": "low"
+      }
+    }
+  ],
+  "missed": [
+    {
+      "gtId": "gt-02",
+      "gt": {
+        "id": "gt-02",
+        "title": "不点同意 cookie 就无法滚动",
+        "severity": "high",
+        "category": "流程顺畅",
+        "description": "页面初始 body 带 .locked class 禁用 overflow,只有点 cookie banner 上的 Accept 或 Reject 才会解锁。用户连产品介绍都没看就被逼着做决定,违反正常浏览习惯。",
+        "shouldFindWith": [
+          "目标导向",
+          "新手"
+        ]
+      }
+    },
+    {
+      "gtId": "gt-03",
+      "gt": {
+        "id": "gt-03",
+        "title": "三个弹窗视觉风格不一致",
+        "severity": "med",
+        "category": "视觉节奏",
+        "description": "cookie banner 用直角无阴影,订阅弹窗用 18px 大圆角 + 重阴影,升级 Pro 是带渐变边框的侧边抽屉。三个高优先级 UI 元素出现在同一会话里却各说各话,看着像三个不同产品。",
+        "shouldFindWith": [
+          "设计敏感"
+        ]
+      }
+    },
+    {
+      "gtId": "gt-04",
+      "gt": {
+        "id": "gt-04",
+        "title": "Subscribe 按钮巨大 no thanks 缩成小字",
+        "severity": "med",
+        "category": "表达文案",
+        "description": "邮件订阅弹窗的 Subscribe 按钮 100% 宽 + 18px padding + 17px 加粗字号,而 no thanks 退出按钮是 11px 灰色下划线小字。这是典型的 confirm-shaming dark pattern,让用户难以理直气壮地拒绝。",
+        "shouldFindWith": [
+          "伦理敏感",
+          "重度用户"
+        ]
+      }
+    },
+    {
+      "gtId": "gt-05",
+      "gt": {
+        "id": "gt-05",
+        "title": "cookie 同意拒绝按钮对比度太低",
+        "severity": "low",
+        "category": "可访问性",
+        "description": "cookie banner 里 I agree 是亮绿色 (#2f8b4a),Reject 是深灰边框 + #5a5f68 文字,视觉权重严重失衡。低视力或赶时间用户极易误点 I agree。",
+        "shouldFindWith": [
+          "可访问性敏感",
+          "弱视"
+        ]
+      }
+    }
+  ]
+}

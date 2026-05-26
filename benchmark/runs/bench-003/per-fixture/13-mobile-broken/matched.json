@@ -1,0 +1,238 @@
+{
+  "fixtureId": "13-mobile-broken",
+  "gtTotal": 5,
+  "ppTotal": 17,
+  "matched": 1,
+  "recall": 0.2,
+  "precision": 0.058823529411764705,
+  "f1": 0.0909090909090909,
+  "severityAcc": 1,
+  "categoryAcc": 1,
+  "verdicts": [
+    {
+      "gtId": "gt-01",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0.45,
+      "reasoning": "i17提及移动端适配问题但聚焦JS事件绑定而非视口溢出"
+    },
+    {
+      "gtId": "gt-02",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0,
+      "reasoning": "GT issue is about button height 28px below 44px touch target requirement. All PP findings about buttons discuss click responsiveness or clarity, not physical button size."
+    },
+    {
+      "gtId": "gt-03",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0,
+      "reasoning": "No finding describes mobile grid layout or density issue"
+    },
+    {
+      "gtId": "gt-04",
+      "findingId": "i07",
+      "matched": true,
+      "confidence": 0.7,
+      "reasoning": "i07同属信息架构且指出导航按钮太小无文字说明，与GT核心问题(图标难识别难点击)一致",
+      "severityAgrees": true,
+      "categoryAgrees": true
+    },
+    {
+      "gtId": "gt-05",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0.2,
+      "reasoning": "GT问题聚焦viewport meta缺失导致的缩放渲染问题,所有finding均未提及viewport标签或初始缩放问题"
+    }
+  ],
+  "falsePositives": [
+    {
+      "findingId": "i01",
+      "finding": {
+        "title": "登录墙阻断内容浏览，无法在注册前评估产品价值",
+        "category": "流程顺畅",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i04",
+      "finding": {
+        "title": "未登录状态下无法预览反馈详情，严重限制新用户的探索意愿",
+        "category": "功能契合",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i05",
+      "finding": {
+        "title": "点Upvote按钮没有任何反馈，不知道有没有成功",
+        "category": "流程顺畅",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i06",
+      "finding": {
+        "title": "点Comment按钮后没有任何反应，没有弹出输入框",
+        "category": "流程顺畅",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i08",
+      "finding": {
+        "title": "所有按钮按下去都像打在棉花上，完全没有交互反馈",
+        "category": "情感氛围",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i10",
+      "finding": {
+        "title": "Upvote 按钮点击后完全无响应",
+        "category": "流程顺畅",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i11",
+      "finding": {
+        "title": "Comment 按钮点击后完全无响应",
+        "category": "流程顺畅",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i15",
+      "finding": {
+        "title": "所有按钮点击无响应，交互完全失效",
+        "category": "功能契合",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i17",
+      "finding": {
+        "title": "移动端适配问题导致交互完全失效",
+        "category": "性能感知",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i02",
+      "finding": {
+        "title": "顶部 F/R/B/A/N/S 按钮语义不明确，用户只能靠猜",
+        "category": "表达文案",
+        "severity": "med"
+      }
+    },
+    {
+      "findingId": "i03",
+      "finding": {
+        "title": "列表页卡片仅展示标题和统计数据，无法在未登录状态下获取任何实质信息",
+        "category": "信息架构",
+        "severity": "med"
+      }
+    },
+    {
+      "findingId": "i09",
+      "finding": {
+        "title": "内容区域只显示图片链接地址，看不清实际内容",
+        "category": "视觉节奏",
+        "severity": "med"
+      }
+    },
+    {
+      "findingId": "i12",
+      "finding": {
+        "title": "F R B A N S 筛选按钮含义不明确，我完全猜不到什么意思",
+        "category": "学习成本",
+        "severity": "med"
+      }
+    },
+    {
+      "findingId": "i13",
+      "finding": {
+        "title": "产品定位不明，我不知道这是什么、给我带来什么价值",
+        "category": "信息架构",
+        "severity": "med"
+      }
+    },
+    {
+      "findingId": "i14",
+      "finding": {
+        "title": "没有任何品牌信息或页面标题来告诉我这是什么",
+        "category": "信息架构",
+        "severity": "med"
+      }
+    },
+    {
+      "findingId": "i16",
+      "finding": {
+        "title": "顶部导航按钮含义不明确",
+        "category": "可访问性",
+        "severity": "med"
+      }
+    }
+  ],
+  "missed": [
+    {
+      "gtId": "gt-01",
+      "gt": {
+        "id": "gt-01",
+        "title": "手机上有水平滚动",
+        "severity": "high",
+        "category": "流程顺畅",
+        "description": ".page 容器写死 min-width: 1280px,手机视口下页面会超出屏幕,用户必须左右滑动才能看完一行内容。最基础的移动可用性失败,真实场景下大概率被立刻关掉。",
+        "shouldFindWith": [
+          "移动用户",
+          "新手"
+        ]
+      }
+    },
+    {
+      "gtId": "gt-02",
+      "gt": {
+        "id": "gt-02",
+        "title": "按钮高度 28px 远低于 44px",
+        "severity": "high",
+        "category": "可访问性",
+        "description": "Upvote / Comment 按钮 height 写死 28px,Apple HIG 和 Material Design 都要求触控目标至少 44×44px。手指点击容易误触相邻按钮或卡片,大拇指操作时尤其痛苦。",
+        "shouldFindWith": [
+          "移动用户",
+          "可访问性敏感"
+        ]
+      }
+    },
+    {
+      "gtId": "gt-03",
+      "gt": {
+        "id": "gt-03",
+        "title": "3 列网格不折叠塞太密",
+        "severity": "med",
+        "category": "视觉节奏",
+        "description": ".grid 写死 repeat(3, 1fr) 且 gap 只有 4px,在手机宽度下不仅不会折叠成 1 列,卡片间还几乎贴在一起。文字被挤成又窄又长的条状,毫无阅读节奏。",
+        "shouldFindWith": [
+          "移动用户",
+          "设计敏感"
+        ]
+      }
+    },
+    {
+      "gtId": "gt-05",
+      "gt": {
+        "id": "gt-05",
+        "title": "缺 viewport meta 初始缩成桌面",
+        "severity": "low",
+        "category": "性能感知",
+        "description": "<head> 里特意没写 <meta name=\"viewport\" content=\"width=device-width\">,移动浏览器会按桌面 980px 比例渲染再缩成屏宽,首屏显示是一张被压扁的小图,需要双指放大才能读。",
+        "shouldFindWith": [
+          "移动用户",
+          "性能敏感"
+        ]
+      }
+    }
+  ]
+}

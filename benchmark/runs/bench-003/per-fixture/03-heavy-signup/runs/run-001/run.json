@@ -1,0 +1,847 @@
+{
+  "id": "run-001",
+  "startedAt": "2026-05-26T06:02:48.734Z",
+  "finishedAt": "2026-05-26T06:05:23.506Z",
+  "target": {
+    "url": "http://localhost:8200/03-heavy-signup/site/",
+    "title": "Create your Cinder account",
+    "viewport": {
+      "w": 1280,
+      "h": 800
+    }
+  },
+  "personaSetId": "preset-a-saas-signup-form-evaluate",
+  "agents": [
+    {
+      "id": "a03",
+      "name": "David Kim",
+      "age": 31,
+      "role": "全栈工程师",
+      "tech": 5,
+      "tone": "好奇",
+      "preferences": [
+        "API 优先",
+        "开发者友好",
+        "开源偏好"
+      ],
+      "knownContext": [
+        "活跃于 GitHub",
+        "主要用 GitLab CI",
+        "关注 DevOps 工具链"
+      ],
+      "weight": 0.25,
+      "color": "#98d9c9",
+      "glyph": "D",
+      "traits": [
+        "技术驱动",
+        "开源优先"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "explored",
+      "durationSec": 58.775
+    },
+    {
+      "id": "a02",
+      "name": "李明辉",
+      "age": 35,
+      "role": "市场总监",
+      "tech": 3,
+      "tone": "怀疑",
+      "preferences": [
+        "关注投入产出比",
+        "重视稳定性",
+        "需要清晰定价"
+      ],
+      "knownContext": [
+        "用 HubSpot 三年",
+        "试过 Salesforce，被复杂性劝退",
+        "团队 12 人"
+      ],
+      "weight": 0.22,
+      "color": "#e6c976",
+      "glyph": "L",
+      "traits": [
+        "谨慎决策",
+        "规避风险"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "frustrated",
+      "durationSec": 68.905
+    },
+    {
+      "id": "a01",
+      "name": "Maya Chen",
+      "age": 28,
+      "role": "产品经理",
+      "tech": 4,
+      "tone": "好奇",
+      "preferences": [
+        "重视用户体验",
+        "关注集成能力",
+        "看重数据迁移"
+      ],
+      "knownContext": [
+        "每天用 Notion",
+        "试过 Linear，觉得太开发向",
+        "团队 8 人"
+      ],
+      "weight": 0.3,
+      "color": "#7eb8da",
+      "glyph": "M",
+      "traits": [
+        "效率控",
+        "重视协作"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "frustrated",
+      "durationSec": 82.003
+    },
+    {
+      "id": "a04",
+      "name": "张婷婷",
+      "age": 24,
+      "role": "HR 专员",
+      "tech": 2,
+      "tone": "急躁",
+      "preferences": [
+        "界面简洁",
+        "操作直观",
+        "不需要培训"
+      ],
+      "knownContext": [
+        "用 Excel 管理考勤",
+        "不太懂技术工具",
+        "公司刚起步"
+      ],
+      "weight": 0.23,
+      "color": "#f5a9a9",
+      "glyph": "Z",
+      "traits": [
+        "追求简洁",
+        "时间敏感"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "frustrated",
+      "durationSec": 154.515
+    }
+  ],
+  "activity": [
+    {
+      "t": "00:00:00",
+      "agent": "a03",
+      "kind": "enter",
+      "text": "进入 localhost:8200/03-heavy-signup/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/03-heavy-signup/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a02",
+      "kind": "enter",
+      "text": "进入 localhost:8200/03-heavy-signup/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/03-heavy-signup/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a01",
+      "kind": "enter",
+      "text": "进入 localhost:8200/03-heavy-signup/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/03-heavy-signup/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a04",
+      "kind": "enter",
+      "text": "进入 localhost:8200/03-heavy-signup/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/03-heavy-signup/site/"
+    },
+    {
+      "t": "00:00:01",
+      "agent": "a03",
+      "kind": "observation",
+      "text": "打开的是一个注册页面，有姓名、邮箱、公司规模、职位、电话、密码等字段。看起来是某种企业级 SaaS 产品。我可能会试着注册看看，但首先得了解这是什么产品。",
+      "sentiment": 1,
+      "shot": "shots/a03-00.jpg"
+    },
+    {
+      "t": "00:00:01",
+      "agent": "a02",
+      "kind": "observation",
+      "text": "又是注册表单...名字、邮箱、公司、职位、电话、密码，一堆必填项。我就想看看这产品是干嘛的，还得先填这么多信息？",
+      "sentiment": -1,
+      "shot": "shots/a02-00.jpg"
+    },
+    {
+      "t": "00:00:01",
+      "agent": "a01",
+      "kind": "rage",
+      "text": "注册表单字段也太多了吧...名字分两栏、邮箱、电话、密码...还没开始用就要填这么多信息，有点劝退。叫 MiniMax？这是什么产品？",
+      "sentiment": -1,
+      "shot": "shots/a01-00.jpg"
+    },
+    {
+      "t": "00:00:01",
+      "agent": "a04",
+      "kind": "observation",
+      "text": "打开一个注册页面。表单字段还挺多的 - 姓名、邮箱、公司、规模、职位、电话、密码... 我现在还没想好要不要注册，先看看整体界面怎么样。",
+      "sentiment": 0,
+      "shot": "shots/a04-00.jpg"
+    },
+    {
+      "t": "00:07:73",
+      "agent": "a04",
+      "kind": "click",
+      "text": "先试填一下名字，看看这个表单顺不顺手",
+      "sentiment": 0,
+      "url": "http://localhost:8200/03-heavy-signup/site/",
+      "shot": "shots/a04-01.jpg"
+    },
+    {
+      "t": "00:10:77",
+      "agent": "a04",
+      "kind": "observation",
+      "text": "左边有些安全认证标识，SOC 2、GDPR这些，挺专业的。但我现在就想看看这表单好不好填。",
+      "sentiment": 1,
+      "shot": "shots/a04-02.jpg"
+    },
+    {
+      "t": "00:15:46",
+      "agent": "a04",
+      "kind": "click",
+      "text": "填入名字 (typed: 张)",
+      "sentiment": 0,
+      "shot": "shots/a04-03.jpg"
+    },
+    {
+      "t": "00:17:33",
+      "agent": "a02",
+      "kind": "confused",
+      "text": "页面上来就是表单，连产品是干嘛的都没说清楚。我还不知道这东西能不能解决我的问题，就让我填这么多信息？",
+      "sentiment": -1,
+      "shot": "shots/a02-02.jpg"
+    },
+    {
+      "t": "00:19:04",
+      "agent": "a03",
+      "kind": "confused",
+      "text": "我翻了几次都没看到页面的完整结构。DOM 只显示表单部分，但看不到顶部内容。这是什么产品？看起来像是企业 SaaS 的注册页，但我需要更多信息。",
+      "sentiment": 0,
+      "shot": "shots/a03-05.jpg"
+    },
+    {
+      "t": "00:20:62",
+      "agent": "a04",
+      "kind": "shortcut",
+      "text": "跳到姓名字段 [Tab]",
+      "sentiment": 0,
+      "url": "http://localhost:8200/03-heavy-signup/site/",
+      "shot": "shots/a04-04.jpg"
+    },
+    {
+      "t": "00:23:82",
+      "agent": "a04",
+      "kind": "click",
+      "text": "填入姓氏 (typed: 婷婷)",
+      "sentiment": 0,
+      "shot": "shots/a04-05.jpg"
+    },
+    {
+      "t": "00:26:41",
+      "agent": "a04",
+      "kind": "shortcut",
+      "text": "继续填邮箱 [Tab]",
+      "sentiment": 0,
+      "url": "http://localhost:8200/03-heavy-signup/site/",
+      "shot": "shots/a04-06.jpg"
+    },
+    {
+      "t": "00:32:32",
+      "agent": "a01",
+      "kind": "confused",
+      "text": "滚动好像有问题...页面内容根本没动。这个网站设计有点奇怪，我只看到一堆注册框，其他什么都看不到。",
+      "sentiment": -2,
+      "shot": "shots/a01-04.jpg"
+    },
+    {
+      "t": "00:33:08",
+      "agent": "a04",
+      "kind": "click",
+      "text": "填工作邮箱 (typed: tingting.zhang@company.com)",
+      "sentiment": 0,
+      "shot": "shots/a04-07.jpg"
+    },
+    {
+      "t": "00:33:15",
+      "agent": "a03",
+      "kind": "rage",
+      "text": "翻了半天，页面上只有表单，一点产品信息都没有。看不到 Logo，不知道这是干什么的，还要手机号验证？对于未知产品来说这太 heavy 了，我不可能注册一个不知道是啥的网站还要提供这么多信息。",
+      "sentiment": -2,
+      "shot": "shots/a03-07.jpg"
+    },
+    {
+      "t": "00:33:43",
+      "agent": "a02",
+      "kind": "rage",
+      "text": "滚了好几屏全是这个表单。上面连个标题都没有吗？这是什么产品、解决什么问题、值不值得注册，我一概不知。还要我填公司、职位、电话、密码？HubSpot 注册都没这么复杂。Salesforce那个复杂度让我直接放弃了，这个连价值主张都不讲就让我填这么多？算了，没兴趣。",
+      "sentiment": -2,
+      "shot": "shots/a02-06.jpg"
+    },
+    {
+      "t": "00:36:28",
+      "agent": "a03",
+      "kind": "exit",
+      "text": "我打开了这个注册页，花了约36秒浏览。结果发现页面只显示一个重型表单（姓名、邮箱、公司规模、职位、手机号、密码），但完全没有产品信息——没有 Logo、没有产品名称、没有价值主张。我翻了好几次页面都看不到顶部的内容。作为真实用户，我不可能为一个不知道是什么的产品填这么多个人信息并注册。这种注册流程对陌生产品来说太 heavy 了，没有任何 trust building 的元素。我会选择离开。",
+      "sentiment": 0,
+      "shot": "shots/a03-08.jpg"
+    },
+    {
+      "t": "00:36:66",
+      "agent": "a04",
+      "kind": "shortcut",
+      "text": "填公司名称 [Tab]",
+      "sentiment": 0,
+      "url": "http://localhost:8200/03-heavy-signup/site/",
+      "shot": "shots/a04-08.jpg"
+    },
+    {
+      "t": "00:39:15",
+      "agent": "a01",
+      "kind": "rage",
+      "text": "我根本不知道这是啥产品！上来就让我填这么多信息，连产品是干什么的都不告诉我，Notion 至少还给我看一下界面。这体验太差了。",
+      "sentiment": -3,
+      "shot": "shots/a01-06.jpg"
+    },
+    {
+      "t": "00:42:72",
+      "agent": "a01",
+      "kind": "exit",
+      "text": "页面就是一张注册表单，没有任何产品说明或价值主张。我不知道 MiniMax 是干什么的，就让我填 8 个字段（包括电话），这让我非常没有安全感。而且页面滚动似乎有问题，我看不到任何其他内容。这种设计让我直接关掉的冲动远超填表的冲动。",
+      "sentiment": 0,
+      "shot": "shots/a01-07.jpg"
+    },
+    {
+      "t": "00:42:83",
+      "agent": "a04",
+      "kind": "click",
+      "text": "填公司名称 (typed: 小公司科技)",
+      "sentiment": 0,
+      "shot": "shots/a04-09.jpg"
+    },
+    {
+      "t": "00:46:54",
+      "agent": "a02",
+      "kind": "exit",
+      "text": "页面从头到尾就一个注册表单，没有任何产品介绍、价值主张或信任信号。要求填写8个字段（包括电话和密码），但连这产品是干嘛的都没说清楚。作为市场总监，我见过太多\"重注册轻体验\"的产品，这种设计让我完全没有注册意愿。",
+      "sentiment": 0,
+      "shot": "shots/a02-08.jpg"
+    },
+    {
+      "t": "00:46:96",
+      "agent": "a04",
+      "kind": "shortcut",
+      "text": "跳到公司规模下拉框 [Tab]",
+      "sentiment": 0,
+      "url": "http://localhost:8200/03-heavy-signup/site/",
+      "shot": "shots/a04-10.jpg"
+    },
+    {
+      "t": "00:49:62",
+      "agent": "a04",
+      "kind": "click",
+      "text": "点击公司规模下拉框",
+      "sentiment": 0,
+      "url": "http://localhost:8200/03-heavy-signup/site/",
+      "shot": "shots/a04-11.jpg"
+    },
+    {
+      "t": "00:53:26",
+      "agent": "a04",
+      "kind": "shortcut",
+      "text": "选择公司规模选项 [ArrowDown]",
+      "sentiment": 0,
+      "url": "http://localhost:8200/03-heavy-signup/site/",
+      "shot": "shots/a04-12.jpg"
+    },
+    {
+      "t": "00:58:90",
+      "agent": "a04",
+      "kind": "shortcut",
+      "text": "确认选择 [Enter]",
+      "sentiment": 0,
+      "url": "http://localhost:8200/03-heavy-signup/site/",
+      "shot": "shots/a04-13.jpg"
+    },
+    {
+      "t": "01:01:91",
+      "agent": "a04",
+      "kind": "shortcut",
+      "text": "跳到职位字段 [Tab]",
+      "sentiment": 0,
+      "url": "http://localhost:8200/03-heavy-signup/site/",
+      "shot": "shots/a04-14.jpg"
+    },
+    {
+      "t": "01:05:03",
+      "agent": "a04",
+      "kind": "click",
+      "text": "填入职位 (typed: HR专员)",
+      "sentiment": 0,
+      "shot": "shots/a04-15.jpg"
+    },
+    {
+      "t": "01:08:20",
+      "agent": "a04",
+      "kind": "shortcut",
+      "text": "跳到电话字段 [Tab]",
+      "sentiment": 0,
+      "url": "http://localhost:8200/03-heavy-signup/site/",
+      "shot": "shots/a04-16.jpg"
+    },
+    {
+      "t": "01:11:09",
+      "agent": "a04",
+      "kind": "click",
+      "text": "填电话号码 (typed: 13812345678)",
+      "sentiment": 0,
+      "shot": "shots/a04-17.jpg"
+    },
+    {
+      "t": "01:14:53",
+      "agent": "a04",
+      "kind": "shortcut",
+      "text": "跳到密码字段 [Tab]",
+      "sentiment": 0,
+      "url": "http://localhost:8200/03-heavy-signup/site/",
+      "shot": "shots/a04-18.jpg"
+    },
+    {
+      "t": "01:18:02",
+      "agent": "a04",
+      "kind": "click",
+      "text": "设置密码 (typed: Test123456!)",
+      "sentiment": 0,
+      "shot": "shots/a04-19.jpg"
+    },
+    {
+      "t": "01:21:44",
+      "agent": "a04",
+      "kind": "rage",
+      "text": "天哪，填了这么多！名字、邮箱、公司、规模、职位、电话、密码……还要手机验证？我就随便点进来看看而已，又不是真的要注册。这种重表单直接把我劝退了。",
+      "sentiment": -2,
+      "shot": "shots/a04-20.jpg"
+    },
+    {
+      "t": "01:32:05",
+      "agent": "a04",
+      "kind": "rage",
+      "text": "算了，填完了又怎样？还要手机验证！我只是进来看看的，又不是真的要注册。这种复杂表单直接把我吓跑了。",
+      "sentiment": -3,
+      "shot": "shots/a04-21.jpg"
+    },
+    {
+      "t": "01:36:88",
+      "agent": "a04",
+      "kind": "click",
+      "text": "提交表单看看会怎样",
+      "sentiment": 0,
+      "url": "http://localhost:8200/03-heavy-signup/site/",
+      "shot": "shots/a04-22.jpg"
+    },
+    {
+      "t": "01:40:49",
+      "agent": "a04",
+      "kind": "observation",
+      "text": "点了提交按钮，没反应？还是页面在加载？",
+      "sentiment": 0,
+      "shot": "shots/a04-23.jpg"
+    },
+    {
+      "t": "01:53:03",
+      "agent": "a04",
+      "kind": "rage",
+      "text": "滚动了一下还是老样子。点提交也没反应。这页面到底要干嘛？让我填这么多东西，又不告诉我这东西是啥。烦了，走了。",
+      "sentiment": -3,
+      "shot": "shots/a04-25.jpg"
+    },
+    {
+      "t": "02:00:54",
+      "agent": "a04",
+      "kind": "click",
+      "text": "重新点击提交按钮",
+      "sentiment": 0,
+      "url": "http://localhost:8200/03-heavy-signup/site/",
+      "shot": "shots/a04-26.jpg"
+    },
+    {
+      "t": "02:05:08",
+      "agent": "a04",
+      "kind": "rage",
+      "text": "点了两次提交都没反应！这种页面太浪费时间了。我就随便点进来看看，就要我填8个字段，还手机验证，提交还点不动？！谁爱用谁用，我反正不用了。",
+      "sentiment": -3,
+      "shot": "shots/a04-27.jpg"
+    },
+    {
+      "t": "02:11:24",
+      "agent": "a04",
+      "kind": "exit",
+      "text": "我作为HR专员，打开这个注册页面，第一感觉就不太好——8个字段（姓名、邮箱、公司、规模、职位、电话、密码）太多了！而且提交按钮点了两次都没反应。让我填这么多东西，又不告诉我这产品是干嘛的，还要手机验证，太劝退了。这种重型注册表单对初次访问的用户太不友好，直接关掉。",
+      "sentiment": 0,
+      "shot": "shots/a04-28.jpg"
+    }
+  ],
+  "issues": [
+    {
+      "id": "i01",
+      "title": "页面顶部内容缺失，看不到产品 Logo 或名称",
+      "severity": "high",
+      "agents": 1,
+      "category": "信息架构",
+      "quote": "这是什么产品？翻了几下都看不到顶部内容，只有一堆表单字段。",
+      "agentRef": "a03",
+      "evidence": 3,
+      "journey": "进入页面后下意识想找品牌标识和产品信息，确认这是什么"
+    },
+    {
+      "id": "i02",
+      "title": "没有任何价值主张，不知道注册能获得什么",
+      "severity": "high",
+      "agents": 1,
+      "category": "信息架构",
+      "quote": "我要注册的是什么东西？没有任何说明，连一句'为什么选我们'都没有。",
+      "agentRef": "a03",
+      "evidence": 2,
+      "journey": "注册页没有任何产品介绍或差异化说明"
+    },
+    {
+      "id": "i03",
+      "title": "对陌生产品要求手机号验证，信任成本过高",
+      "severity": "high",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "还不知道这是啥就要手机号验证？我不想注册。",
+      "agentRef": "a03",
+      "evidence": 1,
+      "journey": "看到需要手机号的注册表单"
+    },
+    {
+      "id": "i04",
+      "title": "注册字段过多（姓名、邮箱、公司规模、职位、手机号、密码），对首访用户过重",
+      "severity": "high",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "6 个字段，还没开始就感觉被审问。",
+      "agentRef": "a03",
+      "evidence": 1,
+      "journey": "浏览表单字段数量"
+    },
+    {
+      "id": "i05",
+      "title": "无法预览产品就要求注册，用户没有决策依据",
+      "severity": "high",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "连产品长什么样都不知道就要我填这么多信息，太强人所难了。",
+      "agentRef": "a03",
+      "evidence": 1,
+      "journey": "只有注册表单，没有产品截图、功能介绍或试用入口"
+    },
+    {
+      "id": "i06",
+      "title": "页面零产品介绍，直接就是注册表单",
+      "severity": "high",
+      "agents": 1,
+      "category": "信息架构",
+      "quote": "我连这产品是干嘛的都不知道，就让我填这么多？",
+      "agentRef": "a02",
+      "evidence": 2,
+      "journey": "进入页面第一屏就是表单，没有首屏价值主张"
+    },
+    {
+      "id": "i07",
+      "title": "表单要求8个必填字段，含电话和密码",
+      "severity": "high",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "HubSpot注册都没这么复杂，Salesforce那个复杂度让我直接放弃了，这个连价值主张都不讲就让我填这么多？",
+      "agentRef": "a02",
+      "evidence": 1,
+      "journey": "看到表单字段数量，包括姓名、邮箱、公司、职位、电话、密码等"
+    },
+    {
+      "id": "i08",
+      "title": "页面无品牌标识或产品名称",
+      "severity": "high",
+      "agents": 1,
+      "category": "信息架构",
+      "quote": "上面连个标题都没有吗？这是什么产品？",
+      "agentRef": "a02",
+      "evidence": 1,
+      "journey": "滚动整个页面看不到任何品牌名或标题"
+    },
+    {
+      "id": "i09",
+      "title": "缺少信任信号（安全声明/隐私政策/品牌背书）",
+      "severity": "high",
+      "agents": 1,
+      "category": "情感氛围",
+      "quote": "还没注册就要我电话和密码，连个隐私声明都没看到。",
+      "agentRef": "a02",
+      "evidence": 1,
+      "journey": "表单没有任何关于数据安全的说明"
+    },
+    {
+      "id": "i11",
+      "title": "注册前没有任何产品说明，连它是啥都不知道",
+      "severity": "high",
+      "agents": 1,
+      "category": "信息架构",
+      "quote": "我不知道MiniMax是干什么的！Notion至少还给我看一下界面，这上来就让我填表是什么鬼",
+      "agentRef": "a01",
+      "evidence": 3,
+      "journey": "进入页面后，只看到注册表单，没有任何产品描述、价值主张或界面预览"
+    },
+    {
+      "id": "i12",
+      "title": "页面滚动完全失灵，只能看到注册框",
+      "severity": "high",
+      "agents": 1,
+      "category": "性能感知",
+      "quote": "滚动好像有问题...页面内容根本没动，我只看到一堆注册框，其他什么都看不到",
+      "agentRef": "a01",
+      "evidence": 2,
+      "journey": "尝试向下滚动页面查看更多内容时"
+    },
+    {
+      "id": "i13",
+      "title": "注册表单字段过多（名字分两栏+电话），安全感极低",
+      "severity": "high",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "注册表单字段也太多了吧...名字分两栏、邮箱、电话、密码，我连这是啥产品都不知道就要我电话，这让我非常没有安全感",
+      "agentRef": "a01",
+      "evidence": 3,
+      "journey": "看到注册表单要求填写的内容"
+    },
+    {
+      "id": "i14",
+      "title": "缺少渐进式披露，产品定位与功能完全不可见",
+      "severity": "high",
+      "agents": 1,
+      "category": "信息架构",
+      "quote": "上来就让我填这么多信息，连产品是干什么的都不告诉我",
+      "agentRef": "a01",
+      "evidence": 3,
+      "journey": "页面缺乏价值主张、功能说明或产品预览"
+    },
+    {
+      "id": "i16",
+      "title": "注册字段太多（8个），且提交无响应",
+      "severity": "high",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "天哪，填了这么多！名字、邮箱、公司、规模、职位、电话、密码……还要手机验证？我就随便点进来看看而已，又不是真的要注册。这种重表单直接把我劝退了。",
+      "agentRef": "a04",
+      "evidence": 3,
+      "journey": "打开注册页，看到密密麻麻的表单，还没填完就烦了"
+    },
+    {
+      "id": "i17",
+      "title": "提交按钮点击后无任何响应",
+      "severity": "high",
+      "agents": 1,
+      "category": "性能感知",
+      "quote": "点了两次提交都没反应！这种页面太浪费时间了。",
+      "agentRef": "a04",
+      "evidence": 2,
+      "journey": "填完所有字段后点击提交按钮，点了两次都没反应"
+    },
+    {
+      "id": "i18",
+      "title": "页面没有任何产品说明，不知道是做什么的",
+      "severity": "high",
+      "agents": 1,
+      "category": "信息架构",
+      "quote": "让我填这么多东西，又不告诉我这东西是干嘛的。",
+      "agentRef": "a04",
+      "evidence": 1,
+      "journey": "进入页面后，只看到表单，没有任何产品价值主张"
+    },
+    {
+      "id": "i10",
+      "title": "无渐进式注册或访客体验入口",
+      "severity": "med",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "就想看看这产品是干嘛的，还得先填这么多信息？",
+      "agentRef": "a02",
+      "evidence": 1,
+      "journey": "没有任何\"先看看再决定\"的选项"
+    },
+    {
+      "id": "i15",
+      "title": "没有界面预览，对比Notion的直接展示落差巨大",
+      "severity": "med",
+      "agents": 1,
+      "category": "与竞品对比",
+      "quote": "Notion至少还给我看一下界面，这页面什么都没有就一张表",
+      "agentRef": "a01",
+      "evidence": 1,
+      "journey": "与其他工具（Notion）相比"
+    },
+    {
+      "id": "i19",
+      "title": "手机验证在表单最后一步，增加挫败感",
+      "severity": "med",
+      "agents": 1,
+      "category": "情感氛围",
+      "quote": "填完了又怎样？还要手机验证！我只是进来看看的。",
+      "agentRef": "a04",
+      "evidence": 1,
+      "journey": "好不容易填完8个字段，最后还要手机验证，直接放弃"
+    }
+  ],
+  "delights": [
+    {
+      "title": "左侧有安全认证标识，显得专业",
+      "count": 1,
+      "quote": "左边有些安全认证标识，SOC 2、GDPR这些，挺专业的。",
+      "agent": "a04"
+    }
+  ],
+  "features": [
+    {
+      "name": "注册表单",
+      "hitCount": 2,
+      "hitRate": 0.5,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 3
+    },
+    {
+      "name": "浏览注册页",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 1
+    }
+  ],
+  "routesHeat": [
+    {
+      "path": "/03-heavy-signup/site/",
+      "visits": 17,
+      "dwell": 8,
+      "drop": 0.23529411764705882
+    }
+  ],
+  "sentimentCurve": [
+    {
+      "t": 0,
+      "v": 0.4791666666666667
+    },
+    {
+      "t": 5,
+      "v": 0.5833333333333334
+    },
+    {
+      "t": 10,
+      "v": 0.4444444444444444
+    },
+    {
+      "t": 15,
+      "v": 0.5
+    },
+    {
+      "t": 20,
+      "v": 0.3333333333333333
+    },
+    {
+      "t": 25,
+      "v": 0.3055555555555555
+    },
+    {
+      "t": 30,
+      "v": 0.5
+    },
+    {
+      "t": 35,
+      "v": 0.5
+    },
+    {
+      "t": 40,
+      "v": 0.5
+    },
+    {
+      "t": 45,
+      "v": 0.5
+    },
+    {
+      "t": 50,
+      "v": 0.5
+    },
+    {
+      "t": 55,
+      "v": 0.5
+    },
+    {
+      "t": 60,
+      "v": 0.16666666666666666
+    },
+    {
+      "t": 65,
+      "v": 0.16666666666666666
+    },
+    {
+      "t": 70,
+      "v": 0.25
+    },
+    {
+      "t": 75,
+      "v": 0.5
+    },
+    {
+      "t": 80,
+      "v": 0.5
+    },
+    {
+      "t": 85,
+      "v": 0
+    },
+    {
+      "t": 90,
+      "v": 0.5
+    },
+    {
+      "t": 95,
+      "v": 0
+    },
+    {
+      "t": 100,
+      "v": 0.5
+    }
+  ],
+  "metrics": {
+    "predictedNps": -16,
+    "achievableNps": 100,
+    "taskSuccess": 0,
+    "timeToValueSec": null,
+    "rageClicks": 8,
+    "delightCount": 0
+  },
+  "cost": {
+    "tokensIn": 275913,
+    "tokensOut": 7362,
+    "usd": 0
+  }
+}

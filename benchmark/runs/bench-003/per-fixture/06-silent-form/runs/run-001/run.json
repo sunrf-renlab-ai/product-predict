@@ -1,0 +1,1391 @@
+{
+  "id": "run-001",
+  "startedAt": "2026-05-26T06:06:05.801Z",
+  "finishedAt": "2026-05-26T06:09:41.883Z",
+  "target": {
+    "url": "http://localhost:8200/06-silent-form/site/",
+    "title": "Contact — Helix",
+    "viewport": {
+      "w": 1280,
+      "h": 800
+    }
+  },
+  "personaSetId": "preset-a-saas-contact-form-evaluate",
+  "agents": [
+    {
+      "id": "a03",
+      "name": "李心怡",
+      "age": 42,
+      "role": "市场总监",
+      "tech": 2,
+      "tone": "温和",
+      "preferences": [
+        "简单易用",
+        "不用培训团队",
+        "靠谱售后"
+      ],
+      "knownContext": [
+        "用过的表单工具不少",
+        "目前用腾讯文档收集"
+      ],
+      "weight": 0.3,
+      "color": "#a8d5ba",
+      "glyph": "L",
+      "traits": [
+        "务实",
+        "带团队",
+        "怕麻烦"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "frustrated",
+      "durationSec": 140.952
+    },
+    {
+      "id": "a02",
+      "name": "Kenji Okada",
+      "age": 33,
+      "role": "全栈工程师",
+      "tech": 5,
+      "tone": "好奇",
+      "preferences": [
+        "API优先",
+        "开发者体验",
+        "愿意付费"
+      ],
+      "knownContext": [
+        "自己搭建过表单系统",
+        "调研过 Typeform"
+      ],
+      "weight": 0.33,
+      "color": "#7fb3d5",
+      "glyph": "K",
+      "traits": [
+        "技术宅",
+        "尝鲜",
+        "动手党"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": true,
+      "exitReason": "timeout",
+      "durationSec": 192.351
+    },
+    {
+      "id": "a04",
+      "name": "王磊",
+      "age": 31,
+      "role": "创业者",
+      "tech": 3,
+      "tone": "急躁",
+      "preferences": [
+        "快速验证想法",
+        "省时间",
+        "不想折腾"
+      ],
+      "knownContext": [
+        "之前试过 SurveyMonkey 太贵",
+        "对比过 Google Forms 功能太弱"
+      ],
+      "weight": 0.25,
+      "color": "#c9a7c9",
+      "glyph": "W",
+      "traits": [
+        "快节奏",
+        "预算有限",
+        "讲实效"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "explored",
+      "durationSec": 210.674
+    },
+    {
+      "id": "a01",
+      "name": "Maya Chen",
+      "age": 28,
+      "role": "产品经理",
+      "tech": 4,
+      "tone": "挑剔",
+      "preferences": [
+        "重视数据安全",
+        "关注落地成本",
+        "怕被忽悠"
+      ],
+      "knownContext": [
+        "每天用 Notion",
+        "试过 HubSpot 表单体验差"
+      ],
+      "weight": 0.12,
+      "color": "#e6c976",
+      "glyph": "M",
+      "traits": [
+        "效率控",
+        "数据敏感",
+        "谨慎"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "frustrated",
+      "durationSec": 215.871
+    }
+  ],
+  "activity": [
+    {
+      "t": "00:00:00",
+      "agent": "a03",
+      "kind": "enter",
+      "text": "进入 localhost:8200/06-silent-form/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/06-silent-form/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a03",
+      "kind": "click",
+      "text": "了解这个产品是什么",
+      "sentiment": 0,
+      "url": "http://localhost:8200/06-silent-form/site/",
+      "shot": "shots/a03-00.jpg"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a02",
+      "kind": "enter",
+      "text": "进入 localhost:8200/06-silent-form/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/06-silent-form/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a04",
+      "kind": "enter",
+      "text": "进入 localhost:8200/06-silent-form/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/06-silent-form/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a01",
+      "kind": "enter",
+      "text": "进入 localhost:8200/06-silent-form/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/06-silent-form/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a01",
+      "kind": "click",
+      "text": "Getting a better view of the page layout",
+      "sentiment": 0,
+      "url": "http://localhost:8200/06-silent-form/site/",
+      "shot": "shots/a01-00.jpg"
+    },
+    {
+      "t": "00:00:01",
+      "agent": "a02",
+      "kind": "observation",
+      "text": "打开了一个表单页面。导航栏有 Product, Docs, Pricing, Sign in，看起来是个 SaaS 产品。页面中间有个联系表单，有姓名、邮箱、公司、主题选择和留言区。",
+      "sentiment": 0,
+      "shot": "shots/a02-00.jpg"
+    },
+    {
+      "t": "00:00:01",
+      "agent": "a04",
+      "kind": "click",
+      "text": "看看这个表单长什么样",
+      "sentiment": 0,
+      "url": "http://localhost:8200/06-silent-form/site/",
+      "shot": "shots/a04-00.jpg"
+    },
+    {
+      "t": "00:04:64",
+      "agent": "a03",
+      "kind": "confused",
+      "text": "点击 Product 没反应？页面没变化。",
+      "sentiment": -1,
+      "shot": "shots/a03-01.jpg"
+    },
+    {
+      "t": "00:06:21",
+      "agent": "a04",
+      "kind": "click",
+      "text": "填名字 (typed: 王)",
+      "sentiment": 0,
+      "shot": "shots/a04-01.jpg"
+    },
+    {
+      "t": "00:08:03",
+      "agent": "a01",
+      "kind": "observation",
+      "text": "Contact form页面，布局标准：firstName/lastName并排，email，company，topic下拉，message，提交按钮。看起来挺干净的。",
+      "sentiment": 0,
+      "shot": "shots/a01-01.jpg"
+    },
+    {
+      "t": "00:11:12",
+      "agent": "a02",
+      "kind": "click",
+      "text": "Focus on first name field to start filling out form",
+      "sentiment": 0,
+      "url": "http://localhost:8200/06-silent-form/site/",
+      "shot": "shots/a02-01.jpg"
+    },
+    {
+      "t": "00:14:62",
+      "agent": "a01",
+      "kind": "click",
+      "text": "Focus on first name field",
+      "sentiment": 0,
+      "url": "http://localhost:8200/06-silent-form/site/",
+      "shot": "shots/a01-02.jpg"
+    },
+    {
+      "t": "00:14:95",
+      "agent": "a02",
+      "kind": "click",
+      "text": "Fill in first name (typed: Kenji)",
+      "sentiment": 0,
+      "shot": "shots/a02-02.jpg"
+    },
+    {
+      "t": "00:18:70",
+      "agent": "a01",
+      "kind": "click",
+      "text": "Filling out contact form - first name (typed: Maya)",
+      "sentiment": 0,
+      "shot": "shots/a01-03.jpg"
+    },
+    {
+      "t": "00:21:58",
+      "agent": "a04",
+      "kind": "click",
+      "text": "填姓",
+      "sentiment": 0,
+      "url": "http://localhost:8200/06-silent-form/site/",
+      "shot": "shots/a04-02.jpg"
+    },
+    {
+      "t": "00:23:60",
+      "agent": "a03",
+      "kind": "observation",
+      "text": "看起来是个联系表单，有姓名、邮箱、公司、主题下拉和留言。腾讯文档的表单也长这样，挺熟悉的。",
+      "sentiment": 0,
+      "shot": "shots/a03-05.jpg"
+    },
+    {
+      "t": "00:23:97",
+      "agent": "a01",
+      "kind": "click",
+      "text": "Move to last name field",
+      "sentiment": 0,
+      "url": "http://localhost:8200/06-silent-form/site/",
+      "shot": "shots/a01-04.jpg"
+    },
+    {
+      "t": "00:24:00",
+      "agent": "a04",
+      "kind": "click",
+      "text": "填姓 (typed: 磊)",
+      "sentiment": 0,
+      "shot": "shots/a04-03.jpg"
+    },
+    {
+      "t": "00:26:63",
+      "agent": "a03",
+      "kind": "click",
+      "text": "开始填写表单",
+      "sentiment": 0,
+      "url": "http://localhost:8200/06-silent-form/site/",
+      "shot": "shots/a03-06.jpg"
+    },
+    {
+      "t": "00:26:91",
+      "agent": "a01",
+      "kind": "click",
+      "text": "Filling last name (typed: Chen)",
+      "sentiment": 0,
+      "shot": "shots/a01-05.jpg"
+    },
+    {
+      "t": "00:28:54",
+      "agent": "a04",
+      "kind": "click",
+      "text": "填邮箱",
+      "sentiment": 0,
+      "url": "http://localhost:8200/06-silent-form/site/",
+      "shot": "shots/a04-04.jpg"
+    },
+    {
+      "t": "00:30:71",
+      "agent": "a01",
+      "kind": "click",
+      "text": "Move to email field",
+      "sentiment": 0,
+      "url": "http://localhost:8200/06-silent-form/site/",
+      "shot": "shots/a01-06.jpg"
+    },
+    {
+      "t": "00:31:40",
+      "agent": "a02",
+      "kind": "shortcut",
+      "text": "Move to last name field [Tab]",
+      "sentiment": 0,
+      "url": "http://localhost:8200/06-silent-form/site/",
+      "shot": "shots/a02-03.jpg"
+    },
+    {
+      "t": "00:31:85",
+      "agent": "a04",
+      "kind": "click",
+      "text": "填邮箱 (typed: wl_tech@example.com)",
+      "sentiment": 0,
+      "shot": "shots/a04-05.jpg"
+    },
+    {
+      "t": "00:32:55",
+      "agent": "a02",
+      "kind": "click",
+      "text": "Fill in last name (typed: Okada)",
+      "sentiment": 0,
+      "shot": "shots/a02-04.jpg"
+    },
+    {
+      "t": "00:33:76",
+      "agent": "a03",
+      "kind": "click",
+      "text": "填个测试名字 (typed: 李)",
+      "sentiment": 0,
+      "shot": "shots/a03-07.jpg"
+    },
+    {
+      "t": "00:33:76",
+      "agent": "a01",
+      "kind": "click",
+      "text": "Filling email (typed: maya.chen@techcorp.io)",
+      "sentiment": 0,
+      "shot": "shots/a01-07.jpg"
+    },
+    {
+      "t": "00:35:54",
+      "agent": "a02",
+      "kind": "shortcut",
+      "text": "Move to email field [Tab]",
+      "sentiment": 0,
+      "url": "http://localhost:8200/06-silent-form/site/",
+      "shot": "shots/a02-05.jpg"
+    },
+    {
+      "t": "00:36:41",
+      "agent": "a03",
+      "kind": "click",
+      "text": "填姓氏",
+      "sentiment": 0,
+      "url": "http://localhost:8200/06-silent-form/site/",
+      "shot": "shots/a03-08.jpg"
+    },
+    {
+      "t": "00:38:08",
+      "agent": "a01",
+      "kind": "click",
+      "text": "Move to company field",
+      "sentiment": 0,
+      "url": "http://localhost:8200/06-silent-form/site/",
+      "shot": "shots/a01-08.jpg"
+    },
+    {
+      "t": "00:39:21",
+      "agent": "a02",
+      "kind": "click",
+      "text": "Fill in email address (typed: kenji@example.com)",
+      "sentiment": 0,
+      "shot": "shots/a02-06.jpg"
+    },
+    {
+      "t": "00:41:14",
+      "agent": "a03",
+      "kind": "click",
+      "text": "填姓 (typed: 心怡)",
+      "sentiment": 0,
+      "shot": "shots/a03-09.jpg"
+    },
+    {
+      "t": "00:43:11",
+      "agent": "a01",
+      "kind": "click",
+      "text": "Filling company (typed: TechCorp)",
+      "sentiment": 0,
+      "shot": "shots/a01-09.jpg"
+    },
+    {
+      "t": "00:45:06",
+      "agent": "a03",
+      "kind": "click",
+      "text": "填邮箱",
+      "sentiment": 0,
+      "url": "http://localhost:8200/06-silent-form/site/",
+      "shot": "shots/a03-10.jpg"
+    },
+    {
+      "t": "00:45:53",
+      "agent": "a01",
+      "kind": "click",
+      "text": "Open topic dropdown",
+      "sentiment": 0,
+      "url": "http://localhost:8200/06-silent-form/site/",
+      "shot": "shots/a01-10.jpg"
+    },
+    {
+      "t": "00:45:55",
+      "agent": "a04",
+      "kind": "click",
+      "text": "填公司",
+      "sentiment": 0,
+      "url": "http://localhost:8200/06-silent-form/site/",
+      "shot": "shots/a04-06.jpg"
+    },
+    {
+      "t": "00:47:91",
+      "agent": "a03",
+      "kind": "click",
+      "text": "填邮箱 (typed: lixinyi@company.com)",
+      "sentiment": 0,
+      "shot": "shots/a03-11.jpg"
+    },
+    {
+      "t": "00:49:53",
+      "agent": "a04",
+      "kind": "click",
+      "text": "填公司名称 (typed: 微链科技)",
+      "sentiment": 0,
+      "shot": "shots/a04-07.jpg"
+    },
+    {
+      "t": "00:49:65",
+      "agent": "a02",
+      "kind": "confused",
+      "text": "邮箱字段填到姓里面去了？表单布局看起来有点问题，数据填错位置了。",
+      "sentiment": -1,
+      "shot": "shots/a02-07.jpg"
+    },
+    {
+      "t": "00:51:01",
+      "agent": "a03",
+      "kind": "click",
+      "text": "填公司名",
+      "sentiment": 0,
+      "url": "http://localhost:8200/06-silent-form/site/",
+      "shot": "shots/a03-12.jpg"
+    },
+    {
+      "t": "00:52:20",
+      "agent": "a04",
+      "kind": "click",
+      "text": "选个主题",
+      "sentiment": 0,
+      "url": "http://localhost:8200/06-silent-form/site/",
+      "shot": "shots/a04-08.jpg"
+    },
+    {
+      "t": "00:53:96",
+      "agent": "a03",
+      "kind": "click",
+      "text": "填公司名称 (typed: 某某科技有限公司)",
+      "sentiment": 0,
+      "shot": "shots/a03-13.jpg"
+    },
+    {
+      "t": "00:54:34",
+      "agent": "a01",
+      "kind": "click",
+      "text": "Move to message field",
+      "sentiment": 0,
+      "url": "http://localhost:8200/06-silent-form/site/",
+      "shot": "shots/a01-11.jpg"
+    },
+    {
+      "t": "00:56:40",
+      "agent": "a04",
+      "kind": "shortcut",
+      "text": "选Technical question [ArrowDown]",
+      "sentiment": 0,
+      "url": "http://localhost:8200/06-silent-form/site/",
+      "shot": "shots/a04-09.jpg"
+    },
+    {
+      "t": "00:57:28",
+      "agent": "a03",
+      "kind": "click",
+      "text": "选择主题",
+      "sentiment": 0,
+      "url": "http://localhost:8200/06-silent-form/site/",
+      "shot": "shots/a03-14.jpg"
+    },
+    {
+      "t": "00:57:41",
+      "agent": "a02",
+      "kind": "click",
+      "text": "Click on email field to fill it correctly",
+      "sentiment": 0,
+      "url": "http://localhost:8200/06-silent-form/site/",
+      "shot": "shots/a02-08.jpg"
+    },
+    {
+      "t": "00:59:27",
+      "agent": "a04",
+      "kind": "shortcut",
+      "text": "确认选择 [Enter]",
+      "sentiment": 0,
+      "url": "http://localhost:8200/06-silent-form/site/",
+      "shot": "shots/a04-10.jpg"
+    },
+    {
+      "t": "01:00:78",
+      "agent": "a02",
+      "kind": "click",
+      "text": "Fill in email address correctly (typed: kenji@example.com)",
+      "sentiment": 0,
+      "shot": "shots/a02-09.jpg"
+    },
+    {
+      "t": "01:02:42",
+      "agent": "a04",
+      "kind": "observation",
+      "text": "光标跳到message了，这个表单体验还不错，起码Tab键跳顺序是对的。先把message填了试试\"静默\"是怎么个静默法。",
+      "sentiment": 0,
+      "shot": "shots/a04-11.jpg"
+    },
+    {
+      "t": "01:03:23",
+      "agent": "a01",
+      "kind": "click",
+      "text": "Filling message - need to ask about product integration (typed: Hi, I'd like to know more about your AP…)",
+      "sentiment": 0,
+      "shot": "shots/a01-12.jpg"
+    },
+    {
+      "t": "01:03:55",
+      "agent": "a03",
+      "kind": "shortcut",
+      "text": "选择第二个选项 [ArrowDown]",
+      "sentiment": 0,
+      "url": "http://localhost:8200/06-silent-form/site/",
+      "shot": "shots/a03-15.jpg"
+    },
+    {
+      "t": "01:07:93",
+      "agent": "a02",
+      "kind": "click",
+      "text": "Click directly on email field",
+      "sentiment": 0,
+      "url": "http://localhost:8200/06-silent-form/site/",
+      "shot": "shots/a02-10.jpg"
+    },
+    {
+      "t": "01:08:48",
+      "agent": "a03",
+      "kind": "shortcut",
+      "text": "确认选择 [Enter]",
+      "sentiment": 0,
+      "url": "http://localhost:8200/06-silent-form/site/",
+      "shot": "shots/a03-16.jpg"
+    },
+    {
+      "t": "01:08:97",
+      "agent": "a01",
+      "kind": "observation",
+      "text": "Wait - I skipped the topic dropdown. The default is \"Sales inquiry\" but this is more of a technical/sales mix. Let me select it properly.",
+      "sentiment": 0,
+      "shot": "shots/a01-13.jpg"
+    },
+    {
+      "t": "01:11:20",
+      "agent": "a02",
+      "kind": "click",
+      "text": "Try clicking on the left edge of email field",
+      "sentiment": 0,
+      "url": "http://localhost:8200/06-silent-form/site/",
+      "shot": "shots/a02-11.jpg"
+    },
+    {
+      "t": "01:11:55",
+      "agent": "a01",
+      "kind": "click",
+      "text": "Open topic dropdown to change selection",
+      "sentiment": 0,
+      "url": "http://localhost:8200/06-silent-form/site/",
+      "shot": "shots/a01-14.jpg"
+    },
+    {
+      "t": "01:11:78",
+      "agent": "a04",
+      "kind": "click",
+      "text": "填技术问题内容 (typed: 我们想集成你们的API到我们的产品中，想了解一下技术对接方案和响应时间。)",
+      "sentiment": 0,
+      "shot": "shots/a04-12.jpg"
+    },
+    {
+      "t": "01:15:95",
+      "agent": "a01",
+      "kind": "click",
+      "text": "Select \"Technical question\" option",
+      "sentiment": 0,
+      "url": "http://localhost:8200/06-silent-form/site/",
+      "shot": "shots/a01-15.jpg"
+    },
+    {
+      "t": "01:16:22",
+      "agent": "a02",
+      "kind": "confused",
+      "text": "表单状态好像乱了。firstName显示Okada，lastName显示kenji@example.com，email字段却是空的。我明明先输的Kenji，然后Okada，然后邮箱...这个表单的状态管理有问题。",
+      "sentiment": -1,
+      "shot": "shots/a02-12.jpg"
+    },
+    {
+      "t": "01:16:88",
+      "agent": "a04",
+      "kind": "rage",
+      "text": "卧槽？！文字填到公司名里去了？！textarea 是空的。这个 Tab 顺序有 bug，光标跳错地方了。40px 高的 textarea 也太 mini 了，谁能在这么小的地方写东西？",
+      "sentiment": -2,
+      "shot": "shots/a04-13.jpg"
+    },
+    {
+      "t": "01:19:40",
+      "agent": "a01",
+      "kind": "shortcut",
+      "text": "Try keyboard to navigate dropdown options [ArrowDown]",
+      "sentiment": 0,
+      "url": "http://localhost:8200/06-silent-form/site/",
+      "shot": "shots/a01-16.jpg"
+    },
+    {
+      "t": "01:24:24",
+      "agent": "a01",
+      "kind": "click",
+      "text": "Click on dropdown to open it",
+      "sentiment": 0,
+      "url": "http://localhost:8200/06-silent-form/site/",
+      "shot": "shots/a01-17.jpg"
+    },
+    {
+      "t": "01:25:81",
+      "agent": "a04",
+      "kind": "click",
+      "text": "修复：把光标挪到message textarea",
+      "sentiment": 0,
+      "url": "http://localhost:8200/06-silent-form/site/",
+      "shot": "shots/a04-14.jpg"
+    },
+    {
+      "t": "01:26:46",
+      "agent": "a01",
+      "kind": "confused",
+      "text": "Dropdown didn't open visually. Native select elements can be tricky. Let me try typing to search or just accept \"Sales inquiry\" and move on.",
+      "sentiment": 0,
+      "shot": "shots/a01-18.jpg"
+    },
+    {
+      "t": "01:27:90",
+      "agent": "a02",
+      "kind": "click",
+      "text": "Clear and type in lastName field to fix it",
+      "sentiment": 0,
+      "url": "http://localhost:8200/06-silent-form/site/",
+      "shot": "shots/a02-13.jpg"
+    },
+    {
+      "t": "01:28:81",
+      "agent": "a04",
+      "kind": "click",
+      "text": "重新填message (typed: 我们想集成你们的API到我们的产品中，想了解一下技术对接方案和响应时间。)",
+      "sentiment": 0,
+      "shot": "shots/a04-15.jpg"
+    },
+    {
+      "t": "01:29:73",
+      "agent": "a03",
+      "kind": "click",
+      "text": "填写留言",
+      "sentiment": 0,
+      "url": "http://localhost:8200/06-silent-form/site/",
+      "shot": "shots/a03-17.jpg"
+    },
+    {
+      "t": "01:32:45",
+      "agent": "a03",
+      "kind": "click",
+      "text": "填写留言内容 (typed: 想了解一下产品功能和企业版报价)",
+      "sentiment": 0,
+      "shot": "shots/a03-18.jpg"
+    },
+    {
+      "t": "01:33:85",
+      "agent": "a02",
+      "kind": "shortcut",
+      "text": "Select all text in lastName field [Meta+A]",
+      "sentiment": 0,
+      "url": "http://localhost:8200/06-silent-form/site/",
+      "shot": "shots/a02-14.jpg"
+    },
+    {
+      "t": "01:34:25",
+      "agent": "a04",
+      "kind": "click",
+      "text": "修复公司字段",
+      "sentiment": 0,
+      "url": "http://localhost:8200/06-silent-form/site/",
+      "shot": "shots/a04-16.jpg"
+    },
+    {
+      "t": "01:34:77",
+      "agent": "a01",
+      "kind": "click",
+      "text": "Try typing to select option in dropdown (typed: T)",
+      "sentiment": 0,
+      "shot": "shots/a01-19.jpg"
+    },
+    {
+      "t": "01:36:54",
+      "agent": "a02",
+      "kind": "click",
+      "text": "Replace wrong content with correct last name (typed: Okada)",
+      "sentiment": 0,
+      "shot": "shots/a02-15.jpg"
+    },
+    {
+      "t": "01:39:03",
+      "agent": "a01",
+      "kind": "observation",
+      "text": "Dropdown seems stuck on default. Native selects are sometimes problematic in automation. I'll just submit with the default and see what \"silent form\" means.",
+      "sentiment": 0,
+      "shot": "shots/a01-20.jpg"
+    },
+    {
+      "t": "01:40:53",
+      "agent": "a02",
+      "kind": "rage",
+      "text": "表单还在显示错误数据。type_text覆盖逻辑似乎有问题，或者页面有状态bug。这体验不太行。",
+      "sentiment": -2,
+      "shot": "shots/a02-16.jpg"
+    },
+    {
+      "t": "01:41:77",
+      "agent": "a01",
+      "kind": "click",
+      "text": "Submit the form to see what \"silent\" means",
+      "sentiment": 0,
+      "url": "http://localhost:8200/06-silent-form/site/",
+      "shot": "shots/a01-21.jpg"
+    },
+    {
+      "t": "01:43:14",
+      "agent": "a02",
+      "kind": "click",
+      "text": "Triple click to select all in lastName field",
+      "sentiment": 0,
+      "url": "http://localhost:8200/06-silent-form/site/",
+      "shot": "shots/a02-17.jpg"
+    },
+    {
+      "t": "01:44:98",
+      "agent": "a03",
+      "kind": "click",
+      "text": "提交表单",
+      "sentiment": 0,
+      "url": "http://localhost:8200/06-silent-form/site/",
+      "shot": "shots/a03-19.jpg"
+    },
+    {
+      "t": "01:46:83",
+      "agent": "a04",
+      "kind": "shortcut",
+      "text": "全选公司字段内容 [Meta+a]",
+      "sentiment": 0,
+      "url": "http://localhost:8200/06-silent-form/site/",
+      "shot": "shots/a04-17.jpg"
+    },
+    {
+      "t": "01:48:99",
+      "agent": "a02",
+      "kind": "shortcut",
+      "text": "Select all text in lastName field using Cmd+A [Meta+A]",
+      "sentiment": 0,
+      "url": "http://localhost:8200/06-silent-form/site/",
+      "shot": "shots/a02-18.jpg"
+    },
+    {
+      "t": "01:50:53",
+      "agent": "a03",
+      "kind": "rage",
+      "text": "提交了，什么都没发生？成功了吗？失败了？页面纹丝不动。不知道该不该再点一次，怕重复提交。这种\"静默\"让我很慌。",
+      "sentiment": -2,
+      "shot": "shots/a03-20.jpg"
+    },
+    {
+      "t": "01:52:94",
+      "agent": "a04",
+      "kind": "click",
+      "text": "重新填公司名 (typed: 微链科技)",
+      "sentiment": 0,
+      "shot": "shots/a04-18.jpg"
+    },
+    {
+      "t": "01:53:75",
+      "agent": "a02",
+      "kind": "click",
+      "text": "Type correct last name to replace selected text (typed: Okada)",
+      "sentiment": 0,
+      "shot": "shots/a02-19.jpg"
+    },
+    {
+      "t": "01:57:12",
+      "agent": "a02",
+      "kind": "observation",
+      "text": "lastName终于修好了。现在firstName和lastName都是Okada了...需要重新填firstName。但先继续把其他字段填完。",
+      "sentiment": 0,
+      "shot": "shots/a02-20.jpg"
+    },
+    {
+      "t": "01:58:43",
+      "agent": "a01",
+      "kind": "confused",
+      "text": "Clicked submit but nothing happened - no loading indicator, no success message, no page change. The \"silent\" in the name makes sense now but this feels broken. I have no idea if my message was sent.",
+      "sentiment": -1,
+      "shot": "shots/a01-22.jpg"
+    },
+    {
+      "t": "01:59:16",
+      "agent": "a03",
+      "kind": "rage",
+      "text": "静默表单？提交后什么反馈都没有，连个\"提交成功\"都没有？表单也没清空。我现在完全不知道我的信息到底发出去没有。太让人不安了，这种设计绝对不行。",
+      "sentiment": -3,
+      "shot": "shots/a03-21.jpg"
+    },
+    {
+      "t": "01:59:73",
+      "agent": "a04",
+      "kind": "confused",
+      "text": "操作失败 (note): expected number, got undefined",
+      "sentiment": -1
+    },
+    {
+      "t": "02:01:97",
+      "agent": "a02",
+      "kind": "click",
+      "text": "Click on email field to fill it",
+      "sentiment": 0,
+      "url": "http://localhost:8200/06-silent-form/site/",
+      "shot": "shots/a02-21.jpg"
+    },
+    {
+      "t": "02:03:43",
+      "agent": "a03",
+      "kind": "exit",
+      "text": "填完了整个表单，点击提交后什么都没有发生——没有成功提示，没有错误提示，表单内容也没有清空。作为市场总监，我最在意的是\"靠谱\"和\"让人放心\"，这个静默提交让我完全不知道信息到底发出去没有。用腾讯文档收集表单，至少还有提交成功的提示。这种\"静默\"设计，我不信任，不会用。",
+      "sentiment": 0,
+      "shot": "shots/a03-22.jpg"
+    },
+    {
+      "t": "02:05:05",
+      "agent": "a02",
+      "kind": "click",
+      "text": "Fill in email field (typed: kenji@example.com)",
+      "sentiment": 0,
+      "shot": "shots/a02-22.jpg"
+    },
+    {
+      "t": "02:06:09",
+      "agent": "a04",
+      "kind": "click",
+      "text": "提交表单，看看静默是什么意思",
+      "sentiment": 0,
+      "url": "http://localhost:8200/06-silent-form/site/",
+      "shot": "shots/a04-20.jpg"
+    },
+    {
+      "t": "02:08:85",
+      "agent": "a04",
+      "kind": "rage",
+      "text": "点了提交，什么都没发生。没有加载提示，没有成功提示，页面纹丝不动。这就是\"Silent Form\"的意思？表单提交了但完全不告诉用户结果？这太离谱了——作为一个创业者，我不可能用这种让客户干等的产品。",
+      "sentiment": -2,
+      "shot": "shots/a04-21.jpg"
+    },
+    {
+      "t": "02:13:42",
+      "agent": "a02",
+      "kind": "click",
+      "text": "Click on company field",
+      "sentiment": 0,
+      "url": "http://localhost:8200/06-silent-form/site/",
+      "shot": "shots/a02-23.jpg"
+    },
+    {
+      "t": "02:19:30",
+      "agent": "a02",
+      "kind": "click",
+      "text": "Fill in company field (typed: Acme Corp)",
+      "sentiment": 0,
+      "shot": "shots/a02-24.jpg"
+    },
+    {
+      "t": "02:19:64",
+      "agent": "a01",
+      "kind": "rage",
+      "text": "This is frustrating. I filled out the form, clicked submit, and have ZERO feedback. Is it sending? Did it fail? Is my data gone into the void? \"Silent\" might be a feature for developers but it's a terrible UX choice for contact forms. I have no confirmation anything happened.",
+      "sentiment": -2,
+      "shot": "shots/a01-25.jpg"
+    },
+    {
+      "t": "02:22:20",
+      "agent": "a02",
+      "kind": "click",
+      "text": "Click on firstName field to fix it",
+      "sentiment": 0,
+      "url": "http://localhost:8200/06-silent-form/site/",
+      "shot": "shots/a02-25.jpg"
+    },
+    {
+      "t": "02:26:01",
+      "agent": "a02",
+      "kind": "shortcut",
+      "text": "Select all text in firstName field [Meta+A]",
+      "sentiment": 0,
+      "url": "http://localhost:8200/06-silent-form/site/",
+      "shot": "shots/a02-26.jpg"
+    },
+    {
+      "t": "02:26:98",
+      "agent": "a04",
+      "kind": "search",
+      "text": "再试一次提交，看看是不是真的什么都没发生，还是有延迟。",
+      "sentiment": -1,
+      "shot": "shots/a04-22.jpg"
+    },
+    {
+      "t": "02:32:74",
+      "agent": "a02",
+      "kind": "click",
+      "text": "Replace with correct first name (typed: Kenji)",
+      "sentiment": 0,
+      "shot": "shots/a02-27.jpg"
+    },
+    {
+      "t": "02:40:14",
+      "agent": "a04",
+      "kind": "click",
+      "text": "再次提交试试",
+      "sentiment": 0,
+      "url": "http://localhost:8200/06-silent-form/site/",
+      "shot": "shots/a04-24.jpg"
+    },
+    {
+      "t": "02:42:61",
+      "agent": "a02",
+      "kind": "click",
+      "text": "Click on topic select dropdown",
+      "sentiment": 0,
+      "url": "http://localhost:8200/06-silent-form/site/",
+      "shot": "shots/a02-28.jpg"
+    },
+    {
+      "t": "02:48:49",
+      "agent": "a01",
+      "kind": "click",
+      "text": "Try submitting again to confirm behavior",
+      "sentiment": 0,
+      "url": "http://localhost:8200/06-silent-form/site/",
+      "shot": "shots/a01-26.jpg"
+    },
+    {
+      "t": "02:50:08",
+      "agent": "a02",
+      "kind": "shortcut",
+      "text": "Open select dropdown [ArrowDown]",
+      "sentiment": 0,
+      "url": "http://localhost:8200/06-silent-form/site/",
+      "shot": "shots/a02-29.jpg"
+    },
+    {
+      "t": "02:52:08",
+      "agent": "a01",
+      "kind": "exit",
+      "text": "Filled out the contact form completely but got zero feedback after clicking Submit. The \"silent\" form concept means no success message, no loading indicator, no page redirect - nothing. I submitted twice just to confirm the behavior, and both times had no indication anything happened. From a user perspective, this is a critical UX failure for a contact form: I have no confirmation my inquiry was sent, no idea if the form is broken, and no reason to trust this product will handle my data reliably.",
+      "sentiment": 0,
+      "shot": "shots/a01-27.jpg"
+    },
+    {
+      "t": "02:54:52",
+      "agent": "a02",
+      "kind": "exit",
+      "text": "达到 step safety 上限 (30), 强制结束.",
+      "sentiment": -1
+    },
+    {
+      "t": "02:56:10",
+      "agent": "a04",
+      "kind": "exit",
+      "text": "测试了这个\"Silent Form\"联系表单。说实话，这个\"静默\"设计让我很无语——提交后完全没有任何反馈，加载没、提示没、成功失败都不告诉用户。作为一个创业者，如果我的客户填了表单然后不知道有没有发出去，我会丢客户。这个产品名字起得挺讽刺的，真的是\"静默\"到让用户抓狂。我不会用它。",
+      "sentiment": 0,
+      "shot": "shots/a04-25.jpg"
+    }
+  ],
+  "issues": [
+    {
+      "id": "i01",
+      "title": "表单提交后无任何反馈（成功/失败/清空）",
+      "severity": "high",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "提交了，什么都没发生？成功了吗？失败了？页面纹丝不动。不知道该不该再点一次，怕重复提交。这种'静默'让我很慌。",
+      "agentRef": "a03",
+      "evidence": 1,
+      "journey": "填写完所有字段（姓名、邮箱、公司、主题、留言），点击提交按钮后"
+    },
+    {
+      "id": "i02",
+      "title": "静默设计让我对信息是否发出完全没底",
+      "severity": "high",
+      "agents": 1,
+      "category": "情感氛围",
+      "quote": "静默表单？提交后什么反馈都没有，连个'提交成功'都没有？表单也没清空。我现在完全不知道我的信息到底发出去没有。太让人不安了，这种设计绝对不行。",
+      "agentRef": "a03",
+      "evidence": 2,
+      "journey": "提交按钮点击后，页面没有任何变化"
+    },
+    {
+      "id": "i04",
+      "title": "表单字段状态错乱：输入内容出现在错误的字段",
+      "severity": "high",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "表白的firstName显示Okada，lastName显示kenji@example.com，email字段却是空的。Tab切换后数据就乱套了。",
+      "agentRef": "a02",
+      "evidence": 3,
+      "journey": "在联系表单页面按Tab顺序填 firstName → lastName → email"
+    },
+    {
+      "id": "i05",
+      "title": "type_text覆盖逻辑异常：选中清空再输入仍显示旧数据",
+      "severity": "high",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "Triple click选中+Cmd+A选中+重新输入，结果lastName还是显示旧内容。这个表单的响应逻辑有问题。",
+      "agentRef": "a02",
+      "evidence": 3,
+      "journey": "尝试用Meta+A全选后再输入新内容替换"
+    },
+    {
+      "id": "i08",
+      "title": "提交按钮点了毫无反应，没有成功/失败提示",
+      "severity": "high",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "卧槽？！点了提交，什么都没发生。加载没、提示没、成功失败都不告诉用户。这就是'Silent Form'的意思？静默到让用户抓狂。",
+      "agentRef": "a04",
+      "evidence": 2,
+      "journey": "在表单底部填完内容点击提交按钮"
+    },
+    {
+      "id": "i09",
+      "title": "message textarea 高度只有40px，小到无法正常使用",
+      "severity": "high",
+      "agents": 1,
+      "category": "视觉节奏",
+      "quote": "40px 高的 textarea 也太 mini 了，谁能在这么小的地方写东西？",
+      "agentRef": "a04",
+      "evidence": 1,
+      "journey": "在选择主题后填写技术问题内容"
+    },
+    {
+      "id": "i10",
+      "title": "Tab 焦点跳到 message 时，光标实际进了公司字段",
+      "severity": "high",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "文字填到公司名里去了？！光标跳错地方了。",
+      "agentRef": "a04",
+      "evidence": 1,
+      "journey": "在「选择主题」后按 Tab 跳到 message 字段时"
+    },
+    {
+      "id": "i12",
+      "title": "提交表单后无任何视觉反馈",
+      "severity": "high",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "我点了提交，但什么都没发生——没有加载指示器，没有成功提示，没有页面跳转。",
+      "agentRef": "a01",
+      "evidence": 2,
+      "journey": "Contact Form页面，填写完所有字段后点击Submit"
+    },
+    {
+      "id": "i13",
+      "title": "无法确认消息是否已送达",
+      "severity": "high",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "我没有任何确认我的询问已发送的迹象，不知道表单是不是坏了，没有理由相信这个产品会可靠地处理我的数据。",
+      "agentRef": "a01",
+      "evidence": 2,
+      "journey": "Contact Form页面提交后等待反馈"
+    },
+    {
+      "id": "i15",
+      "title": "Silent表单概念对用户是负体验",
+      "severity": "high",
+      "agents": 1,
+      "category": "情感氛围",
+      "quote": "'Silent'对开发者来说是功能，但对联系表单来说是糟糕的UX选择。我没有确认任何事情发生了的理由。",
+      "agentRef": "a01",
+      "evidence": 2,
+      "journey": "点击Submit后没有任何反应时的感受"
+    },
+    {
+      "id": "i03",
+      "title": "顶部导航 Product 点击无反应",
+      "severity": "med",
+      "agents": 1,
+      "category": "信息架构",
+      "quote": "点击 Product 没反应？页面没变化。",
+      "agentRef": "a03",
+      "evidence": 1,
+      "journey": "首页顶部导航栏"
+    },
+    {
+      "id": "i06",
+      "title": "表单没有实时验证反馈：错误数据一直显示不报错",
+      "severity": "med",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "看着字段里显示错误的数据，不知道是输入有问题还是表单本身坏了。没有红色警告，没有错误提示，就让我看着错误数据发呆。",
+      "agentRef": "a02",
+      "evidence": 2,
+      "journey": "修复字段内容过程中看不到任何反馈"
+    },
+    {
+      "id": "i07",
+      "title": "Tab焦点与输入焦点不同步导致输入错位",
+      "severity": "med",
+      "agents": 1,
+      "category": "可访问性",
+      "quote": "我用Tab跳到下一个字段，但光标可能还在上一个字段里，导致我的输入写到错误的地方了。",
+      "agentRef": "a02",
+      "evidence": 2,
+      "journey": "连续按Tab切换字段时输入内容写错位置"
+    },
+    {
+      "id": "i11",
+      "title": "meta+a 全选公司字段后，输入没有替换原有内容",
+      "severity": "med",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "全选公司字段内容后再输入，新内容没替换掉旧的，还得手动清。",
+      "agentRef": "a04",
+      "evidence": 1,
+      "journey": "修复被误填的公司字段时"
+    },
+    {
+      "id": "i14",
+      "title": "Topic下拉菜单交互不明确",
+      "severity": "med",
+      "agents": 1,
+      "category": "可访问性",
+      "quote": "下拉菜单似乎卡在默认状态。我试了用键盘导航、输入搜索，但都没用。原生select元素有时候很难处理。",
+      "agentRef": "a01",
+      "evidence": 3,
+      "journey": "尝试在Topic下拉菜单中选择Technical question"
+    }
+  ],
+  "delights": [
+    {
+      "title": "表单字段和布局跟腾讯文档很像，上手没门槛",
+      "count": 1,
+      "quote": "看起来是个联系表单，有姓名、邮箱、公司、主题下拉和留言。腾讯文档的表单也长这样，挺熟悉的。",
+      "agent": "a03"
+    },
+    {
+      "title": "表单设计简洁，字段布局清晰",
+      "count": 1,
+      "quote": "至少视觉上看起来是一个正规的联系表单，topic选择的下拉也是我熟悉的模式。",
+      "agent": "a02"
+    },
+    {
+      "title": "Tab 焦点顺序整体是对的，名字→姓→邮箱→公司→主题→message",
+      "count": 1,
+      "quote": "光标跳到message了，这个表单体验还不错，起码Tab键跳顺序是对的。",
+      "agent": "a04"
+    },
+    {
+      "title": "键盘选择下拉菜单用方向键+回车，符合习惯",
+      "count": 1,
+      "quote": "选个主题，用键盘选，ArrowDown+Enter 这种操作我熟。",
+      "agent": "a04"
+    },
+    {
+      "title": "表单布局干净利落",
+      "count": 1,
+      "quote": "看起来挺干净的。",
+      "agent": "a01"
+    }
+  ],
+  "features": [
+    {
+      "name": "填写联系表单",
+      "hitCount": 4,
+      "hitRate": 1,
+      "completionRate": 0.75,
+      "avgSentiment": -1.25,
+      "totalAttempts": 11
+    },
+    {
+      "name": "提交表单",
+      "hitCount": 3,
+      "hitRate": 0.75,
+      "completionRate": 0.3333333333333333,
+      "avgSentiment": -3,
+      "totalAttempts": 5
+    },
+    {
+      "name": "修复合并字段",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 4
+    },
+    {
+      "name": "选择topic下拉",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -1,
+      "totalAttempts": 2
+    },
+    {
+      "name": "Topic下拉选择",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -2,
+      "totalAttempts": 2
+    },
+    {
+      "name": "主题选择",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 1,
+      "avgSentiment": 1,
+      "totalAttempts": 1
+    }
+  ],
+  "routesHeat": [
+    {
+      "path": "/06-silent-form/site/",
+      "visits": 55,
+      "dwell": 11,
+      "drop": 0.05454545454545454
+    }
+  ],
+  "sentimentCurve": [
+    {
+      "t": 0,
+      "v": 0.48484848484848486
+    },
+    {
+      "t": 5,
+      "v": 0.5
+    },
+    {
+      "t": 10,
+      "v": 0.5
+    },
+    {
+      "t": 15,
+      "v": 0.5
+    },
+    {
+      "t": 20,
+      "v": 0.5
+    },
+    {
+      "t": 25,
+      "v": 0.4791666666666667
+    },
+    {
+      "t": 30,
+      "v": 0.5
+    },
+    {
+      "t": 35,
+      "v": 0.5
+    },
+    {
+      "t": 40,
+      "v": 0.4166666666666667
+    },
+    {
+      "t": 45,
+      "v": 0.5
+    },
+    {
+      "t": 50,
+      "v": 0.5
+    },
+    {
+      "t": 55,
+      "v": 0.43333333333333335
+    },
+    {
+      "t": 60,
+      "v": 0.43333333333333335
+    },
+    {
+      "t": 65,
+      "v": 0.3333333333333333
+    },
+    {
+      "t": 70,
+      "v": 0.4166666666666667
+    },
+    {
+      "t": 75,
+      "v": 0.3888888888888889
+    },
+    {
+      "t": 80,
+      "v": 0.4444444444444444
+    },
+    {
+      "t": 85,
+      "v": 0.5
+    },
+    {
+      "t": 90,
+      "v": 0.5
+    },
+    {
+      "t": 95,
+      "v": 0.4583333333333333
+    },
+    {
+      "t": 100,
+      "v": 0.5
+    }
+  ],
+  "metrics": {
+    "predictedNps": -6,
+    "achievableNps": 100,
+    "taskSuccess": 0.25,
+    "timeToValueSec": null,
+    "rageClicks": 6,
+    "delightCount": 0
+  },
+  "cost": {
+    "tokensIn": 607330,
+    "tokensOut": 11245,
+    "usd": 0
+  }
+}

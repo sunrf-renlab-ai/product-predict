@@ -1,0 +1,185 @@
+{
+  "fixtureId": "05-modal-trap",
+  "gtTotal": 5,
+  "ppTotal": 13,
+  "matched": 2,
+  "recall": 0.4,
+  "precision": 0.15384615384615385,
+  "f1": 0.2222222222222222,
+  "severityAcc": 1,
+  "categoryAcc": 0.5,
+  "verdicts": [
+    {
+      "gtId": "gt-01",
+      "findingId": "i05",
+      "matched": true,
+      "confidence": 0.85,
+      "reasoning": "i05直接指出close按钮太小位置不显眼与GT描述一致",
+      "severityAgrees": true,
+      "categoryAgrees": true
+    },
+    {
+      "gtId": "gt-02",
+      "findingId": "i03",
+      "matched": true,
+      "confidence": 0.75,
+      "reasoning": "i03明确指出用户被困在modal里看不到真实内容，与GT描述modal遮挡整个页面使用户看不到产品样子的核心问题一致",
+      "severityAgrees": true,
+      "categoryAgrees": false
+    },
+    {
+      "gtId": "gt-03",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0.1,
+      "reasoning": "no finding about inability to go back in multistep forms"
+    },
+    {
+      "gtId": "gt-04",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0.3,
+      "reasoning": "GT关于套话文案无诚意，PP均聚焦modal陷阱和交互问题，无一涉及文案内容"
+    },
+    {
+      "gtId": "gt-05",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0,
+      "reasoning": "GT核心是主次按钮视觉权重颠倒 - Next小Learn more大,所有发现都聚焦功能流程可访问性而非视觉层级问题"
+    }
+  ],
+  "falsePositives": [
+    {
+      "findingId": "i01",
+      "finding": {
+        "title": "Next 按钮点击后无任何反应",
+        "category": "流程顺畅",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i04",
+      "finding": {
+        "title": "ESC 键无法关闭 modal，打破 Notion 用户的肌肉记忆",
+        "category": "可访问性",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i06",
+      "finding": {
+        "title": "Modal 像陷阱一样强制用户完成流程，无法优雅退出",
+        "category": "情感氛围",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i07",
+      "finding": {
+        "title": "点击Get started后模态框没有出现，测试无法继续",
+        "category": "功能契合",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i08",
+      "finding": {
+        "title": "4步onboarding表单太长，到第三步就想放弃了",
+        "category": "流程顺畅",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i09",
+      "finding": {
+        "title": "modal trap强制用户只能通过close按钮退出，有被困住的感觉",
+        "category": "情感氛围",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i11",
+      "finding": {
+        "title": "modal关不掉，用户被卡死在页面上",
+        "category": "可访问性",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i13",
+      "finding": {
+        "title": "点击背景遮罩无法关闭modal",
+        "category": "可访问性",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i02",
+      "finding": {
+        "title": "Learn more 按钮点击后无响应",
+        "category": "功能契合",
+        "severity": "med"
+      }
+    },
+    {
+      "findingId": "i10",
+      "finding": {
+        "title": "最后一步要求Slack URL让人怀疑产品目的，信任感下降",
+        "category": "情感氛围",
+        "severity": "med"
+      }
+    },
+    {
+      "findingId": "i12",
+      "finding": {
+        "title": "modal没有明显的关闭交互提示",
+        "category": "表达文案",
+        "severity": "med"
+      }
+    }
+  ],
+  "missed": [
+    {
+      "gtId": "gt-03",
+      "gt": {
+        "id": "gt-03",
+        "title": "5 步 onboarding 不能回头改",
+        "severity": "med",
+        "category": "学习成本",
+        "description": "modal 5 个步骤每步只有「Next」,没有 Back / Previous 按钮,用户填错前一步只能取消重来或在脑子里 hold 着错误继续走。",
+        "shouldFindWith": [
+          "细致型",
+          "新手"
+        ]
+      }
+    },
+    {
+      "gtId": "gt-04",
+      "gt": {
+        "id": "gt-04",
+        "title": "文案全是「Welcome 🎉」套话",
+        "severity": "med",
+        "category": "表达文案",
+        "description": "每步标题都是 「Hi there! Welcome to our amazing product 🎉」「Pick your superpower 💪」之类的套话和 emoji,没有传递任何关于产品的具体信息,显得没诚意。",
+        "shouldFindWith": [
+          "设计敏感",
+          "重度用户"
+        ]
+      }
+    },
+    {
+      "gtId": "gt-05",
+      "gt": {
+        "id": "gt-05",
+        "title": "主 CTA 反而比次按钮小",
+        "severity": "low",
+        "category": "视觉节奏",
+        "description": "modal 底部 「Next」(主操作) 用了小尺寸 12px 蓝色按钮,而「Learn more about Drift」(次操作) 反而是大尺寸 16px 描边按钮,主次视觉权重颠倒,用户视线落在错的地方。",
+        "shouldFindWith": [
+          "设计敏感"
+        ]
+      }
+    }
+  ]
+}

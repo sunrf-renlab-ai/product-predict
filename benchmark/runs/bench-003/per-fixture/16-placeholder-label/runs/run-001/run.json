@@ -1,0 +1,1023 @@
+{
+  "id": "run-001",
+  "startedAt": "2026-05-26T06:24:33.096Z",
+  "finishedAt": "2026-05-26T06:28:09.913Z",
+  "target": {
+    "url": "http://localhost:8200/16-placeholder-label/site/",
+    "title": "Voyage — invite a teammate",
+    "viewport": {
+      "w": 1280,
+      "h": 800
+    }
+  },
+  "personaSetId": "preset-an-invite-form-on-a-saas-works",
+  "agents": [
+    {
+      "id": "a02",
+      "name": "王莉",
+      "age": 29,
+      "role": "运营专员",
+      "tech": 2,
+      "tone": "好奇",
+      "preferences": [
+        "操作要直观",
+        "希望有即时预览"
+      ],
+      "knownContext": [
+        "用过飞书文档",
+        "不太熟悉开发者工具",
+        "团队 4 人"
+      ],
+      "weight": 0.31,
+      "color": "#e6c976",
+      "glyph": "W",
+      "traits": [
+        "效率控",
+        "视觉型思维"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "explored",
+      "durationSec": 49.392
+    },
+    {
+      "id": "a04",
+      "name": "林浩宇",
+      "age": 26,
+      "role": "自由设计师",
+      "tech": 4,
+      "tone": "温和",
+      "preferences": [
+        "喜欢简洁界面",
+        "在意协作流畅度"
+      ],
+      "knownContext": [
+        "Notion 重度用户",
+        "试过 Trello，觉得卡片太简陋",
+        "小团队 3 人"
+      ],
+      "weight": 0.2,
+      "color": "#b8d8b8",
+      "glyph": "L",
+      "traits": [
+        "审美优先",
+        "工具杂食者"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "explored",
+      "durationSec": 69.559
+    },
+    {
+      "id": "a01",
+      "name": "Kenji Okada",
+      "age": 35,
+      "role": "工程团队负责人",
+      "tech": 5,
+      "tone": "挑剔",
+      "preferences": [
+        "关注权限粒度",
+        "要求 API 文档清晰"
+      ],
+      "knownContext": [
+        "日常用 Atlassian 全家桶",
+        "试过 Coda，觉得门槛太高",
+        "团队 12 人"
+      ],
+      "weight": 0.22,
+      "color": "#a7c4e0",
+      "glyph": "K",
+      "traits": [
+        "流程控",
+        "数据导向"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "explored",
+      "durationSec": 98.208
+    },
+    {
+      "id": "a03",
+      "name": "Maya Chen",
+      "age": 42,
+      "role": "人事经理",
+      "tech": 2,
+      "tone": "急躁",
+      "preferences": [
+        "填写步骤要少",
+        "看重引导提示"
+      ],
+      "knownContext": [
+        "刚学着用钉钉",
+        "希望员工快速上手",
+        "公司 50 人"
+      ],
+      "weight": 0.27,
+      "color": "#d4b3c9",
+      "glyph": "M",
+      "traits": [
+        "注重实用",
+        "抵触学习成本"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "frustrated",
+      "durationSec": 216.611
+    }
+  ],
+  "activity": [
+    {
+      "t": "00:00:00",
+      "agent": "a02",
+      "kind": "enter",
+      "text": "进入 localhost:8200/16-placeholder-label/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/16-placeholder-label/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a04",
+      "kind": "enter",
+      "text": "进入 localhost:8200/16-placeholder-label/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/16-placeholder-label/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a04",
+      "kind": "observation",
+      "text": "看起来是一个邀请团队成员的表单页面。界面很干净，字段排布清晰。有点像 Notion 邀请新成员的感觉，但这里是直接收集详细信息。让我先试试点击 Full name 输入框看看交互怎么样。",
+      "sentiment": 1,
+      "shot": "shots/a04-00.jpg"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a01",
+      "kind": "enter",
+      "text": "进入 localhost:8200/16-placeholder-label/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/16-placeholder-label/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a01",
+      "kind": "observation",
+      "text": "打开的是一个邀请成员的表单。顶部有 Workspace/Members/Invite 导航，主体是一个邀请人员填写表单。我在想这是要邀请谁进来... 先看看整体界面。",
+      "sentiment": 0,
+      "shot": "shots/a01-00.jpg"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a03",
+      "kind": "enter",
+      "text": "进入 localhost:8200/16-placeholder-label/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/16-placeholder-label/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a03",
+      "kind": "click",
+      "text": "先看看页面全貌和整体布局",
+      "sentiment": 0,
+      "url": "http://localhost:8200/16-placeholder-label/site/",
+      "shot": "shots/a03-00.jpg"
+    },
+    {
+      "t": "00:00:01",
+      "agent": "a02",
+      "kind": "observation",
+      "text": "打开了一个邀请团队成员的表单。看起来是测试placeholder标签功能的页面。",
+      "sentiment": 1,
+      "shot": "shots/a02-00.jpg"
+    },
+    {
+      "t": "00:04:46",
+      "agent": "a01",
+      "kind": "observation",
+      "text": "这是一个邀请成员页面。看起来是一个团队管理工具的成员邀请表单。表单字段包括：姓名、邮箱、职位、角色（Member/Admin/Guest）、部门、时区、电话、个人留言。时区有快捷按钮（PST/EST/UTC+8/UTC）。",
+      "sentiment": 0,
+      "shot": "shots/a01-01.jpg"
+    },
+    {
+      "t": "00:09:85",
+      "agent": "a02",
+      "kind": "click",
+      "text": "想测试表单输入，看看placeholder怎么工作",
+      "sentiment": 0,
+      "url": "http://localhost:8200/16-placeholder-label/site/",
+      "shot": "shots/a02-01.jpg"
+    },
+    {
+      "t": "00:10:39",
+      "agent": "a01",
+      "kind": "click",
+      "text": "想填一下姓名试试表单功能",
+      "sentiment": 0,
+      "url": "http://localhost:8200/16-placeholder-label/site/",
+      "shot": "shots/a01-02.jpg"
+    },
+    {
+      "t": "00:11:46",
+      "agent": "a03",
+      "kind": "observation",
+      "text": "这是一个邀请成员加入工作空间的表单。看起来是Figma或Notion那种团队协作工具的风格。我刚学钉钉，对这类工具还不太熟。",
+      "sentiment": 0,
+      "shot": "shots/a03-01.jpg"
+    },
+    {
+      "t": "00:13:02",
+      "agent": "a04",
+      "kind": "click",
+      "text": "想看看输入框的交互效果",
+      "sentiment": 0,
+      "url": "http://localhost:8200/16-placeholder-label/site/",
+      "shot": "shots/a04-01.jpg"
+    },
+    {
+      "t": "00:14:93",
+      "agent": "a01",
+      "kind": "click",
+      "text": "测试填写姓名 (typed: Kenji Okada)",
+      "sentiment": 0,
+      "shot": "shots/a01-03.jpg"
+    },
+    {
+      "t": "00:16:81",
+      "agent": "a01",
+      "kind": "click",
+      "text": "继续填邮箱",
+      "sentiment": 0,
+      "url": "http://localhost:8200/16-placeholder-label/site/",
+      "shot": "shots/a01-04.jpg"
+    },
+    {
+      "t": "00:18:97",
+      "agent": "a02",
+      "kind": "click",
+      "text": "测试输入后placeholder是否消失 (typed: 李明)",
+      "sentiment": 0,
+      "shot": "shots/a02-02.jpg"
+    },
+    {
+      "t": "00:19:11",
+      "agent": "a01",
+      "kind": "click",
+      "text": "填写邮箱 (typed: kenji@example.com)",
+      "sentiment": 0,
+      "shot": "shots/a01-05.jpg"
+    },
+    {
+      "t": "00:19:64",
+      "agent": "a04",
+      "kind": "click",
+      "text": "填写名字试试 (typed: 林浩宇)",
+      "sentiment": 0,
+      "shot": "shots/a04-02.jpg"
+    },
+    {
+      "t": "00:21:81",
+      "agent": "a03",
+      "kind": "confused",
+      "text": "时区那边有个输入框\"e.g. PST, EST, UTC+8\"，下面又有一排按钮PST、EST、UTC+8、UTC……这俩是啥关系？选了按钮会自动填到输入框里吗？我人事经理，经常要跨国沟通，时区这点很重要。",
+      "sentiment": -1,
+      "shot": "shots/a03-02.jpg"
+    },
+    {
+      "t": "00:21:84",
+      "agent": "a01",
+      "kind": "click",
+      "text": "填写职位",
+      "sentiment": 0,
+      "url": "http://localhost:8200/16-placeholder-label/site/",
+      "shot": "shots/a01-06.jpg"
+    },
+    {
+      "t": "00:21:98",
+      "agent": "a02",
+      "kind": "confused",
+      "text": "操作失败 (note): expected number, got undefined",
+      "sentiment": -1
+    },
+    {
+      "t": "00:22:50",
+      "agent": "a04",
+      "kind": "confused",
+      "text": "操作失败 (note): expected number, got undefined",
+      "sentiment": -1
+    },
+    {
+      "t": "00:25:30",
+      "agent": "a04",
+      "kind": "click",
+      "text": "聚焦邮箱输入框",
+      "sentiment": 0,
+      "url": "http://localhost:8200/16-placeholder-label/site/",
+      "shot": "shots/a04-04.jpg"
+    },
+    {
+      "t": "00:27:31",
+      "agent": "a02",
+      "kind": "exit",
+      "text": "这是一个展示表单placeholder功能的测试页面。我测试了姓名输入框，placeholder正常显示和消失。页面布局清晰，placeholder示例涵盖姓名、邮箱、职位、部门、时区、备注等场景。行为符合预期，对我这类运营用户来说，表单结构直观。",
+      "sentiment": 0,
+      "shot": "shots/a02-04.jpg"
+    },
+    {
+      "t": "00:27:58",
+      "agent": "a04",
+      "kind": "click",
+      "text": "填写邮箱 (typed: haoyu@studio.com)",
+      "sentiment": 0,
+      "shot": "shots/a04-05.jpg"
+    },
+    {
+      "t": "00:28:77",
+      "agent": "a01",
+      "kind": "click",
+      "text": "填写职位 (typed: Engineering Team Lead)",
+      "sentiment": 0,
+      "shot": "shots/a01-07.jpg"
+    },
+    {
+      "t": "00:29:66",
+      "agent": "a04",
+      "kind": "click",
+      "text": "试试时区快捷按钮",
+      "sentiment": 0,
+      "url": "http://localhost:8200/16-placeholder-label/site/",
+      "shot": "shots/a04-06.jpg"
+    },
+    {
+      "t": "00:30:53",
+      "agent": "a03",
+      "kind": "click",
+      "text": "测试时区按钮和输入框的关系",
+      "sentiment": 0,
+      "url": "http://localhost:8200/16-placeholder-label/site/",
+      "shot": "shots/a03-03.jpg"
+    },
+    {
+      "t": "00:31:47",
+      "agent": "a01",
+      "kind": "click",
+      "text": "想看看角色选择下拉菜单的内容",
+      "sentiment": 0,
+      "url": "http://localhost:8200/16-placeholder-label/site/",
+      "shot": "shots/a01-08.jpg"
+    },
+    {
+      "t": "00:34:19",
+      "agent": "a03",
+      "kind": "delight",
+      "text": "哦，点按钮会自动填到输入框里——这个设计合理，省得我手动打字了。不过我刚用钉钉的时候完全没见过这种快捷按钮方式。",
+      "sentiment": 1,
+      "shot": "shots/a03-04.jpg"
+    },
+    {
+      "t": "00:35:23",
+      "agent": "a01",
+      "kind": "observation",
+      "text": "下拉菜单有 Member/Admin/Guest 三个选项，权限粒度看起来合理。作为工程团队负责人，我会选 Admin。",
+      "sentiment": 0,
+      "shot": "shots/a01-09.jpg"
+    },
+    {
+      "t": "00:38:89",
+      "agent": "a01",
+      "kind": "shortcut",
+      "text": "在下拉菜单中选择 Admin [ArrowDown]",
+      "sentiment": 0,
+      "url": "http://localhost:8200/16-placeholder-label/site/",
+      "shot": "shots/a01-10.jpg"
+    },
+    {
+      "t": "00:39:66",
+      "agent": "a03",
+      "kind": "click",
+      "text": "开始填写表单",
+      "sentiment": 0,
+      "url": "http://localhost:8200/16-placeholder-label/site/",
+      "shot": "shots/a03-05.jpg"
+    },
+    {
+      "t": "00:41:56",
+      "agent": "a01",
+      "kind": "shortcut",
+      "text": "确认选择 [Enter]",
+      "sentiment": 0,
+      "url": "http://localhost:8200/16-placeholder-label/site/",
+      "shot": "shots/a01-11.jpg"
+    },
+    {
+      "t": "00:42:81",
+      "agent": "a04",
+      "kind": "click",
+      "text": "点击发送邀请按钮试试",
+      "sentiment": 0,
+      "url": "http://localhost:8200/16-placeholder-label/site/",
+      "shot": "shots/a04-08.jpg"
+    },
+    {
+      "t": "00:43:30",
+      "agent": "a01",
+      "kind": "click",
+      "text": "继续填写部门",
+      "sentiment": 0,
+      "url": "http://localhost:8200/16-placeholder-label/site/",
+      "shot": "shots/a01-12.jpg"
+    },
+    {
+      "t": "00:44:88",
+      "agent": "a04",
+      "kind": "confused",
+      "text": "点了发送邀请好像没什么反应。没有提示信息，不知道成功了还是字段不全。这点让我不太确定。",
+      "sentiment": -1,
+      "shot": "shots/a04-09.jpg"
+    },
+    {
+      "t": "00:46:27",
+      "agent": "a01",
+      "kind": "click",
+      "text": "填写部门 (typed: Engineering)",
+      "sentiment": 0,
+      "shot": "shots/a01-13.jpg"
+    },
+    {
+      "t": "00:47:04",
+      "agent": "a03",
+      "kind": "click",
+      "text": "填写姓名 (typed: 张三)",
+      "sentiment": 0,
+      "shot": "shots/a03-06.jpg"
+    },
+    {
+      "t": "00:50:94",
+      "agent": "a01",
+      "kind": "click",
+      "text": "选择时区 UTC+8",
+      "sentiment": 0,
+      "url": "http://localhost:8200/16-placeholder-label/site/",
+      "shot": "shots/a01-14.jpg"
+    },
+    {
+      "t": "00:52:59",
+      "agent": "a03",
+      "kind": "shortcut",
+      "text": "切换到邮箱输入框 [Tab]",
+      "sentiment": 0,
+      "url": "http://localhost:8200/16-placeholder-label/site/",
+      "shot": "shots/a03-07.jpg"
+    },
+    {
+      "t": "00:54:75",
+      "agent": "a04",
+      "kind": "exit",
+      "text": "试填了一个邀请表单，界面简洁干净，字段排布清晰合理。placeholder 提示很实用，快捷时区按钮设计不错。但提交后没有任何反馈，不确定是否成功，这个细节有点影响体验。对这类邀请表单产品基本了解够了。",
+      "sentiment": 0,
+      "shot": "shots/a04-10.jpg"
+    },
+    {
+      "t": "00:55:97",
+      "agent": "a01",
+      "kind": "click",
+      "text": "想看看现有的成员列表",
+      "sentiment": 0,
+      "url": "http://localhost:8200/16-placeholder-label/site/",
+      "shot": "shots/a01-15.jpg"
+    },
+    {
+      "t": "00:57:59",
+      "agent": "a03",
+      "kind": "click",
+      "text": "填写邮箱 (typed: zhangsan@example.com)",
+      "sentiment": 0,
+      "shot": "shots/a03-08.jpg"
+    },
+    {
+      "t": "01:08:45",
+      "agent": "a01",
+      "kind": "observation",
+      "text": "Members 链接没反应，页面没切换。可能这个产品就是单页设计，Invite 页面就是管理成员的页面。整体来说表单设计清晰，placeholder 提示明确，时区快捷按钮很实用。",
+      "sentiment": 1,
+      "shot": "shots/a01-16.jpg"
+    },
+    {
+      "t": "01:15:66",
+      "agent": "a03",
+      "kind": "shortcut",
+      "text": "继续填职位 [Tab]",
+      "sentiment": 0,
+      "url": "http://localhost:8200/16-placeholder-label/site/",
+      "shot": "shots/a03-09.jpg"
+    },
+    {
+      "t": "01:20:46",
+      "agent": "a03",
+      "kind": "click",
+      "text": "填职位 (typed: 产品经理)",
+      "sentiment": 0,
+      "shot": "shots/a03-10.jpg"
+    },
+    {
+      "t": "01:20:59",
+      "agent": "a01",
+      "kind": "exit",
+      "text": "我体验了团队邀请成员表单。表单设计清晰合理：字段涵盖姓名、邮箱、职位、角色（Member/Admin/Guest）、部门、时区、电话、个人留言，placeholder 提示明确，时区快捷按钮实用。权限粒度符合我的预期。Members 导航链接点击后没反应，不知道是功能缺失还是这个版本就只有一个页面。作为工程团队负责人，这个邀请流程我能理解并会使用。",
+      "sentiment": 0,
+      "shot": "shots/a01-17.jpg"
+    },
+    {
+      "t": "01:26:84",
+      "agent": "a03",
+      "kind": "click",
+      "text": "选择角色",
+      "sentiment": 0,
+      "url": "http://localhost:8200/16-placeholder-label/site/",
+      "shot": "shots/a03-11.jpg"
+    },
+    {
+      "t": "01:30:62",
+      "agent": "a03",
+      "kind": "shortcut",
+      "text": "看角色下拉选项 [ArrowDown]",
+      "sentiment": 0,
+      "url": "http://localhost:8200/16-placeholder-label/site/",
+      "shot": "shots/a03-12.jpg"
+    },
+    {
+      "t": "01:36:96",
+      "agent": "a03",
+      "kind": "shortcut",
+      "text": "选择Admin角色 [ArrowDown]",
+      "sentiment": 0,
+      "url": "http://localhost:8200/16-placeholder-label/site/",
+      "shot": "shots/a03-13.jpg"
+    },
+    {
+      "t": "01:39:77",
+      "agent": "a03",
+      "kind": "click",
+      "text": "重新点击角色下拉",
+      "sentiment": 0,
+      "url": "http://localhost:8200/16-placeholder-label/site/",
+      "shot": "shots/a03-14.jpg"
+    },
+    {
+      "t": "01:44:55",
+      "agent": "a03",
+      "kind": "confused",
+      "text": "下拉菜单到底打开没？看不明显。算了继续填其他字段吧。",
+      "sentiment": -1,
+      "shot": "shots/a03-15.jpg"
+    },
+    {
+      "t": "01:48:81",
+      "agent": "a03",
+      "kind": "shortcut",
+      "text": "跳到部门字段 [Tab]",
+      "sentiment": 0,
+      "url": "http://localhost:8200/16-placeholder-label/site/",
+      "shot": "shots/a03-16.jpg"
+    },
+    {
+      "t": "01:53:67",
+      "agent": "a03",
+      "kind": "click",
+      "text": "填部门 (typed: 研发部)",
+      "sentiment": 0,
+      "shot": "shots/a03-17.jpg"
+    },
+    {
+      "t": "01:56:58",
+      "agent": "a03",
+      "kind": "rage",
+      "text": "卧槽数据填串了！我明明要填Department，结果跑到Full name去了？Tab顺序肯定有问题。这表单字段顺序是乱的还是我操作失误了？太误导人了，烦。",
+      "sentiment": -2,
+      "shot": "shots/a03-18.jpg"
+    },
+    {
+      "t": "02:00:43",
+      "agent": "a03",
+      "kind": "click",
+      "text": "修正填错的字段",
+      "sentiment": 0,
+      "url": "http://localhost:8200/16-placeholder-label/site/",
+      "shot": "shots/a03-19.jpg"
+    },
+    {
+      "t": "02:04:01",
+      "agent": "a03",
+      "kind": "shortcut",
+      "text": "全选错误内容 [Control+a]",
+      "sentiment": 0,
+      "url": "http://localhost:8200/16-placeholder-label/site/",
+      "shot": "shots/a03-20.jpg"
+    },
+    {
+      "t": "02:07:93",
+      "agent": "a03",
+      "kind": "click",
+      "text": "重新输入正确姓名 (typed: 张三)",
+      "sentiment": 0,
+      "shot": "shots/a03-21.jpg"
+    },
+    {
+      "t": "02:12:09",
+      "agent": "a03",
+      "kind": "rage",
+      "text": "又串了！变成了\"张三研发部\"——Ctrl+A根本不是选中替换，是在后面追加！这表单Tab顺序混乱，而且输入逻辑也有问题，我已经浪费太多时间在这种破事上了。",
+      "sentiment": -2,
+      "shot": "shots/a03-22.jpg"
+    },
+    {
+      "t": "02:17:57",
+      "agent": "a03",
+      "kind": "click",
+      "text": "再次尝试选中并修正",
+      "sentiment": 0,
+      "url": "http://localhost:8200/16-placeholder-label/site/",
+      "shot": "shots/a03-23.jpg"
+    },
+    {
+      "t": "02:21:54",
+      "agent": "a03",
+      "kind": "click",
+      "text": "Triple click to select all",
+      "sentiment": 0,
+      "url": "http://localhost:8200/16-placeholder-label/site/",
+      "shot": "shots/a03-24.jpg"
+    },
+    {
+      "t": "02:25:64",
+      "agent": "a03",
+      "kind": "exit",
+      "text": "尝试填写邀请成员表单，但遇到严重问题：Tab顺序混乱导致输入到错误字段，而且无法正确全选修改。\"Full name\"字段被污染成\"张三研发部\"，三重点击也无法选中。更让我烦躁的是，时区字段有个输入框\"e.g. PST, EST, UTC+8\"，下面又有一排快捷按钮PST/EST/UTC+8/UTC——这种重复设计让我困惑。作为刚学钉钉的人事经理，我需要的是清晰简单的引导，但这个表单没有给我这种信心。不到3分钟就放弃，说明体验确实有问题。",
+      "sentiment": 0,
+      "shot": "shots/a03-25.jpg"
+    }
+  ],
+  "issues": [
+    {
+      "id": "i01",
+      "title": "表单输入后弹出技术报错，用户看不懂",
+      "severity": "high",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "expected number, got undefined——这啥意思？我填个名字你给我看代码报错？",
+      "agentRef": "a02",
+      "evidence": 1,
+      "journey": "在姓名输入框输入文字后点击测试按钮"
+    },
+    {
+      "id": "i03",
+      "title": "提交邀请后没有任何反馈提示",
+      "severity": "high",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "点了发送邀请好像没什么反应。没有提示信息，不知道成功了还是字段不全。这点让我不太确定。",
+      "agentRef": "a04",
+      "evidence": 1,
+      "journey": "填写完 Full name、Email，点击 Send Invite 按钮后"
+    },
+    {
+      "id": "i05",
+      "title": "Members 导航链接点击后无响应",
+      "severity": "high",
+      "agents": 1,
+      "category": "信息架构",
+      "quote": "Members 链接没反应，页面没切换。我以为能切换到成员列表，结果点了跟没点一样。",
+      "agentRef": "a01",
+      "evidence": 1,
+      "journey": "在 Invite 页面的导航栏点击 Members 链接"
+    },
+    {
+      "id": "i06",
+      "title": "Tab键跳转顺序与表单字段顺序不一致，输入跑到错误位置",
+      "severity": "high",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "卧槽数据填串了！我明明要填Department，结果跑到Full name去了？Tab顺序肯定有问题。",
+      "agentRef": "a03",
+      "evidence": 2,
+      "journey": "在Department字段输入「研发部」后按Tab，光标跳到了Full name而不是预期的下一个字段"
+    },
+    {
+      "id": "i07",
+      "title": "输入框内Ctrl+A是追加而非替换，选中操作无效",
+      "severity": "high",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "Ctrl+A根本不是选中替换，是在后面追加！这表单Tab顺序混乱，而且输入逻辑也有问题。",
+      "agentRef": "a03",
+      "evidence": 2,
+      "journey": "发现Full name字段已有错误内容「张三研发部」，尝试Ctrl+A全选后重新输入，但内容被追加而非替换"
+    },
+    {
+      "id": "i08",
+      "title": "三重点击无法全选文本，修正操作完全失效",
+      "severity": "high",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "又串了！变成了「张三研发部」——三重点击也无法选中。",
+      "agentRef": "a03",
+      "evidence": 1,
+      "journey": "尝试Triple click全选文本但不起作用，无法修正已填错的字段"
+    },
+    {
+      "id": "i02",
+      "title": "placeholder测试没有操作反馈",
+      "severity": "med",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "点完测试按钮不知道有没有生效，要自己再看看placeholder变了没有",
+      "agentRef": "a02",
+      "evidence": 1,
+      "journey": "点击placeholder测试按钮后"
+    },
+    {
+      "id": "i04",
+      "title": "输入名字时报控制台错误",
+      "severity": "med",
+      "agents": 1,
+      "category": "性能感知",
+      "quote": "expected number, got undefined — 填个字怎么还报错了？",
+      "agentRef": "a04",
+      "evidence": 1,
+      "journey": "在 Full name 输入框键入「林浩宇」时"
+    },
+    {
+      "id": "i09",
+      "title": "时区字段同时有输入框和快捷按钮，设计重复造成困惑",
+      "severity": "med",
+      "agents": 1,
+      "category": "信息架构",
+      "quote": "时区那边有个输入框「e.g. PST, EST, UTC+8」，下面又有一排按钮PST、EST、UTC+8、UTC……这俩是啥关系？",
+      "agentRef": "a03",
+      "evidence": 1,
+      "journey": "看到时区部分既有自由输入框又有快捷按钮按钮，不确定它们的关系"
+    },
+    {
+      "id": "i10",
+      "title": "角色下拉菜单打开状态不明显，无法确认当前选择",
+      "severity": "med",
+      "agents": 1,
+      "category": "视觉节奏",
+      "quote": "下拉菜单到底打开没？看不明显。",
+      "agentRef": "a03",
+      "evidence": 1,
+      "journey": "点击Role字段的下拉按钮，想看有哪些角色选项，但不确定菜单是否打开"
+    }
+  ],
+  "delights": [
+    {
+      "title": "表单示例覆盖完整，姓名邮箱部门时区备注都有",
+      "count": 1,
+      "quote": "这表单场景挺全的，运营常用的都覆盖到了，看一眼就知道是做什么的",
+      "agent": "a02"
+    },
+    {
+      "title": "页面布局清晰，表单卡片排版舒服",
+      "count": 1,
+      "quote": "看起来不乱，每个输入框的placeholder文字也正好能提示我该填什么",
+      "agent": "a02"
+    },
+    {
+      "title": "界面简洁，字段排布清晰合理",
+      "count": 1,
+      "quote": "有点像 Notion 邀请新成员的感觉，但这里是直接收集详细信息。整体风格挺干净。",
+      "agent": "a04"
+    },
+    {
+      "title": "placeholder 提示很实用",
+      "count": 1,
+      "quote": "字段里给提示占位，告诉我该填什么，这点做得不错。",
+      "agent": "a04"
+    },
+    {
+      "title": "快捷时区按钮设计贴心",
+      "count": 1,
+      "quote": "不用自己查时区，点一下就选好了，小细节做得用心。",
+      "agent": "a04"
+    },
+    {
+      "title": "时区快捷按钮实用",
+      "count": 1,
+      "quote": "PST/EST/UTC+8 这种快捷按钮设计很贴心，不用一个个找时区了。",
+      "agent": "a01"
+    },
+    {
+      "title": "权限角色粒度合理",
+      "count": 1,
+      "quote": "Member/Admin/Guest 三个角色划分清晰，我作为工程团队负责人会选 Admin，这个粒度够用了。",
+      "agent": "a01"
+    },
+    {
+      "title": "时区快捷按钮点击后自动填入输入框，省去打字步骤",
+      "count": 1,
+      "quote": "点按钮会自动填到输入框里——这个设计合理，省得我手动打字了。",
+      "agent": "a03"
+    }
+  ],
+  "features": [
+    {
+      "name": "填写表单",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 5
+    },
+    {
+      "name": "测试placeholder显示",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 1,
+      "avgSentiment": 1,
+      "totalAttempts": 2
+    },
+    {
+      "name": "切换时区按钮",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 1,
+      "avgSentiment": 1,
+      "totalAttempts": 2
+    },
+    {
+      "name": "选择角色下拉",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -1,
+      "totalAttempts": 2
+    },
+    {
+      "name": "表单输入",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 1,
+      "avgSentiment": -2,
+      "totalAttempts": 1
+    },
+    {
+      "name": "填写邀请表单",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": 1,
+      "totalAttempts": 1
+    },
+    {
+      "name": "提交邀请",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -2,
+      "totalAttempts": 1
+    },
+    {
+      "name": "选择时区",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 1,
+      "avgSentiment": 2,
+      "totalAttempts": 1
+    },
+    {
+      "name": "邀请成员表单",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 1,
+      "avgSentiment": 2,
+      "totalAttempts": 1
+    },
+    {
+      "name": "角色选择下拉",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 1,
+      "avgSentiment": 2,
+      "totalAttempts": 1
+    },
+    {
+      "name": "时区选择",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 1,
+      "avgSentiment": 2,
+      "totalAttempts": 1
+    }
+  ],
+  "routesHeat": [
+    {
+      "path": "/16-placeholder-label/site/",
+      "visits": 32,
+      "dwell": 8,
+      "drop": 0.03125
+    }
+  ],
+  "sentimentCurve": [
+    {
+      "t": 0,
+      "v": 0.5370370370370371
+    },
+    {
+      "t": 5,
+      "v": 0.5
+    },
+    {
+      "t": 10,
+      "v": 0.4761904761904762
+    },
+    {
+      "t": 15,
+      "v": 0.4444444444444444
+    },
+    {
+      "t": 20,
+      "v": 0.5333333333333333
+    },
+    {
+      "t": 25,
+      "v": 0.5
+    },
+    {
+      "t": 30,
+      "v": 0.4583333333333333
+    },
+    {
+      "t": 35,
+      "v": 0.5
+    },
+    {
+      "t": 40,
+      "v": 0.5
+    },
+    {
+      "t": 45,
+      "v": 0.6666666666666666
+    },
+    {
+      "t": 50,
+      "v": 0.5
+    },
+    {
+      "t": 55,
+      "v": 0.5
+    },
+    {
+      "t": 60,
+      "v": 0.5
+    },
+    {
+      "t": 65,
+      "v": 0.5
+    },
+    {
+      "t": 70,
+      "v": 0.4166666666666667
+    },
+    {
+      "t": 75,
+      "v": 0.5
+    },
+    {
+      "t": 80,
+      "v": 0.3333333333333333
+    },
+    {
+      "t": 85,
+      "v": 0.5
+    },
+    {
+      "t": 90,
+      "v": 0.3333333333333333
+    },
+    {
+      "t": 95,
+      "v": 0.5
+    },
+    {
+      "t": 100,
+      "v": 0.5
+    }
+  ],
+  "metrics": {
+    "predictedNps": -3,
+    "achievableNps": 81,
+    "taskSuccess": 0.75,
+    "timeToValueSec": null,
+    "rageClicks": 2,
+    "delightCount": 0
+  },
+  "cost": {
+    "tokensIn": 332644,
+    "tokensOut": 8099,
+    "usd": 0
+  }
+}

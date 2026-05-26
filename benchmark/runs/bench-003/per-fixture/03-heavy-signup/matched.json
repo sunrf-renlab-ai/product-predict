@@ -1,0 +1,254 @@
+{
+  "fixtureId": "03-heavy-signup",
+  "gtTotal": 6,
+  "ppTotal": 19,
+  "matched": 2,
+  "recall": 0.3333333333333333,
+  "precision": 0.10526315789473684,
+  "f1": 0.16,
+  "severityAcc": 1,
+  "categoryAcc": 0.5,
+  "verdicts": [
+    {
+      "gtId": "gt-01",
+      "findingId": "i07",
+      "matched": true,
+      "confidence": 0.95,
+      "reasoning": "i07直接指出表单要求8个必填字段与GT描述的8个required字段完全一致且同属流程顺畅类别和high severity",
+      "severityAgrees": true,
+      "categoryAgrees": true
+    },
+    {
+      "gtId": "gt-02",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0,
+      "reasoning": "GT问题聚焦错误提示模糊无字段定位，所有PP发现都涉及表单字段过多或产品信息缺失等其他问题"
+    },
+    {
+      "gtId": "gt-03",
+      "findingId": "i17",
+      "matched": true,
+      "confidence": 0.95,
+      "reasoning": "i17直接描述点击提交后无任何响应的现象，与GT问题完全一致",
+      "severityAgrees": true,
+      "categoryAgrees": false
+    },
+    {
+      "gtId": "gt-04",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0.1,
+      "reasoning": "GT聚焦公司规模下拉缺少个人选项与产品定位的个人用户不匹配，所有发现都是关于表单复杂度、信息缺失或信任问题，无一触及下拉选项与目标用户错配的核心问题"
+    },
+    {
+      "gtId": "gt-05",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0,
+      "reasoning": "No finding addresses placeholder label accessibility issue"
+    },
+    {
+      "gtId": "gt-06",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0,
+      "reasoning": "GT is about password rules hidden until after submit, none of the PP findings mention password validation feedback"
+    }
+  ],
+  "falsePositives": [
+    {
+      "findingId": "i01",
+      "finding": {
+        "title": "页面顶部内容缺失，看不到产品 Logo 或名称",
+        "category": "信息架构",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i02",
+      "finding": {
+        "title": "没有任何价值主张，不知道注册能获得什么",
+        "category": "信息架构",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i03",
+      "finding": {
+        "title": "对陌生产品要求手机号验证，信任成本过高",
+        "category": "流程顺畅",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i04",
+      "finding": {
+        "title": "注册字段过多（姓名、邮箱、公司规模、职位、手机号、密码），对首访用户过重",
+        "category": "流程顺畅",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i05",
+      "finding": {
+        "title": "无法预览产品就要求注册，用户没有决策依据",
+        "category": "功能契合",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i06",
+      "finding": {
+        "title": "页面零产品介绍，直接就是注册表单",
+        "category": "信息架构",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i08",
+      "finding": {
+        "title": "页面无品牌标识或产品名称",
+        "category": "信息架构",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i09",
+      "finding": {
+        "title": "缺少信任信号（安全声明/隐私政策/品牌背书）",
+        "category": "情感氛围",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i11",
+      "finding": {
+        "title": "注册前没有任何产品说明，连它是啥都不知道",
+        "category": "信息架构",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i12",
+      "finding": {
+        "title": "页面滚动完全失灵，只能看到注册框",
+        "category": "性能感知",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i13",
+      "finding": {
+        "title": "注册表单字段过多（名字分两栏+电话），安全感极低",
+        "category": "流程顺畅",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i14",
+      "finding": {
+        "title": "缺少渐进式披露，产品定位与功能完全不可见",
+        "category": "信息架构",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i16",
+      "finding": {
+        "title": "注册字段太多（8个），且提交无响应",
+        "category": "流程顺畅",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i18",
+      "finding": {
+        "title": "页面没有任何产品说明，不知道是做什么的",
+        "category": "信息架构",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i10",
+      "finding": {
+        "title": "无渐进式注册或访客体验入口",
+        "category": "流程顺畅",
+        "severity": "med"
+      }
+    },
+    {
+      "findingId": "i15",
+      "finding": {
+        "title": "没有界面预览，对比Notion的直接展示落差巨大",
+        "category": "与竞品对比",
+        "severity": "med"
+      }
+    },
+    {
+      "findingId": "i19",
+      "finding": {
+        "title": "手机验证在表单最后一步，增加挫败感",
+        "category": "情感氛围",
+        "severity": "med"
+      }
+    }
+  ],
+  "missed": [
+    {
+      "gtId": "gt-02",
+      "gt": {
+        "id": "gt-02",
+        "title": "报错只说「Invalid input」",
+        "severity": "high",
+        "category": "表达文案",
+        "description": "提交失败只显示一行 「Invalid input. Please check your entries.」红条,没有定位到具体字段、没有原因解释,用户不知道改哪个。",
+        "shouldFindWith": [
+          "新手",
+          "细致型"
+        ]
+      }
+    },
+    {
+      "gtId": "gt-04",
+      "gt": {
+        "id": "gt-04",
+        "title": "公司规模 dropdown 没有「个人」",
+        "severity": "med",
+        "category": "功能契合",
+        "description": "Company size 是必选 dropdown,选项只有 1-5 / 6-20 / 21-100 / 100+,但产品说「无需信用卡 免费开始」吸引的是个人用户,个人用户没法选,被迫撒谎。",
+        "shouldFindWith": [
+          "个人开发者",
+          "诚实填表"
+        ]
+      }
+    },
+    {
+      "gtId": "gt-05",
+      "gt": {
+        "id": "gt-05",
+        "title": "label 全部用 placeholder 实现",
+        "severity": "med",
+        "category": "可访问性",
+        "description": "所有字段没有独立的 <label>,字段名靠 placeholder 文字,用户开始输入后 placeholder 消失,再回头检查时记不起这个框是干嘛的,且屏幕阅读器读得不准。",
+        "shouldFindWith": [
+          "可访问性敏感",
+          "新手"
+        ]
+      }
+    },
+    {
+      "gtId": "gt-06",
+      "gt": {
+        "id": "gt-06",
+        "title": "密码规则要等提交后才告诉",
+        "severity": "low",
+        "category": "学习成本",
+        "description": "代码里密码要求大小写+数字+符号+12位以上,但 placeholder 只写「Password」,前端没有任何提示;用户随便输完点提交才看到通用错误,然后还得猜哪里不合格。",
+        "shouldFindWith": [
+          "新手"
+        ]
+      }
+    }
+  ]
+}
