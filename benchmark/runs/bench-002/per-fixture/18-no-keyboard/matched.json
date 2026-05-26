@@ -1,0 +1,198 @@
+{
+  "fixtureId": "18-no-keyboard",
+  "gtTotal": 5,
+  "ppTotal": 12,
+  "matched": 1,
+  "recall": 0.2,
+  "precision": 0.08333333333333333,
+  "f1": 0.11764705882352941,
+  "severityAcc": 1,
+  "categoryAcc": 1,
+  "verdicts": [
+    {
+      "gtId": "gt-01",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0,
+      "reasoning": "judge failed: No JSON found in LLM output:\n"
+    },
+    {
+      "gtId": "gt-02",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0.2,
+      "reasoning": "GT关于快捷键与竞品差距但无PP直接指出此问题"
+    },
+    {
+      "gtId": "gt-03",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0,
+      "reasoning": "No finding mentions autosave or save workflow issues"
+    },
+    {
+      "gtId": "gt-04",
+      "findingId": "i12",
+      "matched": true,
+      "confidence": 0.75,
+      "reasoning": "GT缺失快捷键帮助入口i12描述缺引导无法理解产品用途皆属信息架构范畴",
+      "severityAgrees": true,
+      "categoryAgrees": true
+    },
+    {
+      "gtId": "gt-05",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0,
+      "reasoning": "GT关于Save按钮快捷键提示,PP发现都是导航/功能缺失等更宏观问题"
+    }
+  ],
+  "falsePositives": [
+    {
+      "findingId": "i01",
+      "finding": {
+        "title": "页面内容极度贫乏，看不到产品的核心价值",
+        "category": "信息架构",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i02",
+      "finding": {
+        "title": "完全没有导航或功能入口，无从下手",
+        "category": "流程顺畅",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i04",
+      "finding": {
+        "title": "名字叫no-keyboard却找不到语音输入",
+        "category": "功能契合",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i05",
+      "finding": {
+        "title": "界面太空洞，没有任何使用引导",
+        "category": "信息架构",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i07",
+      "finding": {
+        "title": "看不到任何可操作的控件，页面仿佛半成品",
+        "category": "功能契合",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i08",
+      "finding": {
+        "title": "\"无键盘测试\"这个名字让我更困惑了",
+        "category": "信息架构",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i10",
+      "finding": {
+        "title": "正文编辑区完全找不到，只有一个标题框",
+        "category": "功能契合",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i11",
+      "finding": {
+        "title": "no-keyboard 的设计意图完全没有传达出来",
+        "category": "学习成本",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i03",
+      "finding": {
+        "title": "背景图加载慢，视觉体验像是网站在挂机",
+        "category": "性能感知",
+        "severity": "med"
+      }
+    },
+    {
+      "findingId": "i06",
+      "finding": {
+        "title": "跟飞书文档比差太远，没有吸引力",
+        "category": "与竞品对比",
+        "severity": "med"
+      }
+    },
+    {
+      "findingId": "i09",
+      "finding": {
+        "title": "和Typora比，这个界面让我觉得是在用记事本",
+        "category": "与竞品对比",
+        "severity": "med"
+      }
+    }
+  ],
+  "missed": [
+    {
+      "gtId": "gt-01",
+      "gt": {
+        "id": "gt-01",
+        "title": "整个页面只能用鼠标",
+        "severity": "high",
+        "category": "可访问性",
+        "description": "顶部工具栏 (Undo / Redo / Share / Save) 和格式工具栏 (B / I / U / List / H2 / Quote / Divider) 全部是 span,没有 button 标签也没有 tabindex,Tab 键完全不能 focus。编辑器本身 tabindex=-1 也跳不进去。无法用键盘单独操作工具栏,屏幕阅读器更是完全无法识别这些是按钮。",
+        "shouldFindWith": [
+          "键盘党",
+          "可访问性敏感"
+        ]
+      }
+    },
+    {
+      "gtId": "gt-02",
+      "gt": {
+        "id": "gt-02",
+        "title": "Cmd+S Cmd+Enter 全失效",
+        "severity": "high",
+        "category": "与竞品对比",
+        "description": "Notion / Linear / Figma / Google Docs 等所有同类编辑器都支持 Cmd+S 保存、Cmd+B 粗体、Cmd+Enter 提交。这个工具不仅没实现,还在 window keydown 里把这些组合键 preventDefault 掉,反而比不做更糟,键盘党会立刻觉得「这工具不专业」。",
+        "shouldFindWith": [
+          "键盘党",
+          "重度用户"
+        ]
+      }
+    },
+    {
+      "gtId": "gt-03",
+      "gt": {
+        "id": "gt-03",
+        "title": "没有自动保存必须点 Save",
+        "severity": "med",
+        "category": "流程顺畅",
+        "description": "页面提示「Your edits are not stored until you save.」加上顶部一直显示 \"Unsaved changes\",但既无 Cmd+S 又无定时 autosave。用户写一段就要鼠标够到右上角点一次,频繁打断写作流;一旦忘记或刷新页面所有内容丢失。",
+        "shouldFindWith": [
+          "重度用户",
+          "新手"
+        ]
+      }
+    },
+    {
+      "gtId": "gt-05",
+      "gt": {
+        "id": "gt-05",
+        "title": "Save 按钮没有快捷键提示",
+        "severity": "low",
+        "category": "表达文案",
+        "description": "Save 按钮就是裸的 \"Save\" 文字,没有像 Notion / VSCode 那样在 hover 时显示 ⌘S 角标,用户根本不会知道「可能存在」快捷键,更不会去尝试。",
+        "shouldFindWith": [
+          "键盘党",
+          "细致用户"
+        ]
+      }
+    }
+  ]
+}

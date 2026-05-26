@@ -1,0 +1,893 @@
+{
+  "id": "run-001",
+  "startedAt": "2026-05-26T02:56:43.712Z",
+  "finishedAt": "2026-05-26T02:59:05.993Z",
+  "target": {
+    "url": "http://localhost:8200/19-slow-perceived/site/",
+    "title": "Drift — customers",
+    "viewport": {
+      "w": 1280,
+      "h": 800
+    }
+  },
+  "personaSetId": "preset-customer",
+  "agents": [
+    {
+      "id": "a02",
+      "name": "Kenji Okada",
+      "age": 26,
+      "role": "销售代表",
+      "tech": 4,
+      "tone": "好奇",
+      "preferences": [
+        "喜欢新功能",
+        "关注用户界面",
+        "追求流畅体验"
+      ],
+      "knownContext": [
+        "使用 Pipedrive",
+        "最近在尝试新 CRM 工具"
+      ],
+      "weight": 0.35,
+      "color": "#a3d9a5",
+      "glyph": "K",
+      "traits": [
+        "探索型",
+        "友好"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "frustrated",
+      "durationSec": 64.848
+    },
+    {
+      "id": "a03",
+      "name": "Lucas Kim",
+      "age": 31,
+      "role": "数据分析师",
+      "tech": 5,
+      "tone": "急躁",
+      "preferences": [
+        "注重速度",
+        "重视批量操作",
+        "讨厌卡顿"
+      ],
+      "knownContext": [
+        "常用 Excel",
+        "使用 Power BI",
+        "对加载慢很排斥"
+      ],
+      "weight": 0.25,
+      "color": "#7ec8e3",
+      "glyph": "L",
+      "traits": [
+        "速度控",
+        "理性"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "frustrated",
+      "durationSec": 71.641
+    },
+    {
+      "id": "a01",
+      "name": "Maya Chen",
+      "age": 38,
+      "role": "客户运营",
+      "tech": 3,
+      "tone": "挑剔",
+      "preferences": [
+        "关注数据准确性",
+        "对加载延迟敏感",
+        "希望操作简洁"
+      ],
+      "knownContext": [
+        "每天用 Salesforce",
+        "试过 HubSpot，觉得功能繁琐"
+      ],
+      "weight": 0.2,
+      "color": "#f7d794",
+      "glyph": "M",
+      "traits": [
+        "细节控",
+        "性能敏感"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "frustrated",
+      "durationSec": 120.343
+    },
+    {
+      "id": "a04",
+      "name": "王磊",
+      "age": 45,
+      "role": "客服主管",
+      "tech": 2,
+      "tone": "温和",
+      "preferences": [
+        "关注易用性",
+        "重视培训支持",
+        "希望界面清晰"
+      ],
+      "knownContext": [
+        "使用 Zendesk",
+        "偶尔用内部系统",
+        "对新工具有顾虑"
+      ],
+      "weight": 0.2,
+      "color": "#c8a2c8",
+      "glyph": "W",
+      "traits": [
+        "温和",
+        "耐心"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "explored",
+      "durationSec": 142.165
+    }
+  ],
+  "activity": [
+    {
+      "t": "00:00:00",
+      "agent": "a02",
+      "kind": "enter",
+      "text": "进入 localhost:8200/19-slow-perceived/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/19-slow-perceived/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a02",
+      "kind": "observation",
+      "text": "打开了一个看起来像 CRM 的页面，有搜索框和 Plan/Status 下拉按钮。先看看整体布局。",
+      "sentiment": 1,
+      "shot": "shots/a02-00.jpg"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a03",
+      "kind": "enter",
+      "text": "进入 localhost:8200/19-slow-perceived/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/19-slow-perceived/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a03",
+      "kind": "click",
+      "text": "打开页面查看初始状态",
+      "sentiment": 0,
+      "url": "http://localhost:8200/19-slow-perceived/site/",
+      "shot": "shots/a03-00.jpg"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a01",
+      "kind": "enter",
+      "text": "进入 localhost:8200/19-slow-perceived/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/19-slow-perceived/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a01",
+      "kind": "click",
+      "text": "Load the page",
+      "sentiment": 0,
+      "url": "http://localhost:8200/19-slow-perceived/site/",
+      "shot": "shots/a01-00.jpg"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a04",
+      "kind": "enter",
+      "text": "进入 localhost:8200/19-slow-perceived/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/19-slow-perceived/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a04",
+      "kind": "observation",
+      "text": "页面加载了，看起来是客服系统的客户管理界面。有搜索框和两个下拉筛选按钮。让我先看看全貌。",
+      "sentiment": 1,
+      "shot": "shots/a04-00.jpg"
+    },
+    {
+      "t": "00:03:48",
+      "agent": "a01",
+      "kind": "confused",
+      "text": "等等，这是什么产品？顶部有搜索和下拉框，看起来像是某种客户管理工具，但我看不到产品名称和主功能区。需要往下滑看看整体结构。",
+      "sentiment": 0,
+      "shot": "shots/a01-01.jpg"
+    },
+    {
+      "t": "00:08:60",
+      "agent": "a02",
+      "kind": "confused",
+      "text": "滚动后页面内容好像没太大变化，不确定客户列表在哪里或者有多少客户。",
+      "sentiment": 0,
+      "shot": "shots/a02-02.jpg"
+    },
+    {
+      "t": "00:09:94",
+      "agent": "a03",
+      "kind": "click",
+      "text": "试试搜索功能是否响应",
+      "sentiment": 0,
+      "url": "http://localhost:8200/19-slow-perceived/site/",
+      "shot": "shots/a03-03.jpg"
+    },
+    {
+      "t": "00:11:44",
+      "agent": "a01",
+      "kind": "confused",
+      "text": "搜索框和按钮还在顶部——应该是 sticky 的。但我看不到主体内容在哪里，截图里可能还是空白区域？让我等一下看内容加载。",
+      "sentiment": 0,
+      "shot": "shots/a01-03.jpg"
+    },
+    {
+      "t": "00:13:39",
+      "agent": "a04",
+      "kind": "observation",
+      "text": "看到了客户列表，有一些客户卡片，名字、状态、Plan等级等信息。界面风格挺简洁的，像Zendesk那种列表+卡片的形式。",
+      "sentiment": 1,
+      "shot": "shots/a04-02.jpg"
+    },
+    {
+      "t": "00:14:37",
+      "agent": "a02",
+      "kind": "click",
+      "text": "测试搜索功能，找一个我认识的客户名字",
+      "sentiment": 0,
+      "url": "http://localhost:8200/19-slow-perceived/site/",
+      "shot": "shots/a02-04.jpg"
+    },
+    {
+      "t": "00:14:97",
+      "agent": "a03",
+      "kind": "click",
+      "text": "测试搜索功能是否响应 (typed: test)",
+      "sentiment": 0,
+      "shot": "shots/a03-04.jpg"
+    },
+    {
+      "t": "00:17:69",
+      "agent": "a03",
+      "kind": "shortcut",
+      "text": "执行搜索操作 [Enter]",
+      "sentiment": 0,
+      "url": "http://localhost:8200/19-slow-perceived/site/",
+      "shot": "shots/a03-05.jpg"
+    },
+    {
+      "t": "00:17:94",
+      "agent": "a02",
+      "kind": "click",
+      "text": "搜索一个客户看看效果 (typed: Acme)",
+      "sentiment": 0,
+      "shot": "shots/a02-05.jpg"
+    },
+    {
+      "t": "00:18:34",
+      "agent": "a01",
+      "kind": "click",
+      "text": "点击Status下拉框查看状态筛选选项",
+      "sentiment": 0,
+      "url": "http://localhost:8200/19-slow-perceived/site/",
+      "shot": "shots/a01-05.jpg"
+    },
+    {
+      "t": "00:19:20",
+      "agent": "a02",
+      "kind": "shortcut",
+      "text": "触发搜索 [Enter]",
+      "sentiment": 0,
+      "url": "http://localhost:8200/19-slow-perceived/site/",
+      "shot": "shots/a02-06.jpg"
+    },
+    {
+      "t": "00:20:96",
+      "agent": "a04",
+      "kind": "click",
+      "text": "尝试搜索一个客户名字",
+      "sentiment": 0,
+      "url": "http://localhost:8200/19-slow-perceived/site/",
+      "shot": "shots/a04-03.jpg"
+    },
+    {
+      "t": "00:21:76",
+      "agent": "a02",
+      "kind": "confused",
+      "text": "搜索后没有任何反馈，不知道有没有结果。页面上也看不到客户列表在哪里。",
+      "sentiment": -1,
+      "shot": "shots/a02-07.jpg"
+    },
+    {
+      "t": "00:24:21",
+      "agent": "a03",
+      "kind": "observation",
+      "text": "搜索输入后页面没有变化，也没有加载指示器。我输入了\"test\"按回车，结果还在那。这速度...我无法判断是加载中还是没反应。",
+      "sentiment": 0,
+      "shot": "shots/a03-07.jpg"
+    },
+    {
+      "t": "00:25:02",
+      "agent": "a02",
+      "kind": "click",
+      "text": "点击 Plan 筛选器看看有什么选项",
+      "sentiment": 0,
+      "url": "http://localhost:8200/19-slow-perceived/site/",
+      "shot": "shots/a02-08.jpg"
+    },
+    {
+      "t": "00:26:74",
+      "agent": "a04",
+      "kind": "click",
+      "text": "聚焦搜索框",
+      "sentiment": 0,
+      "url": "http://localhost:8200/19-slow-perceived/site/",
+      "shot": "shots/a04-04.jpg"
+    },
+    {
+      "t": "00:27:74",
+      "agent": "a02",
+      "kind": "rage",
+      "text": "这页面也太干净了...就顶部一个搜索框和两个下拉按钮，完全看不到客户数据在哪里。我用 Pipedrive 习惯了，那边一打开就是客户列表。这个工具给我的感觉是不完整或者加载失败了。",
+      "sentiment": -2,
+      "shot": "shots/a02-09.jpg"
+    },
+    {
+      "t": "00:29:40",
+      "agent": "a01",
+      "kind": "confused",
+      "text": "页面主体区域好像空的。URL 里有 \"slow-perceived\"，难道这是个性能测试？内容可能在加载中但很慢。",
+      "sentiment": 0,
+      "shot": "shots/a01-07.jpg"
+    },
+    {
+      "t": "00:32:54",
+      "agent": "a02",
+      "kind": "click",
+      "text": "试试 Status 下拉按钮",
+      "sentiment": 0,
+      "url": "http://localhost:8200/19-slow-perceived/site/",
+      "shot": "shots/a02-10.jpg"
+    },
+    {
+      "t": "00:36:76",
+      "agent": "a02",
+      "kind": "rage",
+      "text": "点击了半天什么都弹不出来。这个页面要么是坏了，要么就是个空壳 demo。这 36 秒花得毫无意义。",
+      "sentiment": -3,
+      "shot": "shots/a02-11.jpg"
+    },
+    {
+      "t": "00:41:07",
+      "agent": "a02",
+      "kind": "exit",
+      "text": "我尝试用了这个 CRM 工具，但整个页面只有顶部栏上的搜索框和两个下拉按钮，完全看不到客户数据在哪里。点击 Plan 和 Status 按钮也没有任何反应，搜索后也没有反馈。作为一个用惯 Pipedrive 的销售，我完全不知道这个工具怎么用，也不知道它是不是加载失败了。感觉像是个空壳 demo，体验很差。",
+      "sentiment": 0,
+      "shot": "shots/a02-12.jpg"
+    },
+    {
+      "t": "00:51:69",
+      "agent": "a03",
+      "kind": "rage",
+      "text": "51秒了还在原地踏步，这什么玩意儿？搜索没反应就算了，连个加载动画都没有。我完全不知道它在干什么——卡死了还是在那磨蹭？",
+      "sentiment": -2,
+      "shot": "shots/a03-08.jpg"
+    },
+    {
+      "t": "00:55:68",
+      "agent": "a01",
+      "kind": "click",
+      "text": "尝试搜索功能看看能不能找到内容",
+      "sentiment": 0,
+      "url": "http://localhost:8200/19-slow-perceived/site/",
+      "shot": "shots/a01-08.jpg"
+    },
+    {
+      "t": "00:56:21",
+      "agent": "a04",
+      "kind": "click",
+      "text": "搜索客户名字\"Emma\" (typed: Emma)",
+      "sentiment": 0,
+      "shot": "shots/a04-05.jpg"
+    },
+    {
+      "t": "00:58:44",
+      "agent": "a03",
+      "kind": "exit",
+      "text": "等了将近60秒，页面毫无变化。搜索输入后没有任何反馈，没有加载指示器，内容区域始终空白。作为一个注重速度的用户，这种体验完全无法接受——我不知道它是卡死了还是在后台运行，也不知道要等多久。这个产品在\"感知速度\"上完全失败了。",
+      "sentiment": 0,
+      "shot": "shots/a03-09.jpg"
+    },
+    {
+      "t": "01:00:89",
+      "agent": "a04",
+      "kind": "shortcut",
+      "text": "触发搜索 [Enter]",
+      "sentiment": 0,
+      "url": "http://localhost:8200/19-slow-perceived/site/",
+      "shot": "shots/a04-06.jpg"
+    },
+    {
+      "t": "01:02:98",
+      "agent": "a01",
+      "kind": "click",
+      "text": "聚焦搜索框并输入内容测试搜索功能",
+      "sentiment": 0,
+      "url": "http://localhost:8200/19-slow-perceived/site/",
+      "shot": "shots/a01-09.jpg"
+    },
+    {
+      "t": "01:03:09",
+      "agent": "a04",
+      "kind": "confused",
+      "text": "搜索完按了回车，列表好像没变化...不确定是搜索没生效还是需要等一下。有点困惑。",
+      "sentiment": -1,
+      "shot": "shots/a04-07.jpg"
+    },
+    {
+      "t": "01:09:18",
+      "agent": "a04",
+      "kind": "click",
+      "text": "点击客户卡片查看详情",
+      "sentiment": 0,
+      "url": "http://localhost:8200/19-slow-perceived/site/",
+      "shot": "shots/a04-08.jpg"
+    },
+    {
+      "t": "01:10:94",
+      "agent": "a04",
+      "kind": "click",
+      "text": "试试下拉筛选功能",
+      "sentiment": 0,
+      "url": "http://localhost:8200/19-slow-perceived/site/",
+      "shot": "shots/a04-09.jpg"
+    },
+    {
+      "t": "01:11:40",
+      "agent": "a01",
+      "kind": "click",
+      "text": "测试搜索框输入功能 (typed: test)",
+      "sentiment": 0,
+      "shot": "shots/a01-10.jpg"
+    },
+    {
+      "t": "01:14:63",
+      "agent": "a04",
+      "kind": "delight",
+      "text": "下拉菜单弹出来了！选项有All Plans, Basic, Starter, Pro, Enterprise。功能是正常的。",
+      "sentiment": 1,
+      "shot": "shots/a04-10.jpg"
+    },
+    {
+      "t": "01:18:03",
+      "agent": "a04",
+      "kind": "click",
+      "text": "选择Pro Plan筛选",
+      "sentiment": 0,
+      "url": "http://localhost:8200/19-slow-perceived/site/",
+      "shot": "shots/a04-11.jpg"
+    },
+    {
+      "t": "01:19:55",
+      "agent": "a01",
+      "kind": "rage",
+      "text": "页面主体内容一直没加载出来。搜索框输入了\"test\"但没有任何响应反馈。这页面到底在干什么？我只能看到顶部的搜索和两个下拉按钮，像是个半残的产品。",
+      "sentiment": -2,
+      "shot": "shots/a01-12.jpg"
+    },
+    {
+      "t": "01:20:49",
+      "agent": "a04",
+      "kind": "observation",
+      "text": "点了Pro筛选，但列表好像没有立刻更新...这个反应有点慢。不知道是真没效果还是需要等待。",
+      "sentiment": 0,
+      "shot": "shots/a04-12.jpg"
+    },
+    {
+      "t": "01:24:02",
+      "agent": "a04",
+      "kind": "click",
+      "text": "看看Status下拉菜单",
+      "sentiment": 0,
+      "url": "http://localhost:8200/19-slow-perceived/site/",
+      "shot": "shots/a04-13.jpg"
+    },
+    {
+      "t": "01:28:35",
+      "agent": "a01",
+      "kind": "rage",
+      "text": "等了近90秒，页面还是一片空白。就顶部三个控件，客户数据呢？主体内容呢？这产品到底是做什么的？我没有理由继续等下去了。",
+      "sentiment": -2,
+      "shot": "shots/a01-13.jpg"
+    },
+    {
+      "t": "01:29:40",
+      "agent": "a04",
+      "kind": "click",
+      "text": "点击Status下拉看选项",
+      "sentiment": 0,
+      "url": "http://localhost:8200/19-slow-perceived/site/",
+      "shot": "shots/a04-14.jpg"
+    },
+    {
+      "t": "01:34:39",
+      "agent": "a04",
+      "kind": "click",
+      "text": "清空搜索框重新搜索",
+      "sentiment": 0,
+      "url": "http://localhost:8200/19-slow-perceived/site/",
+      "shot": "shots/a04-16.jpg"
+    },
+    {
+      "t": "01:37:59",
+      "agent": "a04",
+      "kind": "click",
+      "text": "搜索客户\"Alex\" (typed: Alex)",
+      "sentiment": 0,
+      "shot": "shots/a04-17.jpg"
+    },
+    {
+      "t": "01:39:61",
+      "agent": "a01",
+      "kind": "exit",
+      "text": "等了将近2分钟，页面主体内容完全没有加载出来，只能看到顶部的搜索框和两个下拉按钮。作为一个客户运营人员，我无法评估这个产品能给我带来什么价值——没有客户列表、没有数据、没有任何可以交互的内容。这种加载速度如果是真的产品，我早就关闭标签页了。",
+      "sentiment": 0,
+      "shot": "shots/a01-14.jpg"
+    },
+    {
+      "t": "01:46:13",
+      "agent": "a04",
+      "kind": "confused",
+      "text": "输入了Alex，但列表里还是有各种客户。可能搜索需要等一会儿才生效，也可能这就是\"慢感知\"的测试页面。",
+      "sentiment": -1,
+      "shot": "shots/a04-19.jpg"
+    },
+    {
+      "t": "01:49:86",
+      "agent": "a04",
+      "kind": "observation",
+      "text": "感觉这个系统响应比较慢，作为客服主管平时要处理很多工单，如果每个操作都要等好几秒效率会很低。",
+      "sentiment": 0,
+      "shot": "shots/a04-20.jpg"
+    },
+    {
+      "t": "01:58:09",
+      "agent": "a04",
+      "kind": "exit",
+      "text": "尝试了搜索和筛选功能，但系统响应很慢，感觉不太理想。作为客服主管，这种速度会影响工作效率。界面的基本布局和功能清晰，但需要改进响应速度才能真正用于日常工单处理。",
+      "sentiment": 0,
+      "shot": "shots/a04-21.jpg"
+    }
+  ],
+  "issues": [
+    {
+      "id": "i01",
+      "title": "进入后看不到任何实质内容，只有顶部栏",
+      "severity": "high",
+      "agents": 1,
+      "category": "信息架构",
+      "quote": "这页面也太干净了...就顶部一个搜索框和两个下拉按钮，完全看不到客户数据在哪里。我用 Pipedrive 习惯了，那边一打开就是客户列表。这个工具给我的感觉是不完整或者加载失败了。",
+      "agentRef": "a02",
+      "evidence": 1,
+      "journey": "进入页面后立即观察到顶部栏，尝试向下滚动寻找客户列表"
+    },
+    {
+      "id": "i02",
+      "title": "核心交互按钮全部无效",
+      "severity": "high",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "点击了半天什么都弹不出来。这个页面要么是坏了，要么就是个空壳 demo。这 36 秒花得毫无意义。",
+      "agentRef": "a02",
+      "evidence": 2,
+      "journey": "尝试点击 Plan 筛选器和 Status 下拉按钮"
+    },
+    {
+      "id": "i04",
+      "title": "搜索后完全没有加载反馈，我根本不知道系统在干嘛",
+      "severity": "high",
+      "agents": 1,
+      "category": "性能感知",
+      "quote": "51秒了还在原地踏步，这什么玩意儿？搜索没反应就算了，连个加载动画都没有。我完全不知道它是卡死了还是在那磨蹭？",
+      "agentRef": "a03",
+      "evidence": 3,
+      "journey": "在搜索框输入'test'并按回车后"
+    },
+    {
+      "id": "i05",
+      "title": "60秒的等待时间直接让我放弃",
+      "severity": "high",
+      "agents": 1,
+      "category": "性能感知",
+      "quote": "等了将近60秒，页面毫无变化。这种体验完全无法接受——我不知道它是卡死了还是在后台运行，也不知道要等多久。",
+      "agentRef": "a03",
+      "evidence": 2,
+      "journey": "等待搜索结果的过程中"
+    },
+    {
+      "id": "i06",
+      "title": "内容区域始终空白，没有任何状态提示",
+      "severity": "high",
+      "agents": 1,
+      "category": "信息架构",
+      "quote": "搜索输入后没有任何反馈，内容区域始终空白。作为一个注重速度的用户，这个产品在'感知速度'上完全失败了。",
+      "agentRef": "a03",
+      "evidence": 2,
+      "journey": "搜索操作完成后"
+    },
+    {
+      "id": "i07",
+      "title": "主体内容完全空白，根本无法使用",
+      "severity": "high",
+      "agents": 1,
+      "category": "性能感知",
+      "quote": "页面主体内容一直没加载出来。我只能看到顶部的搜索和两个下拉按钮，像是个半残的产品。",
+      "agentRef": "a01",
+      "evidence": 1,
+      "journey": "进入页面后 90 秒内，主体区域始终无内容"
+    },
+    {
+      "id": "i08",
+      "title": "没有加载提示，不知道在加载还是在卡死",
+      "severity": "high",
+      "agents": 1,
+      "category": "性能感知",
+      "quote": "页面到底在干什么？内容可能在加载中但很慢，也可能是彻底卡死了。",
+      "agentRef": "a01",
+      "evidence": 2,
+      "journey": "等待过程中完全不确定状态"
+    },
+    {
+      "id": "i09",
+      "title": "看不到产品定位，不知道能用来做什么",
+      "severity": "high",
+      "agents": 1,
+      "category": "信息架构",
+      "quote": "这是什么产品？顶部有搜索和下拉框，看起来像是某种客户管理工具，但我看不到产品名称和主功能区。",
+      "agentRef": "a01",
+      "evidence": 1,
+      "journey": "首次进入页面时"
+    },
+    {
+      "id": "i10",
+      "title": "操作完不知道有没有生效，心里没底",
+      "severity": "high",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "搜索完按了回车，列表好像没变化...不确定是搜索没生效还是需要等一下。有点困惑。",
+      "agentRef": "a04",
+      "evidence": 3,
+      "journey": "在搜索框输入Emma后按回车，列表没有明显变化"
+    },
+    {
+      "id": "i11",
+      "title": "系统响应慢，耽误我处理工单的效率",
+      "severity": "high",
+      "agents": 1,
+      "category": "性能感知",
+      "quote": "感觉这个系统响应比较慢，作为客服主管平时要处理很多工单，如果每个操作都要等好几秒效率会很低。",
+      "agentRef": "a04",
+      "evidence": 3,
+      "journey": "搜索Alex、筛选Pro Plan后等待结果时"
+    },
+    {
+      "id": "i03",
+      "title": "搜索操作没有任何反馈，不知道有没有结果",
+      "severity": "med",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "搜索后没有任何反馈，不知道有没有结果。页面上也看不到客户列表在哪里。",
+      "agentRef": "a02",
+      "evidence": 1,
+      "journey": "在搜索框输入 Acme 并按 Enter"
+    },
+    {
+      "id": "i12",
+      "title": "跟Zendesk比反应太慢了，没信心切过来",
+      "severity": "med",
+      "agents": 1,
+      "category": "与竞品对比",
+      "quote": "界面的基本布局和功能清晰，但需要改进响应速度才能真正用于日常工单处理。",
+      "agentRef": "a04",
+      "evidence": 2,
+      "journey": "整体使用后与Zendesk的体验对比"
+    }
+  ],
+  "delights": [
+    {
+      "title": "下拉菜单选项清晰，布局像Zendesk挺好上手",
+      "count": 1,
+      "quote": "下拉菜单弹出来了！选项有All Plans, Basic, Starter, Pro, Enterprise。功能是正常的。界面风格挺简洁的，像Zendesk那种列表+卡片的形式。",
+      "agent": "a04"
+    },
+    {
+      "title": "客户信息展示清晰，有名字、状态、Plan等级",
+      "count": 1,
+      "quote": "看到了客户列表，有一些客户卡片，名字、状态、Plan等级等信息。",
+      "agent": "a04"
+    }
+  ],
+  "features": [
+    {
+      "name": "搜索客户",
+      "hitCount": 2,
+      "hitRate": 0.5,
+      "completionRate": 0,
+      "avgSentiment": -2.5,
+      "totalAttempts": 3
+    },
+    {
+      "name": "筛选器切换",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 2
+    },
+    {
+      "name": "搜索",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 1
+    },
+    {
+      "name": "搜索功能",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -2,
+      "totalAttempts": 1
+    },
+    {
+      "name": "状态筛选",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -2,
+      "totalAttempts": 1
+    },
+    {
+      "name": "按Plan等级筛选",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -1,
+      "totalAttempts": 1
+    },
+    {
+      "name": "查看Status下拉",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": 0,
+      "totalAttempts": 1
+    },
+    {
+      "name": "查看客户详情",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": 0,
+      "totalAttempts": 1
+    }
+  ],
+  "routesHeat": [
+    {
+      "path": "/19-slow-perceived/site/",
+      "visits": 24,
+      "dwell": 9,
+      "drop": 0.16666666666666666
+    }
+  ],
+  "sentimentCurve": [
+    {
+      "t": 0,
+      "v": 0.5370370370370371
+    },
+    {
+      "t": 5,
+      "v": 0.5
+    },
+    {
+      "t": 10,
+      "v": 0.5416666666666666
+    },
+    {
+      "t": 15,
+      "v": 0.4666666666666666
+    },
+    {
+      "t": 20,
+      "v": 0.43333333333333335
+    },
+    {
+      "t": 25,
+      "v": 0.5
+    },
+    {
+      "t": 30,
+      "v": 0.25
+    },
+    {
+      "t": 35,
+      "v": 0.25
+    },
+    {
+      "t": 40,
+      "v": 0.16666666666666666
+    },
+    {
+      "t": 45,
+      "v": 0.5
+    },
+    {
+      "t": 50,
+      "v": 0.4444444444444444
+    },
+    {
+      "t": 55,
+      "v": 0.5
+    },
+    {
+      "t": 60,
+      "v": 0.5555555555555556
+    },
+    {
+      "t": 65,
+      "v": 0.3888888888888889
+    },
+    {
+      "t": 70,
+      "v": 0.3333333333333333
+    },
+    {
+      "t": 75,
+      "v": 0.5
+    },
+    {
+      "t": 80,
+      "v": 0.5
+    },
+    {
+      "t": 85,
+      "v": 0.3333333333333333
+    },
+    {
+      "t": 90,
+      "v": 0.5
+    },
+    {
+      "t": 95,
+      "v": 0.5
+    },
+    {
+      "t": 100,
+      "v": 0.5
+    }
+  ],
+  "metrics": {
+    "predictedNps": -6,
+    "achievableNps": 100,
+    "taskSuccess": 0,
+    "timeToValueSec": null,
+    "rageClicks": 5,
+    "delightCount": 0
+  },
+  "cost": {
+    "tokensIn": 165021,
+    "tokensOut": 7014,
+    "usd": 0
+  }
+}

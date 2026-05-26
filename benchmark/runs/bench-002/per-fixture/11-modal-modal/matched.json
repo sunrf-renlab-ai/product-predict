@@ -1,0 +1,193 @@
+{
+  "fixtureId": "11-modal-modal",
+  "gtTotal": 5,
+  "ppTotal": 9,
+  "matched": 0,
+  "recall": 0,
+  "precision": 0,
+  "f1": 0,
+  "severityAcc": 0,
+  "categoryAcc": 0,
+  "verdicts": [
+    {
+      "gtId": "gt-01",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0,
+      "reasoning": "judge failed: Unterminated string in JSON at position 123 (line 1 column 124)"
+    },
+    {
+      "gtId": "gt-02",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0.3,
+      "reasoning": "GT about cookie blocking scroll; findings about popups or nav issues"
+    },
+    {
+      "gtId": "gt-03",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0,
+      "reasoning": "No finding addresses visual style inconsistency across modals"
+    },
+    {
+      "gtId": "gt-04",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0,
+      "reasoning": "No finding mentions button size contrast or confirm-shaming dark pattern"
+    },
+    {
+      "gtId": "gt-05",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0,
+      "reasoning": "GT关注cookie按钮对比度可访问性问题，所有发现都聚焦于导航失效或弹窗流程，无涉及可访问性或对比度"
+    }
+  ],
+  "falsePositives": [
+    {
+      "findingId": "i01",
+      "finding": {
+        "title": "步数限制让我还没体验核心功能就被强制下线",
+        "category": "流程顺畅",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i02",
+      "finding": {
+        "title": "导航栏完全点不动，核心功能一个都不工作",
+        "category": "功能契合",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i03",
+      "finding": {
+        "title": "打开app就被各种弹窗轰炸，体验很pushy",
+        "category": "情感氛围",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i05",
+      "finding": {
+        "title": "主导航 Tab 全部无响应，完全阻断探索",
+        "category": "功能契合",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i07",
+      "finding": {
+        "title": "导航栏点哪个都没反应，核心功能全挂了",
+        "category": "功能契合",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i04",
+      "finding": {
+        "title": "Library功能点击没反应",
+        "category": "功能契合",
+        "severity": "med"
+      }
+    },
+    {
+      "findingId": "i06",
+      "finding": {
+        "title": "注册弹窗太早出现，增加挫败感",
+        "category": "流程顺畅",
+        "severity": "med"
+      }
+    },
+    {
+      "findingId": "i08",
+      "finding": {
+        "title": "弹窗一个接一个，还没看清内容就被打断",
+        "category": "流程顺畅",
+        "severity": "med"
+      }
+    },
+    {
+      "findingId": "i09",
+      "finding": {
+        "title": "主界面只有一张大图，看不出这是个什么应用",
+        "category": "信息架构",
+        "severity": "low"
+      }
+    }
+  ],
+  "missed": [
+    {
+      "gtId": "gt-01",
+      "gt": {
+        "id": "gt-01",
+        "title": "进来就三连弹窗",
+        "severity": "high",
+        "category": "情感氛围",
+        "description": "页面加载立刻弹 cookie banner,关掉后弹邮件订阅,再关掉又弹「升级 Pro」侧边栏。访客还没看清产品长什么样就被三连骚扰,信任感瞬间崩塌。",
+        "shouldFindWith": [
+          "新手",
+          "情感敏感"
+        ]
+      }
+    },
+    {
+      "gtId": "gt-02",
+      "gt": {
+        "id": "gt-02",
+        "title": "不点同意 cookie 就无法滚动",
+        "severity": "high",
+        "category": "流程顺畅",
+        "description": "页面初始 body 带 .locked class 禁用 overflow,只有点 cookie banner 上的 Accept 或 Reject 才会解锁。用户连产品介绍都没看就被逼着做决定,违反正常浏览习惯。",
+        "shouldFindWith": [
+          "目标导向",
+          "新手"
+        ]
+      }
+    },
+    {
+      "gtId": "gt-03",
+      "gt": {
+        "id": "gt-03",
+        "title": "三个弹窗视觉风格不一致",
+        "severity": "med",
+        "category": "视觉节奏",
+        "description": "cookie banner 用直角无阴影,订阅弹窗用 18px 大圆角 + 重阴影,升级 Pro 是带渐变边框的侧边抽屉。三个高优先级 UI 元素出现在同一会话里却各说各话,看着像三个不同产品。",
+        "shouldFindWith": [
+          "设计敏感"
+        ]
+      }
+    },
+    {
+      "gtId": "gt-04",
+      "gt": {
+        "id": "gt-04",
+        "title": "Subscribe 按钮巨大 no thanks 缩成小字",
+        "severity": "med",
+        "category": "表达文案",
+        "description": "邮件订阅弹窗的 Subscribe 按钮 100% 宽 + 18px padding + 17px 加粗字号,而 no thanks 退出按钮是 11px 灰色下划线小字。这是典型的 confirm-shaming dark pattern,让用户难以理直气壮地拒绝。",
+        "shouldFindWith": [
+          "伦理敏感",
+          "重度用户"
+        ]
+      }
+    },
+    {
+      "gtId": "gt-05",
+      "gt": {
+        "id": "gt-05",
+        "title": "cookie 同意拒绝按钮对比度太低",
+        "severity": "low",
+        "category": "可访问性",
+        "description": "cookie banner 里 I agree 是亮绿色 (#2f8b4a),Reject 是深灰边框 + #5a5f68 文字,视觉权重严重失衡。低视力或赶时间用户极易误点 I agree。",
+        "shouldFindWith": [
+          "可访问性敏感",
+          "弱视"
+        ]
+      }
+    }
+  ]
+}

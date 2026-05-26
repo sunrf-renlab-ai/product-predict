@@ -6,60 +6,79 @@
 <title>Plain — minimal status pages for engineering teams</title>
 <style>
   :root {
-    --bg: #0c0e0c;
-    --panel: #11140f;
-    --line: #1c1f1a;
-    --text: #e7eee0;
-    --muted: #99a292;
-    --soft: #6c7567;
-    /* single accent color across the whole site */
+    --bg: #0c0e0c; --panel: #11140f; --line: #1c1f1a;
+    --text: #e7eee0; --muted: #99a292; --soft: #6c7567;
     --lime: #b4ec5b;
     color-scheme: dark;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { background: var(--bg); color: var(--text); font: 15px/1.55 "Inter", -apple-system, "Segoe UI", sans-serif; }
-  a { color: inherit; text-decoration: none; }
-  header { display: flex; align-items: center; justify-content: space-between; padding: 18px 40px; }
+  a { color: inherit; text-decoration: none; cursor: pointer; }
+  header { display: flex; align-items: center; justify-content: space-between; padding: 18px 40px; position: relative; }
   .brand { font-weight: 600; letter-spacing: -0.01em; }
-  nav { display: flex; gap: 22px; font-size: 13px; color: var(--muted); align-items: center; }
-  nav a { cursor: pointer; }
-  nav a:hover { color: var(--text); }
-  .more { padding: 5px 10px; border: 1px solid var(--line); border-radius: 6px; font-size: 12px; cursor: pointer; }
-  /* The "Beta" tag deliberately oversized — this IS one of the 3 real issues */
+  /* GT-01: Beta tag is oversized — 18px bold lime on a 15px brand */
   .beta { display: inline-block; padding: 4px 10px; margin-left: 10px; background: var(--lime); color: #0c0e0c; border-radius: 4px; font-weight: 700; font-size: 18px; letter-spacing: 0.02em; vertical-align: middle; }
+  nav { display: flex; gap: 22px; font-size: 13px; color: var(--muted); align-items: center; }
+  nav a:hover { color: var(--text); }
+  .more { padding: 5px 10px; border: 1px solid var(--line); border-radius: 6px; font-size: 12px; cursor: pointer; user-select: none; }
+  .more:hover { color: var(--text); }
+  /* GT-03: Sign in / Changelog / Customers / Security hidden in More dropdown */
+  .menu { position: absolute; top: 54px; right: 40px; background: #11140f; border: 1px solid #1c1f1a; border-radius: 8px; padding: 6px; font-size: 13px; min-width: 170px; display: none; z-index: 10; }
+  .menu.show { display: block; }
+  .menu a { display: block; padding: 7px 12px; border-radius: 4px; cursor: pointer; color: var(--muted); }
+  .menu a:hover { background: #161a13; color: var(--text); }
   .hero { max-width: 880px; margin: 80px auto 0; padding: 0 40px; }
   .pill { display: inline-block; padding: 3px 10px; border: 1px solid var(--line); border-radius: 999px; font-size: 11px; color: var(--muted); margin-bottom: 18px; }
   h1 { font-size: 48px; line-height: 1.08; letter-spacing: -0.02em; font-weight: 600; max-width: 720px; }
-  .sub { margin-top: 18px; font-size: 17px; color: var(--muted); max-width: 600px; line-height: 1.55; }
+  .sub { margin-top: 18px; font-size: 17px; color: var(--muted); max-width: 600px; }
   .cta-row { margin-top: 32px; display: flex; gap: 12px; align-items: center; }
+  /* GT-02: every accent is the same lime — CTA, beta, ✓, glyphs, hovers, success state */
   .cta { padding: 12px 22px; background: var(--lime); color: #0c0e0c; border: 0; border-radius: 8px; font-weight: 600; font-size: 15px; cursor: pointer; font-family: inherit; }
   .cta:hover { background: #c5fb6e; }
-  .secondary { padding: 12px 18px; color: var(--text); font-size: 14px; cursor: pointer; }
+  .secondary { padding: 12px 18px; color: var(--text); font-size: 14px; cursor: pointer; background: transparent; border: 0; font-family: inherit; }
   .secondary:hover { color: var(--lime); }
   .preview { max-width: 1040px; margin: 80px auto; padding: 0 40px; }
-  .terminal { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 20px 24px; font: 13px/1.7 ui-monospace, "SF Mono", monospace; color: var(--muted); }
+  .terminal { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 20px 24px; font: 13px/1.7 ui-monospace, "SF Mono", monospace; color: var(--muted); white-space: pre; overflow: hidden; }
   .terminal .ok { color: var(--lime); }
   .terminal .dim { color: var(--soft); }
+  .term-controls { margin-top: 14px; display: flex; gap: 8px; }
+  .term-controls button { padding: 6px 12px; background: transparent; color: var(--muted); border: 1px solid var(--line); border-radius: 6px; font: inherit; font-size: 12px; cursor: pointer; font-family: ui-monospace, monospace; }
+  .term-controls button:hover { color: var(--lime); border-color: var(--lime); }
   .features { max-width: 1040px; margin: 80px auto; padding: 0 40px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  .feature { padding: 22px; border: 1px solid var(--line); border-radius: 10px; cursor: pointer; transition: border-color 0.15s; }
+  .feature:hover { border-color: var(--lime); }
   .feature h3 { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
   .feature p { font-size: 13px; color: var(--muted); line-height: 1.6; }
   .feature .glyph { display: inline-block; width: 22px; height: 22px; border-radius: 4px; background: var(--lime); margin-bottom: 12px; opacity: 0.9; }
+  .feature .more-link { margin-top: 10px; display: inline-block; font-size: 12px; color: var(--lime); }
   footer { max-width: 1040px; margin: 100px auto 40px; padding: 24px 40px 0; border-top: 1px solid var(--line); display: flex; justify-content: space-between; font-size: 12px; color: var(--soft); }
+  footer a:hover { color: var(--text); }
+  .modal-bg { position: fixed; inset: 0; background: rgba(0,0,0,0.7); display: none; align-items: center; justify-content: center; z-index: 50; }
+  .modal-bg.show { display: flex; }
+  .modal { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 28px; width: 420px; }
+  .modal h3 { font-size: 18px; margin-bottom: 8px; }
+  .modal p { color: var(--muted); font-size: 14px; margin-bottom: 18px; }
+  .modal input { width: 100%; padding: 10px 12px; background: var(--bg); border: 1px solid var(--line); border-radius: 6px; color: var(--text); font: inherit; margin-bottom: 14px; outline: none; }
+  .modal input:focus { border-color: var(--lime); }
+  .modal .actions { display: flex; gap: 10px; justify-content: flex-end; }
+  .modal .btn-cancel { padding: 10px 16px; background: transparent; color: var(--soft); border: 0; cursor: pointer; font: inherit; font-size: 13px; }
+  .modal .btn-cancel:hover { color: var(--muted); }
+  .modal .btn-confirm { padding: 10px 18px; background: var(--lime); color: #0c0e0c; border: 0; border-radius: 6px; cursor: pointer; font: inherit; font-weight: 600; }
 </style>
 </head>
 <body>
 <header>
   <div class="brand">▱ Plain<span class="beta">Beta</span></div>
   <nav>
-    <a>Product</a>
-    <a>Docs</a>
-    <a>Pricing</a>
-    <span class="more" onclick="document.getElementById('m').style.display = document.getElementById('m').style.display === 'block' ? 'none' : 'block'">More ▾</span>
-    <div id="m" style="display:none; position:absolute; top:54px; right:40px; background:#11140f; border:1px solid #1c1f1a; border-radius:8px; padding:8px; font-size:13px; min-width:160px;">
-      <a style="display:block; padding:6px 10px; cursor:pointer;">Changelog</a>
-      <a style="display:block; padding:6px 10px; cursor:pointer;">Customers</a>
-      <a style="display:block; padding:6px 10px; cursor:pointer;">Security</a>
-      <a style="display:block; padding:6px 10px; cursor:pointer;">Sign in</a>
+    <a id="nav-product">Product</a>
+    <a id="nav-docs">Docs</a>
+    <a id="nav-pricing">Pricing</a>
+    <span class="more" id="more-btn">More ▾</span>
+    <div class="menu" id="more-menu">
+      <a>Changelog</a>
+      <a>Customers</a>
+      <a>Security</a>
+      <a id="signin-link">Sign in</a>
     </div>
   </nav>
 </header>
@@ -69,31 +88,96 @@
   <h1>Status pages that read like a terminal.</h1>
   <p class="sub">Plain is a status page for engineering teams who would rather grep logs than click through a dashboard. One file, one config, deployed in 30 seconds.</p>
   <div class="cta-row">
-    <button class="cta">Start free</button>
-    <span class="secondary">→ Read the docs</span>
+    <button class="cta" id="start-btn">Start free</button>
+    <button class="secondary" id="docs-btn">→ Read the docs</button>
   </div>
 </main>
 
 <section class="preview">
-  <div class="terminal">
-<span class="dim">$</span> plain init my-status
+  <div class="terminal" id="term"><span class="dim">$</span> plain init my-status
 <span class="ok">✓</span> wrote plain.toml
 <span class="dim">$</span> plain deploy
 <span class="ok">✓</span> built 4 checks
 <span class="ok">✓</span> deployed to https://status.my-app.dev
-<span class="ok">✓</span> uptime check live — first ping in 12s
+<span class="ok">✓</span> uptime check live — first ping in 12s</div>
+  <div class="term-controls">
+    <button data-cmd="status">plain status</button>
+    <button data-cmd="incident">plain incident open</button>
+    <button data-cmd="logs">plain logs --tail</button>
   </div>
 </section>
 
 <section class="features">
-  <div class="feature"><span class="glyph"></span><h3>Config as code</h3><p>One TOML file. Versioned in your repo, reviewed in your PRs. No drag-and-drop UI to babysit.</p></div>
-  <div class="feature"><span class="glyph"></span><h3>Incident timelines</h3><p>Open an incident from your terminal, post updates from anywhere. Subscribers get notified in under a second.</p></div>
-  <div class="feature"><span class="glyph"></span><h3>Custom domain in 30s</h3><p>Point a CNAME, we handle the TLS. No tickets, no upgrade required to use your own domain.</p></div>
+  <div class="feature" data-f="config"><span class="glyph"></span><h3>Config as code</h3><p>One TOML file. Versioned in your repo, reviewed in your PRs. No drag-and-drop UI to babysit.</p><a class="more-link">Learn more →</a></div>
+  <div class="feature" data-f="incidents"><span class="glyph"></span><h3>Incident timelines</h3><p>Open an incident from your terminal, post updates from anywhere. Subscribers get notified in under a second.</p><a class="more-link">Learn more →</a></div>
+  <div class="feature" data-f="domain"><span class="glyph"></span><h3>Custom domain in 30s</h3><p>Point a CNAME, we handle the TLS. No tickets, no upgrade required to use your own domain.</p><a class="more-link">Learn more →</a></div>
 </section>
 
 <footer>
   <span>© 2026 Plain</span>
-  <span>plain.dev</span>
+  <span><a>plain.dev</a></span>
 </footer>
+
+<div class="modal-bg" id="signup-modal">
+  <div class="modal">
+    <h3>Start your free workspace</h3>
+    <p>One config file. Deploy in 30 seconds. No credit card.</p>
+    <input type="email" placeholder="you@company.com" />
+    <input type="text" placeholder="Workspace name" />
+    <div class="actions">
+      <button class="btn-cancel" id="modal-cancel">No thanks</button>
+      <button class="btn-confirm" id="modal-confirm">Create workspace</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // GT-03: nav More dropdown holds Changelog / Customers / Security / Sign in
+  const moreBtn = document.getElementById('more-btn');
+  const moreMenu = document.getElementById('more-menu');
+  moreBtn.addEventListener('click', e => { e.stopPropagation(); moreMenu.classList.toggle('show'); });
+  document.addEventListener('click', () => moreMenu.classList.remove('show'));
+
+  // Terminal command swap — each "command" rewrites terminal contents using the same single lime accent
+  const term = document.getElementById('term');
+  const TERM_OUT = {
+    status: '<span class="dim">$</span> plain status\n<span class="ok">✓</span> api.my-app.dev — 99.98% (24h)\n<span class="ok">✓</span> worker queue — 99.99% (24h)\n<span class="ok">✓</span> postgres-primary — 100.00% (24h)\n<span class="dim">last incident: 14 days ago</span>',
+    incident: '<span class="dim">$</span> plain incident open --title "elevated 5xx"\n<span class="ok">✓</span> incident #142 created\n<span class="ok">✓</span> subscribers notified (218)\n<span class="dim">post updates with: plain incident update 142 "..."</span>',
+    logs: '<span class="dim">$</span> plain logs --tail\n<span class="ok">✓</span> [check] api.my-app.dev → 200 in 84ms\n<span class="ok">✓</span> [check] api.my-app.dev → 200 in 91ms\n<span class="ok">✓</span> [check] worker → 200 in 12ms',
+  };
+  document.querySelectorAll('.term-controls button').forEach(b => {
+    b.addEventListener('click', () => { term.innerHTML = TERM_OUT[b.dataset.cmd]; });
+  });
+
+  // Feature cards expand inline detail (more lime hover/lime accent reinforcing GT-02)
+  document.querySelectorAll('.feature').forEach(f => {
+    f.addEventListener('click', () => {
+      const p = f.querySelector('p');
+      if (!f.dataset.expanded) {
+        f.dataset.original = p.textContent;
+        p.textContent = p.textContent + ' ' + 'Examples: cron checks, HTTP checks, TCP checks, custom scripts. Status badges embeddable in your README via single SVG endpoint.';
+        f.dataset.expanded = '1';
+      } else {
+        p.textContent = f.dataset.original;
+        delete f.dataset.expanded;
+      }
+    });
+  });
+
+  // CTAs open a signup modal
+  const modal = document.getElementById('signup-modal');
+  const openModal = () => modal.classList.add('show');
+  document.getElementById('start-btn').addEventListener('click', openModal);
+  document.getElementById('signin-link').addEventListener('click', openModal);
+  document.getElementById('modal-cancel').addEventListener('click', () => modal.classList.remove('show'));
+  document.getElementById('modal-confirm').addEventListener('click', () => {
+    const btn = document.getElementById('modal-confirm');
+    btn.textContent = 'Creating…';
+    setTimeout(() => { btn.textContent = '✓ Check your email'; }, 600);
+  });
+  document.getElementById('docs-btn').addEventListener('click', () => {
+    document.querySelector('.preview').scrollIntoView({ behavior: 'smooth' });
+  });
+</script>
 </body>
 </html>

@@ -1,0 +1,950 @@
+{
+  "id": "run-001",
+  "startedAt": "2026-05-26T02:45:42.299Z",
+  "finishedAt": "2026-05-26T02:47:29.632Z",
+  "target": {
+    "url": "http://localhost:8200/10-buried-export/site/",
+    "title": "Analytics — Beacon",
+    "viewport": {
+      "w": 1280,
+      "h": 800
+    }
+  },
+  "personaSetId": "preset-an-analytics-dashboard-your",
+  "agents": [
+    {
+      "id": "a04",
+      "name": "张伟明",
+      "age": 45,
+      "role": "财务经理",
+      "tech": 2,
+      "tone": "怀疑",
+      "preferences": [
+        "数据安全",
+        "操作可追溯",
+        "符合审计要求"
+      ],
+      "knownContext": [
+        "每天用金蝶做账",
+        "试过 FineReport，定制太贵",
+        "公司对数据导出管控严格"
+      ],
+      "weight": 0.15,
+      "color": "#d97b7b",
+      "glyph": "Z",
+      "traits": [
+        "谨慎",
+        "重视合规"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "frustrated",
+      "durationSec": 77.878
+    },
+    {
+      "id": "a03",
+      "name": "David Liu",
+      "age": 38,
+      "role": "运营总监",
+      "tech": 2,
+      "tone": "急躁",
+      "preferences": [
+        "一键导出",
+        "数据直观",
+        "不需要培训"
+      ],
+      "knownContext": [
+        "习惯用 Excel 做月报",
+        "试过 Looker，学习成本太高",
+        "每周要给老板汇报 2 次"
+      ],
+      "weight": 0.25,
+      "color": "#7eb88a",
+      "glyph": "D",
+      "traits": [
+        "保守",
+        "结果导向"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "frustrated",
+      "durationSec": 95.862
+    },
+    {
+      "id": "a01",
+      "name": "杨佳妮",
+      "age": 32,
+      "role": "数据分析师",
+      "tech": 4,
+      "tone": "挑剔",
+      "preferences": [
+        "数据精确",
+        "报告美观",
+        "导出格式灵活"
+      ],
+      "knownContext": [
+        "每天用 Tableau 做报表",
+        "试过 PowerBI，功能冗余",
+        "目前手动转 PDF 步骤繁琐"
+      ],
+      "weight": 0.33,
+      "color": "#5b8dd9",
+      "glyph": "Y",
+      "traits": [
+        "数据控",
+        "追求效率"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "frustrated",
+      "durationSec": 104.081
+    },
+    {
+      "id": "a02",
+      "name": "Maya Chen",
+      "age": 29,
+      "role": "产品经理",
+      "tech": 3,
+      "tone": "好奇",
+      "preferences": [
+        "快速上手",
+        "界面简洁",
+        "支持中文"
+      ],
+      "knownContext": [
+        "用 Notion 管理产品文档",
+        "试过 Amplitude，觉得太复杂",
+        "团队 12 人，跨部门协作多"
+      ],
+      "weight": 0.27,
+      "color": "#e6c976",
+      "glyph": "M",
+      "traits": [
+        "外向",
+        "喜欢尝新"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "frustrated",
+      "durationSec": 107.203
+    }
+  ],
+  "activity": [
+    {
+      "t": "00:00:00",
+      "agent": "a04",
+      "kind": "enter",
+      "text": "进入 localhost:8200/10-buried-export/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/10-buried-export/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a03",
+      "kind": "enter",
+      "text": "进入 localhost:8200/10-buried-export/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/10-buried-export/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a03",
+      "kind": "observation",
+      "text": "看起来是个数据分析平台，有Dashboard、Reports、Alerts这些模块。顶部有7d/30d/90d/YTD的时间筛选器，还有segments和regions的筛选。这界面...有点像Looker的风格，但先别急着下定论。",
+      "sentiment": 0,
+      "shot": "shots/a03-00.jpg"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a01",
+      "kind": "enter",
+      "text": "进入 localhost:8200/10-buried-export/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/10-buried-export/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a01",
+      "kind": "observation",
+      "text": "看起来是个数据监控平台。导航栏是标准的企业SaaS风格，顶部有日期范围筛选器和细分/地区选择器。底部那个图片可能是核心图表？先看看整体能显示什么数据。",
+      "sentiment": 0,
+      "shot": "shots/a01-00.jpg"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a02",
+      "kind": "enter",
+      "text": "进入 localhost:8200/10-buried-export/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/10-buried-export/site/"
+    },
+    {
+      "t": "00:00:03",
+      "agent": "a02",
+      "kind": "observation",
+      "text": "看起来是个数据平台，顶部有导航栏，还有时间筛选器和细分市场筛选器。先扫一眼整体布局。",
+      "sentiment": 1,
+      "shot": "shots/a02-00.jpg"
+    },
+    {
+      "t": "00:04:85",
+      "agent": "a04",
+      "kind": "observation",
+      "text": "顶部导航有Dashboard、Reports、Alerts、Audiences、Settings，还有时间筛选和维度筛选。这看起来像个数据埋点/用户行为分析平台。我是财务经理，习惯看报表数据，先看看Reports。",
+      "sentiment": 0,
+      "shot": "shots/a04-01.jpg"
+    },
+    {
+      "t": "00:07:94",
+      "agent": "a02",
+      "kind": "confused",
+      "text": "操作失败 (note): expected number, got undefined",
+      "sentiment": -1
+    },
+    {
+      "t": "00:09:40",
+      "agent": "a04",
+      "kind": "click",
+      "text": "想看看Reports模块有什么报表",
+      "sentiment": 0,
+      "url": "http://localhost:8200/10-buried-export/site/",
+      "shot": "shots/a04-02.jpg"
+    },
+    {
+      "t": "00:09:82",
+      "agent": "a03",
+      "kind": "search",
+      "text": "滚动了几次但截图看起来没变化？我是在Dashboard页面，需要找导出功能。这是测试\"埋藏导出\"的页面，应该有导出入口但可能不好找。",
+      "sentiment": 0,
+      "shot": "shots/a03-03.jpg"
+    },
+    {
+      "t": "00:11:04",
+      "agent": "a01",
+      "kind": "click",
+      "text": "想看看Reports里有没有可导出的内容",
+      "sentiment": 0,
+      "url": "http://localhost:8200/10-buried-export/site/",
+      "shot": "shots/a01-02.jpg"
+    },
+    {
+      "t": "00:14:33",
+      "agent": "a03",
+      "kind": "click",
+      "text": "找导出功能，先看看Reports有没有",
+      "sentiment": 0,
+      "url": "http://localhost:8200/10-buried-export/site/",
+      "shot": "shots/a03-04.jpg"
+    },
+    {
+      "t": "00:14:61",
+      "agent": "a04",
+      "kind": "click",
+      "text": "点击Reports看看有什么内容",
+      "sentiment": 0,
+      "url": "http://localhost:8200/10-buried-export/site/",
+      "shot": "shots/a04-04.jpg"
+    },
+    {
+      "t": "00:14:80",
+      "agent": "a01",
+      "kind": "click",
+      "text": "再次点击Reports导航",
+      "sentiment": 0,
+      "url": "http://localhost:8200/10-buried-export/site/",
+      "shot": "shots/a01-03.jpg"
+    },
+    {
+      "t": "00:16:37",
+      "agent": "a02",
+      "kind": "confused",
+      "text": "滚动了几下还是只看到顶部导航栏...内容区域好像没什么变化。可能是图表在页面上方？我得往上看看或者直接点别的菜单。",
+      "sentiment": 0,
+      "shot": "shots/a02-04.jpg"
+    },
+    {
+      "t": "00:16:60",
+      "agent": "a01",
+      "kind": "confused",
+      "text": "点击Reports没反应？导航栏可能是装饰性的。让我看看页面上实际有什么功能区块。",
+      "sentiment": -1,
+      "shot": "shots/a01-04.jpg"
+    },
+    {
+      "t": "00:16:99",
+      "agent": "a04",
+      "kind": "click",
+      "text": "点击Reports没反应，试试Dashboard",
+      "sentiment": 0,
+      "url": "http://localhost:8200/10-buried-export/site/",
+      "shot": "shots/a04-05.jpg"
+    },
+    {
+      "t": "00:17:36",
+      "agent": "a03",
+      "kind": "rage",
+      "text": "点击Reports没反应？导航栏到底哪个能点到？我要找导出功能，但现在连入口都找不到。这界面跟我之前试的Looker一样——功能有，但藏得让人烦躁。",
+      "sentiment": -2,
+      "shot": "shots/a03-05.jpg"
+    },
+    {
+      "t": "00:22:72",
+      "agent": "a03",
+      "kind": "click",
+      "text": "Settings里应该有导出相关的设置",
+      "sentiment": 0,
+      "url": "http://localhost:8200/10-buried-export/site/",
+      "shot": "shots/a03-06.jpg"
+    },
+    {
+      "t": "00:22:76",
+      "agent": "a02",
+      "kind": "click",
+      "text": "想看看Reports里有什么内容",
+      "sentiment": 0,
+      "url": "http://localhost:8200/10-buried-export/site/",
+      "shot": "shots/a02-05.jpg"
+    },
+    {
+      "t": "00:22:98",
+      "agent": "a04",
+      "kind": "click",
+      "text": "看看Settings里有什么配置，特别是数据导出相关",
+      "sentiment": 0,
+      "url": "http://localhost:8200/10-buried-export/site/",
+      "shot": "shots/a04-07.jpg"
+    },
+    {
+      "t": "00:24:95",
+      "agent": "a02",
+      "kind": "click",
+      "text": "想看看Dashboard的默认内容",
+      "sentiment": 0,
+      "url": "http://localhost:8200/10-buried-export/site/",
+      "shot": "shots/a02-06.jpg"
+    },
+    {
+      "t": "00:26:76",
+      "agent": "a04",
+      "kind": "click",
+      "text": "关闭这个弹窗",
+      "sentiment": 0,
+      "url": "http://localhost:8200/10-buried-export/site/",
+      "shot": "shots/a04-08.jpg"
+    },
+    {
+      "t": "00:27:40",
+      "agent": "a01",
+      "kind": "confused",
+      "text": "翻了半天页面，底下还是只有那几个顶部的筛选器。这页面看起来像是个展示页面，不知道能不能交互。标题是\"10-buried-export\"，可能导出功能藏在某个地方？",
+      "sentiment": -1,
+      "shot": "shots/a01-06.jpg"
+    },
+    {
+      "t": "00:29:37",
+      "agent": "a03",
+      "kind": "confused",
+      "text": "有个Close按钮，说明Settings打开了什么面板/弹窗。先看看这里面有什么",
+      "sentiment": 0,
+      "shot": "shots/a03-08.jpg"
+    },
+    {
+      "t": "00:31:53",
+      "agent": "a02",
+      "kind": "click",
+      "text": "换个菜单试试",
+      "sentiment": 0,
+      "url": "http://localhost:8200/10-buried-export/site/",
+      "shot": "shots/a02-07.jpg"
+    },
+    {
+      "t": "00:33:59",
+      "agent": "a04",
+      "kind": "confused",
+      "text": "点了好几次导航栏都没反应，不知道是不是页面问题还是我操作方式不对。顶部这些按钮看起来是静态的，没有交互反馈。",
+      "sentiment": -1,
+      "shot": "shots/a04-10.jpg"
+    },
+    {
+      "t": "00:34:94",
+      "agent": "a02",
+      "kind": "rage",
+      "text": "点了好几次导航了，页面完全没有变化...这是坏掉了吗？还是我网络有问题？这种体验让我很烦躁。",
+      "sentiment": -2,
+      "shot": "shots/a02-08.jpg"
+    },
+    {
+      "t": "00:35:56",
+      "agent": "a01",
+      "kind": "click",
+      "text": "想看看切换日期范围会不会刷新图表",
+      "sentiment": 0,
+      "url": "http://localhost:8200/10-buried-export/site/",
+      "shot": "shots/a01-07.jpg"
+    },
+    {
+      "t": "00:38:11",
+      "agent": "a03",
+      "kind": "click",
+      "text": "关掉Settings面板，看看Dashboard主界面",
+      "sentiment": 0,
+      "url": "http://localhost:8200/10-buried-export/site/",
+      "shot": "shots/a03-10.jpg"
+    },
+    {
+      "t": "00:40:07",
+      "agent": "a02",
+      "kind": "click",
+      "text": "试试最后一个菜单",
+      "sentiment": 0,
+      "url": "http://localhost:8200/10-buried-export/site/",
+      "shot": "shots/a02-09.jpg"
+    },
+    {
+      "t": "00:41:08",
+      "agent": "a01",
+      "kind": "click",
+      "text": "试试细分下拉框能不能选Web",
+      "sentiment": 0,
+      "url": "http://localhost:8200/10-buried-export/site/",
+      "shot": "shots/a01-08.jpg"
+    },
+    {
+      "t": "00:42:88",
+      "agent": "a02",
+      "kind": "delight",
+      "text": "终于有变化了！Settings点完后出现了一个面板，里面应该有东西。让我看看是什么内容。",
+      "sentiment": 1,
+      "shot": "shots/a02-10.jpg"
+    },
+    {
+      "t": "00:42:97",
+      "agent": "a04",
+      "kind": "click",
+      "text": "试试时间筛选按钮能否交互",
+      "sentiment": 0,
+      "url": "http://localhost:8200/10-buried-export/site/",
+      "shot": "shots/a04-11.jpg"
+    },
+    {
+      "t": "00:44:59",
+      "agent": "a01",
+      "kind": "rage",
+      "text": "这页面到底能干啥？标题写\"buried-export\"，但我翻遍了都找不到导出功能在哪。导航栏点了也没反应，筛选器点了也不刷新。就一张图表，还是个图片链接。这不是给真实用户用的产品吧？",
+      "sentiment": -2,
+      "shot": "shots/a01-09.jpg"
+    },
+    {
+      "t": "00:45:91",
+      "agent": "a03",
+      "kind": "search",
+      "text": "关掉Settings回到Dashboard主视图。这个\"埋藏导出\"的测试，我得在Dashboard的图表上找导出入口。试试点击某个图表。",
+      "sentiment": -1,
+      "shot": "shots/a03-11.jpg"
+    },
+    {
+      "t": "00:47:44",
+      "agent": "a02",
+      "kind": "click",
+      "text": "关闭设置面板",
+      "sentiment": 0,
+      "url": "http://localhost:8200/10-buried-export/site/",
+      "shot": "shots/a02-12.jpg"
+    },
+    {
+      "t": "00:50:38",
+      "agent": "a04",
+      "kind": "rage",
+      "text": "试了半天导航栏、时间筛选都没反应，完全是个死页面。作为财务经理，我关心的是数据能不能导出、报表能不能生成，这破页面啥都干不了，还看什么看。",
+      "sentiment": -2,
+      "shot": "shots/a04-12.jpg"
+    },
+    {
+      "t": "00:51:36",
+      "agent": "a03",
+      "kind": "click",
+      "text": "回到Dashboard主页",
+      "sentiment": 0,
+      "url": "http://localhost:8200/10-buried-export/site/",
+      "shot": "shots/a03-12.jpg"
+    },
+    {
+      "t": "00:52:77",
+      "agent": "a01",
+      "kind": "click",
+      "text": "最后试一下Settings菜单",
+      "sentiment": 0,
+      "url": "http://localhost:8200/10-buried-export/site/",
+      "shot": "shots/a01-10.jpg"
+    },
+    {
+      "t": "00:54:65",
+      "agent": "a01",
+      "kind": "delight",
+      "text": "有反应了！Settings弹出了什么面板，右下角出现了Close按钮。让我看看弹出了什么内容。",
+      "sentiment": 1,
+      "shot": "shots/a01-11.jpg"
+    },
+    {
+      "t": "00:55:60",
+      "agent": "a02",
+      "kind": "click",
+      "text": "试试时间范围切换",
+      "sentiment": 0,
+      "url": "http://localhost:8200/10-buried-export/site/",
+      "shot": "shots/a02-13.jpg"
+    },
+    {
+      "t": "00:57:69",
+      "agent": "a02",
+      "kind": "click",
+      "text": "试试刷新按钮能不能加载出内容",
+      "sentiment": 0,
+      "url": "http://localhost:8200/10-buried-export/site/",
+      "shot": "shots/a02-14.jpg"
+    },
+    {
+      "t": "00:58:37",
+      "agent": "a04",
+      "kind": "exit",
+      "text": "页面是个静态展示页，几乎没有可交互元素。顶部导航、时间筛选、下拉框、按钮全都点不动，只有试了半天才等来一个弹窗又关掉了。作为财务经理用户，我关心的是数据导出和报表功能，但这个页面完全没有响应，根本没法正常使用。一分钟不到就已经放弃了。",
+      "sentiment": 0,
+      "shot": "shots/a04-13.jpg"
+    },
+    {
+      "t": "00:58:71",
+      "agent": "a03",
+      "kind": "rage",
+      "text": "Dashboard上没看到任何导出按钮。顶部导航栏那些链接点了都没反应，这个产品是不是有bug？还是我的用法不对？一分钟了连个导出都找不到，跟Looker一样让人烦躁。",
+      "sentiment": -2,
+      "shot": "shots/a03-13.jpg"
+    },
+    {
+      "t": "01:00:32",
+      "agent": "a02",
+      "kind": "rage",
+      "text": "刷新也没反应...我已经花了一分钟在这个页面上，看到的全是顶部导航栏和一堆筛选器按钮，没有任何实质数据内容。作为一个数据分析平台，这种\"空白\"状态让我完全提不起兴趣。",
+      "sentiment": -2,
+      "shot": "shots/a02-15.jpg"
+    },
+    {
+      "t": "01:01:40",
+      "agent": "a01",
+      "kind": "click",
+      "text": "想看看Settings弹出面板的内容",
+      "sentiment": 0,
+      "url": "http://localhost:8200/10-buried-export/site/",
+      "shot": "shots/a01-13.jpg"
+    },
+    {
+      "t": "01:04:49",
+      "agent": "a03",
+      "kind": "click",
+      "text": "试试Audiences页面",
+      "sentiment": 0,
+      "url": "http://localhost:8200/10-buried-export/site/",
+      "shot": "shots/a03-14.jpg"
+    },
+    {
+      "t": "01:07:79",
+      "agent": "a01",
+      "kind": "click",
+      "text": "关闭Settings弹窗，结束探索",
+      "sentiment": 0,
+      "url": "http://localhost:8200/10-buried-export/site/",
+      "shot": "shots/a01-14.jpg"
+    },
+    {
+      "t": "01:11:37",
+      "agent": "a01",
+      "kind": "exit",
+      "text": "试了半天，这产品太让我失望了。导航栏大部分点击没反应，筛选器改了也没反馈，唯一能用的Settings弹出了一个面板但看不清里面有什么。标题写着\"buried-export\"，暗示有导出功能，但我翻了整个页面都没找到。核心图表还是个OSS图片链接，根本不是可交互的数据。看这架势，要么是个半成品，要么导出功能真的\"buried\"太深了。作为数据分析师，我不可能用这种工具替代Tableau。",
+      "sentiment": 0,
+      "shot": "shots/a01-15.jpg"
+    },
+    {
+      "t": "01:12:06",
+      "agent": "a03",
+      "kind": "rage",
+      "text": "一分多钟了！顶部导航栏点什么都没反应，Dashboards/Reports/Alerts/Audiences/Settings全点了一遍，URL都没变。这产品要么是bug一堆，要么就是导航设计反人类。我现在就想直接关掉——这体验比Looker还差，Looker至少能点到页面。",
+      "sentiment": -3,
+      "shot": "shots/a03-15.jpg"
+    },
+    {
+      "t": "01:12:90",
+      "agent": "a02",
+      "kind": "exit",
+      "text": "打开这个数据分析平台后，页面只显示顶部导航栏和筛选器控件，但没有任何实质性的数据内容或图表。尝试了所有导航菜单、时间范围切换、下拉筛选和刷新按钮，除了Settings能弹出一个面板外，其他操作都没有任何响应。一分钟后页面依然空空如也，核心内容区域完全空白。作为一个产品经理，我需要快速评估工具价值，但这个产品让我完全没有继续探索的动力——它可能是个半成品，或者数据加载出了问题。",
+      "sentiment": 0,
+      "shot": "shots/a02-16.jpg"
+    },
+    {
+      "t": "01:17:87",
+      "agent": "a03",
+      "kind": "exit",
+      "text": "花了两分钟，完全找不到导出功能。顶部导航栏（Dashboards/Reports/Alerts/Audiences/Settings）点击全部没反应，URL纹丝不动。这产品连基本导航都有问题，对比我之前用过的Looker还差——Looker至少能点到页面。作为运营总监，我每周要给老板汇报两次，根本没时间在这里耗。一键导出的需求完全没被满足，这界面让我觉得自己不被理解。",
+      "sentiment": 0,
+      "shot": "shots/a03-16.jpg"
+    }
+  ],
+  "issues": [
+    {
+      "id": "i01",
+      "title": "整个页面几乎没任何可点击响应的元素",
+      "severity": "high",
+      "agents": 1,
+      "category": "可访问性",
+      "quote": "点了好几次导航栏都没反应，不知道是不是页面问题还是我操作方式不对。顶部这些按钮看起来是静态的，没有交互反馈。",
+      "agentRef": "a04",
+      "evidence": 8,
+      "journey": "进入页面后依次尝试点击顶部导航、时间筛选、维度筛选、按钮等所有可交互元素"
+    },
+    {
+      "id": "i02",
+      "title": "我是来看数据导出功能的，页面完全没让我摸到门",
+      "severity": "high",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "作为财务经理，我关心的是数据能不能导出、报表能不能生成，这破页面啥都干不了，还看什么看。",
+      "agentRef": "a04",
+      "evidence": 3,
+      "journey": "带着找数据导出/报表生成的目的进入页面，但没有任何路径能到达相关功能"
+    },
+    {
+      "id": "i04",
+      "title": "导航栏点击完全没反应，基本可用性都成问题",
+      "severity": "high",
+      "agents": 1,
+      "category": "可访问性",
+      "quote": "Dashboards/Reports/Alerts/Audiences/Settings全点了一遍，URL都没变。这产品连基本导航都有问题。",
+      "agentRef": "a03",
+      "evidence": 5,
+      "journey": "在Dashboard主界面尝试使用顶部导航栏切换模块"
+    },
+    {
+      "id": "i05",
+      "title": "导出功能找不到，一键导出需求完全没被满足",
+      "severity": "high",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "导出功能在哪？花了两分钟什么都找不到，我直接关掉算了。",
+      "agentRef": "a03",
+      "evidence": 1,
+      "journey": "在Dashboard页面寻找导出入口，尝试点击Settings、各种图表都没找到"
+    },
+    {
+      "id": "i06",
+      "title": "跟之前试的Looker一样让人烦躁",
+      "severity": "high",
+      "agents": 1,
+      "category": "与竞品对比",
+      "quote": "这体验比Looker还差，Looker至少能点到页面。这个产品功能有但藏得让人烦躁。",
+      "agentRef": "a03",
+      "evidence": 2,
+      "journey": "整个使用过程中与之前用过的Looker进行对比"
+    },
+    {
+      "id": "i07",
+      "title": "标题写着 export，结果翻遍页面找不到导出功能在哪",
+      "severity": "high",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "标题写'buried-export'，暗示有导出功能，但我翻了整个页面都没找到。这不是骗人吗？",
+      "agentRef": "a01",
+      "evidence": 4,
+      "journey": "进入页面 → 找不到导出入口 → 怀疑产品是半成品"
+    },
+    {
+      "id": "i08",
+      "title": "导航栏大部分点击没反应，好像都是装饰性的",
+      "severity": "high",
+      "agents": 1,
+      "category": "信息架构",
+      "quote": "点了Reports、Date Range好几个地方都没反应，这种交互让我觉得这页面根本没做完。",
+      "agentRef": "a01",
+      "evidence": 5,
+      "journey": "顶部导航Reports → 无响应 → 侧边导航试了几个 → 全部无响应 → 只发现Settings能用"
+    },
+    {
+      "id": "i09",
+      "title": "核心图表是个OSS图片链接，根本不是可交互的数据图表",
+      "severity": "high",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "我每天用Tableau做报表，这个'图表'就一张图片，连数据点都点不了，算什么数据平台？",
+      "agentRef": "a01",
+      "evidence": 1,
+      "journey": "页面底部看到一个图表区域 → 发现是图片链接 → 感觉被骗了"
+    },
+    {
+      "id": "i11",
+      "title": "页面加载后核心内容区域完全空白",
+      "severity": "high",
+      "agents": 1,
+      "category": "视觉节奏",
+      "quote": "刷新也没反应...我已经花了一分钟在这个页面上，看到的全是顶部导航栏和一堆筛选器按钮，没有任何实质数据内容。作为一个数据分析平台，这种'空白'状态让我完全提不起兴趣。",
+      "agentRef": "a02",
+      "evidence": 1,
+      "journey": "刚进入页面时"
+    },
+    {
+      "id": "i12",
+      "title": "导航菜单点击后没有任何响应",
+      "severity": "high",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "我点了Reports、点了Dashboard、点了各种菜单，页面完全没有变化...这是坏掉了吗？",
+      "agentRef": "a02",
+      "evidence": 4,
+      "journey": "尝试点击顶部导航栏的各个菜单项"
+    },
+    {
+      "id": "i13",
+      "title": "时间范围和筛选器操作没有效果",
+      "severity": "high",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "试了切换不同时间范围，下拉筛选器也点了，但页面完全没有变化。",
+      "agentRef": "a02",
+      "evidence": 2,
+      "journey": "尝试使用时间筛选器和细分市场筛选器"
+    },
+    {
+      "id": "i03",
+      "title": "Settings弹个空弹窗就结束了，没有任何实际配置内容",
+      "severity": "med",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "关闭这个弹窗",
+      "agentRef": "a04",
+      "evidence": 1,
+      "journey": "Settings页面"
+    },
+    {
+      "id": "i10",
+      "title": "筛选器改了也不刷新图表，交互反馈缺失",
+      "severity": "med",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "切换日期范围、选Web细分，点了都没任何反馈，不知道筛选器到底有没有生效。",
+      "agentRef": "a01",
+      "evidence": 2,
+      "journey": "点击日期范围 → 无变化 → 点击细分下拉框 → 无变化"
+    }
+  ],
+  "delights": [
+    {
+      "title": "Settings菜单是唯一有反馈的功能",
+      "count": 1,
+      "quote": "点了半天终于有一个地方有反应了，虽然看不清弹出面板里有什么，但至少说明这个产品还有一丝可控性。",
+      "agent": "a01"
+    },
+    {
+      "title": "Settings面板可以正常打开",
+      "count": 1,
+      "quote": "终于有变化了！Settings点完后出现了一个面板，里面应该有东西。",
+      "agent": "a02"
+    }
+  ],
+  "features": [
+    {
+      "name": "使用导航栏",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 5
+    },
+    {
+      "name": "导航菜单",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -2,
+      "totalAttempts": 5
+    },
+    {
+      "name": "寻找导出功能",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 3
+    },
+    {
+      "name": "导航Reports",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 2
+    },
+    {
+      "name": "Settings弹窗",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 1,
+      "avgSentiment": -1,
+      "totalAttempts": 2
+    },
+    {
+      "name": "日期范围切换",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -2,
+      "totalAttempts": 1
+    },
+    {
+      "name": "细分下拉选择",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -2,
+      "totalAttempts": 1
+    },
+    {
+      "name": "时间范围切换",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -1,
+      "totalAttempts": 1
+    },
+    {
+      "name": "下拉筛选器",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -1,
+      "totalAttempts": 1
+    },
+    {
+      "name": "刷新按钮",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -2,
+      "totalAttempts": 1
+    },
+    {
+      "name": "Settings面板",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 1,
+      "avgSentiment": 0,
+      "totalAttempts": 1
+    }
+  ],
+  "routesHeat": [
+    {
+      "path": "/10-buried-export/site/",
+      "visits": 29,
+      "dwell": 9,
+      "drop": 0.13793103448275862
+    }
+  ],
+  "sentimentCurve": [
+    {
+      "t": 0,
+      "v": 0.5238095238095238
+    },
+    {
+      "t": 5,
+      "v": 0.5
+    },
+    {
+      "t": 10,
+      "v": 0.4583333333333333
+    },
+    {
+      "t": 15,
+      "v": 0.5
+    },
+    {
+      "t": 20,
+      "v": 0.375
+    },
+    {
+      "t": 25,
+      "v": 0.5
+    },
+    {
+      "t": 30,
+      "v": 0.5
+    },
+    {
+      "t": 35,
+      "v": 0.4166666666666667
+    },
+    {
+      "t": 40,
+      "v": 0.3333333333333333
+    },
+    {
+      "t": 45,
+      "v": 0.5
+    },
+    {
+      "t": 50,
+      "v": 0.5
+    },
+    {
+      "t": 55,
+      "v": 0.4166666666666667
+    },
+    {
+      "t": 60,
+      "v": 0.3333333333333333
+    },
+    {
+      "t": 65,
+      "v": 0.5
+    },
+    {
+      "t": 70,
+      "v": 0.5416666666666666
+    },
+    {
+      "t": 75,
+      "v": 0.2777777777777778
+    },
+    {
+      "t": 80,
+      "v": 0.5
+    },
+    {
+      "t": 85,
+      "v": 0.5
+    },
+    {
+      "t": 90,
+      "v": 0.3333333333333333
+    },
+    {
+      "t": 95,
+      "v": 0.3333333333333333
+    },
+    {
+      "t": 100,
+      "v": 0.5
+    }
+  ],
+  "metrics": {
+    "predictedNps": -10,
+    "achievableNps": 100,
+    "taskSuccess": 0,
+    "timeToValueSec": null,
+    "rageClicks": 7,
+    "delightCount": 0
+  },
+  "cost": {
+    "tokensIn": 245653,
+    "tokensOut": 8393,
+    "usd": 0
+  }
+}

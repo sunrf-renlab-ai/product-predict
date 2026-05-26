@@ -1,0 +1,187 @@
+{
+  "fixtureId": "07-lost-search",
+  "gtTotal": 5,
+  "ppTotal": 11,
+  "matched": 1,
+  "recall": 0.2,
+  "precision": 0.09090909090909091,
+  "f1": 0.12500000000000003,
+  "severityAcc": 1,
+  "categoryAcc": 0,
+  "verdicts": [
+    {
+      "gtId": "gt-01",
+      "findingId": "i01",
+      "matched": true,
+      "confidence": 0.6,
+      "reasoning": "搜索功能完全不工作的核心问题一致，只是具体表现略有差异",
+      "severityAgrees": true,
+      "categoryAgrees": false
+    },
+    {
+      "gtId": "gt-02",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0.1,
+      "reasoning": "GT核心是严格匹配缺容错非无反应问题"
+    },
+    {
+      "gtId": "gt-03",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0.1,
+      "reasoning": "GT about placeholder copy missing guidance on searchable content types docs/API/guides. All findings focus on broken search functionality or broken navigation not working at all. No finding mentions placeholder text or search scope guidance."
+    },
+    {
+      "gtId": "gt-04",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0.1,
+      "reasoning": "GT是缺少清除按钮的UI缺失,PP都是搜索功能完全不响应/坏了"
+    },
+    {
+      "gtId": "gt-05",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0.1,
+      "reasoning": "GT关于搜索结果视觉区分问题，所有pp finding都聚焦搜索功能失效/交互无反应，未涉及结果卡片的视觉设计"
+    }
+  ],
+  "falsePositives": [
+    {
+      "findingId": "i04",
+      "finding": {
+        "title": "搜索框输入回车后页面没有任何响应，疑似功能挂掉",
+        "category": "功能契合",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i05",
+      "finding": {
+        "title": "导航栏所有链接点击后完全没变化，像是死链接",
+        "category": "功能契合",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i06",
+      "finding": {
+        "title": "过滤按钮 All/Guides/API/Account 点击无反应",
+        "category": "功能契合",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i07",
+      "finding": {
+        "title": "所有交互都像死机了一样，完全不可用",
+        "category": "功能契合",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i08",
+      "finding": {
+        "title": "这页面像个壳子，点击全打水漂",
+        "category": "情感氛围",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i10",
+      "finding": {
+        "title": "搜索功能完全失效，文档站点的命根子断了",
+        "category": "功能契合",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i02",
+      "finding": {
+        "title": "没有任何加载反馈，不知道是在等还是坏了",
+        "category": "性能感知",
+        "severity": "med"
+      }
+    },
+    {
+      "findingId": "i03",
+      "finding": {
+        "title": "分类切换按钮没给实际内容，只是轻微变化",
+        "category": "流程顺畅",
+        "severity": "med"
+      }
+    },
+    {
+      "findingId": "i09",
+      "finding": {
+        "title": "连我最基本的搜索意图都没机会验证",
+        "category": "流程顺畅",
+        "severity": "med"
+      }
+    },
+    {
+      "findingId": "i11",
+      "finding": {
+        "title": "导航按钮点击后看不出页面有什么变化",
+        "category": "反馈感知",
+        "severity": "med"
+      }
+    }
+  ],
+  "missed": [
+    {
+      "gtId": "gt-02",
+      "gt": {
+        "id": "gt-02",
+        "title": "拼错一个字母就 0 结果",
+        "severity": "high",
+        "category": "功能契合",
+        "description": "搜索是严格 substring 匹配,没有 typo correction、没有 fuzzy match、没有 autocomplete。搜 'authentcation' / 'markdwn' 都返回零,普通 docs 站点早就具备的容错完全缺失。",
+        "shouldFindWith": [
+          "重度用户",
+          "评估者"
+        ]
+      }
+    },
+    {
+      "gtId": "gt-03",
+      "gt": {
+        "id": "gt-03",
+        "title": "Search... 占位符没说能搜什么",
+        "severity": "med",
+        "category": "表达文案",
+        "description": "搜索框 placeholder 就一句 'Search...',没告诉用户能搜 docs、API、还是社区内容,缺乏 'Search docs, API, guides...' 这种带选项的引导文案。",
+        "shouldFindWith": [
+          "新手"
+        ]
+      }
+    },
+    {
+      "gtId": "gt-04",
+      "gt": {
+        "id": "gt-04",
+        "title": "输入框没有清除按钮",
+        "severity": "med",
+        "category": "流程顺畅",
+        "description": "search input 没有 × clear 按钮,用户想换关键词必须全选再删除或者用退格慢慢删,在搜索这种高频交互场景里是常识级的缺失。",
+        "shouldFindWith": [
+          "重度用户"
+        ]
+      }
+    },
+    {
+      "gtId": "gt-05",
+      "gt": {
+        "id": "gt-05",
+        "title": "所有结果卡片长得一样",
+        "severity": "low",
+        "category": "视觉节奏",
+        "description": "搜索命中的所有结果都用同样大小、同样颜色的卡片,没区分最佳匹配 / 次要匹配,也没按类型 (api / guide / account) 视觉分组,用户得逐条读才能找到想要的。",
+        "shouldFindWith": [
+          "设计敏感"
+        ]
+      }
+    }
+  ]
+}

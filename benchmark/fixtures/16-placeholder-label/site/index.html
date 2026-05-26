@@ -11,80 +11,119 @@
   header { padding: 18px 40px; border-bottom: 1px solid #1c1f24; display: flex; justify-content: space-between; align-items: center; }
   .brand { font-weight: 600; letter-spacing: -0.01em; }
   .crumb { font-size: 12px; color: #6a7180; }
+  .crumb a { color: #6a7180; cursor: pointer; text-decoration: none; }
+  .crumb a:hover { color: #b9bec7; }
   main { max-width: 520px; margin: 56px auto; padding: 0 24px; }
   h1 { font-size: 26px; letter-spacing: -0.01em; font-weight: 600; }
   .desc { margin-top: 8px; font-size: 14px; color: #9aa1ab; }
   form { margin-top: 40px; display: flex; flex-direction: column; gap: 24px; }
-  /* labels are placeholders — disappear on input */
   .field { position: relative; }
   .field input, .field select, .field textarea {
-    width: 100%;
-    padding: 14px 12px;
-    background: #14171c;
-    border: 1px solid #2a2e35;
-    border-radius: 8px;
-    color: #e7e9ee;
-    font: inherit;
-    /* no visible focus ring — relies on default which we remove */
-    outline: none;
+    width: 100%; padding: 14px 12px;
+    background: #14171c; border: 1px solid #2a2e35; border-radius: 8px;
+    color: #e7e9ee; font: inherit; outline: none;
   }
-  /* focus style is barely visible: 1px border color shift only */
-  .field input:focus, .field select:focus, .field textarea:focus {
-    border-color: #353a42;
-  }
+  .field input:focus, .field select:focus, .field textarea:focus { border-color: #353a42; }
   .field input::placeholder, .field textarea::placeholder { color: #8a909a; }
-  /* required indicator absent — no asterisks, no color cue */
   .row { display: flex; gap: 12px; }
   .row .field { flex: 1; }
-  .submit { margin-top: 12px; padding: 12px; background: #5b8def; color: #0b0d10; border: 0; border-radius: 8px; font-weight: 600; cursor: pointer; font: inherit; }
+  .actions { margin-top: 12px; display: flex; gap: 10px; }
+  .submit { flex: 1; padding: 12px; background: #5b8def; color: #0b0d10; border: 0; border-radius: 8px; font-weight: 600; cursor: pointer; font: inherit; }
   .submit:hover { background: #6f9aff; }
+  .ghost { padding: 12px 16px; background: transparent; color: #9aa1ab; border: 1px solid #2a2e35; border-radius: 8px; cursor: pointer; font: inherit; }
+  .ghost:hover { color: #e7e9ee; border-color: #353a42; }
   .help { margin-top: 12px; font-size: 12px; color: #6a7180; text-align: center; }
+  .pill-row { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 10px; }
+  .pill-row button { padding: 5px 10px; background: #14171c; border: 1px solid #2a2e35; border-radius: 999px; color: #b9bec7; font: inherit; font-size: 12px; cursor: pointer; }
+  .pill-row button:hover { color: #e7e9ee; }
+  .status { min-height: 18px; margin-top: 6px; font-size: 12px; color: #6a7180; }
 </style>
 </head>
 <body>
 <header>
   <div class="brand">◇ Voyage</div>
-  <div class="crumb">Workspace · Members · Invite</div>
+  <div class="crumb"><a>Workspace</a> · <a>Members</a> · <a>Invite</a></div>
 </header>
 
 <main>
   <h1>Invite a teammate</h1>
   <p class="desc">Send an invite to join your workspace. They'll get an email with a sign-in link.</p>
 
-  <form onsubmit="event.preventDefault(); this.querySelector('.submit').textContent='Sending…';">
-    <div class="field">
-      <input type="text" placeholder="Full name" />
-    </div>
-    <div class="field">
-      <input type="email" placeholder="e.g. john@example.com" />
-    </div>
+  <form id="f">
+    <div class="field"><input id="i1" type="text" placeholder="Full name" /></div>
+    <div class="field"><input id="i2" type="email" placeholder="e.g. john@example.com" /></div>
     <div class="row">
+      <div class="field"><input id="i3" type="text" placeholder="Type your job title" /></div>
       <div class="field">
-        <input type="text" placeholder="Type your job title" />
-      </div>
-      <div class="field">
-        <select>
-          <option>Member</option>
-          <option>Admin</option>
-          <option>Guest</option>
-        </select>
+        <select id="i4"><option>Member</option><option>Admin</option><option>Guest</option></select>
       </div>
     </div>
+    <div class="field"><input id="i5" type="text" placeholder="Department" /></div>
     <div class="field">
-      <input type="text" placeholder="Department" />
+      <input id="i6" type="text" placeholder="e.g. PST, EST, UTC+8" />
+      <div class="pill-row">
+        <button type="button" data-tz="PST">PST</button>
+        <button type="button" data-tz="EST">EST</button>
+        <button type="button" data-tz="UTC+8">UTC+8</button>
+        <button type="button" data-tz="UTC">UTC</button>
+      </div>
     </div>
-    <div class="field">
-      <input type="text" placeholder="e.g. PST, EST, UTC+8" />
+    <div class="field"><input id="i7" type="text" placeholder="Phone (optional, but we may text)" /></div>
+    <div class="field"><textarea id="i8" rows="3" placeholder="Personal note to include in invite"></textarea></div>
+    <div class="actions">
+      <button type="button" class="ghost" id="another">+ Add another</button>
+      <button type="submit" class="submit" id="sub">Send invite</button>
     </div>
-    <div class="field">
-      <input type="text" placeholder="Phone (optional, but we may text)" />
-    </div>
-    <div class="field">
-      <textarea rows="3" placeholder="Personal note to include in invite"></textarea>
-    </div>
-    <button type="submit" class="submit">Send invite</button>
+    <div class="status" id="status"></div>
   </form>
   <p class="help">They'll appear in your members list after they accept.</p>
 </main>
+
+<script>
+  // Timezone pills fill the placeholder-style field — but the input still has no label, only placeholder text.
+  document.querySelectorAll('.pill-row button').forEach(b => {
+    b.addEventListener('click', () => {
+      document.getElementById('i6').value = b.dataset.tz;
+    });
+  });
+
+  // "Add another" duplicates fields under the same placeholder pattern — compounding the no-label problem.
+  let extras = 0;
+  document.getElementById('another').addEventListener('click', () => {
+    if (extras >= 2) return;
+    extras++;
+    const form = document.getElementById('f');
+    const wrap = document.createElement('div');
+    wrap.className = 'field';
+    wrap.innerHTML = '<input type="text" placeholder="Department" />';
+    form.insertBefore(wrap, document.getElementById('another').parentElement);
+    const wrap2 = document.createElement('div');
+    wrap2.className = 'field';
+    wrap2.innerHTML = '<input type="text" placeholder="Full name" />';
+    form.insertBefore(wrap2, document.getElementById('another').parentElement);
+  });
+
+  // On submit, "validate" by silently clearing any field that doesn't pass a basic format check.
+  // No error message — placeholders just reappear and the user has to remember which field was which.
+  document.getElementById('f').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const sub = document.getElementById('sub');
+    sub.textContent = 'Sending…';
+    setTimeout(() => {
+      const email = document.getElementById('i2');
+      const inputs = document.querySelectorAll('#f input[type=text], #f input[type=email], #f textarea');
+      let cleared = 0;
+      inputs.forEach(i => {
+        const v = i.value.trim();
+        // arbitrary rules — email must have @, phone must be digits-ish, name must be 2+ words
+        if (i === email && v && !v.includes('@')) { i.value = ''; cleared++; }
+        else if (i.placeholder.startsWith('Phone') && v && !/[0-9]/.test(v)) { i.value = ''; cleared++; }
+        else if (i.placeholder === 'Full name' && v && v.split(' ').length < 2) { i.value = ''; cleared++; }
+      });
+      sub.textContent = 'Send invite';
+      document.getElementById('status').textContent = cleared ? '' : 'Sent.';
+    }, 400);
+  });
+</script>
 </body>
 </html>

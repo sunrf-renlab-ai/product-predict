@@ -1,0 +1,2290 @@
+{
+  "benchId": "bench-002",
+  "runStartedAt": "2026-05-26T03:01:11.216Z",
+  "agents": 4,
+  "maxSteps": 30,
+  "maxMinutes": 4,
+  "fixtureCount": 20,
+  "results": [
+    {
+      "fixtureId": "01-broken-todo",
+      "runId": "run-001",
+      "runDir": "/Users/blink/project/product-predict/benchmark/runs/bench-002/per-fixture/01-broken-todo/runs/run-001",
+      "durationSec": 90.755,
+      "agentCount": 4,
+      "ppIssues": [
+        {
+          "id": "i01",
+          "title": "要申请才能用，我懒得等",
+          "severity": "high",
+          "category": "流程顺畅",
+          "quote": "request access？这还要申请？我只是随便看看，又不是非用不可，算了不折腾了。",
+          "agentRef": "a01",
+          "evidence": 1,
+          "journey": "首页看到request access链接"
+        },
+        {
+          "id": "i03",
+          "title": "所有可点击元素都不work，完全无法体验产品",
+          "severity": "high",
+          "category": "功能契合",
+          "quote": "Sign in 点了没反应？这么基础的功能都不work？什么都不work… Sign in、Inbox、Sprints、Reviews、Insights、request access 全都点不动。这是个半成品吧？",
+          "agentRef": "a02",
+          "evidence": 4,
+          "journey": "进入页面后想注册账号，点击 Sign in 无反应；想看看有没有测试账号可以登录，点击登录按钮还是无反应；尝试点击 Inbox 也没有任何反应"
+        },
+        {
+          "id": "i04",
+          "title": "需要申请访问的产品却没有登录入口，本身就是矛盾的",
+          "severity": "high",
+          "category": "流程顺畅",
+          "quote": "又是一个需要\"申请访问\"的产品… 先看看长什么样吧，反正现在也进不去。",
+          "agentRef": "a02",
+          "evidence": 1,
+          "journey": "页面显示 'Request Access' 的产品，却没有 Sign in 的有效入口"
+        },
+        {
+          "id": "i05",
+          "title": "Sign in点了没反应，只能request access",
+          "severity": "high",
+          "category": "流程顺畅",
+          "quote": "我以为点了Sign in能进后台看看，结果点了没反应，只能request access，这不是要我排队等邀请码吗，太烦了",
+          "agentRef": "a04",
+          "evidence": 1,
+          "journey": "落地页看到产品介绍后，想点Sign in进去看看具体功能，结果点了没反应，发现只能request access"
+        },
+        {
+          "id": "i06",
+          "title": "连产品长什么样都不知道就被拦在门外",
+          "severity": "high",
+          "category": "功能契合",
+          "quote": "我还没搞清楚这货能做什么，就直接要我等邀请码了。Trello至少让我能先看看再决定合不合适",
+          "agentRef": "a04",
+          "evidence": 2,
+          "journey": "落地页看了Inbox、Sprints等模块介绍，想进一步了解产品细节，却发现无法访问"
+        },
+        {
+          "id": "i07",
+          "title": "落地页看了个寂寞，40秒就劝退了",
+          "severity": "high",
+          "category": "情感氛围",
+          "quote": "落地页花哨得很，介绍什么Inbox Sprints Reviews Insights，但我连试都不让试，这种产品不值得我花时间研究",
+          "agentRef": "a04",
+          "evidence": 3,
+          "journey": "在落地页浏览各个模块介绍，期待能看到产品实际运作或试用入口，结果只有request access选项"
+        },
+        {
+          "id": "i08",
+          "title": "想动手试试，结果全是静态展示",
+          "severity": "high",
+          "category": "功能契合",
+          "quote": "作为一个爱折腾的工具党，我想要的是一个能亲手操作的 live demo，而不是幻灯片式的展示。",
+          "agentRef": "a03",
+          "evidence": 4,
+          "journey": "点击导航栏的 Inbox/Sprints/Reviews/Insights 按钮后，发现只是不同截图的切换，没有任何真实交互"
+        },
+        {
+          "id": "i02",
+          "title": "刚想探索就被强制结束了",
+          "severity": "med",
+          "category": "情感氛围",
+          "quote": "我都还没开始呢，怎么就没了？",
+          "agentRef": "a01",
+          "evidence": 1,
+          "journey": "滚动页面时突然timeout"
+        }
+      ]
+    },
+    {
+      "fixtureId": "02-dense-pricing",
+      "runId": "run-001",
+      "runDir": "/Users/blink/project/product-predict/benchmark/runs/bench-002/per-fixture/02-dense-pricing/runs/run-001",
+      "durationSec": 197.948,
+      "agentCount": 4,
+      "ppIssues": [
+        {
+          "id": "i01",
+          "title": "Contact sales 按钮点了没反应",
+          "severity": "high",
+          "category": "流程顺畅",
+          "quote": "点了联系销售但页面没反应？感觉像是点到了但什么也没发生，有点沮丧。",
+          "agentRef": "a01",
+          "evidence": 1,
+          "journey": "在看完价格对比表后，想点联系销售问一下团队折扣"
+        },
+        {
+          "id": "i03",
+          "title": "价格藏在密密麻麻的表格里，找得烦躁",
+          "severity": "high",
+          "category": "信息架构",
+          "quote": "价格在哪？扫了一圈感觉信息密度太高了，密密麻麻的 feature list。作为营销人员我只想快速知道多少钱、适合多少人，这个表格让我眼花缭乱。",
+          "agentRef": "a03",
+          "evidence": 3,
+          "journey": "定价页 / 三列对比表格"
+        },
+        {
+          "id": "i04",
+          "title": "点 Start free 按钮完全没反应",
+          "severity": "high",
+          "category": "功能契合",
+          "quote": "点了 Start free 但啥都没发生？没弹窗也没跳转？这是 bug 还是我操作有问题？",
+          "agentRef": "a03",
+          "evidence": 1,
+          "journey": "点击 Business 方案 CTA"
+        },
+        {
+          "id": "i06",
+          "title": "导航链接形同虚设，点击没反应",
+          "severity": "high",
+          "category": "功能契合",
+          "quote": "点了好几次导航（Pricing、Product、Customers），URL始终不变，这页面是不是坏了？",
+          "agentRef": "a04",
+          "evidence": 6,
+          "journey": "在首页顶部导航栏尝试点击各个频道入口"
+        },
+        {
+          "id": "i07",
+          "title": "价格页面的内容无法选中复制",
+          "severity": "high",
+          "category": "流程顺畅",
+          "quote": "我需要能复制价格信息回去做对比啊，这密铺式展示让我怎么评估？",
+          "agentRef": "a04",
+          "evidence": 3,
+          "journey": "在 /pricing 页面"
+        },
+        {
+          "id": "i02",
+          "title": "首屏看不到价格，要滚动才知道",
+          "severity": "med",
+          "category": "信息架构",
+          "quote": "往下滚动才能看到具体价格。Growth 和 Scale 的价格我还没看到。",
+          "agentRef": "a01",
+          "evidence": 1,
+          "journey": "刚进入页面时"
+        },
+        {
+          "id": "i05",
+          "title": "跟 HubSpot 卡片式定价比，可读性差太多",
+          "severity": "med",
+          "category": "与竞品对比",
+          "quote": "HubSpot 那种卡片式定价一眼就能看到重点，这个让我有点烦躁，开始体验很糟糕。",
+          "agentRef": "a03",
+          "evidence": 2,
+          "journey": "整体定价页浏览"
+        },
+        {
+          "id": "i08",
+          "title": "Contact sales按钮点完没任何反馈",
+          "severity": "med",
+          "category": "情感氛围",
+          "quote": "想联系销售问一下方案细节，结果按钮点了跟没点一样。",
+          "agentRef": "a04",
+          "evidence": 2,
+          "journey": "在首页点击Contact sales按钮"
+        }
+      ]
+    },
+    {
+      "fixtureId": "03-heavy-signup",
+      "runId": "run-001",
+      "runDir": "/Users/blink/project/product-predict/benchmark/runs/bench-002/per-fixture/03-heavy-signup/runs/run-001",
+      "durationSec": 214.648,
+      "agentCount": 4,
+      "ppIssues": [
+        {
+          "id": "i01",
+          "title": "进门就要填8个字段，还没看到产品价值在哪",
+          "severity": "high",
+          "category": "信息架构",
+          "quote": "我还没看到这产品是干嘛的呢，就要我这么多信息？这也太冒犯了吧。",
+          "agentRef": "a04",
+          "evidence": 3,
+          "journey": "进入注册页后翻上翻下全是表单字段"
+        },
+        {
+          "id": "i02",
+          "title": "电话和work email这种敏感字段让我本能抗拒",
+          "severity": "high",
+          "category": "情感氛围",
+          "quote": "我最烦注册时填手机号，十有八九是用来发广告的。工作邮箱更是莫名其妙，我用私人邮箱怎么了？",
+          "agentRef": "a04",
+          "evidence": 2,
+          "journey": "看到电话和Work email字段时"
+        },
+        {
+          "id": "i03",
+          "title": "空表单提交没有任何反馈，感觉产品不讲究细节",
+          "severity": "high",
+          "category": "流程顺畅",
+          "quote": "点了一下提交按钮，页面纹丝不动，连个错误提示都没有？这种交互让我很不爽。",
+          "agentRef": "a04",
+          "evidence": 1,
+          "journey": "点击注册按钮后空表单提交"
+        },
+        {
+          "id": "i04",
+          "title": "8个字段的注册表单，还没让我知道产品干嘛的",
+          "severity": "high",
+          "category": "流程顺畅",
+          "quote": "这个产品我还没搞清楚是干嘛的，就要我手机号？还非要验证？凭什么啊。",
+          "agentRef": "a01",
+          "evidence": 1,
+          "journey": "注册页面，从姓名填到手机号"
+        },
+        {
+          "id": "i05",
+          "title": "提交按钮点了两次完全没反应",
+          "severity": "high",
+          "category": "反馈缺失",
+          "quote": "提交了两次都没反应？表单字段这么多，Phone for verification感觉像在套我信息，提交还没反馈 — 直接关掉不玩了。",
+          "agentRef": "a01",
+          "evidence": 2,
+          "journey": "点击提交按钮之后"
+        },
+        {
+          "id": "i07",
+          "title": "提交按钮点了没反应，完全不知道发生了什么",
+          "severity": "high",
+          "category": "流程顺畅",
+          "quote": "点了提交但好像什么都没发生...页面没动，也没报错？我都点了好几次了。真实用户早就跑了。这体验完全不及格。",
+          "agentRef": "a03",
+          "evidence": 2,
+          "journey": "填完所有字段后点击提交按钮"
+        },
+        {
+          "id": "i08",
+          "title": "注册字段超多，表单太heavy了",
+          "severity": "high",
+          "category": "信息架构",
+          "quote": "字段真的好多啊...作为设计师我很想说这个表单太heavy了。",
+          "agentRef": "a03",
+          "evidence": 8,
+          "journey": "整个注册流程，从第一个字段填到密码"
+        },
+        {
+          "id": "i10",
+          "title": "表单填完点提交完全无响应",
+          "severity": "high",
+          "category": "流程顺畅",
+          "quote": "点了提交按钮，什么反应都没有。这页面是不是坏了？",
+          "agentRef": "a02",
+          "evidence": 3,
+          "journey": "填完8个字段后点击提交按钮"
+        },
+        {
+          "id": "i11",
+          "title": "字段太多，跟主流注册流程反着来",
+          "severity": "high",
+          "category": "流程顺畅",
+          "quote": "大多数SaaS只要邮箱和密码就能注册，这个也太多了。",
+          "agentRef": "a02",
+          "evidence": 1,
+          "journey": "填写表单过程中"
+        },
+        {
+          "id": "i06",
+          "title": "没有渐进式注册，信息收集节奏让人窒息",
+          "severity": "med",
+          "category": "信息架构",
+          "quote": "这种heavy signup本身就让我有点抵触。没有价值主张、没有节奏感，直接劝退。",
+          "agentRef": "a01",
+          "evidence": 1,
+          "journey": "整体注册流程设计"
+        },
+        {
+          "id": "i09",
+          "title": "表单填写过程中页面似乎有跳动，影响填表节奏",
+          "severity": "med",
+          "category": "视觉节奏",
+          "quote": "等等，页面好像动了？字段位置有点变化。表单有点卡？",
+          "agentRef": "a03",
+          "evidence": 1,
+          "journey": "选择公司规模时"
+        },
+        {
+          "id": "i12",
+          "title": "没有进度提示，填完感觉遥遥无期",
+          "severity": "med",
+          "category": "情感氛围",
+          "quote": "填完了一整页...8个字段，填完发现点不了提交，太打击人了。",
+          "agentRef": "a02",
+          "evidence": 1,
+          "journey": "填写完所有字段后"
+        }
+      ]
+    },
+    {
+      "fixtureId": "04-empty-dashboard",
+      "runId": "run-001",
+      "runDir": "/Users/blink/project/product-predict/benchmark/runs/bench-002/per-fixture/04-empty-dashboard/runs/run-001",
+      "durationSec": 81.758,
+      "agentCount": 4,
+      "ppIssues": [
+        {
+          "id": "i01",
+          "title": "session 超时机制打断了我这个潜在用户的探索节奏",
+          "severity": "high",
+          "category": "流程顺畅",
+          "quote": "我只是看了一眼，还没试任何功能就被结束了，这让我觉得这个工具不欢迎我探索。",
+          "agentRef": "a01",
+          "evidence": 1,
+          "journey": "进入页面后，我只做了一个观察 note，然后什么都没做就被强制退出了。"
+        },
+        {
+          "id": "i02",
+          "title": "空仪表盘没有任何可交互内容",
+          "severity": "high",
+          "category": "可访问性",
+          "quote": "导航点了也没反应？这比ClickUp差远了，ClickUp至少能快速跳转到任务列表。这个空仪表盘让我完全不知道该干什么。",
+          "agentRef": "a04",
+          "evidence": 1,
+          "journey": "进入空仪表盘页面后，点击左侧 Projects 链接"
+        },
+        {
+          "id": "i03",
+          "title": "缺少欢迎信息或快速上手引导",
+          "severity": "high",
+          "category": "流程顺畅",
+          "quote": "点击中间区域没反应...这是空仪表盘？Basecamp和ClickUp首次打开都有欢迎信息或快速上手引导，这个什么都没有。",
+          "agentRef": "a04",
+          "evidence": 1,
+          "journey": "首次进入空仪表盘页面时尝试点击中间主区域"
+        },
+        {
+          "id": "i04",
+          "title": "Help链接也是静态的，彻底没辙了",
+          "severity": "high",
+          "category": "与竞品对比",
+          "quote": "所有东西都点不动，这个\"空仪表盘\"就是个静态展示。21秒了，完全没有交互反馈。作为真实用户我早就关掉回ClickUp了。",
+          "agentRef": "a04",
+          "evidence": 1,
+          "journey": "尝试点击右下角 Help 链接"
+        },
+        {
+          "id": "i05",
+          "title": "页面是静态展示，所有交互都死掉了",
+          "severity": "high",
+          "category": "功能契合",
+          "quote": "这是静态的mockup？所有点击都没反应，我连想试试这个产品到底怎么样都做不到。",
+          "agentRef": "a02",
+          "evidence": 5,
+          "journey": "点击Projects导航 → 点击“+”按钮 → 尝试Quick Add区域"
+        },
+        {
+          "id": "i06",
+          "title": "作为一个想评估产品的用户，我只能看UI没法真正体验",
+          "severity": "high",
+          "category": "流程顺畅",
+          "quote": "本来想体验创建项目、加任务这些核心功能，结果连第一步都迈不出去。演示环境应该让我能走完一个基础流程吧。",
+          "agentRef": "a02",
+          "evidence": 3,
+          "journey": "进入empty dashboard后想创建第一个项目"
+        },
+        {
+          "id": "i07",
+          "title": "侧边栏点完右边什么内容都没有",
+          "severity": "high",
+          "category": "性能感知",
+          "quote": "每次截图看起来都是一样的，只有侧边栏在左边，中间空白什么都看不到。我不知道是没加载完还是这产品就这样设计的。",
+          "agentRef": "a03",
+          "evidence": 7,
+          "journey": "在左侧导航点击 Projects、Tasks 后，在右侧内容区等待观察"
+        },
+        {
+          "id": "i08",
+          "title": "不知道空白是bug还是我的问题",
+          "severity": "high",
+          "category": "情感氛围",
+          "quote": "我都不知道自己在看什么，感觉自己在用半成品。",
+          "agentRef": "a03",
+          "evidence": 5,
+          "journey": "多次点击导航和搜索框后截图对比，始终空白"
+        },
+        {
+          "id": "i09",
+          "title": "侧边栏项目太多有点被吓到",
+          "severity": "low",
+          "category": "信息架构",
+          "quote": "Projects, Tasks, Milestones, Sprints, Cycles, Goals, Reports, Team... 比 Asana 还多一个侧边栏。这么多选项我会不会找不到北？",
+          "agentRef": "a03",
+          "evidence": 1,
+          "journey": "初进页面扫视左侧导航"
+        }
+      ]
+    },
+    {
+      "fixtureId": "05-modal-trap",
+      "runId": "run-001",
+      "runDir": "/Users/blink/project/product-predict/benchmark/runs/bench-002/per-fixture/05-modal-trap/runs/run-001",
+      "durationSec": 185.816,
+      "agentCount": 4,
+      "ppIssues": [
+        {
+          "id": "i01",
+          "title": "按钮点击零反馈，严重挫败感",
+          "severity": "high",
+          "category": "流程顺畅",
+          "quote": "连Next按钮点完都没动静？我还以为网卡了。刷新了一下还是老样子，这交互谁敢往下走。",
+          "agentRef": "a04",
+          "evidence": 2,
+          "journey": "在欢迎向导输入团队名称后，点击Next继续"
+        },
+        {
+          "id": "i02",
+          "title": "Learn more也是死链接，信任崩塌",
+          "severity": "high",
+          "category": "可访问性",
+          "quote": "本来想点Learn more看看有没有帮助文档，结果也是点不动。企业级产品不该有这种低级问题。",
+          "agentRef": "a04",
+          "evidence": 1,
+          "journey": "在等待Next无响应后，尝试点击Learn more按钮"
+        },
+        {
+          "id": "i04",
+          "title": "进来发现页面没反应，第一反应是网站坏了",
+          "severity": "high",
+          "category": "情感氛围",
+          "quote": "点击了Next但页面完全没变化...这个体验感觉很奇怪，感觉点击没有响应",
+          "agentRef": "a03",
+          "evidence": 3,
+          "journey": "在输入团队名称后点击Next按钮时"
+        },
+        {
+          "id": "i08",
+          "title": "onboarding 做完之后被困在 modal 里出不来",
+          "severity": "high",
+          "category": "流程顺畅",
+          "quote": "完成了 onboarding 流程之后被困在 modal 里了！close 按钮点了没用，滚动也看不到内容，根本不知道这个产品到底是干嘛的。这太让人沮丧了——连产品都看不到就要被困住，真实用户早就跑了。",
+          "agentRef": "a01",
+          "evidence": 4,
+          "journey": "完成 onboarding 最后一步之后，页面弹出一个无法关闭的 modal"
+        },
+        {
+          "id": "i03",
+          "title": "错误提示太技术化，普通人看不懂",
+          "severity": "med",
+          "category": "表达文案",
+          "quote": "'expected number, got undefined'——这是什么？程序员日志吧。真实用户看到这种提示只会更懵。",
+          "agentRef": "a04",
+          "evidence": 1,
+          "journey": "控制台或页面出现的错误信息"
+        },
+        {
+          "id": "i05",
+          "title": "弹窗演示设计虽然聪明，但真实用户会直接关掉",
+          "severity": "med",
+          "category": "流程顺畅",
+          "quote": "作为真实新用户，我刚进来时真的会觉得这个网站坏了或者卡了，然后直接关掉",
+          "agentRef": "a03",
+          "evidence": 1,
+          "journey": "刚进入localhost时看到弹窗遮罩"
+        },
+        {
+          "id": "i06",
+          "title": "填完表单后没有后续引导，不知道这个工具是做什么的",
+          "severity": "med",
+          "category": "情感氛围",
+          "quote": "然后呢？我设好了团队，接下来能干嘛？这页面要是不刷新我都不知道成功了。",
+          "agentRef": "a02",
+          "evidence": 1,
+          "journey": "点击完成按钮后，页面状态不明确，没有清晰的下一步引导"
+        },
+        {
+          "id": "i09",
+          "title": "onboarding 步骤太多，每一步都问真实数据",
+          "severity": "med",
+          "category": "流程顺畅",
+          "quote": "Slack workspace URL？这也太多了吧。我知道他们想要信息做 setup，但要我输入真实的 Slack URL，感觉这个 onboarding 会没完没了。",
+          "agentRef": "a01",
+          "evidence": 2,
+          "journey": "填到 Slack URL 这一步时开始产生犹豫"
+        },
+        {
+          "id": "i07",
+          "title": "Slack URL 输入框没有即时反馈，不知道填对了没有",
+          "severity": "low",
+          "category": "流程顺畅",
+          "quote": "我填了个 frontend-team.slack.com，也没人告诉我这是对是错。等提交再看吧。",
+          "agentRef": "a02",
+          "evidence": 1,
+          "journey": "填写 Slack 工作区 URL 这一步"
+        }
+      ]
+    },
+    {
+      "fixtureId": "06-silent-form",
+      "runId": "run-001",
+      "runDir": "/Users/blink/project/product-predict/benchmark/runs/bench-002/per-fixture/06-silent-form/runs/run-001",
+      "durationSec": 161.344,
+      "agentCount": 4,
+      "ppIssues": [
+        {
+          "id": "i01",
+          "title": "提交后零反馈，我完全不知道发生了什么",
+          "severity": "high",
+          "category": "流程顺畅",
+          "quote": "点了 Submit 但是页面完全没反应。没有 loading，没有 success 提示，什么都没有。彻底懵逼，不知道是成功了、失败了还是卡住了。",
+          "agentRef": "a03",
+          "evidence": 3,
+          "journey": "在表单页点击提交按钮后"
+        },
+        {
+          "id": "i04",
+          "title": "看不到价格，勾起我被SaaS套路过的心理阴影",
+          "severity": "high",
+          "category": "信息架构",
+          "quote": "我最关心价格，以前被那个SaaS订阅费套路过，得先搞清楚收费模式。结果连Pricing在哪都找不到，导航栏全是摆设。",
+          "agentRef": "a02",
+          "evidence": 2,
+          "journey": "进入页面后第一个念头就是想找Pricing，想确认有没有免费套餐或者隐藏费用"
+        },
+        {
+          "id": "i05",
+          "title": "导航栏全部点不动，感觉这是半成品",
+          "severity": "high",
+          "category": "功能契合",
+          "quote": "Product也没反应？导航栏全是摆设？这个网站感觉像是半成品。",
+          "agentRef": "a02",
+          "evidence": 4,
+          "journey": "依次点击 Product、Docs、Pricing、Sign in，全部没有反应"
+        },
+        {
+          "id": "i07",
+          "title": "提交表单后零反馈，用户不知道发生了什么",
+          "severity": "high",
+          "category": "流程顺畅",
+          "quote": "点了提交，页面没动，然后呢？我连消息到底发没发出去都不知道。",
+          "agentRef": "a01",
+          "evidence": 2,
+          "journey": "在表单填写完成后点击提交按钮"
+        },
+        {
+          "id": "i09",
+          "title": "表单提交后静默无反馈，让人极度焦虑",
+          "severity": "high",
+          "category": "流程顺畅",
+          "quote": "点了提交，但好像什么都没发生...这是提交成功了还是失败了？有点让人摸不着头脑。这也太奇怪了！点了两遍提交，页面一点变化都没有。",
+          "agentRef": "a04",
+          "evidence": 2,
+          "journey": "填写完联系表单，点击Submit按钮后"
+        },
+        {
+          "id": "i02",
+          "title": "Tab 顺序和字段对不上，看着很乱",
+          "severity": "med",
+          "category": "流程顺畅",
+          "quote": "表单字段好像跑位了，email 显示了公司名，Tab 顺序有点怪。",
+          "agentRef": "a03",
+          "evidence": 2,
+          "journey": "填完名字按 Tab 跳到姓氏时"
+        },
+        {
+          "id": "i03",
+          "title": "「静默」过头了，安全感全无",
+          "severity": "med",
+          "category": "情感氛围",
+          "quote": "用户肯定不会再试第二次了，这破表单谁爱填谁填。",
+          "agentRef": "a03",
+          "evidence": 2,
+          "journey": "等了几秒没反应后"
+        },
+        {
+          "id": "i06",
+          "title": "表单字段有bug，打字打不进去",
+          "severity": "med",
+          "category": "流程顺畅",
+          "quote": "姓名字段填了'磊'，但姓氏字段按Tab后无法输入。表单本身也有问题。",
+          "agentRef": "a02",
+          "evidence": 1,
+          "journey": "尝试填写联系表单，姓名和姓氏字段之间的Tab切换"
+        },
+        {
+          "id": "i08",
+          "title": "'Silent form' 这个命名让用户误以为功能失效了",
+          "severity": "med",
+          "category": "表达文案",
+          "quote": "我以为 silent 是 bug，结果它是个技术术语？可普通用户哪知道 AJAX 啊，我只知道点完没反应就是坏了。",
+          "agentRef": "a01",
+          "evidence": 1,
+          "journey": "页面加载时看到 URL 包含 'silent-form'"
+        },
+        {
+          "id": "i10",
+          "title": "导航栏全部不可用，像半成品demo",
+          "severity": "med",
+          "category": "信息架构",
+          "quote": "导航栏一个都不工作！Product、Docs、Pricing、Sign in全部没反应...这个页面看起来像是个demo，半成品的感觉。",
+          "agentRef": "a04",
+          "evidence": 3,
+          "journey": "点击导航栏各选项时"
+        }
+      ]
+    },
+    {
+      "fixtureId": "07-lost-search",
+      "runId": "run-001",
+      "runDir": "/Users/blink/project/product-predict/benchmark/runs/bench-002/per-fixture/07-lost-search/runs/run-001",
+      "durationSec": 95.201,
+      "agentCount": 4,
+      "ppIssues": [
+        {
+          "id": "i01",
+          "title": "搜索按回车完全没反应，感觉是假搜索框",
+          "severity": "high",
+          "category": "功能契合",
+          "quote": "按了回车什么也没发生，搜索结果完全没有出来。这搜索功能是不是坏了？还是说需要等一下？感觉像是假搜索框。",
+          "agentRef": "a01-1",
+          "evidence": 1,
+          "journey": "在页面顶部的搜索框输入 'authentication' 并按 Enter 后"
+        },
+        {
+          "id": "i04",
+          "title": "搜索框输入回车后页面没有任何响应，疑似功能挂掉",
+          "severity": "high",
+          "category": "功能契合",
+          "quote": "搜索没反应，试试点击 Guides 导航看看内容",
+          "agentRef": "a02",
+          "evidence": 1,
+          "journey": "在首页搜索框输入 quickstart 按回车"
+        },
+        {
+          "id": "i05",
+          "title": "导航栏所有链接点击后完全没变化，像是死链接",
+          "severity": "high",
+          "category": "功能契合",
+          "quote": "Guides也没反应，试试Docs",
+          "agentRef": "a02",
+          "evidence": 4,
+          "journey": "依次点击顶部导航 Docs/Guides/API/Community/Changelog"
+        },
+        {
+          "id": "i06",
+          "title": "过滤按钮 All/Guides/API/Account 点击无反应",
+          "severity": "high",
+          "category": "功能契合",
+          "quote": "试试这个过滤按钮有没有用",
+          "agentRef": "a02",
+          "evidence": 1,
+          "journey": "点击过滤区域 All/Guides/API/Account 按钮"
+        },
+        {
+          "id": "i07",
+          "title": "所有交互都像死机了一样，完全不可用",
+          "severity": "high",
+          "category": "功能契合",
+          "quote": "按了回车但什么都没发生？这搜索是实时的吗？",
+          "agentRef": "a03",
+          "evidence": 3,
+          "journey": "在搜索框输入 authentication 后按回车"
+        },
+        {
+          "id": "i08",
+          "title": "这页面像个壳子，点击全打水漂",
+          "severity": "high",
+          "category": "情感氛围",
+          "quote": "整个搜索功能完全坏了吧？按钮点不动、导航也点不动，这页面是个壳？",
+          "agentRef": "a03",
+          "evidence": 3,
+          "journey": "依次尝试 Guides 分类过滤和顶部 Docs 导航"
+        },
+        {
+          "id": "i10",
+          "title": "搜索功能完全失效，文档站点的命根子断了",
+          "severity": "high",
+          "category": "功能契合",
+          "quote": "我输入了 authentication 按回车，什么都没发生，连个 loading 都没有，这不对劲啊？",
+          "agentRef": "a01-2",
+          "evidence": 3,
+          "journey": "在搜索框输入查询词后按回车"
+        },
+        {
+          "id": "i02",
+          "title": "没有任何加载反馈，不知道是在等还是坏了",
+          "severity": "med",
+          "category": "性能感知",
+          "quote": "输入了内容但没有看到搜索结果出现...是在等回车吗？",
+          "agentRef": "a01-1",
+          "evidence": 1,
+          "journey": "输入框输入内容后等待搜索结果出现的过程中"
+        },
+        {
+          "id": "i03",
+          "title": "分类切换按钮没给实际内容，只是轻微变化",
+          "severity": "med",
+          "category": "流程顺畅",
+          "quote": "点击了 Guides 按钮，页面底部多了一个 Privacy 链接，但搜索框还是原样，搜索结果在哪？这个搜索功能完全无响应啊。",
+          "agentRef": "a01-1",
+          "evidence": 1,
+          "journey": "点击导航栏的 Guides 分类按钮后"
+        },
+        {
+          "id": "i09",
+          "title": "连我最基本的搜索意图都没机会验证",
+          "severity": "med",
+          "category": "流程顺畅",
+          "quote": "我只是想搜个东西，看看有没有相关内容，就这么简单的事情都不行？",
+          "agentRef": "a03",
+          "evidence": 1,
+          "journey": "进入页面后立即进行搜索操作的完整路径"
+        },
+        {
+          "id": "i11",
+          "title": "导航按钮点击后看不出页面有什么变化",
+          "severity": "med",
+          "category": "反馈感知",
+          "quote": "我点了 Guides，底下链接位置动了动，但我不知道到底切没切换成功，这让我很没底。",
+          "agentRef": "a01-2",
+          "evidence": 1,
+          "journey": "点击顶部导航的 Guides 后"
+        }
+      ]
+    },
+    {
+      "fixtureId": "08-stuck-wizard",
+      "runId": "run-001",
+      "runDir": "/Users/blink/project/product-predict/benchmark/runs/bench-002/per-fixture/08-stuck-wizard/runs/run-001",
+      "durationSec": 246.256,
+      "agentCount": 4,
+      "ppIssues": [
+        {
+          "id": "i01",
+          "title": "第一步输入框完全没提示",
+          "severity": "high",
+          "category": "学习成本",
+          "quote": "输入框+Next按钮，完了？连个提示都没有？我又不是读心大师，谁知道要填什么！",
+          "agentRef": "a03",
+          "evidence": 2,
+          "journey": "进入第一步页面"
+        },
+        {
+          "id": "i02",
+          "title": "第二步复选框全是裸元素",
+          "severity": "high",
+          "category": "信息架构",
+          "quote": "5个复选框全选中了？但这选项是啥啊？？一个文字说明都没有，我连自己在选什么都不知道。",
+          "agentRef": "a03",
+          "evidence": 2,
+          "journey": "点击Next进入第二步"
+        },
+        {
+          "id": "i04",
+          "title": "5个checkbox没有任何文字说明，不知道是什么选项",
+          "severity": "high",
+          "category": "信息架构",
+          "quote": "出现了5个checkbox，但没有任何文字说明每个是什么选项。感觉莫名其妙，不知道该选什么。",
+          "agentRef": "a04",
+          "evidence": 1,
+          "journey": "在点击Next后出现的checkbox选择页面"
+        },
+        {
+          "id": "i06",
+          "title": "没有任何引导，不知道这个工具是做什么的",
+          "severity": "high",
+          "category": "学习成本",
+          "quote": "页面完全没有说明，不知道这个工具是做什么的，也没有任何引导。作为真实用户，我找不到继续使用的理由。",
+          "agentRef": "a04",
+          "evidence": 3,
+          "journey": "整个使用过程"
+        },
+        {
+          "id": "i09",
+          "title": "期望是拖拽建仪表盘，结果让我写SQL",
+          "severity": "high",
+          "category": "功能契合",
+          "quote": "我就是想看看能不能快速生成一个销售仪表盘，结果被引导到写 SQL。这到底是 BI 工具还是 SQL 客户端啊？",
+          "agentRef": "a02",
+          "evidence": 4,
+          "journey": "输入 sales dashboard query 后被展示数据库连接表单"
+        },
+        {
+          "id": "i10",
+          "title": "入口和实际功能完全对不上",
+          "severity": "high",
+          "category": "信息架构",
+          "quote": "我以为输入 'sales dashboard' 之后会得到一个现成的仪表盘，或者至少能看到一些推荐的可视化模板。",
+          "agentRef": "a02",
+          "evidence": 3,
+          "journey": "第一步引导输入查询，第二步跳到数据库连接表单"
+        },
+        {
+          "id": "i03",
+          "title": "和现代工具的引导体验差太远",
+          "severity": "med",
+          "category": "与竞品对比",
+          "quote": "跟现在那些流畅的界面差太多了。用惯了Hootsuite那种有清晰指引的工具，这种'裸奔'界面完全没法用。",
+          "agentRef": "a03",
+          "evidence": 1,
+          "journey": "整体体验"
+        },
+        {
+          "id": "i05",
+          "title": "点击checkbox完全没有任何反馈，不知道有没有选成功",
+          "severity": "med",
+          "category": "功能契合",
+          "quote": "点击了第一个checkbox没有任何反应，页面上也没有任何说明。这完全不知道在做什么。",
+          "agentRef": "a04",
+          "evidence": 1,
+          "journey": "尝试点击第一个checkbox"
+        },
+        {
+          "id": "i07",
+          "title": "错误提示是技术语言，看不懂",
+          "severity": "med",
+          "category": "表达文案",
+          "quote": "expected number, got undefined — 这是啥？我是不是做错什么了？要不要重填？",
+          "agentRef": "a01",
+          "evidence": 4,
+          "journey": "在向导的多个步骤点击Next时"
+        },
+        {
+          "id": "i11",
+          "title": "跟Tableau比，这个流程反人类",
+          "severity": "med",
+          "category": "与竞品对比",
+          "quote": "Tableau 会先让你连接数据源，然后图形化地拖拽字段。这个向导倒好，让我直接写原始 SQL query。",
+          "agentRef": "a02",
+          "evidence": 2,
+          "journey": "填写数据库连接信息阶段"
+        },
+        {
+          "id": "i08",
+          "title": "下拉选择后没反应，以为没选上",
+          "severity": "low",
+          "category": "反馈感知",
+          "quote": "我选了storage tier，但没看到明显反馈，不知道选没选成功",
+          "agentRef": "a01",
+          "evidence": 1,
+          "journey": "点击下拉框并选择选项后"
+        }
+      ]
+    },
+    {
+      "fixtureId": "09-fixed-template",
+      "runId": "run-001",
+      "runDir": "/Users/blink/project/product-predict/benchmark/runs/bench-002/per-fixture/09-fixed-template/runs/run-001",
+      "durationSec": 119.26,
+      "agentCount": 4,
+      "ppIssues": [
+        {
+          "id": "i01",
+          "title": "导航栏完全失效，点击任何按钮都没反应",
+          "severity": "high",
+          "category": "功能契合",
+          "quote": "New note、All notes、Recent、Trash点了四次，一个都没反应。这让我觉得这整个应用就是摆设。",
+          "agentRef": "a02",
+          "evidence": 4,
+          "journey": "在左侧导航栏尝试切换页面时"
+        },
+        {
+          "id": "i04",
+          "title": "左侧导航栏点击完全没响应",
+          "severity": "high",
+          "category": "交互流畅",
+          "quote": "所有左侧导航按钮点了个遍都没反应…这是半成品吗？感觉交互完全没做好。有点沮丧了。",
+          "agentRef": "a01-2",
+          "evidence": 4,
+          "journey": "在主界面左侧导航区域尝试点击 New note、All notes、Recent、Trash"
+        },
+        {
+          "id": "i05",
+          "title": "Apply Template 按钮点击无反应",
+          "severity": "high",
+          "category": "功能契合",
+          "quote": "我以为点 Apply Template 能应用模板，但点完没有任何反应。",
+          "agentRef": "a01-2",
+          "evidence": 1,
+          "journey": "在模板预览弹窗中点击 Apply Template 按钮"
+        },
+        {
+          "id": "i07",
+          "title": "New note按钮点了两次没反应",
+          "severity": "high",
+          "category": "功能契合",
+          "quote": "New note 按钮点了两次没反应，感觉这功能可能是摆设？有点扫兴。",
+          "agentRef": "a01-1",
+          "evidence": 2,
+          "journey": "在侧边栏点击 '+ New note' 按钮"
+        },
+        {
+          "id": "i08",
+          "title": "主要导航按钮点了几下都没反应，不知道是自己不会用还是坏了",
+          "severity": "high",
+          "category": "流程顺畅",
+          "quote": "点了几次 New note、All notes、Recent 都没反应，页面一直停在模板那里，我开始怀疑是不是我操作有问题...",
+          "agentRef": "a03",
+          "evidence": 4,
+          "journey": "在首页看到新建笔记按钮，点了一下没反应，又点了 All notes 切换视图，还是没反应"
+        },
+        {
+          "id": "i09",
+          "title": "找不到自己的笔记在哪里，12条笔记像是隐形了",
+          "severity": "high",
+          "category": "信息架构",
+          "quote": "说好的12条笔记呢？我怎么还在看模板页面？切换到笔记列表的入口到底在哪？",
+          "agentRef": "a03",
+          "evidence": 3,
+          "journey": "点击 All notes 按钮想看已有笔记列表，页面没有切换到笔记视图"
+        },
+        {
+          "id": "i02",
+          "title": "交互逻辑让人困惑，不知道导航和主区域的关系",
+          "severity": "med",
+          "category": "信息架构",
+          "quote": "我点了 All notes，但页面还是模板页面。左侧导航到底是全局导航还是局部操作？这UI逻辑让我摸不着头脑。",
+          "agentRef": "a02",
+          "evidence": 2,
+          "journey": "尝试用导航切换到笔记列表时"
+        },
+        {
+          "id": "i03",
+          "title": "点击模板时出现代码错误",
+          "severity": "med",
+          "category": "性能感知",
+          "quote": "expected number, got undefined——这是什么意思？我只是点了关闭按钮，怎么跑出来编程错误了？",
+          "agentRef": "a02",
+          "evidence": 1,
+          "journey": "关闭预览面板时"
+        },
+        {
+          "id": "i06",
+          "title": "产品定位不清晰，看不到核心价值",
+          "severity": "med",
+          "category": "信息架构",
+          "quote": "我需要知道它的核心价值主张。这是模板管理系统？但我看不清卡片上的内容细节，也不知道它能解决什么问题。作为产品经理，我先想知道它为什么存在。",
+          "agentRef": "a01-2",
+          "evidence": 1,
+          "journey": "在主界面浏览模板卡片时"
+        },
+        {
+          "id": "i10",
+          "title": "模板优先的设计不符合我'随手记'的核心场景",
+          "severity": "med",
+          "category": "功能契合",
+          "quote": "打开 App 应该是随时能写，而不是先让我挑模板。我要快速记灵感，不是做 PPT 计划。",
+          "agentRef": "a03",
+          "evidence": 1,
+          "journey": "首页直接展示模板库，没有看到快速新建空白笔记的入口"
+        }
+      ]
+    },
+    {
+      "fixtureId": "10-buried-export",
+      "runId": "run-001",
+      "runDir": "/Users/blink/project/product-predict/benchmark/runs/bench-002/per-fixture/10-buried-export/runs/run-001",
+      "durationSec": 122.546,
+      "agentCount": 4,
+      "ppIssues": [
+        {
+          "id": "i01",
+          "title": "整个页面几乎没任何可点击响应的元素",
+          "severity": "high",
+          "category": "可访问性",
+          "quote": "点了好几次导航栏都没反应，不知道是不是页面问题还是我操作方式不对。顶部这些按钮看起来是静态的，没有交互反馈。",
+          "agentRef": "a04",
+          "evidence": 8,
+          "journey": "进入页面后依次尝试点击顶部导航、时间筛选、维度筛选、按钮等所有可交互元素"
+        },
+        {
+          "id": "i02",
+          "title": "我是来看数据导出功能的，页面完全没让我摸到门",
+          "severity": "high",
+          "category": "功能契合",
+          "quote": "作为财务经理，我关心的是数据能不能导出、报表能不能生成，这破页面啥都干不了，还看什么看。",
+          "agentRef": "a04",
+          "evidence": 3,
+          "journey": "带着找数据导出/报表生成的目的进入页面，但没有任何路径能到达相关功能"
+        },
+        {
+          "id": "i04",
+          "title": "导航栏点击完全没反应，基本可用性都成问题",
+          "severity": "high",
+          "category": "可访问性",
+          "quote": "Dashboards/Reports/Alerts/Audiences/Settings全点了一遍，URL都没变。这产品连基本导航都有问题。",
+          "agentRef": "a03",
+          "evidence": 5,
+          "journey": "在Dashboard主界面尝试使用顶部导航栏切换模块"
+        },
+        {
+          "id": "i05",
+          "title": "导出功能找不到，一键导出需求完全没被满足",
+          "severity": "high",
+          "category": "功能契合",
+          "quote": "导出功能在哪？花了两分钟什么都找不到，我直接关掉算了。",
+          "agentRef": "a03",
+          "evidence": 1,
+          "journey": "在Dashboard页面寻找导出入口，尝试点击Settings、各种图表都没找到"
+        },
+        {
+          "id": "i06",
+          "title": "跟之前试的Looker一样让人烦躁",
+          "severity": "high",
+          "category": "与竞品对比",
+          "quote": "这体验比Looker还差，Looker至少能点到页面。这个产品功能有但藏得让人烦躁。",
+          "agentRef": "a03",
+          "evidence": 2,
+          "journey": "整个使用过程中与之前用过的Looker进行对比"
+        },
+        {
+          "id": "i07",
+          "title": "标题写着 export，结果翻遍页面找不到导出功能在哪",
+          "severity": "high",
+          "category": "功能契合",
+          "quote": "标题写'buried-export'，暗示有导出功能，但我翻了整个页面都没找到。这不是骗人吗？",
+          "agentRef": "a01",
+          "evidence": 4,
+          "journey": "进入页面 → 找不到导出入口 → 怀疑产品是半成品"
+        },
+        {
+          "id": "i08",
+          "title": "导航栏大部分点击没反应，好像都是装饰性的",
+          "severity": "high",
+          "category": "信息架构",
+          "quote": "点了Reports、Date Range好几个地方都没反应，这种交互让我觉得这页面根本没做完。",
+          "agentRef": "a01",
+          "evidence": 5,
+          "journey": "顶部导航Reports → 无响应 → 侧边导航试了几个 → 全部无响应 → 只发现Settings能用"
+        },
+        {
+          "id": "i09",
+          "title": "核心图表是个OSS图片链接，根本不是可交互的数据图表",
+          "severity": "high",
+          "category": "功能契合",
+          "quote": "我每天用Tableau做报表，这个'图表'就一张图片，连数据点都点不了，算什么数据平台？",
+          "agentRef": "a01",
+          "evidence": 1,
+          "journey": "页面底部看到一个图表区域 → 发现是图片链接 → 感觉被骗了"
+        },
+        {
+          "id": "i11",
+          "title": "页面加载后核心内容区域完全空白",
+          "severity": "high",
+          "category": "视觉节奏",
+          "quote": "刷新也没反应...我已经花了一分钟在这个页面上，看到的全是顶部导航栏和一堆筛选器按钮，没有任何实质数据内容。作为一个数据分析平台，这种'空白'状态让我完全提不起兴趣。",
+          "agentRef": "a02",
+          "evidence": 1,
+          "journey": "刚进入页面时"
+        },
+        {
+          "id": "i12",
+          "title": "导航菜单点击后没有任何响应",
+          "severity": "high",
+          "category": "功能契合",
+          "quote": "我点了Reports、点了Dashboard、点了各种菜单，页面完全没有变化...这是坏掉了吗？",
+          "agentRef": "a02",
+          "evidence": 4,
+          "journey": "尝试点击顶部导航栏的各个菜单项"
+        },
+        {
+          "id": "i13",
+          "title": "时间范围和筛选器操作没有效果",
+          "severity": "high",
+          "category": "流程顺畅",
+          "quote": "试了切换不同时间范围，下拉筛选器也点了，但页面完全没有变化。",
+          "agentRef": "a02",
+          "evidence": 2,
+          "journey": "尝试使用时间筛选器和细分市场筛选器"
+        },
+        {
+          "id": "i03",
+          "title": "Settings弹个空弹窗就结束了，没有任何实际配置内容",
+          "severity": "med",
+          "category": "流程顺畅",
+          "quote": "关闭这个弹窗",
+          "agentRef": "a04",
+          "evidence": 1,
+          "journey": "Settings页面"
+        },
+        {
+          "id": "i10",
+          "title": "筛选器改了也不刷新图表，交互反馈缺失",
+          "severity": "med",
+          "category": "流程顺畅",
+          "quote": "切换日期范围、选Web细分，点了都没任何反馈，不知道筛选器到底有没有生效。",
+          "agentRef": "a01",
+          "evidence": 2,
+          "journey": "点击日期范围 → 无变化 → 点击细分下拉框 → 无变化"
+        }
+      ]
+    },
+    {
+      "fixtureId": "11-modal-modal",
+      "runId": "run-001",
+      "runDir": "/Users/blink/project/product-predict/benchmark/runs/bench-002/per-fixture/11-modal-modal/runs/run-001",
+      "durationSec": 121.012,
+      "agentCount": 4,
+      "ppIssues": [
+        {
+          "id": "i01",
+          "title": "步数限制让我还没体验核心功能就被强制下线",
+          "severity": "high",
+          "category": "流程顺畅",
+          "quote": "什么？步数用完了？我刚点了个同意弹窗，连主界面都没见到啊",
+          "agentRef": "a01",
+          "evidence": 1,
+          "journey": "在进入页面后的第一个交互弹窗处"
+        },
+        {
+          "id": "i02",
+          "title": "导航栏完全点不动，核心功能一个都不工作",
+          "severity": "high",
+          "category": "功能契合",
+          "quote": "导航栏全都没反应……这个app感觉是个半成品，弹窗倒是很多，但真正想用的功能都不工作。算了，没意思。",
+          "agentRef": "a04",
+          "evidence": 5,
+          "journey": "关掉所有弹窗后，想探索Library、Highlights、Discover页面"
+        },
+        {
+          "id": "i03",
+          "title": "打开app就被各种弹窗轰炸，体验很pushy",
+          "severity": "high",
+          "category": "情感氛围",
+          "quote": "又来一个弹窗！刚同意完条款就弹订阅框，这个频率有点烦人啊。",
+          "agentRef": "a04",
+          "evidence": 3,
+          "journey": "首次进入app后连续遇到条款弹窗、订阅弹窗、升级弹窗"
+        },
+        {
+          "id": "i05",
+          "title": "主导航 Tab 全部无响应，完全阻断探索",
+          "severity": "high",
+          "category": "功能契合",
+          "quote": "点了 Library、Highlights、Settings 都没反应，这页面是死的吧？",
+          "agentRef": "a02",
+          "evidence": 4,
+          "journey": "进入首页后，依次点击 Library、Highlights、Settings Tab"
+        },
+        {
+          "id": "i07",
+          "title": "导航栏点哪个都没反应，核心功能全挂了",
+          "severity": "high",
+          "category": "功能契合",
+          "quote": "导航栏点击什么都没反应，页面完全没有变化。这产品看起来只是个静态展示，根本不能正常使用。",
+          "agentRef": "a03",
+          "evidence": 5,
+          "journey": "关掉所有弹窗后进入Library查看书籍"
+        },
+        {
+          "id": "i04",
+          "title": "Library功能点击没反应",
+          "severity": "med",
+          "category": "功能契合",
+          "quote": "点击Library好像没反应？让我试试Highlights。",
+          "agentRef": "a04",
+          "evidence": 1,
+          "journey": "在Library导航项上点击"
+        },
+        {
+          "id": "i06",
+          "title": "注册弹窗太早出现，增加挫败感",
+          "severity": "med",
+          "category": "流程顺畅",
+          "quote": "刚进来还没看明白是什么就要我注册，有点 pushy",
+          "agentRef": "a02",
+          "evidence": 1,
+          "journey": "进入首页后立即出现 signup modal"
+        },
+        {
+          "id": "i08",
+          "title": "弹窗一个接一个，还没看清内容就被打断",
+          "severity": "med",
+          "category": "流程顺畅",
+          "quote": "刚关掉cookie弹窗，又来一个订阅框？让我留邮箱？这也太急了吧，感觉在逼我注册。",
+          "agentRef": "a03",
+          "evidence": 3,
+          "journey": "进入页面后连续出现cookie弹窗、订阅弹窗、付费弹窗"
+        },
+        {
+          "id": "i09",
+          "title": "主界面只有一张大图，看不出这是个什么应用",
+          "severity": "low",
+          "category": "信息架构",
+          "quote": "看起来是个阅读或发现类的应用，但就是一张图，内容都藏在弹窗后面。",
+          "agentRef": "a03",
+          "evidence": 1,
+          "journey": "所有弹窗关闭后的主界面"
+        }
+      ]
+    },
+    {
+      "fixtureId": "12-noisy-notifs",
+      "runId": "run-001",
+      "runDir": "/Users/blink/project/product-predict/benchmark/runs/bench-002/per-fixture/12-noisy-notifs/runs/run-001",
+      "durationSec": 209.647,
+      "agentCount": 4,
+      "ppIssues": [
+        {
+          "id": "i01",
+          "title": "想用但还没用上就被打断了",
+          "severity": "high",
+          "category": "流程顺畅",
+          "quote": "我还没点进去看任何具体功能，就在主页滚了半天，结果就超时了——好没劲啊，感觉自己白逛了",
+          "agentRef": "a02",
+          "evidence": 1,
+          "journey": "在首页不断滚动查看产品介绍内容"
+        },
+        {
+          "id": "i03",
+          "title": "搜索形同虚设，输入关键词完全不生效",
+          "severity": "high",
+          "category": "功能契合",
+          "quote": "我输完product按了Enter又点搜索按钮，列表纹丝不动，这搜索是摆设吧？",
+          "agentRef": "a01",
+          "evidence": 3,
+          "journey": "在通知列表页顶部尝试用关键词过滤通知"
+        },
+        {
+          "id": "i06",
+          "title": "产品定位模糊，不知道它装在哪里",
+          "severity": "high",
+          "category": "信息架构",
+          "quote": "这是干什么的？是给我配置自己的通知规则，还是在展示噪音通知的问题？我还是不清楚它是独立的App还是集成在我现有的钉钉上。",
+          "agentRef": "a03",
+          "evidence": 3,
+          "journey": "刚进入页面时，没有清晰的说明这是什么产品、安装在哪里、和现有工具的关系"
+        },
+        {
+          "id": "i08",
+          "title": "价值主张不清晰，没有让我觉得非用它不可的理由",
+          "severity": "high",
+          "category": "功能契合",
+          "quote": "为什么要再多一个通知聚合工具？页面上的通知本身就很杂乱，加了分类标签也没让我觉得变安静了。",
+          "agentRef": "a03",
+          "evidence": 2,
+          "journey": "浏览完整个页面后"
+        },
+        {
+          "id": "i02",
+          "title": "首页展示不够让我立刻想行动",
+          "severity": "med",
+          "category": "视觉节奏",
+          "quote": "看完介绍我还在犹豫要不要登录试试，感觉信息有点多，我不太确定这个digest会给我带来什么具体价值",
+          "agentRef": "a02",
+          "evidence": 1,
+          "journey": "滚动浏览完整个首页后停留在底部"
+        },
+        {
+          "id": "i04",
+          "title": "Filter按钮点了没反应，不知道能怎么筛选",
+          "severity": "med",
+          "category": "可访问性",
+          "quote": "点了好几次Filter什么都没出来，我都不知道这个产品支持什么过滤维度",
+          "agentRef": "a01",
+          "evidence": 3,
+          "journey": "尝试点击Filter按钮查看过滤选项"
+        },
+        {
+          "id": "i05",
+          "title": "没有协作相关功能，PM用不了",
+          "severity": "med",
+          "category": "功能契合",
+          "quote": "我团队8个人，这种纯个人收件箱工具没法用，我们得知道谁读了谁没读",
+          "agentRef": "a01",
+          "evidence": 1,
+          "journey": "整体评估这个工具能否融入日常工作流"
+        },
+        {
+          "id": "i07",
+          "title": "Mentions标签点击没反应，体验断点",
+          "severity": "med",
+          "category": "流程顺畅",
+          "quote": "点击了Mentions标签，但好像没选中。可能Mentions是空的？还是点击没反应。",
+          "agentRef": "a03",
+          "evidence": 1,
+          "journey": "在顶部分类标签区域点击Mentions"
+        },
+        {
+          "id": "i09",
+          "title": "AI功能要付费，还没感受到价值就先看到门槛",
+          "severity": "med",
+          "category": "情感氛围",
+          "quote": "有个Try our AI summary feature，旁边有锁的图标。看个功能介绍还要付费，让我有点抵触。",
+          "agentRef": "a03",
+          "evidence": 1,
+          "journey": "看到页面下方的AI summary功能提示"
+        }
+      ]
+    },
+    {
+      "fixtureId": "13-mobile-broken",
+      "runId": "run-001",
+      "runDir": "/Users/blink/project/product-predict/benchmark/runs/bench-002/per-fixture/13-mobile-broken/runs/run-001",
+      "durationSec": 215.902,
+      "agentCount": 4,
+      "ppIssues": [
+        {
+          "id": "i01",
+          "title": "核心交互全部失效，直接阻断使用",
+          "severity": "high",
+          "category": "功能契合",
+          "quote": "我在跟一面墙交互。彻底放弃。",
+          "agentRef": "a01",
+          "evidence": 3,
+          "journey": "在内容卡片上尝试 Upvote 和 Comment，在顶部尝试分类切换"
+        },
+        {
+          "id": "i03",
+          "title": "所有按钮点击都完全没反应，页面像死了一样",
+          "severity": "high",
+          "category": "功能契合",
+          "quote": "点什么都没反应！作为一个真实用户，遇到这种情况我早就关掉了。",
+          "agentRef": "a03",
+          "evidence": 3,
+          "journey": "在帖子列表页面尝试点击顶部分类筛选按钮和帖子上的交互按钮"
+        },
+        {
+          "id": "i06",
+          "title": "所有点击都是静默失败，完全没有反馈",
+          "severity": "high",
+          "category": "功能契合",
+          "quote": "点什么都石沉大海，我不知道是我操作问题还是网站问题",
+          "agentRef": "a04",
+          "evidence": 6,
+          "journey": "在分类筛选按钮(F、R、B等)和互动按钮(Upvote、Comment)上尝试点击"
+        },
+        {
+          "id": "i08",
+          "title": "页面内容完全不可见，像打开了一个坏掉的网页",
+          "severity": "high",
+          "category": "可访问性",
+          "quote": "这页面名字叫'broken-mobile'，我猜这是个演示移动端问题的页面。但我用的是桌面浏览器，看不到任何反馈内容，只有几个孤零零的按钮在外面飘着。",
+          "agentRef": "a02",
+          "evidence": 5,
+          "journey": "进入页面后，顶部有一排 F R B A N S 按钮，下面能看到 Upvote 和 Comment，但中间实际的反馈内容在哪里？"
+        },
+        {
+          "id": "i09",
+          "title": "所有按钮点下去毫无反应，感觉像在戳一堵墙",
+          "severity": "high",
+          "category": "流程顺畅",
+          "quote": "我点了 Upvote，想看看有没有点赞的反馈效果，点 Comment 想看看能不能评论，结果点什么都没有任何变化。",
+          "agentRef": "a02",
+          "evidence": 6,
+          "journey": "依次尝试点击顶部分类按钮、Upvote 按钮、Comment 按钮，每次都没有任何 UI 响应。"
+        },
+        {
+          "id": "i02",
+          "title": "没有任何错误提示，不知道是自己操作问题还是系统问题",
+          "severity": "med",
+          "category": "情感氛围",
+          "quote": "点 Comment 按钮没反应？页面完全没有变化，评论弹窗没出来。这交互是坏的吗？",
+          "agentRef": "a01",
+          "evidence": 1,
+          "journey": "第一次点击 Comment 按钮后等待响应"
+        },
+        {
+          "id": "i04",
+          "title": "顶部的F R B A N S按钮不知道是什么意思",
+          "severity": "med",
+          "category": "学习成本",
+          "quote": "顶部有一排字母按钮 F R B A N S，不知道是什么意思。让我试试点一下F按钮看看是什么功能。",
+          "agentRef": "a03",
+          "evidence": 1,
+          "journey": "页面加载完成后首先注意到顶部这排字母按钮"
+        },
+        {
+          "id": "i07",
+          "title": "没有任何引导或提示，像个半成品",
+          "severity": "med",
+          "category": "流程顺畅",
+          "quote": "看起来有功能但用不了，跟看了一堆灰掉的按钮一样",
+          "agentRef": "a04",
+          "evidence": 1,
+          "journey": "页面加载后尝试各项功能"
+        },
+        {
+          "id": "i10",
+          "title": "顶部那排按钮是什么意思，我猜不出来",
+          "severity": "med",
+          "category": "学习成本",
+          "quote": "F R B A N S 这六个字母到底代表什么？Feature、Review、Bug？没有任何文字标签，完全看不懂。",
+          "agentRef": "a02",
+          "evidence": 2,
+          "journey": "进入页面后首先注意到顶部有一排单字母按钮，但没有说明。"
+        },
+        {
+          "id": "i05",
+          "title": "帖子内容看起来是Reddit风格但细节模糊",
+          "severity": "low",
+          "category": "视觉节奏",
+          "quote": "页面上有一堆Upvote和Comment按钮，感觉是个帖子列表？让我先滚动看看整体布局。",
+          "agentRef": "a03",
+          "evidence": 1,
+          "journey": "初次扫视页面时试图理解整体布局"
+        }
+      ]
+    },
+    {
+      "fixtureId": "14-rage-button",
+      "runId": "run-001",
+      "runDir": "/Users/blink/project/product-predict/benchmark/runs/bench-002/per-fixture/14-rage-button/runs/run-001",
+      "durationSec": 147.797,
+      "agentCount": 4,
+      "ppIssues": [
+        {
+          "id": "i01",
+          "title": "首页只有一个按钮，零引导让人一脸懵",
+          "severity": "high",
+          "category": "信息架构",
+          "quote": "页面只有一个Sync按钮？这是什么产品？看起来像是个同步工具，但主界面太空了。",
+          "agentRef": "a04",
+          "evidence": 1,
+          "journey": "进入首页后看到空旷的界面"
+        },
+        {
+          "id": "i02",
+          "title": "点完按钮直接报错，完全没有正向反馈",
+          "severity": "high",
+          "category": "流程顺畅",
+          "quote": "操作失败 (note): expected number, got undefined",
+          "agentRef": "a04",
+          "evidence": 1,
+          "journey": "点击Sync按钮后"
+        },
+        {
+          "id": "i04",
+          "title": "产品意图完全不明，看不出这是什么东西",
+          "severity": "high",
+          "category": "信息架构",
+          "quote": "这到底是干嘛的？14-rage-button，听起来像是愤怒发泄按钮，但又只有一个Sync，我完全get不到它的用途",
+          "agentRef": "a03",
+          "evidence": 1,
+          "journey": "首页加载完成后"
+        },
+        {
+          "id": "i05",
+          "title": "唯一的按钮点击后完全没反应，感觉产品是坏的",
+          "severity": "high",
+          "category": "功能契合",
+          "quote": "点了一下Sync，页面纹丝不动，我还以为是网络问题，刷新了也没变化...",
+          "agentRef": "a03",
+          "evidence": 2,
+          "journey": "点击Sync按钮后"
+        },
+        {
+          "id": "i07",
+          "title": "产品定位模糊，价值主张缺失",
+          "severity": "high",
+          "category": "信息架构",
+          "quote": "这是一个AI聊天界面，URL路径包含'rage-button'但我没找到明显特殊的'愤怒按钮'功能。它没有清晰地传达这个产品是做什么的、解决什么问题。",
+          "agentRef": "a01",
+          "evidence": 4,
+          "journey": "从URL发现名字叫'rage-button'，期待找到对应的核心功能，但进入页面后只有普通聊天界面"
+        },
+        {
+          "id": "i08",
+          "title": "核心功能入口不明，预期落空",
+          "severity": "high",
+          "category": "功能契合",
+          "quote": "URL名字里有'rage button'，我还专门等了看有没有什么特别的交互，结果就是个普通聊天框。期待完全落空。",
+          "agentRef": "a01",
+          "evidence": 3,
+          "journey": "看到URL包含'14-rage-button'，预期有愤怒/情绪相关的核心功能，实际只有基础聊天"
+        },
+        {
+          "id": "i10",
+          "title": "页面内容看不见，不知道这是啥",
+          "severity": "high",
+          "category": "信息架构",
+          "quote": "来回滚了好久只看到右上角一个 Sync 按钮，我完全不知道这个网站是干什么的。",
+          "agentRef": "a02",
+          "evidence": 3,
+          "journey": "进入页面后尝试滚动寻找内容，但翻来翻去只有右上角一个 Sync，内容看不到。"
+        },
+        {
+          "id": "i03",
+          "title": "标题叫rage button，不知道是认真还是恶搞",
+          "severity": "med",
+          "category": "情感氛围",
+          "quote": "\"rage button\"？这到底是什么鬼？页面就一个Sync按钮，点了一下也没反应。作为用户我完全不知道这个产品能干嘛，也没有任何引导。",
+          "agentRef": "a04",
+          "evidence": 1,
+          "journey": "看到页面标题和空荡界面"
+        },
+        {
+          "id": "i06",
+          "title": "没有引导、没有说明，我作为新用户完全不知道接下来该做什么",
+          "severity": "med",
+          "category": "学习成本",
+          "quote": "连个标题说明都没有，进来就是一片空白，这让我觉得自己像个无头苍蝇",
+          "agentRef": "a03",
+          "evidence": 1,
+          "journey": "首次访问页面时"
+        },
+        {
+          "id": "i09",
+          "title": "Sync按钮功能不明确",
+          "severity": "med",
+          "category": "功能契合",
+          "quote": "点了一下Sync按钮，不知道发生了什么，也不知道这东西是同步什么。没有反馈。",
+          "agentRef": "a01",
+          "evidence": 1,
+          "journey": "点击右上角Sync按钮后，没有明显效果或提示"
+        },
+        {
+          "id": "i11",
+          "title": "Sync 按钮点了没反应",
+          "severity": "med",
+          "category": "流程顺畅",
+          "quote": "点了一下 Sync，页面完全没变化，感觉这按钮就是摆设。",
+          "agentRef": "a02",
+          "evidence": 1,
+          "journey": "在没看到其他内容的情况下点击了唯一的交互元素 Sync，预期是能看到什么东西。"
+        },
+        {
+          "id": "i12",
+          "title": "刷新也白搭，页面没有变化",
+          "severity": "med",
+          "category": "性能感知",
+          "quote": "刷新后还是老样子，Chrome 显示的就是一个纯黑/深灰色的空页面，只有右上角一个没反应的 Sync。",
+          "agentRef": "a02",
+          "evidence": 1,
+          "journey": "以为是加载问题，刷新页面期望能看到内容，但刷新后结果一样。"
+        }
+      ]
+    },
+    {
+      "fixtureId": "15-emoji-mess",
+      "runId": "run-001",
+      "runDir": "/Users/blink/project/product-predict/benchmark/runs/bench-002/per-fixture/15-emoji-mess/runs/run-001",
+      "durationSec": 105.148,
+      "agentCount": 4,
+      "ppIssues": [
+        {
+          "id": "i01",
+          "title": "导航栏全部是假链接，点什么都没反应",
+          "severity": "high",
+          "category": "功能契合",
+          "quote": "导航栏5个链接全点了个寂寞，这不是一个产品，这是一个壳。导航是装饰品。",
+          "agentRef": "a01",
+          "evidence": 4,
+          "journey": "点击导航栏 Pricing、Docs、Community、Login"
+        },
+        {
+          "id": "i02",
+          "title": "无法了解任何产品实质信息",
+          "severity": "high",
+          "category": "信息架构",
+          "quote": "我既无法了解定价，也无法了解产品功能，更无法登录。唯一能点的就是那个 Start your journey 的按钮，但我不确定点了会跳去哪里。",
+          "agentRef": "a01",
+          "evidence": 3,
+          "journey": "页面主区域和导航区"
+        },
+        {
+          "id": "i03",
+          "title": "页面内容几乎为零，看不到产品价值",
+          "severity": "high",
+          "category": "信息架构",
+          "quote": "这页面就一个按钮，我往下滑内容也不变，根本不知道这产品是干嘛的，太空了。",
+          "agentRef": "a04",
+          "evidence": 3,
+          "journey": "打开页面第一屏之后滚动"
+        },
+        {
+          "id": "i04",
+          "title": "导航栏完全失效，我哪都去不了",
+          "severity": "high",
+          "category": "可访问性",
+          "quote": "我想点Pricing看看价格，结果点了没反应，导航栏是摆设吗？",
+          "agentRef": "a04",
+          "evidence": 1,
+          "journey": "点击导航栏的Pricing"
+        },
+        {
+          "id": "i05",
+          "title": "唯一的CTA按钮点了没反应",
+          "severity": "high",
+          "category": "功能契合",
+          "quote": "那个大按钮是我唯一能看到可操作的东西，点了一下什么都没发生，太挫败了。",
+          "agentRef": "a04",
+          "evidence": 1,
+          "journey": "点击主按钮"
+        },
+        {
+          "id": "i06",
+          "title": "所有可点击元素都是死的，毫无响应",
+          "severity": "high",
+          "category": "功能契合",
+          "quote": "我点了 Pricing，想看价格；点了 CTA 按钮，想知道注册流程；点了 Login 想试试——结果没有一个管用。这不是用户该遇到的。",
+          "agentRef": "a02",
+          "evidence": 6,
+          "journey": "在落地页首页，尝试通过导航栏和主按钮进入核心流程"
+        },
+        {
+          "id": "i07",
+          "title": "落地页没让我知道这个产品是做什么的",
+          "severity": "high",
+          "category": "信息架构",
+          "quote": "emoji-mess 这个名字让我以为是跟 emoji 有关的东西？但看了半天 hero 图片也加载不出来，我根本无法理解这个产品的价值主张。",
+          "agentRef": "a02",
+          "evidence": 2,
+          "journey": "进入首页后，试图通过内容理解产品定位"
+        },
+        {
+          "id": "i09",
+          "title": "核心按钮点了好几次都没反应，挫败感很强",
+          "severity": "high",
+          "category": "流程顺畅",
+          "quote": "点那个按钮根本没用，页面没反应。这是什么情况？整个页面就一个着陆页+图片+一个按不动的按钮，体验有点糟糕。",
+          "agentRef": "a03",
+          "evidence": 2,
+          "journey": "进入着陆页，点击中间「🚀 Start your journey now!!! 🎉」按钮"
+        },
+        {
+          "id": "i10",
+          "title": "导航栏全是摆设，Home、Login都点不动",
+          "severity": "high",
+          "category": "信息架构",
+          "quote": "标题栏的五六个选项也全是摆设，点Home、Login都没反应。",
+          "agentRef": "a03",
+          "evidence": 1,
+          "journey": "着陆页顶部导航栏"
+        },
+        {
+          "id": "i11",
+          "title": "页面只展示图片，没有任何实际功能可体验",
+          "severity": "high",
+          "category": "功能契合",
+          "quote": "整个体验就是一张会滚动的宣传海报，对我这种务实用户来说等于零价值。",
+          "agentRef": "a03",
+          "evidence": 1,
+          "journey": "进入着陆页后浏览整个页面内容"
+        },
+        {
+          "id": "i08",
+          "title": "Hero 图片从阿里云 OSS 加载，感知上像半成品",
+          "severity": "med",
+          "category": "视觉节奏",
+          "quote": "图片加载源显示的是 oss.aliyuncs.com，让我第一反应就觉得这是开发环境的临时产物，不是给用户看的正式页面。",
+          "agentRef": "a02",
+          "evidence": 1,
+          "journey": "页面加载时观察资源来源"
+        }
+      ]
+    },
+    {
+      "fixtureId": "16-placeholder-label",
+      "runId": "run-001",
+      "runDir": "/Users/blink/project/product-predict/benchmark/runs/bench-002/per-fixture/16-placeholder-label/runs/run-001",
+      "durationSec": 188.66,
+      "agentCount": 4,
+      "ppIssues": [
+        {
+          "id": "i01",
+          "title": "表单焦点混乱，输入内容跑错地方",
+          "severity": "high",
+          "category": "功能契合",
+          "quote": "输入的内容全跑到名字框里了！邮箱框没有正确获得焦点，被追加到第一个框了。",
+          "agentRef": "a02",
+          "evidence": 2,
+          "journey": "在表单页填写邮箱地址时"
+        },
+        {
+          "id": "i02",
+          "title": "点击后直接报错退出了",
+          "severity": "high",
+          "category": "流程顺畅",
+          "quote": "LLM 调用失败：400 invalid params...",
+          "agentRef": "a02",
+          "evidence": 1,
+          "journey": "点击邮箱输入框后"
+        },
+        {
+          "id": "i03",
+          "title": "页面明显是 demo，下拉框点不开",
+          "severity": "high",
+          "category": "功能契合",
+          "quote": "下拉框点了两次都没反应... 算了，URL 里有 'placeholder-label'，这根本就是个 demo 页面，不是真实产品。",
+          "agentRef": "a03",
+          "evidence": 2,
+          "journey": "点击角色选择下拉框"
+        },
+        {
+          "id": "i06",
+          "title": "导航链接点不动，不知道是真功能还是摆设",
+          "severity": "high",
+          "category": "功能契合",
+          "quote": "点了Members和Invite，页面完全没变化，也不知道这个产品到底有哪些真实功能可以体验。",
+          "agentRef": "a04",
+          "evidence": 2,
+          "journey": "进入页面后想看看Members页面是什么样子，点击导航没反应"
+        },
+        {
+          "id": "i09",
+          "title": "Members 导航链接点完没反应",
+          "severity": "high",
+          "category": "功能契合",
+          "quote": "点了 Members 但页面没变化？导航似乎不工作。这种基础交互问题会让我对产品失去信心。",
+          "agentRef": "a01",
+          "evidence": 1,
+          "journey": "在 Invite 页面顶部点击导航"
+        },
+        {
+          "id": "i04",
+          "title": "Tab 键跳不到预期位置",
+          "severity": "med",
+          "category": "可访问性",
+          "quote": "时区快选按钮设计得不错，但 Tab 键跳不到预期位置。",
+          "agentRef": "a03",
+          "evidence": 1,
+          "journey": "在全名输入框按 Tab 切换到邮箱输入框"
+        },
+        {
+          "id": "i05",
+          "title": "导航链接不跳转",
+          "severity": "med",
+          "category": "信息架构",
+          "quote": "看看 Members 页面长什么样 — 点了没反应，估计也是 demo。",
+          "agentRef": "a03",
+          "evidence": 1,
+          "journey": "点击 Members 导航标签"
+        },
+        {
+          "id": "i07",
+          "title": "角色下拉框点不开，想试都试不了",
+          "severity": "med",
+          "category": "可访问性",
+          "quote": "想看看角色有哪些选项，点了一下下拉框，没反应。我还以为是我操作有问题呢。",
+          "agentRef": "a04",
+          "evidence": 1,
+          "journey": "看到角色字段，想打开下拉框选一个角色"
+        },
+        {
+          "id": "i08",
+          "title": "字段太多，请个人进群用不着这么复杂",
+          "severity": "med",
+          "category": "流程顺畅",
+          "quote": "要填七八项，还要选时区、角色、职位……我用钉钉请人就是发个链接加群，一分钟的事。这个太重了。",
+          "agentRef": "a04",
+          "evidence": 1,
+          "journey": "看到整个表单的字段列表"
+        },
+        {
+          "id": "i10",
+          "title": "表单字段太多，邀请需要的信息过细",
+          "severity": "med",
+          "category": "流程顺畅",
+          "quote": "时区、手机号、个人备注...真的需要这么多吗？我只是想邀请个人进 workspace。",
+          "agentRef": "a01",
+          "evidence": 1,
+          "journey": "滚动查看完整表单时"
+        },
+        {
+          "id": "i11",
+          "title": "全名输入框坐标显示异常",
+          "severity": "low",
+          "category": "可访问性",
+          "quote": "y坐标是负的？这看起来像是滚动 bug，或者元素定位有问题。",
+          "agentRef": "a01",
+          "evidence": 1,
+          "journey": "输入名字后第一次观察"
+        }
+      ]
+    },
+    {
+      "fixtureId": "17-monolingual",
+      "runId": "run-001",
+      "runDir": "/Users/blink/project/product-predict/benchmark/runs/bench-002/per-fixture/17-monolingual/runs/run-001",
+      "durationSec": 142.504,
+      "agentCount": 4,
+      "ppIssues": [
+        {
+          "id": "i01",
+          "title": "工作区链接点不动，像死链接一样",
+          "severity": "high",
+          "category": "性能感知",
+          "quote": "点工作区一点反应都没有，这链接是不是坏了？",
+          "agentRef": "a02",
+          "evidence": 1,
+          "journey": "在首页点击工作区链接"
+        },
+        {
+          "id": "i02",
+          "title": "看不懂这系统是干嘛的，跟钉钉完全不一样",
+          "severity": "high",
+          "category": "信息架构",
+          "quote": "看了半天这就是个设置页面，配时区和语言的，跟我日常要用的审批、请假、报销完全不一样。钉钉好歹打开就能看到审批入口，这个……我看不懂它是干嘛的。",
+          "agentRef": "a02",
+          "evidence": 1,
+          "journey": "在首页浏览整体内容"
+        },
+        {
+          "id": "i04",
+          "title": "看完不知道这产品能做什么",
+          "severity": "high",
+          "category": "功能契合",
+          "quote": "不知道这是什么产品，也不知道能用来做什么。",
+          "agentRef": "a04",
+          "evidence": 1,
+          "journey": "从设置页进入，到达首页"
+        },
+        {
+          "id": "i05",
+          "title": "首页看起来几乎是空的",
+          "severity": "high",
+          "category": "信息架构",
+          "quote": "回到了根路径，但页面看起来几乎是空的？或者只是一张图片。",
+          "agentRef": "a04",
+          "evidence": 1,
+          "journey": "尝试返回首页时"
+        },
+        {
+          "id": "i06",
+          "title": "找不到主功能入口在哪",
+          "severity": "high",
+          "category": "信息架构",
+          "quote": "没有明显的功能入口或使用场景。",
+          "agentRef": "a04",
+          "evidence": 1,
+          "journey": "整体浏览过程中"
+        },
+        {
+          "id": "i07",
+          "title": "语言下拉框点了两次都没反应",
+          "severity": "high",
+          "category": "流程顺畅",
+          "quote": "点了两次下拉都没反应，怀疑下拉框根本没打开，还是只看到选中项。感觉交互有点怪。",
+          "agentRef": "a01",
+          "evidence": 4,
+          "journey": "在工作区设置页点击语言选择下拉框"
+        },
+        {
+          "id": "i08",
+          "title": "搜索框能打字但没有任何搜索结果",
+          "severity": "high",
+          "category": "功能契合",
+          "quote": "搜索框能打字但没有任何搜索结果下拉出来——这个 demo 基本是个半成品。",
+          "agentRef": "a01",
+          "evidence": 2,
+          "journey": "在搜索框输入「语言」后等待结果"
+        },
+        {
+          "id": "i09",
+          "title": "整体体验像是 Demo 而不是可用的产品",
+          "severity": "high",
+          "category": "情感氛围",
+          "quote": "这种「看起来有功能但实际跑不通」的产品第一印象很差——如果这是竞品，我不会有切换意愿。",
+          "agentRef": "a01",
+          "evidence": 1,
+          "journey": "整体感受"
+        },
+        {
+          "id": "i10",
+          "title": "语言和时区选择器完全无法使用",
+          "severity": "high",
+          "category": "功能契合",
+          "quote": "select元素完全没反应，点击了无数次。这到底是故意disabled的demo还是真坏了？",
+          "agentRef": "a03",
+          "evidence": 4,
+          "journey": "在页面中间点击语言选择器和时区下拉框"
+        },
+        {
+          "id": "i03",
+          "title": "除了配置项没有其他功能，不知道从哪开始",
+          "severity": "med",
+          "category": "流程顺畅",
+          "quote": "就几个输入框让我改时区语言，完全看不懂这系统是干什么的，没有审批入口、没有数据统计。",
+          "agentRef": "a02",
+          "evidence": 1,
+          "journey": "在首页浏览"
+        },
+        {
+          "id": "i11",
+          "title": "产品定位混乱让我困惑",
+          "severity": "med",
+          "category": "信息架构",
+          "quote": "URL叫monolingual却有多语言选项，讽刺。跟竞品比起来感觉定位不清晰。",
+          "agentRef": "a03",
+          "evidence": 2,
+          "journey": "刚进入页面时观察URL和表单字段"
+        },
+        {
+          "id": "i12",
+          "title": "页面内容贫瘠，没有探索动力",
+          "severity": "med",
+          "category": "视觉节奏",
+          "quote": "这页面感觉就是单一页面，没有侧边栏导航，没什么可探索的。",
+          "agentRef": "a03",
+          "evidence": 3,
+          "journey": "尝试点击工作区链接和滚动页面"
+        }
+      ]
+    },
+    {
+      "fixtureId": "18-no-keyboard",
+      "runId": "run-001",
+      "runDir": "/Users/blink/project/product-predict/benchmark/runs/bench-002/per-fixture/18-no-keyboard/runs/run-001",
+      "durationSec": 148.11,
+      "agentCount": 4,
+      "ppIssues": [
+        {
+          "id": "i01",
+          "title": "页面内容极度贫乏，看不到产品的核心价值",
+          "severity": "high",
+          "category": "信息架构",
+          "quote": "这就是一个空壳吧？我连它是做什么的都不知道。",
+          "agentRef": "a01",
+          "evidence": 3,
+          "journey": "页面加载完成后"
+        },
+        {
+          "id": "i02",
+          "title": "完全没有导航或功能入口，无从下手",
+          "severity": "high",
+          "category": "流程顺畅",
+          "quote": "没有导航条、没有按钮、没有任何可以点击的地方，我被困在这个输入框里了。",
+          "agentRef": "a01",
+          "evidence": 4,
+          "journey": "尝试寻找可交互元素时"
+        },
+        {
+          "id": "i04",
+          "title": "名字叫no-keyboard却找不到语音输入",
+          "severity": "high",
+          "category": "功能契合",
+          "quote": "名字叫no-keyboard结果只能打字？完全找不到语音输入在哪",
+          "agentRef": "a04",
+          "evidence": 3,
+          "journey": "打开页面第一眼看到标题框就开始找麦克风图标"
+        },
+        {
+          "id": "i05",
+          "title": "界面太空洞，没有任何使用引导",
+          "severity": "high",
+          "category": "信息架构",
+          "quote": "页面太干净了...只有一个空白的输入框。我完全不知道该干什么",
+          "agentRef": "a04",
+          "evidence": 4,
+          "journey": "在空白的页面里四处点击寻找线索"
+        },
+        {
+          "id": "i07",
+          "title": "看不到任何可操作的控件，页面仿佛半成品",
+          "severity": "high",
+          "category": "功能契合",
+          "quote": "我看不到除了标题输入框和段落文本之外有任何按钮或控件。感觉这个页面还没有完成。",
+          "agentRef": "a02",
+          "evidence": 3,
+          "journey": "进入页面后尝试点击标题、段落文字，想找到格式化工具，但什么都没出现"
+        },
+        {
+          "id": "i08",
+          "title": "\"无键盘测试\"这个名字让我更困惑了",
+          "severity": "high",
+          "category": "信息架构",
+          "quote": "标题显示'无键盘测试'，说明是测试无键盘场景下的操作，但我连键盘能用的时候能干什么都不知道。",
+          "agentRef": "a02",
+          "evidence": 2,
+          "journey": "看到页面标题为'无键盘测试'，期待能找到替代键盘的操作方式，但根本找不到入口"
+        },
+        {
+          "id": "i10",
+          "title": "正文编辑区完全找不到，只有一个标题框",
+          "severity": "high",
+          "category": "功能契合",
+          "quote": "这破页面就一个标题框，下面全空白？浪费时间。",
+          "agentRef": "a03",
+          "evidence": 3,
+          "journey": "打开页面后点击顶部标题框，然后尝试在下面区域点击想找正文输入的地方"
+        },
+        {
+          "id": "i11",
+          "title": "no-keyboard 的设计意图完全没有传达出来",
+          "severity": "high",
+          "category": "学习成本",
+          "quote": "URL里写着no-keyboard免键盘操作，但我连键盘都找不到别的东西可用。",
+          "agentRef": "a03",
+          "evidence": 2,
+          "journey": "看到URL中的no-keyboard标识后，期望在页面上找到对应的无键盘交互方式"
+        },
+        {
+          "id": "i03",
+          "title": "背景图加载慢，视觉体验像是网站在挂机",
+          "severity": "med",
+          "category": "性能感知",
+          "quote": "等了好几秒，背景图还没出来，只剩一个孤零零的输入框在那。",
+          "agentRef": "a01",
+          "evidence": 2,
+          "journey": "页面加载初期"
+        },
+        {
+          "id": "i06",
+          "title": "跟飞书文档比差太远，没有吸引力",
+          "severity": "med",
+          "category": "与竞品对比",
+          "quote": "跟飞书文档比起来差太远了",
+          "agentRef": "a04",
+          "evidence": 2,
+          "journey": "心里一直拿它跟熟悉的飞书文档对比"
+        },
+        {
+          "id": "i09",
+          "title": "和Typora比，这个界面让我觉得是在用记事本",
+          "severity": "med",
+          "category": "与竞品对比",
+          "quote": "习惯了Typora丰富的格式化工具，这个界面让我感到困惑和失望。",
+          "agentRef": "a02",
+          "evidence": 1,
+          "journey": "作为Typora深度用户，打开这个编辑器期望至少有几个格式化按钮，结果连个加粗都找不到"
+        },
+        {
+          "id": "i12",
+          "title": "没有提供任何引导让我知道这个工具怎么用",
+          "severity": "med",
+          "category": "信息架构",
+          "quote": "这种空白状态让我完全无法理解这个产品的用途，决定放弃。",
+          "agentRef": "a03",
+          "evidence": 2,
+          "journey": "探索页面过程中没有任何提示或引导说明"
+        }
+      ]
+    },
+    {
+      "fixtureId": "19-slow-perceived",
+      "runId": "run-001",
+      "runDir": "/Users/blink/project/product-predict/benchmark/runs/bench-002/per-fixture/19-slow-perceived/runs/run-001",
+      "durationSec": 155.19,
+      "agentCount": 4,
+      "ppIssues": [
+        {
+          "id": "i01",
+          "title": "进入后看不到任何实质内容，只有顶部栏",
+          "severity": "high",
+          "category": "信息架构",
+          "quote": "这页面也太干净了...就顶部一个搜索框和两个下拉按钮，完全看不到客户数据在哪里。我用 Pipedrive 习惯了，那边一打开就是客户列表。这个工具给我的感觉是不完整或者加载失败了。",
+          "agentRef": "a02",
+          "evidence": 1,
+          "journey": "进入页面后立即观察到顶部栏，尝试向下滚动寻找客户列表"
+        },
+        {
+          "id": "i02",
+          "title": "核心交互按钮全部无效",
+          "severity": "high",
+          "category": "功能契合",
+          "quote": "点击了半天什么都弹不出来。这个页面要么是坏了，要么就是个空壳 demo。这 36 秒花得毫无意义。",
+          "agentRef": "a02",
+          "evidence": 2,
+          "journey": "尝试点击 Plan 筛选器和 Status 下拉按钮"
+        },
+        {
+          "id": "i04",
+          "title": "搜索后完全没有加载反馈，我根本不知道系统在干嘛",
+          "severity": "high",
+          "category": "性能感知",
+          "quote": "51秒了还在原地踏步，这什么玩意儿？搜索没反应就算了，连个加载动画都没有。我完全不知道它是卡死了还是在那磨蹭？",
+          "agentRef": "a03",
+          "evidence": 3,
+          "journey": "在搜索框输入'test'并按回车后"
+        },
+        {
+          "id": "i05",
+          "title": "60秒的等待时间直接让我放弃",
+          "severity": "high",
+          "category": "性能感知",
+          "quote": "等了将近60秒，页面毫无变化。这种体验完全无法接受——我不知道它是卡死了还是在后台运行，也不知道要等多久。",
+          "agentRef": "a03",
+          "evidence": 2,
+          "journey": "等待搜索结果的过程中"
+        },
+        {
+          "id": "i06",
+          "title": "内容区域始终空白，没有任何状态提示",
+          "severity": "high",
+          "category": "信息架构",
+          "quote": "搜索输入后没有任何反馈，内容区域始终空白。作为一个注重速度的用户，这个产品在'感知速度'上完全失败了。",
+          "agentRef": "a03",
+          "evidence": 2,
+          "journey": "搜索操作完成后"
+        },
+        {
+          "id": "i07",
+          "title": "主体内容完全空白，根本无法使用",
+          "severity": "high",
+          "category": "性能感知",
+          "quote": "页面主体内容一直没加载出来。我只能看到顶部的搜索和两个下拉按钮，像是个半残的产品。",
+          "agentRef": "a01",
+          "evidence": 1,
+          "journey": "进入页面后 90 秒内，主体区域始终无内容"
+        },
+        {
+          "id": "i08",
+          "title": "没有加载提示，不知道在加载还是在卡死",
+          "severity": "high",
+          "category": "性能感知",
+          "quote": "页面到底在干什么？内容可能在加载中但很慢，也可能是彻底卡死了。",
+          "agentRef": "a01",
+          "evidence": 2,
+          "journey": "等待过程中完全不确定状态"
+        },
+        {
+          "id": "i09",
+          "title": "看不到产品定位，不知道能用来做什么",
+          "severity": "high",
+          "category": "信息架构",
+          "quote": "这是什么产品？顶部有搜索和下拉框，看起来像是某种客户管理工具，但我看不到产品名称和主功能区。",
+          "agentRef": "a01",
+          "evidence": 1,
+          "journey": "首次进入页面时"
+        },
+        {
+          "id": "i10",
+          "title": "操作完不知道有没有生效，心里没底",
+          "severity": "high",
+          "category": "流程顺畅",
+          "quote": "搜索完按了回车，列表好像没变化...不确定是搜索没生效还是需要等一下。有点困惑。",
+          "agentRef": "a04",
+          "evidence": 3,
+          "journey": "在搜索框输入Emma后按回车，列表没有明显变化"
+        },
+        {
+          "id": "i11",
+          "title": "系统响应慢，耽误我处理工单的效率",
+          "severity": "high",
+          "category": "性能感知",
+          "quote": "感觉这个系统响应比较慢，作为客服主管平时要处理很多工单，如果每个操作都要等好几秒效率会很低。",
+          "agentRef": "a04",
+          "evidence": 3,
+          "journey": "搜索Alex、筛选Pro Plan后等待结果时"
+        },
+        {
+          "id": "i03",
+          "title": "搜索操作没有任何反馈，不知道有没有结果",
+          "severity": "med",
+          "category": "流程顺畅",
+          "quote": "搜索后没有任何反馈，不知道有没有结果。页面上也看不到客户列表在哪里。",
+          "agentRef": "a02",
+          "evidence": 1,
+          "journey": "在搜索框输入 Acme 并按 Enter"
+        },
+        {
+          "id": "i12",
+          "title": "跟Zendesk比反应太慢了，没信心切过来",
+          "severity": "med",
+          "category": "与竞品对比",
+          "quote": "界面的基本布局和功能清晰，但需要改进响应速度才能真正用于日常工单处理。",
+          "agentRef": "a04",
+          "evidence": 2,
+          "journey": "整体使用后与Zendesk的体验对比"
+        }
+      ]
+    },
+    {
+      "fixtureId": "20-anti-pattern",
+      "runId": "run-001",
+      "runDir": "/Users/blink/project/product-predict/benchmark/runs/bench-002/per-fixture/20-anti-pattern/runs/run-001",
+      "durationSec": 173.508,
+      "agentCount": 4,
+      "ppIssues": [
+        {
+          "id": "i01",
+          "title": "导航栏形同虚设，点什么都没反应",
+          "severity": "high",
+          "category": "功能契合",
+          "quote": "Docs、Product、Pricing 点了一遍一个都没跳出去，这是故意的还是坏了？",
+          "agentRef": "a02",
+          "evidence": 3,
+          "journey": "进入页面后想找 Docs 看文档介绍，但点击顶部导航栏没有任何反应"
+        },
+        {
+          "id": "i02",
+          "title": "演示区也是个摆设，戳不动",
+          "severity": "high",
+          "category": "功能契合",
+          "quote": "CLI 演示按钮点了两下也不动，既然是演示给我看的，为什么点不了？",
+          "agentRef": "a02",
+          "evidence": 2,
+          "journey": "看到 CLI 演示区想试试效果，但按钮点不进去"
+        },
+        {
+          "id": "i03",
+          "title": "产品定位模糊，看完还是不知道能干啥",
+          "severity": "high",
+          "category": "信息架构",
+          "quote": "只知道是搞 incident management 的，但具体怎么用、解决什么问题，我还是懵的",
+          "agentRef": "a02",
+          "evidence": 1,
+          "journey": "在无法点击任何链接的情况下，只能靠页面上零星文字猜测产品用途"
+        },
+        {
+          "id": "i04",
+          "title": "产品定位和访客预期完全错位",
+          "severity": "high",
+          "category": "功能契合",
+          "quote": "来这里是找 Copilot 替代品的，但这看起来是监控/日志的 CLI 工具，不是我的菜。",
+          "agentRef": "a04",
+          "evidence": 1,
+          "journey": "进入首页 / 查看内容"
+        },
+        {
+          "id": "i05",
+          "title": "Pricing 按钮点完没反应",
+          "severity": "high",
+          "category": "流程顺畅",
+          "quote": "点了 Pricing 但页面好像没跳？URL 还是一样的。",
+          "agentRef": "a04",
+          "evidence": 1,
+          "journey": "点击 Pricing 按钮"
+        },
+        {
+          "id": "i06",
+          "title": "点击导航链接毫无反应",
+          "severity": "high",
+          "category": "可访问性",
+          "quote": "点了两下导航链接，页面纹丝不动。",
+          "agentRef": "a03",
+          "evidence": 2,
+          "journey": "在页面顶部点击 Product / Docs / Pricing"
+        },
+        {
+          "id": "i07",
+          "title": "底部命令行按钮点完什么都没发生",
+          "severity": "high",
+          "category": "流程顺畅",
+          "quote": "按钮点了完全没反应，这是展示用的demo吗？",
+          "agentRef": "a03",
+          "evidence": 3,
+          "journey": "点击底部的 plain status / plain incident open / plain logs --tail"
+        },
+        {
+          "id": "i09",
+          "title": "核心导航全部指向空白页面",
+          "severity": "high",
+          "category": "信息架构",
+          "quote": "Pricing 点不动，Docs 也是空白……三个核心导航全挂了，这体验断得太突然。",
+          "agentRef": "a01",
+          "evidence": 5,
+          "journey": "点击 Pricing / Docs / Product 导航项"
+        },
+        {
+          "id": "i08",
+          "title": "页面名字叫 anti-pattern，看着像在展示反面教材",
+          "severity": "med",
+          "category": "情感氛围",
+          "quote": "这个页面名字叫anti-pattern，不会是在展示反模式吧？",
+          "agentRef": "a03",
+          "evidence": 1,
+          "journey": "看到页面标题"
+        },
+        {
+          "id": "i10",
+          "title": "页面信息密度极低",
+          "severity": "med",
+          "category": "信息架构",
+          "quote": "Learn more 指向哪也不说，页面内容太单薄，看不出这个产品到底解决什么问题。",
+          "agentRef": "a01",
+          "evidence": 1,
+          "journey": "浏览首页整体布局"
+        },
+        {
+          "id": "i11",
+          "title": "无法了解产品细节和定价",
+          "severity": "med",
+          "category": "流程顺畅",
+          "quote": "定价策略看不到，产品介绍也看不到，注册前连基本的 value proposition 都获取不到。",
+          "agentRef": "a01",
+          "evidence": 3,
+          "journey": "尝试从导航了解产品"
+        }
+      ]
+    }
+  ]
+}

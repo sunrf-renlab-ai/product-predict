@@ -1,0 +1,145 @@
+{
+  "fixtureId": "01-broken-todo",
+  "gtTotal": 5,
+  "ppTotal": 8,
+  "matched": 2,
+  "recall": 0.4,
+  "precision": 0.25,
+  "f1": 0.3076923076923077,
+  "severityAcc": 1,
+  "categoryAcc": 0.5,
+  "verdicts": [
+    {
+      "gtId": "gt-01",
+      "findingId": "i01",
+      "matched": true,
+      "confidence": 0.88,
+      "reasoning": "用户发现只有request access链接找不到明显的开始使用按钮与GT描述一致",
+      "severityAgrees": true,
+      "categoryAgrees": true
+    },
+    {
+      "gtId": "gt-02",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0,
+      "reasoning": "GT关注键盘快捷键不一致与竞品对比，pp findings全为访问限制和体验问题"
+    },
+    {
+      "gtId": "gt-03",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0,
+      "reasoning": "GT关于暗色模式按钮颜色对比度可访问性问题,所有发现都是关于按钮功能失效或流程问题,无一涉及颜色对比度或可访问性"
+    },
+    {
+      "gtId": "gt-04",
+      "findingId": "i08",
+      "matched": true,
+      "confidence": 0.85,
+      "reasoning": "i08精准描述了所有tab只有静态幻灯片而非可操作的live demo，与GT的placeholder问题一致",
+      "severityAgrees": true,
+      "categoryAgrees": false
+    },
+    {
+      "gtId": "gt-05",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0,
+      "reasoning": "No finding addresses visual spacing or rhythm issues in the hero section"
+    }
+  ],
+  "falsePositives": [
+    {
+      "findingId": "i03",
+      "finding": {
+        "title": "所有可点击元素都不work，完全无法体验产品",
+        "category": "功能契合",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i04",
+      "finding": {
+        "title": "需要申请访问的产品却没有登录入口，本身就是矛盾的",
+        "category": "流程顺畅",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i05",
+      "finding": {
+        "title": "Sign in点了没反应，只能request access",
+        "category": "流程顺畅",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i06",
+      "finding": {
+        "title": "连产品长什么样都不知道就被拦在门外",
+        "category": "功能契合",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i07",
+      "finding": {
+        "title": "落地页看了个寂寞，40秒就劝退了",
+        "category": "情感氛围",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i02",
+      "finding": {
+        "title": "刚想探索就被强制结束了",
+        "category": "情感氛围",
+        "severity": "med"
+      }
+    }
+  ],
+  "missed": [
+    {
+      "gtId": "gt-02",
+      "gt": {
+        "id": "gt-02",
+        "title": "命令面板用 Cmd+/ 不是 Cmd+K",
+        "severity": "high",
+        "category": "与竞品对比",
+        "description": "hero 区底部提示用 Cmd+/ 打开命令面板,跟 Linear / Notion / Raycast 等同类工具的 Cmd+K 不一致,键盘党用户会下意识按 Cmd+K 然后什么都没发生。",
+        "shouldFindWith": [
+          "键盘党",
+          "重度用户"
+        ]
+      }
+    },
+    {
+      "gtId": "gt-03",
+      "gt": {
+        "id": "gt-03",
+        "title": "暗色模式次要按钮几乎看不见",
+        "severity": "med",
+        "category": "可访问性",
+        "description": "右上角 Sign in 按钮文字颜色 #4a4f57 在 #0b0d10 背景上对比度约 2.1:1,远低于 WCAG AA 要求的 4.5:1,弱视用户和强光环境下完全读不出来。",
+        "shouldFindWith": [
+          "可访问性敏感",
+          "弱视"
+        ]
+      }
+    },
+    {
+      "gtId": "gt-05",
+      "gt": {
+        "id": "gt-05",
+        "title": "hero 标题副标题挤在一起",
+        "severity": "low",
+        "category": "视觉节奏",
+        "description": "h1 跟下面的 subtitle 间距只有 4px,subtitle 跟说明段又只有 6px,三段文字粘成一团,视觉上没有呼吸感,影响第一印象。",
+        "shouldFindWith": [
+          "设计敏感"
+        ]
+      }
+    }
+  ]
+}

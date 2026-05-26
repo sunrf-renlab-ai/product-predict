@@ -1,0 +1,177 @@
+{
+  "fixtureId": "14-rage-button",
+  "gtTotal": 5,
+  "ppTotal": 12,
+  "matched": 2,
+  "recall": 0.4,
+  "precision": 0.16666666666666666,
+  "f1": 0.23529411764705882,
+  "severityAcc": 1,
+  "categoryAcc": 1,
+  "verdicts": [
+    {
+      "gtId": "gt-01",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0,
+      "reasoning": "judge failed: No JSON found in LLM output:\n"
+    },
+    {
+      "gtId": "gt-02",
+      "findingId": "i05",
+      "matched": true,
+      "confidence": 0.88,
+      "reasoning": "按钮点击后页面纹丝不动与GT描述的UI静止问题完全一致",
+      "severityAgrees": true,
+      "categoryAgrees": true
+    },
+    {
+      "gtId": "gt-03",
+      "findingId": "i09",
+      "matched": true,
+      "confidence": 0.9,
+      "reasoning": "i09直接指出Sync按钮不知道同步什么内容，与GT核心问题完全一致",
+      "severityAgrees": true,
+      "categoryAgrees": true
+    },
+    {
+      "gtId": "gt-04",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0.45,
+      "reasoning": "i10 mentions button in top-right but describes product comprehension issue not visual isolation"
+    },
+    {
+      "gtId": "gt-05",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0.35,
+      "reasoning": "i11只是说按钮点没反应，没提到disabled状态或aria属性，无法覆盖GT的可访问性核心问题"
+    }
+  ],
+  "falsePositives": [
+    {
+      "findingId": "i01",
+      "finding": {
+        "title": "首页只有一个按钮，零引导让人一脸懵",
+        "category": "信息架构",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i02",
+      "finding": {
+        "title": "点完按钮直接报错，完全没有正向反馈",
+        "category": "流程顺畅",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i04",
+      "finding": {
+        "title": "产品意图完全不明，看不出这是什么东西",
+        "category": "信息架构",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i07",
+      "finding": {
+        "title": "产品定位模糊，价值主张缺失",
+        "category": "信息架构",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i08",
+      "finding": {
+        "title": "核心功能入口不明，预期落空",
+        "category": "功能契合",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i10",
+      "finding": {
+        "title": "页面内容看不见，不知道这是啥",
+        "category": "信息架构",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i03",
+      "finding": {
+        "title": "标题叫rage button，不知道是认真还是恶搞",
+        "category": "情感氛围",
+        "severity": "med"
+      }
+    },
+    {
+      "findingId": "i06",
+      "finding": {
+        "title": "没有引导、没有说明，我作为新用户完全不知道接下来该做什么",
+        "category": "学习成本",
+        "severity": "med"
+      }
+    },
+    {
+      "findingId": "i11",
+      "finding": {
+        "title": "Sync 按钮点了没反应",
+        "category": "流程顺畅",
+        "severity": "med"
+      }
+    },
+    {
+      "findingId": "i12",
+      "finding": {
+        "title": "刷新也白搭，页面没有变化",
+        "category": "性能感知",
+        "severity": "med"
+      }
+    }
+  ],
+  "missed": [
+    {
+      "gtId": "gt-01",
+      "gt": {
+        "id": "gt-01",
+        "title": "点 Sync 按钮毫无反馈",
+        "severity": "high",
+        "category": "流程顺畅",
+        "description": "Sync 按钮的 click handler 只在隐藏 .secret-log 里记次数,UI 上没有任何变化 — 没 spinner,没 toast,没文字「Syncing...」,按钮甚至连 :active 高亮都没。用户大概率会怒点 5 次以上才放弃。",
+        "shouldFindWith": [
+          "新手",
+          "目标导向"
+        ]
+      }
+    },
+    {
+      "gtId": "gt-04",
+      "gt": {
+        "id": "gt-04",
+        "title": "按钮孤零零在右上角",
+        "severity": "med",
+        "category": "视觉节奏",
+        "description": "Sync 按钮放在 .head 的最右端,周围 32px 内没有任何相关元素或上下文。既不在数据卡片旁也不靠近文档列表,看起来像被遗忘的孤立 UI,无法和它要操作的内容建立视觉关联。",
+        "shouldFindWith": [
+          "设计敏感"
+        ]
+      }
+    },
+    {
+      "gtId": "gt-05",
+      "gt": {
+        "id": "gt-05",
+        "title": "按钮没有 disabled / loading 状态",
+        "severity": "low",
+        "category": "可访问性",
+        "description": "CSS 里没定义 :disabled / [aria-busy] 样式,JS 里也不切 disabled 属性或 aria-busy。屏幕阅读器用户和键盘党都得不到「操作进行中」的提示,只能瞎猜状态。",
+        "shouldFindWith": [
+          "可访问性敏感",
+          "键盘党"
+        ]
+      }
+    }
+  ]
+}

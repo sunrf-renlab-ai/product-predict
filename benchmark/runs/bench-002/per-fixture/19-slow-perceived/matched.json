@@ -1,0 +1,166 @@
+{
+  "fixtureId": "19-slow-perceived",
+  "gtTotal": 5,
+  "ppTotal": 12,
+  "matched": 3,
+  "recall": 0.6,
+  "precision": 0.16666666666666666,
+  "f1": 0.2608695652173913,
+  "severityAcc": 0.6666666666666666,
+  "categoryAcc": 0.3333333333333333,
+  "verdicts": [
+    {
+      "gtId": "gt-01",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0,
+      "reasoning": "judge failed: No JSON found in LLM output:\nLet me analyze the GT issue and the PP findings to determine if any findings describe the same underlying UX issue.\n\n**GT Issue:**\n- id: gt-01\n- severity: high\n- category: 性能感知 (performance perception)\n- title: 加载时整片白屏没有 skeleton (White "
+    },
+    {
+      "gtId": "gt-02",
+      "findingId": "i08",
+      "matched": true,
+      "confidence": 0.65,
+      "reasoning": "i08关注加载中没有提示的问题与GT关注突然出现的视觉冲击都属于性能感知范畴但具体表述不同",
+      "severityAgrees": true,
+      "categoryAgrees": false
+    },
+    {
+      "gtId": "gt-03",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0,
+      "reasoning": "GT issue is about random ordering of list items breaking position memory. None of the 12 PP findings mention item order randomization or position recall issues. All PP findings focus on missing content blank pages loading feedback or slow performance unrelated to list ordering"
+    },
+    {
+      "gtId": "gt-04",
+      "findingId": "i03",
+      "matched": true,
+      "confidence": 0.65,
+      "reasoning": "i03涉及搜索后无反馈列表情况，与GT的列表底部断裂但都指向列表内容可见性问题",
+      "severityAgrees": false,
+      "categoryAgrees": true
+    },
+    {
+      "gtId": "gt-05",
+      "findingId": "i08",
+      "matched": true,
+      "confidence": 0.75,
+      "reasoning": "i08用户困惑于系统是在加载还是卡死与GT的加载状态无法区分问题高度相关",
+      "severityAgrees": true,
+      "categoryAgrees": false
+    }
+  ],
+  "falsePositives": [
+    {
+      "findingId": "i01",
+      "finding": {
+        "title": "进入后看不到任何实质内容，只有顶部栏",
+        "category": "信息架构",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i02",
+      "finding": {
+        "title": "核心交互按钮全部无效",
+        "category": "功能契合",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i04",
+      "finding": {
+        "title": "搜索后完全没有加载反馈，我根本不知道系统在干嘛",
+        "category": "性能感知",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i05",
+      "finding": {
+        "title": "60秒的等待时间直接让我放弃",
+        "category": "性能感知",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i06",
+      "finding": {
+        "title": "内容区域始终空白，没有任何状态提示",
+        "category": "信息架构",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i07",
+      "finding": {
+        "title": "主体内容完全空白，根本无法使用",
+        "category": "性能感知",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i09",
+      "finding": {
+        "title": "看不到产品定位，不知道能用来做什么",
+        "category": "信息架构",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i10",
+      "finding": {
+        "title": "操作完不知道有没有生效，心里没底",
+        "category": "流程顺畅",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i11",
+      "finding": {
+        "title": "系统响应慢，耽误我处理工单的效率",
+        "category": "性能感知",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i12",
+      "finding": {
+        "title": "跟Zendesk比反应太慢了，没信心切过来",
+        "category": "与竞品对比",
+        "severity": "med"
+      }
+    }
+  ],
+  "missed": [
+    {
+      "gtId": "gt-01",
+      "gt": {
+        "id": "gt-01",
+        "title": "加载时整片白屏没有 skeleton",
+        "severity": "high",
+        "category": "性能感知",
+        "description": "首屏进入页面 1.5 秒内,内容区是个高 480px 的空白容器,只有正中一小行 \"Loading...\" 灰字,没有任何 skeleton 行、placeholder 卡片、或 shimmer 动画。用户主观感受像产品卡住了,不知道是网络问题还是产品坏了。",
+        "shouldFindWith": [
+          "性能敏感",
+          "新手"
+        ]
+      }
+    },
+    {
+      "gtId": "gt-03",
+      "gt": {
+        "id": "gt-03",
+        "title": "列表项加载顺序是乱的",
+        "severity": "med",
+        "category": "视觉节奏",
+        "description": "fixture 数据有明确顺序 (Northwind Labs 在第一,Saltgrove 在最后),但 paintAll 用了 Math.random 把顺序打乱再插入。用户每次刷新页面看到的客户顺序都不一样,无法记忆位置,完全打破了「从上往下流式加载」的预期。",
+        "shouldFindWith": [
+          "细致用户",
+          "重度用户"
+        ]
+      }
+    }
+  ]
+}

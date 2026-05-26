@@ -1,0 +1,153 @@
+{
+  "fixtureId": "05-modal-trap",
+  "gtTotal": 5,
+  "ppTotal": 9,
+  "matched": 2,
+  "recall": 0.4,
+  "precision": 0.2222222222222222,
+  "f1": 0.2857142857142857,
+  "severityAcc": 1,
+  "categoryAcc": 1,
+  "verdicts": [
+    {
+      "gtId": "gt-01",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0.45,
+      "reasoning": "i05 mentions users closing modal but GT is about no skip button"
+    },
+    {
+      "gtId": "gt-02",
+      "findingId": "i08",
+      "matched": true,
+      "confidence": 0.85,
+      "reasoning": "i08直接描述被困在modal里出不来与GT的modal覆盖问题一致",
+      "severityAgrees": true,
+      "categoryAgrees": true
+    },
+    {
+      "gtId": "gt-03",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0.3,
+      "reasoning": "i09 mentions too many steps but describes data burden, not the missing back button navigation issue"
+    },
+    {
+      "gtId": "gt-04",
+      "findingId": "i03",
+      "matched": true,
+      "confidence": 0.6,
+      "reasoning": "同为表达文案类别,但GT聚焦welcome套话缺产品信息,i03聚焦技术错误提示,底层问题关联弱",
+      "severityAgrees": true,
+      "categoryAgrees": true
+    },
+    {
+      "gtId": "gt-05",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0,
+      "reasoning": "GT关于按钮尺寸视觉权重问题，PP发现均未涉及此视觉设计缺陷"
+    }
+  ],
+  "falsePositives": [
+    {
+      "findingId": "i01",
+      "finding": {
+        "title": "按钮点击零反馈，严重挫败感",
+        "category": "流程顺畅",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i02",
+      "finding": {
+        "title": "Learn more也是死链接，信任崩塌",
+        "category": "可访问性",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i04",
+      "finding": {
+        "title": "进来发现页面没反应，第一反应是网站坏了",
+        "category": "情感氛围",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i05",
+      "finding": {
+        "title": "弹窗演示设计虽然聪明，但真实用户会直接关掉",
+        "category": "流程顺畅",
+        "severity": "med"
+      }
+    },
+    {
+      "findingId": "i06",
+      "finding": {
+        "title": "填完表单后没有后续引导，不知道这个工具是做什么的",
+        "category": "情感氛围",
+        "severity": "med"
+      }
+    },
+    {
+      "findingId": "i09",
+      "finding": {
+        "title": "onboarding 步骤太多，每一步都问真实数据",
+        "category": "流程顺畅",
+        "severity": "med"
+      }
+    },
+    {
+      "findingId": "i07",
+      "finding": {
+        "title": "Slack URL 输入框没有即时反馈，不知道填对了没有",
+        "category": "流程顺畅",
+        "severity": "low"
+      }
+    }
+  ],
+  "missed": [
+    {
+      "gtId": "gt-01",
+      "gt": {
+        "id": "gt-01",
+        "title": "modal 没有「跳过」按钮",
+        "severity": "high",
+        "category": "流程顺畅",
+        "description": "5 步引导 modal 完全没有 Skip 入口,「close」按钮被做成右下角灰得几乎看不见的小字,用户被迫走完所有步骤或主动找 X。",
+        "shouldFindWith": [
+          "重度用户",
+          "回访用户"
+        ]
+      }
+    },
+    {
+      "gtId": "gt-03",
+      "gt": {
+        "id": "gt-03",
+        "title": "5 步 onboarding 不能回头改",
+        "severity": "med",
+        "category": "学习成本",
+        "description": "modal 5 个步骤每步只有「Next」,没有 Back / Previous 按钮,用户填错前一步只能取消重来或在脑子里 hold 着错误继续走。",
+        "shouldFindWith": [
+          "细致型",
+          "新手"
+        ]
+      }
+    },
+    {
+      "gtId": "gt-05",
+      "gt": {
+        "id": "gt-05",
+        "title": "主 CTA 反而比次按钮小",
+        "severity": "low",
+        "category": "视觉节奏",
+        "description": "modal 底部 「Next」(主操作) 用了小尺寸 12px 蓝色按钮,而「Learn more about Drift」(次操作) 反而是大尺寸 16px 描边按钮,主次视觉权重颠倒,用户视线落在错的地方。",
+        "shouldFindWith": [
+          "设计敏感"
+        ]
+      }
+    }
+  ]
+}

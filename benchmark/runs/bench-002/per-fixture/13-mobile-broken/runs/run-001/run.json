@@ -1,0 +1,734 @@
+{
+  "id": "run-001",
+  "startedAt": "2026-05-26T02:49:12.542Z",
+  "finishedAt": "2026-05-26T02:51:36.995Z",
+  "target": {
+    "url": "http://localhost:8200/13-mobile-broken/site/",
+    "title": "Beacon — Customer feedback",
+    "viewport": {
+      "w": 1280,
+      "h": 800
+    }
+  },
+  "personaSetId": "preset-a-customer-feedback-board-ev",
+  "agents": [
+    {
+      "id": "a01",
+      "name": "Maya Chen",
+      "age": 28,
+      "role": "产品经理",
+      "tech": 4,
+      "tone": "挑剔",
+      "preferences": [
+        "重视效率",
+        "看重模板生态"
+      ],
+      "knownContext": [
+        "每天用 Notion 做 PRD",
+        "试过 Linear，觉得太开发向",
+        "团队 10 人"
+      ],
+      "weight": 0.18,
+      "color": "#a8d4e6",
+      "glyph": "M",
+      "traits": [
+        "效率控",
+        "重视协作"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "frustrated",
+      "durationSec": 37.308
+    },
+    {
+      "id": "a03",
+      "name": "李心怡",
+      "age": 22,
+      "role": "UI 设计实习生",
+      "tech": 3,
+      "tone": "好奇",
+      "preferences": [
+        "界面简洁",
+        "视觉舒适"
+      ],
+      "knownContext": [
+        "参与过内部反馈系统搭建",
+        "用 Figma 共享链接",
+        "关注 Dribbble 社区"
+      ],
+      "weight": 0.22,
+      "color": "#e6c976",
+      "glyph": "L",
+      "traits": [
+        "视觉敏感",
+        "年轻用户"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "frustrated",
+      "durationSec": 58.884
+    },
+    {
+      "id": "a04",
+      "name": "王磊",
+      "age": 46,
+      "role": "运营经理",
+      "tech": 2,
+      "tone": "怀疑",
+      "preferences": [
+        "不复杂",
+        "可离线"
+      ],
+      "knownContext": [
+        "Excel 工单表用了 5 年",
+        "飞书协作成熟",
+        "担心迁移成本高"
+      ],
+      "weight": 0.28,
+      "color": "#e0a8a8",
+      "glyph": "W",
+      "traits": [
+        "保守",
+        "怕繁琐"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "frustrated",
+      "durationSec": 98.669
+    },
+    {
+      "id": "a02",
+      "name": "Kenji Okada",
+      "age": 38,
+      "role": "咖啡店主理",
+      "tech": 3,
+      "tone": "温和",
+      "preferences": [
+        "简洁明了",
+        "快速上手"
+      ],
+      "knownContext": [
+        "用飞书表格管理反馈",
+        "试过 Uservoice",
+        "线下评分表积累 3 年"
+      ],
+      "weight": 0.32,
+      "color": "#b3e0b3",
+      "glyph": "K",
+      "traits": [
+        "实体店主",
+        "务实派"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "frustrated",
+      "durationSec": 144.304
+    }
+  ],
+  "activity": [
+    {
+      "t": "00:00:00",
+      "agent": "a01",
+      "kind": "enter",
+      "text": "进入 localhost:8200/13-mobile-broken/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/13-mobile-broken/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a01",
+      "kind": "click",
+      "text": "Initial page load - just browsing to see what's here",
+      "sentiment": 0,
+      "url": "http://localhost:8200/13-mobile-broken/site/",
+      "shot": "shots/a01-00.jpg"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a03",
+      "kind": "enter",
+      "text": "进入 localhost:8200/13-mobile-broken/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/13-mobile-broken/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a03",
+      "kind": "observation",
+      "text": "打开页面了，先扫一眼看看是什么内容。从URL看像是测试页面，但希望内容能看。页面上有一堆Upvote和Comment按钮，感觉是个帖子列表？让我先滚动看看整体布局。",
+      "sentiment": 0,
+      "shot": "shots/a03-00.jpg"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a04",
+      "kind": "enter",
+      "text": "进入 localhost:8200/13-mobile-broken/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/13-mobile-broken/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a02",
+      "kind": "enter",
+      "text": "进入 localhost:8200/13-mobile-broken/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/13-mobile-broken/site/"
+    },
+    {
+      "t": "00:00:04",
+      "agent": "a04",
+      "kind": "observation",
+      "text": "打开了一个看起来像新闻聚合或内容列表的页面，有多个帖子，每个都有Upvote和Comment按钮。标题栏有一些字母按钮(F, R, B, A, N, S)，可能是分类筛选。",
+      "sentiment": 0,
+      "shot": "shots/a04-00.jpg"
+    },
+    {
+      "t": "00:00:04",
+      "agent": "a02",
+      "kind": "observation",
+      "text": "打开了一个产品反馈页面。顶部有一排按钮（F, R, B, A, N, S），下面似乎是反馈列表，每个都有 Upvote 和 Comment 按钮。让我先看看整体页面长什么样。",
+      "sentiment": 0,
+      "shot": "shots/a02-00.jpg"
+    },
+    {
+      "t": "00:05:62",
+      "agent": "a01",
+      "kind": "click",
+      "text": "Want to see what comments look like on this platform",
+      "sentiment": 0,
+      "url": "http://localhost:8200/13-mobile-broken/site/",
+      "shot": "shots/a01-02.jpg"
+    },
+    {
+      "t": "00:08:01",
+      "agent": "a01",
+      "kind": "confused",
+      "text": "点 Comment 按钮没反应？页面完全没有变化，评论弹窗没出来。这交互是坏的吗？",
+      "sentiment": -2,
+      "shot": "shots/a01-03.jpg"
+    },
+    {
+      "t": "00:10:46",
+      "agent": "a01",
+      "kind": "click",
+      "text": "Testing if Upvote works - at least something interactive should respond",
+      "sentiment": 0,
+      "url": "http://localhost:8200/13-mobile-broken/site/",
+      "shot": "shots/a01-04.jpg"
+    },
+    {
+      "t": "00:12:53",
+      "agent": "a01",
+      "kind": "click",
+      "text": "Maybe these top buttons do something - F might be Filter?",
+      "sentiment": 0,
+      "url": "http://localhost:8200/13-mobile-broken/site/",
+      "shot": "shots/a01-05.jpg"
+    },
+    {
+      "t": "00:13:23",
+      "agent": "a04",
+      "kind": "click",
+      "text": "想看看F是什么分类，会展示什么内容",
+      "sentiment": 0,
+      "url": "http://localhost:8200/13-mobile-broken/site/",
+      "shot": "shots/a04-04.jpg"
+    },
+    {
+      "t": "00:13:39",
+      "agent": "a03",
+      "kind": "confused",
+      "text": "滚动了一下但页面看起来没变。顶部有一排字母按钮 F R B A N S，不知道是什么意思。中间有 Upvote 和 Comment 按钮，像是帖子列表。让我试试点一下 F 按钮看看是什么功能。",
+      "sentiment": -1,
+      "shot": "shots/a03-02.jpg"
+    },
+    {
+      "t": "00:14:56",
+      "agent": "a01",
+      "kind": "rage",
+      "text": "所有按钮都点了个遍，一个能响应的都没有。这页面是摆设吗？我在跟一面墙交互。彻底放弃。",
+      "sentiment": -3,
+      "shot": "shots/a01-06.jpg"
+    },
+    {
+      "t": "00:15:95",
+      "agent": "a03",
+      "kind": "click",
+      "text": "想看看 F 按钮是什么功能",
+      "sentiment": 0,
+      "url": "http://localhost:8200/13-mobile-broken/site/",
+      "shot": "shots/a03-03.jpg"
+    },
+    {
+      "t": "00:15:99",
+      "agent": "a04",
+      "kind": "click",
+      "text": "看看点击其他分类按钮有没有反应",
+      "sentiment": 0,
+      "url": "http://localhost:8200/13-mobile-broken/site/",
+      "shot": "shots/a04-05.jpg"
+    },
+    {
+      "t": "00:18:06",
+      "agent": "a03",
+      "kind": "confused",
+      "text": "点了 F 没反应，可能是筛选按钮？让我试试点 Comment 按钮看看能不能展开评论内容。",
+      "sentiment": 0,
+      "shot": "shots/a03-04.jpg"
+    },
+    {
+      "t": "00:19:60",
+      "agent": "a01",
+      "kind": "exit",
+      "text": "页面完全是摆设 - 所有的按钮（Upvote、Comment、顶部分类按钮）点击后都没有任何反应。作为一个社交内容平台，核心的交互功能全部失效。URL 名字也暗示这是 mobile-broken，就是故意的。但作为真实用户，我不可能在这样一个产品上花时间，直接走人。",
+      "sentiment": 0,
+      "shot": "shots/a01-07.jpg"
+    },
+    {
+      "t": "00:23:74",
+      "agent": "a03",
+      "kind": "click",
+      "text": "想看看点击评论按钮会发生什么",
+      "sentiment": 0,
+      "url": "http://localhost:8200/13-mobile-broken/site/",
+      "shot": "shots/a03-06.jpg"
+    },
+    {
+      "t": "00:29:95",
+      "agent": "a03",
+      "kind": "rage",
+      "text": "点什么都没反应！Comment 按钮、顶部的 F R B A N S 按钮都点了没反应。这页面是不是坏了？作为一个真实用户，遇到这种情况我早就关掉了。",
+      "sentiment": -2,
+      "shot": "shots/a03-07.jpg"
+    },
+    {
+      "t": "00:30:27",
+      "agent": "a02",
+      "kind": "confused",
+      "text": "这页面有点奇怪。DOM 显示的一直是那几行按钮（F R B A N S 然后是 Upvote/Comment），但截图 URL 一直在变。我看不到实际内容在哪里。可能这是个\"broken mobile\"演示？让我回到顶部看看页面开头是什么。",
+      "sentiment": -1,
+      "shot": "shots/a02-05.jpg"
+    },
+    {
+      "t": "00:36:14",
+      "agent": "a03",
+      "kind": "exit",
+      "text": "这个页面看起来完全坏了。作为一个真实用户，我尝试点击了顶部的筛选按钮（F、R、B、A、N、S）和几个 Comment、Upvote 按钮，但没有任何反应。页面可能是某个测试用的移动端 broken 布局 Demo，但完全不可用。我作为 UI 设计实习生，看到这种状态会觉得这是一个开发中的 debug 页面，不会继续浪费时间。",
+      "sentiment": 0,
+      "shot": "shots/a03-08.jpg"
+    },
+    {
+      "t": "00:36:50",
+      "agent": "a04",
+      "kind": "click",
+      "text": "点Comment看看能不能看到评论内容",
+      "sentiment": 0,
+      "url": "http://localhost:8200/13-mobile-broken/site/",
+      "shot": "shots/a04-06.jpg"
+    },
+    {
+      "t": "00:42:03",
+      "agent": "a02",
+      "kind": "click",
+      "text": "想看看顶部的 F 按钮是什么功能",
+      "sentiment": 0,
+      "url": "http://localhost:8200/13-mobile-broken/site/",
+      "shot": "shots/a02-06.jpg"
+    },
+    {
+      "t": "00:42:20",
+      "agent": "a04",
+      "kind": "click",
+      "text": "点Upvote试试看有没有交互反馈",
+      "sentiment": 0,
+      "url": "http://localhost:8200/13-mobile-broken/site/",
+      "shot": "shots/a04-08.jpg"
+    },
+    {
+      "t": "00:44:56",
+      "agent": "a04",
+      "kind": "exit",
+      "text": "作为王磊，一个46岁的运营经理，我打开这个网站后尝试了分类筛选按钮(F、R、B等)、Upvote和Comment按钮，但所有的点击都没有任何反应。这个页面看起来像是静态的，没有任何交互反馈。这种\"静默失败\"让我作为用户完全不知道是操作问题还是网站问题，但不管是哪种，我都不想花时间去研究——我宁愿用我熟悉的Excel工单表，至少点击是有响应的。",
+      "sentiment": 0,
+      "shot": "shots/a04-09.jpg"
+    },
+    {
+      "t": "00:57:14",
+      "agent": "a02",
+      "kind": "click",
+      "text": "试着点第一个 Upvote 按钮，看看有没有交互反馈",
+      "sentiment": 0,
+      "url": "http://localhost:8200/13-mobile-broken/site/",
+      "shot": "shots/a02-07.jpg"
+    },
+    {
+      "t": "01:08:28",
+      "agent": "a02",
+      "kind": "rage",
+      "text": "这页面名字叫\"mobile-broken\"，我猜这是个展示移动端布局有问题的演示。但我用的是 1280x800 桌面视口，看不到反馈内容在哪里，只能看到一堆按钮。我试着点了 Upvote，但什么都没发生——按钮确实在那个坐标，但内容是看不见的。\n\n说实话，这种调试页面不是我想要的。作为咖啡店老板，我来这里是想看看顾客都提了什么反馈意见，点赞、评论。这个界面现在完全没法用。",
+      "sentiment": -2,
+      "shot": "shots/a02-08.jpg"
+    },
+    {
+      "t": "01:27:11",
+      "agent": "a02",
+      "kind": "click",
+      "text": "点 Comment 按钮看看有没有弹出评论框",
+      "sentiment": 0,
+      "url": "http://localhost:8200/13-mobile-broken/site/",
+      "shot": "shots/a02-09.jpg"
+    },
+    {
+      "t": "01:32:82",
+      "agent": "a02",
+      "kind": "rage",
+      "text": "不管点什么，页面完全没有变化。这个\"mobile-broken\"演示页面似乎就是用来展示移动端布局 bug 的——按钮存在但内容不可见，或者 CSS 有问题导致在桌面视口下完全看不见实际内容。",
+      "sentiment": -2,
+      "shot": "shots/a02-10.jpg"
+    },
+    {
+      "t": "01:47:77",
+      "agent": "a02",
+      "kind": "exit",
+      "text": "这是一个\"mobile-broken\"演示页面，明显是用来展示移动端布局 bug 的。在 1280x800 桌面视口下，页面内容完全看不见——DOM 里能检测到按钮（Upvote、Comment 和顶部那排 F R B A N S），但实际可见内容为零。点任何按钮都没有反应。作为一个想看顾客反馈的咖啡店主，这个页面完全没法用，我已经卡在这里快 2 分钟了，继续耗下去没意义。",
+      "sentiment": 0,
+      "shot": "shots/a02-11.jpg"
+    }
+  ],
+  "issues": [
+    {
+      "id": "i01",
+      "title": "核心交互全部失效，直接阻断使用",
+      "severity": "high",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "我在跟一面墙交互。彻底放弃。",
+      "agentRef": "a01",
+      "evidence": 3,
+      "journey": "在内容卡片上尝试 Upvote 和 Comment，在顶部尝试分类切换"
+    },
+    {
+      "id": "i03",
+      "title": "所有按钮点击都完全没反应，页面像死了一样",
+      "severity": "high",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "点什么都没反应！作为一个真实用户，遇到这种情况我早就关掉了。",
+      "agentRef": "a03",
+      "evidence": 3,
+      "journey": "在帖子列表页面尝试点击顶部分类筛选按钮和帖子上的交互按钮"
+    },
+    {
+      "id": "i06",
+      "title": "所有点击都是静默失败，完全没有反馈",
+      "severity": "high",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "点什么都石沉大海，我不知道是我操作问题还是网站问题",
+      "agentRef": "a04",
+      "evidence": 6,
+      "journey": "在分类筛选按钮(F、R、B等)和互动按钮(Upvote、Comment)上尝试点击"
+    },
+    {
+      "id": "i08",
+      "title": "页面内容完全不可见，像打开了一个坏掉的网页",
+      "severity": "high",
+      "agents": 1,
+      "category": "可访问性",
+      "quote": "这页面名字叫'broken-mobile'，我猜这是个演示移动端问题的页面。但我用的是桌面浏览器，看不到任何反馈内容，只有几个孤零零的按钮在外面飘着。",
+      "agentRef": "a02",
+      "evidence": 5,
+      "journey": "进入页面后，顶部有一排 F R B A N S 按钮，下面能看到 Upvote 和 Comment，但中间实际的反馈内容在哪里？"
+    },
+    {
+      "id": "i09",
+      "title": "所有按钮点下去毫无反应，感觉像在戳一堵墙",
+      "severity": "high",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "我点了 Upvote，想看看有没有点赞的反馈效果，点 Comment 想看看能不能评论，结果点什么都没有任何变化。",
+      "agentRef": "a02",
+      "evidence": 6,
+      "journey": "依次尝试点击顶部分类按钮、Upvote 按钮、Comment 按钮，每次都没有任何 UI 响应。"
+    },
+    {
+      "id": "i02",
+      "title": "没有任何错误提示，不知道是自己操作问题还是系统问题",
+      "severity": "med",
+      "agents": 1,
+      "category": "情感氛围",
+      "quote": "点 Comment 按钮没反应？页面完全没有变化，评论弹窗没出来。这交互是坏的吗？",
+      "agentRef": "a01",
+      "evidence": 1,
+      "journey": "第一次点击 Comment 按钮后等待响应"
+    },
+    {
+      "id": "i04",
+      "title": "顶部的F R B A N S按钮不知道是什么意思",
+      "severity": "med",
+      "agents": 1,
+      "category": "学习成本",
+      "quote": "顶部有一排字母按钮 F R B A N S，不知道是什么意思。让我试试点一下F按钮看看是什么功能。",
+      "agentRef": "a03",
+      "evidence": 1,
+      "journey": "页面加载完成后首先注意到顶部这排字母按钮"
+    },
+    {
+      "id": "i07",
+      "title": "没有任何引导或提示，像个半成品",
+      "severity": "med",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "看起来有功能但用不了，跟看了一堆灰掉的按钮一样",
+      "agentRef": "a04",
+      "evidence": 1,
+      "journey": "页面加载后尝试各项功能"
+    },
+    {
+      "id": "i10",
+      "title": "顶部那排按钮是什么意思，我猜不出来",
+      "severity": "med",
+      "agents": 1,
+      "category": "学习成本",
+      "quote": "F R B A N S 这六个字母到底代表什么？Feature、Review、Bug？没有任何文字标签，完全看不懂。",
+      "agentRef": "a02",
+      "evidence": 2,
+      "journey": "进入页面后首先注意到顶部有一排单字母按钮，但没有说明。"
+    },
+    {
+      "id": "i05",
+      "title": "帖子内容看起来是Reddit风格但细节模糊",
+      "severity": "low",
+      "agents": 1,
+      "category": "视觉节奏",
+      "quote": "页面上有一堆Upvote和Comment按钮，感觉是个帖子列表？让我先滚动看看整体布局。",
+      "agentRef": "a03",
+      "evidence": 1,
+      "journey": "初次扫视页面时试图理解整体布局"
+    }
+  ],
+  "delights": [
+    {
+      "title": "帖子结构清晰，有标题、upvote数、comment数",
+      "count": 1,
+      "quote": "虽然按钮没反应，但帖子本身有标题、点赞数、评论数这些信息，看起来结构还挺明确的。",
+      "agent": "a03"
+    },
+    {
+      "title": "页面布局还算清晰，能看到内容列表结构",
+      "count": 1,
+      "quote": "标题看着挺有节奏感的，分类标签排列也整齐",
+      "agent": "a04"
+    }
+  ],
+  "features": [
+    {
+      "name": "分类筛选",
+      "hitCount": 2,
+      "hitRate": 0.5,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 8
+    },
+    {
+      "name": "查看评论",
+      "hitCount": 2,
+      "hitRate": 0.5,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 2
+    },
+    {
+      "name": "切换分类筛选",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -1,
+      "totalAttempts": 3
+    },
+    {
+      "name": "点赞帖子",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 2
+    },
+    {
+      "name": "点赞反馈",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 2
+    },
+    {
+      "name": "评论反馈",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 2
+    },
+    {
+      "name": "浏览内容卡片",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 1,
+      "avgSentiment": 0,
+      "totalAttempts": 1
+    },
+    {
+      "name": "点赞内容",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -2,
+      "totalAttempts": 1
+    },
+    {
+      "name": "评论内容",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -2,
+      "totalAttempts": 1
+    },
+    {
+      "name": "帖子列表浏览",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": 0,
+      "totalAttempts": 1
+    },
+    {
+      "name": "Upvote点赞",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 1
+    },
+    {
+      "name": "查看反馈列表",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 1
+    }
+  ],
+  "routesHeat": [
+    {
+      "path": "/13-mobile-broken/site/",
+      "visits": 17,
+      "dwell": 11,
+      "drop": 0.23529411764705882
+    }
+  ],
+  "sentimentCurve": [
+    {
+      "t": 0,
+      "v": 0.5
+    },
+    {
+      "t": 5,
+      "v": 0.3888888888888889
+    },
+    {
+      "t": 10,
+      "v": 0.3888888888888889
+    },
+    {
+      "t": 15,
+      "v": 0.5
+    },
+    {
+      "t": 20,
+      "v": 0.5
+    },
+    {
+      "t": 25,
+      "v": 0.25
+    },
+    {
+      "t": 30,
+      "v": 0.5
+    },
+    {
+      "t": 35,
+      "v": 0.5
+    },
+    {
+      "t": 40,
+      "v": 0.5
+    },
+    {
+      "t": 45,
+      "v": 0.5
+    },
+    {
+      "t": 50,
+      "v": 0.5
+    },
+    {
+      "t": 55,
+      "v": 0.5
+    },
+    {
+      "t": 60,
+      "v": 0.16666666666666666
+    },
+    {
+      "t": 65,
+      "v": 0.16666666666666666
+    },
+    {
+      "t": 70,
+      "v": 0.16666666666666666
+    },
+    {
+      "t": 75,
+      "v": 0.16666666666666666
+    },
+    {
+      "t": 80,
+      "v": 0.5
+    },
+    {
+      "t": 85,
+      "v": 0.16666666666666666
+    },
+    {
+      "t": 90,
+      "v": 0.16666666666666666
+    },
+    {
+      "t": 95,
+      "v": 0.16666666666666666
+    },
+    {
+      "t": 100,
+      "v": 0.5
+    }
+  ],
+  "metrics": {
+    "predictedNps": -13,
+    "achievableNps": 57,
+    "taskSuccess": 0,
+    "timeToValueSec": null,
+    "rageClicks": 4,
+    "delightCount": 0
+  },
+  "cost": {
+    "tokensIn": 130550,
+    "tokensOut": 6023,
+    "usd": 0
+  }
+}

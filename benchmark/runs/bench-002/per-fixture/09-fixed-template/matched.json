@@ -1,0 +1,180 @@
+{
+  "fixtureId": "09-fixed-template",
+  "gtTotal": 5,
+  "ppTotal": 10,
+  "matched": 1,
+  "recall": 0.2,
+  "precision": 0.1,
+  "f1": 0.13333333333333333,
+  "severityAcc": 1,
+  "categoryAcc": 1,
+  "verdicts": [
+    {
+      "gtId": "gt-01",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0.35,
+      "reasoning": "i10 discusses template-first design mismatch but does not address the core issue of being restricted to 3 fixed templates with no ability to customize or save templates"
+    },
+    {
+      "gtId": "gt-02",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0,
+      "reasoning": "GT关注的是缺乏自定义模板功能与竞品差距,所有finding都与此不相关"
+    },
+    {
+      "gtId": "gt-03",
+      "findingId": "i10",
+      "matched": true,
+      "confidence": 0.85,
+      "reasoning": "i10 directly addresses template blocking quick note entry same as GT",
+      "severityAgrees": true,
+      "categoryAgrees": true
+    },
+    {
+      "gtId": "gt-04",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0,
+      "reasoning": "GT关于Apply Template文案太正式 其他都是功能失效或架构问题 无一提及文案语气"
+    },
+    {
+      "gtId": "gt-05",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0,
+      "reasoning": "GT 是关于三张卡片视觉色调不统一的视觉设计问题，而所有 PP findings 都是关于交互功能失效、导航架构或产品定位的问题，两者完全无关"
+    }
+  ],
+  "falsePositives": [
+    {
+      "findingId": "i01",
+      "finding": {
+        "title": "导航栏完全失效，点击任何按钮都没反应",
+        "category": "功能契合",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i04",
+      "finding": {
+        "title": "左侧导航栏点击完全没响应",
+        "category": "交互流畅",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i05",
+      "finding": {
+        "title": "Apply Template 按钮点击无反应",
+        "category": "功能契合",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i07",
+      "finding": {
+        "title": "New note按钮点了两次没反应",
+        "category": "功能契合",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i08",
+      "finding": {
+        "title": "主要导航按钮点了几下都没反应，不知道是自己不会用还是坏了",
+        "category": "流程顺畅",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i09",
+      "finding": {
+        "title": "找不到自己的笔记在哪里，12条笔记像是隐形了",
+        "category": "信息架构",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i02",
+      "finding": {
+        "title": "交互逻辑让人困惑，不知道导航和主区域的关系",
+        "category": "信息架构",
+        "severity": "med"
+      }
+    },
+    {
+      "findingId": "i03",
+      "finding": {
+        "title": "点击模板时出现代码错误",
+        "category": "性能感知",
+        "severity": "med"
+      }
+    },
+    {
+      "findingId": "i06",
+      "finding": {
+        "title": "产品定位不清晰，看不到核心价值",
+        "category": "信息架构",
+        "severity": "med"
+      }
+    }
+  ],
+  "missed": [
+    {
+      "gtId": "gt-01",
+      "gt": {
+        "id": "gt-01",
+        "title": "只能用 3 个固定模板",
+        "severity": "high",
+        "category": "功能契合",
+        "description": "新建笔记时必须选「会议记录 / 日记 / Todo」三个模板之一,既不能自定义模板、也不能保存自己的模板供下次复用,使用了两次以后用户的真实工作流就被锁死了。",
+        "shouldFindWith": [
+          "重度用户",
+          "评估者"
+        ]
+      }
+    },
+    {
+      "gtId": "gt-02",
+      "gt": {
+        "id": "gt-02",
+        "title": "Notion / Obsidian 都能自定义",
+        "severity": "high",
+        "category": "与竞品对比",
+        "description": "Notion / Obsidian / Craft / Bear 这一类笔记产品在 2024 之后都把「自定义模板」当作基线功能,这个产品反向开倒车,任何尝试过竞品的用户立刻会感到功能性退化。",
+        "shouldFindWith": [
+          "重度用户",
+          "评估者"
+        ]
+      }
+    },
+    {
+      "gtId": "gt-04",
+      "gt": {
+        "id": "gt-04",
+        "title": "按钮文案太正式",
+        "severity": "med",
+        "category": "表达文案",
+        "description": "主按钮叫 'Apply Template',词性偏正式/系统化,跟笔记应用的轻量氛围相违和,更合适的应该是「用这个开始」「就这个」之类口语化文案。",
+        "shouldFindWith": [
+          "文案敏感"
+        ]
+      }
+    },
+    {
+      "gtId": "gt-05",
+      "gt": {
+        "id": "gt-05",
+        "title": "3 张卡片色调不统一",
+        "severity": "low",
+        "category": "视觉节奏",
+        "description": "Meeting 用蓝色渐变 / Journal 用紫红渐变 / Todo 用绿色渐变,边框颜色也跟着变,3 张卡并排在一起视觉上像三个不同产品的拼贴,缺乏一致的设计系统。",
+        "shouldFindWith": [
+          "设计敏感"
+        ]
+      }
+    }
+  ]
+}

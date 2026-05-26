@@ -1,0 +1,720 @@
+{
+  "id": "run-001",
+  "startedAt": "2026-05-26T02:51:45.149Z",
+  "finishedAt": "2026-05-26T02:53:27.082Z",
+  "target": {
+    "url": "http://localhost:8200/14-rage-button/site/",
+    "title": "Vault — Workspace",
+    "viewport": {
+      "w": 1280,
+      "h": 800
+    }
+  },
+  "personaSetId": "preset-a-workspace-dashboard-with-a-s",
+  "agents": [
+    {
+      "id": "a04",
+      "name": "李心怡",
+      "age": 38,
+      "role": "运营专员",
+      "tech": 3,
+      "tone": "怀疑",
+      "preferences": [
+        "关注数据一致性",
+        "重视安全性"
+      ],
+      "knownContext": [
+        "用 Trello 管理项目",
+        "试过 Asana"
+      ],
+      "weight": 0.2,
+      "color": "#ef9a9a",
+      "glyph": "L",
+      "traits": [
+        "稳健",
+        "风险意识"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "frustrated",
+      "durationSec": 38.725
+    },
+    {
+      "id": "a03",
+      "name": "Sophia Rodriguez",
+      "age": 29,
+      "role": "UX 设计师",
+      "tech": 4,
+      "tone": "温和",
+      "preferences": [
+        "注重界面美观",
+        "关注交互流畅"
+      ],
+      "knownContext": [
+        "使用 Figma",
+        "曾用 Sketch"
+      ],
+      "weight": 0.25,
+      "color": "#80cbc4",
+      "glyph": "S",
+      "traits": [
+        "细节控",
+        "美感追求"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "frustrated",
+      "durationSec": 69.16
+    },
+    {
+      "id": "a01",
+      "name": "Maya Chen",
+      "age": 28,
+      "role": "产品经理",
+      "tech": 4,
+      "tone": "挑剔",
+      "preferences": [
+        "重视协作",
+        "看重模板生态"
+      ],
+      "knownContext": [
+        "每天用 Notion",
+        "试过 Linear，觉得太开发向"
+      ],
+      "weight": 0.3,
+      "color": "#e6c976",
+      "glyph": "M",
+      "traits": [
+        "效率控",
+        "重视协作"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "explored",
+      "durationSec": 83.262
+    },
+    {
+      "id": "a02",
+      "name": "Kenji Okada",
+      "age": 34,
+      "role": "前端开发",
+      "tech": 5,
+      "tone": "好奇",
+      "preferences": [
+        "喜欢探索新功能",
+        "对自动化有兴趣"
+      ],
+      "knownContext": [
+        "日常使用 GitHub",
+        "试过 Zapier"
+      ],
+      "weight": 0.25,
+      "color": "#7fb3d5",
+      "glyph": "K",
+      "traits": [
+        "技术宅",
+        "自动化控"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "frustrated",
+      "durationSec": 101.795
+    }
+  ],
+  "activity": [
+    {
+      "t": "00:00:00",
+      "agent": "a04",
+      "kind": "enter",
+      "text": "进入 localhost:8200/14-rage-button/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/14-rage-button/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a04",
+      "kind": "click",
+      "text": "打开页面查看",
+      "sentiment": 0,
+      "url": "http://localhost:8200/14-rage-button/site/",
+      "shot": "shots/a04-00.jpg"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a03",
+      "kind": "enter",
+      "text": "进入 localhost:8200/14-rage-button/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/14-rage-button/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a03",
+      "kind": "confused",
+      "text": "刚打开页面，看到有个Sync按钮。URL是localhost:8200的14-rage-button项目...这是什么？看起来像是某种愤怒按钮？先看看页面全貌再说。",
+      "sentiment": 0,
+      "shot": "shots/a03-00.jpg"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a01",
+      "kind": "enter",
+      "text": "进入 localhost:8200/14-rage-button/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/14-rage-button/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a01",
+      "kind": "observation",
+      "text": "打开了一个页面，看到右上角有个 \"Sync\" 按钮。URL 是 localhost:8200 下的一个子路径，看起来像是一个演示页面。",
+      "sentiment": 0,
+      "shot": "shots/a01-00.jpg"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a02",
+      "kind": "enter",
+      "text": "进入 localhost:8200/14-rage-button/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/14-rage-button/site/"
+    },
+    {
+      "t": "00:04:59",
+      "agent": "a04",
+      "kind": "confused",
+      "text": "页面只有一个Sync按钮？这是什么产品？看起来像是个同步工具，但主界面太空了。",
+      "sentiment": -1,
+      "shot": "shots/a04-01.jpg"
+    },
+    {
+      "t": "00:06:02",
+      "agent": "a01",
+      "kind": "click",
+      "text": "页面加载了，想看看主要内容是什么",
+      "sentiment": 0,
+      "url": "http://localhost:8200/14-rage-button/site/",
+      "shot": "shots/a01-01.jpg"
+    },
+    {
+      "t": "00:07:18",
+      "agent": "a04",
+      "kind": "click",
+      "text": "点击Sync按钮看看功能",
+      "sentiment": 0,
+      "url": "http://localhost:8200/14-rage-button/site/",
+      "shot": "shots/a04-02.jpg"
+    },
+    {
+      "t": "00:09:97",
+      "agent": "a04",
+      "kind": "confused",
+      "text": "操作失败 (note): expected number, got undefined",
+      "sentiment": -1
+    },
+    {
+      "t": "00:11:58",
+      "agent": "a03",
+      "kind": "confused",
+      "text": "操作失败 (note): expected number, got undefined",
+      "sentiment": -1
+    },
+    {
+      "t": "00:12:83",
+      "agent": "a04",
+      "kind": "rage",
+      "text": "\"rage button\"？这到底是什么鬼？页面就一个Sync按钮，点了一下也没反应。作为用户我完全不知道这个产品能干嘛，也没有任何引导。标题？说明？什么都没有。这也太敷衍了吧。",
+      "sentiment": -3,
+      "shot": "shots/a04-04.jpg"
+    },
+    {
+      "t": "00:13:75",
+      "agent": "a01",
+      "kind": "observation",
+      "text": "这是一个AI聊天界面，显示了一些关于 React 最佳实践的回复。页面上有输入框，提示\"Type your message...\"。",
+      "sentiment": 0,
+      "shot": "shots/a01-03.jpg"
+    },
+    {
+      "t": "00:15:86",
+      "agent": "a03",
+      "kind": "click",
+      "text": "想看看这个页面到底是什么，点击唯一的按钮试试",
+      "sentiment": 0,
+      "url": "http://localhost:8200/14-rage-button/site/",
+      "shot": "shots/a03-05.jpg"
+    },
+    {
+      "t": "00:17:90",
+      "agent": "a04",
+      "kind": "exit",
+      "text": "点了一下Sync按钮，页面完全没有反应或变化。不知道这个产品是做什么的，也没有使用引导。作为一个运营专员，我日常用的Trello、Asana都是有明确功能入口和视觉反馈的。这个产品太简陋了，连最基本的交互反馈都没有。17秒了还看不到任何变化，我已经不想继续了。",
+      "sentiment": 0,
+      "shot": "shots/a04-05.jpg"
+    },
+    {
+      "t": "00:18:81",
+      "agent": "a01",
+      "kind": "click",
+      "text": "点击输入框准备输入消息",
+      "sentiment": 0,
+      "url": "http://localhost:8200/14-rage-button/site/",
+      "shot": "shots/a01-04.jpg"
+    },
+    {
+      "t": "00:19:73",
+      "agent": "a03",
+      "kind": "shortcut",
+      "text": "点击Sync后页面没反应，刷新看看 [F5]",
+      "sentiment": 0,
+      "url": "http://localhost:8200/14-rage-button/site/",
+      "shot": "shots/a03-06.jpg"
+    },
+    {
+      "t": "00:20:05",
+      "agent": "a02",
+      "kind": "confused",
+      "text": "页面上只有一个 Sync 按钮，内容看不到。让我再往下滚动看看实际内容在哪里。",
+      "sentiment": -1,
+      "shot": "shots/a02-06.jpg"
+    },
+    {
+      "t": "00:22:13",
+      "agent": "a01",
+      "kind": "click",
+      "text": "输入一个简单的问题来测试聊天功能 (typed: 你好，这是一个测试消息)",
+      "sentiment": 0,
+      "shot": "shots/a01-05.jpg"
+    },
+    {
+      "t": "00:24:78",
+      "agent": "a01",
+      "kind": "observation",
+      "text": "输入框已经输入了文字，现在需要找到发送按钮来发送消息。",
+      "sentiment": 1,
+      "shot": "shots/a01-06.jpg"
+    },
+    {
+      "t": "00:26:14",
+      "agent": "a02",
+      "kind": "click",
+      "text": "想看看点击 Sync 按钮会发生什么",
+      "sentiment": 0,
+      "url": "http://localhost:8200/14-rage-button/site/",
+      "shot": "shots/a02-07.jpg"
+    },
+    {
+      "t": "00:26:51",
+      "agent": "a01",
+      "kind": "shortcut",
+      "text": "发送输入的消息 [Enter]",
+      "sentiment": 0,
+      "url": "http://localhost:8200/14-rage-button/site/",
+      "shot": "shots/a01-07.jpg"
+    },
+    {
+      "t": "00:28:57",
+      "agent": "a03",
+      "kind": "confused",
+      "text": "刷新后页面还是一样，只有一个Sync按钮。这到底是个什么产品？页面名字叫\"14-rage-button\"，我以为会有什么愤怒情绪相关的东西，但只看到一个Sync按钮。点了一下也没反应。作为UX设计师，这种\"不知道它是干嘛的\"让我很抓狂。",
+      "sentiment": -1,
+      "shot": "shots/a03-07.jpg"
+    },
+    {
+      "t": "00:31:45",
+      "agent": "a02",
+      "kind": "confused",
+      "text": "点击 Sync 后页面没任何变化。页面上只有右上角一个 Sync 按钮，看不到主要内容。这让我完全不知道这个网站是干什么的。",
+      "sentiment": -2,
+      "shot": "shots/a02-08.jpg"
+    },
+    {
+      "t": "00:33:95",
+      "agent": "a01",
+      "kind": "observation",
+      "text": "注意到页面URL路径是\"14-rage-button\"，这个\"rage button\"（愤怒按钮）有点奇怪的名字。让我点击一下右上角的Sync按钮看看有什么功能。",
+      "sentiment": 0,
+      "shot": "shots/a01-09.jpg"
+    },
+    {
+      "t": "00:37:43",
+      "agent": "a01",
+      "kind": "click",
+      "text": "好奇Sync按钮的功能",
+      "sentiment": 0,
+      "url": "http://localhost:8200/14-rage-button/site/",
+      "shot": "shots/a01-10.jpg"
+    },
+    {
+      "t": "00:38:92",
+      "agent": "a02",
+      "kind": "rage",
+      "text": "URL 里有 rage-button，页面标题看起来是个组件 demo，但我来回滚了好久只看到右上角一个 Sync 按钮，点击也没反应。这个页面要么加载失败要么就真的只有这点内容。作为用户我不可能继续浪费时间在这上面。",
+      "sentiment": -2,
+      "shot": "shots/a02-09.jpg"
+    },
+    {
+      "t": "00:42:95",
+      "agent": "a01",
+      "kind": "click",
+      "text": "点击输入框准备测试聊天功能",
+      "sentiment": 0,
+      "url": "http://localhost:8200/14-rage-button/site/",
+      "shot": "shots/a01-12.jpg"
+    },
+    {
+      "t": "00:43:70",
+      "agent": "a03",
+      "kind": "exit",
+      "text": "页面上只有一个Sync按钮，点击没有反应，刷新后依然如此。\"14-rage-button\"这个名称让我期待看到某种愤怒情绪相关的功能，但实际内容空空如也。作为UX设计师，这种\"进来后不知道它是干嘛的\"体验非常糟糕，完全无法理解这个产品的意图。",
+      "sentiment": 0,
+      "shot": "shots/a03-08.jpg"
+    },
+    {
+      "t": "00:47:84",
+      "agent": "a01",
+      "kind": "click",
+      "text": "输入消息测试聊天 (typed: 你好)",
+      "sentiment": 0,
+      "shot": "shots/a01-13.jpg"
+    },
+    {
+      "t": "00:52:05",
+      "agent": "a01",
+      "kind": "click",
+      "text": "点击输入框准备发送消息",
+      "sentiment": 0,
+      "url": "http://localhost:8200/14-rage-button/site/",
+      "shot": "shots/a01-15.jpg"
+    },
+    {
+      "t": "00:56:03",
+      "agent": "a01",
+      "kind": "shortcut",
+      "text": "发送输入的消息 [Enter]",
+      "sentiment": 0,
+      "url": "http://localhost:8200/14-rage-button/site/",
+      "shot": "shots/a01-16.jpg"
+    },
+    {
+      "t": "00:59:94",
+      "agent": "a02",
+      "kind": "click",
+      "text": "刷新页面看看内容是否加载",
+      "sentiment": 0,
+      "url": "http://localhost:8200/14-rage-button/site/",
+      "shot": "shots/a02-11.jpg"
+    },
+    {
+      "t": "01:01:88",
+      "agent": "a01",
+      "kind": "confused",
+      "text": "这个页面的URL是\"14-rage-button\"，但我还没有找到什么特别的功能。让我多看几眼，检查一下有没有其他交互元素。",
+      "sentiment": 0,
+      "shot": "shots/a01-18.jpg"
+    },
+    {
+      "t": "01:05:02",
+      "agent": "a02",
+      "kind": "rage",
+      "text": "刷新后还是老样子。这个页面对我来说是完全失败的体验——名字叫 rage-button，但我连主要内容都看不到。Chrome 显示的是一个纯黑/深灰色的空页面，只有右上角一个没反应的 Sync 按钮。我已经花了一分钟在这上面，作为一个真实用户早就该关掉走人了。",
+      "sentiment": -3,
+      "shot": "shots/a02-12.jpg"
+    },
+    {
+      "t": "01:11:00",
+      "agent": "a01",
+      "kind": "exit",
+      "text": "页面是一个AI聊天界面，URL路径包含\"rage-button\"但我没找到明显特殊的\"愤怒按钮\"功能。右上角有个Sync按钮，点击后没看到明显效果。基本的聊天输入发送功能可用，但作为一个产品经理，我对这种演示页面的价值存疑——它没有清晰地传达这个产品是做什么的、解决什么问题。我可能不会主动回来。",
+      "sentiment": 0,
+      "shot": "shots/a01-19.jpg"
+    },
+    {
+      "t": "01:15:04",
+      "agent": "a02",
+      "kind": "exit",
+      "text": "在这个页面待了一分多钟，只看到右上角一个 Sync 按钮，内容完全看不见。滚动、点击、重刷都没用。作为一个普通用户，我已经搞不懂这个网站是干什么的，名字叫 rage-button 但我连核心功能都摸不到边。这种体验下我早就关掉走人了。",
+      "sentiment": 0,
+      "shot": "shots/a02-13.jpg"
+    }
+  ],
+  "issues": [
+    {
+      "id": "i01",
+      "title": "首页只有一个按钮，零引导让人一脸懵",
+      "severity": "high",
+      "agents": 1,
+      "category": "信息架构",
+      "quote": "页面只有一个Sync按钮？这是什么产品？看起来像是个同步工具，但主界面太空了。",
+      "agentRef": "a04",
+      "evidence": 1,
+      "journey": "进入首页后看到空旷的界面"
+    },
+    {
+      "id": "i02",
+      "title": "点完按钮直接报错，完全没有正向反馈",
+      "severity": "high",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "操作失败 (note): expected number, got undefined",
+      "agentRef": "a04",
+      "evidence": 1,
+      "journey": "点击Sync按钮后"
+    },
+    {
+      "id": "i04",
+      "title": "产品意图完全不明，看不出这是什么东西",
+      "severity": "high",
+      "agents": 1,
+      "category": "信息架构",
+      "quote": "这到底是干嘛的？14-rage-button，听起来像是愤怒发泄按钮，但又只有一个Sync，我完全get不到它的用途",
+      "agentRef": "a03",
+      "evidence": 1,
+      "journey": "首页加载完成后"
+    },
+    {
+      "id": "i05",
+      "title": "唯一的按钮点击后完全没反应，感觉产品是坏的",
+      "severity": "high",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "点了一下Sync，页面纹丝不动，我还以为是网络问题，刷新了也没变化...",
+      "agentRef": "a03",
+      "evidence": 2,
+      "journey": "点击Sync按钮后"
+    },
+    {
+      "id": "i07",
+      "title": "产品定位模糊，价值主张缺失",
+      "severity": "high",
+      "agents": 1,
+      "category": "信息架构",
+      "quote": "这是一个AI聊天界面，URL路径包含'rage-button'但我没找到明显特殊的'愤怒按钮'功能。它没有清晰地传达这个产品是做什么的、解决什么问题。",
+      "agentRef": "a01",
+      "evidence": 4,
+      "journey": "从URL发现名字叫'rage-button'，期待找到对应的核心功能，但进入页面后只有普通聊天界面"
+    },
+    {
+      "id": "i08",
+      "title": "核心功能入口不明，预期落空",
+      "severity": "high",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "URL名字里有'rage button'，我还专门等了看有没有什么特别的交互，结果就是个普通聊天框。期待完全落空。",
+      "agentRef": "a01",
+      "evidence": 3,
+      "journey": "看到URL包含'14-rage-button'，预期有愤怒/情绪相关的核心功能，实际只有基础聊天"
+    },
+    {
+      "id": "i10",
+      "title": "页面内容看不见，不知道这是啥",
+      "severity": "high",
+      "agents": 1,
+      "category": "信息架构",
+      "quote": "来回滚了好久只看到右上角一个 Sync 按钮，我完全不知道这个网站是干什么的。",
+      "agentRef": "a02",
+      "evidence": 3,
+      "journey": "进入页面后尝试滚动寻找内容，但翻来翻去只有右上角一个 Sync，内容看不到。"
+    },
+    {
+      "id": "i03",
+      "title": "标题叫rage button，不知道是认真还是恶搞",
+      "severity": "med",
+      "agents": 1,
+      "category": "情感氛围",
+      "quote": "\"rage button\"？这到底是什么鬼？页面就一个Sync按钮，点了一下也没反应。作为用户我完全不知道这个产品能干嘛，也没有任何引导。",
+      "agentRef": "a04",
+      "evidence": 1,
+      "journey": "看到页面标题和空荡界面"
+    },
+    {
+      "id": "i06",
+      "title": "没有引导、没有说明，我作为新用户完全不知道接下来该做什么",
+      "severity": "med",
+      "agents": 1,
+      "category": "学习成本",
+      "quote": "连个标题说明都没有，进来就是一片空白，这让我觉得自己像个无头苍蝇",
+      "agentRef": "a03",
+      "evidence": 1,
+      "journey": "首次访问页面时"
+    },
+    {
+      "id": "i09",
+      "title": "Sync按钮功能不明确",
+      "severity": "med",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "点了一下Sync按钮，不知道发生了什么，也不知道这东西是同步什么。没有反馈。",
+      "agentRef": "a01",
+      "evidence": 1,
+      "journey": "点击右上角Sync按钮后，没有明显效果或提示"
+    },
+    {
+      "id": "i11",
+      "title": "Sync 按钮点了没反应",
+      "severity": "med",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "点了一下 Sync，页面完全没变化，感觉这按钮就是摆设。",
+      "agentRef": "a02",
+      "evidence": 1,
+      "journey": "在没看到其他内容的情况下点击了唯一的交互元素 Sync，预期是能看到什么东西。"
+    },
+    {
+      "id": "i12",
+      "title": "刷新也白搭，页面没有变化",
+      "severity": "med",
+      "agents": 1,
+      "category": "性能感知",
+      "quote": "刷新后还是老样子，Chrome 显示的就是一个纯黑/深灰色的空页面，只有右上角一个没反应的 Sync。",
+      "agentRef": "a02",
+      "evidence": 1,
+      "journey": "以为是加载问题，刷新页面期望能看到内容，但刷新后结果一样。"
+    }
+  ],
+  "delights": [
+    {
+      "title": "基础聊天功能可用",
+      "count": 1,
+      "quote": "输入消息能正常发送，Enter快捷键也工作，这个基础体验是顺畅的。",
+      "agent": "a01"
+    }
+  ],
+  "features": [
+    {
+      "name": "点击Sync按钮",
+      "hitCount": 2,
+      "hitRate": 0.5,
+      "completionRate": 0,
+      "avgSentiment": -2.5,
+      "totalAttempts": 2
+    },
+    {
+      "name": "Sync按钮",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 2
+    },
+    {
+      "name": "发送消息",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 1,
+      "avgSentiment": 1,
+      "totalAttempts": 2
+    }
+  ],
+  "routesHeat": [
+    {
+      "path": "/14-rage-button/site/",
+      "visits": 17,
+      "dwell": 10,
+      "drop": 0.23529411764705882
+    }
+  ],
+  "sentimentCurve": [
+    {
+      "t": 0,
+      "v": 0.5
+    },
+    {
+      "t": 5,
+      "v": 0.4444444444444444
+    },
+    {
+      "t": 10,
+      "v": 0.3333333333333333
+    },
+    {
+      "t": 15,
+      "v": 0.2777777777777778
+    },
+    {
+      "t": 20,
+      "v": 0.5
+    },
+    {
+      "t": 25,
+      "v": 0.4583333333333333
+    },
+    {
+      "t": 30,
+      "v": 0.5833333333333334
+    },
+    {
+      "t": 35,
+      "v": 0.4166666666666667
+    },
+    {
+      "t": 40,
+      "v": 0.16666666666666666
+    },
+    {
+      "t": 45,
+      "v": 0.5
+    },
+    {
+      "t": 50,
+      "v": 0.16666666666666666
+    },
+    {
+      "t": 55,
+      "v": 0.5
+    },
+    {
+      "t": 60,
+      "v": 0.5
+    },
+    {
+      "t": 65,
+      "v": 0.5
+    },
+    {
+      "t": 70,
+      "v": 0.5
+    },
+    {
+      "t": 75,
+      "v": 0.5
+    },
+    {
+      "t": 80,
+      "v": 0.5
+    },
+    {
+      "t": 85,
+      "v": 0
+    },
+    {
+      "t": 90,
+      "v": 0.5
+    },
+    {
+      "t": 95,
+      "v": 0.5
+    },
+    {
+      "t": 100,
+      "v": 0.5
+    }
+  ],
+  "metrics": {
+    "predictedNps": -12,
+    "achievableNps": 86,
+    "taskSuccess": 0,
+    "timeToValueSec": null,
+    "rageClicks": 3,
+    "delightCount": 0
+  },
+  "cost": {
+    "tokensIn": 115770,
+    "tokensOut": 6472,
+    "usd": 0
+  }
+}

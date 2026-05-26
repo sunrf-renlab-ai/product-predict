@@ -1,0 +1,174 @@
+{
+  "fixtureId": "12-noisy-notifs",
+  "gtTotal": 5,
+  "ppTotal": 9,
+  "matched": 1,
+  "recall": 0.2,
+  "precision": 0.1111111111111111,
+  "f1": 0.14285714285714285,
+  "severityAcc": 0,
+  "categoryAcc": 0,
+  "verdicts": [
+    {
+      "gtId": "gt-01",
+      "findingId": "i07",
+      "matched": true,
+      "confidence": 0.65,
+      "reasoning": "Mentions标签点击无反应表明分组功能存在但体验断点",
+      "severityAgrees": false,
+      "categoryAgrees": false
+    },
+    {
+      "gtId": "gt-02",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0,
+      "reasoning": "No finding mentions missing batch actions or Mark all as read button"
+    },
+    {
+      "gtId": "gt-03",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0.4,
+      "reasoning": "i07 Mentions tab broken is a general flow break but not about new tab navigation disrupting workflow"
+    },
+    {
+      "gtId": "gt-04",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0.1,
+      "reasoning": "GT关注通知类型的视觉权重均等化导致信息层级缺失，所有PP finding均未提及通知类型间的视觉区分问题"
+    },
+    {
+      "gtId": "gt-05",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0,
+      "reasoning": "GT issue is about mixed time format styles (relative vs absolute ISO) in same column. None of the 9 findings address time/date display inconsistency"
+    }
+  ],
+  "falsePositives": [
+    {
+      "findingId": "i01",
+      "finding": {
+        "title": "想用但还没用上就被打断了",
+        "category": "流程顺畅",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i03",
+      "finding": {
+        "title": "搜索形同虚设，输入关键词完全不生效",
+        "category": "功能契合",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i06",
+      "finding": {
+        "title": "产品定位模糊，不知道它装在哪里",
+        "category": "信息架构",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i08",
+      "finding": {
+        "title": "价值主张不清晰，没有让我觉得非用它不可的理由",
+        "category": "功能契合",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i02",
+      "finding": {
+        "title": "首页展示不够让我立刻想行动",
+        "category": "视觉节奏",
+        "severity": "med"
+      }
+    },
+    {
+      "findingId": "i04",
+      "finding": {
+        "title": "Filter按钮点了没反应，不知道能怎么筛选",
+        "category": "可访问性",
+        "severity": "med"
+      }
+    },
+    {
+      "findingId": "i05",
+      "finding": {
+        "title": "没有协作相关功能，PM用不了",
+        "category": "功能契合",
+        "severity": "med"
+      }
+    },
+    {
+      "findingId": "i09",
+      "finding": {
+        "title": "AI功能要付费，还没感受到价值就先看到门槛",
+        "category": "情感氛围",
+        "severity": "med"
+      }
+    }
+  ],
+  "missed": [
+    {
+      "gtId": "gt-02",
+      "gt": {
+        "id": "gt-02",
+        "title": "没有「全部标已读」按钮",
+        "severity": "high",
+        "category": "功能契合",
+        "description": "顶部右侧只显示「50 notifications」纯文本,没有 Mark all as read / 批量选择 / 清空已读 等任何批处理入口。要清掉 50 条只能逐条点开,严重违反同类工具(Slack/Linear/GitHub)的基本预期。",
+        "shouldFindWith": [
+          "重度用户",
+          "效率敏感"
+        ]
+      }
+    },
+    {
+      "gtId": "gt-03",
+      "gt": {
+        "id": "gt-03",
+        "title": "点通知在新 tab 打开",
+        "severity": "med",
+        "category": "流程顺畅",
+        "description": "每条通知点击后用 window.open(..., '_blank') 跳到新 tab,而不是在当前 tab 内导航或抽屉里展开详情。用户处理完一条要切回 inbox tab 才能继续,工作流被反复打断。",
+        "shouldFindWith": [
+          "重度用户",
+          "键盘党"
+        ]
+      }
+    },
+    {
+      "gtId": "gt-04",
+      "gt": {
+        "id": "gt-04",
+        "title": "重要 mention 跟系统通知一样小",
+        "severity": "med",
+        "category": "视觉节奏",
+        "description": "@提及 / 系统消息 / 周报摘要三种通知用了完全一样的行高、字号、颜色和图标。最该被看到的「同事 @了你」跟「存储 82%」视觉权重相等,违反信息层级原则。",
+        "shouldFindWith": [
+          "设计敏感",
+          "效率敏感"
+        ]
+      }
+    },
+    {
+      "gtId": "gt-05",
+      "gt": {
+        "id": "gt-05",
+        "title": "时间「3 hours ago」混着 ISO 格式",
+        "severity": "low",
+        "category": "表达文案",
+        "description": "右侧时间列一会儿是「3 hours ago」、「yesterday」相对格式,一会儿是「2026-05-25 14:23」绝对 ISO 格式。同一列两种风格交错,大脑要不停切换语境。",
+        "shouldFindWith": [
+          "设计敏感",
+          "细节敏感"
+        ]
+      }
+    }
+  ]
+}

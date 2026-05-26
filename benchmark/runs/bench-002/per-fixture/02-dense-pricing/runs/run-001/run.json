@@ -1,0 +1,809 @@
+{
+  "id": "run-001",
+  "startedAt": "2026-05-26T02:34:22.044Z",
+  "finishedAt": "2026-05-26T02:37:25.049Z",
+  "target": {
+    "url": "http://localhost:8200/02-dense-pricing/site/",
+    "title": "Pricing — Loop",
+    "viewport": {
+      "w": 1280,
+      "h": 800
+    }
+  },
+  "personaSetId": "preset-a-saas-pricing-page-with-5-pla",
+  "agents": [
+    {
+      "id": "a02",
+      "name": "Kenji Okada",
+      "age": 32,
+      "role": "独立开发者",
+      "tech": 5,
+      "tone": "怀疑",
+      "preferences": [
+        "追求技术深度",
+        "对定价透明有要求",
+        "关注 API 限制"
+      ],
+      "knownContext": [
+        "经常使用 Vercel",
+        "试过 Netlify 的免费层",
+        "熟悉 AWS 成本模型"
+      ],
+      "weight": 0.2,
+      "color": "#7fb3d5",
+      "glyph": "K",
+      "traits": [
+        "技术控",
+        "成本敏感",
+        "自驱动"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "explored",
+      "durationSec": 52.404
+    },
+    {
+      "id": "a01",
+      "name": "Maya Chen",
+      "age": 28,
+      "role": "产品经理",
+      "tech": 4,
+      "tone": "好奇",
+      "preferences": [
+        "重视协作",
+        "关注性价比",
+        "希望快速上手"
+      ],
+      "knownContext": [
+        "每天用 Notion",
+        "团队 8 人",
+        "曾试过 Notion"
+      ],
+      "weight": 0.35,
+      "color": "#e6c976",
+      "glyph": "M",
+      "traits": [
+        "效率控",
+        "重视协作",
+        "模板控"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "accomplished",
+      "durationSec": 91.169
+    },
+    {
+      "id": "a03",
+      "name": "Liam Zhao",
+      "age": 23,
+      "role": "营销专员",
+      "tech": 3,
+      "tone": "急躁",
+      "preferences": [
+        "想要快速看到 ROI",
+        "不喜欢复杂表格",
+        "关注营销功能"
+      ],
+      "knownContext": [
+        "目前用 HubSpot",
+        "试过 Mailchimp",
+        "团队 5 人"
+      ],
+      "weight": 0.2,
+      "color": "#f5a623",
+      "glyph": "L",
+      "traits": [
+        "结果导向",
+        "营销热忱",
+        "速战速决"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "frustrated",
+      "durationSec": 118.86
+    },
+    {
+      "id": "a04",
+      "name": "李明远",
+      "age": 45,
+      "role": "企业采购主管",
+      "tech": 2,
+      "tone": "挑剔",
+      "preferences": [
+        "重视安全合规",
+        "关注隐性费用",
+        "需要长期支持"
+      ],
+      "knownContext": [
+        "使用 SAP ERP",
+        "曾评估过 Salesforce",
+        "团队 30 人"
+      ],
+      "weight": 0.25,
+      "color": "#c0c0c0",
+      "glyph": "Z",
+      "traits": [
+        "谨慎决策",
+        "合规导向",
+        "成本管控"
+      ],
+      "origin": "preset",
+      "crashed": false,
+      "truncated": false,
+      "exitReason": "frustrated",
+      "durationSec": 182.888
+    }
+  ],
+  "activity": [
+    {
+      "t": "00:00:00",
+      "agent": "a02",
+      "kind": "enter",
+      "text": "进入 localhost:8200/02-dense-pricing/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/02-dense-pricing/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a02",
+      "kind": "observation",
+      "text": "看到导航栏有 Product, Customers, Docs, Pricing, Sign in，底部有多个 \"Start free\" 按钮和一个 \"Contact sales\" 按钮。看起来是个定价页面。",
+      "sentiment": 0,
+      "shot": "shots/a02-00.jpg"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a01",
+      "kind": "enter",
+      "text": "进入 localhost:8200/02-dense-pricing/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/02-dense-pricing/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a01",
+      "kind": "observation",
+      "text": "第一印象：定价页面很简洁，三层结构看起来清晰。我现在想的是——Scale方案到底是多少钱？这是我最关心的。",
+      "sentiment": 0,
+      "shot": "shots/a01-00.jpg"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a03",
+      "kind": "enter",
+      "text": "进入 localhost:8200/02-dense-pricing/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/02-dense-pricing/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a03",
+      "kind": "observation",
+      "text": "Opening the page. I see navigation: Product, Customers, Docs, Pricing, Sign in. Lots of \"Start free\" buttons scattered around - feels like they're pushing conversion hard. Let me scroll down to see the actual pricing content first since that's what I'm here to evaluate.",
+      "sentiment": 0,
+      "shot": "shots/a03-00.jpg"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a04",
+      "kind": "enter",
+      "text": "进入 localhost:8200/02-dense-pricing/site/",
+      "sentiment": 0,
+      "url": "http://localhost:8200/02-dense-pricing/site/"
+    },
+    {
+      "t": "00:00:00",
+      "agent": "a04",
+      "kind": "click",
+      "text": "Page should already be loaded at this URL",
+      "sentiment": 0,
+      "url": "http://localhost:8200/02-dense-pricing/site/",
+      "shot": "shots/a04-00.jpg"
+    },
+    {
+      "t": "00:04:40",
+      "agent": "a02",
+      "kind": "observation",
+      "text": "滚动后看起来没什么变化？或者内容太靠下还没显示出来。让我点击 Pricing 导航看看专门的定价页面。",
+      "sentiment": -1,
+      "shot": "shots/a02-02.jpg"
+    },
+    {
+      "t": "00:04:90",
+      "agent": "a01",
+      "kind": "search",
+      "text": "往下滚动才能看到具体价格。Growth 和 Scale 的价格我还没看到。",
+      "sentiment": 0,
+      "shot": "shots/a01-02.jpg"
+    },
+    {
+      "t": "00:05:32",
+      "agent": "a04",
+      "kind": "observation",
+      "text": "页面加载好了。看到顶部导航有 Product、Customers、Docs、Pricing、Sign in，下面有多个\"Start free\"按钮和一个\"Contact sales\"按钮。看起来是个 SaaS 产品首页。",
+      "sentiment": 0,
+      "shot": "shots/a04-01.jpg"
+    },
+    {
+      "t": "00:06:43",
+      "agent": "a02",
+      "kind": "delight",
+      "text": "哇，这个定价页面很清爽。标题直接说 \"No hidden fees\"，底下 5 个计划从 Free 到 Enterprise，token 计费模式一目了然。这比 AWS 那种复杂的价格计算器强多了。",
+      "sentiment": 2,
+      "shot": "shots/a02-03.jpg"
+    },
+    {
+      "t": "00:12:55",
+      "agent": "a02",
+      "kind": "click",
+      "text": "点击 Pro 计划了解详情",
+      "sentiment": 0,
+      "url": "http://localhost:8200/02-dense-pricing/site/",
+      "shot": "shots/a02-05.jpg"
+    },
+    {
+      "t": "00:16:72",
+      "agent": "a04",
+      "kind": "observation",
+      "text": "滚动了几次，但 DOM 看起来没有变化。可能页面内容比较长，或者简化 DOM 没捕获到所有元素。作为采购主管，我最想看的是 Pricing 页面——了解价格结构和隐性成本。",
+      "sentiment": 0,
+      "shot": "shots/a04-04.jpg"
+    },
+    {
+      "t": "00:17:73",
+      "agent": "a01",
+      "kind": "confused",
+      "text": "滚了好几次但DOM结构完全没变...是我操作有问题还是页面内容就这样？这让我怀疑是不是页面卡住了。",
+      "sentiment": -1,
+      "shot": "shots/a01-05.jpg"
+    },
+    {
+      "t": "00:17:95",
+      "agent": "a03",
+      "kind": "observation",
+      "text": "终于看到定价部分了。三个方案：Pro、Business、Enterprise。但是价格数字在哪？感觉信息密度很高，眼睛要扫半天才能找到重点。HubSpot的定价页比这个清晰多了。",
+      "sentiment": -1,
+      "shot": "shots/a03-03.jpg"
+    },
+    {
+      "t": "00:22:58",
+      "agent": "a04",
+      "kind": "click",
+      "text": "点击 Pricing 查看价格结构，作为采购主管最关心的内容",
+      "sentiment": 0,
+      "url": "http://localhost:8200/02-dense-pricing/site/",
+      "shot": "shots/a04-05.jpg"
+    },
+    {
+      "t": "00:23:83",
+      "agent": "a02",
+      "kind": "click",
+      "text": "查看是否有更详细的定价信息页面",
+      "sentiment": 0,
+      "url": "http://localhost:8200/02-dense-pricing/site/",
+      "shot": "shots/a02-07.jpg"
+    },
+    {
+      "t": "00:28:05",
+      "agent": "a01",
+      "kind": "observation",
+      "text": "哦！原来滚动后页面内容出现了。看到了表格：Starter $0, Growth $29/月, Scale $99/月。这个结构很清晰。",
+      "sentiment": 1,
+      "shot": "shots/a01-07.jpg"
+    },
+    {
+      "t": "00:30:56",
+      "agent": "a02",
+      "kind": "exit",
+      "text": "看完了这个定价页面。设计简洁清晰，5 个计划层次分明 (Free → Enterprise)，token 计费模式透明，\"No hidden fees\" 的价值主张很对我胃口。作为开发者，相比 AWS 那种复杂的价格计算器，这种一眼能看到底的方式更得我心。不过页面似乎是静态展示，没有太多交互内容可以深入体验。",
+      "sentiment": 0,
+      "shot": "shots/a02-09.jpg"
+    },
+    {
+      "t": "00:31:56",
+      "agent": "a04",
+      "kind": "click",
+      "text": "再次点击 Pricing 导航",
+      "sentiment": 0,
+      "url": "http://localhost:8200/02-dense-pricing/site/",
+      "shot": "shots/a04-08.jpg"
+    },
+    {
+      "t": "00:34:31",
+      "agent": "a03",
+      "kind": "confused",
+      "text": "终于看到三个方案的对比表了。Pro、Business、Enterprise，但价格藏在哪？感觉表格很密，要一个个找。Mailchimp那种一屏看清价格的模式更对我胃口。这个……我得多花时间理解。",
+      "sentiment": -1,
+      "shot": "shots/a03-06.jpg"
+    },
+    {
+      "t": "00:37:00",
+      "agent": "a01",
+      "kind": "delight",
+      "text": "很棒！对比表格出来了。各方案的功能差异一目了然：Starter免费但只有5 seats，Growth有10 seats + API，Scale有50 seats + SSO + SLA。这种格式我很喜欢——不需要我费脑子去理解。",
+      "sentiment": 2,
+      "shot": "shots/a01-09.jpg"
+    },
+    {
+      "t": "00:39:16",
+      "agent": "a03",
+      "kind": "click",
+      "text": "直接点击定价链接，更快找到我需要的信息",
+      "sentiment": 0,
+      "url": "http://localhost:8200/02-dense-pricing/site/",
+      "shot": "shots/a03-07.jpg"
+    },
+    {
+      "t": "00:43:82",
+      "agent": "a01",
+      "kind": "search",
+      "text": "FAQ部分出来了。扫一眼标题...看起来是常见问题。我对折扣政策更感兴趣——我们8人团队有没有优惠？不过通常这需要联系销售，$99/month其实也可以接受。",
+      "sentiment": 0,
+      "shot": "shots/a01-11.jpg"
+    },
+    {
+      "t": "00:45:53",
+      "agent": "a04",
+      "kind": "click",
+      "text": "试试 Product 链接看是否有内容",
+      "sentiment": 0,
+      "url": "http://localhost:8200/02-dense-pricing/site/",
+      "shot": "shots/a04-11.jpg"
+    },
+    {
+      "t": "00:50:16",
+      "agent": "a03",
+      "kind": "rage",
+      "text": "好，我看到了三列对比。但价格在哪？扫了一圈感觉信息密度太高了，密密麻麻的feature list。作为营销人员我只想快速知道多少钱、适合多少人，这个表格让我眼花缭乱。HubSpot那种卡片式定价一眼就能看到重点，这个让我有点烦躁。",
+      "sentiment": -2,
+      "shot": "shots/a03-10.jpg"
+    },
+    {
+      "t": "00:53:76",
+      "agent": "a01",
+      "kind": "click",
+      "text": "点击联系销售按钮，询问团队折扣",
+      "sentiment": 0,
+      "url": "http://localhost:8200/02-dense-pricing/site/",
+      "shot": "shots/a01-13.jpg"
+    },
+    {
+      "t": "00:55:47",
+      "agent": "a01",
+      "kind": "confused",
+      "text": "点击了\"Contact sales\"但页面没反应？感觉像是点到了但什么也没发生，有点沮丧。",
+      "sentiment": -1,
+      "shot": "shots/a01-14.jpg"
+    },
+    {
+      "t": "00:58:49",
+      "agent": "a04",
+      "kind": "click",
+      "text": "试试 Customers 链接",
+      "sentiment": 0,
+      "url": "http://localhost:8200/02-dense-pricing/site/",
+      "shot": "shots/a04-13.jpg"
+    },
+    {
+      "t": "01:02:66",
+      "agent": "a04",
+      "kind": "rage",
+      "text": "点击了好几次导航（Pricing、Product、Customers），URL 始终不变，内容也没变化。这页面看起来像是坏了，或者根本没内容。我作为采购主管来是想看价格结构和方案的，结果什么都看不到。浪费时间。",
+      "sentiment": -2,
+      "shot": "shots/a04-14.jpg"
+    },
+    {
+      "t": "01:04:62",
+      "agent": "a01",
+      "kind": "exit",
+      "text": "看完定价页面了：Starter免费，Growth $29/月，Scale $99/月。对比表格清晰地展示了功能差异（seats、API、SSO、SLA等）。页面的首屏三栏布局简洁但有点信息不够——需要滚动才能看到完整对比表。另外\"Contact sales\"按钮点击后没反应，这点让我困惑。总体来说，作为产品经理，我已经找到了需要的定价信息，核心目的达到了。",
+      "sentiment": 0,
+      "shot": "shots/a01-16.jpg"
+    },
+    {
+      "t": "01:09:47",
+      "agent": "a03",
+      "kind": "observation",
+      "text": "啊，看到了！Pro $49/seat/月，Business $79/seat/月。团队5人的话，Business就是$395/月。虽然很密集，但信息都在这儿，不需要来回翻。这点比我想的好。",
+      "sentiment": 1,
+      "shot": "shots/a03-13.jpg"
+    },
+    {
+      "t": "01:10:39",
+      "agent": "a04",
+      "kind": "click",
+      "text": "尝试直接导航到 /pricing 路径",
+      "sentiment": 0,
+      "url": "http://localhost:8200/02-dense-pricing/site/pricing",
+      "shot": "shots/a04-15.jpg"
+    },
+    {
+      "t": "01:14:54",
+      "agent": "a04",
+      "kind": "observation",
+      "text": "URL 变了，/pricing 页面加载了，但 DOM 是空的。看截图应该有点内容。让我等一下或者尝试滚动。",
+      "sentiment": 0,
+      "shot": "shots/a04-16.jpg"
+    },
+    {
+      "t": "01:26:42",
+      "agent": "a03",
+      "kind": "click",
+      "text": "Business方案适合我团队，想试试看",
+      "sentiment": 0,
+      "url": "http://localhost:8200/02-dense-pricing/site/",
+      "shot": "shots/a03-14.jpg"
+    },
+    {
+      "t": "01:32:76",
+      "agent": "a03",
+      "kind": "confused",
+      "text": "点了\"Start free\"但啥都没发生？没弹窗也没跳转？这是bug还是我操作有问题？算了，算了，这页面的信息我已经看到了——价格能找到，但太费劲了。按钮还不work……算了。",
+      "sentiment": -1,
+      "shot": "shots/a03-15.jpg"
+    },
+    {
+      "t": "01:39:76",
+      "agent": "a03",
+      "kind": "rage",
+      "text": "按钮点了没反应。页面信息密度太高，找价格费劲。开始体验很糟糕，决定撤了。",
+      "sentiment": -2,
+      "shot": "shots/a03-16.jpg"
+    },
+    {
+      "t": "01:43:79",
+      "agent": "a03",
+      "kind": "exit",
+      "text": "看完定价页了。找到了价格：Pro $49/seat/月、Business $79/seat/月。团队5人的话Business是$395/月。但页面信息密度太高，找价格费了不少时间。CTA按钮点了没反应，开始体验糟糕。跟HubSpot比，这个页面的可读性差很多，我不会有动力切换过来。",
+      "sentiment": 0,
+      "shot": "shots/a03-17.jpg"
+    },
+    {
+      "t": "01:47:95",
+      "agent": "a04",
+      "kind": "confused",
+      "text": "在 Pricing 页面滚动了很久，每次截图都不同说明页面确实有内容，但 DOM 一直是空的。这让我有点困惑——是技术问题还是故意设计成这样？作为用户我没法复制链接或选择文本，这很不方便。",
+      "sentiment": -1,
+      "shot": "shots/a04-22.jpg"
+    },
+    {
+      "t": "01:58:80",
+      "agent": "a04",
+      "kind": "rage",
+      "text": "作为采购主管，我需要能复制价格信息回去做对比。这个页面DOM全是空的，没法选中文本、没法右键、没法比较方案。我甚至不知道这是设计问题还是演示站的问题。这让我完全无法完成\"评估\"这个任务。",
+      "sentiment": -2,
+      "shot": "shots/a04-24.jpg"
+    },
+    {
+      "t": "02:12:51",
+      "agent": "a04",
+      "kind": "click",
+      "text": "回到首页，点击 Contact sales 按钮",
+      "sentiment": 0,
+      "url": "http://localhost:8200/02-dense-pricing/site/",
+      "shot": "shots/a04-25.jpg"
+    },
+    {
+      "t": "02:15:69",
+      "agent": "a04",
+      "kind": "confused",
+      "text": "操作失败 (note): expected number, got undefined",
+      "sentiment": -1
+    },
+    {
+      "t": "02:25:21",
+      "agent": "a04",
+      "kind": "click",
+      "text": "点击 Contact sales 看是否会弹窗或跳转",
+      "sentiment": 0,
+      "url": "http://localhost:8200/02-dense-pricing/site/",
+      "shot": "shots/a04-27.jpg"
+    },
+    {
+      "t": "02:30:04",
+      "agent": "a04",
+      "kind": "rage",
+      "text": "Contact sales 按钮点了也没反应。整个网站像是个空壳——导航不工作、按钮不响应、价格页面虽然有内容但我没法复制来做成本对比。这让我完全失去信任。我现在就走。",
+      "sentiment": -3,
+      "shot": "shots/a04-28.jpg"
+    },
+    {
+      "t": "02:41:56",
+      "agent": "a04",
+      "kind": "exit",
+      "text": "作为30人团队的采购主管，我来到这个网站想了解价格方案。但整个体验令人失望：首页导航（Pricing/Product/Customers）点击后URL不变，说明是空链接；Pricing页面虽然有视觉内容但DOM为空，无法复制价格信息给领导汇报；Contact sales按钮点了也没反应。作为一个采购决策者，我需要能复制和比较价格信息，这种\"密铺式\"展示让我完全无法评估。这个演示站的可信度太低，我不会再回来。",
+      "sentiment": 0,
+      "shot": "shots/a04-29.jpg"
+    }
+  ],
+  "issues": [
+    {
+      "id": "i01",
+      "title": "Contact sales 按钮点了没反应",
+      "severity": "high",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "点了联系销售但页面没反应？感觉像是点到了但什么也没发生，有点沮丧。",
+      "agentRef": "a01",
+      "evidence": 1,
+      "journey": "在看完价格对比表后，想点联系销售问一下团队折扣"
+    },
+    {
+      "id": "i03",
+      "title": "价格藏在密密麻麻的表格里，找得烦躁",
+      "severity": "high",
+      "agents": 1,
+      "category": "信息架构",
+      "quote": "价格在哪？扫了一圈感觉信息密度太高了，密密麻麻的 feature list。作为营销人员我只想快速知道多少钱、适合多少人，这个表格让我眼花缭乱。",
+      "agentRef": "a03",
+      "evidence": 3,
+      "journey": "定价页 / 三列对比表格"
+    },
+    {
+      "id": "i04",
+      "title": "点 Start free 按钮完全没反应",
+      "severity": "high",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "点了 Start free 但啥都没发生？没弹窗也没跳转？这是 bug 还是我操作有问题？",
+      "agentRef": "a03",
+      "evidence": 1,
+      "journey": "点击 Business 方案 CTA"
+    },
+    {
+      "id": "i06",
+      "title": "导航链接形同虚设，点击没反应",
+      "severity": "high",
+      "agents": 1,
+      "category": "功能契合",
+      "quote": "点了好几次导航（Pricing、Product、Customers），URL始终不变，这页面是不是坏了？",
+      "agentRef": "a04",
+      "evidence": 6,
+      "journey": "在首页顶部导航栏尝试点击各个频道入口"
+    },
+    {
+      "id": "i07",
+      "title": "价格页面的内容无法选中复制",
+      "severity": "high",
+      "agents": 1,
+      "category": "流程顺畅",
+      "quote": "我需要能复制价格信息回去做对比啊，这密铺式展示让我怎么评估？",
+      "agentRef": "a04",
+      "evidence": 3,
+      "journey": "在 /pricing 页面"
+    },
+    {
+      "id": "i02",
+      "title": "首屏看不到价格，要滚动才知道",
+      "severity": "med",
+      "agents": 1,
+      "category": "信息架构",
+      "quote": "往下滚动才能看到具体价格。Growth 和 Scale 的价格我还没看到。",
+      "agentRef": "a01",
+      "evidence": 1,
+      "journey": "刚进入页面时"
+    },
+    {
+      "id": "i05",
+      "title": "跟 HubSpot 卡片式定价比，可读性差太多",
+      "severity": "med",
+      "agents": 1,
+      "category": "与竞品对比",
+      "quote": "HubSpot 那种卡片式定价一眼就能看到重点，这个让我有点烦躁，开始体验很糟糕。",
+      "agentRef": "a03",
+      "evidence": 2,
+      "journey": "整体定价页浏览"
+    },
+    {
+      "id": "i08",
+      "title": "Contact sales按钮点完没任何反馈",
+      "severity": "med",
+      "agents": 1,
+      "category": "情感氛围",
+      "quote": "想联系销售问一下方案细节，结果按钮点了跟没点一样。",
+      "agentRef": "a04",
+      "evidence": 2,
+      "journey": "在首页点击Contact sales按钮"
+    }
+  ],
+  "delights": [
+    {
+      "title": "token计费透明不绕弯",
+      "count": 1,
+      "quote": "这个计费模式一眼就能看明白，比AWS那些复杂的价格计算器强多了",
+      "agent": "a02"
+    },
+    {
+      "title": "功能对比表格清晰，一目了然",
+      "count": 1,
+      "quote": "很棒！对比表格出来了。各方案的功能差异一目了然：Starter免费但只有5 seats，Growth有10 seats + API，Scale有50 seats + SSO + SLA。这种格式我很喜欢——不需要我费脑子去理解。",
+      "agent": "a01"
+    },
+    {
+      "title": "三层方案结构简洁明了",
+      "count": 1,
+      "quote": "第一印象：定价页面很简洁，三层结构看起来清晰。",
+      "agent": "a01"
+    },
+    {
+      "title": "价格都挤在一个地方，不用来回翻页",
+      "count": 1,
+      "quote": "虽然很密集，但信息都在这儿，不需要来回翻。这点比我想的好。",
+      "agent": "a03"
+    }
+  ],
+  "features": [
+    {
+      "name": "联系销售",
+      "hitCount": 2,
+      "hitRate": 0.5,
+      "completionRate": 0,
+      "avgSentiment": -2.5,
+      "totalAttempts": 3
+    },
+    {
+      "name": "顶部导航",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -3,
+      "totalAttempts": 6
+    },
+    {
+      "name": "查看定价页",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -2,
+      "totalAttempts": 2
+    },
+    {
+      "name": "查看定价信息",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 1,
+      "avgSentiment": 1,
+      "totalAttempts": 1
+    },
+    {
+      "name": "查看功能对比",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 1,
+      "avgSentiment": 2,
+      "totalAttempts": 1
+    },
+    {
+      "name": "查看定价",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 1,
+      "avgSentiment": -1,
+      "totalAttempts": 1
+    },
+    {
+      "name": "试用注册",
+      "hitCount": 1,
+      "hitRate": 0.25,
+      "completionRate": 0,
+      "avgSentiment": -2,
+      "totalAttempts": 1
+    }
+  ],
+  "routesHeat": [
+    {
+      "path": "/02-dense-pricing/site/",
+      "visits": 16,
+      "dwell": 17,
+      "drop": 0.125
+    },
+    {
+      "path": "/02-dense-pricing/site/pricing",
+      "visits": 1,
+      "dwell": 62,
+      "drop": 0
+    }
+  ],
+  "sentimentCurve": [
+    {
+      "t": 0,
+      "v": 0.513888888888889
+    },
+    {
+      "t": 5,
+      "v": 0.5
+    },
+    {
+      "t": 10,
+      "v": 0.43333333333333335
+    },
+    {
+      "t": 15,
+      "v": 0.5555555555555556
+    },
+    {
+      "t": 20,
+      "v": 0.5555555555555556
+    },
+    {
+      "t": 25,
+      "v": 0.5
+    },
+    {
+      "t": 30,
+      "v": 0.3333333333333333
+    },
+    {
+      "t": 35,
+      "v": 0.3888888888888889
+    },
+    {
+      "t": 40,
+      "v": 0.5833333333333334
+    },
+    {
+      "t": 45,
+      "v": 0.5
+    },
+    {
+      "t": 50,
+      "v": 0.5
+    },
+    {
+      "t": 55,
+      "v": 0.3333333333333333
+    },
+    {
+      "t": 60,
+      "v": 0.3333333333333333
+    },
+    {
+      "t": 65,
+      "v": 0.3333333333333333
+    },
+    {
+      "t": 70,
+      "v": 0.16666666666666666
+    },
+    {
+      "t": 75,
+      "v": 0.16666666666666666
+    },
+    {
+      "t": 80,
+      "v": 0.4166666666666667
+    },
+    {
+      "t": 85,
+      "v": 0.5
+    },
+    {
+      "t": 90,
+      "v": 0
+    },
+    {
+      "t": 95,
+      "v": 0
+    },
+    {
+      "t": 100,
+      "v": 0.5
+    }
+  ],
+  "metrics": {
+    "predictedNps": -9,
+    "achievableNps": 61,
+    "taskSuccess": 0.5,
+    "timeToValueSec": 6.43,
+    "rageClicks": 5,
+    "delightCount": 2
+  },
+  "cost": {
+    "tokensIn": 317888,
+    "tokensOut": 11063,
+    "usd": 0
+  }
+}

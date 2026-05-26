@@ -1,0 +1,230 @@
+{
+  "fixtureId": "08-stuck-wizard",
+  "gtTotal": 6,
+  "ppTotal": 11,
+  "matched": 0,
+  "recall": 0,
+  "precision": 0,
+  "f1": 0,
+  "severityAcc": 0,
+  "categoryAcc": 0,
+  "verdicts": [
+    {
+      "gtId": "gt-01",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0.1,
+      "reasoning": "没有找到任何关于返回按钮缺失或无法回退的反馈"
+    },
+    {
+      "gtId": "gt-02",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0.1,
+      "reasoning": "No finding addresses data loss from innerHTML re-rendering"
+    },
+    {
+      "gtId": "gt-03",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0.55,
+      "reasoning": "GT关注步骤名语义重叠导致预测困难i06关注无引导不知道工具用途但本质相近"
+    },
+    {
+      "gtId": "gt-04",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0.2,
+      "reasoning": "GT issue about progress bar missing step labels not found in any finding"
+    },
+    {
+      "gtId": "gt-05",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0,
+      "reasoning": "GT关注的是完成设置后的冷体验情感缺失,PP均无涉及"
+    },
+    {
+      "gtId": "gt-06",
+      "findingId": null,
+      "matched": false,
+      "confidence": 0,
+      "reasoning": "GT issue is about visual height rhythm and layout inconsistency between wizard steps. None of the PP findings address layout height differences or visual rhythm. i05 and i08 are about interaction feedback (checkbox/dropdown), not visual layout."
+    }
+  ],
+  "falsePositives": [
+    {
+      "findingId": "i01",
+      "finding": {
+        "title": "第一步输入框完全没提示",
+        "category": "学习成本",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i02",
+      "finding": {
+        "title": "第二步复选框全是裸元素",
+        "category": "信息架构",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i04",
+      "finding": {
+        "title": "5个checkbox没有任何文字说明，不知道是什么选项",
+        "category": "信息架构",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i06",
+      "finding": {
+        "title": "没有任何引导，不知道这个工具是做什么的",
+        "category": "学习成本",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i09",
+      "finding": {
+        "title": "期望是拖拽建仪表盘，结果让我写SQL",
+        "category": "功能契合",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i10",
+      "finding": {
+        "title": "入口和实际功能完全对不上",
+        "category": "信息架构",
+        "severity": "high"
+      }
+    },
+    {
+      "findingId": "i03",
+      "finding": {
+        "title": "和现代工具的引导体验差太远",
+        "category": "与竞品对比",
+        "severity": "med"
+      }
+    },
+    {
+      "findingId": "i05",
+      "finding": {
+        "title": "点击checkbox完全没有任何反馈，不知道有没有选成功",
+        "category": "功能契合",
+        "severity": "med"
+      }
+    },
+    {
+      "findingId": "i07",
+      "finding": {
+        "title": "错误提示是技术语言，看不懂",
+        "category": "表达文案",
+        "severity": "med"
+      }
+    },
+    {
+      "findingId": "i11",
+      "finding": {
+        "title": "跟Tableau比，这个流程反人类",
+        "category": "与竞品对比",
+        "severity": "med"
+      }
+    },
+    {
+      "findingId": "i08",
+      "finding": {
+        "title": "下拉选择后没反应，以为没选上",
+        "category": "反馈感知",
+        "severity": "low"
+      }
+    }
+  ],
+  "missed": [
+    {
+      "gtId": "gt-01",
+      "gt": {
+        "id": "gt-01",
+        "title": "第 3 步没有返回按钮",
+        "severity": "high",
+        "category": "流程顺畅",
+        "description": "走到 Step 3 (Customize) 时 Back 按钮被故意隐藏,用户填错或想检查第 2 步的选择都没法回头,只能用浏览器后退,但那会丢失全部表单状态,等于「填错从头来」。",
+        "shouldFindWith": [
+          "目标导向",
+          "新手"
+        ]
+      }
+    },
+    {
+      "gtId": "gt-02",
+      "gt": {
+        "id": "gt-02",
+        "title": "切步骤数据全没了",
+        "severity": "high",
+        "category": "性能感知",
+        "description": "每次点 Next / Back 时整个 main 被 innerHTML 重新渲染,所有 input/checkbox/textarea 里的值都丢失。表面上看是「跳页」、实际上是每步都白板,体验上等于页面 reload。",
+        "shouldFindWith": [
+          "重度用户",
+          "评估者"
+        ]
+      }
+    },
+    {
+      "gtId": "gt-03",
+      "gt": {
+        "id": "gt-03",
+        "title": "Configure / Customize / Optimize 分不清",
+        "severity": "med",
+        "category": "学习成本",
+        "description": "三个步骤名 Configure → Customize → Optimize 在语义上几乎重叠,用户提前完全无法预测哪一步要填什么,只能走到再看,导致中途想跳过/补填都没线索。",
+        "shouldFindWith": [
+          "新手",
+          "文案敏感"
+        ]
+      }
+    },
+    {
+      "gtId": "gt-04",
+      "gt": {
+        "id": "gt-04",
+        "title": "进度条只显示 1/5",
+        "severity": "med",
+        "category": "信息架构",
+        "description": "顶部进度区只有 'Step 1 / 5' 这种数字,没有任何 step label 或者节点指示,用户不知道每步分别是干嘛、距离结束还要做什么、能不能跳过。",
+        "shouldFindWith": [
+          "新手",
+          "目标导向"
+        ]
+      }
+    },
+    {
+      "gtId": "gt-05",
+      "gt": {
+        "id": "gt-05",
+        "title": "完成只显示一个 Done",
+        "severity": "med",
+        "category": "情感氛围",
+        "description": "走完全部 5 步、按 Finish 之后整个内容区只剩下一个 'Done.' 标题,没有庆祝动效、没有「下一步去哪」、没有 workspace 跳转。用户走完整套设置后心理预期是一个高点,而产品给的是冷处理。",
+        "shouldFindWith": [
+          "设计敏感",
+          "情感敏感"
+        ]
+      }
+    },
+    {
+      "gtId": "gt-06",
+      "gt": {
+        "id": "gt-06",
+        "title": "5 步表单高度差太大",
+        "severity": "low",
+        "category": "视觉节奏",
+        "description": "Step 1 只有一个输入框 (~100px),Step 3 一口气塞了 5 个字段 (~800px),整体节奏忽高忽低、视觉跳跃,翻页时背景空白和滚动条出现/消失,体验割裂。",
+        "shouldFindWith": [
+          "设计敏感"
+        ]
+      }
+    }
+  ]
+}
