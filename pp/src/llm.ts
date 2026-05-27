@@ -382,9 +382,9 @@ export async function callAgent(args: {
       });
     } catch (e) {
       lastErr = e;
-      const msg = (e as Error).message || "";
-      if (/rate|429|overload|529|timeout/i.test(msg)) {
-        await sleep(500 * 2 ** attempt);
+      if (isRateLimitError(e)) {
+        // 2s → 4s → 8s. Real backoff for shared-key concurrency.
+        await sleep(2000 * 2 ** attempt);
         continue;
       }
       throw e;
@@ -394,7 +394,9 @@ export async function callAgent(args: {
 }
 
 // Non-tool call — used by the "wrap" pass that asks the persona to synthesise
-// their session into structured issues / delights.
+// their session into structured issues / delights. Two failure modes:
+//   1) network/rate-limit → retry with 2/4/8s backoff (up to 3 times)
+//   2) malformed JSON → retry once with stricter system message
 export async function callJson<T>(args: {
   system: string;
   prompt: string;
@@ -404,13 +406,24 @@ export async function callJson<T>(args: {
   const c = mainClient();       // analysis work goes on the main key
 
   let lastErr: unknown;
-  for (let attempt = 0; attempt < 2; attempt++) {
-    const msg = await c.messages.create({
-      model: detectProvider().model,
-      max_tokens: args.maxTokens ?? 2048,
-      system: attempt === 0 ? args.system : args.system + "\n\nIMPORTANT: previous attempt returned malformed JSON. Output ONLY a single JSON object. No prose, no markdown fences, no commentary.",
-      messages: [{ role: "user", content: args.prompt }],
-    });
+  let stricterSystem = false;
+  for (let attempt = 0; attempt < 4; attempt++) {
+    let msg: Anthropic.Message;
+    try {
+      msg = await c.messages.create({
+        model: detectProvider().model,
+        max_tokens: args.maxTokens ?? 2048,
+        system: stricterSystem ? args.system + "\n\nIMPORTANT: previous attempt returned malformed JSON. Output ONLY a single JSON object. No prose, no markdown fences, no commentary." : args.system,
+        messages: [{ role: "user", content: args.prompt }],
+      });
+    } catch (e) {
+      lastErr = e;
+      if (isRateLimitError(e) && attempt < 3) {
+        await sleep(2000 * 2 ** attempt);
+        continue;
+      }
+      throw e;
+    }
     const text = msg.content
       .filter((b): b is Anthropic.TextBlock => b.type === "text")
       .map((b) => b.text)
@@ -420,10 +433,19 @@ export async function callJson<T>(args: {
       return JSON.parse(json) as T;
     } catch (e) {
       lastErr = e;
-      // retry once with stricter system message
+      stricterSystem = true;
+      // Only allow ONE JSON-malformed retry — beyond that, give up.
+      if (stricterSystem && attempt >= 1) throw lastErr;
     }
   }
   throw lastErr;
+}
+
+function isRateLimitError(e: unknown): boolean {
+  const msg = (e as Error)?.message || "";
+  const status = (e as { status?: number })?.status;
+  if (status === 429 || status === 529 || status === 503) return true;
+  return /rate.?limit|429|overload|529|503|too many requests|timeout|ECONNRESET|ETIMEDOUT/i.test(msg);
 }
 
 function extractJson(text: string): string {

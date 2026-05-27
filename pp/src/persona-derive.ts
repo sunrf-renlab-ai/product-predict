@@ -205,7 +205,7 @@ export async function derivePersonasFromBeta(args: {
   targetHint?: string;
 }): Promise<PersonaSet> {
   const n = args.n ?? 8;
-  const language = args.language ?? "zh";
+  const language = args.language ?? "en";
   const targetHint = args.targetHint || "";
   const body = concatSources(args.sources);
 
@@ -223,6 +223,7 @@ export async function derivePersonasFromBeta(args: {
         origin: "beta",
         createdAt: new Date().toISOString(),
         personas,
+        lang: language,
         sources: summarizeSources(args.sources),
       };
     } catch (e) {
@@ -239,7 +240,7 @@ export async function deriveMixedPersonas(args: {
   language?: "zh" | "en";
 }): Promise<PersonaSet> {
   const n = args.n ?? 8;
-  const language = args.language ?? "zh";
+  const language = args.language ?? "en";
 
   // Run preset + beta derivation in parallel — they're independent LLM calls.
   const [presetSet, betaSet] = await Promise.all([
@@ -268,6 +269,7 @@ export async function deriveMixedPersonas(args: {
         origin: "mixed",
         createdAt: new Date().toISOString(),
         personas,
+        lang: language,
         sources: summarizeSources(args.sources),
       };
     } catch (e) {

@@ -8,6 +8,7 @@ import { createServer } from "node:http";
 import { spawn } from "node:child_process";
 
 import { executeRun } from "./runner.js";
+import { executeCloudRun } from "./cloud.js";
 import { writeReports } from "./report.js";
 import { providerInfo, simKeyCount, MOCK_MODE } from "./llm.js";
 import { ensurePlaywrightBrowser } from "./preflight.js";
@@ -60,9 +61,23 @@ program
   .option("--viewport <wxh>", "viewport", "1280x800")
   .option("--concurrency <n>", "parallel agents (default: all of them)", (v) => parseInt(v, 10))
   .option("--no-open", "don't open the report when done")
+  .option("--scale-cloud <n>", "fan out to GitHub Actions for N agents (default 0 = local)", (v) => parseInt(v, 10), 0)
+  .option("--cloud-api <url>", "override pp cloud base URL", process.env.PP_CLOUD_API || "https://product-predict.renlab.ai")
+  .option("--language <lang>", "narration language for agents: en | zh", "en")
+  .option("--shard-meta <runId:idx:total>", "internal: marks a run as a single shard (used by GitHub Actions workflow)")
   .action(async (url: string | undefined, opts) => {
     const [w, h] = String(opts.viewport).split("x").map((n: string) => parseInt(n, 10));
-    const outDir = resolve(process.cwd(), opts.out);
+    // PP_RUN_OUTPUT_DIR env override is used by the GitHub Actions shard
+    // workflow so all shard output lands in one collectable directory.
+    const outDir = process.env.PP_RUN_OUTPUT_DIR
+      ? resolve(process.env.PP_RUN_OUTPUT_DIR)
+      : resolve(process.cwd(), opts.out);
+
+    // Warn if asking for more agents than we recommend for a single machine.
+    if (opts.agents && opts.agents > 24 && !opts.scaleCloud) {
+      console.warn(`! requested ${opts.agents} agents locally — this likely exceeds local capacity.`);
+      console.warn(`  consider \`pp run --scale-cloud ${opts.agents}\` to fan out via GitHub Actions.`);
+    }
 
     // Auto-detect when no URL given: probe the cwd for a project description
     // and scan common dev-server ports.
@@ -91,6 +106,42 @@ program
       console.log(`pp run ${resolvedUrl}`);
     }
     printProvider();
+
+    // ── Cloud scale-out path ─────────────────────────────────────────────
+    // When --scale-cloud N is set, skip local browser entirely. The CLI
+    // dispatches N agents to GitHub Actions via the Vercel API and waits
+    // for the merged result.
+    const scaleCloud = opts.scaleCloud as number;
+    if (scaleCloud > 0) {
+      console.log(`  mode: cloud scale-out · ${scaleCloud} agents via GitHub Actions`);
+      const cloudOutDir = resolve(outDir, "cloud-" + Date.now().toString(36));
+      try {
+        const { run, shardDirs } = await executeCloudRun({
+          targetUrl: resolvedUrl,
+          agents: scaleCloud,
+          hint: opts.hint || autoHint,
+          lang: opts.language === "zh" ? "zh" : "en",
+          maxSteps: opts.maxSteps,
+          apiBase: opts.cloudApi,
+          outputDir: cloudOutDir,
+          onProgress: (s) => {
+            console.log(`  shards: ${s.completedShards}/${s.totalShards ?? "?"} · status=${s.status}`);
+          },
+        });
+        const { html, md } = await writeReports(cloudOutDir, run);
+        console.log("");
+        console.log(`✓ cloud run complete (${shardDirs.length} shards merged)`);
+        console.log(`  ${run.issues.length} issues · ${run.delights.length} delights`);
+        console.log(`  HTML: ${html}`);
+        console.log(`  MD:   ${md}`);
+        if (opts.open) openInBrowser(html);
+      } catch (e) {
+        console.error(`✗ cloud run failed: ${(e as Error).message}`);
+        process.exit(1);
+      }
+      return;
+    }
+
     if (!ensurePlaywrightBrowser()) process.exit(1);
 
     // 1. Resolve persona set.
@@ -148,7 +199,7 @@ personas
   .argument("<hint>", "what the product is (URL, repo desc, or one-liner)")
   .option("-n <n>", "persona count (capped at sim-key count)", (v) => parseInt(v, 10))
   .option("--save <name>", "save with this name (defaults to a slug from the hint)")
-  .option("--language <lang>", "zh | en", "zh")
+  .option("--language <lang>", "en | zh (default en for overseas)", "en")
   .action(async (hint: string, opts) => {
     printProvider();
     const simKeys = safeSimKeys();
@@ -171,7 +222,7 @@ personas
   .option("-n <n>", "persona count", (v) => parseInt(v, 10))
   .option("--hint <text>", "optional product description to frame the population")
   .option("--save <name>", "save with this name")
-  .option("--language <lang>", "zh | en", "zh")
+  .option("--language <lang>", "en | zh (default en for overseas)", "en")
   .action(async (files: string[], opts) => {
     printProvider();
     const simKeys = safeSimKeys();
@@ -194,7 +245,7 @@ personas
   .argument("<files...>", "beta data files")
   .option("-n <n>", "persona count", (v) => parseInt(v, 10))
   .option("--save <name>", "save with this name")
-  .option("--language <lang>", "zh | en", "zh")
+  .option("--language <lang>", "en | zh (default en for overseas)", "en")
   .action(async (hint: string, files: string[], opts) => {
     printProvider();
     const simKeys = safeSimKeys();

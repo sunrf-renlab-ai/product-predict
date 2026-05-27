@@ -1,0 +1,122 @@
+name: pp-runner (cloud shard)
+
+# Cloud scale-out: each shard runs 4 agents on ubuntu-latest, uploads
+# run.json + screenshots as an artifact for the CLI to download + merge.
+#
+# Triggered by the Vercel /api/dispatch endpoint, ONE workflow_dispatch per
+# shard. The CLI polls /api/runs/:id (which reads workflow run status) and
+# downloads artifacts when all shards finish.
+
+on:
+  workflow_dispatch:
+    inputs:
+      runId:
+        description: "ULID for this logical run (shared across all shards)"
+        required: true
+        type: string
+      shardIdx:
+        description: "0-based shard index"
+        required: true
+        type: string
+      totalShards:
+        description: "Total shards in this run (for client merge math)"
+        required: true
+        type: string
+      targetUrl:
+        description: "URL pp will simulate against"
+        required: true
+        type: string
+      hint:
+        description: "Persona-generation hint"
+        required: false
+        type: string
+        default: ""
+      agentsPerShard:
+        description: "Agents per shard (typically 4)"
+        required: false
+        type: string
+        default: "4"
+      maxSteps:
+        description: "Per-agent step cap"
+        required: false
+        type: string
+        default: "30"
+      lang:
+        description: "Narration language: en | zh"
+        required: false
+        type: string
+        default: "en"
+
+# Group shards by runId so multiple shards of the same run share concurrency
+# slots but DON'T cancel each other (cancel-in-progress=false).
+concurrency:
+  group: "pp-runner-${{ inputs.runId }}-${{ inputs.shardIdx }}"
+  cancel-in-progress: false
+
+jobs:
+  shard:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      # MiniMax round-robin pool — secrets configured on the repo. If unset,
+      # CLI will fall back to env vars or the cloud proxy.
+      MINIMAX_MAIN_KEY: ${{ secrets.PP_MINIMAX_MAIN_KEY }}
+      MINIMAX_SIM_KEYS: ${{ secrets.PP_MINIMAX_SIM_KEYS }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Cache Playwright browsers
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-chromium-${{ runner.os }}
+
+      - name: Install pp deps
+        working-directory: pp
+        run: npm install --no-audit --no-fund
+
+      - name: Install Playwright Chromium
+        working-directory: pp
+        run: npx playwright install --with-deps chromium
+
+      - name: Run shard
+        id: run
+        working-directory: pp
+        env:
+          RUN_ID: ${{ inputs.runId }}
+          SHARD_IDX: ${{ inputs.shardIdx }}
+          TARGET_URL: ${{ inputs.targetUrl }}
+          HINT: ${{ inputs.hint }}
+          AGENTS: ${{ inputs.agentsPerShard }}
+          MAX_STEPS: ${{ inputs.maxSteps }}
+          LANG_FLAG: ${{ inputs.lang }}
+        run: |
+          # Per-shard output directory inside the runner workspace.
+          OUT_DIR="$GITHUB_WORKSPACE/shard-output"
+          mkdir -p "$OUT_DIR"
+
+          # Build args. CLI will print the run dir on success; we capture it
+          # and copy artifacts out (the CLI writes to ./runs/run-NNN/ by
+          # default; we redirect via env to make it predictable).
+          export PP_RUN_OUTPUT_DIR="$OUT_DIR"
+
+          npx tsx src/cli.ts run "$TARGET_URL" \
+            --agents "$AGENTS" \
+            --max-steps "$MAX_STEPS" \
+            --language "$LANG_FLAG" \
+            --hint "$HINT" \
+            --shard-meta "$RUN_ID:$SHARD_IDX:${{ inputs.totalShards }}" \
+            --no-open
+
+      - name: Upload shard artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pp-shard-${{ inputs.runId }}-${{ inputs.shardIdx }}
+          path: shard-output/**
+          retention-days: 14
+          if-no-files-found: warn

@@ -5,7 +5,7 @@ import { join, dirname } from "node:path";
 import type { Browser, BrowserContext, Page } from "playwright";
 import type Anthropic from "@anthropic-ai/sdk";
 
-import type { Persona, Event, FeatureUse, ExitReason } from "./types.js";
+import type { Persona, Event, FeatureUse, ExitReason, Lang } from "./types.js";
 import { personaSystemPrompt } from "./personas.js";
 import { addUsage, callAgent, callJson, emptyCost, type CostTally } from "./llm.js";
 
@@ -48,20 +48,22 @@ export async function runAgent(opts: {
   maxMinutes: number;              // wall-clock safety cap per agent
   runDir: string;
   viewport: { w: number; h: number };
+  lang?: Lang;                     // narration language (default "en")
 }): Promise<AgentResult> {
   const { persona, browser, targetUrl, maxSteps, maxMinutes, runDir, viewport } = opts;
+  const lang: Lang = opts.lang ?? "en";
   const safetyMs = maxMinutes * 60_000;
   const cost = emptyCost();
   const events: Event[] = [];
   let accomplished: boolean | null = null;
-  let summary = "(no summary)";
+  let summary = lang === "zh" ? "(无总结)" : "(no summary)";
   let finished = false;
   let truncated = false;
 
   const context = await browser.newContext({
     viewport: { width: viewport.w, height: viewport.h },
     deviceScaleFactor: 1,
-    locale: "zh-CN",
+    locale: lang === "zh" ? "zh-CN" : "en-US",
   });
   const page = await context.newPage();
   const t0 = Date.now();
@@ -92,7 +94,7 @@ export async function runAgent(opts: {
       truncated: false,
       exitReason: "crashed",
       accomplished: false,
-      summary: "目标页面打不开。",
+      summary: lang === "zh" ? "目标页面打不开。" : "Target page failed to load.",
       issues: [],
       delights: [],
       features: [],
@@ -101,7 +103,7 @@ export async function runAgent(opts: {
     };
   }
 
-  const system = personaSystemPrompt(persona, targetUrl);
+  const system = personaSystemPrompt(persona, targetUrl, lang);
   const messages: Anthropic.MessageParam[] = [];
 
   let exitReason: ExitReason = "timeout";
@@ -259,7 +261,7 @@ export async function runAgent(opts: {
       featuresUsed?: FeatureUse[];
     }>({
       system,
-      prompt: wrapPrompt(events, summary, accomplished, exitReason),
+      prompt: wrapPrompt(events, summary, accomplished, exitReason, lang),
       maxTokens: 2400,
     });
     issues = wrap.issues || [];
@@ -431,6 +433,103 @@ async function simplifiedDom(page: Page): Promise<string> {
 // ── Wrap prompt ─────────────────────────────────────────────────────────────
 
 function wrapPrompt(
+  events: Event[],
+  summary: string,
+  accomplished: boolean | null,
+  exitReason: ExitReason,
+  lang: Lang = "en"
+): string {
+  return lang === "zh"
+    ? wrapPromptZh(events, summary, accomplished, exitReason)
+    : wrapPromptEn(events, summary, accomplished, exitReason);
+}
+
+function wrapPromptEn(
+  events: Event[],
+  summary: string,
+  accomplished: boolean | null,
+  exitReason: ExitReason
+): string {
+  const trajectory = events
+    .map((e) => `${e.t} ${e.kind} (s=${e.sentiment}) ${e.text}`)
+    .join("\n");
+  return [
+    `Here is the trajectory of the session you just had:`,
+    ``,
+    trajectory,
+    ``,
+    `Your closing line: ${summary}`,
+    `Exit reason: ${exitReason}` + (
+      accomplished == null ? " (no explicit finish)"
+      : accomplished ? " (accomplished what you wanted)"
+      : " (did not accomplish)"
+    ),
+    ``,
+    ``,
+    `Important: you are a POTENTIAL USER of this product. This isn't bug hunting — you're writing`,
+    `"as someone like me, this product made me feel X / hit me here / missed me there". Observations`,
+    `are about experience / design / fit, not technical bugs.`,
+    ``,
+    `What counts as an issue (find them all, don't skip):`,
+    `- I clicked / typed / searched something and the response didn't match what I expected (blank page / no message / nothing moved)`,
+    `- Something I wanted to do isn't allowed / has no entry point / has too few options (e.g. "CSV only, no PDF" / "search returns nothing" — these are issues)`,
+    `- Something that competing tools already solved is unsolved here (typo tolerance, multilingual, custom templates, …)`,
+    `- A label / button / text was unguessable / inconsistent / used the placeholder as a label`,
+    `- Visual pacing wore me out / one accent color used 20 times / card sizes wildly inconsistent`,
+    `- Navigation got lost / 4 levels deep to find a thing / key feature hidden in a submenu`,
+    `- An action completed without feedback / failure had no error message / state wasn't communicated`,
+    ``,
+    `"Missing-feature" observations are especially important: if you expected a capability (PDF export /`,
+    `localization / typo tolerance / custom templates / a clear button / visible Tab focus) and it isn't`,
+    `here, write it down — that's an issue, not a comment.`,
+    ``,
+    `Output JSON strictly in this shape:`,
+    "```json",
+    `{
+  "summary": "Your 2–3 sentence recap of the session, in your own voice (what I did, how it feels now, would I come back)",
+  "accomplished": true/false,
+  "issues": [
+    {
+      "title": "≤30 words; say specifically what's wrong (e.g. 'No results = blank page' / 'Export is CSV/JSON only, no PDF' / 'Tab focus is invisible'). Don't write 'feels off' — that's not a finding.",
+      "severity": "high|med|low",
+      "category": "information architecture|flow|feature fit|learning curve|visual pacing|copy|accessibility|perceived performance|vs competitors|emotional tone",
+      "quote": "What you said in your head / out loud at the moment (user voice, not engineering voice)",
+      "journey": "Where in the page / which step this feeling arose",
+      "evidence": number (count of supporting events in the trajectory above)
+    }
+  ],
+  "delights": [
+    { "title": "≤30 words positive observation", "quote": "Your words" }
+  ],
+  "featuresUsed": [
+    {
+      "name": "Feature name (≤4 words, e.g. 'create task' / 'search' / 'invite teammate')",
+      "completed": true/false,
+      "attempts": number (how many times you tried this in the session),
+      "sentiment": -3..3 (how you felt after using it)
+    }
+  ]
+}`,
+    "```",
+    `Constraints:`,
+    `- issues: 0–6, list every "rough edge / missing / counter-intuitive" thing you noticed. Finding 4–6 in one`,
+    `  session is normal — don't compress. If everything was truly smooth, empty array; but small fixtures usually have issues.`,
+    `- title must be specific enough that someone else could find that exact thing (name a button / field / step or say what's missing).`,
+    `  Do NOT write "bad UX" / "needs improvement" / "feels clunky" — those are not findings.`,
+    `- delights: 0–2.`,
+    `- Write in user voice. No "the user" / "should" / "I recommend". Use "I thought / I expected / I didn't want to / would I try again?".`,
+    `- Severity (from your-type-of-user perspective, not engineering severity):`,
+    `    high = makes me not want to come back / blocks what I wanted to do;`,
+    `    med  = makes me hesitate / annoys me on repeated use;`,
+    `    low  = mildly rough but doesn't stop me.`,
+    `- featuresUsed: real product features you touched (not individual clicks, meaningful capability units).`,
+    `  E.g. "view list" / "add task" / "switch view" / "search" / "export" / "sign up" / "view settings".`,
+    `  If you used nothing, empty array. Merge repeated attempts into one entry with attempts incremented.`,
+    `- Output only JSON, nothing else.`,
+  ].join("\n");
+}
+
+function wrapPromptZh(
   events: Event[],
   summary: string,
   accomplished: boolean | null,

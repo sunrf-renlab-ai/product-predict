@@ -27,6 +27,8 @@ export type Persona = {
   origin?: "preset" | "beta" | "mixed" | "manual";
 };
 
+export type Lang = "en" | "zh";
+
 // A "persona set" — a population mix authored or generated for one target.
 // Saved as JSON under ~/.pp/personas/<name>.json so the user can edit between runs.
 export type PersonaSet = {
@@ -37,6 +39,7 @@ export type PersonaSet = {
   createdAt: string;
   personas: Persona[];
   notes?: string;                 // freeform user notes
+  lang?: Lang;                    // narration language for agents using this set (default "en")
   // For from-beta / mixed: list of source files that informed the generation.
   sources?: { path: string; kind: "doc" | "audio"; bytes: number; transcriptChars?: number }[];
 };

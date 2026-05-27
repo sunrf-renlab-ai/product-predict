@@ -135,7 +135,7 @@ export async function generatePresetPersonas(args: {
   language?: "zh" | "en";
 }): Promise<PersonaSet> {
   const n = args.n ?? 8;
-  const language = args.language ?? "zh";
+  const language = args.language ?? "en";
 
   let lastErr: unknown;
   for (let attempt = 0; attempt < 2; attempt++) {
@@ -151,6 +151,7 @@ export async function generatePresetPersonas(args: {
         origin: "preset",
         createdAt: new Date().toISOString(),
         personas,
+        lang: language,
       };
     } catch (e) {
       lastErr = e;

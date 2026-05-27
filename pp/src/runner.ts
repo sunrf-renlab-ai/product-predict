@@ -88,6 +88,7 @@ export async function executeRun(opts: RunOptions): Promise<{ run: Run; runDir: 
           maxMinutes: opts.maxMinutes,
           runDir,
           viewport,
+          lang: opts.personaSet.lang ?? "en",
         });
         log(`  [${persona.id}] done (${r.exitReason}) · ${r.events.length} events · ${r.durationSec.toFixed(0)}s · $${r.cost.usd.toFixed(3)}`);
         results.push(r);
