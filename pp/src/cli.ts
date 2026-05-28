@@ -10,6 +10,9 @@ import { spawn } from "node:child_process";
 import { executeRun } from "./runner.js";
 import { executeCloudRun } from "./cloud.js";
 import { writeReports } from "./report.js";
+import { isProxyMode, setProxyAuthToken } from "./llm.js";
+import { validateAndStore, getAccessToken, clearToken, isLoggedIn, readRefreshToken } from "./auth.js";
+import { createInterface } from "node:readline/promises";
 import { providerInfo, simKeyCount, MOCK_MODE } from "./llm.js";
 import { ensurePlaywrightBrowser } from "./preflight.js";
 import { generatePresetPersonas } from "./persona-gen.js";
@@ -107,6 +110,26 @@ program
     }
     printProvider();
 
+    // ── Auth gate ────────────────────────────────────────────────────────
+    // When using our hosted simulation backend (proxy mode — no local LLM
+    // keys), the user must be logged in. Resolve their access token now and
+    // hand it to the LLM layer for the Bearer header.
+    if (isProxyMode()) {
+      if (!(await isLoggedIn())) {
+        console.error("✗ not logged in. The hosted simulation backend requires an account.");
+        console.error("  1. sign in at https://product-predict.renlab.ai/login");
+        console.error("  2. copy your CLI token from the dashboard");
+        console.error("  3. run `pp login`");
+        process.exit(1);
+      }
+      try {
+        setProxyAuthToken(await getAccessToken());
+      } catch (e) {
+        console.error(`✗ ${(e as Error).message}`);
+        process.exit(1);
+      }
+    }
+
     // ── Cloud scale-out path ─────────────────────────────────────────────
     // When --scale-cloud N is set, skip local browser entirely. The CLI
     // dispatches N agents to GitHub Actions via the Vercel API and waits
@@ -186,6 +209,57 @@ program
 
     if (opts.open) {
       openInBrowser(html);
+    }
+  });
+
+// ── pp login / logout / whoami ───────────────────────────────────────────────
+
+program
+  .command("login")
+  .description("Sign in by pasting the CLI token from product-predict.renlab.ai/dashboard.")
+  .option("--token <token>", "paste the token non-interactively")
+  .action(async (opts) => {
+    let token = opts.token as string | undefined;
+    if (!token) {
+      console.log("Get your CLI token: https://product-predict.renlab.ai/dashboard");
+      const rl = createInterface({ input: process.stdin, output: process.stdout });
+      token = (await rl.question("Paste CLI token: ")).trim();
+      rl.close();
+    }
+    if (!token) {
+      console.error("✗ no token provided");
+      process.exit(1);
+    }
+    try {
+      const { email } = await validateAndStore(token);
+      console.log(`✓ logged in${email ? ` as ${email}` : ""}. You can now run \`pp run\`.`);
+    } catch (e) {
+      console.error(`✗ ${(e as Error).message}`);
+      process.exit(1);
+    }
+  });
+
+program
+  .command("logout")
+  .description("Forget the stored CLI token.")
+  .action(async () => {
+    await clearToken();
+    console.log("✓ logged out.");
+  });
+
+program
+  .command("whoami")
+  .description("Show whether you're logged in.")
+  .action(async () => {
+    if (!(await isLoggedIn())) {
+      console.log("not logged in. Run `pp login`.");
+      return;
+    }
+    try {
+      await getAccessToken();
+      console.log("✓ logged in (token valid).");
+    } catch (e) {
+      console.log(`token stored but invalid: ${(e as Error).message}`);
     }
   });
 

@@ -42,6 +42,7 @@ function Header() {
         <a href="https://github.com/sunrf-renlab-ai/product-predict" target="_blank" rel="noreferrer">
           github
         </a>
+        <a href="/login">sign in</a>
       </nav>
     </header>
   );

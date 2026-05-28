@@ -20,9 +20,32 @@
 // Upstash. MiniMax per-key rate limits already cap fan-out anyway.
 
 import { NextRequest, NextResponse } from "next/server";
+import { supabaseServer, SUPABASE_CONFIGURED } from "@/lib/supabase";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
+
+// When true (default), the sim proxy requires a valid Supabase user token.
+// Set PP_SIM_REQUIRE_AUTH=false only for local debugging.
+const REQUIRE_AUTH = process.env.PP_SIM_REQUIRE_AUTH !== "false";
+
+// Validate the bearer token against Supabase. Returns the user id on success.
+async function authUser(req: NextRequest): Promise<{ ok: true; userId: string } | { ok: false; status: number; message: string }> {
+  if (!REQUIRE_AUTH) return { ok: true, userId: "auth-disabled" };
+  if (!SUPABASE_CONFIGURED) {
+    return { ok: false, status: 503, message: "auth backend not configured" };
+  }
+  const auth = req.headers.get("authorization") || "";
+  const token = auth.startsWith("Bearer ") ? auth.slice(7).trim() : "";
+  if (!token) {
+    return { ok: false, status: 401, message: "missing bearer token — run `pp login` first" };
+  }
+  const { data, error } = await supabaseServer().auth.getUser(token);
+  if (error || !data.user) {
+    return { ok: false, status: 401, message: "invalid or expired session — run `pp login` again" };
+  }
+  return { ok: true, userId: data.user.id };
+}
 
 const MAX_PER_MIN = parseInt(process.env.PP_MAX_PER_MIN || "60", 10);
 const BASE_URL = process.env.PP_SIM_BASE_URL || "https://api.minimaxi.com/anthropic";
@@ -71,7 +94,18 @@ export async function OPTIONS() {
 }
 
 export async function POST(req: NextRequest) {
+  // Gate: only logged-in users may use the simulation backend.
+  const auth = await authUser(req);
+  if (!auth.ok) {
+    return NextResponse.json(
+      { type: "error", error: { type: "authentication_error", message: auth.message } },
+      { status: auth.status }
+    );
+  }
+
+  // Rate-limit per user when authenticated, else per IP.
   const ip =
+    (auth.ok && auth.userId !== "auth-disabled" ? `user:${auth.userId}` : null) ||
     req.headers.get("x-forwarded-for")?.split(",")[0].trim() ||
     req.headers.get("x-real-ip") ||
     "anon";

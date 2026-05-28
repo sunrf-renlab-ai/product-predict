@@ -44,7 +44,7 @@ type Provider = {
 // Hosted cloud proxy URL — pp falls back to this when the user hasn't
 // configured any local MiniMax/Anthropic credentials. Overridable via
 // $PP_SIM_PROXY for self-hosting or pointing at a staging deployment.
-const DEFAULT_PROXY_URL = "https://product-predict.vercel.app/api/sim";
+const DEFAULT_PROXY_URL = "https://product-predict.renlab.ai/api/sim";
 
 let _provider: Provider | null = null;
 let _simIdx = 0;
@@ -201,20 +201,50 @@ function clientForKey(key: string, baseURL?: string): Anthropic {
 // pass a sentinel; the proxy ignores it.
 const PROXY_SENTINEL_KEY = "pp-proxy-no-key";
 
+// Bearer token for the authenticated sim proxy. Set once per run via
+// setProxyAuthToken() (CLI resolves it from the stored login). The proxy
+// validates it against Supabase before attaching a sim key.
+let _proxyAuthToken: string | null = null;
+export function setProxyAuthToken(token: string): void {
+  _proxyAuthToken = token;
+  // Drop cached proxy clients so the new Authorization header takes effect.
+  _clients.delete(PROXY_SENTINEL_KEY);
+}
+
+function proxyClient(baseURL?: string): Anthropic {
+  // Cache key includes a marker so a token change rebuilds the client.
+  const cacheKey = PROXY_SENTINEL_KEY;
+  let c = _clients.get(cacheKey);
+  if (!c) {
+    c = new Anthropic({
+      apiKey: PROXY_SENTINEL_KEY,
+      baseURL,
+      defaultHeaders: _proxyAuthToken ? { Authorization: `Bearer ${_proxyAuthToken}` } : undefined,
+    });
+    _clients.set(cacheKey, c);
+  }
+  return c;
+}
+
 // Main client — analysis work (persona gen, derive, wrap-up, aggregation).
 function mainClient(): Anthropic {
   const p = detectProvider();
-  if (p.name === "proxy") return clientForKey(PROXY_SENTINEL_KEY, p.proxyURL);
+  if (p.name === "proxy") return proxyClient(p.proxyURL);
   return clientForKey(p.mainKey, p.baseURL);
 }
 
 // Sim client — round-robin across the simulation pool, one client per key.
 function simClient(): Anthropic {
   const p = detectProvider();
-  if (p.name === "proxy") return clientForKey(PROXY_SENTINEL_KEY, p.proxyURL);
+  if (p.name === "proxy") return proxyClient(p.proxyURL);
   const key = p.simKeys[_simIdx % p.simKeys.length];
   _simIdx++;
   return clientForKey(key, p.baseURL);
+}
+
+// Is the active provider the hosted proxy (i.e. login required)?
+export function isProxyMode(): boolean {
+  return detectProvider().name === "proxy";
 }
 
 // Back-compat shim — old code called client() generically. Prefer the role-
