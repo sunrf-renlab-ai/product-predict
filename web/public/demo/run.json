@@ -5,91 +5,453 @@
   "target": {
     "url": "https://cadence.app",
     "title": "Cadence — async standups for distributed teams",
-    "viewport": { "w": 1280, "h": 800 }
+    "viewport": {
+      "w": 1280,
+      "h": 800
+    }
   },
   "personaSetId": "cadence-saas-mix",
   "agents": [
     {
-      "id": "a01", "name": "Maya Chen", "age": 28, "role": "Product Manager", "tech": 4, "tone": "exacting",
-      "preferences": ["values a visual read on team cadence", "hates frequent notification noise", "wants to spot at a glance who's stuck"],
-      "knownContext": ["12-person team, tracks issues in Linear", "Slack notifications muted", "tried Standup Buddy, found it too mechanical"],
-      "weight": 0.20, "color": "#e6c976", "glyph": "M", "traits": ["efficiency-driven", "rhythm-sensitive"], "origin": "preset",
-      "exitReason": "accomplished", "durationSec": 135
+      "id": "a01",
+      "name": "Maya Chen",
+      "age": 28,
+      "role": "Product Manager",
+      "tech": 4,
+      "tone": "exacting",
+      "preferences": [
+        "values a visual read on team cadence",
+        "hates frequent notification noise",
+        "wants to spot at a glance who's stuck"
+      ],
+      "knownContext": [
+        "12-person team, tracks issues in Linear",
+        "Slack notifications muted",
+        "tried Standup Buddy, found it too mechanical"
+      ],
+      "weight": 0.2,
+      "color": "#e6c976",
+      "glyph": "M",
+      "traits": [
+        "efficiency-driven",
+        "rhythm-sensitive"
+      ],
+      "origin": "preset",
+      "exitReason": "accomplished",
+      "durationSec": 135
     },
     {
-      "id": "a02", "name": "Kenji Okada", "age": 41, "role": "Engineering Lead", "tech": 5, "tone": "impatient",
-      "preferences": ["keyboard-first", "native Markdown", "deep CI integration"],
-      "knownContext": ["Vim user for 12 years", "25-person team, microservices", "used Standup Buddy, disliked it"],
-      "weight": 0.15, "color": "#7fb069", "glyph": "K", "traits": ["keyboard power user", "automation lover"], "origin": "preset",
-      "exitReason": "explored", "durationSec": 204
+      "id": "a02",
+      "name": "Kenji Okada",
+      "age": 41,
+      "role": "Engineering Lead",
+      "tech": 5,
+      "tone": "impatient",
+      "preferences": [
+        "keyboard-first",
+        "native Markdown",
+        "deep CI integration"
+      ],
+      "knownContext": [
+        "Vim user for 12 years",
+        "25-person team, microservices",
+        "used Standup Buddy, disliked it"
+      ],
+      "weight": 0.15,
+      "color": "#7fb069",
+      "glyph": "K",
+      "traits": [
+        "keyboard power user",
+        "automation lover"
+      ],
+      "origin": "preset",
+      "exitReason": "explored",
+      "durationSec": 204
     },
     {
-      "id": "a03", "name": "Lei Wang", "age": 39, "role": "Project Manager", "tech": 2, "tone": "impatient",
-      "preferences": ["templated output", "needs reports to hand to the boss", "cares about blocker detection"],
-      "knownContext": ["Asana user for 5 years", "18-person team across 3 projects", "boss only reads PDF"],
-      "weight": 0.15, "color": "#a89cc8", "glyph": "W", "traits": ["report-oriented", "conservative"], "origin": "preset",
-      "exitReason": "frustrated", "durationSec": 189
+      "id": "a03",
+      "name": "Lei Wang",
+      "age": 39,
+      "role": "Project Manager",
+      "tech": 2,
+      "tone": "impatient",
+      "preferences": [
+        "templated output",
+        "needs reports to hand to the boss",
+        "cares about blocker detection"
+      ],
+      "knownContext": [
+        "Asana user for 5 years",
+        "18-person team across 3 projects",
+        "boss only reads PDF"
+      ],
+      "weight": 0.15,
+      "color": "#a89cc8",
+      "glyph": "W",
+      "traits": [
+        "report-oriented",
+        "conservative"
+      ],
+      "origin": "preset",
+      "exitReason": "frustrated",
+      "durationSec": 189
     },
     {
-      "id": "a04", "name": "Sofia Reyes", "age": 27, "role": "Designer", "tech": 3, "tone": "sensitive",
-      "preferences": ["values micro-interaction detail", "hates a screen full of red dots", "cares about emoji expressiveness"],
-      "knownContext": ["heavy Figma user", "tried Daily.bot, found it mechanical", "8-person team"],
-      "weight": 0.15, "color": "#c98686", "glyph": "S", "traits": ["aesthetics-driven", "detail-obsessed"], "origin": "preset",
-      "exitReason": "accomplished", "durationSec": 185
+      "id": "a04",
+      "name": "Sofia Reyes",
+      "age": 27,
+      "role": "Designer",
+      "tech": 3,
+      "tone": "sensitive",
+      "preferences": [
+        "values micro-interaction detail",
+        "hates a screen full of red dots",
+        "cares about emoji expressiveness"
+      ],
+      "knownContext": [
+        "heavy Figma user",
+        "tried Daily.bot, found it mechanical",
+        "8-person team"
+      ],
+      "weight": 0.15,
+      "color": "#c98686",
+      "glyph": "S",
+      "traits": [
+        "aesthetics-driven",
+        "detail-obsessed"
+      ],
+      "origin": "preset",
+      "exitReason": "accomplished",
+      "durationSec": 185
     },
     {
-      "id": "a05", "name": "Aiko Tanaka", "age": 32, "role": "Operations Manager", "tech": 3, "tone": "meticulous",
-      "preferences": ["timezone-sensitive", "friendly to multilingual teams", "async over sync"],
-      "knownContext": ["team across 4 timezones (Tokyo / SF / London / Bangalore)", "currently polls via Slack DMs", "used Range before, found it pricey"],
-      "weight": 0.15, "color": "#76b5c5", "glyph": "A", "traits": ["internationalized", "async-first"], "origin": "preset",
-      "exitReason": "frustrated", "durationSec": 308
+      "id": "a05",
+      "name": "Aiko Tanaka",
+      "age": 32,
+      "role": "Operations Manager",
+      "tech": 3,
+      "tone": "meticulous",
+      "preferences": [
+        "timezone-sensitive",
+        "friendly to multilingual teams",
+        "async over sync"
+      ],
+      "knownContext": [
+        "team across 4 timezones (Tokyo / SF / London / Bangalore)",
+        "currently polls via Slack DMs",
+        "used Range before, found it pricey"
+      ],
+      "weight": 0.15,
+      "color": "#76b5c5",
+      "glyph": "A",
+      "traits": [
+        "internationalized",
+        "async-first"
+      ],
+      "origin": "preset",
+      "exitReason": "frustrated",
+      "durationSec": 308
     },
     {
-      "id": "a06", "name": "Lars Hjelm", "age": 52, "role": "Founder", "tech": 2, "tone": "confused",
-      "preferences": ["wants to be up and running in 5 minutes", "afraid of too many concepts", "wants to just use it, not configure it"],
-      "knownContext": ["4-person startup", "tried 6 tools, ended up back on Google Sheets", "no IT background"],
-      "weight": 0.20, "color": "#d8a05e", "glyph": "L", "traits": ["novice", "minimalist"], "origin": "preset",
-      "exitReason": "frustrated", "durationSec": 178
+      "id": "a06",
+      "name": "Lars Hjelm",
+      "age": 52,
+      "role": "Founder",
+      "tech": 2,
+      "tone": "confused",
+      "preferences": [
+        "wants to be up and running in 5 minutes",
+        "afraid of too many concepts",
+        "wants to just use it, not configure it"
+      ],
+      "knownContext": [
+        "4-person startup",
+        "tried 6 tools, ended up back on Google Sheets",
+        "no IT background"
+      ],
+      "weight": 0.2,
+      "color": "#d8a05e",
+      "glyph": "L",
+      "traits": [
+        "novice",
+        "minimalist"
+      ],
+      "origin": "preset",
+      "exitReason": "frustrated",
+      "durationSec": 178
     }
   ],
   "activity": [
-    { "t": "00:00:00", "agent": "a01", "kind": "enter", "text": "Entered cadence.app", "sentiment": 0, "url": "https://cadence.app/" },
-    { "t": "00:00:08", "agent": "a02", "kind": "enter", "text": "Entered cadence.app", "sentiment": 0, "url": "https://cadence.app/" },
-    { "t": "00:00:12", "agent": "a01", "kind": "observation", "text": "Clean landing page — in 3 seconds I can tell it's an async standup tool, value prop is right in the hero's first line", "sentiment": 1 },
-    { "t": "00:00:15", "agent": "a03", "kind": "enter", "text": "Entered cadence.app", "sentiment": 0, "url": "https://cadence.app/" },
-    { "t": "00:00:18", "agent": "a05", "kind": "enter", "text": "Entered cadence.app", "sentiment": 0, "url": "https://cadence.app/" },
-    { "t": "00:00:22", "agent": "a04", "kind": "enter", "text": "Entered cadence.app", "sentiment": 0, "url": "https://cadence.app/" },
-    { "t": "00:00:24", "agent": "a02", "kind": "observation", "text": "Hero section has a keyboard-operation GIF, nice touch", "sentiment": 1 },
-    { "t": "00:00:28", "agent": "a06", "kind": "enter", "text": "Entered cadence.app", "sentiment": 0, "url": "https://cadence.app/" },
-    { "t": "00:00:34", "agent": "a01", "kind": "click", "text": "Clicked the 'See team cadence' demo button", "sentiment": 1, "url": "https://cadence.app/demo" },
-    { "t": "00:00:48", "agent": "a06", "kind": "observation", "text": "First screen lists 11 features — that's a lot, doesn't feel designed for small teams", "sentiment": -1 },
-    { "t": "00:00:51", "agent": "a04", "kind": "delight", "text": "Every hover state has a spring animation, not a lazy 0.2s fade", "sentiment": 2 },
-    { "t": "00:00:52", "agent": "a05", "kind": "click", "text": "Looking for the 'timezone settings' entry", "sentiment": 0, "url": "https://cadence.app/settings" },
-    { "t": "00:00:55", "agent": "a02", "kind": "shortcut", "text": "Cmd+K command palette actually pops up [Meta+K]", "sentiment": 2 },
-    { "t": "00:01:08", "agent": "a01", "kind": "delight", "text": "The cadence chart shows at a glance who hasn't responded in 3 days — this is what a PM actually needs", "sentiment": 2 },
-    { "t": "00:01:15", "agent": "a06", "kind": "click", "text": "Looking for the '5-minute quick start'", "sentiment": 0, "url": "https://cadence.app/onboarding" },
-    { "t": "00:01:25", "agent": "a03", "kind": "click", "text": "Looking for an 'Export PDF' feature for my boss", "sentiment": 0, "url": "https://cadence.app/settings" },
-    { "t": "00:01:30", "agent": "a02", "kind": "delight", "text": "Markdown in answers renders live — > blockquote / **bold** / `code` all work", "sentiment": 2 },
-    { "t": "00:01:35", "agent": "a05", "kind": "delight", "text": "Each person sets their own timezone + working hours, reminders fire in local time — this saves my 4-timezone team", "sentiment": 3 },
-    { "t": "00:01:42", "agent": "a01", "kind": "confused", "text": "Wanted to make 'any blockers?' a required field, but the template editor only lets me edit the question text — no field-type options", "sentiment": -1 },
-    { "t": "00:01:52", "agent": "a06", "kind": "confused", "text": "I have to create a 'team' first, then a 'cadence' (what even is that?), then add questions, then invite people", "sentiment": -2 },
-    { "t": "00:01:55", "agent": "a04", "kind": "click", "text": "Trying the theme switch, want to see dark mode", "sentiment": 1 },
-    { "t": "00:01:58", "agent": "a03", "kind": "rage", "text": "Export button is buried three levels deep under Settings → Reports → Weekly Digest, and after all that I still don't see PDF", "sentiment": -2 },
-    { "t": "00:02:11", "agent": "a02", "kind": "click", "text": "Looking for GitHub integration — want a PR merge to trigger a standup answer", "sentiment": 0, "url": "https://cadence.app/api-docs" },
-    { "t": "00:02:14", "agent": "a05", "kind": "click", "text": "Switching the UI to Japanese", "sentiment": 0 },
-    { "t": "00:02:15", "agent": "a01", "kind": "exit", "text": "Smooth overall, the cadence chart hit the spot; template inflexibility is the weak point. I'd want to try the paid plan", "sentiment": 1 },
-    { "t": "00:02:28", "agent": "a06", "kind": "rage", "text": "7 steps in and nobody on the team has answered a single question yet. Concepts on top of concepts — not built for a 4-person team", "sentiment": -3 },
-    { "t": "00:02:30", "agent": "a04", "kind": "confused", "text": "Dark mode is nice overall, but the 'unread' red dot only has 2:1 contrast on the dark background — nearly invisible", "sentiment": -1 },
-    { "t": "00:02:33", "agent": "a03", "kind": "confused", "text": "Export formats are CSV and Markdown only, no PDF — is my boss expecting me to convert it myself?", "sentiment": -2 },
-    { "t": "00:02:48", "agent": "a02", "kind": "confused", "text": "API docs only cover REST calls — couldn't find a webhook to receive standup answers. Missing the key piece for wiring into CI", "sentiment": -2 },
-    { "t": "00:02:55", "agent": "a05", "kind": "confused", "text": "Japanese is only ~60% translated — key terms like 'answer template' / 'reminder rules' are still English. My Japanese colleagues won't follow", "sentiment": -1 },
-    { "t": "00:03:00", "agent": "a06", "kind": "exit", "text": "Too heavy for a 4-person startup, going back to Google Sheets", "sentiment": -2 },
-    { "t": "00:03:05", "agent": "a04", "kind": "exit", "text": "Taste and motion are on point, but the dark-mode contrast and red dot need fixing", "sentiment": 1 },
-    { "t": "00:03:09", "agent": "a03", "kind": "exit", "text": "Export is so bad that I can't use it when my boss wants PDF — that's a deal-breaker", "sentiment": -2 },
-    { "t": "00:03:24", "agent": "a02", "kind": "exit", "text": "Command palette and Markdown feel great, but without a webhook for CI the path breaks. No urge to buy right now", "sentiment": 0 },
-    { "t": "00:03:38", "agent": "a05", "kind": "click", "text": "Looking for 'Slack multi-workspace' settings — team uses two workspaces at once", "sentiment": 0 },
-    { "t": "00:04:24", "agent": "a05", "kind": "rage", "text": "Slack integration is one Cadence ↔ one workspace; my team uses channels across two workspaces and I can't connect both", "sentiment": -2 },
-    { "t": "00:05:01", "agent": "a05", "kind": "exit", "text": "Timezone + working hours are genuinely well done, but incomplete i18n and no Slack multi-workspace are two real dealbreakers", "sentiment": 0 }
+    {
+      "t": "00:00:00",
+      "agent": "a01",
+      "kind": "enter",
+      "text": "Entered cadence.app",
+      "sentiment": 0,
+      "url": "https://cadence.app/"
+    },
+    {
+      "t": "00:00:08",
+      "agent": "a02",
+      "kind": "enter",
+      "text": "Entered cadence.app",
+      "sentiment": 0,
+      "url": "https://cadence.app/"
+    },
+    {
+      "t": "00:00:12",
+      "agent": "a01",
+      "kind": "observation",
+      "text": "Clean landing page — in 3 seconds I can tell it's an async standup tool, value prop is right in the hero's first line",
+      "sentiment": 1
+    },
+    {
+      "t": "00:00:15",
+      "agent": "a03",
+      "kind": "enter",
+      "text": "Entered cadence.app",
+      "sentiment": 0,
+      "url": "https://cadence.app/"
+    },
+    {
+      "t": "00:00:18",
+      "agent": "a05",
+      "kind": "enter",
+      "text": "Entered cadence.app",
+      "sentiment": 0,
+      "url": "https://cadence.app/"
+    },
+    {
+      "t": "00:00:22",
+      "agent": "a04",
+      "kind": "enter",
+      "text": "Entered cadence.app",
+      "sentiment": 0,
+      "url": "https://cadence.app/"
+    },
+    {
+      "t": "00:00:24",
+      "agent": "a02",
+      "kind": "observation",
+      "text": "Hero section has a keyboard-operation GIF, nice touch",
+      "sentiment": 1
+    },
+    {
+      "t": "00:00:28",
+      "agent": "a06",
+      "kind": "enter",
+      "text": "Entered cadence.app",
+      "sentiment": 0,
+      "url": "https://cadence.app/"
+    },
+    {
+      "t": "00:00:34",
+      "agent": "a01",
+      "kind": "click",
+      "text": "Clicked the 'See team cadence' demo button",
+      "sentiment": 1,
+      "url": "https://cadence.app/demo"
+    },
+    {
+      "t": "00:00:48",
+      "agent": "a06",
+      "kind": "observation",
+      "text": "First screen lists 11 features — that's a lot, doesn't feel designed for small teams",
+      "sentiment": -1
+    },
+    {
+      "t": "00:00:51",
+      "agent": "a04",
+      "kind": "delight",
+      "text": "Every hover state has a spring animation, not a lazy 0.2s fade",
+      "sentiment": 2
+    },
+    {
+      "t": "00:00:52",
+      "agent": "a05",
+      "kind": "click",
+      "text": "Looking for the 'timezone settings' entry",
+      "sentiment": 0,
+      "url": "https://cadence.app/settings"
+    },
+    {
+      "t": "00:00:55",
+      "agent": "a02",
+      "kind": "shortcut",
+      "text": "Cmd+K command palette actually pops up [Meta+K]",
+      "sentiment": 2
+    },
+    {
+      "t": "00:01:08",
+      "agent": "a01",
+      "kind": "delight",
+      "text": "The cadence chart shows at a glance who hasn't responded in 3 days — this is what a PM actually needs",
+      "sentiment": 2
+    },
+    {
+      "t": "00:01:15",
+      "agent": "a06",
+      "kind": "click",
+      "text": "Looking for the '5-minute quick start'",
+      "sentiment": 0,
+      "url": "https://cadence.app/onboarding"
+    },
+    {
+      "t": "00:01:25",
+      "agent": "a03",
+      "kind": "click",
+      "text": "Looking for an 'Export PDF' feature for my boss",
+      "sentiment": 0,
+      "url": "https://cadence.app/settings"
+    },
+    {
+      "t": "00:01:30",
+      "agent": "a02",
+      "kind": "delight",
+      "text": "Markdown in answers renders live — > blockquote / **bold** / `code` all work",
+      "sentiment": 2
+    },
+    {
+      "t": "00:01:35",
+      "agent": "a05",
+      "kind": "delight",
+      "text": "Each person sets their own timezone + working hours, reminders fire in local time — this saves my 4-timezone team",
+      "sentiment": 3
+    },
+    {
+      "t": "00:01:42",
+      "agent": "a01",
+      "kind": "confused",
+      "text": "Wanted to make 'any blockers?' a required field, but the template editor only lets me edit the question text — no field-type options",
+      "sentiment": -1
+    },
+    {
+      "t": "00:01:52",
+      "agent": "a06",
+      "kind": "confused",
+      "text": "I have to create a 'team' first, then a 'cadence' (what even is that?), then add questions, then invite people",
+      "sentiment": -2
+    },
+    {
+      "t": "00:01:55",
+      "agent": "a04",
+      "kind": "click",
+      "text": "Trying the theme switch, want to see dark mode",
+      "sentiment": 1
+    },
+    {
+      "t": "00:01:58",
+      "agent": "a03",
+      "kind": "rage",
+      "text": "Export button is buried three levels deep under Settings → Reports → Weekly Digest, and after all that I still don't see PDF",
+      "sentiment": -2
+    },
+    {
+      "t": "00:02:11",
+      "agent": "a02",
+      "kind": "click",
+      "text": "Looking for GitHub integration — want a PR merge to trigger a standup answer",
+      "sentiment": 0,
+      "url": "https://cadence.app/api-docs"
+    },
+    {
+      "t": "00:02:14",
+      "agent": "a05",
+      "kind": "click",
+      "text": "Switching the UI to Japanese",
+      "sentiment": 0
+    },
+    {
+      "t": "00:02:15",
+      "agent": "a01",
+      "kind": "exit",
+      "text": "Smooth overall, the cadence chart hit the spot; template inflexibility is the weak point. I'd want to try the paid plan",
+      "sentiment": 1
+    },
+    {
+      "t": "00:02:28",
+      "agent": "a06",
+      "kind": "rage",
+      "text": "7 steps in and nobody on the team has answered a single question yet. Concepts on top of concepts — not built for a 4-person team",
+      "sentiment": -3
+    },
+    {
+      "t": "00:02:30",
+      "agent": "a04",
+      "kind": "confused",
+      "text": "Dark mode is nice overall, but the 'unread' red dot only has 2:1 contrast on the dark background — nearly invisible",
+      "sentiment": -1
+    },
+    {
+      "t": "00:02:33",
+      "agent": "a03",
+      "kind": "confused",
+      "text": "Export formats are CSV and Markdown only, no PDF — is my boss expecting me to convert it myself?",
+      "sentiment": -2
+    },
+    {
+      "t": "00:02:48",
+      "agent": "a02",
+      "kind": "confused",
+      "text": "API docs only cover REST calls — couldn't find a webhook to receive standup answers. Missing the key piece for wiring into CI",
+      "sentiment": -2
+    },
+    {
+      "t": "00:02:55",
+      "agent": "a05",
+      "kind": "confused",
+      "text": "Japanese is only ~60% translated — key terms like 'answer template' / 'reminder rules' are still English. My Japanese colleagues won't follow",
+      "sentiment": -1
+    },
+    {
+      "t": "00:03:00",
+      "agent": "a06",
+      "kind": "exit",
+      "text": "Too heavy for a 4-person startup, going back to Google Sheets",
+      "sentiment": -2
+    },
+    {
+      "t": "00:03:05",
+      "agent": "a04",
+      "kind": "exit",
+      "text": "Taste and motion are on point, but the dark-mode contrast and red dot need fixing",
+      "sentiment": 1
+    },
+    {
+      "t": "00:03:09",
+      "agent": "a03",
+      "kind": "exit",
+      "text": "Export is so bad that I can't use it when my boss wants PDF — that's a deal-breaker",
+      "sentiment": -2
+    },
+    {
+      "t": "00:03:24",
+      "agent": "a02",
+      "kind": "exit",
+      "text": "Command palette and Markdown feel great, but without a webhook for CI the path breaks. No urge to buy right now",
+      "sentiment": 0
+    },
+    {
+      "t": "00:03:38",
+      "agent": "a05",
+      "kind": "click",
+      "text": "Looking for 'Slack multi-workspace' settings — team uses two workspaces at once",
+      "sentiment": 0
+    },
+    {
+      "t": "00:04:24",
+      "agent": "a05",
+      "kind": "rage",
+      "text": "Slack integration is one Cadence ↔ one workspace; my team uses channels across two workspaces and I can't connect both",
+      "sentiment": -2
+    },
+    {
+      "t": "00:05:01",
+      "agent": "a05",
+      "kind": "exit",
+      "text": "Timezone + working hours are genuinely well done, but incomplete i18n and no Slack multi-workspace are two real dealbreakers",
+      "sentiment": 0
+    }
   ],
   "issues": [
     {
@@ -225,46 +587,200 @@
     }
   ],
   "features": [
-    { "name": "View landing demo", "hitCount": 6, "hitRate": 1.0, "completionRate": 1.0, "avgSentiment": 0.8, "totalAttempts": 6 },
-    { "name": "Create team & cadence", "hitCount": 2, "hitRate": 0.33, "completionRate": 0.5, "avgSentiment": -1.5, "totalAttempts": 4 },
-    { "name": "Edit question template", "hitCount": 1, "hitRate": 0.17, "completionRate": 0.0, "avgSentiment": -1.0, "totalAttempts": 2 },
-    { "name": "Command palette (Cmd+K)", "hitCount": 1, "hitRate": 0.17, "completionRate": 1.0, "avgSentiment": 2.0, "totalAttempts": 1 },
-    { "name": "Timezone / working-hours setup", "hitCount": 1, "hitRate": 0.17, "completionRate": 1.0, "avgSentiment": 3.0, "totalAttempts": 1 },
-    { "name": "Switch theme / language", "hitCount": 2, "hitRate": 0.33, "completionRate": 1.0, "avgSentiment": 0.5, "totalAttempts": 2 },
-    { "name": "Integrations (Slack/GitHub)", "hitCount": 2, "hitRate": 0.33, "completionRate": 0.0, "avgSentiment": -2.0, "totalAttempts": 3 },
-    { "name": "Export report", "hitCount": 1, "hitRate": 0.17, "completionRate": 0.0, "avgSentiment": -2.0, "totalAttempts": 2 }
+    {
+      "name": "View landing demo",
+      "hitCount": 6,
+      "hitRate": 1,
+      "completionRate": 1,
+      "avgSentiment": 0.8,
+      "totalAttempts": 6
+    },
+    {
+      "name": "Create team & cadence",
+      "hitCount": 2,
+      "hitRate": 0.33,
+      "completionRate": 0.5,
+      "avgSentiment": -1.5,
+      "totalAttempts": 4
+    },
+    {
+      "name": "Edit question template",
+      "hitCount": 1,
+      "hitRate": 0.17,
+      "completionRate": 0,
+      "avgSentiment": -1,
+      "totalAttempts": 2
+    },
+    {
+      "name": "Command palette (Cmd+K)",
+      "hitCount": 1,
+      "hitRate": 0.17,
+      "completionRate": 1,
+      "avgSentiment": 2,
+      "totalAttempts": 1
+    },
+    {
+      "name": "Timezone / working-hours setup",
+      "hitCount": 1,
+      "hitRate": 0.17,
+      "completionRate": 1,
+      "avgSentiment": 3,
+      "totalAttempts": 1
+    },
+    {
+      "name": "Switch theme / language",
+      "hitCount": 2,
+      "hitRate": 0.33,
+      "completionRate": 1,
+      "avgSentiment": 0.5,
+      "totalAttempts": 2
+    },
+    {
+      "name": "Integrations (Slack/GitHub)",
+      "hitCount": 2,
+      "hitRate": 0.33,
+      "completionRate": 0,
+      "avgSentiment": -2,
+      "totalAttempts": 3
+    },
+    {
+      "name": "Export report",
+      "hitCount": 1,
+      "hitRate": 0.17,
+      "completionRate": 0,
+      "avgSentiment": -2,
+      "totalAttempts": 2
+    }
   ],
   "routesHeat": [
-    { "path": "/", "visits": 6, "dwell": 18, "drop": 0.0 },
-    { "path": "/demo", "visits": 4, "dwell": 32, "drop": 0.0 },
-    { "path": "/settings", "visits": 4, "dwell": 45, "drop": 0.25 },
-    { "path": "/onboarding", "visits": 2, "dwell": 65, "drop": 0.5 },
-    { "path": "/settings/integrations", "visits": 2, "dwell": 78, "drop": 0.5 },
-    { "path": "/api-docs", "visits": 1, "dwell": 92, "drop": 0.0 },
-    { "path": "/settings/reports", "visits": 1, "dwell": 28, "drop": 1.0 }
+    {
+      "path": "/",
+      "visits": 6,
+      "dwell": 18,
+      "drop": 0
+    },
+    {
+      "path": "/demo",
+      "visits": 4,
+      "dwell": 32,
+      "drop": 0
+    },
+    {
+      "path": "/settings",
+      "visits": 4,
+      "dwell": 45,
+      "drop": 0.25
+    },
+    {
+      "path": "/onboarding",
+      "visits": 2,
+      "dwell": 65,
+      "drop": 0.5
+    },
+    {
+      "path": "/settings/integrations",
+      "visits": 2,
+      "dwell": 78,
+      "drop": 0.5
+    },
+    {
+      "path": "/api-docs",
+      "visits": 1,
+      "dwell": 92,
+      "drop": 0
+    },
+    {
+      "path": "/settings/reports",
+      "visits": 1,
+      "dwell": 28,
+      "drop": 1
+    }
   ],
   "sentimentCurve": [
-    { "t": 0,   "v": 0.50 },
-    { "t": 5,   "v": 0.55 },
-    { "t": 10,  "v": 0.62 },
-    { "t": 15,  "v": 0.68 },
-    { "t": 20,  "v": 0.72 },
-    { "t": 25,  "v": 0.70 },
-    { "t": 30,  "v": 0.66 },
-    { "t": 35,  "v": 0.58 },
-    { "t": 40,  "v": 0.50 },
-    { "t": 45,  "v": 0.42 },
-    { "t": 50,  "v": 0.36 },
-    { "t": 55,  "v": 0.32 },
-    { "t": 60,  "v": 0.30 },
-    { "t": 65,  "v": 0.33 },
-    { "t": 70,  "v": 0.38 },
-    { "t": 75,  "v": 0.44 },
-    { "t": 80,  "v": 0.48 },
-    { "t": 85,  "v": 0.51 },
-    { "t": 90,  "v": 0.54 },
-    { "t": 95,  "v": 0.55 },
-    { "t": 100, "v": 0.55 }
+    {
+      "t": 0,
+      "v": 0.5
+    },
+    {
+      "t": 5,
+      "v": 0.55
+    },
+    {
+      "t": 10,
+      "v": 0.62
+    },
+    {
+      "t": 15,
+      "v": 0.68
+    },
+    {
+      "t": 20,
+      "v": 0.72
+    },
+    {
+      "t": 25,
+      "v": 0.7
+    },
+    {
+      "t": 30,
+      "v": 0.66
+    },
+    {
+      "t": 35,
+      "v": 0.58
+    },
+    {
+      "t": 40,
+      "v": 0.5
+    },
+    {
+      "t": 45,
+      "v": 0.42
+    },
+    {
+      "t": 50,
+      "v": 0.36
+    },
+    {
+      "t": 55,
+      "v": 0.32
+    },
+    {
+      "t": 60,
+      "v": 0.3
+    },
+    {
+      "t": 65,
+      "v": 0.33
+    },
+    {
+      "t": 70,
+      "v": 0.38
+    },
+    {
+      "t": 75,
+      "v": 0.44
+    },
+    {
+      "t": 80,
+      "v": 0.48
+    },
+    {
+      "t": 85,
+      "v": 0.51
+    },
+    {
+      "t": 90,
+      "v": 0.54
+    },
+    {
+      "t": 95,
+      "v": 0.55
+    },
+    {
+      "t": 100,
+      "v": 0.55
+    }
   ],
   "metrics": {
     "predictedNps": 14,
@@ -278,5 +794,6 @@
     "tokensIn": 218430,
     "tokensOut": 8920,
     "usd": 0
-  }
+  },
+  "displayAgentCount": 1000000
 }

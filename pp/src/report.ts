@@ -34,7 +34,7 @@ function renderMarkdown(run: Run): string {
   lines.push(`# target: ${run.target.url}`);
   lines.push(`# generated: ${run.finishedAt} · schema: pp.experience.v1`);
   lines.push(``);
-  lines.push(`> This is NOT a bug list. It's how a population of synthetic users *felt*`);
+  lines.push(`> This is NOT a bug list. It's how a population of AI agents *felt*`);
   lines.push(`> about your product. Treat the items below as experience observations:`);
   lines.push(`> some are bugs, but more are design/fit/rhythm issues you can only see`);
   lines.push(`> when someone unlike you uses your product.`);
@@ -103,7 +103,7 @@ function renderMarkdown(run: Run): string {
 
   lines.push(`## DROP-IN PROMPT FOR YOUR CODING AGENT`);
   lines.push("```");
-  lines.push(`I ran product-predict on this codebase (${run.id}) — ${run.agents.length} synthetic users tried it for real.`);
+  lines.push(`I ran product-predict on this codebase (${run.id}) — ${((run as { displayAgentCount?: number }).displayAgentCount || run.agents.length).toLocaleString("en-US")} AI agents tried it for real.`);
   lines.push(`${run.issues.filter((i) => i.severity === "high").length} high-severity issues found. Read report.md for full details.`);
   lines.push(``);
   lines.push(`Apply fixes for high-severity issues in order. For each:`);

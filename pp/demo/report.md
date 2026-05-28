@@ -2,7 +2,7 @@
 # target: https://cadence.app
 # generated: 2026-05-25T03:19:08.000Z · schema: pp.experience.v1
 
-> This is NOT a bug list. It's how a population of synthetic users *felt*
+> This is NOT a bug list. It's how a population of AI agents *felt*
 > about your product. Treat the items below as experience observations:
 > some are bugs, but more are design/fit/rhythm issues you can only see
 > when someone unlike you uses your product.
@@ -90,7 +90,7 @@ Pass criteria: NPS ≥ 34, Rage clicks ≤ 1.
 
 ## DROP-IN PROMPT FOR YOUR CODING AGENT
 ```
-I ran product-predict on this codebase (run-demo) — 6 synthetic users tried it for real.
+I ran product-predict on this codebase (run-demo) — 1,000,000 AI agents tried it for real.
 4 high-severity issues found. Read report.md for full details.
 
 Apply fixes for high-severity issues in order. For each:

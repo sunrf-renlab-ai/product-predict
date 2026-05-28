@@ -16,7 +16,7 @@ export default function Demo() {
         }}
       >
         <div className="mono" style={{ fontSize: 11, color: "var(--fg-2)", letterSpacing: 0.4 }}>
-          ← <a href="/">product-predict</a> · demo: run-006 · 7 agents · 14 observations
+          ← <a href="/">product-predict</a> · demo: Cadence · 1,000,000 agents · 9 observations
         </div>
         <a
           href="/demo/report.html"
@@ -37,7 +37,7 @@ export default function Demo() {
       <iframe
         src="/demo/report.html"
         style={{ flex: 1, width: "100%", border: 0 }}
-        title="Product Predict — run-006 demo report"
+        title="Product Predict — Cadence demo report"
       />
     </div>
   );
