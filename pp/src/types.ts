@@ -87,7 +87,7 @@ export type Delight = {
 // One feature an agent actually invoked during their session.  Reported by the
 // wrap-up LLM pass per agent; aggregated into FeatureFrequency across the run.
 export type FeatureUse = {
-  name: string;                   // canonical feature name, e.g. "创建任务"
+  name: string;                   // canonical feature name, e.g. "create task"
   completed: boolean;              // did the agent achieve what they wanted?
   attempts: number;                // how many times they tried it
   sentiment: number;               // -3..3, how it felt

@@ -195,7 +195,7 @@ function aggregate(args: {
         quote: v.sample.quote,
         agentRef: v.agentRefs[0],
         evidence: v.evidence,
-        journey: v.sample.journey || "全程",
+        journey: v.sample.journey || "whole session",
       };
     })
     .sort((a, b) => sevRank(b.severity) - sevRank(a.severity) || b.agents - a.agents);

@@ -16,67 +16,67 @@
 
 ## OBSERVATIONS
 
-### [i01] HIGH · 学习成本 — 4 人小团队的 onboarding 概念太多
-SCALE: 1/6 agents felt this · 3 events · where: onboarding 流程 / 注册到第一次 standup
-QUOTE (Lars Hjelm, 创业者): "已经 7 步了团队人还没回答一个问题. 概念叠概念, 不是给 4 人小队设计"
+### [i01] HIGH · learning curve — Onboarding has too many concepts for a 4-person team
+SCALE: 1/6 agents felt this · 3 events · where: onboarding flow / signup to first standup
+QUOTE (Lars Hjelm, Founder): "7 steps in and nobody on the team has answered a single question yet. Concepts on top of concepts — not built for a 4-person team"
 
-### [i02] HIGH · 信息架构 — 导出 PDF 功能缺失 + 入口三层深
-SCALE: 1/6 agents felt this · 2 events · where: 试图导出每周报告给老板
-QUOTE (王磊, 项目经理): "导出按钮藏在 Settings → Reports → Weekly Digest 三层深, 而且没有 PDF 选项. 老板会让我自己转?"
+### [i02] HIGH · information architecture — PDF export missing + entry buried three levels deep
+SCALE: 1/6 agents felt this · 2 events · where: trying to export the weekly report for the boss
+QUOTE (Lei Wang, Project Manager): "Export button is buried three levels deep under Settings → Reports → Weekly Digest, and there's no PDF option. Is my boss expecting me to convert it myself?"
 
-### [i03] HIGH · 功能契合 — 模板编辑器只能改问题文字, 没有字段类型
-SCALE: 1/6 agents felt this · 1 events · where: PM 配置团队 standup 模板
-QUOTE (Maya Chen, 产品经理): "想把'是否有阻塞项'设成必填字段, 但模板编辑器只能改问题文字, 没有字段类型选项"
+### [i03] HIGH · feature fit — Template editor edits question text only — no field types
+SCALE: 1/6 agents felt this · 1 events · where: PM configuring the team standup template
+QUOTE (Maya Chen, Product Manager): "Wanted to make 'any blockers?' a required field, but the template editor only lets me edit the question text — no field-type options"
 
-### [i04] HIGH · 功能契合 — Slack 集成不支持多 workspace
-SCALE: 1/6 agents felt this · 1 events · where: 跨多个 Slack workspace 的团队接入
-QUOTE (Aiko Tanaka, 运营经理): "Slack 集成是 1 个 Cadence ↔ 1 个 workspace, 团队同时用 2 个 workspace 的 channels, 都接进来发现不行"
+### [i04] HIGH · feature fit — Slack integration doesn't support multiple workspaces
+SCALE: 1/6 agents felt this · 1 events · where: onboarding a team that spans multiple Slack workspaces
+QUOTE (Aiko Tanaka, Operations Manager): "Slack integration is one Cadence ↔ one workspace; my team uses channels across two workspaces and I can't connect both"
 
-### [i05] MED · 与竞品对比 — 无 webhook 接收 standup answer, 阻塞 CI 集成
-SCALE: 1/6 agents felt this · 1 events · where: 工程主管评估自动化集成深度
-QUOTE (Kenji Okada, 工程主管): "API 文档只有 REST 调用, 没找到 webhook 接收 standup answer, 想接 CI 还差关键一环"
+### [i05] MED · vs competitors — No webhook to receive standup answers — blocks CI integration
+SCALE: 1/6 agents felt this · 1 events · where: eng lead evaluating automation depth
+QUOTE (Kenji Okada, Engineering Lead): "API docs only cover REST calls — couldn't find a webhook to receive standup answers. Missing the key piece for wiring into CI"
 
-### [i06] MED · 表达文案 — 日语界面只翻译 60%, 关键名词仍是英文
-SCALE: 1/6 agents felt this · 1 events · where: 多语言团队切换界面语言
-QUOTE (Aiko Tanaka, 运营经理): "日语只翻译 60% 左右, 关键的'回答模板' / '提醒规则'还是英文. 日本同事会看不懂"
+### [i06] MED · copy — Japanese UI only 60% translated, key terms still English
+SCALE: 1/6 agents felt this · 1 events · where: multilingual team switching UI language
+QUOTE (Aiko Tanaka, Operations Manager): "Japanese is only ~60% translated — key terms like 'answer template' / 'reminder rules' are still English. My Japanese colleagues won't follow"
 
-### [i07] MED · 可访问性 — 暗色模式下未读红点对比度只有 2:1
-SCALE: 1/6 agents felt this · 1 events · where: 切换主题后注意到通知样式
-QUOTE (Sofia Reyes, 设计师): "暗色模式整体不错, 但「未读红点」在暗背景下对比度只有 2:1, 几乎看不见"
+### [i07] MED · accessibility — Unread red dot only 2:1 contrast in dark mode
+SCALE: 1/6 agents felt this · 1 events · where: noticed notification styling after switching theme
+QUOTE (Sofia Reyes, Designer): "Dark mode is nice overall, but the 'unread' red dot only has 2:1 contrast on the dark background — nearly invisible"
 
-### [i08] LOW · 视觉节奏 — 落地页对小团队信息密度过高
-SCALE: 1/6 agents felt this · 2 events · where: 落地页首屏扫描
-QUOTE (Lars Hjelm, 创业者): "首屏列出 11 个 feature, 信息量大, 不像是给小团队设计"
+### [i08] LOW · visual pacing — Landing page too information-dense for small teams
+SCALE: 1/6 agents felt this · 2 events · where: scanning the landing page's first screen
+QUOTE (Lars Hjelm, Founder): "First screen lists 11 features — that's a lot, doesn't feel designed for small teams"
 
-### [i09] LOW · 学习成本 — 'team' + 'cadence' 双层概念让新人卡住
-SCALE: 1/6 agents felt this · 1 events · where: 首次创建第一个 standup
-QUOTE (Lars Hjelm, 创业者): "需要先建 'team', 然后建 'cadence' (是个啥概念?), 然后再加 questions, 然后 invite"
+### [i09] LOW · learning curve — 'team' + 'cadence' double concept trips up newcomers
+SCALE: 1/6 agents felt this · 1 events · where: creating the first standup for the first time
+QUOTE (Lars Hjelm, Founder): "I have to create a 'team' first, then a 'cadence' (what even is that?), then add questions, then invite people"
 
 ## DELIGHTS
-- **节奏可视化图一眼识别躺平的人** (1× · Maya Chen): "节奏可视化图能一眼看出谁连续 3 天没回应, 这才是 PM 真正需要的"
-- **每人独立时区 + 工作时段, 按本地时间发提醒** (1× · Aiko Tanaka): "每个人能单独设时区 + 工作时段, 提醒按本地时间发, 我团队 4 时区有救"
-- **Cmd+K 命令面板 + Markdown 实时渲染** (2× · Kenji Okada): "在回答里打 markdown, > blockquote / **bold** / `code` 都实时渲染"
-- **微交互用 spring 动画, 不是敷衍 fade** (1× · Sofia Reyes): "hover 状态都有 spring 动画, 不是敷衍的 0.2s fade"
-- **落地页 3 秒能看懂价值主张** (1× · Maya Chen): "落地页清爽, 3 秒能看出是异步 standup 工具"
+- **Cadence chart spots the disengaged at a glance** (1× · Maya Chen): "The cadence chart shows at a glance who hasn't responded in 3 days — this is what a PM actually needs"
+- **Per-person timezone + working hours, reminders in local time** (1× · Aiko Tanaka): "Each person sets their own timezone + working hours, reminders fire in local time — this saves my 4-timezone team"
+- **Cmd+K command palette + live Markdown rendering** (2× · Kenji Okada): "Markdown in answers renders live — > blockquote / **bold** / `code` all work"
+- **Micro-interactions use spring animation, not a lazy fade** (1× · Sofia Reyes): "Every hover state has a spring animation, not a lazy 0.2s fade"
+- **Landing page makes the value prop clear in 3 seconds** (1× · Maya Chen): "Clean landing page — in 3 seconds I can tell it's an async standup tool"
 
 ## FEATURE USAGE
 Functions actually invoked during the sessions. Hit rate = fraction of agents who touched it; completion = of those, fraction who got what they wanted; sentiment = average feel after using.
 
 | feature | hit rate | completion | sentiment | attempts |
 |---|---|---|---|---|
-| 查看落地页演示 | 100% (6/6) | 100% | +0.8 | 6 |
-| 创建 team & cadence | 33% (2/6) | 50% | -1.5 | 4 |
-| 编辑问题模板 | 17% (1/6) | 0% | -1.0 | 2 |
-| 命令面板 (Cmd+K) | 17% (1/6) | 100% | +2.0 | 1 |
-| 时区/工作时段设置 | 17% (1/6) | 100% | +3.0 | 1 |
-| 切换主题/语言 | 33% (2/6) | 100% | +0.5 | 2 |
-| 集成 (Slack/GitHub) | 33% (2/6) | 0% | -2.0 | 3 |
-| 导出报告 | 17% (1/6) | 0% | -2.0 | 2 |
+| View landing demo | 100% (6/6) | 100% | +0.8 | 6 |
+| Create team & cadence | 33% (2/6) | 50% | -1.5 | 4 |
+| Edit question template | 17% (1/6) | 0% | -1.0 | 2 |
+| Command palette (Cmd+K) | 17% (1/6) | 100% | +2.0 | 1 |
+| Timezone / working-hours setup | 17% (1/6) | 100% | +3.0 | 1 |
+| Switch theme / language | 33% (2/6) | 100% | +0.5 | 2 |
+| Integrations (Slack/GitHub) | 33% (2/6) | 0% | -2.0 | 3 |
+| Export report | 17% (1/6) | 0% | -2.0 | 2 |
 
 ## EXIT REASONS
 - Maya Chen: accomplished (135s)
 - Kenji Okada: explored (204s)
-- 王磊: frustrated (189s)
+- Lei Wang: frustrated (189s)
 - Sofia Reyes: accomplished (185s)
 - Aiko Tanaka: frustrated (308s)
 - Lars Hjelm: frustrated (178s)

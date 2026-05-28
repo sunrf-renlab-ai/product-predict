@@ -11,6 +11,38 @@ import { addUsage, callAgent, callJson, emptyCost, type CostTally } from "./llm.
 
 const TARGET_TIMEOUT_MS = 15_000;
 
+// Localized runtime strings for the agent loop. Event text + the per-step
+// prompt are recorded into the trajectory and shown in reports, so they must
+// match the run language.
+function msgs(lang: Lang) {
+  const en = lang === "en";
+  const elapsed = (sec: number) =>
+    en
+      ? sec < 60 ? `${sec}s` : `${Math.floor(sec / 60)}m ${sec % 60}s`
+      : sec < 60 ? `${sec} 秒` : `${Math.floor(sec / 60)} 分 ${sec % 60} 秒`;
+  return {
+    enter: (host: string, path: string) => (en ? `Entered ${host}${path}` : `进入 ${host}${path}`),
+    cantOpen: (e: string) => (en ? `Page wouldn't load: ${e}` : `打不开页面：${e}`),
+    wallCap: (min: number) => (en ? `Hit wall-clock safety cap (${min} min), stopping.` : `达到 wall-clock 安全上限 (${min} 分钟), 强制结束.`),
+    llmFail: (e: string) => (en ? `LLM call failed: ${e}` : `LLM 调用失败：${e}`),
+    toolFail: (tool: string, e: string) => (en ? `Action failed (${tool}): ${e}` : `操作失败 (${tool}): ${e}`),
+    stepCap: (n: number) => (en ? `Hit step safety cap (${n}), stopping.` : `达到 step safety 上限 (${n}), 强制结束.`),
+    wrapFail: (e: string) => (en ? `wrap-up failed: ${e}` : `wrap-up 失败：${e}`),
+    stepPrompt: (url: string, vw: number, vh: number, sec: number, dom: string) =>
+      en
+        ? `Current URL: ${url}\n` +
+          `Viewport: ${vw}x${vh}\n` +
+          `Time spent so far: ${elapsed(sec)}\n` +
+          `Reminder: you are a real user, there's no "step quota" — leave when it's time (satisfied / frustrated / bored are all valid exits). Don't pad steps.\n\n` +
+          `The screenshot is the current page state. Simplified DOM:\n\n${dom}`
+        : `当前 URL: ${url}\n` +
+          `视口: ${vw}x${vh}\n` +
+          `已经在这上面花了: ${elapsed(sec)}\n` +
+          `提醒: 你是真实用户, 没有"步数任务", 该走就走 — 满意/沮丧/无聊都是合理的退出. 不要凑步数.\n\n` +
+          `截图为最新页面状态。简化 DOM:\n\n${dom}`,
+  };
+}
+
 export type AgentResult = {
   persona: Persona;
   events: Event[];
@@ -52,6 +84,7 @@ export async function runAgent(opts: {
 }): Promise<AgentResult> {
   const { persona, browser, targetUrl, maxSteps, maxMinutes, runDir, viewport } = opts;
   const lang: Lang = opts.lang ?? "en";
+  const M = msgs(lang);
   const safetyMs = maxMinutes * 60_000;
   const cost = emptyCost();
   const events: Event[] = [];
@@ -74,7 +107,7 @@ export async function runAgent(opts: {
       t: fmtT(0),
       agent: persona.id,
       kind: "enter",
-      text: `进入 ${new URL(targetUrl).host}${new URL(targetUrl).pathname}`,
+      text: M.enter(new URL(targetUrl).host, new URL(targetUrl).pathname),
       sentiment: 0,
       url: page.url(),
     });
@@ -83,7 +116,7 @@ export async function runAgent(opts: {
       t: fmtT(0),
       agent: persona.id,
       kind: "exit",
-      text: `打不开页面：${(e as Error).message}`,
+      text: M.cantOpen((e as Error).message),
       sentiment: -3,
     });
     await context.close().catch(() => {});
@@ -114,7 +147,7 @@ export async function runAgent(opts: {
         t: fmtT(elapsedMs / 1000),
         agent: persona.id,
         kind: "exit",
-        text: `达到 wall-clock 安全上限 (${maxMinutes} 分钟), 强制结束.`,
+        text: M.wallCap(maxMinutes),
         sentiment: -1,
       });
       break;
@@ -127,7 +160,6 @@ export async function runAgent(opts: {
     // Tell the persona how long they've been at it — this is what cues a real
     // user to start wrapping up rather than grinding forever.
     const sec = Math.floor(elapsedMs / 1000);
-    const elapsedHint = sec < 60 ? `${sec} 秒` : `${Math.floor(sec / 60)} 分 ${sec % 60} 秒`;
     const userBlocks: Array<Anthropic.TextBlockParam | Anthropic.ImageBlockParam> = [
       {
         type: "image",
@@ -135,12 +167,7 @@ export async function runAgent(opts: {
       },
       {
         type: "text",
-        text:
-          `当前 URL: ${page.url()}\n` +
-          `视口: ${viewport.w}x${viewport.h}\n` +
-          `已经在这上面花了: ${elapsedHint}\n` +
-          `提醒: 你是真实用户, 没有"步数任务", 该走就走 — 满意/沮丧/无聊都是合理的退出. 不要凑步数.\n\n` +
-          `截图为最新页面状态。简化 DOM:\n\n${dom}`,
+        text: M.stepPrompt(page.url(), viewport.w, viewport.h, sec, dom),
       },
     ];
     messages.push({ role: "user", content: userBlocks });
@@ -153,7 +180,7 @@ export async function runAgent(opts: {
         t,
         agent: persona.id,
         kind: "exit",
-        text: `LLM 调用失败：${(e as Error).message}`,
+        text: M.llmFail((e as Error).message),
         sentiment: -2,
       });
       break;
@@ -213,7 +240,7 @@ export async function runAgent(opts: {
         t,
         agent: persona.id,
         kind: "confused",
-        text: `操作失败 (${tool.name}): ${(e as Error).message}`,
+        text: M.toolFail(tool.name, (e as Error).message),
         sentiment: -1,
       });
     }
@@ -241,7 +268,7 @@ export async function runAgent(opts: {
         t: fmtT((Date.now() - t0) / 1000),
         agent: persona.id,
         kind: "exit",
-        text: `达到 step safety 上限 (${maxSteps}), 强制结束.`,
+        text: M.stepCap(maxSteps),
         sentiment: -1,
       });
     }
@@ -279,7 +306,7 @@ export async function runAgent(opts: {
       t: fmtT((Date.now() - t0) / 1000),
       agent: persona.id,
       kind: "note",
-      text: `wrap-up 失败：${(e as Error).message}`,
+      text: M.wrapFail((e as Error).message),
       sentiment: 0,
     });
   }

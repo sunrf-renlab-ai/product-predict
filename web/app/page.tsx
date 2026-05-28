@@ -477,7 +477,7 @@ function DemoCard() {
               letterSpacing: 0.6,
             }}
           >
-            王磊 (Asana 5y user, PjM): "导出按钮藏在 Settings → Reports 三层深, 而且没有 PDF. 老板会让我自己转?"
+            Lei Wang (Asana 5y user, PjM): "Export is buried three levels deep under Settings → Reports, and there's no PDF. Is my boss expecting me to convert it myself?"
           </div>
         </div>
         <a
