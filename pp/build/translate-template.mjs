@@ -274,11 +274,24 @@ const MAP = [
 const raw = await readFile(FILE, "utf8");
 let s = decodeNonAscii(raw);
 
+// CRITICAL: the bundle is minified JS. English replacements are inserted into
+// existing JS string literals (some "...", some '...'). A raw " or ' in the
+// replacement would terminate/break that literal and silently kill the app
+// bundle. So sanitize every replacement to use curly quotes/apostrophes,
+// which are ordinary characters inside any JS string literal.
+function sanitize(en) {
+  return en
+    .replace(/"([^"]*)"/g, "“$1”") // paired "x" → "x"
+    .replace(/"/g, "”")                   // stray "  → "
+    .replace(/'/g, "’");                  // '      → '
+}
+
 // Longest Chinese first so full phrases are replaced before their fragments.
 const SORTED = [...MAP].sort((a, b) => b[0].length - a[0].length);
 
 let replaced = 0;
-for (const [zh, en] of SORTED) {
+for (const [zh, enRaw] of SORTED) {
+  const en = sanitize(enRaw);
   while (s.includes(zh)) {
     s = s.replace(zh, en);
     replaced++;
