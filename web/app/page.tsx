@@ -1,12 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 export default function Home() {
   return (
     <main style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
       <Header />
       <Hero />
+      <PromoVideo />
       <HowItWorks />
       <Install />
       <DemoCard />
@@ -165,6 +166,120 @@ function Hero() {
         >
           see a real report
         </a>
+      </div>
+    </section>
+  );
+}
+
+function PromoVideo() {
+  const [playing, setPlaying] = useState(false);
+  const ref = useRef<HTMLVideoElement>(null);
+
+  const start = () => {
+    setPlaying(true);
+    const v = ref.current;
+    if (v) {
+      v.currentTime = 0;
+      v.play().catch(() => {
+        // if autoplay-with-sound is blocked, the native controls still let the user start it
+      });
+    }
+  };
+
+  return (
+    <section
+      style={{
+        padding: "64px 32px",
+        maxWidth: 1080,
+        margin: "0 auto",
+        width: "100%",
+        borderTop: "1px solid var(--line)",
+      }}
+    >
+      <div
+        className="mono"
+        style={{
+          fontSize: 10,
+          letterSpacing: 1.6,
+          color: "var(--fg-3)",
+          textTransform: "uppercase",
+          marginBottom: 24,
+        }}
+      >
+        Watch · the 60-second tour
+      </div>
+      <div
+        style={{
+          position: "relative",
+          border: "1px solid var(--line-2)",
+          background: "#000",
+          aspectRatio: "16 / 9",
+          overflow: "hidden",
+        }}
+      >
+        <video
+          ref={ref}
+          src="/promo.mp4"
+          poster="/promo-poster.jpg"
+          controls={playing}
+          playsInline
+          preload="metadata"
+          onPause={() => {}}
+          style={{ width: "100%", height: "100%", display: "block", objectFit: "contain" }}
+        />
+        {!playing && (
+          <button
+            onClick={start}
+            aria-label="play the Product Predict promo"
+            style={{
+              position: "absolute",
+              inset: 0,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: 14,
+              background: "transparent",
+              border: "none",
+              cursor: "pointer",
+              color: "var(--bg)",
+            }}
+          >
+            <span
+              style={{
+                width: 72,
+                height: 72,
+                borderRadius: "50%",
+                background: "var(--accent)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                boxShadow: "0 8px 32px rgba(0,0,0,0.28)",
+              }}
+            >
+              <span
+                style={{
+                  width: 0,
+                  height: 0,
+                  marginLeft: 6,
+                  borderTop: "13px solid transparent",
+                  borderBottom: "13px solid transparent",
+                  borderLeft: "22px solid var(--accent-fg)",
+                }}
+              />
+            </span>
+          </button>
+        )}
+      </div>
+      <div
+        className="mono"
+        style={{
+          fontSize: 11,
+          color: "var(--fg-3)",
+          letterSpacing: 0.4,
+          marginTop: 14,
+        }}
+      >
+        Synthetic populations, real browsers, a feelings report — the whole loop in one minute. Sound on.
       </div>
     </section>
   );
