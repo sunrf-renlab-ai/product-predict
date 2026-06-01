@@ -3,19 +3,16 @@
 // At run time we exchange the refresh token for a short-lived access token
 // and send it as a Bearer to the sim proxy.
 //
-// Storage: macOS Keychain entry `pp-auth-token` (same pattern as other
-// credentials). Falls back to PP_AUTH_TOKEN env on non-macOS / CI.
+// Storage: cross-platform secret store (see secret-store.ts) — macOS Keychain,
+// else ~/.pp/credentials.json. Always overridable via PP_AUTH_TOKEN env.
 
-import { execFile } from "node:child_process";
-import { promisify } from "node:util";
-
-const execFileP = promisify(execFile);
+import { getSecret, setSecret, deleteSecret } from "./secret-store.js";
 
 // Public Supabase project config (publishable — safe to ship in the CLI).
 const SUPABASE_URL = process.env.PP_SUPABASE_URL || "https://zlftcanyskprkzbujpjs.supabase.co";
 const SUPABASE_ANON = process.env.PP_SUPABASE_ANON || "sb_publishable_h8EQqPAspVx349RLnb6OBQ_QlihGD2N";
 
-const KEYCHAIN_SERVICE = "pp-auth-token";
+const SECRET_SERVICE = "pp-auth-token";
 
 let _accessToken: string | null = null;
 let _accessExp = 0; // epoch ms
@@ -23,37 +20,16 @@ let _accessExp = 0; // epoch ms
 // ── token storage ────────────────────────────────────────────────────────
 
 export async function storeRefreshToken(token: string): Promise<void> {
-  if (process.platform === "darwin") {
-    await execFileP("security", [
-      "add-generic-password", "-U", "-a", process.env.USER || "pp", "-s", KEYCHAIN_SERVICE, "-w", token,
-    ]);
-    return;
-  }
-  throw new Error(
-    "non-macOS: set PP_AUTH_TOKEN env to your CLI token instead of `pp login`"
-  );
+  await setSecret(SECRET_SERVICE, token);
 }
 
 export async function readRefreshToken(): Promise<string | null> {
   if (process.env.PP_AUTH_TOKEN) return process.env.PP_AUTH_TOKEN;
-  if (process.platform === "darwin") {
-    try {
-      const { stdout } = await execFileP("security", [
-        "find-generic-password", "-s", KEYCHAIN_SERVICE, "-w",
-      ]);
-      const t = stdout.trim();
-      return t || null;
-    } catch {
-      return null;
-    }
-  }
-  return null;
+  return getSecret(SECRET_SERVICE);
 }
 
 export async function clearToken(): Promise<void> {
-  if (process.platform === "darwin") {
-    await execFileP("security", ["delete-generic-password", "-s", KEYCHAIN_SERVICE]).catch(() => {});
-  }
+  await deleteSecret(SECRET_SERVICE);
   _accessToken = null;
   _accessExp = 0;
 }

@@ -1,5 +1,5 @@
 import { createHash } from "node:crypto";
-import { execSync } from "node:child_process";
+import { execFileSync } from "node:child_process";
 import {
   mkdir,
   readFile,
@@ -9,7 +9,7 @@ import {
 } from "node:fs/promises";
 import { existsSync } from "node:fs";
 import { tmpdir, homedir } from "node:os";
-import { extname, join } from "node:path";
+import { basename, extname, join } from "node:path";
 
 export type ParsedAudio = {
   path: string;
@@ -35,13 +35,15 @@ const AUDIO_EXTS = new Set([
 const CACHE_DIR = join(homedir(), ".pp", "cache", "whisper");
 
 function detectWhisperCpp(): string | null {
+  // `which` on Unix, `where` on Windows. `where` can print several lines.
+  const finder = process.platform === "win32" ? "where" : "which";
   try {
-    const out = execSync("which whisper-cli", {
+    const out = execFileSync(finder, ["whisper-cli"], {
       stdio: ["ignore", "pipe", "ignore"],
     })
       .toString()
       .trim();
-    return out || null;
+    return out.split(/\r?\n/)[0].trim() || null;
   } catch {
     return null;
   }
@@ -51,7 +53,8 @@ function findWhisperModel(): string | null {
   const candidates = [
     process.env.WHISPER_MODEL,
     join(homedir(), ".pp", "whisper-models", "ggml-base.bin"),
-    "/opt/homebrew/share/whisper-cpp/ggml-base.bin",
+    // macOS Homebrew default location — only meaningful on darwin.
+    ...(process.platform === "darwin" ? ["/opt/homebrew/share/whisper-cpp/ggml-base.bin"] : []),
   ].filter((p): p is string => !!p);
   for (const c of candidates) {
     if (existsSync(c)) return c;
@@ -86,12 +89,11 @@ async function transcribeWithWhisperCpp(
   );
   const outTxt = `${outBase}.txt`;
   try {
-    execSync(
-      `${JSON.stringify(cli)} -m ${JSON.stringify(model)} -f ${JSON.stringify(
-        audioPath,
-      )} -otxt -of ${JSON.stringify(outBase)} --no-prints`,
-      { stdio: ["ignore", "pipe", "pipe"] },
-    );
+    // Array args (no shell) — avoids quoting/escaping issues with spaces in
+    // paths and works identically on Windows/macOS/Linux.
+    execFileSync(cli, ["-m", model, "-f", audioPath, "-otxt", "-of", outBase, "--no-prints"], {
+      stdio: ["ignore", "pipe", "pipe"],
+    });
     return await readFile(outTxt, "utf8");
   } finally {
     try {
@@ -106,7 +108,7 @@ async function transcribeWithOpenAI(audioPath: string): Promise<string> {
   const apiKey = process.env.OPENAI_API_KEY;
   if (!apiKey) throw new Error("OPENAI_API_KEY not set");
   const buf = await readFile(audioPath);
-  const fileName = audioPath.split("/").pop() ?? "audio";
+  const fileName = basename(audioPath) || "audio";
   const form = new FormData();
   form.append("file", new Blob([new Uint8Array(buf)]), fileName);
   form.append("model", "whisper-1");

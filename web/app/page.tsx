@@ -411,6 +411,13 @@ function Install() {
         No accounts, no tokens.
       </p>
       <InstallBlock />
+      <div
+        className="mono"
+        style={{ fontSize: 11, color: "var(--fg-3)", margin: "10px 0 0", lineHeight: 1.7 }}
+      >
+        Windows (PowerShell):{" "}
+        <span style={{ color: "var(--fg-1)" }}>irm https://product-predict.renlab.ai/install.ps1 | iex</span>
+      </div>
       <div style={{ height: 16 }} />
       <div
         className="mono"

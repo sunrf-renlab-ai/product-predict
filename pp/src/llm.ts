@@ -1,5 +1,5 @@
 import Anthropic from "@anthropic-ai/sdk";
-import { execSync } from "node:child_process";
+import { getSecretSync } from "./secret-store.js";
 
 // ── Provider selection ──────────────────────────────────────────────────────
 // pp auto-detects which API to talk to based on the key prefix:
@@ -128,16 +128,17 @@ function detectProvider(): Provider {
 
 type KeychainEntry = { main: string; simulation: string[] };
 
+// Read the MiniMax key entry from the cross-platform secret store (service
+// "minimax-coding-plan"): macOS Keychain, else ~/.pp/credentials.json. The
+// stored value may be a {main,simulation} JSON object, a legacy flat array,
+// or a bare sk-cp- string.
 function keychainMinimax(): KeychainEntry {
-  // Escape hatch — set PP_NO_KEYCHAIN=1 to skip the keychain probe entirely.
-  // Useful for testing the cloud-proxy fallback path and for non-macOS hosts.
+  // Escape hatch — set PP_NO_KEYCHAIN=1 to skip the secret-store probe entirely.
+  // Useful for testing the cloud-proxy fallback path.
   if (process.env.PP_NO_KEYCHAIN === "1") return { main: "", simulation: [] };
+  const out = (getSecretSync("minimax-coding-plan") || "").trim();
+  if (!out) return { main: "", simulation: [] };
   try {
-    const out = execSync(
-      `security find-generic-password -s minimax-coding-plan -w 2>/dev/null`,
-      { encoding: "utf8" }
-    ).trim();
-    if (!out) return { main: "", simulation: [] };
     if (out.startsWith("{")) {
       const obj = JSON.parse(out);
       const main = typeof obj.main === "string" && obj.main.startsWith("sk-cp-") ? obj.main : "";
@@ -154,11 +155,11 @@ function keychainMinimax(): KeychainEntry {
         : [];
       return { main: sims[0] || "", simulation: sims };
     }
-    if (out.startsWith("sk-cp-")) return { main: out, simulation: [out] };
-    return { main: "", simulation: [] };
   } catch {
     return { main: "", simulation: [] };
   }
+  if (out.startsWith("sk-cp-")) return { main: out, simulation: [out] };
+  return { main: "", simulation: [] };
 }
 
 export function providerInfo(): {

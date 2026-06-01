@@ -14,6 +14,7 @@ import { mkdir, writeFile, readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { execFile } from "node:child_process";
 import { promisify } from "node:util";
+import { getSecret } from "./secret-store.js";
 
 import type { Run, Event, Issue, Delight, FeatureFrequency } from "./types.js";
 
@@ -137,15 +138,28 @@ export async function downloadArtifacts(opts: {
       }
       const buf = Buffer.from(await dlRes.arrayBuffer());
       await writeFile(zipPath, buf);
-      // Unzip via system `unzip` to avoid bundling a zip lib.
       const extractDir = join(opts.outputDir, `shard-${s.idx}`);
       await mkdir(extractDir, { recursive: true });
-      await execFileP("unzip", ["-q", "-o", zipPath, "-d", extractDir]);
+      await extractZip(zipPath, extractDir);
       paths.push(extractDir);
     })
   );
 
   return paths;
+}
+
+// Cross-platform zip extraction (no bundled zip lib): PowerShell Expand-Archive
+// on Windows, `unzip` on macOS/Linux.
+async function extractZip(zipPath: string, destDir: string): Promise<void> {
+  if (process.platform === "win32") {
+    const q = (s: string) => "'" + s.replace(/'/g, "''") + "'";
+    await execFileP("powershell", [
+      "-NoProfile", "-NonInteractive", "-Command",
+      `Expand-Archive -Force -LiteralPath ${q(zipPath)} -DestinationPath ${q(destDir)}`,
+    ]);
+    return;
+  }
+  await execFileP("unzip", ["-q", "-o", zipPath, "-d", destDir]);
 }
 
 export async function mergeShardRuns(shardDirs: string[]): Promise<Run> {
@@ -269,18 +283,11 @@ export async function mergeShardRuns(shardDirs: string[]): Promise<Run> {
 export async function resolveInviteToken(explicit?: string): Promise<string> {
   if (explicit) return explicit;
   if (process.env.PP_INVITE_TOKEN) return process.env.PP_INVITE_TOKEN;
-  // macOS Keychain — same pattern as MiniMax keys.
-  if (process.platform === "darwin") {
-    try {
-      const { stdout } = await execFileP("security", ["find-generic-password", "-s", "pp-invite-token", "-w"]);
-      const tok = stdout.trim();
-      if (tok) return tok;
-    } catch {
-      // fall through
-    }
-  }
+  // Cross-platform secret store: macOS Keychain, else ~/.pp/credentials.json.
+  const tok = await getSecret("pp-invite-token");
+  if (tok) return tok;
   throw new Error(
-    "no invite token. set PP_INVITE_TOKEN or run `security add-generic-password -U -a \"$USER\" -s pp-invite-token -w <token>`"
+    "no invite token. set the PP_INVITE_TOKEN env var (or store it under \"pp-invite-token\" in your pp credentials)."
   );
 }
 

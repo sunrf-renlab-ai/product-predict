@@ -364,8 +364,12 @@ personas
   .action(async (name: string) => {
     const path = personaSetPath(name);
     if (!existsSync(path)) throw new Error(`persona set "${name}" not found`);
-    const editor = process.env.EDITOR || "vi";
+    const editor =
+      process.env.EDITOR || process.env.VISUAL || (process.platform === "win32" ? "notepad" : "vi");
     const p = spawn(editor, [path], { stdio: "inherit" });
+    p.on("error", (e) =>
+      console.error(`could not launch editor "${editor}" (${e.message}). Edit the file directly:\n  ${path}`),
+    );
     await new Promise<void>((r) => p.on("exit", () => r()));
   });
 
@@ -601,9 +605,29 @@ async function readProjectMeta(cwd: string): Promise<{ name?: string; kind?: str
 }
 
 function openInBrowser(url: string): void {
-  const opener =
-    process.platform === "darwin" ? "open" : process.platform === "win32" ? "start" : "xdg-open";
-  spawn(opener, [url], { detached: true, stdio: "ignore" }).unref();
+  // Pick a platform launcher. On Windows `start` is a cmd builtin (not an exe),
+  // so it must go through `cmd /c start "" <url>`. On headless Linux (no
+  // display) skip silently — the URL was already printed.
+  let cmd: string;
+  let args: string[];
+  if (process.platform === "darwin") {
+    cmd = "open";
+    args = [url];
+  } else if (process.platform === "win32") {
+    cmd = "cmd";
+    args = ["/c", "start", "", url];
+  } else {
+    if (!process.env.DISPLAY && !process.env.WAYLAND_DISPLAY) return;
+    cmd = "xdg-open";
+    args = [url];
+  }
+  try {
+    const child = spawn(cmd, args, { detached: true, stdio: "ignore" });
+    child.on("error", () => {}); // best-effort; ENOENT shouldn't crash pp
+    child.unref();
+  } catch {
+    // ignore — opening a browser is a convenience, not required
+  }
 }
 
 const C = (() => {

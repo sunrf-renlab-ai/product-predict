@@ -72,8 +72,10 @@ export default function Dashboard() {
           </div>
 
           <div style={{ marginTop: 22 }}>
-            <div style={label}>Install</div>
-            <CmdBox value="curl -sSL https://product-predict.renlab.ai/install.sh | sh" />
+            <div style={label}>Install · macOS / Linux</div>
+            <CmdBox value="curl -fsSL https://product-predict.renlab.ai/install.sh | sh" />
+            <div style={{ ...label, marginTop: 14 }}>Install · Windows (PowerShell)</div>
+            <CmdBox value="irm https://product-predict.renlab.ai/install.ps1 | iex" />
             <div style={{ ...label, marginTop: 14 }}>Authenticate</div>
             <CmdBox value={`pp login --token ${cliToken}`} />
             <div className="mono" style={{ fontSize: 10, color: "var(--fg-3)", marginTop: 6, lineHeight: 1.5 }}>

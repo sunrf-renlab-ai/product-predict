@@ -4,8 +4,8 @@
 //
 // Called from cli.ts before any `pp run` invocation.
 
-import { spawnSync, execSync } from "node:child_process";
-import { existsSync } from "node:fs";
+import { spawnSync } from "node:child_process";
+import { existsSync, readdirSync } from "node:fs";
 import { homedir } from "node:os";
 import { join } from "node:path";
 
@@ -54,8 +54,7 @@ function playwrightCacheDir(): string {
 
 function hasAnyChromiumBuild(cacheDir: string): boolean {
   try {
-    const entries = execSync(`ls -1 ${JSON.stringify(cacheDir)} 2>/dev/null`, { encoding: "utf8" });
-    return entries.split("\n").some((line) => line.startsWith("chromium-") || line.startsWith("chromium_headless"));
+    return readdirSync(cacheDir).some((name) => name.startsWith("chromium-") || name.startsWith("chromium_headless"));
   } catch {
     return false;
   }
