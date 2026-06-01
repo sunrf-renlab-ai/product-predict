@@ -11,7 +11,7 @@ import { executeRun } from "./runner.js";
 import { executeCloudRun } from "./cloud.js";
 import { writeReports } from "./report.js";
 import { runDiffusion, type DiffusionParams } from "./diffusion.js";
-import { writeDiffusion } from "./diffusion-report.js";
+import { writeDiffusion, writeComparison } from "./diffusion-report.js";
 import { runCalibration, renderScorecardMarkdown, runMultiRoundCalibration, renderMultiRoundMarkdown } from "./calibrate.js";
 import { isProxyMode, setProxyAuthToken } from "./llm.js";
 import { validateAndStore, getAccessToken, clearToken, isLoggedIn, readRefreshToken } from "./auth.js";
@@ -453,6 +453,7 @@ program
   .option("--reach <p>", "external/marketing awareness rate per step (0..1) — YOUR assumption", (v) => parseFloat(v), 0.006)
   .option("--q <q>", "word-of-mouth coefficient (0..1) — YOUR assumption", (v) => parseFloat(v), 0.35)
   .option("--population <n>", "population size", (v) => parseInt(v, 10), 1_000_000)
+  .option("--variant <runId>", "compare against another run under the SAME assumptions (A/B propagation)")
   .option("--no-open", "don't open the viewer when done")
   .action(async (runId: string | undefined, opts) => {
     const outDir = resolve(process.cwd(), opts.out);
@@ -498,6 +499,29 @@ program
     console.log(`  ! reach + q are YOUR assumptions — this is a scenario band, not a forecast.`);
     console.log(`  HTML: ${html}`);
     console.log(`  JSON: ${json}`);
+
+    // ── A/B comparison ───────────────────────────────────────────────────
+    if (opts.variant) {
+      const vid = String(opts.variant);
+      const vJson = join(outDir, vid, "run.json");
+      if (!existsSync(vJson)) {
+        console.error(`✗ --variant ${vid}: ${vJson} not found.`);
+        process.exit(1);
+      }
+      const vRun = JSON.parse(await readFile(vJson, "utf8"));
+      // SAME overrides → shared assumptions cancel; the delta is the signal.
+      const vResult = runDiffusion(vRun, overrides, new Date().toISOString());
+      const { html: cmpHtml } = await writeComparison(outDir, result, vResult);
+      const da = (result.summary.activeLightPct + result.summary.heavyPct);
+      const db = (vResult.summary.activeLightPct + vResult.summary.heavyPct);
+      console.log("");
+      console.log(`✓ A/B comparison: ${rid} (A) vs ${vid} (B) under identical assumptions`);
+      console.log(`  active users at end: A ${da.toFixed(1)}% vs B ${db.toFixed(1)}%${da > 0 ? ` (${(db / da).toFixed(2)}×)` : ""}`);
+      console.log(`  COMPARE: ${cmpHtml}`);
+      if (opts.open) openInBrowser(cmpHtml);
+      return;
+    }
+
     if (opts.open) openInBrowser(html);
   });
 

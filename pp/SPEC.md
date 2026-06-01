@@ -28,10 +28,23 @@ pp run <url> [--personas <name>] [--agents N] [--steps K] [--out DIR]
                                                 # 用指定 persona set 或临时生成
 pp serve [--port P]                             # 报告浏览
 pp list                                         # 历史 runs
+
+pp diffuse [runId] [--reach p] [--q q] [--steps K] [--variant <runId2>]
+                                                # 宏观层: 把一次 run 的首访行为投射成
+                                                # 100 万人群扩散预测 + 传播可视化 (纯算术, 无 LLM)。
+                                                # reach/q 是用户假设, 输出是场景带不是点预测;
+                                                # --variant 做 A/B (同假设, 差值才是信号)。
+                                                # 产物: diffusion.html / diffusion.json
+pp calibrate [--rounds N] [--no-ablation]       # ground-truth: 跑植入已知缺陷的 fixture,
+                                                # 评 issue-recall + 干净页假阳性底 + 空白页发明率;
+                                                # --rounds N 多轮去噪给每缺陷命中率。产物: scorecard.md/json
 ```
 
 Defaults: `--agents 6 --steps 10`。
 如果 `--personas` 没给, `pp run` 会临时为这个目标生成一组（不持久化）。
+
+`pp diffuse` / `pp calibrate` 是 post-hoc 分析命令, 跑在已有 run 上, 不开新的浏览器会话。
+扩散预测的诚实前提: reach(投放) 和 q(口碑) 由用户假设, 产物是场景带 + 分叉点, 不是保证的增长预测。
 
 ## Persona schema (v0.3)
 

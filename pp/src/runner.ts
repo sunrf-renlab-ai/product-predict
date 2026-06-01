@@ -198,6 +198,9 @@ function aggregate(args: {
       let sev = pickWorst(v.severities);
       if (v.hits >= Math.ceil(results.length / 2) && sev === "low") sev = "med";
       if (v.hits === results.length && sev !== "high") sev = "high";
+      const confidence = v.severities.length
+        ? v.severities.filter((s) => s === sev).length / v.severities.length
+        : 1;
       return {
         id: `i${String(i + 1).padStart(2, "0")}`,
         title: v.sample.title,
@@ -208,6 +211,8 @@ function aggregate(args: {
         agentRef: v.agentRefs[0],
         evidence: v.evidence,
         journey: v.sample.journey || "whole session",
+        severityVotes: v.severities.slice(),
+        confidence,
       };
     })
     .sort((a, b) => sevRank(b.severity) - sevRank(a.severity) || b.agents - a.agents);

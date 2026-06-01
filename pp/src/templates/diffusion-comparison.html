@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Product Predict · A/B Propagation</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+  :root{--bg:#0d0d0c;--panel:#16160f;--line:#2a2a1f;--fg:#f0ede3;--fg2:#b9b6a8;--fg3:#76746a;--a:#e0b84a;--b:#7fb069;--accent:#d6ec5a}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--fg);font-family:'JetBrains Mono',ui-monospace,monospace;font-size:13px;line-height:1.5}
+  .wrap{max-width:1000px;margin:0 auto;padding:26px 24px 80px}
+  h1{font-size:20px;font-weight:600;margin:0 0 2px}
+  .sub{color:var(--fg2);font-size:12px;margin-bottom:16px}
+  .honesty{border-left:3px solid var(--accent);background:#13130c;padding:10px 14px;border-radius:0 6px 6px 0;color:var(--fg2);font-size:12px;margin-bottom:20px}
+  .honesty b{color:var(--accent)}
+  .panel{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:18px;margin-bottom:18px}
+  .panel h2{font-size:11px;letter-spacing:1.4px;text-transform:uppercase;color:var(--fg3);margin:0 0 14px;font-weight:600}
+  .headline{font-size:15px;line-height:1.7}
+  .headline b{color:var(--accent)}
+  table{width:100%;border-collapse:collapse;font-size:12px}
+  th,td{text-align:right;padding:6px 8px;border-bottom:1px solid var(--line)}
+  th:first-child,td:first-child{text-align:left}
+  th{color:var(--fg3);font-weight:500;font-size:10px;text-transform:uppercase;letter-spacing:.5px}
+  .swatch{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+  .delta-pos{color:var(--b)} .delta-neg{color:var(--a)}
+  canvas{width:100%;height:200px;display:block}
+  .note{color:var(--fg3);font-size:11px;margin-top:10px;line-height:1.6}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>A/B propagation · <span id="title"></span></h1>
+  <div class="sub" id="sub"></div>
+
+  <div class="honesty">
+    <b>Why a comparison is more trustworthy than either forecast alone:</b> both variants are simulated under the
+    <b>same</b> reach + word-of-mouth assumptions, so those shared unknowns <b>cancel</b>. The absolute numbers are
+    scenario-dependent, but the <b>difference</b> between A and B is robust — that's the honest signal.
+  </div>
+
+  <div class="panel">
+    <h2>Headline</h2>
+    <div class="headline" id="headline"></div>
+  </div>
+
+  <div class="panel">
+    <h2>At your current assumptions</h2>
+    <table id="stats"><thead><tr><th>metric</th><th><span class="swatch" style="background:var(--a)"></span>A</th><th><span class="swatch" style="background:var(--b)"></span>B</th><th>Δ (B−A)</th></tr></thead><tbody></tbody></table>
+  </div>
+
+  <div class="panel">
+    <h2>Reach vs word-of-mouth — which ignites sooner?</h2>
+    <canvas id="sweep" width="900" height="200"></canvas>
+    <div class="note"><span style="color:var(--a)">A</span> vs <span style="color:var(--b)">B</span>: ever-reached % across word-of-mouth strength (q). A curve that climbs at a lower q ignites more easily.</div>
+  </div>
+
+  <div class="panel">
+    <h2>Per-segment measured rates · B − A</h2>
+    <table id="coeffs"><thead><tr><th>user type</th><th>activate Δ</th><th>churn Δ</th><th>deepen Δ</th><th>refer Δ</th></tr></thead><tbody></tbody></table>
+    <div class="note">These are pp's <b>measured</b> first-visit deltas — the grounded reason the curves differ.</div>
+  </div>
+</div>
+
+<script>window.__PP_CMP__ = /*__PP_CMP__*/null/*__END_PP_CMP__*/;</script>
+<script>
+(function(){
+  "use strict";
+  var C = window.__PP_CMP__;
+  if(!C){ document.body.innerHTML="<p style='padding:40px'>No comparison data.</p>"; return; }
+  var A=C.a, B=C.b;
+  document.getElementById("title").textContent = (A.runId||"A") + "  vs  " + (B.runId||"B");
+  document.getElementById("sub").textContent = "A = "+(A.target||A.runId)+"  ·  B = "+(B.target||B.runId)+"  ·  same assumptions (reach="+(A.params.reach)+", q="+(A.params.q)+")";
+
+  var pct=function(n){return (n).toFixed(1)+"%";};
+  var sign=function(n){return (n>=0?"+":"")+n.toFixed(1);};
+  function deltaCell(d,unit){var cls=d>0?"delta-pos":d<0?"delta-neg":"";return '<td class="'+cls+'">'+sign(d)+(unit||"")+'</td>';}
+
+  // headline
+  var sa=A.summary, sb=B.summary;
+  var dReach=sb.everReachedPct-sa.everReachedPct;
+  var dActive=(sb.activeLightPct+sb.heavyPct)-(sa.activeLightPct+sa.heavyPct);
+  var ratio = (sa.activeLightPct+sa.heavyPct)>0 ? ((sb.activeLightPct+sb.heavyPct)/(sa.activeLightPct+sa.heavyPct)) : null;
+  var hl=document.getElementById("headline");
+  hl.innerHTML = "At your assumptions, <b>B</b> ends with <b>"+pct(sb.activeLightPct+sb.heavyPct)+"</b> active users vs <b>A</b>'s <b>"+pct(sa.activeLightPct+sa.heavyPct)+"</b>"+
+    (ratio!=null? " (<b>"+ratio.toFixed(2)+"×</b>)":"")+". "+
+    "Awareness reach differs by "+sign(dReach)+" pts. "+
+    (B.bifurcationQ!=null&&A.bifurcationQ!=null ? "Word-of-mouth tipping point: A q≈"+A.bifurcationQ.toFixed(2)+", B q≈"+B.bifurcationQ.toFixed(2)+"." :
+      "Neither variant shows a sharp word-of-mouth tipping point in range.");
+
+  // stats table
+  function row(label, a, b, unit){return '<tr><td>'+label+'</td><td>'+a.toFixed(1)+(unit||"")+'</td><td>'+b.toFixed(1)+(unit||"")+'</td>'+deltaCell(b-a,unit)+'</tr>';}
+  var tb=document.querySelector("#stats tbody");
+  tb.innerHTML =
+    row("ever reached", sa.everReachedPct, sb.everReachedPct, "%")+
+    row("active · light", sa.activeLightPct, sb.activeLightPct, "%")+
+    row("active · heavy", sa.heavyPct, sb.heavyPct, "%")+
+    row("churned", sa.churnedPct, sb.churnedPct, "%")+
+    '<tr><td>peak active users</td><td>'+Math.round(sa.peakActive).toLocaleString("en-US")+'</td><td>'+Math.round(sb.peakActive).toLocaleString("en-US")+'</td>'+deltaCell(sb.peakActive-sa.peakActive,"")+'</tr>';
+
+  // overlaid sweep
+  (function(){
+    var cv=document.getElementById("sweep"),g=cv.getContext("2d"),W=cv.width,H=cv.height,pad=26;
+    g.clearRect(0,0,W,H);
+    g.strokeStyle="#2a2a1f";g.beginPath();g.moveTo(pad,6);g.lineTo(pad,H-pad);g.lineTo(W-4,H-pad);g.stroke();
+    g.fillStyle="#76746a";g.font="10px monospace";g.fillText("100% heard",pad+2,12);g.fillText("q=0",pad-4,H-9);g.fillText("q=1",W-26,H-9);
+    function plot(sw,color){g.strokeStyle=color;g.lineWidth=2;g.beginPath();for(var i=0;i<sw.length;i++){var x=pad+sw[i].q*(W-pad-6);var y=6+(1-sw[i].everReachedPct/100)*(H-pad-6);i?g.lineTo(x,y):g.moveTo(x,y);}g.stroke();}
+    plot(A.sweep,"#e0b84a"); plot(B.sweep,"#7fb069");
+    var qx=pad+A.params.q*(W-pad-6);g.strokeStyle="#c2554d";g.lineWidth=1;g.setLineDash([3,3]);g.beginPath();g.moveTo(qx,6);g.lineTo(qx,H-pad);g.stroke();g.setLineDash([]);
+  })();
+
+  // per-segment coeff deltas (match by label)
+  var bById={}; B.coeffs.forEach(function(c){bById[c.id]=c;});
+  var segLabel={}; (A.segments||[]).forEach(function(s){segLabel[s.id]=s.label;}); (B.segments||[]).forEach(function(s){if(!segLabel[s.id])segLabel[s.id]=s.label;});
+  var ctb=document.querySelector("#coeffs tbody"); ctb.innerHTML="";
+  A.coeffs.forEach(function(ca){
+    var cb=bById[ca.id]; if(!cb) return;
+    var tr=document.createElement("tr");
+    tr.innerHTML='<td>'+(segLabel[ca.id]||ca.id)+'</td>'+
+      deltaCell((cb.activation-ca.activation)*100,"%")+deltaCell((cb.churn-ca.churn)*100,"%")+
+      deltaCell((cb.deepen-ca.deepen)*100,"%")+deltaCell((cb.shareProp-ca.shareProp),"×");
+    ctb.appendChild(tr);
+  });
+})();
+</script>
+</body>
+</html>

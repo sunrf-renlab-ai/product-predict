@@ -75,6 +75,11 @@ export type Issue = {
   agentRef: string;               // persona.id of quoted agent
   evidence: number;               // event count
   journey: string;                // where in flow
+  // Audit trail: each hitting agent's own severity vote, and the fraction that
+  // agreed with the displayed `severity`. Low confidence flags an issue whose
+  // shown severity isn't what most agents actually felt.
+  severityVotes?: ("high" | "med" | "low")[];
+  confidence?: number;            // 0..1, votes matching `severity` / total votes
 };
 
 export type Delight = {

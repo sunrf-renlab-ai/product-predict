@@ -60,6 +60,26 @@ Other commands:
 ./bin/pp run --help               # all options
 ```
 
+### Analysis & projection
+
+Post-hoc commands that run on an existing run (no new browser sessions):
+
+```sh
+# Project a run's measured first-visit behaviour into a population diffusion
+# forecast + a 1,000,000-agent propagation viewer (funnel, awareness/active
+# over time, reach×q sensitivity heatmap, bifurcation). Pure math, no LLM.
+./bin/pp diffuse [runId]          # defaults to the latest run
+./bin/pp diffuse run-008 --reach 0.01 --q 0.4   # reach + q are YOUR assumptions
+./bin/pp diffuse run-009 --variant run-008      # A/B: same assumptions, the delta is the signal
+
+# Ground-truth: run pp on fixtures with KNOWN planted defects and score
+# issue-recall + the clean-control false-positive floor + blank-page invention.
+./bin/pp calibrate                # one round
+./bin/pp calibrate --rounds 5     # de-noise: per-defect catch RATE + mean±stdev
+```
+
+`diffuse` writes `diffusion.html`/`diffusion.json` (and every `pp run` report links to it). The forecast is a **scenario band**, not a point prediction — reach and word-of-mouth are user assumptions. `calibrate` writes `scorecard.md`/`scorecard.json`.
+
 ### Important flags
 
 ```

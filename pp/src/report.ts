@@ -80,7 +80,13 @@ function renderMarkdown(run: Run): string {
       const agent = run.agents.find((a) => a.id === iss.agentRef);
       lines.push(``);
       lines.push(`### [${iss.id}] ${iss.severity.toUpperCase()} · ${iss.category} — ${iss.title}`);
-      lines.push(`SCALE: ${iss.agents}/${run.agents.length} agents felt this · ${iss.evidence} events · where: ${iss.journey}`);
+      let scale = `SCALE: ${iss.agents}/${run.agents.length} agents felt this · ${iss.evidence} events · where: ${iss.journey}`;
+      if (iss.severityVotes && iss.severityVotes.length) {
+        const tally = (s: "high" | "med" | "low") => iss.severityVotes!.filter((v) => v === s).length;
+        const parts = (["high", "med", "low"] as const).map((s) => (tally(s) ? `${tally(s)} ${s}` : "")).filter(Boolean).join(" / ");
+        scale += ` · agreement ${Math.round((iss.confidence ?? 1) * 100)}% (${parts})`;
+      }
+      lines.push(scale);
       if (iss.quote) {
         lines.push(`QUOTE (${agent?.name || iss.agentRef}, ${agent?.role || ""}): "${iss.quote}"`);
       }
