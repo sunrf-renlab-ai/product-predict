@@ -7,7 +7,6 @@ export default function Dashboard() {
   const [email, setEmail] = useState<string | null>(null);
   const [cliToken, setCliToken] = useState("");
   const [loading, setLoading] = useState(true);
-  const [copied, setCopied] = useState(false);
 
   useEffect(() => {
     const sb = supabaseBrowser();
@@ -28,13 +27,6 @@ export default function Dashboard() {
   async function signOut() {
     await supabaseBrowser().auth.signOut();
     window.location.replace("/login");
-  }
-
-  function copyToken() {
-    navigator.clipboard.writeText(cliToken).then(() => {
-      setCopied(true);
-      setTimeout(() => setCopied(false), 1800);
-    });
   }
 
   if (loading) {
@@ -70,22 +62,21 @@ export default function Dashboard() {
             After that, <code style={code}>pp run</code> uses our simulation backend — no API keys to manage.
           </p>
 
-          <div style={tokenBox}>
-            <code style={{ fontSize: 11, wordBreak: "break-all", color: "var(--fg-1)", lineHeight: 1.5 }}>
+          <div style={label}>CLI token</div>
+          <div style={{ ...tokenBox, display: "flex", alignItems: "center", gap: 12 }}>
+            <code style={{ flex: 1, minWidth: 0, maxHeight: 66, overflow: "auto", fontFamily: "var(--mono, monospace)", fontSize: 11, wordBreak: "break-all", color: "var(--fg-1)", lineHeight: 1.5 }}>
               {cliToken}
             </code>
+            <CopyButton value={cliToken} />
           </div>
-          <button onClick={copyToken} style={{ ...copyBtn, background: copied ? "var(--good, #7fb069)" : "var(--accent)" }}>
-            {copied ? "✓ COPIED" : "COPY CLI TOKEN"}
-          </button>
 
           <div style={{ marginTop: 22 }}>
             <div style={label}>Install</div>
-            <pre style={pre}>curl -sSL https://product-predict.renlab.ai/install.sh | sh</pre>
+            <CmdBox value="curl -sSL https://product-predict.renlab.ai/install.sh | sh" />
             <div style={{ ...label, marginTop: 14 }}>Authenticate</div>
-            <pre style={pre}>pp login</pre>
+            <CmdBox value="pp login" />
             <div style={{ ...label, marginTop: 14 }}>Run</div>
-            <pre style={pre}>pp run http://localhost:3000</pre>
+            <CmdBox value="pp run http://localhost:3000" />
           </div>
         </div>
 
@@ -96,6 +87,66 @@ export default function Dashboard() {
         </div>
       </div>
     </main>
+  );
+}
+
+function CopyButton({ value }: { value: string }) {
+  const [copied, setCopied] = useState(false);
+  const [hover, setHover] = useState(false);
+  const onCopy = () => {
+    navigator.clipboard
+      .writeText(value)
+      .then(() => {
+        setCopied(true);
+        setTimeout(() => setCopied(false), 1600);
+      })
+      .catch(() => {});
+  };
+  return (
+    <button
+      onClick={onCopy}
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+      aria-label="copy to clipboard"
+      title="Copy"
+      style={{
+        flexShrink: 0,
+        padding: "4px 9px",
+        fontSize: 10,
+        letterSpacing: 0.6,
+        fontFamily: "var(--mono, monospace)",
+        background: "transparent",
+        color: copied ? "var(--fg-1)" : hover ? "var(--fg-2)" : "var(--fg-3)",
+        border: "1px solid var(--line-2)",
+        borderRadius: 2,
+        cursor: "pointer",
+        whiteSpace: "nowrap",
+        transition: "color .15s ease, border-color .15s ease",
+      }}
+    >
+      {copied ? "✓ copied" : "copy"}
+    </button>
+  );
+}
+
+function CmdBox({ value }: { value: string }) {
+  return (
+    <div style={cmdBox}>
+      <code
+        style={{
+          flex: 1,
+          minWidth: 0,
+          fontFamily: "var(--mono, monospace)",
+          fontSize: 12,
+          color: "var(--fg-1)",
+          whiteSpace: "pre",
+          overflowX: "auto",
+        }}
+      >
+        {value}
+      </code>
+      <CopyButton value={value} />
+    </div>
   );
 }
 
@@ -115,21 +166,16 @@ const code: React.CSSProperties = {
   background: "var(--bg)", padding: "1px 5px", borderRadius: 2,
 };
 const tokenBox: React.CSSProperties = {
-  border: "1px solid var(--line-2)", background: "var(--bg)", padding: "12px 14px",
-  borderRadius: 2, maxHeight: 90, overflow: "auto",
-};
-const copyBtn: React.CSSProperties = {
-  marginTop: 12, padding: "10px 18px", fontSize: 12, fontWeight: 600, letterSpacing: 0.5,
-  color: "var(--accent-fg)", border: "none", borderRadius: 2, cursor: "pointer",
-  fontFamily: "var(--mono, monospace)",
+  border: "1px solid var(--line-2)", background: "var(--bg)", padding: "8px 10px 8px 12px",
+  borderRadius: 2,
 };
 const ghostBtn: React.CSSProperties = {
   padding: "8px 14px", fontSize: 11, letterSpacing: 0.5, background: "transparent",
   color: "var(--fg-2)", border: "1px solid var(--line-2)", borderRadius: 2, cursor: "pointer",
   fontFamily: "var(--mono, monospace)",
 };
-const pre: React.CSSProperties = {
-  fontFamily: "var(--mono, monospace)", fontSize: 12, background: "var(--bg)",
-  border: "1px solid var(--line)", padding: "10px 12px", borderRadius: 2, margin: 0,
-  color: "var(--fg-1)", overflow: "auto",
+const cmdBox: React.CSSProperties = {
+  display: "flex", alignItems: "center", gap: 12,
+  background: "var(--bg)", border: "1px solid var(--line)",
+  padding: "8px 10px 8px 12px", borderRadius: 2, margin: 0,
 };
