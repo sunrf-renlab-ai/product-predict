@@ -28,6 +28,8 @@ function msgs(lang: Lang) {
     toolFail: (tool: string, e: string) => (en ? `Action failed (${tool}): ${e}` : `操作失败 (${tool}): ${e}`),
     stepCap: (n: number) => (en ? `Hit step safety cap (${n}), stopping.` : `达到 step safety 上限 (${n}), 强制结束.`),
     wrapFail: (e: string) => (en ? `wrap-up failed: ${e}` : `wrap-up 失败：${e}`),
+    deadClick: (why: string) => (en ? `I clicked but nothing happened${why ? ` (${why})` : ""}.` : `点了没反应${why ? `（${why}）` : ""}。`),
+    deadClickRage: (why: string) => (en ? `Clicked again — still nothing${why ? ` (${why})` : ""}.` : `又点了一下, 还是没反应${why ? `（${why}）` : ""}。`),
     stepPrompt: (url: string, vw: number, vh: number, sec: number, dom: string, intent: string) =>
       en
         ? `Current URL: ${url}\n` +
@@ -147,6 +149,13 @@ export async function runAgent(opts: {
   const messages: Anthropic.MessageParam[] = [];
 
   let exitReason: ExitReason = "timeout";
+  // Behavioural friction: a click that leaves URL + interactive-DOM unchanged is
+  // a dead click; repeats escalate to rage. Grounds sentiment in observed
+  // behaviour, not just the model's self-report.
+  let prevSig = "";
+  let prevWasClick = false;
+  let prevClickReason = "";
+  let noopStreak = 0;
   for (let step = 0; step < maxSteps; step++) {
     const elapsedMs = Date.now() - t0;
     if (elapsedMs > safetyMs) {
@@ -163,6 +172,25 @@ export async function runAgent(opts: {
     const t = fmtT(elapsedMs / 1000);
     const shot = await snapshot(page, runDir, persona.id, step);
     const dom = await simplifiedDom(page);
+
+    // Did the PREVIOUS click actually do anything? URL + interactive DOM
+    // unchanged ⇒ dead click. Emitted as a behavioural friction event so it
+    // grounds sentiment even when the model never narrates it.
+    const sig = `${page.url()}\n${dom}`;
+    if (prevWasClick && prevSig && sig === prevSig) {
+      noopStreak++;
+      const rage = noopStreak >= 2;
+      events.push({
+        t,
+        agent: persona.id,
+        kind: rage ? "rage" : "confused",
+        text: rage ? M.deadClickRage(prevClickReason) : M.deadClick(prevClickReason),
+        sentiment: rage ? -2 : -1,
+      });
+    } else {
+      noopStreak = 0;
+    }
+    prevSig = sig;
 
     // Tell the persona how long they've been at it — this is what cues a real
     // user to start wrapping up rather than grinding forever.
@@ -207,6 +235,10 @@ export async function runAgent(opts: {
       events.push({ t, agent: persona.id, kind: "note", text: t2 || "(no tool)", sentiment: 0 });
       break;
     }
+
+    // Remember this action so the NEXT step can tell whether a click did nothing.
+    prevWasClick = tool.name === "click_at";
+    prevClickReason = tool.name === "click_at" ? String((tool.input as Record<string, unknown>).reason ?? "") : "";
 
     let toolResult: string;
     let ev: Event | null = null;

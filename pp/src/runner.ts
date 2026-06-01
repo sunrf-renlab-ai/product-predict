@@ -135,6 +135,18 @@ export async function executeRun(opts: RunOptions): Promise<{ run: Run; runDir: 
 
 // ── Aggregation ─────────────────────────────────────────────────────────────
 
+// Classify one session as promoter / passive / detractor for NPS. Combines the
+// session outcome (exitReason / accomplished) with how it actually FELT — the
+// mean of that agent's non-neutral event sentiment, which now includes the
+// behaviour-grounded dead-click / rage events emitted by the agent loop.
+function classifySession(r: AgentResult): "promoter" | "passive" | "detractor" {
+  const felt = r.events.filter((e) => e.sentiment !== 0);
+  const mean = felt.length ? felt.reduce((s, e) => s + e.sentiment, 0) / felt.length : 0;
+  if (r.exitReason === "frustrated" || r.exitReason === "crashed" || mean <= -0.5) return "detractor";
+  if (r.accomplished && mean >= 1) return "promoter";
+  return "passive";
+}
+
 function aggregate(args: {
   runId: string;
   targetUrl: string;
@@ -225,10 +237,15 @@ function aggregate(args: {
   const accomplished = results.filter((r) => r.accomplished).length;
   const rageClicks = activity.filter((e) => e.kind === "rage").length;
   const delightCount = activity.filter((e) => e.sentiment >= 2).length;
-  const avgSentiment = activity.length
-    ? activity.reduce((s, e) => s + e.sentiment, 0) / activity.length
-    : 0;
-  const predictedNps = Math.round(avgSentiment * 33); // crude: −3..+3 → −99..+99
+  // Predicted NPS — the real NPS definition (% promoters − % detractors),
+  // classified PER SESSION from outcome + how that session actually felt.
+  // (Replaces the old `avgSentiment * 33`, which pooled every event — including
+  // neutral navigation — into one mean × a magic constant, diluting signal
+  // toward 0 and ignoring per-session structure.) Sessions are weight-balanced
+  // because allocateSlots already replicates archetypes by weight.
+  const promoters = results.filter((r) => classifySession(r) === "promoter").length;
+  const detractors = results.filter((r) => classifySession(r) === "detractor").length;
+  const predictedNps = totalAgents ? Math.round(((promoters - detractors) / totalAgents) * 100) : 0;
   const achievableNps = clamp(predictedNps + issues.filter((i) => i.severity === "high").length * 14, -100, 100);
   const taskSuccess = totalAgents ? accomplished / totalAgents : 0;
 

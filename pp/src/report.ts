@@ -6,17 +6,41 @@ import { join, dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 import type { Run } from "./types.js";
+import { runDiffusion } from "./diffusion.js";
+import { writeDiffusion } from "./diffusion-report.js";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const TEMPLATE = resolve(here, "templates/report.html");
 
+// Floating link from the report to the propagation forecast. A fixed-position
+// sibling element — injected as a string so it never touches the React bundle.
+const PROPAGATION_LINK =
+  `<a href="diffusion.html" title="Population diffusion forecast for this run" ` +
+  `style="position:fixed;right:18px;bottom:18px;z-index:99999;background:#16160f;` +
+  `border:1px solid #2a2a1f;border-left:3px solid #d6ec5a;color:#f0ede3;` +
+  `font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;padding:9px 14px;` +
+  `border-radius:6px;text-decoration:none;box-shadow:0 4px 20px rgba(0,0,0,.45)">` +
+  `◍ Will it spread? · propagation →</a>`;
+
 export async function writeReports(runDir: string, run: Run): Promise<{ html: string; md: string }> {
   // 1. HTML — load template, inject run.json, write to runDir/report.html.
   const template = await readFile(TEMPLATE, "utf8");
-  const injected = template.replace(
+  let injected = template.replace(
     "/*__PP_RUN__*/null/*__END_PP_RUN__*/",
     JSON.stringify(run)
   );
+
+  // Macro layer — generate the propagation forecast (diffusion.html/json) next
+  // to the report and link to it. Best-effort: a diffusion failure must never
+  // break the main report.
+  try {
+    const diff = runDiffusion(run, {}, run.finishedAt || new Date().toISOString());
+    await writeDiffusion(runDir, diff);
+    injected = injected.replace("</body>", PROPAGATION_LINK + "</body>");
+  } catch {
+    // no diffusion link this run
+  }
+
   const htmlPath = join(runDir, "report.html");
   await writeFile(htmlPath, injected);
 
