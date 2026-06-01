@@ -66,10 +66,28 @@ function renderMarkdown(run: Run): string {
   lines.push(`## SUMMARY`);
   lines.push(`- ${run.issues.length} experience observations across ${run.agents.length} agents · ${run.activity.length} events`);
   lines.push(`- Predicted NPS: ${run.metrics.predictedNps} (achievable: ${run.metrics.achievableNps})`);
+  lines.push(`- Confidence: ${run.metrics.confidence} (n=${run.metrics.sampleSize} agents)${run.metrics.confidence === "low" ? " — small sample; read directionally, not as a precise number" : ""}`);
   lines.push(`- Task success: ${(run.metrics.taskSuccess * 100).toFixed(0)}% · Rage clicks: ${run.metrics.rageClicks} · Delights: ${run.metrics.delightCount}`);
   lines.push(`- Sessions: ${exitReasonSummary(run)}`);
   lines.push(`- Cost: $${run.cost.usd.toFixed(2)} (${run.cost.tokensIn.toLocaleString()} in / ${run.cost.tokensOut.toLocaleString()} out)`);
   lines.push(``);
+
+  if (run.segments && run.segments.length) {
+    lines.push(`## BY SEGMENT (tech band)`);
+    lines.push(`Per-cohort feel — a single global NPS hides a product experts love and novices bounce off.`);
+    for (const s of run.segments) {
+      const hedge = s.lowN ? " ⚠ low-n (one archetype — directional only)" : "";
+      lines.push(`- ${s.label}: NPS ${s.nps} · task ${(s.taskSuccess * 100).toFixed(0)}% · ${s.agents} agents / ${s.archetypes} archetype(s)${s.topIssue ? ` · top: "${s.topIssue}"` : ""}${hedge}`);
+    }
+    // Only headline an audience split when ≥2 buckets are trustworthy (not low-n).
+    const trust = run.segments.filter((s) => !s.lowN);
+    if (trust.length >= 2) {
+      const sorted = [...trust].sort((a, b) => a.nps - b.nps);
+      const gap = sorted[sorted.length - 1].nps - sorted[0].nps;
+      if (gap >= 40) lines.push(`- ⚠ Splits its audience: ${gap}-pt NPS gap between ${sorted[0].label} (${sorted[0].nps}) and ${sorted[sorted.length - 1].label} (${sorted[sorted.length - 1].nps}).`);
+    }
+    lines.push(``);
+  }
 
   lines.push(`## OBSERVATIONS`);
   if (run.issues.length === 0) {

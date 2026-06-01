@@ -436,9 +436,22 @@ async function dispatch(
       const dir = (input.direction === "up" ? -1 : 1) as 1 | -1;
       const amount = num(input.amount ?? 400);
       await page.mouse.wheel(0, dir * amount);
+      // Record how far down the page the user has now scrolled, so the run can
+      // report a real scroll-depth distribution ("most never scrolled to X").
+      let depthPct = 0;
+      try {
+        depthPct = await page.evaluate(() => {
+          const el = document.documentElement;
+          const max = el.scrollHeight - el.clientHeight;
+          const top = window.scrollY || el.scrollTop || 0;
+          return max > 0 ? Math.round(Math.min(100, Math.max(0, (top / max) * 100))) : 0;
+        });
+      } catch {
+        // page navigated / detached — leave depth at 0
+      }
       return {
-        result: `scrolled ${dir === 1 ? "down" : "up"} ${amount}px`,
-        event: null,
+        result: `scrolled ${dir === 1 ? "down" : "up"} ${amount}px (page depth ${depthPct}%)`,
+        event: { t: "", agent: "", kind: "note", text: `Scrolled ${dir === 1 ? "down" : "up"} (page depth ${depthPct}%)`, sentiment: 0, scrollDepthPct: depthPct },
       };
     }
     case "navigate": {

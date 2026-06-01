@@ -4,7 +4,7 @@ import { existsSync } from "node:fs";
 import { join } from "node:path";
 import { chromium } from "playwright";
 
-import type { Run, Event, Issue, Delight, RouteHeat, PersonaSet, FeatureFrequency } from "./types.js";
+import type { Run, Event, Issue, Delight, RouteHeat, PersonaSet, FeatureFrequency, SegmentMetric } from "./types.js";
 import { allocateSlots } from "./personas.js";
 import { runAgent, type AgentResult } from "./agent.js";
 import { simKeyCount } from "./llm.js";
@@ -164,10 +164,12 @@ function aggregate(args: {
     .flatMap((r) => r.events)
     .sort((a, b) => (a.t < b.t ? -1 : a.t > b.t ? 1 : 0));
 
-  // Dedupe issues by lower-cased title across agents.
+  // Dedupe issues by lower-cased title across agents. Keep every hitting agent's
+  // own severity vote + quote so we can show the DISTRIBUTION and pick a
+  // representative (median) quote — not the single angriest one.
   const issueMap = new Map<
     string,
-    { hits: number; severities: ("high" | "med" | "low")[]; sample: AgentResult["issues"][number]; agentRefs: string[]; evidence: number }
+    { hits: number; severities: ("high" | "med" | "low")[]; entries: { iss: AgentResult["issues"][number]; agentId: string }[]; evidence: number }
   >();
   for (const r of results) {
     for (const iss of r.issues) {
@@ -177,40 +179,34 @@ function aggregate(args: {
         cur.hits++;
         cur.severities.push(iss.severity);
         cur.evidence += iss.evidence || 1;
-        cur.agentRefs.push(r.persona.id);
-        // Prefer the most severe sample's quote.
-        if (sevRank(iss.severity) > sevRank(cur.sample.severity)) cur.sample = iss;
+        cur.entries.push({ iss, agentId: r.persona.id });
       } else {
-        issueMap.set(k, {
-          hits: 1,
-          severities: [iss.severity],
-          sample: iss,
-          agentRefs: [r.persona.id],
-          evidence: iss.evidence || 1,
-        });
+        issueMap.set(k, { hits: 1, severities: [iss.severity], entries: [{ iss, agentId: r.persona.id }], evidence: iss.evidence || 1 });
       }
     }
   }
 
   const issues: Issue[] = Array.from(issueMap.entries())
     .map(([_, v], i) => {
-      // Severity bump: hit by ≥ N/2 agents → at least med; hit by all → high.
-      let sev = pickWorst(v.severities);
-      if (v.hits >= Math.ceil(results.length / 2) && sev === "low") sev = "med";
-      if (v.hits === results.length && sev !== "high") sev = "high";
+      // Representative severity = MEDIAN of the agents' own votes. Neither the
+      // angriest agent (overstates) nor a frequency bump (conflates "common"
+      // with "severe"). The full spread stays in severityVotes, so a high-
+      // severity minority remains visible; confidence flags low agreement.
+      const sev = medianSeverity(v.severities);
+      const rep = v.entries.find((e) => e.iss.severity === sev) ?? v.entries[0];
       const confidence = v.severities.length
         ? v.severities.filter((s) => s === sev).length / v.severities.length
         : 1;
       return {
         id: `i${String(i + 1).padStart(2, "0")}`,
-        title: v.sample.title,
+        title: rep.iss.title,
         severity: sev,
         agents: v.hits,
-        category: v.sample.category || "Other",
-        quote: v.sample.quote,
-        agentRef: v.agentRefs[0],
+        category: rep.iss.category || "Other",
+        quote: rep.iss.quote,
+        agentRef: rep.agentId,
         evidence: v.evidence,
-        journey: v.sample.journey || "whole session",
+        journey: rep.iss.journey || "whole session",
         severityVotes: v.severities.slice(),
         confidence,
       };
@@ -253,6 +249,11 @@ function aggregate(args: {
   const predictedNps = totalAgents ? Math.round(((promoters - detractors) / totalAgents) * 100) : 0;
   const achievableNps = clamp(predictedNps + issues.filter((i) => i.severity === "high").length * 14, -100, 100);
   const taskSuccess = totalAgents ? accomplished / totalAgents : 0;
+  // Sample-size confidence — a 3-agent run must not read as authoritatively as
+  // a 24-agent one.
+  const confidence: "low" | "medium" | "high" = totalAgents >= 12 ? "high" : totalAgents >= 6 ? "medium" : "low";
+  // Per-cohort breakdown (by tech band), so a bimodal audience isn't hidden.
+  const segments = segmentMetrics(results);
 
   // Time-to-value — earliest +2 sentiment event.
   const firstDelight = activity.find((e) => e.sentiment >= 2);
@@ -285,6 +286,7 @@ function aggregate(args: {
     issues,
     delights,
     features: aggregateFeatures(results),
+    segments,
     routesHeat,
     sentimentCurve,
     metrics: {
@@ -294,9 +296,45 @@ function aggregate(args: {
       timeToValueSec,
       rageClicks,
       delightCount,
+      sampleSize: totalAgents,
+      confidence,
     },
     cost,
   };
+}
+
+// Per-tech-band cohort metrics. Replicated clones (id `a01-1`, `a01-2`) collapse
+// to one archetype for the lowN guard, so a bucket of clones isn't mistaken for
+// a diverse cohort.
+function segmentMetrics(results: AgentResult[]): SegmentMetric[] {
+  const band = (tech: number) =>
+    tech <= 2 ? { key: "tech-low", label: "novice (tech 1–2)" }
+    : tech === 3 ? { key: "tech-mid", label: "mid (tech 3)" }
+    : { key: "tech-high", label: "power (tech 4–5)" };
+  const buckets = new Map<string, { label: string; rs: AgentResult[] }>();
+  for (const r of results) {
+    const b = band(r.persona.tech);
+    const cur = buckets.get(b.key) ?? { label: b.label, rs: [] };
+    cur.rs.push(r);
+    buckets.set(b.key, cur);
+  }
+  const baseId = (id: string) => id.replace(/-\d+$/, "");
+  return ["tech-low", "tech-mid", "tech-high"]
+    .filter((k) => buckets.has(k))
+    .map((key) => {
+      const { label, rs } = buckets.get(key)!;
+      const archetypes = new Set(rs.map((r) => baseId(r.persona.id))).size;
+      const promoters = rs.filter((r) => classifySession(r) === "promoter").length;
+      const detractors = rs.filter((r) => classifySession(r) === "detractor").length;
+      const nps = rs.length ? Math.round(((promoters - detractors) / rs.length) * 100) : 0;
+      const taskSuccess = rs.length ? rs.filter((r) => r.accomplished).length / rs.length : 0;
+      const titleHits = new Map<string, number>();
+      for (const r of rs) for (const iss of r.issues) titleHits.set(iss.title, (titleHits.get(iss.title) ?? 0) + 1);
+      let topIssue: string | null = null;
+      let best = 0;
+      for (const [t, n] of titleHits) if (n > best) { best = n; topIssue = t; }
+      return { key, label, archetypes, agents: rs.length, nps, taskSuccess, topIssue, lowN: archetypes < 2 };
+    });
 }
 
 // Feature aggregation — cross-agent rollup of per-agent featuresUsed lists.
@@ -399,8 +437,11 @@ function normalizeTitle(s: string): string {
 function sevRank(s: "high" | "med" | "low"): number {
   return s === "high" ? 3 : s === "med" ? 2 : 1;
 }
-function pickWorst(arr: ("high" | "med" | "low")[]): "high" | "med" | "low" {
-  return arr.reduce((acc, s) => (sevRank(s) > sevRank(acc) ? s : acc), "low" as const);
+function medianSeverity(arr: ("high" | "med" | "low")[]): "high" | "med" | "low" {
+  if (arr.length === 0) return "low";
+  const ranks = arr.map(sevRank).sort((a, b) => a - b);
+  const mid = ranks[Math.floor((ranks.length - 1) / 2)]; // lower median for even counts
+  return mid === 3 ? "high" : mid === 2 ? "med" : "low";
 }
 function clamp(n: number, lo: number, hi: number): number {
   return Math.max(lo, Math.min(hi, n));

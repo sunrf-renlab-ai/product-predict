@@ -63,6 +63,7 @@ export type Event = {
   sentiment: number;              // -3..3
   url?: string;
   shot?: string;                  // path relative to run dir
+  scrollDepthPct?: number;        // for scroll events: 0..100 page scroll depth reached
 };
 
 export type Issue = {
@@ -129,6 +130,22 @@ export type RunMetrics = {
   timeToValueSec: number | null;
   rageClicks: number;
   delightCount: number;
+  sampleSize: number;             // agents in this run — the confidence anchor
+  confidence: "low" | "medium" | "high"; // derived from sampleSize; small runs are not authoritative
+};
+
+// Per-cohort breakdown (by tech band) so a bimodal "loved by experts, broken
+// for novices" population isn't hidden behind one global scalar. lowN flags a
+// bucket with too few DISTINCT archetypes to read as more than one persona.
+export type SegmentMetric = {
+  key: string;                    // "tech-low" | "tech-mid" | "tech-high"
+  label: string;
+  archetypes: number;             // distinct archetypes (replicated clones collapsed)
+  agents: number;                 // agent slots in this bucket
+  nps: number;
+  taskSuccess: number;
+  topIssue: string | null;        // most-hit issue title within the bucket
+  lowN: boolean;
 };
 
 export type RunCost = {
@@ -157,6 +174,7 @@ export type Run = {
   issues: Issue[];
   delights: Delight[];
   features: FeatureFrequency[];   // NEW v0.4: aggregated feature usage
+  segments?: SegmentMetric[];     // NEW: per-tech-band cohort breakdown
   routesHeat: RouteHeat[];
   sentimentCurve: { t: number; v: number }[];
   metrics: RunMetrics;

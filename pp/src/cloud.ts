@@ -275,7 +275,11 @@ export async function mergeShardRuns(shardDirs: string[]): Promise<Run> {
     features,
     routesHeat: base.routesHeat, // route heat from shard 0 is good enough for v1.5
     sentimentCurve: shardRuns.flatMap((r) => r.sentimentCurve || []).sort((a, b) => a.t - b.t),
-    metrics: { predictedNps, achievableNps, taskSuccess, timeToValueSec, rageClicks, delightCount },
+    metrics: {
+      predictedNps, achievableNps, taskSuccess, timeToValueSec, rageClicks, delightCount,
+      sampleSize: agents.length,
+      confidence: agents.length >= 12 ? "high" : agents.length >= 6 ? "medium" : "low",
+    },
     cost: { tokensIn, tokensOut, usd },
   };
 }
