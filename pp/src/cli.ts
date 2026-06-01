@@ -12,7 +12,7 @@ import { executeCloudRun } from "./cloud.js";
 import { writeReports } from "./report.js";
 import { runDiffusion, type DiffusionParams } from "./diffusion.js";
 import { writeDiffusion } from "./diffusion-report.js";
-import { runCalibration, renderScorecardMarkdown } from "./calibrate.js";
+import { runCalibration, renderScorecardMarkdown, runMultiRoundCalibration, renderMultiRoundMarkdown } from "./calibrate.js";
 import { isProxyMode, setProxyAuthToken } from "./llm.js";
 import { validateAndStore, getAccessToken, clearToken, isLoggedIn, readRefreshToken } from "./auth.js";
 import { createInterface } from "node:readline/promises";
@@ -512,6 +512,7 @@ program
   .option("--out <dir>", "output dir for calibration runs + scorecard", "./runs/_calibration")
   .option("-a, --agents <n>", "agents per fixture (default: sim key count)", (v) => parseInt(v, 10))
   .option("--max-steps <n>", "safety cap per agent", (v) => parseInt(v, 10), 24)
+  .option("--rounds <n>", "run N rounds and report per-defect catch RATE + false-positive mean±stdev (de-noises; default 1)", (v) => parseInt(v, 10), 1)
   .option("--no-ablation", "skip the about:blank invention-rate control")
   .option("--head", "show the browser (default: headless)", false)
   .action(async (opts) => {
@@ -536,10 +537,8 @@ program
     const personaSet = JSON.parse(
       await readFile(join(fixturesDir, "personas.calibration.json"), "utf8")
     ) as PersonaSet;
-    console.log(`pp calibrate · ${personaSet.personas.length} fixed personas · fixtures: ${fixturesDir}`);
-    console.log(`  out=${outDir} · ablation=${opts.ablation !== false}`);
-
-    const { scorecard } = await runCalibration({
+    const rounds = Math.max(1, opts.rounds || 1);
+    const calibOpts = {
       fixturesDir,
       personaSet,
       outDir,
@@ -547,9 +546,28 @@ program
       maxSteps: opts.maxSteps,
       includeAblation: opts.ablation !== false,
       headless: !opts.head,
-      log: (l) => console.log(l),
-    });
+      log: (l: string) => console.log(l),
+    };
+    console.log(`pp calibrate · ${personaSet.personas.length} fixed personas · fixtures: ${fixturesDir}`);
+    console.log(`  out=${outDir} · ablation=${opts.ablation !== false}${rounds > 1 ? ` · rounds=${rounds}` : ""}`);
 
+    if (rounds > 1) {
+      const { multi } = await runMultiRoundCalibration(calibOpts, rounds);
+      await writeFile(join(outDir, "scorecard.md"), renderMultiRoundMarkdown(multi));
+      await writeFile(join(outDir, "scorecard.json"), JSON.stringify(multi, null, 2));
+      console.log("");
+      console.log(`✓ calibration complete (${rounds} rounds)`);
+      console.log(`  mean recall: ${(multi.meanRecall * 100).toFixed(0)}% (per round: ${multi.recallPerRound.map((r) => (r * 100).toFixed(0) + "%").join(", ")})`);
+      console.log(`  false-positive floor: ${multi.cleanFalsePosMean.toFixed(1)} ± ${multi.cleanFalsePosStdev.toFixed(1)} issues/clean run`);
+      if (multi.ablationMean != null) console.log(`  blank-page invention: ${multi.ablationMean.toFixed(1)} issues/run`);
+      console.log(`  per-defect catch rate:`);
+      for (const d of multi.perDefect) console.log(`    ${d.rate >= 0.8 ? "●" : d.rate === 0 ? "○" : "◐"} ${d.class}: ${d.caught}/${d.rounds} (${(d.rate * 100).toFixed(0)}%)`);
+      console.log(`  verdict: ${multi.verdict}`);
+      console.log(`  scorecard: ${join(outDir, "scorecard.md")}`);
+      return;
+    }
+
+    const { scorecard } = await runCalibration(calibOpts);
     const md = renderScorecardMarkdown(scorecard);
     await writeFile(join(outDir, "scorecard.md"), md);
     await writeFile(join(outDir, "scorecard.json"), JSON.stringify(scorecard, null, 2));
@@ -817,6 +835,10 @@ function printIntro(): void {
       pp personas show <name>            ${d("Print as JSON")}
       pp personas edit <name>            ${d("Open in $EDITOR")}
       pp personas delete <name>          ${d("Remove")}
+
+    ${d("Analysis & validation")}
+      pp diffuse [runId]                 ${d("Project a run's first-visit signal into a population forecast band")}
+      pp calibrate                       ${d("Score pp's issue-recall against fixtures with known planted defects")}
 
     ${d("Each command supports --help for full options.")}
 

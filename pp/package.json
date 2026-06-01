@@ -9,6 +9,7 @@
   "scripts": {
     "dev": "tsx src/cli.ts",
     "build": "tsc -p .",
+    "test": "node --import tsx --test src/__tests__/*.test.ts",
     "start": "node dist/cli.js",
     "postinstall": "playwright install chromium --with-deps || playwright install chromium || exit 0"
   },

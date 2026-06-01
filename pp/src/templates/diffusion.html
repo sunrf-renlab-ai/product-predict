@@ -142,6 +142,13 @@
   </div>
 
   <div class="panel">
+    <h2>Sensitivity · reach × word-of-mouth (the two things you assume)</h2>
+    <div class="charttitle">colour = share of all 1,000,000 who ever hear about it, across every combination of your two assumptions. ◻ = where your sliders sit now.</div>
+    <canvas id="heatmap" class="chart" width="640" height="210" style="height:210px"></canvas>
+    <div class="note">Both axes are <span class="tag assumed">assumed</span>. The honest joint picture: a small move in reach or word-of-mouth can swing the outcome across the whole map — pp can't tell you where on it you'll really land.</div>
+  </div>
+
+  <div class="panel">
     <h2>Per-segment rates <span class="tag measured">measured</span></h2>
     <table id="segtable"><thead><tr><th>user type</th><th>weight</th><th>activates</th><th>goes heavy</th><th>churns</th><th>refers</th></tr></thead><tbody></tbody></table>
     <div class="note">These four numbers per user type are what pp actually <b>measured</b> from real first-visit sessions — the grounded inputs. The funnel <i>dynamics</i> on top are modeled from them.</div>
@@ -261,6 +268,29 @@
     if(DIFF.bifurcationQ!=null){var bx=pad+DIFF.bifurcationQ*(W-pad-6);g.strokeStyle="var(--amber)";g.setLineDash([3,3]);g.beginPath();g.moveTo(bx,6);g.lineTo(bx,H-pad);g.stroke();g.setLineDash([]);}
     var qx=pad+P.q*(W-pad-6);g.strokeStyle="var(--red)";g.lineWidth=1.5;g.beginPath();g.moveTo(qx,6);g.lineTo(qx,H-pad);g.stroke();
   }
+  // 2D reach × q sensitivity heatmap — colour = ever-reached %. Computed
+  // client-side from the same simulate() (sub-100ms), re-runs on slider change.
+  function drawHeatmap(){
+    var cv=document.getElementById("heatmap"),g=clr(cv),W=cv.width,H=cv.height,padL=34,padB=16;
+    var QN=24,RN=12,RMAX=0.08;
+    var pw=(W-padL-4)/QN, ph=(H-padB-4)/RN;
+    for(var ri=0;ri<RN;ri++){
+      var reach=RMAX*(1-ri/(RN-1));
+      for(var ci=0;ci<QN;ci++){
+        var q=ci/(QN-1);
+        var s=simulate(Object.assign({},P,{reach:reach,q:q}));
+        var v=(100-s[s.length-1].U/N*100)/100;
+        g.fillStyle="rgb("+Math.round(20+v*194)+","+Math.round(20+v*216)+","+Math.round(16+v*74)+")";
+        g.fillRect(padL+ci*pw+1, 2+ri*ph, pw-1, ph-1);
+      }
+    }
+    var cq=Math.max(0,Math.min(QN-1,Math.round(P.q*(QN-1))));
+    var cr=Math.max(0,Math.min(RN-1,Math.round((1-P.reach/RMAX)*(RN-1))));
+    g.strokeStyle="#fff";g.lineWidth=2;g.strokeRect(padL+cq*pw+1,2+cr*ph,pw-1,ph-1);
+    g.fillStyle="#76746a";g.font="10px monospace";
+    g.fillText("reach 8%",2,12); g.fillText("0%",2,H-padB-2);
+    g.fillText("q=0",padL,H-3); g.fillText("q=1",W-26,H-3);
+  }
 
   // ── pixel field (smaller, high contrast) ────────────────────────────────────
   var GRID=1000,NV=GRID*GRID,canvas=document.getElementById("field"),ctx=canvas.getContext("2d"),img=ctx.createImageData(GRID,GRID);
@@ -294,6 +324,7 @@
     document.getElementById("peak").textContent=fmtN(peak);
     document.getElementById("awareNote").textContent=fmtN(100-last.U/N*100<0?0:(N-last.U))+" of 1,000,000 ever hear about it ("+pct(100-last.U/N*100)+").";
     drawBif();
+    drawHeatmap();
     var bn=document.getElementById("bifnote");
     if(DIFF.bifurcationQ!=null) bn.innerHTML="tipping point ≈ <b>q="+DIFF.bifurcationQ.toFixed(2)+"</b>. Your q="+P.q.toFixed(2)+" is "+(P.q>=DIFF.bifurcationQ?"<b>above</b> it — word-of-mouth carries growth.":"<b>below</b> it — growth leans on paid reach.");
     else bn.innerHTML="No sharp tipping point here: at these activation rates word-of-mouth alone doesn't ignite — growth scales with reach.";

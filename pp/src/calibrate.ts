@@ -440,3 +440,130 @@ export function renderScorecardMarkdown(s: Scorecard): string {
 
   return lines.join("\n");
 }
+
+// ── Multi-round (de-noised) calibration ──────────────────────────────────────
+// A single calibrate run is a coin-flip per defect (the LLM judge + the agent
+// session are stochastic — one run flips ±1-2 defects). Running N rounds turns
+// each defect's caught={true|false} into a real CATCH RATE (e.g. 4/5 = 80%) and
+// the false-positive floor into mean ± stdev across rounds.
+
+export type MultiRoundScorecard = {
+  rounds: number;
+  perDefect: {
+    id: string;
+    class: string;
+    firstVisitObservable: boolean;
+    caught: number; // how many rounds caught it
+    rounds: number;
+    rate: number; // caught / rounds
+    avgConfidence: number;
+  }[];
+  meanRecall: number; // mean over rounds, observable defects
+  recallPerRound: number[];
+  cleanFalsePosMean: number; // mean issues/clean-run across all rounds
+  cleanFalsePosStdev: number; // stdev of the per-round clean means
+  cleanFalsePosPerRound: number[];
+  ablationMean: number | null;
+  verdict: string;
+};
+
+export function aggregateRounds(cards: Scorecard[]): MultiRoundScorecard {
+  const rounds = cards.length;
+  const mean = (xs: number[]) => (xs.length ? xs.reduce((s, x) => s + x, 0) / xs.length : 0);
+  const stdev = (xs: number[]) => {
+    if (xs.length < 2) return 0;
+    const m = mean(xs);
+    return Math.sqrt(mean(xs.map((x) => (x - m) ** 2)));
+  };
+
+  // Per-defect catch rate across rounds (defect set is identical every round).
+  const byId = new Map<string, { id: string; class: string; firstVisitObservable: boolean; caught: number; conf: number[] }>();
+  for (const c of cards) {
+    for (const d of c.defects) {
+      const cur = byId.get(d.id) ?? { id: d.id, class: d.class, firstVisitObservable: d.firstVisitObservable, caught: 0, conf: [] };
+      if (d.caught) cur.caught++;
+      cur.conf.push(d.confidence);
+      byId.set(d.id, cur);
+    }
+  }
+  const perDefect = Array.from(byId.values())
+    .map((d) => ({
+      id: d.id,
+      class: d.class,
+      firstVisitObservable: d.firstVisitObservable,
+      caught: d.caught,
+      rounds,
+      rate: rounds ? d.caught / rounds : 0,
+      avgConfidence: mean(d.conf),
+    }))
+    .sort((a, b) => a.rate - b.rate || a.class.localeCompare(b.class));
+
+  const recallPerRound = cards.map((c) => c.recall);
+  const cleanFalsePosPerRound = cards.map((c) => c.meanIssuesPerCleanRun);
+  const ablations = cards.map((c) => c.ablationIssueCount).filter((x): x is number => x != null);
+
+  const meanRecall = mean(recallPerRound);
+  const cleanMean = mean(cleanFalsePosPerRound);
+  const robust = perDefect.filter((d) => d.firstVisitObservable && d.rate >= 0.8).length;
+  const observable = perDefect.filter((d) => d.firstVisitObservable).length;
+  const verdict =
+    `Over ${rounds} rounds: mean recall ${Math.round(meanRecall * 100)}% · ` +
+    `${robust}/${observable} defects caught robustly (≥80% of rounds) · ` +
+    `false-positive floor ${cleanMean.toFixed(1)} ± ${stdev(cleanFalsePosPerRound).toFixed(1)} issues/clean run` +
+    (ablations.length ? ` · blank-page invention ${mean(ablations).toFixed(1)}` : "") + ".";
+
+  return {
+    rounds,
+    perDefect,
+    meanRecall,
+    recallPerRound,
+    cleanFalsePosMean: cleanMean,
+    cleanFalsePosStdev: stdev(cleanFalsePosPerRound),
+    cleanFalsePosPerRound,
+    ablationMean: ablations.length ? mean(ablations) : null,
+    verdict,
+  };
+}
+
+export async function runMultiRoundCalibration(
+  opts: Parameters<typeof runCalibration>[0],
+  rounds: number
+): Promise<{ scorecards: Scorecard[]; multi: MultiRoundScorecard }> {
+  const log = opts.log ?? (() => {});
+  const n = Math.max(1, rounds);
+  const scorecards: Scorecard[] = [];
+  for (let r = 0; r < n; r++) {
+    log(`=== calibration round ${r + 1}/${n} ===`);
+    const { scorecard } = await runCalibration({ ...opts, outDir: join(opts.outDir, `round-${r + 1}`) });
+    scorecards.push(scorecard);
+  }
+  return { scorecards, multi: aggregateRounds(scorecards) };
+}
+
+export function renderMultiRoundMarkdown(m: MultiRoundScorecard): string {
+  const lines: string[] = [];
+  lines.push(`# pp calibration scorecard · ${m.rounds} rounds (de-noised)`);
+  lines.push("");
+  lines.push(`**Verdict:** ${m.verdict}`);
+  lines.push("");
+  lines.push("## Per-defect catch rate");
+  lines.push("");
+  lines.push("| defect | class | first-visit? | catch rate | avg conf |");
+  lines.push("|---|---|---|---|---|");
+  for (const d of m.perDefect) {
+    const mark = d.rate >= 0.8 ? "●" : d.rate === 0 ? "○" : "◐";
+    lines.push(`| ${mark} ${d.id} | ${d.class} | ${d.firstVisitObservable ? "yes" : "no"} | ${d.caught}/${d.rounds} (${Math.round(d.rate * 100)}%) | ${d.avgConfidence.toFixed(2)} |`);
+  }
+  lines.push("");
+  lines.push(`Mean recall: ${Math.round(m.meanRecall * 100)}% (per round: ${m.recallPerRound.map((r) => Math.round(r * 100) + "%").join(", ")}).`);
+  lines.push("");
+  lines.push("## False-positive floor (clean controls)");
+  lines.push("");
+  lines.push(`${m.cleanFalsePosMean.toFixed(1)} ± ${m.cleanFalsePosStdev.toFixed(1)} issues/clean run (per round: ${m.cleanFalsePosPerRound.map((x) => x.toFixed(1)).join(", ")}).`);
+  if (m.ablationMean != null) {
+    lines.push("");
+    lines.push(`Blank-page invention: ${m.ablationMean.toFixed(1)} issues/run on \`about:blank\`.`);
+  }
+  lines.push("");
+  return lines.join("\n");
+}
