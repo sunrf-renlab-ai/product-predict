@@ -2,7 +2,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 
-import { extractSegments, deriveCoeffs, simulate, summarize, sweepQ, DEFAULT_PARAMS, CALIB } from "../diffusion.js";
+import { extractSegments, deriveCoeffs, simulate, summarize, sweepQ, sweep2D, DEFAULT_PARAMS, CALIB } from "../diffusion.js";
 import type { Run } from "../types.js";
 
 function mkRun(): Run {
@@ -71,4 +71,14 @@ test("more word-of-mouth never reduces ever-reached (monotone in q)", () => {
   const sw = sweepQ(segs, coeffs, { ...DEFAULT_PARAMS, steps: 30 }, [0, 0.5, 1]);
   assert.ok(sw[0].everReachedPct <= sw[1].everReachedPct + 1e-6);
   assert.ok(sw[1].everReachedPct <= sw[2].everReachedPct + 1e-6);
+});
+
+test("sweep2D builds a reach×q ever-reached grid, monotonic in reach", () => {
+  const segs = extractSegments(mkRun());
+  const coeffs = segs.map(deriveCoeffs);
+  const s = sweep2D(segs, coeffs, { ...DEFAULT_PARAMS, steps: 30 }, [0, 0.02, 0.08], [0, 0.5, 1]);
+  assert.equal(s.grid.length, 3); // 3 reach rows
+  assert.equal(s.grid[0].length, 3); // 3 q cols
+  for (const row of s.grid) for (const v of row) assert.ok(v >= 0 && v <= 100, "cell is a valid percent");
+  for (let qi = 0; qi < 3; qi++) assert.ok(s.grid[0][qi] <= s.grid[2][qi] + 1e-6, "more reach -> more reached");
 });

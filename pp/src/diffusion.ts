@@ -90,6 +90,15 @@ export type DiffusionSummary = {
 
 export type SweepPoint = { q: number; everReachedPct: number; activeEndPct: number };
 
+// 2D sensitivity surface over the two exogenous assumptions (reach × q).
+// grid[ri][qi] = ever-reached % at (reachValues[ri], qValues[qi]). Persisted in
+// diffusion.json so the heatmap is backed by real, inspectable, testable data.
+export type Sensitivity2D = {
+  reachValues: number[];
+  qValues: number[];
+  grid: number[][]; // [reach][q] -> ever-reached %
+};
+
 export type DiffusionResult = {
   runId: string;
   target: string;
@@ -100,6 +109,7 @@ export type DiffusionResult = {
   trajectory: Trajectory;
   summary: DiffusionSummary;
   sweep: SweepPoint[]; // bifurcation: everReached vs q
+  sensitivity2D: Sensitivity2D; // reach × q surface (the heatmap data)
   bifurcationQ: number | null; // q at the steepest takeoff (the tipping point), null if none
   calib: typeof CALIB; // surfaced so the viz can show the calibration surface
 };
@@ -362,6 +372,26 @@ export function sweepQ(
   });
 }
 
+/** 2D sensitivity surface: ever-reached % across reach × q. The two axes are
+ *  the exogenous assumptions; every other param is held at `params`. */
+export function sweep2D(
+  segments: Segment[],
+  coeffs: SegmentCoeffs[],
+  params: DiffusionParams,
+  reachValues: number[],
+  qValues: number[]
+): Sensitivity2D {
+  const N = params.population || 1;
+  const grid = reachValues.map((reach) =>
+    qValues.map((q) => {
+      const traj = simulate(segments, coeffs, { ...params, reach, q });
+      const last = traj.series[traj.series.length - 1];
+      return Math.round((1 - last.unaware / N) * 1000) / 10; // ever-reached %, 0.1 precision
+    })
+  );
+  return { reachValues, qValues, grid };
+}
+
 /** Find the q where adoption takes off fastest — the steepest rise in
  *  ever-reached across the sweep (the tipping point to show the user). */
 function findBifurcation(sweep: SweepPoint[]): number | null {
@@ -391,6 +421,10 @@ export function runDiffusion(run: Run, overrides: Partial<DiffusionParams> = {},
   const qValues = Array.from({ length: 41 }, (_, i) => +(i * 0.025).toFixed(3)); // 0 → 1.0
   const sweep = sweepQ(segments, coeffs, params, qValues);
   const bifurcationQ = findBifurcation(sweep);
+  // reach × q sensitivity surface (the heatmap data). reach 0→0.08, q 0→1.
+  const reachAxis = Array.from({ length: 11 }, (_, i) => +(i * 0.008).toFixed(3));
+  const qAxis = Array.from({ length: 21 }, (_, i) => +(i * 0.05).toFixed(3));
+  const sensitivity2D = sweep2D(segments, coeffs, params, reachAxis, qAxis);
   return {
     runId: run.id,
     target: run.target?.url || "",
@@ -401,6 +435,7 @@ export function runDiffusion(run: Run, overrides: Partial<DiffusionParams> = {},
     trajectory,
     summary,
     sweep,
+    sensitivity2D,
     bifurcationQ,
     calib: CALIB,
   };
