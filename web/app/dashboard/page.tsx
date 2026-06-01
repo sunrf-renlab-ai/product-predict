@@ -58,8 +58,9 @@ export default function Dashboard() {
         <div style={{ ...panel, marginTop: 28 }}>
           <div style={{ fontSize: 16, marginBottom: 6 }}>Connect the CLI</div>
           <p style={{ fontSize: 13, color: "var(--fg-2)", lineHeight: 1.65, margin: "0 0 18px" }}>
-            Install pp, then run <code style={code}>pp login</code> and paste the token below when prompted.
-            After that, <code style={code}>pp run</code> uses our simulation backend — no API keys to manage.
+            Install pp, then run the <code style={code}>pp login --token …</code> one-liner below — it already
+            carries your token, so there&apos;s no separate prompt. After that, <code style={code}>pp run</code>{" "}
+            uses our simulation backend — no API keys to manage.
           </p>
 
           <div style={label}>CLI token</div>
@@ -74,7 +75,10 @@ export default function Dashboard() {
             <div style={label}>Install</div>
             <CmdBox value="curl -sSL https://product-predict.renlab.ai/install.sh | sh" />
             <div style={{ ...label, marginTop: 14 }}>Authenticate</div>
-            <CmdBox value="pp login" />
+            <CmdBox value={`pp login --token ${cliToken}`} />
+            <div className="mono" style={{ fontSize: 10, color: "var(--fg-3)", marginTop: 6, lineHeight: 1.5 }}>
+              prefer not to put the token in shell history? run <code style={code}>pp login</code> and paste it when prompted.
+            </div>
             <div style={{ ...label, marginTop: 14 }}>Run</div>
             <CmdBox value="pp run http://localhost:3000" />
           </div>
