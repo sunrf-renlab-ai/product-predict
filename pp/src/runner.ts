@@ -139,7 +139,7 @@ export async function executeRun(opts: RunOptions): Promise<{ run: Run; runDir: 
 // session outcome (exitReason / accomplished) with how it actually FELT — the
 // mean of that agent's non-neutral event sentiment, which now includes the
 // behaviour-grounded dead-click / rage events emitted by the agent loop.
-function classifySession(r: AgentResult): "promoter" | "passive" | "detractor" {
+export function classifySession(r: AgentResult): "promoter" | "passive" | "detractor" {
   const felt = r.events.filter((e) => e.sentiment !== 0);
   const mean = felt.length ? felt.reduce((s, e) => s + e.sentiment, 0) / felt.length : 0;
   if (r.exitReason === "frustrated" || r.exitReason === "crashed" || mean <= -0.5) return "detractor";
