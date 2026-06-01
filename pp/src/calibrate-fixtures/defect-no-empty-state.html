@@ -1,0 +1,76 @@
+<!doctype html>
+<!--
+  Calibration fixture: DEFECT — no empty state / no first-run guidance.
+  Same Tern task manager, but on first load the main content area is completely
+  blank: no seed tasks, no composer, no illustration, no "add your first task"
+  copy — just the page chrome and an empty void where work should be. The user is
+  given zero guidance on what to do next. First-visit observable. A correct pp
+  issue should flag the blank/empty first screen with no guidance or call to
+  action, not a generic aesthetic complaint.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Tern — Tasks</title>
+<style>
+  :root {
+    --bg: #0e1116; --panel: #161b22; --panel-2: #1c2230; --line: #283041;
+    --text: #e6edf3; --muted: #8b95a5; --accent: #5b8cff; --accent-2: #3b6ae0;
+    --ok: #3fb950; --radius: 10px;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 15px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+  .app { display: grid; grid-template-columns: 232px 1fr; min-height: 100vh; }
+  .side { background: var(--panel); border-right: 1px solid var(--line); padding: 20px 14px; }
+  .brand { display: flex; align-items: center; gap: 9px; font-weight: 700; font-size: 17px; margin: 4px 6px 22px; }
+  .brand .dot { width: 22px; height: 22px; border-radius: 6px; background: linear-gradient(135deg,var(--accent),var(--accent-2)); }
+  .nav a { display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-radius: 8px; color: var(--muted); text-decoration: none; font-weight: 500; margin-bottom: 2px; }
+  .nav a.active, .nav a:hover { background: var(--panel-2); color: var(--text); }
+  .nav .ic { width: 16px; text-align: center; opacity: .8; }
+  .main { padding: 28px 36px; }
+  .top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 22px; }
+  .top h1 { font-size: 22px; margin: 0; }
+  .top .sub { color: var(--muted); font-size: 13px; margin-top: 3px; }
+  .list { display: flex; flex-direction: column; gap: 8px; }
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="side">
+    <div class="brand"><span class="dot"></span> Tern</div>
+    <nav class="nav">
+      <a class="active" href="#today"><span class="ic">◎</span> Today</a>
+      <a href="#inbox"><span class="ic">▤</span> Inbox</a>
+      <a href="#projects"><span class="ic">▦</span> Projects</a>
+      <a href="#settings"><span class="ic">⚙</span> Settings</a>
+    </nav>
+  </aside>
+  <main class="main">
+    <div class="top">
+      <div>
+        <h1>Today</h1>
+      </div>
+    </div>
+    <!-- PLANTED DEFECT: first load is blank. No tasks, no composer, no empty-state
+         copy, no call to action. The list renders nothing and there is no guidance. -->
+    <div class="list" id="list"></div>
+  </main>
+</div>
+<script>
+  const list = document.getElementById('list');
+  // Fresh account: zero tasks, and the app shows NOTHING for the empty case.
+  let tasks = [];
+  function render() {
+    list.innerHTML = '';
+    // No empty-state branch on purpose: an empty list stays a blank screen.
+    tasks.forEach((t) => {
+      const row = document.createElement('div');
+      row.textContent = t.title;
+      list.appendChild(row);
+    });
+  }
+  render();
+</script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+{
+  "id": "calibration",
+  "name": "Calibration · fixed 3-archetype set",
+  "targetHint": "Tern task manager calibration fixtures (planted-defect harness)",
+  "origin": "preset",
+  "createdAt": "2026-06-01T00:00:00.000Z",
+  "lang": "en",
+  "notes": "FIXED persona set for the calibration harness. Do not edit — comparability across fixtures depends on it being pinned. Three archetypes spanning low/mid/high tech and impatient/easygoing tones. Weights sum to 1.0.",
+  "personas": [
+    {
+      "id": "c01",
+      "name": "Dana Whitfield",
+      "age": 31,
+      "role": "operations lead at a small startup",
+      "tech": 3,
+      "tone": "pragmatic, mildly impatient",
+      "preferences": [
+        "wants to get a task in fast and move on",
+        "expects the main action to be obvious",
+        "notices when buttons don't give feedback"
+      ],
+      "knownContext": [
+        "currently tracks work in a shared spreadsheet",
+        "tried Todoist briefly",
+        "team of 6"
+      ],
+      "weight": 0.4,
+      "color": "#5b8cff",
+      "glyph": "D",
+      "traits": ["goal-directed", "low patience for friction"],
+      "origin": "preset"
+    },
+    {
+      "id": "c02",
+      "name": "Marcus Lindqvist",
+      "age": 44,
+      "role": "non-technical small-business owner",
+      "tech": 2,
+      "tone": "cautious, needs reassurance",
+      "preferences": [
+        "wants clear labels and guidance",
+        "gets stuck without an obvious next step",
+        "reads the screen carefully before clicking"
+      ],
+      "knownContext": [
+        "mostly uses email and a paper notebook",
+        "wary of complex software",
+        "runs a 3-person shop"
+      ],
+      "weight": 0.35,
+      "color": "#3fb950",
+      "glyph": "M",
+      "traits": ["risk-averse", "literal reader of UI copy"],
+      "origin": "preset"
+    },
+    {
+      "id": "c03",
+      "name": "Priya Raman",
+      "age": 27,
+      "role": "software engineer",
+      "tech": 5,
+      "tone": "fast, opinionated, keyboard-first",
+      "preferences": [
+        "tries keyboard shortcuts and Enter to submit",
+        "explores quickly and judges harshly",
+        "expects errors to explain themselves"
+      ],
+      "knownContext": [
+        "power user of Linear and Notion",
+        "annoyed by hidden settings",
+        "team of 12"
+      ],
+      "weight": 0.25,
+      "color": "#c98686",
+      "glyph": "P",
+      "traits": ["power user", "expects polish"],
+      "origin": "preset"
+    }
+  ]
+}

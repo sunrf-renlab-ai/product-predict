@@ -1,0 +1,150 @@
+{
+  "version": "1.0.0",
+  "baseAppName": "Tern (task manager)",
+  "fixtures": [
+    {
+      "file": "clean-a.html",
+      "kind": "clean"
+    },
+    {
+      "file": "clean-b.html",
+      "kind": "clean"
+    },
+    {
+      "file": "clean-c.html",
+      "kind": "clean"
+    },
+    {
+      "file": "defect-missing-cta.html",
+      "kind": "defect",
+      "defect": {
+        "id": "missing-cta",
+        "class": "missing-cta",
+        "description": "The primary entry point for the main action is gone: there is no \"Add task\" button and no task-creation input anywhere on the first screen, so the user has no way to create a task.",
+        "expectedSignals": [
+          "no way to add",
+          "can't add a task",
+          "cannot create a task",
+          "missing add button",
+          "no add task button",
+          "no way to create",
+          "where do I add",
+          "couldn't find how to add",
+          "no entry point",
+          "no compose"
+        ],
+        "firstVisitObservable": true
+      }
+    },
+    {
+      "file": "defect-silent-action.html",
+      "kind": "defect",
+      "defect": {
+        "id": "silent-action",
+        "class": "silent-action",
+        "description": "Clicking the \"Add task\" button (or pressing Enter) does nothing: no task is created, no toast, no error, no spinner, no feedback of any kind. The primary action is a dead end.",
+        "expectedSignals": [
+          "nothing happens",
+          "no feedback",
+          "button does nothing",
+          "no task appears",
+          "no response",
+          "clicked add and nothing",
+          "didn't work",
+          "no confirmation",
+          "no error and no result",
+          "unresponsive button"
+        ],
+        "firstVisitObservable": true
+      }
+    },
+    {
+      "file": "defect-buried-feature.html",
+      "kind": "defect",
+      "defect": {
+        "id": "buried-feature",
+        "class": "buried-feature",
+        "description": "The only way to create a task is hidden four menu levels deep under Settings > Workspace > Advanced > Task tools > New task form. There is no composer on the main view and no hint that creating a task lives under Settings.",
+        "expectedSignals": [
+          "buried",
+          "hard to find",
+          "hidden in menus",
+          "deep in settings",
+          "too many clicks to add",
+          "couldn't find where to create",
+          "creation is hidden",
+          "no obvious way to add",
+          "had to dig through settings",
+          "nested menus"
+        ],
+        "firstVisitObservable": true
+      }
+    },
+    {
+      "file": "defect-ambiguous-label.html",
+      "kind": "defect",
+      "defect": {
+        "id": "ambiguous-label",
+        "class": "ambiguous-label",
+        "description": "The primary button is labeled \"Synthesize\" and the input placeholder reads \"Enter directive…\" instead of clear add-task language. The label does not communicate that it creates a task, so a first-time user cannot guess what it does.",
+        "expectedSignals": [
+          "confusing label",
+          "unclear label",
+          "don't know what synthesize",
+          "what does synthesize",
+          "ambiguous button",
+          "jargon",
+          "unclear what the button does",
+          "directive",
+          "synthesize",
+          "couldn't guess"
+        ],
+        "firstVisitObservable": true
+      }
+    },
+    {
+      "file": "defect-no-empty-state.html",
+      "kind": "defect",
+      "defect": {
+        "id": "no-empty-state",
+        "class": "no-empty-state",
+        "description": "On first load the main content is completely blank: no tasks, no composer, no empty-state illustration, no \"add your first task\" copy, and no call to action. The user gets zero guidance on what to do.",
+        "expectedSignals": [
+          "blank screen",
+          "empty screen",
+          "nothing on the page",
+          "no guidance",
+          "don't know what to do",
+          "no instructions",
+          "no empty state",
+          "no call to action",
+          "what am I supposed to do",
+          "no starting point"
+        ],
+        "firstVisitObservable": true
+      }
+    },
+    {
+      "file": "defect-broken-validation.html",
+      "kind": "defect",
+      "defect": {
+        "id": "broken-validation",
+        "class": "broken-validation",
+        "description": "Adding a short task title is rejected by an undocumented length rule. On rejection the input border turns red and shakes, but no error message text is ever shown explaining what is wrong or how to fix it.",
+        "expectedSignals": [
+          "no error message",
+          "red field with no message",
+          "validation with no explanation",
+          "doesn't say what's wrong",
+          "rejected without explanation",
+          "no message",
+          "unexplained error",
+          "red border no text",
+          "didn't tell me why",
+          "validation error"
+        ],
+        "firstVisitObservable": true
+      }
+    }
+  ]
+}

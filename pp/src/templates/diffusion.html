@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Product Predict · Propagation</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+  :root{
+    --bg:#0d0d0c; --panel:#16160f; --line:#2a2a1f; --fg:#f0ede3; --fg2:#b9b6a8; --fg3:#76746a;
+    --accent:#d6ec5a; --amber:#e0b84a; --green:#7fb069; --red:#c2554d; --gray:#54534a;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--fg);font-family:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;line-height:1.5}
+  .wrap{max-width:1100px;margin:0 auto;padding:26px 24px 90px}
+  h1{font-size:20px;font-weight:600;margin:0 0 2px}
+  .sub{color:var(--fg2);font-size:12px;margin-bottom:14px}
+  .read{border:1px solid var(--line);background:#13130c;border-radius:6px;padding:10px 14px;font-size:12px;color:var(--fg2);margin-bottom:14px}
+  .read b{color:var(--fg)}
+  .honesty{border-left:3px solid var(--amber);background:#15140d;padding:8px 14px;border-radius:0 6px 6px 0;color:var(--fg2);font-size:11.5px;margin-bottom:20px}
+  .honesty b{color:var(--amber)}
+  .tag{font-size:10px;padding:1px 6px;border-radius:3px;border:1px solid var(--line);white-space:nowrap}
+  .tag.measured{color:var(--accent);border-color:#3a4a1f}
+  .tag.assumed{color:var(--amber);border-color:#4a3a1f}
+  .panel{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:18px;margin-bottom:18px}
+  .panel h2{font-size:11px;letter-spacing:1.4px;text-transform:uppercase;color:var(--fg3);margin:0 0 14px;font-weight:600}
+
+  /* hero funnel */
+  .caption{font-size:15px;line-height:1.7;color:var(--fg);margin:2px 0 20px;min-height:46px}
+  .caption .hl{color:var(--accent);font-weight:600}
+  .caption .dim{color:var(--fg3)}
+  .funnel{display:flex;flex-direction:column;gap:11px}
+  .frow{display:grid;grid-template-columns:130px 1fr 150px;align-items:center;gap:14px}
+  .fname{font-size:12px;color:var(--fg2);text-align:right;display:flex;align-items:center;gap:7px;justify-content:flex-end}
+  .fname .sw{width:11px;height:11px;border-radius:3px;flex:none}
+  .ftrack{height:26px;background:#100f0a;border-radius:5px;overflow:hidden;position:relative}
+  .fbar{height:100%;width:0;border-radius:5px;transition:width .35s ease}
+  .fmeta{font-size:12px;color:var(--fg);font-variant-numeric:tabular-nums}
+  .fmeta .pct{color:var(--fg3);margin-left:7px}
+
+  .controls{display:flex;flex-direction:column;gap:13px;margin-top:6px}
+  .crow{display:flex;align-items:center;gap:12px}
+  .crow label{width:200px;color:var(--fg2);font-size:12px;display:flex;gap:7px;align-items:center}
+  .crow .val{width:54px;text-align:right;color:var(--accent);font-size:12px;font-variant-numeric:tabular-nums}
+  input[type=range]{flex:1;accent-color:var(--accent);height:3px}
+  button{background:#1d1d12;border:1px solid var(--line);color:var(--fg);font-family:inherit;font-size:12px;padding:7px 16px;border-radius:5px;cursor:pointer}
+  button:hover{border-color:var(--accent)}
+  .hint{color:var(--fg3);font-size:11px;margin-top:3px}
+
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  @media(max-width:820px){.two{grid-template-columns:1fr}.frow{grid-template-columns:96px 1fr 120px}}
+  .charttitle{font-size:11px;color:var(--fg2);margin-bottom:8px}
+  .charttitle b{color:var(--fg)}
+  canvas.chart{width:100%;height:140px;display:block}
+
+  .field-wrap{display:flex;gap:14px;align-items:flex-start}
+  canvas#field{width:300px;height:300px;image-rendering:pixelated;border:1px solid var(--line);border-radius:4px;background:#000;flex:none}
+  @media(max-width:820px){canvas#field{width:200px;height:200px}}
+  .field-side{font-size:12px;color:var(--fg2)}
+  .field-side .lg{display:flex;align-items:center;gap:8px;margin:7px 0}
+  .field-side .lg i{width:11px;height:11px;border-radius:3px;display:inline-block;flex:none}
+
+  table{width:100%;border-collapse:collapse;font-size:11.5px}
+  th,td{text-align:right;padding:5px 7px;border-bottom:1px solid var(--line)}
+  th:first-child,td:first-child{text-align:left}
+  th{color:var(--fg3);font-weight:500;font-size:10px;text-transform:uppercase;letter-spacing:.5px}
+  .dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px}
+  .note{color:var(--fg3);font-size:11px;margin-top:10px;line-height:1.6}
+  .big{font-size:30px;font-weight:600;color:var(--accent);font-variant-numeric:tabular-nums;margin-top:4px}
+  .bifnote{color:var(--fg2);font-size:12px;margin-top:10px}
+  .bifnote b{color:var(--accent)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Will it spread? · <span id="target"></span></h1>
+  <div class="sub" id="sub"></div>
+
+  <div class="read">
+    <b>How to read this:</b> press <b>▶ play</b> and watch 1,000,000 people move through the launch funnel over the weeks after launch.
+    The big bar is everyone who <b>never even hears about it</b>. A few who hear will try it; fewer stick as <b>active</b> users; a sliver
+    become <b>heavy</b> users. Drag the <b>reach</b> and <b>word-of-mouth</b> sliders to see how the whole story changes.
+  </div>
+  <div class="honesty">
+    <b>Honest by design:</b> activation / churn / stickiness are <span class="tag measured">measured</span> from pp's real first-visit sessions.
+    <b>Reach</b> and <b>word-of-mouth (q)</b> are <span class="tag assumed">your assumptions</span> — pp can't see your ad budget or who you know.
+    So this is a <b>scenario you can steer</b>, not a guaranteed forecast.
+  </div>
+
+  <!-- HERO: where the 1,000,000 people are right now -->
+  <div class="panel">
+    <h2>Where the 1,000,000 people are · <span id="weeklabel" style="color:var(--accent)"></span></h2>
+    <div class="caption" id="caption"></div>
+    <div class="funnel" id="funnel"></div>
+    <div class="controls">
+      <div class="crow"><button id="play">▶ play</button><button id="restart">⟲ restart</button>
+        <span style="flex:1"></span><span style="color:var(--fg3)">week</span><span class="val" id="stepval">0</span></div>
+      <div class="crow"><input type="range" id="stepbar" min="0" max="52" value="0" style="width:100%"></div>
+      <div class="crow"><label>reach · marketing <span class="tag assumed">assumed</span></label>
+        <input type="range" id="reach" min="0" max="0.08" step="0.002" value="0.006"><span class="val" id="reachval"></span></div>
+      <div class="hint" id="reachhint"></div>
+      <div class="crow"><label>q · word-of-mouth <span class="tag assumed">assumed</span></label>
+        <input type="range" id="q" min="0" max="1" step="0.01" value="0.35"><span class="val" id="qval"></span></div>
+      <div class="hint">how strongly each happy user pulls in someone new. Above the tipping point it snowballs; below it fizzles.</div>
+    </div>
+  </div>
+
+  <div class="two">
+    <div class="panel">
+      <div class="charttitle"><b>Awareness over time</b> — share of all 1,000,000 who have heard of it</div>
+      <canvas id="awareChart" class="chart" width="520" height="140"></canvas>
+      <div class="note" id="awareNote"></div>
+    </div>
+    <div class="panel">
+      <div class="charttitle"><b>Active users over time</b> — people actually using it (own scale)</div>
+      <canvas id="activeChart" class="chart" width="520" height="140"></canvas>
+      <div class="big" id="peak"></div>
+      <div class="note">peak concurrent active users across the whole run</div>
+    </div>
+  </div>
+
+  <div class="two">
+    <div class="panel">
+      <h2>Bifurcation · does word-of-mouth ignite?</h2>
+      <canvas id="bif" class="chart" width="520" height="170" style="height:170px"></canvas>
+      <div class="bifnote" id="bifnote"></div>
+      <div class="note">Re-swept live. <span style="color:var(--red)">red line</span> = your q. <span style="color:var(--amber)">amber</span> = the tipping point. pp can't tell you which side you're really on — that's the honest point.</div>
+    </div>
+    <div class="panel">
+      <h2>The 1,000,000 people · each pixel = one person</h2>
+      <div class="field-wrap">
+        <canvas id="field" width="1000" height="1000"></canvas>
+        <div class="field-side">
+          <div class="lg"><i style="background:#2a2a22"></i>never heard</div>
+          <div class="lg"><i style="background:#e0b84a"></i>heard of it</div>
+          <div class="lg"><i style="background:#7fb069"></i>active (light)</div>
+          <div class="lg"><i style="background:#d6ec5a"></i>heavy user</div>
+          <div class="lg"><i style="background:#c2554d"></i>tried & left</div>
+          <div class="note" style="margin-top:14px">Same simulation, drawn person-by-person. Rows are grouped by user type. Watch colour spread as the weeks play.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h2>Per-segment rates <span class="tag measured">measured</span></h2>
+    <table id="segtable"><thead><tr><th>user type</th><th>weight</th><th>activates</th><th>goes heavy</th><th>churns</th><th>refers</th></tr></thead><tbody></tbody></table>
+    <div class="note">These four numbers per user type are what pp actually <b>measured</b> from real first-visit sessions — the grounded inputs. The funnel <i>dynamics</i> on top are modeled from them.</div>
+  </div>
+</div>
+
+<script>window.__PP_DIFF__ = /*__PP_DIFF__*/null/*__END_PP_DIFF__*/;</script>
+<script>
+(function(){
+  "use strict";
+  var DIFF = window.__PP_DIFF__;
+  if(!DIFF){ document.body.innerHTML = "<p style='padding:40px'>No diffusion data injected.</p>"; return; }
+
+  var segments = DIFF.segments;
+  var coeffsById = {}; DIFF.coeffs.forEach(function(c){ coeffsById[c.id]=c; });
+  var P = Object.assign({}, DIFF.params);
+  var STEPS = P.steps;
+
+  document.getElementById("target").textContent = DIFF.target || DIFF.runId;
+  document.getElementById("sub").textContent = "run " + DIFF.runId + " · " + segments.length +
+    " user types · simulating " + STEPS + " weeks · 1,000,000 people";
+
+  // ── deterministic model (drives funnel, caption, charts) ────────────────────
+  function simulate(params){
+    var N=params.population||1;
+    var st=segments.map(function(s){var M=s.weight*N,seed=M*params.seedFrac;return {U:M-seed,A:seed,Ac:0,Hv:0,Ch:0};});
+    var series=[tot(st)];
+    for(var step=0;step<params.steps;step++){
+      var ta=0;for(var i=0;i<st.length;i++)ta+=st[i].Ac+st[i].Hv; var af=ta/N;
+      for(var i=0;i<st.length;i++){var s=st[i],co=coeffsById[segments[i].id];
+        var na=Math.min(s.U,params.reach*s.U+params.q*co.shareProp*af*s.U); s.U-=na; s.A+=na;
+        var nAct=co.activation*params.trialRate*s.A; s.A-=nAct; s.Ac+=nAct;
+        var ab=params.awareDecay*s.A; s.A-=ab; s.Ch+=ab;
+        var nh=co.deepen*s.Ac; s.Ac-=nh; s.Hv+=nh;
+        var cAc=co.churn*s.Ac,cHv=co.churn*params.heavyChurnFactor*s.Hv; s.Ac-=cAc; s.Hv-=cHv; s.Ch+=cAc+cHv;
+      }
+      series.push(tot(st));
+    }
+    return series;
+  }
+  function tot(st){var t={U:0,A:0,Ac:0,Hv:0,Ch:0};for(var i=0;i<st.length;i++){t.U+=st[i].U;t.A+=st[i].A;t.Ac+=st[i].Ac;t.Hv+=st[i].Hv;t.Ch+=st[i].Ch;}return t;}
+  function sweep(params){var out=[];for(var k=0;k<=40;k++){var q=+(k*0.025).toFixed(3);var s=simulate(Object.assign({},params,{q:q}));var last=s[s.length-1];var N=params.population||1;out.push({q:q,reached:100-last.U/N*100});}return out;}
+
+  var series = simulate(P);
+  var N = P.population||1;
+  function fmtN(n){return Math.round(n).toLocaleString("en-US");}
+  function pct(n){return n.toFixed(n<1&&n>0?2:1)+"%";}
+
+  // ── HERO funnel (DOM, labeled, readable even for tiny stages) ───────────────
+  var STAGES=[
+    {key:"U", name:"never heard", col:"var(--gray)"},
+    {key:"A", name:"heard of it", col:"var(--amber)"},
+    {key:"Ac",name:"active (light)", col:"var(--green)"},
+    {key:"Hv",name:"heavy user", col:"var(--accent)"},
+    {key:"Ch",name:"tried & left", col:"var(--red)"}
+  ];
+  (function buildFunnel(){
+    var f=document.getElementById("funnel"); f.innerHTML="";
+    STAGES.forEach(function(s){
+      var row=document.createElement("div"); row.className="frow";
+      row.innerHTML='<div class="fname"><span class="sw" style="background:'+s.col+'"></span>'+s.name+'</div>'+
+        '<div class="ftrack"><div class="fbar" id="bar-'+s.key+'" style="background:'+s.col+'"></div></div>'+
+        '<div class="fmeta"><span id="cnt-'+s.key+'">0</span><span class="pct" id="pct-'+s.key+'"></span></div>';
+      f.appendChild(row);
+    });
+  })();
+  function renderFunnel(step){
+    var t=series[step];
+    STAGES.forEach(function(s){
+      var v=t[s.key];
+      document.getElementById("bar-"+s.key).style.width=(v/N*100)+"%";
+      document.getElementById("cnt-"+s.key).textContent=fmtN(v);
+      document.getElementById("pct-"+s.key).textContent=pct(v/N*100);
+    });
+    document.getElementById("weeklabel").textContent="week "+step+" of "+STEPS;
+    // narration
+    var heard=100-t.U/N*100, active=t.Ac+t.Hv;
+    var cap=document.getElementById("caption");
+    cap.innerHTML='<span class="dim">Week '+step+':</span> <span class="hl">'+pct(heard)+'</span> have heard of it · '+
+      '<span class="hl">'+fmtN(active)+'</span> are active right now ('+fmtN(t.Hv)+' heavy) · '+
+      '<span class="dim">'+pct(t.U/N*100)+' still never encountered it.</span>';
+  }
+
+  // ── charts ──────────────────────────────────────────────────────────────────
+  function clr(cv){var g=cv.getContext("2d");g.clearRect(0,0,cv.width,cv.height);return g;}
+  function drawAware(step){
+    var cv=document.getElementById("awareChart"),g=clr(cv),W=cv.width,H=cv.height,pad=4;
+    // curve of ever-heard % over time
+    g.strokeStyle="#2a2a1f";g.beginPath();g.moveTo(0,H-1);g.lineTo(W,H-1);g.stroke();
+    g.fillStyle="rgba(224,184,74,0.18)";g.strokeStyle="var(--amber)";g.lineWidth=2;
+    g.beginPath();g.moveTo(0,H-pad);
+    for(var i=0;i<series.length;i++){var x=i/(series.length-1)*W;var v=100-series[i].U/N*100;var y=H-pad-v/100*(H-2*pad);g.lineTo(x,y);}
+    var lx=W,ly=H-pad-(100-series[series.length-1].U/N*100)/100*(H-2*pad);
+    g.lineTo(W,H-pad);g.closePath();g.fill();
+    g.beginPath();for(var i=0;i<series.length;i++){var x=i/(series.length-1)*W;var v=100-series[i].U/N*100;var y=H-pad-v/100*(H-2*pad);i?g.lineTo(x,y):g.moveTo(x,y);}g.stroke();
+    // playhead
+    var px=step/(series.length-1)*W;g.strokeStyle="#f0ede3";g.lineWidth=1;g.beginPath();g.moveTo(px,0);g.lineTo(px,H);g.stroke();
+    g.fillStyle="#76746a";g.font="10px monospace";g.fillText("100%",2,11);g.fillText("0",2,H-3);
+  }
+  function drawActive(step){
+    var cv=document.getElementById("activeChart"),g=clr(cv),W=cv.width,H=cv.height,pad=4;
+    var max=0;for(var i=0;i<series.length;i++){var v=series[i].Ac+series[i].Hv;if(v>max)max=v;}max=Math.max(max,1);
+    g.fillStyle="rgba(127,176,105,0.22)";g.strokeStyle="var(--green)";g.lineWidth=2;
+    g.beginPath();g.moveTo(0,H-pad);
+    for(var i=0;i<series.length;i++){var x=i/(series.length-1)*W;var y=H-pad-(series[i].Ac+series[i].Hv)/max*(H-2*pad);g.lineTo(x,y);}
+    g.lineTo(W,H-pad);g.closePath();g.fill();
+    g.beginPath();for(var i=0;i<series.length;i++){var x=i/(series.length-1)*W;var y=H-pad-(series[i].Ac+series[i].Hv)/max*(H-2*pad);i?g.lineTo(x,y):g.moveTo(x,y);}g.stroke();
+    var px=step/(series.length-1)*W;g.strokeStyle="#f0ede3";g.lineWidth=1;g.beginPath();g.moveTo(px,0);g.lineTo(px,H);g.stroke();
+    g.fillStyle="#76746a";g.font="10px monospace";g.fillText(fmtN(max),2,11);g.fillText("0",2,H-3);
+  }
+  function drawBif(){
+    var sw=sweep(P);var cv=document.getElementById("bif"),g=clr(cv),W=cv.width,H=cv.height,pad=26;
+    g.strokeStyle="#2a2a1f";g.lineWidth=1;g.beginPath();g.moveTo(pad,6);g.lineTo(pad,H-pad);g.lineTo(W-4,H-pad);g.stroke();
+    g.fillStyle="#76746a";g.font="10px monospace";g.fillText("100% heard",pad+2,12);g.fillText("q=0",pad-4,H-9);g.fillText("q=1",W-26,H-9);
+    g.strokeStyle="var(--accent)";g.lineWidth=2;g.beginPath();
+    for(var i=0;i<sw.length;i++){var x=pad+sw[i].q*(W-pad-6);var y=6+(1-sw[i].reached/100)*(H-pad-6);i?g.lineTo(x,y):g.moveTo(x,y);}g.stroke();
+    if(DIFF.bifurcationQ!=null){var bx=pad+DIFF.bifurcationQ*(W-pad-6);g.strokeStyle="var(--amber)";g.setLineDash([3,3]);g.beginPath();g.moveTo(bx,6);g.lineTo(bx,H-pad);g.stroke();g.setLineDash([]);}
+    var qx=pad+P.q*(W-pad-6);g.strokeStyle="var(--red)";g.lineWidth=1.5;g.beginPath();g.moveTo(qx,6);g.lineTo(qx,H-pad);g.stroke();
+  }
+
+  // ── pixel field (smaller, high contrast) ────────────────────────────────────
+  var GRID=1000,NV=GRID*GRID,canvas=document.getElementById("field"),ctx=canvas.getContext("2d"),img=ctx.createImageData(GRID,GRID);
+  var state=new Uint8Array(NV),segOf=new Uint16Array(NV),counts=new Float64Array(5);
+  var COL=[[42,42,34],[224,184,74],[127,176,105],[214,236,90],[194,85,77]]; // U,A,Ac,Hv,Ch
+  var bands=[];(function(){var y=0;for(var i=0;i<segments.length;i++){var rows=Math.max(1,Math.round(segments[i].weight*GRID));bands.push({seg:i,y0:y,y1:Math.min(GRID,y+rows)});y+=rows;}if(bands.length)bands[bands.length-1].y1=GRID;})();
+  for(var b=0;b<bands.length;b++)for(var y=bands[b].y0;y<bands[b].y1;y++){var base=y*GRID;for(var x=0;x<GRID;x++)segOf[base+x]=bands[b].seg;}
+  var aAct=[],aDeep=[],aChurn=[],aShare=[];for(var i=0;i<segments.length;i++){var c=coeffsById[segments[i].id];aAct.push(c.activation);aDeep.push(c.deepen);aChurn.push(c.churn);aShare.push(c.shareProp);}
+  function resetField(){counts[0]=counts[1]=counts[2]=counts[3]=counts[4]=0;for(var idx=0;idx<NV;idx++){if(Math.random()<P.seedFrac){state[idx]=1;counts[1]++;}else{state[idx]=0;counts[0]++;}}}
+  function stepField(){var af=(counts[2]+counts[3])/NV,r=P.reach,q=P.q,tr=P.trialRate,dc=P.awareDecay,hcf=P.heavyChurnFactor;
+    for(var idx=0;idx<NV;idx++){var s=state[idx];if(s===4)continue;var sg=segOf[idx];
+      if(s===0){var pA=r+q*aShare[sg]*af;if(pA>1)pA=1;if(Math.random()<pA){state[idx]=1;counts[0]--;counts[1]++;}}
+      else if(s===1){var pAct=aAct[sg]*tr,rr=Math.random();if(rr<pAct){state[idx]=2;counts[1]--;counts[2]++;}else if(rr<pAct+dc){state[idx]=4;counts[1]--;counts[4]++;}}
+      else if(s===2){var r2=Math.random();if(r2<aDeep[sg]){state[idx]=3;counts[2]--;counts[3]++;}else if(r2<aDeep[sg]+aChurn[sg]){state[idx]=4;counts[2]--;counts[4]++;}}
+      else if(s===3){if(Math.random()<aChurn[sg]*hcf){state[idx]=4;counts[3]--;counts[4]++;}}
+    }}
+  function renderField(){var d=img.data;for(var idx=0;idx<NV;idx++){var c=COL[state[idx]],o=idx*4;d[o]=c[0];d[o+1]=c[1];d[o+2]=c[2];d[o+3]=255;}ctx.putImageData(img,0,0);}
+
+  // ── per-segment table ────────────────────────────────────────────────────────
+  (function(){var tb=document.querySelector("#segtable tbody");tb.innerHTML="";
+    for(var i=0;i<segments.length;i++){var s=segments[i],c=coeffsById[s.id];var tr=document.createElement("tr");
+      tr.innerHTML='<td><span class="dot" style="background:'+s.color+'"></span>'+s.label+'</td><td>'+Math.round(s.weight*100)+'%</td>'+
+        '<td>'+(c.activation*100).toFixed(0)+'%</td><td>'+(c.deepen*100).toFixed(0)+'%</td><td>'+(c.churn*100).toFixed(0)+'%</td><td>'+c.shareProp.toFixed(2)+'×</td>';
+      tb.appendChild(tr);} })();
+
+  // ── stats + recompute on slider change ───────────────────────────────────────
+  function recompute(){
+    series=simulate(P);
+    var last=series[series.length-1];
+    var peak=0;for(var i=0;i<series.length;i++){var v=series[i].Ac+series[i].Hv;if(v>peak)peak=v;}
+    document.getElementById("peak").textContent=fmtN(peak);
+    document.getElementById("awareNote").textContent=fmtN(100-last.U/N*100<0?0:(N-last.U))+" of 1,000,000 ever hear about it ("+pct(100-last.U/N*100)+").";
+    drawBif();
+    var bn=document.getElementById("bifnote");
+    if(DIFF.bifurcationQ!=null) bn.innerHTML="tipping point ≈ <b>q="+DIFF.bifurcationQ.toFixed(2)+"</b>. Your q="+P.q.toFixed(2)+" is "+(P.q>=DIFF.bifurcationQ?"<b>above</b> it — word-of-mouth carries growth.":"<b>below</b> it — growth leans on paid reach.");
+    else bn.innerHTML="No sharp tipping point here: at these activation rates word-of-mouth alone doesn't ignite — growth scales with reach.";
+  }
+
+  // ── playback ─────────────────────────────────────────────────────────────────
+  var curStep=0,playing=false,raf=null,lastTick=0,STEP_MS=130;
+  function frame(step){ renderFunnel(step); drawAware(step); drawActive(step);
+    document.getElementById("stepval").textContent=step; document.getElementById("stepbar").value=step; }
+  function simFieldTo(step){ resetField(); for(var s=0;s<step;s++) stepField(); renderField(); }
+  function loop(ts){ if(!playing)return;
+    if(ts-lastTick>=STEP_MS && curStep<STEPS){ curStep++; stepField(); renderField(); frame(curStep); lastTick=ts;
+      if(curStep>=STEPS){ playing=false; document.getElementById("play").textContent="▶ replay"; } }
+    raf=requestAnimationFrame(loop);
+  }
+  function setPlay(on){ playing=on; document.getElementById("play").textContent=on?"❚❚ pause":(curStep>=STEPS?"▶ replay":"▶ play"); if(on){lastTick=0;raf=requestAnimationFrame(loop);}else if(raf)cancelAnimationFrame(raf); }
+  function goto(step){ setPlay(false); curStep=step; simFieldTo(step); frame(step); }
+
+  document.getElementById("play").onclick=function(){ if(curStep>=STEPS){curStep=0;simFieldTo(0);frame(0);} setPlay(!playing); };
+  document.getElementById("restart").onclick=function(){ goto(0); };
+  document.getElementById("stepbar").max=STEPS;
+  document.getElementById("stepbar").oninput=function(e){ goto(+e.target.value); };
+
+  function bindSlider(id,key,disp,hint){var el=document.getElementById(id),lab=document.getElementById(id+"val");
+    el.value=P[key];lab.textContent=disp(P[key]); if(hint)hint(P[key]);
+    el.oninput=function(e){P[key]=+e.target.value;lab.textContent=disp(P[key]);if(hint)hint(P[key]);recompute();goto(0);};}
+  bindSlider("reach","reach",function(v){return (v*100).toFixed(1)+"%";},function(v){
+    document.getElementById("reachhint").textContent="≈ "+(v*100).toFixed(1)+"% of people who haven't heard of it are reached each week by your marketing.";});
+  bindSlider("q","q",function(v){return v.toFixed(2);});
+
+  // init
+  recompute(); simFieldTo(0); frame(0);
+})();
+</script>
+</body>
+</html>

@@ -2,7 +2,7 @@
 import { Command } from "commander";
 import { resolve, join, extname, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
-import { readdir, readFile } from "node:fs/promises";
+import { readdir, readFile, writeFile, mkdir } from "node:fs/promises";
 import { existsSync, statSync, createReadStream } from "node:fs";
 import { createServer } from "node:http";
 import { spawn } from "node:child_process";
@@ -10,6 +10,9 @@ import { spawn } from "node:child_process";
 import { executeRun } from "./runner.js";
 import { executeCloudRun } from "./cloud.js";
 import { writeReports } from "./report.js";
+import { runDiffusion, type DiffusionParams } from "./diffusion.js";
+import { writeDiffusion } from "./diffusion-report.js";
+import { runCalibration, renderScorecardMarkdown } from "./calibrate.js";
 import { isProxyMode, setProxyAuthToken } from "./llm.js";
 import { validateAndStore, getAccessToken, clearToken, isLoggedIn, readRefreshToken } from "./auth.js";
 import { createInterface } from "node:readline/promises";
@@ -434,6 +437,130 @@ program
       console.log(`  serving: ${outDir}`);
       if (opts.open) openInBrowser(`http://localhost:${port}`);
     });
+  });
+
+// ── pp diffuse ────────────────────────────────────────────────────────────────
+// Macro layer: turn a run's measured first-visit behaviour into a segmented
+// diffusion forecast over a 1,000,000-agent population + a propagation viewer.
+// No LLM — pure math on the existing run.json.
+
+program
+  .command("diffuse")
+  .description("Project a run's first-visit signal into a population diffusion forecast + propagation viewer.")
+  .argument("[runId]", "run id (e.g. run-008); defaults to the latest run in --out")
+  .option("--out <dir>", "runs base dir", "./runs")
+  .option("--steps <n>", "time steps to simulate (e.g. weeks)", (v) => parseInt(v, 10), 52)
+  .option("--reach <p>", "external/marketing awareness rate per step (0..1) — YOUR assumption", (v) => parseFloat(v), 0.006)
+  .option("--q <q>", "word-of-mouth coefficient (0..1) — YOUR assumption", (v) => parseFloat(v), 0.35)
+  .option("--population <n>", "population size", (v) => parseInt(v, 10), 1_000_000)
+  .option("--no-open", "don't open the viewer when done")
+  .action(async (runId: string | undefined, opts) => {
+    const outDir = resolve(process.cwd(), opts.out);
+    if (!existsSync(outDir)) {
+      console.error(`✗ no runs dir at ${outDir}. Run \`pp run\` first.`);
+      process.exit(1);
+    }
+    let rid = runId;
+    if (!rid) {
+      const names = (await readdir(outDir)).filter((n) => /^run-\d+$/.test(n)).sort();
+      rid = names[names.length - 1];
+      if (!rid) {
+        console.error("✗ no runs found.");
+        process.exit(1);
+      }
+      console.log(`pp diffuse ${rid}  (latest)`);
+    } else {
+      console.log(`pp diffuse ${rid}`);
+    }
+    const runDir = join(outDir, rid);
+    const runJson = join(runDir, "run.json");
+    if (!existsSync(runJson)) {
+      console.error(`✗ ${runJson} not found.`);
+      process.exit(1);
+    }
+    const run = JSON.parse(await readFile(runJson, "utf8"));
+    const overrides: Partial<DiffusionParams> = {
+      steps: opts.steps,
+      reach: opts.reach,
+      q: opts.q,
+      population: opts.population,
+    };
+    const result = runDiffusion(run, overrides, new Date().toISOString());
+    const { html, json } = await writeDiffusion(runDir, result);
+    const s = result.summary;
+    console.log("");
+    console.log(`✓ diffusion projected for ${rid}`);
+    console.log(`  segments: ${result.segments.length} · population: ${result.params.population.toLocaleString("en-US")}`);
+    console.log(`  ever reached: ${s.everReachedPct.toFixed(1)}% · never reached: ${s.neverReachedPct.toFixed(1)}%`);
+    console.log(`  active light: ${s.activeLightPct.toFixed(1)}% · heavy: ${s.heavyPct.toFixed(1)}% · churned: ${s.churnedPct.toFixed(1)}%`);
+    console.log(`  peak active users: ${Math.round(s.peakActive).toLocaleString("en-US")} (step ${s.peakStep})`);
+    console.log(`  tipping point (q): ${result.bifurcationQ != null ? result.bifurcationQ.toFixed(2) : "none in range"} · your q=${result.params.q}`);
+    console.log(`  ! reach + q are YOUR assumptions — this is a scenario band, not a forecast.`);
+    console.log(`  HTML: ${html}`);
+    console.log(`  JSON: ${json}`);
+    if (opts.open) openInBrowser(html);
+  });
+
+// ── pp calibrate ──────────────────────────────────────────────────────────────
+// Ground truth (planted-defect method): run pp against fixtures with KNOWN
+// defects and measure issue-recall, plus the clean-control false-positive rate
+// and the blank-page "invention" rate. Makes pp's micro layer falsifiable.
+
+program
+  .command("calibrate")
+  .description("Score pp against fixtures with KNOWN planted defects: issue-recall + clean false-positive + blank-page invention rate.")
+  .option("--out <dir>", "output dir for calibration runs + scorecard", "./runs/_calibration")
+  .option("-a, --agents <n>", "agents per fixture (default: sim key count)", (v) => parseInt(v, 10))
+  .option("--max-steps <n>", "safety cap per agent", (v) => parseInt(v, 10), 24)
+  .option("--no-ablation", "skip the about:blank invention-rate control")
+  .option("--head", "show the browser (default: headless)", false)
+  .action(async (opts) => {
+    printProvider();
+    if (isProxyMode()) {
+      if (!(await isLoggedIn())) {
+        console.error("✗ not logged in. The hosted simulation backend requires an account (`pp login`).");
+        process.exit(1);
+      }
+      try {
+        setProxyAuthToken(await getAccessToken());
+      } catch (e) {
+        console.error(`✗ ${(e as Error).message}`);
+        process.exit(1);
+      }
+    }
+    if (!ensurePlaywrightBrowser()) process.exit(1);
+
+    const fixturesDir = resolve(HERE, "calibrate-fixtures");
+    const outDir = resolve(process.cwd(), opts.out);
+    await mkdir(outDir, { recursive: true });
+    const personaSet = JSON.parse(
+      await readFile(join(fixturesDir, "personas.calibration.json"), "utf8")
+    ) as PersonaSet;
+    console.log(`pp calibrate · ${personaSet.personas.length} fixed personas · fixtures: ${fixturesDir}`);
+    console.log(`  out=${outDir} · ablation=${opts.ablation !== false}`);
+
+    const { scorecard } = await runCalibration({
+      fixturesDir,
+      personaSet,
+      outDir,
+      agents: opts.agents,
+      maxSteps: opts.maxSteps,
+      includeAblation: opts.ablation !== false,
+      headless: !opts.head,
+      log: (l) => console.log(l),
+    });
+
+    const md = renderScorecardMarkdown(scorecard);
+    await writeFile(join(outDir, "scorecard.md"), md);
+    await writeFile(join(outDir, "scorecard.json"), JSON.stringify(scorecard, null, 2));
+
+    console.log("");
+    console.log(`✓ calibration complete`);
+    console.log(`  recall on first-visit-observable defects: ${(scorecard.recall * 100).toFixed(0)}% (${scorecard.observableCaught}/${scorecard.observableDefects})`);
+    console.log(`  clean-control false positives: mean ${scorecard.meanIssuesPerCleanRun.toFixed(1)}/run (min ${scorecard.minIssuesPerCleanRun}, max ${scorecard.maxIssuesPerCleanRun})`);
+    console.log(`  blank-page invention rate: ${scorecard.ablationIssueCount == null ? "(skipped)" : scorecard.ablationIssueCount + " issues on about:blank"}`);
+    console.log(`  verdict: ${scorecard.verdict}`);
+    console.log(`  scorecard: ${join(outDir, "scorecard.md")}`);
   });
 
 // ── pp demo ─────────────────────────────────────────────────────────────────

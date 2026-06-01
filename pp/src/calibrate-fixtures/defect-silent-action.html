@@ -1,0 +1,116 @@
+<!doctype html>
+<!--
+  Calibration fixture: DEFECT — silent primary action (no feedback).
+  Same Tern task manager. The "Add task" button and input are present and look
+  fully functional, but clicking Add (or pressing Enter) does NOTHING: no task is
+  added, no toast, no error, no spinner — the input just keeps its text. The
+  action is a dead end with zero feedback. First-visit observable. A correct pp
+  issue should flag that adding a task produces no result / no feedback, not a
+  generic "I couldn't figure out the product".
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Tern — Tasks</title>
+<style>
+  :root {
+    --bg: #0e1116; --panel: #161b22; --panel-2: #1c2230; --line: #283041;
+    --text: #e6edf3; --muted: #8b95a5; --accent: #5b8cff; --accent-2: #3b6ae0;
+    --ok: #3fb950; --radius: 10px;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font: 15px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+  .app { display: grid; grid-template-columns: 232px 1fr; min-height: 100vh; }
+  .side { background: var(--panel); border-right: 1px solid var(--line); padding: 20px 14px; }
+  .brand { display: flex; align-items: center; gap: 9px; font-weight: 700; font-size: 17px; margin: 4px 6px 22px; }
+  .brand .dot { width: 22px; height: 22px; border-radius: 6px; background: linear-gradient(135deg,var(--accent),var(--accent-2)); }
+  .nav a { display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-radius: 8px; color: var(--muted); text-decoration: none; font-weight: 500; margin-bottom: 2px; }
+  .nav a.active, .nav a:hover { background: var(--panel-2); color: var(--text); }
+  .nav .ic { width: 16px; text-align: center; opacity: .8; }
+  .main { padding: 28px 36px; }
+  .top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 22px; }
+  .top h1 { font-size: 22px; margin: 0; }
+  .top .sub { color: var(--muted); font-size: 13px; margin-top: 3px; }
+  .composer { display: flex; gap: 10px; background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 10px; margin-bottom: 20px; }
+  .composer input { flex: 1; background: transparent; border: 0; color: var(--text); font-size: 15px; outline: none; padding: 6px 8px; }
+  .composer input::placeholder { color: var(--muted); }
+  .btn { background: var(--accent); color: #fff; border: 0; border-radius: 8px; padding: 9px 18px; font-weight: 600; font-size: 14px; cursor: pointer; }
+  .btn:hover { background: var(--accent-2); }
+  .btn:active { transform: translateY(1px); }
+  .list { display: flex; flex-direction: column; gap: 8px; }
+  .task { display: flex; align-items: center; gap: 12px; background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 12px 14px; }
+  .task .check { width: 18px; height: 18px; border-radius: 5px; border: 2px solid var(--line); cursor: pointer; flex: none; }
+  .task.done .check { background: var(--ok); border-color: var(--ok); }
+  .task.done .title { text-decoration: line-through; color: var(--muted); }
+  .task .title { flex: 1; }
+  .task .when { color: var(--muted); font-size: 12px; }
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="side">
+    <div class="brand"><span class="dot"></span> Tern</div>
+    <nav class="nav">
+      <a class="active" href="#today"><span class="ic">◎</span> Today</a>
+      <a href="#inbox"><span class="ic">▤</span> Inbox</a>
+      <a href="#projects"><span class="ic">▦</span> Projects</a>
+      <a href="#settings"><span class="ic">⚙</span> Settings</a>
+    </nav>
+  </aside>
+  <main class="main">
+    <div class="top">
+      <div>
+        <h1>Today</h1>
+        <div class="sub">Plan your day and check things off.</div>
+      </div>
+    </div>
+    <form class="composer" id="composer">
+      <input id="task-input" type="text" placeholder="What needs to get done?" autocomplete="off" aria-label="New task title" />
+      <button class="btn" id="add-btn" type="button">Add task</button>
+    </form>
+    <div class="list" id="list"></div>
+  </main>
+</div>
+<script>
+  const list = document.getElementById('list');
+  const input = document.getElementById('task-input');
+  const form = document.getElementById('composer');
+  const addBtn = document.getElementById('add-btn');
+  let tasks = [
+    { title: 'Review the Q3 roadmap draft', done: false, when: '9:00 AM' },
+    { title: 'Reply to onboarding emails', done: true, when: 'Yesterday' },
+  ];
+
+  function render() {
+    list.innerHTML = '';
+    tasks.forEach((t, i) => {
+      const row = document.createElement('div');
+      row.className = 'task' + (t.done ? ' done' : '');
+      const check = document.createElement('div');
+      check.className = 'check';
+      check.title = 'Toggle complete';
+      check.onclick = () => { tasks[i].done = !tasks[i].done; render(); };
+      const title = document.createElement('div');
+      title.className = 'title';
+      title.textContent = t.title;
+      const when = document.createElement('div');
+      when.className = 'when';
+      when.textContent = t.when || '';
+      row.append(check, title, when);
+      list.appendChild(row);
+    });
+  }
+
+  // PLANTED DEFECT: the primary action is wired to a no-op. Clicking "Add task"
+  // and submitting the form both do nothing — no task, no toast, no error.
+  function addTask() { /* intentionally does nothing */ }
+  addBtn.addEventListener('click', addTask);
+  form.addEventListener('submit', (e) => { e.preventDefault(); /* no-op */ });
+  render();
+</script>
+</body>
+</html>

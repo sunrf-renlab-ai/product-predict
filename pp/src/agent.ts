@@ -28,17 +28,19 @@ function msgs(lang: Lang) {
     toolFail: (tool: string, e: string) => (en ? `Action failed (${tool}): ${e}` : `操作失败 (${tool}): ${e}`),
     stepCap: (n: number) => (en ? `Hit step safety cap (${n}), stopping.` : `达到 step safety 上限 (${n}), 强制结束.`),
     wrapFail: (e: string) => (en ? `wrap-up failed: ${e}` : `wrap-up 失败：${e}`),
-    stepPrompt: (url: string, vw: number, vh: number, sec: number, dom: string) =>
+    stepPrompt: (url: string, vw: number, vh: number, sec: number, dom: string, intent: string) =>
       en
         ? `Current URL: ${url}\n` +
           `Viewport: ${vw}x${vh}\n` +
           `Time spent so far: ${elapsed(sec)}\n` +
-          `Reminder: you are a real user, there's no "step quota" — leave when it's time (satisfied / frustrated / bored are all valid exits). Don't pad steps.\n\n` +
+          `What you mainly came to do: ${intent}\n` +
+          `Reminder: you are a real user, there's no "step quota" — pursue what you came for, explore naturally, and leave when it's time (you did it / got frustrated / got bored are all valid exits). If you genuinely can't find a way to do what you came for, that itself matters — note it.\n\n` +
           `The screenshot is the current page state. Simplified DOM:\n\n${dom}`
         : `当前 URL: ${url}\n` +
           `视口: ${vw}x${vh}\n` +
           `已经在这上面花了: ${elapsed(sec)}\n` +
-          `提醒: 你是真实用户, 没有"步数任务", 该走就走 — 满意/沮丧/无聊都是合理的退出. 不要凑步数.\n\n` +
+          `你主要来想做的事: ${intent}\n` +
+          `提醒: 你是真实用户, 没有"步数任务" — 围绕你来的目的走, 自然地逛, 该走就走 (做完了/沮丧了/无聊了 都是合理退出). 如果你真的找不到办法做成你来想做的事, 这本身就很重要 — 记下来.\n\n` +
           `截图为最新页面状态。简化 DOM:\n\n${dom}`,
   };
 }
@@ -137,6 +139,11 @@ export async function runAgent(opts: {
   }
 
   const system = personaSystemPrompt(persona, targetUrl, lang);
+  // Arrival intent — the ONE main thing this persona came to do. Makes the
+  // session goal-directed (not aimless QA touring) and, crucially, lets the
+  // wrap-up flag "I came to do X and there was no way to" — the failure mode a
+  // pure free-exploration agent silently skips (e.g. a missing primary CTA).
+  const intent = await deriveIntent(persona, targetUrl, lang);
   const messages: Anthropic.MessageParam[] = [];
 
   let exitReason: ExitReason = "timeout";
@@ -167,7 +174,7 @@ export async function runAgent(opts: {
       },
       {
         type: "text",
-        text: M.stepPrompt(page.url(), viewport.w, viewport.h, sec, dom),
+        text: M.stepPrompt(page.url(), viewport.w, viewport.h, sec, dom, intent),
       },
     ];
     messages.push({ role: "user", content: userBlocks });
@@ -288,7 +295,7 @@ export async function runAgent(opts: {
       featuresUsed?: FeatureUse[];
     }>({
       system,
-      prompt: wrapPrompt(events, summary, accomplished, exitReason, lang),
+      prompt: wrapPrompt(events, summary, accomplished, exitReason, intent, lang),
       maxTokens: 2400,
     });
     issues = wrap.issues || [];
@@ -327,6 +334,36 @@ export async function runAgent(opts: {
     durationSec,
     cost,
   };
+}
+
+// ── Arrival intent ────────────────────────────────────────────────────────────
+// One cheap LLM call before the session: the ONE main thing this persona came to
+// do. Best-effort — falls back to the persona's top preference (and to that in
+// mock mode, where callJson returns a wrap stub with no `intent` field).
+async function deriveIntent(persona: Persona, targetUrl: string, lang: Lang): Promise<string> {
+  const fallback =
+    persona.preferences && persona.preferences[0]
+      ? lang === "zh"
+        ? `看看它能不能满足我最在意的: ${persona.preferences[0]}`
+        : `see whether it does the thing I care about most: ${persona.preferences[0]}`
+      : lang === "zh"
+        ? "用它做这类产品最核心的那件事"
+        : "do the single core thing this kind of product is for";
+  try {
+    const prompt =
+      lang === "zh"
+        ? `你正要打开 ${targetUrl}。用一句话说出你(作为这个人)来这类产品最想做的那一件具体的事 —— 一个具体动作或目标, 不要写"随便看看"。只输出 JSON: {"intent":"..."}`
+        : `You're about to open ${targetUrl}. In ONE short sentence, state the SINGLE main thing you (as this persona) come to this kind of product to do — a concrete action or goal, not "just browse". Output only JSON: {"intent":"..."}`;
+    const r = await callJson<{ intent?: string }>({
+      system: personaSystemPrompt(persona, targetUrl, lang),
+      prompt,
+      maxTokens: 200,
+    });
+    const intent = (r.intent || "").trim();
+    return intent || fallback;
+  } catch {
+    return fallback;
+  }
 }
 
 // ── Tool dispatch ───────────────────────────────────────────────────────────
@@ -464,18 +501,20 @@ function wrapPrompt(
   summary: string,
   accomplished: boolean | null,
   exitReason: ExitReason,
+  intent: string,
   lang: Lang = "en"
 ): string {
   return lang === "zh"
-    ? wrapPromptZh(events, summary, accomplished, exitReason)
-    : wrapPromptEn(events, summary, accomplished, exitReason);
+    ? wrapPromptZh(events, summary, accomplished, exitReason, intent)
+    : wrapPromptEn(events, summary, accomplished, exitReason, intent);
 }
 
 function wrapPromptEn(
   events: Event[],
   summary: string,
   accomplished: boolean | null,
-  exitReason: ExitReason
+  exitReason: ExitReason,
+  intent: string
 ): string {
   const trajectory = events
     .map((e) => `${e.t} ${e.kind} (s=${e.sentiment}) ${e.text}`)
@@ -492,12 +531,14 @@ function wrapPromptEn(
       : " (did not accomplish)"
     ),
     ``,
+    `What you came here to do: ${intent}.`,
+    `If you genuinely tried and could NOT do it (no entry point, couldn't find it after looking, clicked and nothing happened), that blocked goal is a real issue — usually HIGH severity — and you MUST report it specifically (e.g. "I came to add a task but there was no visible way to do it"). If you DID accomplish it, no issue is owed for the intent itself.`,
     ``,
     `Important: you are a POTENTIAL USER of this product. This isn't bug hunting — you're writing`,
     `"as someone like me, this product made me feel X / hit me here / missed me there". Observations`,
     `are about experience / design / fit, not technical bugs.`,
     ``,
-    `What counts as an issue (find them all, don't skip):`,
+    `What counts as an issue — report ONLY what actually tripped YOU up in THIS session, and only if you can point to the exact moment it happened above:`,
     `- I clicked / typed / searched something and the response didn't match what I expected (blank page / no message / nothing moved)`,
     `- Something I wanted to do isn't allowed / has no entry point / has too few options (e.g. "CSV only, no PDF" / "search returns nothing" — these are issues)`,
     `- Something that competing tools already solved is unsolved here (typo tolerance, multilingual, custom templates, …)`,
@@ -506,9 +547,8 @@ function wrapPromptEn(
     `- Navigation got lost / 4 levels deep to find a thing / key feature hidden in a submenu`,
     `- An action completed without feedback / failure had no error message / state wasn't communicated`,
     ``,
-    `"Missing-feature" observations are especially important: if you expected a capability (PDF export /`,
-    `localization / typo tolerance / custom templates / a clear button / visible Tab focus) and it isn't`,
-    `here, write it down — that's an issue, not a comment.`,
+    `Only report a missing capability if you ACTUALLY went looking for it during this session and were blocked —`,
+    `not every capability the product could theoretically have. "I didn't try X" / "it could also do Y" is NOT an issue.`,
     ``,
     `Output JSON strictly in this shape:`,
     "```json",
@@ -539,8 +579,17 @@ function wrapPromptEn(
 }`,
     "```",
     `Constraints:`,
-    `- issues: 0–6, list every "rough edge / missing / counter-intuitive" thing you noticed. Finding 4–6 in one`,
-    `  session is normal — don't compress. If everything was truly smooth, empty array; but small fixtures usually have issues.`,
+    `- issues: report ONLY problems you actually hit in THIS session, each tied to a specific moment above where you`,
+    `  hesitated, failed, got confused, or were blocked. There is NO target count. If the product worked fine for what`,
+    `  you tried, return an EMPTY array — that is a valid, common, and valuable result. Do NOT invent issues to fill a list.`,
+    `  If you never really got to use it (blank / broken / empty page, or you left almost immediately), return [] and say`,
+    `  so in the summary — do NOT speculate about a product you didn't actually experience.`,
+    `- BUT do not under-report either: if you genuinely tried to do something and were blocked — no entry point, couldn't`,
+    `  find it after looking, clicked and nothing happened, an error with no explanation, a label you couldn't decode —`,
+    `  that IS a real issue and you MUST report it. Missing friction you actually hit is just as wrong as inventing friction`,
+    `  you didn't. The test: did it happen to ME, in the trajectory above? If yes, report it; if it's a guess, drop it.`,
+    `- every issue MUST have evidence ≥ 1 pointing to real events in the trajectory above. If you can't cite the moment`,
+    `  it tripped you up, do NOT report it.`,
     `- title must be specific enough that someone else could find that exact thing (name a button / field / step or say what's missing).`,
     `  Do NOT write "bad UX" / "needs improvement" / "feels clunky" — those are not findings.`,
     `- delights: 0–2.`,
@@ -560,7 +609,8 @@ function wrapPromptZh(
   events: Event[],
   summary: string,
   accomplished: boolean | null,
-  exitReason: ExitReason
+  exitReason: ExitReason,
+  intent: string
 ): string {
   const trajectory = events
     .map((e) => `${e.t} ${e.kind} (s=${e.sentiment}) ${e.text}`)
@@ -577,12 +627,14 @@ function wrapPromptZh(
       : " (没达成)"
     ),
     ``,
+    `你来想做的事: ${intent}.`,
+    `如果你真的试了却做不成 (没有入口、找了半天找不到、点了没反应), 这个被挡住的目标就是一个真 issue —— 通常是 high 严重度 —— 必须具体写出来 (例: "我来想加一个任务, 但根本看不到在哪加"). 如果你做成了, 就不必为这个来意单独报 issue.`,
     ``,
     `重要: 你是这个产品的"潜在用户". 这不是 bug 排查 — 写的是 "作为我这类人,`,
     `这个产品让我有什么感受、什么地方戳到我或者错过了我". 观察是体验/设计/契合度上的,`,
     `不是技术 bug.`,
     ``,
-    `什么算一个 issue (尽量找全, 别漏):`,
+    `什么算一个 issue —— 只报这次会话里真的绊到你的、且你能指出具体发生在上面哪一刻的:`,
     `- 我点了/输了/搜了什么之后, 它的反应不符合我期望 (空白页/无提示/原地不动)`,
     `- 我想做的事情, 这里不让做 / 找不到入口 / 选项不够 (比如 "只有 CSV 没有 PDF" / "搜不到结果", 这是 issue)`,
     `- 同类工具早就解决的事情, 这里没解决 (typo 容错、多语言、自定义模板…)`,
@@ -591,8 +643,8 @@ function wrapPromptZh(
     `- 导航走错路 / 4 层菜单才到 / 二级菜单藏关键功能`,
     `- 操作完成没有反馈 / 失败没有错误信息 / 状态不告诉我`,
     ``,
-    `"功能缺失类" 观察非常重要: 如果你期望某个能力 (PDF 导出 / 中文界面 / typo 容错 /`,
-    `自定义模板 / 清除按钮 / Tab 焦点) 这里没有, 一定写出来 — 这是 issue, 不是评论.`,
+    `只有当你这次真的去找某个能力、并且被挡住了, 才把"缺失"记成 issue —— 不是产品"本可以有"的每个功能.`,
+    `"我没试 X" / "它要是还能 Y 就好了" 都不算 issue.`,
     ``,
     `JSON 结构严格如下:`,
     "```json",
@@ -623,8 +675,14 @@ function wrapPromptZh(
 }`,
     "```",
     `约束:`,
-    `- issues 0-6 条, 把你这次会话里所有"不顺/缺失/反直觉"的点都尽量写出来. 一次会话里`,
-    `  发现 4-6 个问题是正常的, 不要漏. 真的全顺就空数组, 但小 fixture 通常都有问题, 别勉强压缩.`,
+    `- issues: 只报你这次会话里真的遇到的问题, 每条都要对应上面轨迹里某个你犹豫/失败/困惑/被挡住的具体时刻.`,
+    `  没有目标条数. 如果你试的部分都好用, 就返回空数组 —— 这是合理、常见且有价值的结果, 不要为了凑数硬编.`,
+    `  如果你根本没真正用上它 (空白/打不开/空页面, 或你几乎立刻就走了), 返回 [] 并在 summary 里说明 ——`,
+    `  不要臆测一个你没真正体验过的产品.`,
+    `- 但也别漏报: 如果你真的想做某事却被挡住了 —— 没有入口、找了半天找不到、点了没反应、报错却不说为什么、`,
+    `  标签看不懂 —— 这就是真 issue, 必须报. 漏掉你真的撞到的摩擦, 和凭空编造一样错. 判断标准: 这事在上面轨迹里`,
+    `  发生在"我"身上了吗? 是就报; 只是猜测就丢掉.`,
+    `- 每条 issue 的 evidence 必须 ≥ 1, 指向上面轨迹里真实发生的事件; 指不出"在哪一刻绊到你"就别报.`,
     `- title 必须具体到能让别人立刻找到那个地方 (有"哪个按钮/哪个字段/哪个步骤"或"缺什么").`,
     `  不要写: "用户体验差" / "界面不够友好" / "需要改进". 这种空话不算 issue.`,
     `- delights 0-2 条, 同上.`,
